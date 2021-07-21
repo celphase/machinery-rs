@@ -7,6 +7,7 @@ use machinery::{
     plugins::{entity::EntityApi, the_machinery_shared::TM_CI_EDITOR_UI},
     Plugin,
 };
+use machinery_macro::export_plugin_fn;
 use machinery_sys::{
     foundation::{
         tm_the_truth_o, tm_the_truth_property_definition_t,
@@ -41,7 +42,9 @@ unsafe impl Sync for ExamplePlugin {}
 
 impl Plugin for ExamplePlugin {
     fn load(registry: ApiRegistryApi) -> Self {
+        // Integration with the tracing crate
         machinery::tracing::initialize(&registry);
+        event!(Level::INFO, foo = 42, "Example logging with data.");
 
         let plugin = ExamplePlugin {
             tt_api: registry.get(),
@@ -58,16 +61,14 @@ impl Plugin for ExamplePlugin {
         unsafe {
             plugin.registry.add_implementation(
                 TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME,
-                truth_create_types as *const c_void,
+                Self::truth_create_types as *const c_void,
             );
 
             plugin.registry.add_implementation(
                 TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME,
-                component_create as *const c_void,
+                Self::component_create as *const c_void,
             );
         }
-
-        event!(Level::INFO, foo = 42, "Example logging with data.");
 
         event!(Level::INFO, "Example rust plugin loaded.");
 
@@ -75,6 +76,7 @@ impl Plugin for ExamplePlugin {
     }
 }
 
+#[export_plugin_fn]
 impl ExamplePlugin {
     fn truth_create_types(&mut self, tt: *mut tm_the_truth_o) {
         // The Machinery stores component data in "entity assets", which are then constructed into
@@ -125,13 +127,38 @@ impl ExamplePlugin {
             let component = Box::new(tm_component_i {
                 name: EXAMPLE_COMPONENT_NAME.as_ptr(),
                 bytes: size_of::<Vec3>() as u32,
-                load_asset: Some(component_load_asset),
+                load_asset: Some(Self::component_load_asset),
                 ..Default::default()
             });
 
             self.entity_api.register_component(ctx, &*component);
             self.components.push(component);
         }
+    }
+
+    fn component_load_asset(
+        &mut self,
+        _man: *mut tm_component_manager_o,
+        _e: tm_entity_t,
+        data: *mut c_void,
+        // TODO: This type actually are part of foundation, map them correctly
+        tt: *const machinery_sys::plugins::entity::tm_the_truth_o,
+        asset: machinery_sys::plugins::entity::tm_tt_id_t,
+    ) -> bool {
+        let component = data as *mut Vec3;
+
+        unsafe {
+            let object = self
+                .tt_api
+                .read(tt as *mut tm_the_truth_o, std::mem::transmute(asset));
+            let data = self
+                .tt_common_types
+                .get_position(tt as *mut tm_the_truth_o, object, 0);
+
+            *component = Vec3::new(data.x, data.y, data.z);
+        }
+
+        true
     }
 }
 
@@ -140,7 +167,7 @@ impl Drop for ExamplePlugin {
         unsafe {
             self.registry.remove_implementation(
                 TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME,
-                truth_create_types as *const c_void,
+                Self::truth_create_types as *const c_void,
             );
         }
 
@@ -148,51 +175,8 @@ impl Drop for ExamplePlugin {
     }
 }
 
-// TODO: Automatically generate wrappers?
-
-extern "C" fn truth_create_types(tt: *mut tm_the_truth_o) {
-    ExamplePlugin::write()
-        .as_mut()
-        .unwrap()
-        .truth_create_types(tt);
-}
-
-extern "C" fn component_create(ctx: *mut tm_entity_context_o) {
-    ExamplePlugin::write()
-        .as_mut()
-        .unwrap()
-        .component_create(ctx);
-}
-
 extern "C" fn component_category() -> *const c_char {
     return const_cstr!("Samples").as_ptr();
-}
-
-extern "C" fn component_load_asset(
-    _man: *mut tm_component_manager_o,
-    _e: tm_entity_t,
-    data: *mut c_void,
-    // TODO: This type actually are part of foundation, map them correctly
-    tt: *const machinery_sys::plugins::entity::tm_the_truth_o,
-    asset: machinery_sys::plugins::entity::tm_tt_id_t,
-) -> bool {
-    let component = data as *mut Vec3;
-
-    let guard = ExamplePlugin::read();
-    let plugin = guard.as_ref().unwrap();
-
-    unsafe {
-        let object = plugin
-            .tt_api
-            .read(tt as *mut tm_the_truth_o, std::mem::transmute(asset));
-        let data = plugin
-            .tt_common_types
-            .get_position(tt as *mut tm_the_truth_o, object, 0);
-
-        *component = Vec3::new(data.x, data.y, data.z);
-    }
-
-    true
 }
 
 const EXAMPLE_COMPONENT_NAME: ConstCStr = const_cstr!("tm_rust_example_component");
