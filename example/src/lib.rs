@@ -49,6 +49,43 @@ impl Plugin for ExamplePlugin {
     }
 }
 
+impl ExamplePlugin {
+    fn truth_create_types(&mut self, tt: *mut tm_the_truth_o) {
+        event!(Level::INFO, "Registering truth types");
+
+        unsafe {
+            self.truth_common_types.create_common_types(tt);
+
+            // Create a the example component
+            let properties = tm_the_truth_property_definition_t {
+                name: const_cstr!("angular_velocity").as_ptr(),
+                type_: TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT as u32,
+                type_hash: TT_TYPE_HASH__POSITION,
+                ..Default::default()
+            };
+
+            let spin_type =
+                self.truth_api
+                    .create_object_type(tt, "tm_rust_example_component", &properties, 1);
+            self.truth_api
+                .set_default_object_to_create_subobjects(tt, spin_type);
+
+            // Register the component with the editor
+            let editor_aspect = Box::new(tm_ci_editor_ui_i {
+                category: Some(component_category),
+                ..Default::default()
+            });
+            self.truth_api.set_aspect(
+                tt,
+                spin_type,
+                TM_CI_EDITOR_UI,
+                &*editor_aspect as *const _ as *const _,
+            );
+            self.editor_aspects.push(editor_aspect);
+        }
+    }
+}
+
 impl Drop for ExamplePlugin {
     fn drop(&mut self) {
         unsafe {
@@ -63,43 +100,7 @@ impl Drop for ExamplePlugin {
 }
 
 extern "C" fn truth_create_types(tt: *mut tm_the_truth_o) {
-    event!(Level::INFO, "Registering truth types");
-
-    let mut guard = ExamplePlugin::write();
-    let plugin = guard.as_mut().unwrap();
-
-    unsafe {
-        plugin.truth_common_types.create_common_types(tt);
-
-        // Create a the example component
-        let properties = tm_the_truth_property_definition_t {
-            name: const_cstr!("angular_velocity").as_ptr(),
-            type_: TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT as u32,
-            type_hash: TT_TYPE_HASH__POSITION,
-            ..Default::default()
-        };
-
-        let spin_type =
-            plugin
-                .truth_api
-                .create_object_type(tt, "tm_rust_example_component", &properties, 1);
-        plugin
-            .truth_api
-            .set_default_object_to_create_subobjects(tt, spin_type);
-
-        // Register the component with the editor
-        let editor_aspect = Box::new(tm_ci_editor_ui_i {
-            category: Some(component_category),
-            ..Default::default()
-        });
-        plugin.truth_api.set_aspect(
-            tt,
-            spin_type,
-            TM_CI_EDITOR_UI,
-            &*editor_aspect as *const _ as *const _,
-        );
-        plugin.editor_aspects.push(editor_aspect);
-    }
+    ExamplePlugin::write().as_mut().unwrap().truth_create_types(tt);
 }
 
 extern "C" fn component_category() -> *const c_char {
