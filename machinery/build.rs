@@ -9,9 +9,9 @@ fn main() {
     let out_path = Path::new("./src/generated/foundation.rs");
 
     // Only generate if the file doesn't exist already
-    //if out_path.exists() {
-    //return;
-    //}
+    if out_path.exists() {
+        return;
+    }
 
     // Load the input file
     let input = fs::read_to_string("../machinery-sys/src/foundation.rs").unwrap();
@@ -102,20 +102,20 @@ fn generate_api(src: &mut String, item: ItemStruct) {
             pub unsafe fn #name(#(#in_args),*) #output
         };
 
-        src.push_str(&format!("    {} {{\n", function));
+        src.push_str(&format!("{} {{\n", function));
 
         // Perform conversions
         for conversion in conversions {
-            src.push_str(&format!("        {}\n", conversion));
+            src.push_str(&format!("{}\n", conversion));
         }
 
         // Call into the field
         let call = quote! {
             ((*self.0).#name).unsafe_unwrap()(#(#out_args),*)
         };
-        src.push_str(&format!("        {}\n", call));
+        src.push_str(&format!("{}\n", call));
 
-        src.push_str("    }\n\n");
+        src.push_str("}\n\n");
     }
 
     src.push_str("}\n\n");
