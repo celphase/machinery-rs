@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "example",
+    "machinery",
+    "machinery-sys"
+]
+resolver = "2"

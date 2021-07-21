@@ -1,0 +1,14 @@
+[tasks.build]
+command = "cargo"
+args = ["build"]
+
+[tasks.machinery]
+script_runner = "@duckscript"
+script = '''
+tm_sdk_dir = get_env TM_SDK_DIR
+plugins_target = set ${tm_sdk_dir}/bin/plugins/tm_rust_example.dll
+
+echo Copying to: ${plugins_target}
+cp ../target/debug/example.dll ${plugins_target}
+'''
+dependencies = ["build"]
