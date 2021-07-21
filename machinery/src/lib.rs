@@ -1,11 +1,14 @@
+pub mod foundation;
+mod generated;
+mod tracing_sub;
+
 use std::sync::Mutex;
 
 use foundation::ApiRegistryApi;
 use machinery_sys::foundation::tm_api_registry_api;
 use once_cell::sync::OnceCell;
 
-pub mod foundation;
-mod generated;
+use crate::tracing_sub::MachinerySubscriber;
 
 pub type PluginInstance<T> = OnceCell<Mutex<Option<T>>>;
 
@@ -29,9 +32,13 @@ pub fn load_plugin<T: Plugin>(
     registry: *const tm_api_registry_api,
     load: bool,
 ) {
-    let registry = ApiRegistryApi(registry);
-
     if load {
+        let registry = ApiRegistryApi(registry);
+
+        // Initialize logging
+        let subscriber = MachinerySubscriber::new(&registry);
+        tracing::subscriber::set_global_default(subscriber).unwrap();
+
         // Load the plugin and store it
         let plugin = T::load(&registry);
         if let Err(_) = instance.set(std::sync::Mutex::new(Some(plugin))) {

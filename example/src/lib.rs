@@ -1,29 +1,22 @@
-use machinery::{Plugin, foundation::{ApiRegistryApi, LoggerApi}, plugin};
-use machinery_sys::foundation::TM_LOG_TYPE_INFO;
+use machinery::{foundation::ApiRegistryApi, plugin, Plugin};
+use tracing::{event, Level};
 
 plugin!(ExamplePlugin);
 
-struct ExamplePlugin {
-    logger: LoggerApi,
-}
+struct ExamplePlugin {}
 
 impl Plugin for ExamplePlugin {
-    fn load(registry: &ApiRegistryApi) -> Self {
-        let logger: LoggerApi = registry.get();
+    fn load(_registry: &ApiRegistryApi) -> Self {
+        event!(Level::INFO, "Example rust plugin loaded.");
+        event!(Level::DEBUG, "Debug level message!");
+        event!(Level::WARN, "Warn level message!");
 
-        unsafe {
-            logger.print(TM_LOG_TYPE_INFO, "Example rust plugin loaded.");
-        }
-
-        Self { logger }
+        Self {}
     }
 }
 
 impl Drop for ExamplePlugin {
     fn drop(&mut self) {
-        unsafe {
-            self.logger
-                .print(TM_LOG_TYPE_INFO, "Example rust plugin unloaded.");
-        }
+        event!(Level::INFO, "Example rust plugin unloaded.");
     }
 }
