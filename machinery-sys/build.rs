@@ -11,13 +11,14 @@ fn main() {
     let tm_sdk = env::var("TM_SDK_DIR").expect("TM_SDK_DIR environment variable wasn't set");
 
     let bindings = bindgen::Builder::default()
-        .header("wrapper.h")
+        .header("foundation.h")
         // Tell clang where to find the includes for machinery
         .clang_arg(format!("-I{}/headers", tm_sdk))
         .clang_arg("-fretain-comments-from-system-headers")
         .clang_arg("-fparse-all-comments")
-        .parse_callbacks(Box::new(ParseCallbacks))
         .prepend_enum_name(false)
+        .derive_debug(false)
+        .layout_tests(false)
         .generate()
         .expect("Unable to generate bindings");
 
@@ -25,13 +26,4 @@ fn main() {
     bindings
         .write_to_file(out_path)
         .expect("Couldn't write bindings");
-}
-
-#[derive(Debug)]
-pub struct ParseCallbacks;
-
-impl bindgen::callbacks::ParseCallbacks for ParseCallbacks {
-    fn include_file(&self, filename: &str) {
-        println!("cargo:rerun-if-changed={}", filename);
-    }
 }

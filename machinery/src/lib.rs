@@ -41,7 +41,7 @@ pub fn load_plugin<T: Plugin>(
 
         // Load the plugin and store it
         let plugin = T::load(&registry);
-        if let Err(_) = instance.set(std::sync::Mutex::new(Some(plugin))) {
+        if let Err(_) = instance.set(Mutex::new(Some(plugin))) {
             panic!("Instance was double initialized");
         }
     } else {

@@ -237,160 +237,31 @@ pub type intmax_t = ::std::os::raw::c_longlong;
 pub type uintmax_t = ::std::os::raw::c_ulonglong;
 #[doc = " Represents a 2D vector."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_vec2_t {
     pub x: f32,
     pub y: f32,
 }
-#[test]
-fn bindgen_test_layout_tm_vec2_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_vec2_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_vec2_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_vec2_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_vec2_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec2_t>())).x as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec2_t),
-            "::",
-            stringify!(x)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec2_t>())).y as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec2_t),
-            "::",
-            stringify!(y)
-        )
-    );
-}
 #[doc = " Represents a 3D vector."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_vec3_t {
     pub x: f32,
     pub y: f32,
     pub z: f32,
 }
-#[test]
-fn bindgen_test_layout_tm_vec3_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_vec3_t>(),
-        12usize,
-        concat!("Size of: ", stringify!(tm_vec3_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_vec3_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_vec3_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec3_t>())).x as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec3_t),
-            "::",
-            stringify!(x)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec3_t>())).y as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec3_t),
-            "::",
-            stringify!(y)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec3_t>())).z as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec3_t),
-            "::",
-            stringify!(z)
-        )
-    );
-}
 #[doc = " Represents a 4D vector."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_vec4_t {
     pub x: f32,
     pub y: f32,
     pub z: f32,
     pub w: f32,
 }
-#[test]
-fn bindgen_test_layout_tm_vec4_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_vec4_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_vec4_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_vec4_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_vec4_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec4_t>())).x as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec4_t),
-            "::",
-            stringify!(x)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec4_t>())).y as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec4_t),
-            "::",
-            stringify!(y)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec4_t>())).z as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec4_t),
-            "::",
-            stringify!(z)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_vec4_t>())).w as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_vec4_t),
-            "::",
-            stringify!(w)
-        )
-    );
-}
 #[doc = " Represents a 4x4 matrix."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_mat44_t {
     pub xx: f32,
     pub xy: f32,
@@ -409,298 +280,29 @@ pub struct tm_mat44_t {
     pub wz: f32,
     pub ww: f32,
 }
-#[test]
-fn bindgen_test_layout_tm_mat44_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_mat44_t>(),
-        64usize,
-        concat!("Size of: ", stringify!(tm_mat44_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_mat44_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_mat44_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).xx as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(xx)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).xy as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(xy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).xz as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(xz)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).xw as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(xw)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).yx as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(yx)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).yy as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(yy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).yz as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(yz)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).yw as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(yw)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).zx as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(zx)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).zy as *const _ as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(zy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).zz as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(zz)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).zw as *const _ as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(zw)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).wx as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(wx)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).wy as *const _ as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(wy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).wz as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(wz)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_mat44_t>())).ww as *const _ as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_mat44_t),
-            "::",
-            stringify!(ww)
-        )
-    );
-}
 #[doc = " Represents a transform in TRS form."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_transform_t {
     pub pos: tm_vec3_t,
     pub rot: tm_vec4_t,
     pub scl: tm_vec3_t,
 }
-#[test]
-fn bindgen_test_layout_tm_transform_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_transform_t>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_transform_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_transform_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_transform_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_transform_t>())).pos as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_transform_t),
-            "::",
-            stringify!(pos)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_transform_t>())).rot as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_transform_t),
-            "::",
-            stringify!(rot)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_transform_t>())).scl as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_transform_t),
-            "::",
-            stringify!(scl)
-        )
-    );
-}
 #[doc = " Represents a rectangle."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_rect_t {
     pub x: f32,
     pub y: f32,
     pub w: f32,
     pub h: f32,
 }
-#[test]
-fn bindgen_test_layout_tm_rect_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_rect_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_rect_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_rect_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_rect_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_rect_t>())).x as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_rect_t),
-            "::",
-            stringify!(x)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_rect_t>())).y as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_rect_t),
-            "::",
-            stringify!(y)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_rect_t>())).w as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_rect_t),
-            "::",
-            stringify!(w)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_rect_t>())).h as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_rect_t),
-            "::",
-            stringify!(h)
-        )
-    );
-}
 #[doc = " Used to represent a string slice with pointer and length."]
 #[doc = ""]
 #[doc = " This lets you reason about parts of a string, which you are not able to do with standard"]
 #[doc = " NULL-terminated strings."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_str_t {
     #[doc = " Pointer to string bytes."]
     pub data: *const ::std::os::raw::c_char,
@@ -717,49 +319,6 @@ pub struct tm_str_t {
     #[doc = " Note that the NULL-byte is never included in the `size`."]
     pub null_terminated: u32,
 }
-#[test]
-fn bindgen_test_layout_tm_str_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_str_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_str_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_str_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_str_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_str_t>())).data as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_str_t),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_str_t>())).size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_str_t),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_str_t>())).null_terminated as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_str_t),
-            "::",
-            stringify!(null_terminated)
-        )
-    );
-}
 #[doc = " Represents a time from the system clock."]
 #[doc = ""]
 #[doc = " You can assume the clock to be monotonically increasing, i.e. a larger `opaque` value represents"]
@@ -767,163 +326,31 @@ fn bindgen_test_layout_tm_str_t() {
 #[doc = " the resolution of the timer. Instead, use [[tm_os_time_api->delta()]] to convert elapsed time to"]
 #[doc = " seconds."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_clock_o {
     pub opaque: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_clock_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_clock_o>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_clock_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_clock_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_clock_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_clock_o>())).opaque as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_clock_o),
-            "::",
-            stringify!(opaque)
-        )
-    );
-}
 #[doc = " Represents a unique 128-bit identifier."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_uuid_t {
     pub a: u64,
     pub b: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_uuid_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_uuid_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_uuid_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_uuid_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_uuid_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_uuid_t>())).a as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_uuid_t),
-            "::",
-            stringify!(a)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_uuid_t>())).b as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_uuid_t),
-            "::",
-            stringify!(b)
-        )
-    );
-}
 #[doc = " Represents an 8-bit per channel RGBA color in sRGB color space (Note: alpha is always linear.)"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_color_srgb_t {
     pub r: u8,
     pub g: u8,
     pub b: u8,
     pub a: u8,
 }
-#[test]
-fn bindgen_test_layout_tm_color_srgb_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_color_srgb_t>(),
-        4usize,
-        concat!("Size of: ", stringify!(tm_color_srgb_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_color_srgb_t>(),
-        1usize,
-        concat!("Alignment of ", stringify!(tm_color_srgb_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_color_srgb_t>())).r as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_color_srgb_t),
-            "::",
-            stringify!(r)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_color_srgb_t>())).g as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_color_srgb_t),
-            "::",
-            stringify!(g)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_color_srgb_t>())).b as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_color_srgb_t),
-            "::",
-            stringify!(b)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_color_srgb_t>())).a as *const _ as usize },
-        3usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_color_srgb_t),
-            "::",
-            stringify!(a)
-        )
-    );
-}
 #[doc = " Type representing a type in The Truth."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_type_t {
     pub u64_: u64,
-}
-#[test]
-fn bindgen_test_layout_tm_tt_type_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_type_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_tt_type_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_type_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_type_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_type_t>())).u64_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_type_t),
-            "::",
-            stringify!(u64_)
-        )
-    );
 }
 #[doc = " ID representing an object in The Truth."]
 #[repr(C)]
@@ -940,29 +367,10 @@ pub union tm_tt_id_t__bindgen_ty_1 {
 }
 #[repr(C)]
 #[repr(align(8))]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_id_t__bindgen_ty_1__bindgen_ty_1 {
     pub _bitfield_align_1: [u32; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
-}
-#[test]
-fn bindgen_test_layout_tm_tt_id_t__bindgen_ty_1__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_id_t__bindgen_ty_1__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_tt_id_t__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_id_t__bindgen_ty_1__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_tt_id_t__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
 }
 impl tm_tt_id_t__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
@@ -1020,70 +428,11 @@ impl tm_tt_id_t__bindgen_ty_1__bindgen_ty_1 {
         __bindgen_bitfield_unit
     }
 }
-#[test]
-fn bindgen_test_layout_tm_tt_id_t__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_id_t__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_tt_id_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_id_t__bindgen_ty_1>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_id_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_id_t__bindgen_ty_1>())).u64_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_id_t__bindgen_ty_1),
-            "::",
-            stringify!(u64_)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_tm_tt_id_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_id_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_tt_id_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_id_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_id_t))
-    );
-}
 #[doc = " Type representing an undo scope in The Truth."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_undo_scope_t {
     pub u64_: u64,
-}
-#[test]
-fn bindgen_test_layout_tm_tt_undo_scope_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_undo_scope_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_tt_undo_scope_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_undo_scope_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_undo_scope_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_undo_scope_t>())).u64_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_undo_scope_t),
-            "::",
-            stringify!(u64_)
-        )
-    );
 }
 #[doc = " Type-safe representation of a hashed string."]
 #[doc = ""]
@@ -1101,41 +450,18 @@ fn bindgen_test_layout_tm_tt_undo_scope_t() {
 #[doc = "     [[TM_STRHASH_U64()]] to convert between [[tm_strhash_t]] and `uint64_t`. This ensures that"]
 #[doc = "     the conversions work on all platforms."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_strhash_t {
     pub u64_: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_strhash_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_strhash_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_strhash_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_strhash_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_strhash_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_strhash_t>())).u64_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_strhash_t),
-            "::",
-            stringify!(u64_)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_allocator_o {
     _unused: [u8; 0],
 }
 #[doc = " Interface for allocating memory."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_allocator_i {
     #[doc = " Opaque struct storing instance data for this allocator."]
     pub inst: *mut tm_allocator_o,
@@ -1182,62 +508,9 @@ pub struct tm_allocator_i {
         ) -> *mut ::std::os::raw::c_void,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_allocator_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_allocator_i>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_allocator_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_allocator_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_allocator_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_i>())).mem_scope as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_i),
-            "::",
-            stringify!(mem_scope)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_i>()))._padding_16 as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_i),
-            "::",
-            stringify!(_padding_16)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_i>())).realloc as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_i),
-            "::",
-            stringify!(realloc)
-        )
-    );
-}
 #[doc = " Allocator statstics."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_allocator_statistics_t {
     #[doc = " Total number of allocations in the `system` allocator."]
     pub system_allocation_count: u64,
@@ -1254,110 +527,8 @@ pub struct tm_allocator_statistics_t {
     #[doc = " Virtual memory commited since this counter was externally reset."]
     pub vm_churn_committed: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_allocator_statistics_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_allocator_statistics_t>(),
-        56usize,
-        concat!("Size of: ", stringify!(tm_allocator_statistics_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_allocator_statistics_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_allocator_statistics_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_allocation_count
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_statistics_t),
-            "::",
-            stringify!(system_allocation_count)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_allocated_bytes as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_statistics_t),
-            "::",
-            stringify!(system_allocated_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).vm_reserved as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_statistics_t),
-            "::",
-            stringify!(vm_reserved)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).vm_committed as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_statistics_t),
-            "::",
-            stringify!(vm_committed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_churn_allocation_count
-                as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_statistics_t),
-            "::",
-            stringify!(system_churn_allocation_count)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_churn_allocated_bytes
-                as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_statistics_t),
-            "::",
-            stringify!(system_churn_allocated_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).vm_churn_committed as *const _
-                as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_statistics_t),
-            "::",
-            stringify!(vm_churn_committed)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_allocator_api {
     #[doc = " Allocator using the standard system [[realloc()]] function."]
     pub system: *mut tm_allocator_i,
@@ -1436,121 +607,10 @@ pub struct tm_allocator_api {
         unsafe extern "C" fn(reserve_size: u64, mem_scope: u32) -> tm_allocator_i,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_allocator_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_allocator_api>(),
-        72usize,
-        concat!("Size of: ", stringify!(tm_allocator_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_allocator_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_allocator_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).system as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(system)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).end_of_page as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(end_of_page)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).vm as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(vm)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).statistics as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(statistics)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).create_child as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(create_child)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).destroy_child as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(destroy_child)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_api>())).destroy_child_allowing_leaks as *const _
-                as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(destroy_child_allowing_leaks)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_api>())).create_leaky_root_scope as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(create_leaky_root_scope)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_allocator_api>())).create_fixed_vm as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_allocator_api),
-            "::",
-            stringify!(create_fixed_vm)
-        )
-    );
-}
 #[doc = " Listener for receiving information about changes to the API registry. Use [[add_listener()]] to add"]
 #[doc = " a listener to the API registry."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_api_registry_listener_i {
     pub ud: *mut ::std::os::raw::c_void,
     #[doc = " Called when an implementation was added for the interface `name`."]
@@ -1561,42 +621,6 @@ pub struct tm_api_registry_listener_i {
             implementation: *const ::std::os::raw::c_void,
         ),
     >,
-}
-#[test]
-fn bindgen_test_layout_tm_api_registry_listener_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_api_registry_listener_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_api_registry_listener_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_api_registry_listener_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_api_registry_listener_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_api_registry_listener_i>())).ud as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_listener_i),
-            "::",
-            stringify!(ud)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_listener_i>())).add_implementation as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_listener_i),
-            "::",
-            stringify!(add_implementation)
-        )
-    );
 }
 #[doc = " Global registry that keeps track of loaded APIs and interface implementations."]
 #[doc = ""]
@@ -1611,7 +635,7 @@ fn bindgen_test_layout_tm_api_registry_listener_i() {
 #[doc = " querying for the [[tm_unit_test_i]] interface, you can enumerate all these implementations and run"]
 #[doc = " all the unit tests."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_api_registry_api {
     #[doc = " Sets an API in the registry. `name` is the name of the API that is implemented and `api` is a"]
     #[doc = " pointer to the struct of function pointers defining the API. `bytes` is the size of this"]
@@ -1731,154 +755,26 @@ pub struct tm_api_registry_api {
     #[doc = " Print a log message about APIs that were requested with [[get()]] but were never found."]
     pub log_missing_apis: ::std::option::Option<unsafe extern "C" fn()>,
 }
-#[test]
-fn bindgen_test_layout_tm_api_registry_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_api_registry_api>(),
-        80usize,
-        concat!("Size of: ", stringify!(tm_api_registry_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_api_registry_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_api_registry_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_api_registry_api>())).set as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(set)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_api_registry_api>())).remove as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(remove)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_api_registry_api>())).get as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(get)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_api>())).get_optional as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(get_optional)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_api>())).add_implementation as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(add_implementation)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_api>())).remove_implementation as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(remove_implementation)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_api>())).implementations as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(implementations)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_api>())).add_listener as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(add_listener)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_api>())).static_variable as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(static_variable)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_api_registry_api>())).log_missing_apis as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_api_registry_api),
-            "::",
-            stringify!(log_missing_apis)
-        )
-    );
-}
 #[doc = " Function type for loading plugins or subparts of plugins."]
 pub type tm_load_function =
     ::std::option::Option<unsafe extern "C" fn(reg: *mut tm_api_registry_api, load: bool)>;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_ui_o {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_draw2d_font_t {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_color_space_desc_t {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_application_o {
     _unused: [u8; 0],
 }
@@ -1909,7 +805,7 @@ pub type tm_application_modal_f = ::std::option::Option<
 #[doc = "     should consider refactoring this to get rid of \"backward dependencies\" where `foundation` (a"]
 #[doc = "     lower level library) depends on concepts from higher levels (ui, etc)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_application_api {
     #[doc = " Returns the current application as created by [[create()]]. If you call it before [[create()]] or"]
     #[doc = " after [[destroy()]], it will return 0."]
@@ -1983,188 +879,6 @@ pub struct tm_application_api {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_application_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_application_api>(),
-        128usize,
-        concat!("Size of: ", stringify!(tm_application_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_application_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_application_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).application as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(application)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).create as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).tick as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(tick)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).destroy as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).set_modal as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(set_modal)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).is_modal as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(is_modal)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).asset_root as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(asset_root)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).load_core as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(load_core)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).update_core as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(update_core)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).exit as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(exit)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_application_api>())).set_cursor_hidden as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(set_cursor_hidden)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_application_api>())).viewer_manager as *const _ as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(viewer_manager)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_application_api>())).default_render_pipeline_api as *const _
-                as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(default_render_pipeline_api)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_application_api>())).ui_scale_factor as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(ui_scale_factor)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).data_dir as *const _ as usize },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(data_dir)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_application_api>())).color_space as *const _ as usize },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_application_api),
-            "::",
-            stringify!(color_space)
-        )
-    );
-}
 #[doc = " Defines a callback API for the application to call into plugins."]
 #[doc = ""]
 #[doc = " If and when these callbacks are called is defined by the application. For example, not all"]
@@ -2173,13 +887,13 @@ fn bindgen_test_layout_tm_application_api() {
 #[doc = ""]
 #[doc = " It is recommended to rely on these calls as little as possible."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_o {
     _unused: [u8; 0],
 }
 #[doc = " Configuration settings for the asset database."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_database_config_t {
     #[doc = " Allocator used by the database."]
     pub allocator: *mut tm_allocator_i,
@@ -2188,119 +902,21 @@ pub struct tm_asset_database_config_t {
     pub fs: *mut tm_os_file_system_api,
     pub file_io: *mut tm_os_file_io_api,
 }
-#[test]
-fn bindgen_test_layout_tm_asset_database_config_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_database_config_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_asset_database_config_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_database_config_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_database_config_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_config_t>())).allocator as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_config_t),
-            "::",
-            stringify!(allocator)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_database_config_t>())).fs as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_config_t),
-            "::",
-            stringify!(fs)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_config_t>())).file_io as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_config_t),
-            "::",
-            stringify!(file_io)
-        )
-    );
-}
 #[doc = " Information about a saved item in the database."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_dabase_saved_item_t {
     pub uuid: tm_uuid_t,
     pub is_directory: bool,
     pub _padding_30: [::std::os::raw::c_char; 7usize],
 }
-#[test]
-fn bindgen_test_layout_tm_asset_dabase_saved_item_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_dabase_saved_item_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_asset_dabase_saved_item_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_dabase_saved_item_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_dabase_saved_item_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_dabase_saved_item_t>())).uuid as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_dabase_saved_item_t),
-            "::",
-            stringify!(uuid)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_dabase_saved_item_t>())).is_directory as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_dabase_saved_item_t),
-            "::",
-            stringify!(is_directory)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_dabase_saved_item_t>()))._padding_30 as *const _
-                as usize
-        },
-        17usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_dabase_saved_item_t),
-            "::",
-            stringify!(_padding_30)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_database_o {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_database_api {
     #[doc = " Creates a new asset database in `file` for saving The Truth `tt`."]
     pub create: ::std::option::Option<
@@ -2388,168 +1004,6 @@ pub struct tm_asset_database_api {
         ) -> *mut tm_asset_dabase_saved_item_t,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_asset_database_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_database_api>(),
-        104usize,
-        concat!("Size of: ", stringify!(tm_asset_database_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_database_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_database_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).open as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(open)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).close as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(close)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).save_modified as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(save_modified)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).save_modified_except as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(save_modified_except)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).save_asset as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(save_asset)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).delete_asset as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(delete_asset)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).revert_asset as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(revert_asset)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).load as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(load)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).saved_name as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(saved_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).saved_directory as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(saved_directory)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).saved_version as *const _ as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(saved_version)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_database_api>())).all_saved_items as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_database_api),
-            "::",
-            stringify!(all_saved_items)
-        )
-    );
-}
 #[doc = " Arguments for the [[tm_asset_io_i->import_asset()]] function."]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -2588,116 +1042,6 @@ pub struct tm_asset_io_import {
     #[doc = " Undo-scope for the import operation."]
     pub undo_scope: tm_tt_undo_scope_t,
 }
-#[test]
-fn bindgen_test_layout_tm_asset_io_import() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_io_import>(),
-        72usize,
-        concat!("Size of: ", stringify!(tm_asset_io_import))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_io_import>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_io_import))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).allocator as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(allocator)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).tt as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(tt)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_io_import>())).reimport_into as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(reimport_into)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).target_dir as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(target_dir)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).asset_root as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(asset_root)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).ui as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(ui)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_io_import>())).asset_browser as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(asset_browser)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_io_import>())).asset_browser_version_at_start
-                as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(asset_browser_version_at_start)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).undo_scope as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_import),
-            "::",
-            stringify!(undo_scope)
-        )
-    );
-}
 #[doc = " Interface for an asset importer. Implement this interface to add a new asset import type to the"]
 #[doc = " engine."]
 #[doc = ""]
@@ -2705,7 +1049,7 @@ fn bindgen_test_layout_tm_asset_io_import() {
 #[doc = "     Should this interface be registered with [[tm_api_registry_api->add_implementation()]]"]
 #[doc = "     rather than [[tm_asset_io_api->add_asset_io()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_io_i {
     pub inst: *mut tm_asset_io_o,
     #[doc = " Returns `true` if this io interface is enabled. Required. If this returns `false`, asset"]
@@ -2807,130 +1151,9 @@ pub struct tm_asset_io_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_asset_io_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_io_i>(),
-        80usize,
-        concat!("Size of: ", stringify!(tm_asset_io_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_io_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_io_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).enabled as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(enabled)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).can_import as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(can_import)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).can_reimport as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(can_reimport)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_io_i>())).importer_extensions_string as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(importer_extensions_string)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_io_i>())).importer_description_string as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(importer_description_string)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).import_asset as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(import_asset)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).can_export as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(can_export)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_asset_io_i>())).exporter_extension as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(exporter_extension)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).export_asset as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_i),
-            "::",
-            stringify!(export_asset)
-        )
-    );
-}
 #[doc = " API for talking to the Asset IO system."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_io_api {
     #[doc = " Adds a new asset IO interface to the registry."]
     pub add_asset_io: ::std::option::Option<unsafe extern "C" fn(loader: *mut tm_asset_io_i)>,
@@ -2958,82 +1181,9 @@ pub struct tm_asset_io_api {
     pub io_interfaces:
         ::std::option::Option<unsafe extern "C" fn(interfaces: *mut *mut tm_asset_io_i) -> u32>,
 }
-#[test]
-fn bindgen_test_layout_tm_asset_io_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_io_api>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_asset_io_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_io_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_io_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).add_asset_io as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_api),
-            "::",
-            stringify!(add_asset_io)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).remove_asset_io as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_api),
-            "::",
-            stringify!(remove_asset_io)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).importer as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_api),
-            "::",
-            stringify!(importer)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).reimporter as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_api),
-            "::",
-            stringify!(reimporter)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).exporter as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_api),
-            "::",
-            stringify!(exporter)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).io_interfaces as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_io_api),
-            "::",
-            stringify!(io_interfaces)
-        )
-    );
-}
 #[doc = " Functions for dealing with Base64 encoded content."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_base_64_api {
     #[doc = " Returns the number of bytes a binary chunk of size `raw_size` will use when encoded. This"]
     #[doc = " does not include the `\\0` character at the end of the string."]
@@ -3064,66 +1214,13 @@ pub struct tm_base_64_api {
         ) -> u64,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_base_64_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_base_64_api>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_base_64_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_base_64_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_base_64_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).encoded_size as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_base_64_api),
-            "::",
-            stringify!(encoded_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).encode as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_base_64_api),
-            "::",
-            stringify!(encode)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).decoded_size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_base_64_api),
-            "::",
-            stringify!(decoded_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).decode as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_base_64_api),
-            "::",
-            stringify!(decode)
-        )
-    );
-}
 pub const TM_BOUNDING_VOLUME_TYPE_SPHERE: tm_bounding_volume_type = 0;
 pub const TM_BOUNDING_VOLUME_TYPE_BOX: tm_bounding_volume_type = 1;
 #[doc = " The type of the bounding volume."]
 pub type tm_bounding_volume_type = ::std::os::raw::c_int;
 #[doc = " Represents a spherical bounding volume."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_bounding_volume_sphere_t {
     pub visibility_mask: u64,
     pub culling_disabled: bool,
@@ -3132,96 +1229,9 @@ pub struct tm_bounding_volume_sphere_t {
     pub radius: f32,
     pub _padding_21: [::std::os::raw::c_char; 4usize],
 }
-#[test]
-fn bindgen_test_layout_tm_bounding_volume_sphere_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_bounding_volume_sphere_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_bounding_volume_sphere_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_bounding_volume_sphere_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_bounding_volume_sphere_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).visibility_mask as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_sphere_t),
-            "::",
-            stringify!(visibility_mask)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).culling_disabled as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_sphere_t),
-            "::",
-            stringify!(culling_disabled)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>()))._padding_18 as *const _ as usize
-        },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_sphere_t),
-            "::",
-            stringify!(_padding_18)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).position as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_sphere_t),
-            "::",
-            stringify!(position)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).radius as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_sphere_t),
-            "::",
-            stringify!(radius)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>()))._padding_21 as *const _ as usize
-        },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_sphere_t),
-            "::",
-            stringify!(_padding_21)
-        )
-    );
-}
 #[doc = " Represents a box bounding volume."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_bounding_volume_box_t {
     pub visibility_mask: u64,
     pub culling_disabled: bool,
@@ -3230,99 +1240,6 @@ pub struct tm_bounding_volume_box_t {
     pub min: tm_vec3_t,
     pub max: tm_vec3_t,
     pub _padding_33: [::std::os::raw::c_char; 4usize],
-}
-#[test]
-fn bindgen_test_layout_tm_bounding_volume_box_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_bounding_volume_box_t>(),
-        104usize,
-        concat!("Size of: ", stringify!(tm_bounding_volume_box_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_bounding_volume_box_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_bounding_volume_box_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).visibility_mask as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_box_t),
-            "::",
-            stringify!(visibility_mask)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).culling_disabled as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_box_t),
-            "::",
-            stringify!(culling_disabled)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_box_t>()))._padding_29 as *const _ as usize
-        },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_box_t),
-            "::",
-            stringify!(_padding_29)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).tm as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_box_t),
-            "::",
-            stringify!(tm)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).min as *const _ as usize },
-        76usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_box_t),
-            "::",
-            stringify!(min)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).max as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_box_t),
-            "::",
-            stringify!(max)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_bounding_volume_box_t>()))._padding_33 as *const _ as usize
-        },
-        100usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_bounding_volume_box_t),
-            "::",
-            stringify!(_padding_33)
-        )
-    );
 }
 #[doc = " Low-level interface to buddy allocator system."]
 #[doc = ""]
@@ -3335,7 +1252,7 @@ fn bindgen_test_layout_tm_bounding_volume_box_t() {
 #[doc = ""]
 #[doc = " The raw buddy allocator interface is not thread-safe."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_buddy_allocator_raw_api {
     #[doc = " Initializes the specified memory region as a buddy allocator. The `block_size`"]
     #[doc = " is the smallest memory allocation in bytes that the buddy allocator can make."]
@@ -3354,46 +1271,11 @@ pub struct tm_buddy_allocator_raw_api {
         ) -> *mut ::std::os::raw::c_void,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_buddy_allocator_raw_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_buddy_allocator_raw_api>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_buddy_allocator_raw_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_buddy_allocator_raw_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_buddy_allocator_raw_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buddy_allocator_raw_api>())).init as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buddy_allocator_raw_api),
-            "::",
-            stringify!(init)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buddy_allocator_raw_api>())).realloc as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buddy_allocator_raw_api),
-            "::",
-            stringify!(realloc)
-        )
-    );
-}
 #[doc = " High-level interface to the buddy allocator system."]
 #[doc = ""]
 #[doc = " Uses a sequency of bigger and bigger buddy allocator arenas to provide growable buddy allocators."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_buddy_allocator_api {
     #[doc = " Create a buddy allocator stack. This allocator uses a sequence of larger and"]
     #[doc = " larger buddy allocators to fulfill allocation requests. The buffer for each"]
@@ -3416,41 +1298,8 @@ pub struct tm_buddy_allocator_api {
     #[doc = " Destroys a buddy allocator created by [[create()]]."]
     pub destroy: ::std::option::Option<unsafe extern "C" fn(a: *mut tm_allocator_i)>,
 }
-#[test]
-fn bindgen_test_layout_tm_buddy_allocator_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_buddy_allocator_api>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_buddy_allocator_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_buddy_allocator_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_buddy_allocator_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buddy_allocator_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buddy_allocator_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buddy_allocator_api>())).destroy as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buddy_allocator_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_buffers_o {
     _unused: [u8; 0],
 }
@@ -3463,7 +1312,7 @@ pub struct tm_buffers_o {
 #[doc = " !!! TODO: API-REVIEW"]
 #[doc = "     Should we get rid of the concept of a buffer ID and just refer to buffers by their hash?"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_buffers_i {
     pub inst: *mut tm_buffers_o,
     #[doc = " Allocates a buffer of `size` bytes to be passed into the [[add()]] function. If `initialize` is"]
@@ -3520,119 +1369,6 @@ pub struct tm_buffers_i {
     pub debug__refcount:
         ::std::option::Option<unsafe extern "C" fn(inst: *const tm_buffers_o, id: u32) -> u32>,
 }
-#[test]
-fn bindgen_test_layout_tm_buffers_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_buffers_i>(),
-        80usize,
-        concat!("Size of: ", stringify!(tm_buffers_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_buffers_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_buffers_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).allocate as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(allocate)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).add as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(add)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).retain as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(retain)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).release as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(release)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).get as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(get)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).size as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).hash as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(hash)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).lookup as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(lookup)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).debug__refcount as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_i),
-            "::",
-            stringify!(debug__refcount)
-        )
-    );
-}
 #[doc = " Manages a set of streamable buffers. Streamable buffers work as regular buffers except that they"]
 #[doc = " can optionally be created with disk backing. Buffers with disk backing can be loaded on-demand or"]
 #[doc = " streamed in by a background process. They can also be flushed out of main memory as necessary"]
@@ -3642,7 +1378,7 @@ fn bindgen_test_layout_tm_buffers_i() {
 #[doc = "   the function returns. Note that this can stall the application, so you might want to pre-load"]
 #[doc = "   buffers by calling [[get()]] on them in a background thread before they're actually needed."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_streamable_buffers_i {
     pub __bindgen_padding_0: [u64; 10usize],
     #[doc = " Creates a streamable buffer with the content mapped to the specified region (`offset`,"]
@@ -3716,124 +1452,9 @@ pub struct tm_streamable_buffers_i {
         unsafe extern "C" fn(inst: *mut tm_buffers_o, io: *mut tm_os_file_io_api),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_streamable_buffers_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_streamable_buffers_i>(),
-        152usize,
-        concat!("Size of: ", stringify!(tm_streamable_buffers_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_streamable_buffers_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_streamable_buffers_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).map as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(map)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).map_database as *const _ as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(map_database)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).is_mapped as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(is_mapped)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).is_loaded as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(is_loaded)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).unload as *const _ as usize },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(unload)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).save as *const _ as usize },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(save)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).background_load_all as *const _
-                as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(background_load_all)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).ensure_all_loaded as *const _
-                as usize
-        },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(ensure_all_loaded)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).set_io as *const _ as usize },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_streamable_buffers_i),
-            "::",
-            stringify!(set_io)
-        )
-    );
-}
 #[doc = " API for creating [[tm_buffers_i]] and [[tm_streamable_buffers_i]] objects."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_buffers_api {
     #[doc = " Creates a new buffer container."]
     pub create:
@@ -3851,63 +1472,6 @@ pub struct tm_buffers_api {
     #[doc = " Destroys a buffer container created by [[create_streamable()]]."]
     pub destroy_streamable:
         ::std::option::Option<unsafe extern "C" fn(i: *mut tm_streamable_buffers_i)>,
-}
-#[test]
-fn bindgen_test_layout_tm_buffers_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_buffers_api>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_buffers_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_buffers_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_buffers_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_buffers_api>())).destroy as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffers_api>())).create_streamable as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_api),
-            "::",
-            stringify!(create_streamable)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffers_api>())).destroy_streamable as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffers_api),
-            "::",
-            stringify!(destroy_streamable)
-        )
-    );
 }
 #[doc = " Bits should be interpreted as a floating point number (64 bits means double, 32 bits means"]
 #[doc = " float, 16 bits means half/float16). Floating point components are always signed."]
@@ -3956,7 +1520,7 @@ pub const TM_BUFFER_COMPRESSION_FORMAT_MAX_FORMATS: tm_buffer_compression_format
 pub type tm_buffer_compression_format = ::std::os::raw::c_int;
 #[doc = " Functions for encoding and decoding unique format identifiers describing the contents of a buffer or image."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_buffer_format_api {
     #[doc = " Creates a unique ID describing an uncompressed format described by:"]
     #[doc = ""]
@@ -4021,119 +1585,6 @@ pub struct tm_buffer_format_api {
         ) -> *const ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_buffer_format_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_buffer_format_api>(),
-        64usize,
-        concat!("Size of: ", stringify!(tm_buffer_format_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_buffer_format_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_buffer_format_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).encode_uncompressed_format as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(encode_uncompressed_format)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).encode_compressed_format as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(encode_compressed_format)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).is_compressed as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(is_compressed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).decode_uncompressed as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(decode_uncompressed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).decode_compression_format as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(decode_compression_format)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).bits_per_element as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(bits_per_element)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).num_components as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(num_components)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_buffer_format_api>())).human_readable as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_buffer_format_api),
-            "::",
-            stringify!(human_readable)
-        )
-    );
-}
 pub const TM_CAMERA_TRANSFORM_DEFAULT: tm_camera_transform = 0;
 pub const TM_CAMERA_TRANSFORM_EYE_LEFT: tm_camera_transform = 1;
 pub const TM_CAMERA_TRANSFORM_EYE_RIGHT: tm_camera_transform = 2;
@@ -4153,7 +1604,7 @@ pub const TM_CAMERA_FRUSTUM_PLANE_MAX_PLANES: tm_camera_frustum_planes = 6;
 pub type tm_camera_frustum_planes = ::std::os::raw::c_int;
 #[doc = " Describes a camera."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_camera_t {
     pub projection: [tm_mat44_t; 3usize],
     pub view: [tm_mat44_t; 3usize],
@@ -4166,122 +1617,9 @@ pub struct tm_camera_t {
     pub aperture: f32,
     pub iso: f32,
 }
-#[test]
-fn bindgen_test_layout_tm_camera_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_camera_t>(),
-        416usize,
-        concat!("Size of: ", stringify!(tm_camera_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_camera_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_camera_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).projection as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(projection)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).view as *const _ as usize },
-        192usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(view)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).mode as *const _ as usize },
-        384usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(mode)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).near_plane as *const _ as usize },
-        388usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(near_plane)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).far_plane as *const _ as usize },
-        392usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(far_plane)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).vertical_fov as *const _ as usize },
-        396usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(vertical_fov)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).box_height as *const _ as usize },
-        400usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(box_height)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).shutter_speed as *const _ as usize },
-        404usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(shutter_speed)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).aperture as *const _ as usize },
-        408usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(aperture)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).iso as *const _ as usize },
-        412usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_t),
-            "::",
-            stringify!(iso)
-        )
-    );
-}
 #[doc = " API for manipulating cameras."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_camera_api {
     #[doc = " Computes the view matrix from a camera's transform `tm` and stores it in `view`. Also returns `view`."]
     #[doc = ""]
@@ -4426,189 +1764,6 @@ pub struct tm_camera_api {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_camera_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_camera_api>(),
-        120usize,
-        concat!("Size of: ", stringify!(tm_camera_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_camera_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_camera_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).view_from_transform as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(view_from_transform)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).transform_from_view as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(transform_from_view)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).projection_from_frustum as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(projection_from_frustum)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).projection_from_fov as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(projection_from_fov)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).orthographic_from_frustum as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(orthographic_from_frustum)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).orthographics_from_dimensions as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(orthographics_from_dimensions)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).projection_from_camera as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(projection_from_camera)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).update_free_flight as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(update_free_flight)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).update_pan as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(update_pan)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).update_maya as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(update_maya)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).world_to_screen as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(world_to_screen)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).screen_to_world as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(screen_to_world)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).meters_per_pixel as *const _ as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(meters_per_pixel)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).default_camera as *const _ as usize },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(default_camera)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_camera_api>())).frustum_planes_from_view_projection
-                as *const _ as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_camera_api),
-            "::",
-            stringify!(frustum_planes_from_view_projection)
-        )
-    );
-}
 #[doc = " We are not connected to any collaboration session."]
 pub const TM_COLLABORATION_STATUS_DISCONNECTED: tm_collaboration_status = 0;
 #[doc = " We are in the process of creating a host session."]
@@ -4625,7 +1780,7 @@ pub const TM_COLLABORATION_STATUS_ERROR: tm_collaboration_status = 5;
 pub type tm_collaboration_status = ::std::os::raw::c_int;
 #[doc = " Callbacks called by the collaboration system."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_config_i {
     #[doc = " The truth that is synchronized during the collaboration session."]
     pub tt: *mut tm_the_truth_o,
@@ -4691,140 +1846,6 @@ pub struct tm_collaboration_config_i {
     #[doc = " they don't have to be transferred over the network for the collaboration session."]
     pub cache_dir: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_collaboration_config_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_collaboration_config_i>(),
-        80usize,
-        concat!("Size of: ", stringify!(tm_collaboration_config_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_collaboration_config_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_collaboration_config_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_config_i>())).tt as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(tt)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_config_i>())).ud as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(ud)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).host_init as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(host_init)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_init as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(client_init)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).host_save_state as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(host_save_state)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_reset_truth as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(client_reset_truth)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_decompress_state
-                as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(client_decompress_state)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_buffer_hashes as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(client_buffer_hashes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_load_state as *const _
-                as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(client_load_state)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_config_i>())).cache_dir as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_config_i),
-            "::",
-            stringify!(cache_dir)
-        )
-    );
-}
 #[doc = " The session has not yet been set-up properly."]
 pub const TM_COLLABORATION_SESSION_TYPE_NONE: tm_collaboration_session_type = 0;
 #[doc = " The session is for hosting."]
@@ -4844,7 +1865,7 @@ pub const TM_COLLABORATION_SESSION_STATUS_ERROR: tm_collaboration_session_status
 #[doc = " Describes the current status of a collaboration session."]
 pub type tm_collaboration_session_status = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_session_o {
     _unused: [u8; 0],
 }
@@ -4853,7 +1874,7 @@ pub struct tm_collaboration_session_o {
 #[doc = " created by some other api (see [[tm_collaboration_p2p_api]] or [[tm_collaboration_discord_api]]) and"]
 #[doc = " then passed to the `host` or `connect` functions of [[tm_collaboration_api]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_session_i {
     pub inst: *mut tm_collaboration_session_o,
     #[doc = " Disconnects and destroys the state of the session."]
@@ -4955,234 +1976,15 @@ pub struct tm_collaboration_session_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_collaboration_session_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_collaboration_session_i>(),
-        136usize,
-        concat!("Size of: ", stringify!(tm_collaboration_session_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_collaboration_session_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_collaboration_session_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_session_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).destroy as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).architecture as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(architecture)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).host_id as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(host_id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).get_client_request as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(get_client_request)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).accept_client as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(accept_client)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_session_i>())).send as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(send)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).flush as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(flush)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).update as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(update)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).get_package_data as *const _
-                as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(get_package_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).close_client as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(close_client)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).send_ping as *const _ as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(send_ping)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).type_ as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).status as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(status)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).is_client_alive as *const _
-                as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(is_client_alive)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).receive_progress as *const _
-                as usize
-        },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(receive_progress)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_session_i>())).status_message as *const _
-                as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_session_i),
-            "::",
-            stringify!(status_message)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_o {
     _unused: [u8; 0],
 }
 #[doc = " Implements a collaboration protocol that allows changes to The Truth to be made by multiple"]
 #[doc = " people on separate computers."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_api {
     #[doc = " Creates a new collaboration object."]
     pub create: ::std::option::Option<
@@ -5279,289 +2081,24 @@ pub struct tm_collaboration_api {
         unsafe extern "C" fn(coll: *mut tm_collaboration_o, size: u64, num: u32),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_collaboration_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_collaboration_api>(),
-        152usize,
-        concat!("Size of: ", stringify!(tm_collaboration_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_collaboration_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_collaboration_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).destroy as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).status as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(status)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).is_downloading as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(is_downloading)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).set_session as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(set_session)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).session as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(session)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).disconnect as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(disconnect)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).update as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(update)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).handle as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(handle)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).set_handle as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(set_handle)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).host_handle as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(host_handle)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).num_clients as *const _ as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(num_clients)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).client_handle as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(client_handle)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).all_handles as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(all_handles)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).send_chat as *const _ as usize },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(send_chat)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).num_chat_messages as *const _ as usize
-        },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(num_chat_messages)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).chat_message as *const _ as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(chat_message)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).resynchronize_state as *const _
-                as usize
-        },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(resynchronize_state)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_api>())).send_test_packages as *const _ as usize
-        },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_api),
-            "::",
-            stringify!(send_test_packages)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_p2p_o {
     _unused: [u8; 0],
 }
 #[doc = " Represents a host that was discovered on the LAN."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_discovered_host_t {
     #[doc = " Address of the host."]
     pub address: *const tm_socket_address_t,
     #[doc = " Name of the host (handle of host user)."]
     pub name: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_collaboration_discovered_host_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_collaboration_discovered_host_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_collaboration_discovered_host_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_collaboration_discovered_host_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_collaboration_discovered_host_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_discovered_host_t>())).address as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_discovered_host_t),
-            "::",
-            stringify!(address)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_discovered_host_t>())).name as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_discovered_host_t),
-            "::",
-            stringify!(name)
-        )
-    );
-}
 #[doc = " This API creates instances of [[tm_collaboration_session_i]] for hosting and connecting"]
 #[doc = " peer-to-peer collaboration sessions. It also takes care of LAN host discovery."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_collaboration_p2p_api {
     #[doc = " Creates the P2P collaboration interface object. Typically, you call this during"]
     #[doc = " application startup, so you can call [[update()]] in the tick loop to discover"]
@@ -5604,86 +2141,6 @@ pub struct tm_collaboration_p2p_api {
         ) -> u32,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_collaboration_p2p_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_collaboration_p2p_api>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_collaboration_p2p_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_collaboration_p2p_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_collaboration_p2p_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_p2p_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).destroy as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_p2p_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).update as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_p2p_api),
-            "::",
-            stringify!(update)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).host as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_p2p_api),
-            "::",
-            stringify!(host)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).connect as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_p2p_api),
-            "::",
-            stringify!(connect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).discovered_lan_hosts as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_collaboration_p2p_api),
-            "::",
-            stringify!(discovered_lan_hosts)
-        )
-    );
-}
 pub const TM_CONFIG_TYPE_NULL: tm_config_type = 0;
 pub const TM_CONFIG_TYPE_FALSE: tm_config_type = 1;
 pub const TM_CONFIG_TYPE_TRUE: tm_config_type = 2;
@@ -5700,23 +2157,10 @@ pub type tm_config_type = ::std::os::raw::c_int;
 #[doc = " ([[enum tm_config_type]])  and `offset`."]
 #[repr(C)]
 #[repr(align(4))]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_config_item_t {
     pub _bitfield_align_1: [u32; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-}
-#[test]
-fn bindgen_test_layout_tm_config_item_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_config_item_t>(),
-        4usize,
-        concat!("Size of: ", stringify!(tm_config_item_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_config_item_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_config_item_t))
-    );
 }
 impl tm_config_item_t {
     #[inline]
@@ -5756,7 +2200,7 @@ impl tm_config_item_t {
     }
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_config_o {
     _unused: [u8; 0],
 }
@@ -5785,7 +2229,7 @@ pub struct tm_config_o {
 #[doc = "     an interface type, since we only have a single implementation and don't expect that to"]
 #[doc = "     change."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_config_i {
     pub inst: *mut tm_config_o,
     #[doc = " Returns the root object of the config tree."]
@@ -5938,223 +2382,8 @@ pub struct tm_config_i {
         ) -> bool,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_config_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_config_i>(),
-        160usize,
-        concat!("Size of: ", stringify!(tm_config_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_config_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_config_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).root as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(root)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_number as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(to_number)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_string as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(to_string)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_array as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(to_array)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_object as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(to_object)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_number as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(add_number)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_string as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(add_string)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_array as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(add_array)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_object as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(add_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_config_i>())).add_object_with_string_keys as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(add_object_with_string_keys)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).array_set as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(array_set)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).array_push as *const _ as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(array_push)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).object_get as *const _ as usize },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(object_get)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).object_update as *const _ as usize },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(object_update)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).object_add as *const _ as usize },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(object_add)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).set_root as *const _ as usize },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(set_root)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).copy as *const _ as usize },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(copy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).allocator as *const _ as usize },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(allocator)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_i>())).validate_object as *const _ as usize },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_i),
-            "::",
-            stringify!(validate_object)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_config_api {
     #[doc = " Creates a new config object."]
     pub create:
@@ -6169,79 +2398,6 @@ pub struct tm_config_api {
     pub c_true: tm_config_item_t,
     pub _padding_182: [::std::os::raw::c_char; 4usize],
 }
-#[test]
-fn bindgen_test_layout_tm_config_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_config_api>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_config_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_config_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_config_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_api>())).destroy as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_api>())).c_null as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_api),
-            "::",
-            stringify!(c_null)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_api>())).c_false as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_api),
-            "::",
-            stringify!(c_false)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_api>())).c_true as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_api),
-            "::",
-            stringify!(c_true)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_config_api>()))._padding_182 as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_config_api),
-            "::",
-            stringify!(_padding_182)
-        )
-    );
-}
 #[doc = " If you open a project and this asset is missing -- it will be created."]
 pub const TM_CORE_CREATE_POLICY__CREATE: tm_core_create_policy = 0;
 #[doc = " If you open a project and this asset exists -- it will be removed. This can be used to"]
@@ -6254,7 +2410,7 @@ pub const TM_CORE_CREATE_POLICY__IGNORE: tm_core_create_policy = 2;
 pub type tm_core_create_policy = ::std::os::raw::c_int;
 #[doc = " Interface used to define a core asset."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_core_asset_i {
     #[doc = " Hashed string ID that uniquely identifies the core asset. This is used to determine if the"]
     #[doc = " asset already exists in the project or if it needs to be created."]
@@ -6315,112 +2471,9 @@ pub struct tm_core_asset_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_core_asset_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_core_asset_i>(),
-        64usize,
-        concat!("Size of: ", stringify!(tm_core_asset_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_core_asset_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_core_asset_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).core_id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(core_id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).path as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(path)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).create_policy as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(create_policy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>()))._padding_61 as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(_padding_61)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).version as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(version)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).user_data as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(user_data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).create as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).update as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(update)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).on_change as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_asset_i),
-            "::",
-            stringify!(on_change)
-        )
-    );
-}
 #[doc = " Used for the result of [[tm_core_api->update()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_core_update_result_t {
     #[doc = " A carray of assets that were created as part of the update operation."]
     #[doc = "* carray */"]
@@ -6432,57 +2485,8 @@ pub struct tm_core_update_result_t {
     #[doc = "* carray */"]
     pub updated_assets: *mut tm_tt_id_t,
 }
-#[test]
-fn bindgen_test_layout_tm_core_update_result_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_core_update_result_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_core_update_result_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_core_update_result_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_core_update_result_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_core_update_result_t>())).created_assets as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_update_result_t),
-            "::",
-            stringify!(created_assets)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_core_update_result_t>())).removed_assets as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_update_result_t),
-            "::",
-            stringify!(removed_assets)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_core_update_result_t>())).updated_assets as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_update_result_t),
-            "::",
-            stringify!(updated_assets)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_core_api {
     #[doc = " Creates the core assets in The Truth `tt`. This is called when a new Truth project is"]
     #[doc = " created."]
@@ -6508,52 +2512,9 @@ pub struct tm_core_api {
         ) -> tm_tt_id_t,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_core_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_core_api>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_core_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_core_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_core_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_api>())).update as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_api),
-            "::",
-            stringify!(update)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_api>())).locate_asset as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_api),
-            "::",
-            stringify!(locate_asset)
-        )
-    );
-}
 #[doc = " Defines an asset to import from the core project."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_core_importer_asset_t {
     #[doc = " Will be used as `core_id` when this is translated into a [[tm_core_asset_i]]. Use something"]
     #[doc = " that is static between sessions, such as a TM_STATIC_HASH."]
@@ -6568,82 +2529,13 @@ pub struct tm_core_importer_asset_t {
     pub create_policy: u32,
     pub _padding_50: [::std::os::raw::c_char; 4usize],
 }
-#[test]
-fn bindgen_test_layout_tm_core_importer_asset_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_core_importer_asset_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_core_importer_asset_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_core_importer_asset_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_core_importer_asset_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_importer_asset_t>())).id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_asset_t),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_core_importer_asset_t>())).version as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_asset_t),
-            "::",
-            stringify!(version)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_importer_asset_t>())).path as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_asset_t),
-            "::",
-            stringify!(path)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_core_importer_asset_t>())).create_policy as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_asset_t),
-            "::",
-            stringify!(create_policy)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_core_importer_asset_t>()))._padding_50 as *const _ as usize
-        },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_asset_t),
-            "::",
-            stringify!(_padding_50)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_core_importer_state_o {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_core_importer_api {
     #[doc = " Creates a core importer for importing/updating the core project found at `core_project_path`"]
     #[doc = " into The Truth `user_tt` with asset root `user_asset_root`."]
@@ -6678,54 +2570,9 @@ pub struct tm_core_importer_api {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_core_importer_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_core_importer_api>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_core_importer_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_core_importer_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_core_importer_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_importer_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_core_importer_api>())).destroy as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_core_importer_api>())).register_assets as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_core_importer_api),
-            "::",
-            stringify!(register_assets)
-        )
-    );
-}
 #[doc = " Result of the [[can_recover()]] function."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_crash_recovery_can_recover_result_t {
     #[doc = " Non-zero if there is recovery data to use. The `data` is allocated with the temp allocator"]
     #[doc = " `ta` passed to the [[can_recover()]] function."]
@@ -6745,97 +2592,13 @@ pub struct tm_crash_recovery_can_recover_result_t {
     #[doc = " correct, since it is loaded from the project data."]
     pub root: *const tm_uuid_t,
 }
-#[test]
-fn bindgen_test_layout_tm_crash_recovery_can_recover_result_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_crash_recovery_can_recover_result_t>(),
-        32usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_crash_recovery_can_recover_result_t)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_crash_recovery_can_recover_result_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_crash_recovery_can_recover_result_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).data as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_can_recover_result_t),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).data_bytes
-                as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_can_recover_result_t),
-            "::",
-            stringify!(data_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>()))._padding_24
-                as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_can_recover_result_t),
-            "::",
-            stringify!(_padding_24)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).project as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_can_recover_result_t),
-            "::",
-            stringify!(project)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).root as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_can_recover_result_t),
-            "::",
-            stringify!(root)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_crash_recovery_o {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_crash_recovery_api {
     #[doc = " Creates a crash recovery system for The Truth `tt`. `recovery_path` is the path that will be"]
     #[doc = " used for the crash recovery file."]
@@ -6895,110 +2658,8 @@ pub struct tm_crash_recovery_api {
     pub delete_physical_file:
         ::std::option::Option<unsafe extern "C" fn(cr: *mut tm_crash_recovery_o)>,
 }
-#[test]
-fn bindgen_test_layout_tm_crash_recovery_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_crash_recovery_api>(),
-        64usize,
-        concat!("Size of: ", stringify!(tm_crash_recovery_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_crash_recovery_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_crash_recovery_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).destroy as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_api>())).start_recording as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(start_recording)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_api>())).stop_recording as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(stop_recording)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).update as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(update)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_api>())).can_recover as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(can_recover)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).recover as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(recover)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_crash_recovery_api>())).delete_physical_file as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_crash_recovery_api),
-            "::",
-            stringify!(delete_physical_file)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_error_o {
     _unused: [u8; 0],
 }
@@ -7007,7 +2668,7 @@ pub struct tm_error_o {
 #[doc = " Application errors will be reported to this interface. It is up to the interface to decide"]
 #[doc = " how to deal with them."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_error_i {
     pub inst: *mut tm_error_o,
     #[doc = " Reports an error at the specified `file` and `line` of the code. The error message should be"]
@@ -7045,102 +2706,16 @@ pub struct tm_error_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_error_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_error_i>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_error_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_error_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_error_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_i>())).errorf as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_i),
-            "::",
-            stringify!(errorf)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_i>())).fatal as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_i),
-            "::",
-            stringify!(fatal)
-        )
-    );
-}
 #[doc = " Structure used by [[tm_error_api->create_record_handler()]] to record error messages. In addition"]
 #[doc = " to recording the errors in the `errors` array, this handler also passes them on to the `backing`"]
 #[doc = " error handler (if it is non-zero)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_error_record_t {
     pub ta: *mut tm_temp_allocator_i,
     #[doc = " carray"]
     pub errors: *mut *mut ::std::os::raw::c_char,
     pub backing: *mut tm_error_i,
-}
-#[test]
-fn bindgen_test_layout_tm_error_record_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_error_record_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_error_record_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_error_record_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_error_record_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_record_t>())).ta as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_record_t),
-            "::",
-            stringify!(ta)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_record_t>())).errors as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_record_t),
-            "::",
-            stringify!(errors)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_record_t>())).backing as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_record_t),
-            "::",
-            stringify!(backing)
-        )
-    );
 }
 #[doc = " API for error handling. This API provides a number of default error handlers."]
 #[doc = ""]
@@ -7149,7 +2724,7 @@ fn bindgen_test_layout_tm_error_record_t() {
 #[doc = "     handler. You can use this for example to implement a unit test that tests that a"]
 #[doc = "     certain action produces an expected error."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_error_api {
     #[doc = " Basic error handler that just logs the error messages using [[tm_logger_api->print()]]. Fatal"]
     #[doc = " errors are shown in a dialog box using [[tm_os_dialogs_api->message_box()]]."]
@@ -7170,54 +2745,9 @@ pub struct tm_error_api {
     pub create_record_handler:
         ::std::option::Option<unsafe extern "C" fn(mem: *mut tm_error_record_t) -> tm_error_i>,
 }
-#[test]
-fn bindgen_test_layout_tm_error_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_error_api>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_error_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_error_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_error_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_api>())).log as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_api),
-            "::",
-            stringify!(log)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_error_api>())).def as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_api),
-            "::",
-            stringify!(def)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_error_api>())).create_record_handler as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_error_api),
-            "::",
-            stringify!(create_record_handler)
-        )
-    );
-}
 #[doc = " API for querying and setting feature flags."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_feature_flags_api {
     #[doc = " Returns true if the specified feature flag is enabled."]
     pub enabled: ::std::option::Option<unsafe extern "C" fn(flag: tm_strhash_t) -> bool>,
@@ -7227,56 +2757,9 @@ pub struct tm_feature_flags_api {
     pub all_enabled:
         ::std::option::Option<unsafe extern "C" fn(count: *mut u32) -> *const tm_strhash_t>,
 }
-#[test]
-fn bindgen_test_layout_tm_feature_flags_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_feature_flags_api>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_feature_flags_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_feature_flags_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_feature_flags_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_feature_flags_api>())).enabled as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_feature_flags_api),
-            "::",
-            stringify!(enabled)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_feature_flags_api>())).set_enabled as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_feature_flags_api),
-            "::",
-            stringify!(set_enabled)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_feature_flags_api>())).all_enabled as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_feature_flags_api),
-            "::",
-            stringify!(all_enabled)
-        )
-    );
-}
 #[doc = " API for querying for `gitignore` patterns."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_git_ignore_api {
     #[doc = " Returns *true* if one of the `patterns` matches the `path` (i.e., the `gitignore` file"]
     #[doc = " specifies that the `path` should be ignored)."]
@@ -7290,29 +2773,6 @@ pub struct tm_git_ignore_api {
         ) -> bool,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_git_ignore_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_git_ignore_api>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_git_ignore_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_git_ignore_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_git_ignore_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_git_ignore_api>())).match_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_git_ignore_api),
-            "::",
-            stringify!(match_)
-        )
-    );
-}
 #[doc = " Image is one dimensional."]
 pub const TM_IMAGE_TYPE_1D: tm_image_type = 0;
 #[doc = " Image is two dimensional."]
@@ -7325,7 +2785,7 @@ pub const TM_IMAGE_TYPE_CUBE: tm_image_type = 3;
 pub type tm_image_type = ::std::os::raw::c_int;
 #[doc = " Image information."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_image_t {
     #[doc = " One of [[enum tm_image_type]]."]
     pub type_: u32,
@@ -7344,107 +2804,14 @@ pub struct tm_image_t {
     #[doc = " Size of image in bytes."]
     pub size: u32,
 }
-#[test]
-fn bindgen_test_layout_tm_image_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_image_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_image_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_image_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_image_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).type_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).pixel_format as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(pixel_format)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).width as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(width)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).height as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(height)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).depth as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(depth)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).mip_levels as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(mip_levels)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).layers as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(layers)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_t>())).size as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_t),
-            "::",
-            stringify!(size)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_image_archive_o {
     _unused: [u8; 0],
 }
 #[doc = " Abstract interface used by image loaders for loading image data from an archive."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_image_archive_i {
     pub inst: *mut tm_image_archive_o,
     #[doc = " Attempts to read `size` of bytes into `buffer` starting at `offset`, returns number of bytes"]
@@ -7460,57 +2827,14 @@ pub struct tm_image_archive_i {
     #[doc = " Returns the size of the archive."]
     pub size: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_image_archive_o) -> u64>,
 }
-#[test]
-fn bindgen_test_layout_tm_image_archive_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_image_archive_i>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_image_archive_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_image_archive_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_image_archive_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_archive_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_archive_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_archive_i>())).read as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_archive_i),
-            "::",
-            stringify!(read)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_archive_i>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_archive_i),
-            "::",
-            stringify!(size)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_image_loader_o {
     _unused: [u8; 0],
 }
 #[doc = " Interface for an \"image loader\" that can load images from an archive."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_image_loader_i {
     pub inst: *mut tm_image_loader_o,
     #[doc = " Appends a string with all supported file extensions the image loader interface can load to the"]
@@ -7571,94 +2895,12 @@ pub struct tm_image_loader_i {
         ) -> bool,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_image_loader_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_image_loader_i>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_image_loader_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_image_loader_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_image_loader_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_loader_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_image_loader_i>())).extensions_string as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_i),
-            "::",
-            stringify!(extensions_string)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_image_loader_i>())).description_string as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_i),
-            "::",
-            stringify!(description_string)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_image_loader_i>())).support_from_archive as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_i),
-            "::",
-            stringify!(support_from_archive)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_image_loader_i>())).support_from_extension as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_i),
-            "::",
-            stringify!(support_from_extension)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_loader_i>())).load_image as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_i),
-            "::",
-            stringify!(load_image)
-        )
-    );
-}
 #[doc = " API for adding and removing image loaders."]
 #[doc = ""]
 #[doc = " !!! TODO: API-REVIEW: Use API registry instead of [[add_loader()]]?"]
 #[doc = "     Remove this API and use [[tm_api_registry_api->add_implementation()]] instead?"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_image_loader_api {
     #[doc = " Adds a new image loader into the registry."]
     pub add_loader: ::std::option::Option<unsafe extern "C" fn(loader: *mut tm_image_loader_i)>,
@@ -7679,76 +2921,6 @@ pub struct tm_image_loader_api {
     #[doc = " query the number of active loaders."]
     pub loaders:
         ::std::option::Option<unsafe extern "C" fn(loaders: *mut *mut tm_image_loader_i) -> u32>,
-}
-#[test]
-fn bindgen_test_layout_tm_image_loader_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_image_loader_api>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_image_loader_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_image_loader_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_image_loader_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_loader_api>())).add_loader as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_api),
-            "::",
-            stringify!(add_loader)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_image_loader_api>())).remove_loader as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_api),
-            "::",
-            stringify!(remove_loader)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_image_loader_api>())).loader_from_archive as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_api),
-            "::",
-            stringify!(loader_from_archive)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_image_loader_api>())).loader_from_extension as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_api),
-            "::",
-            stringify!(loader_from_extension)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_image_loader_api>())).loaders as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_image_loader_api),
-            "::",
-            stringify!(loaders)
-        )
-    );
 }
 pub const TM_INPUT_CONTROLLER_TYPE_NONE: tm_input_controller_type = 0;
 pub const TM_INPUT_CONTROLLER_TYPE_KEYBOARD: tm_input_controller_type = 1;
@@ -8259,7 +3431,7 @@ pub const TM_INPUT_EVENT_TYPE_TEXT: tm_input_event_type = 2;
 pub type tm_input_event_type = ::std::os::raw::c_int;
 #[doc = " Describes an input item (button, axis, etc)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_input_item_t {
     #[doc = " Id of this input item."]
     pub id: u64,
@@ -8269,59 +3441,6 @@ pub struct tm_input_item_t {
     #[doc = " A mouse has 2 (x-axis, y-axis)."]
     pub components: u32,
     pub _padding_413: [::std::os::raw::c_char; 4usize],
-}
-#[test]
-fn bindgen_test_layout_tm_input_item_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_input_item_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_input_item_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_input_item_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_input_item_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_item_t>())).id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_item_t),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_item_t>())).name as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_item_t),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_item_t>())).components as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_item_t),
-            "::",
-            stringify!(components)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_item_t>()))._padding_413 as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_item_t),
-            "::",
-            stringify!(_padding_413)
-        )
-    );
 }
 #[doc = " Data for an input event."]
 #[repr(C)]
@@ -8338,54 +3457,6 @@ pub union tm_input_data_t__bindgen_ty_1 {
     pub f: tm_vec4_t,
     #[doc = " Unicode codepoint for the event."]
     pub codepoint: u32,
-}
-#[test]
-fn bindgen_test_layout_tm_input_data_t__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_input_data_t__bindgen_ty_1>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_input_data_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_input_data_t__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_input_data_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_data_t__bindgen_ty_1>())).f as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_data_t__bindgen_ty_1),
-            "::",
-            stringify!(f)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_input_data_t__bindgen_ty_1>())).codepoint as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_data_t__bindgen_ty_1),
-            "::",
-            stringify!(codepoint)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_tm_input_data_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_input_data_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_input_data_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_input_data_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_input_data_t))
-    );
 }
 #[doc = " Describes an input event."]
 #[repr(C)]
@@ -8409,96 +3480,13 @@ pub struct tm_input_event_t {
     #[doc = " specific."]
     pub extra: *mut ::std::os::raw::c_void,
 }
-#[test]
-fn bindgen_test_layout_tm_input_event_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_input_event_t>(),
-        64usize,
-        concat!("Size of: ", stringify!(tm_input_event_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_input_event_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_input_event_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).time as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_event_t),
-            "::",
-            stringify!(time)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).source as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_event_t),
-            "::",
-            stringify!(source)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).controller_id as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_event_t),
-            "::",
-            stringify!(controller_id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).item_id as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_event_t),
-            "::",
-            stringify!(item_id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).type_ as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_event_t),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).data as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_event_t),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).extra as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_event_t),
-            "::",
-            stringify!(extra)
-        )
-    );
-}
 #[doc = " Interface for an input source."]
 #[doc = ""]
 #[doc = " An input source manages a number of controllers of the same \"type\", for example X360 gamepads."]
 #[doc = " The controllers managed by one [[tm_input_source_i]] all have the same axis and buttons, but"]
 #[doc = " controllers might be dynamically added and removed."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_input_source_i {
     #[doc = " Returns the name of the controller type managed by this input source."]
     pub controller_name: *const ::std::os::raw::c_char,
@@ -8548,96 +3536,9 @@ pub struct tm_input_source_i {
     pub state:
         ::std::option::Option<unsafe extern "C" fn(controller: u64, item: u64) -> tm_input_data_t>,
 }
-#[test]
-fn bindgen_test_layout_tm_input_source_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_input_source_i>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_input_source_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_input_source_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_input_source_i))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_input_source_i>())).controller_name as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_source_i),
-            "::",
-            stringify!(controller_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_input_source_i>())).controller_type as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_source_i),
-            "::",
-            stringify!(controller_type)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_source_i>()))._padding_471 as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_source_i),
-            "::",
-            stringify!(_padding_471)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).controllers as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_source_i),
-            "::",
-            stringify!(controllers)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).items as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_source_i),
-            "::",
-            stringify!(items)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).events as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_source_i),
-            "::",
-            stringify!(events)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).state as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_source_i),
-            "::",
-            stringify!(state)
-        )
-    );
-}
 #[doc = " Coalesces the input from a number of input sources."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_input_api {
     #[doc = " Adds an input source to be tracked."]
     #[doc = ""]
@@ -8660,73 +3561,8 @@ pub struct tm_input_api {
     pub keyboard_item_names:
         ::std::option::Option<unsafe extern "C" fn() -> *mut *const ::std::os::raw::c_char>,
 }
-#[test]
-fn bindgen_test_layout_tm_input_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_input_api>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_input_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_input_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_input_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_api>())).add_source as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_api),
-            "::",
-            stringify!(add_source)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_api>())).remove_source as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_api),
-            "::",
-            stringify!(remove_source)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_api>())).sources as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_api),
-            "::",
-            stringify!(sources)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_input_api>())).events as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_api),
-            "::",
-            stringify!(events)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_input_api>())).keyboard_item_names as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_input_api),
-            "::",
-            stringify!(keyboard_item_names)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_integration_test_runner_o {
     _unused: [u8; 0],
 }
@@ -8736,7 +3572,7 @@ pub struct tm_integration_test_runner_o {
 #[doc = " !!! TODO: API-REVIEW"]
 #[doc = "     Should we have a `record()` function, just as we do with the unit tests?"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_integration_test_runner_i {
     pub inst: *mut tm_integration_test_runner_o,
     #[doc = " The current context that the \"runner\" is running. Integration tests can check this value"]
@@ -8760,70 +3596,9 @@ pub struct tm_integration_test_runner_i {
         unsafe extern "C" fn(inst: *mut tm_integration_test_runner_o, sec: f32, id: u64) -> bool,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_integration_test_runner_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_integration_test_runner_i>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_integration_test_runner_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_integration_test_runner_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_integration_test_runner_i))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).inst as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_integration_test_runner_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).context as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_integration_test_runner_i),
-            "::",
-            stringify!(context)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).app as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_integration_test_runner_i),
-            "::",
-            stringify!(app)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).wait as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_integration_test_runner_i),
-            "::",
-            stringify!(wait)
-        )
-    );
-}
 #[doc = " Interface for integration tests."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_integration_test_i {
     #[doc = " Name of the test."]
     pub name: *const ::std::os::raw::c_char,
@@ -8834,57 +3609,14 @@ pub struct tm_integration_test_i {
     #[doc = " have completed."]
     pub tick: ::std::option::Option<unsafe extern "C" fn(arg1: *mut tm_integration_test_runner_i)>,
 }
-#[test]
-fn bindgen_test_layout_tm_integration_test_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_integration_test_i>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_integration_test_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_integration_test_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_integration_test_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_integration_test_i>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_integration_test_i),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_integration_test_i>())).context as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_integration_test_i),
-            "::",
-            stringify!(context)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_integration_test_i>())).tick as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_integration_test_i),
-            "::",
-            stringify!(tick)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_atomic_counter_o {
     _unused: [u8; 0],
 }
 #[doc = " Declares a job."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_jobdecl_t {
     #[doc = " When the job executes `task()` will be called with `data` as argument."]
     pub task: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void)>,
@@ -8897,59 +3629,6 @@ pub struct tm_jobdecl_t {
     pub pin_thread_handle: u32,
     pub _padding_45: [::std::os::raw::c_char; 4usize],
 }
-#[test]
-fn bindgen_test_layout_tm_jobdecl_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_jobdecl_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_jobdecl_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_jobdecl_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_jobdecl_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>())).task as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_jobdecl_t),
-            "::",
-            stringify!(task)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>())).data as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_jobdecl_t),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>())).pin_thread_handle as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_jobdecl_t),
-            "::",
-            stringify!(pin_thread_handle)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>()))._padding_45 as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_jobdecl_t),
-            "::",
-            stringify!(_padding_45)
-        )
-    );
-}
 #[doc = " A system for running arbitrary compute jobs."]
 #[doc = ""]
 #[doc = " To bootstrap the job system from an OS thread, first call [[tm_create_job_system()]] to create"]
@@ -8957,7 +3636,7 @@ fn bindgen_test_layout_tm_jobdecl_t() {
 #[doc = " thread must use [[wait_for_counter_and_free_no_fiber()]] to wait for the main job to finish."]
 #[doc = " Inside the jobs, you can use [[wait_for_counter()]] instead."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_job_system_api {
     #[doc = " Queues `num_jobs` jobs for running. Creates and returns a `counter` that starts with the"]
     #[doc = " value `num_jobs` and is decreased by one for each completed job."]
@@ -9014,104 +3693,6 @@ pub struct tm_job_system_api {
     #[doc = " Returns the number of worker threads in the job system."]
     pub num_worker_threads: ::std::option::Option<unsafe extern "C" fn() -> u32>,
 }
-#[test]
-fn bindgen_test_layout_tm_job_system_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_job_system_api>(),
-        56usize,
-        concat!("Size of: ", stringify!(tm_job_system_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_job_system_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_job_system_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_job_system_api>())).run_jobs as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_job_system_api),
-            "::",
-            stringify!(run_jobs)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_job_system_api>())).run_jobs_and_auto_free_counter as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_job_system_api),
-            "::",
-            stringify!(run_jobs_and_auto_free_counter)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_job_system_api>())).wait_for_counter as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_job_system_api),
-            "::",
-            stringify!(wait_for_counter)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_job_system_api>())).wait_for_counter_and_free as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_job_system_api),
-            "::",
-            stringify!(wait_for_counter_and_free)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_job_system_api>())).wait_for_counter_and_free_no_fiber
-                as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_job_system_api),
-            "::",
-            stringify!(wait_for_counter_and_free_no_fiber)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_job_system_api>())).pin_thread_handle as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_job_system_api),
-            "::",
-            stringify!(pin_thread_handle)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_job_system_api>())).num_worker_threads as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_job_system_api),
-            "::",
-            stringify!(num_worker_threads)
-        )
-    );
-}
 #[doc = " Allow keys in JSON objects to be unquoted."]
 pub const TM_JSON_PARSE_EXT_ALLOW_UNQUOTED_KEYS: tm_json_parse_ext = 1;
 #[doc = " Allow C and C++ style comments in the JSON file."]
@@ -9166,49 +3747,16 @@ pub type tm_json_generate_ext = ::std::os::raw::c_int;
 #[doc = " Stores the line number that a certain JSON object was parsed from. This is used to give"]
 #[doc = " informative error messages about errors in JSON files."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_json_line_info_t {
     #[doc = " Matches a [[tm_config_item_t]] in the parsed JSON data."]
     pub config_item: u32,
     #[doc = " The line number in the JSON file where the parsed item was found."]
     pub line_number: u32,
 }
-#[test]
-fn bindgen_test_layout_tm_json_line_info_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_json_line_info_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_json_line_info_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_json_line_info_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_json_line_info_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_line_info_t>())).config_item as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_line_info_t),
-            "::",
-            stringify!(config_item)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_line_info_t>())).line_number as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_line_info_t),
-            "::",
-            stringify!(line_number)
-        )
-    );
-}
 #[doc = " Returns information about a JSON parse."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_json_parse_info_t {
     #[doc = " True if the parse was successful."]
     pub success: bool,
@@ -9224,89 +3772,9 @@ pub struct tm_json_parse_info_t {
     #[doc = " `config_item` field to enable quick binary searches through the [[line_number()]] function."]
     pub line_info: [tm_json_line_info_t; 1usize],
 }
-#[test]
-fn bindgen_test_layout_tm_json_parse_info_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_json_parse_info_t>(),
-        100usize,
-        concat!("Size of: ", stringify!(tm_json_parse_info_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_json_parse_info_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_json_parse_info_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_parse_info_t>())).success as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_parse_info_t),
-            "::",
-            stringify!(success)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_parse_info_t>())).error as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_parse_info_t),
-            "::",
-            stringify!(error)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_json_parse_info_t>()))._padding_128 as *const _ as usize
-        },
-        81usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_parse_info_t),
-            "::",
-            stringify!(_padding_128)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_json_parse_info_t>())).num_line_info as *const _ as usize
-        },
-        84usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_parse_info_t),
-            "::",
-            stringify!(num_line_info)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_json_parse_info_t>())).allocated_line_info as *const _
-                as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_parse_info_t),
-            "::",
-            stringify!(allocated_line_info)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_parse_info_t>())).line_info as *const _ as usize },
-        92usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_parse_info_t),
-            "::",
-            stringify!(line_info)
-        )
-    );
-}
 #[doc = " Result of calling [[generate()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_json_generate_t {
     #[doc = " The JSON string. This string is always NULL-terminated."]
     pub s: *mut ::std::os::raw::c_char,
@@ -9317,52 +3785,9 @@ pub struct tm_json_generate_t {
     #[doc = " greater than `len + 1`, since the string grows geometrically."]
     pub allocated: u32,
 }
-#[test]
-fn bindgen_test_layout_tm_json_generate_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_json_generate_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_json_generate_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_json_generate_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_json_generate_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_generate_t>())).s as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_generate_t),
-            "::",
-            stringify!(s)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_generate_t>())).len as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_generate_t),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_generate_t>())).allocated as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_generate_t),
-            "::",
-            stringify!(allocated)
-        )
-    );
-}
 #[doc = " Interface for parsing and generating JSON files."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_json_api {
     #[doc = " Parses the JSON string `s` using the `extensions` and returns the result in the `config`"]
     #[doc = " object. Returns `true` on success. On error, the function returns `false` and an error"]
@@ -9401,64 +3826,9 @@ pub struct tm_json_api {
         ) -> tm_json_generate_t,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_json_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_json_api>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_json_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_json_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_json_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_api>())).parse as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_api),
-            "::",
-            stringify!(parse)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_json_api>())).parse_with_line_info as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_api),
-            "::",
-            stringify!(parse_with_line_info)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_api>())).line_number as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_api),
-            "::",
-            stringify!(line_number)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_json_api>())).generate as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_json_api),
-            "::",
-            stringify!(generate)
-        )
-    );
-}
 #[doc = " Used to return a number of localization strings."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_localizer_strings_t {
     #[doc = " Number of strings."]
     pub num_strings: u32,
@@ -9467,53 +3837,6 @@ pub struct tm_localizer_strings_t {
     pub stride_bytes: u32,
     #[doc = " Pointer to first string."]
     pub strings: *const *const ::std::os::raw::c_char,
-}
-#[test]
-fn bindgen_test_layout_tm_localizer_strings_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_localizer_strings_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_localizer_strings_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_localizer_strings_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_localizer_strings_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_localizer_strings_t>())).num_strings as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_localizer_strings_t),
-            "::",
-            stringify!(num_strings)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_localizer_strings_t>())).stride_bytes as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_localizer_strings_t),
-            "::",
-            stringify!(stride_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_localizer_strings_t>())).strings as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_localizer_strings_t),
-            "::",
-            stringify!(strings)
-        )
-    );
 }
 #[doc = " Interface for a provider of localization strings. A localization string provider provides the"]
 #[doc = " translations of a number of English strings into one or more languages."]
@@ -9534,13 +3857,13 @@ fn bindgen_test_layout_tm_localizer_strings_t() {
 pub type tm_localizer_strings_i =
     ::std::option::Option<unsafe extern "C" fn(language: tm_strhash_t) -> tm_localizer_strings_t>;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_localizer_o {
     _unused: [u8; 0],
 }
 #[doc = " Abstract interface for localizer. Provides translations of UI strings."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_localizer_i {
     pub inst: *mut tm_localizer_o,
     #[doc = " Translates the English string `s`."]
@@ -9561,42 +3884,9 @@ pub struct tm_localizer_i {
         ) -> *const ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_localizer_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_localizer_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_localizer_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_localizer_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_localizer_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_localizer_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_localizer_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_localizer_i>())).localize as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_localizer_i),
-            "::",
-            stringify!(localize)
-        )
-    );
-}
 #[doc = " API for accessing localizers."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_localizer_api {
     #[doc = " Returns the current default localizer. By default this is set to the `passthrough` localizer."]
     #[doc = " To provide localization for your application, you should set this to a localizer that"]
@@ -9604,39 +3894,6 @@ pub struct tm_localizer_api {
     pub def: *mut *mut tm_localizer_i,
     #[doc = " Passthrough localizer that returns the original string unmodified."]
     pub passthrough: *mut tm_localizer_i,
-}
-#[test]
-fn bindgen_test_layout_tm_localizer_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_localizer_api>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_localizer_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_localizer_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_localizer_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_localizer_api>())).def as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_localizer_api),
-            "::",
-            stringify!(def)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_localizer_api>())).passthrough as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_localizer_api),
-            "::",
-            stringify!(passthrough)
-        )
-    );
 }
 #[doc = " Used for informational messages and command output."]
 pub const TM_LOG_TYPE_INFO: tm_log_type = 0;
@@ -9649,14 +3906,14 @@ pub const TM_LOG_TYPE_ERROR: tm_log_type = 2;
 #[doc = " Specifies the type of a log message."]
 pub type tm_log_type = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_logger_o {
     _unused: [u8; 0],
 }
 #[doc = " Interface for loggers. A logger receives log messages and does something"]
 #[doc = " with them -- prints to a console, dumps to a file, etc."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_logger_i {
     pub inst: *mut tm_logger_o,
     #[doc = " Logs the `msg` of type `log_type` to this logger."]
@@ -9668,43 +3925,10 @@ pub struct tm_logger_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_logger_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_logger_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_logger_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_logger_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_logger_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_logger_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_logger_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_logger_i>())).log as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_logger_i),
-            "::",
-            stringify!(log)
-        )
-    );
-}
 #[doc = " Manages a list of active loggers. You can register more loggers to add more backend outputs for"]
 #[doc = " log messages."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_logger_api {
     #[doc = " Adds a new logger to the registry."]
     pub add_logger: ::std::option::Option<unsafe extern "C" fn(logger: *const tm_logger_i)>,
@@ -9730,72 +3954,9 @@ pub struct tm_logger_api {
     #[doc = " Note that this logger is automatically added. You need to explicitly remove it, if you don't want to use it."]
     pub default_logger: *mut tm_logger_i,
 }
-#[test]
-fn bindgen_test_layout_tm_logger_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_logger_api>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_logger_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_logger_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_logger_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_logger_api>())).add_logger as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_logger_api),
-            "::",
-            stringify!(add_logger)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_logger_api>())).remove_logger as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_logger_api),
-            "::",
-            stringify!(remove_logger)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_logger_api>())).print as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_logger_api),
-            "::",
-            stringify!(print)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_logger_api>())).printf as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_logger_api),
-            "::",
-            stringify!(printf)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_logger_api>())).default_logger as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_logger_api),
-            "::",
-            stringify!(default_logger)
-        )
-    );
-}
 #[doc = " API for LZ4 compression/decompression."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_lz4_api {
     #[doc = " Compresses `src_size` bytes form `src` to `dst`. `dst_capacity` specifies the capacity of the"]
     #[doc = " `dst` buffer. Compression is guaranteed to succeed if `dst_capcity >= compress_bound(src_size)`."]
@@ -9826,49 +3987,6 @@ pub struct tm_lz4_api {
     #[doc = " bytes."]
     pub compress_bound: ::std::option::Option<unsafe extern "C" fn(src_size: u32) -> u32>,
 }
-#[test]
-fn bindgen_test_layout_tm_lz4_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_lz4_api>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_lz4_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_lz4_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_lz4_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_lz4_api>())).compress as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_lz4_api),
-            "::",
-            stringify!(compress)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_lz4_api>())).decompress as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_lz4_api),
-            "::",
-            stringify!(decompress)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_lz4_api>())).compress_bound as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_lz4_api),
-            "::",
-            stringify!(compress_bound)
-        )
-    );
-}
 #[doc = " Shared math functions."]
 #[doc = ""]
 #[doc = " * Matrices are assumed to be in row-major order."]
@@ -9883,7 +4001,7 @@ fn bindgen_test_layout_tm_lz4_api() {
 #[doc = "     Not sure how valid this concern is. Should we get rid of this API and just use [[math.inl]]"]
 #[doc = "     instead?"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_math_api {
     #[doc = " Multiplies `lhs` and `rhs` and stores the result in `res`."]
     pub mat44_multiply: ::std::option::Option<
@@ -9911,87 +4029,11 @@ pub struct tm_math_api {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_math_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_math_api>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_math_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_math_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_math_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_multiply as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_math_api),
-            "::",
-            stringify!(mat44_multiply)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_inverse as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_math_api),
-            "::",
-            stringify!(mat44_inverse)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_determinant as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_math_api),
-            "::",
-            stringify!(mat44_determinant)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_determinant33 as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_math_api),
-            "::",
-            stringify!(mat44_determinant33)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_to_quaternion as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_math_api),
-            "::",
-            stringify!(mat44_to_quaternion)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_math_api>())).mat44_to_translation_quaternion_scale
-                as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_math_api),
-            "::",
-            stringify!(mat44_to_translation_quaternion_scale)
-        )
-    );
-}
 #[doc = " Information about allocations in a certain scope. Note that `allocated_bytes` and"]
 #[doc = " `allocation_count` are *exclusive*, i.e., they do not include the allocations in child scopes. If"]
 #[doc = " you want an inclusive count, you will have to sum the allocations yourself."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_memory_tracker_scope_data_t {
     #[doc = " Description of the scope."]
     pub desc: *const ::std::os::raw::c_char,
@@ -10009,125 +4051,10 @@ pub struct tm_memory_tracker_scope_data_t {
     #[doc = " Number of traces for this scope."]
     pub trace_count: u32,
 }
-#[test]
-fn bindgen_test_layout_tm_memory_tracker_scope_data_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_memory_tracker_scope_data_t>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_memory_tracker_scope_data_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_memory_tracker_scope_data_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_memory_tracker_scope_data_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).desc as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(desc)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).allocated_bytes as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(allocated_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).allocation_count as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(allocation_count)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).parent as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(parent)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).num_children as *const _
-                as usize
-        },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(num_children)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).tracing_enabled as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(tracing_enabled)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>()))._padding_44 as *const _
-                as usize
-        },
-        33usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(_padding_44)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).trace_count as *const _
-                as usize
-        },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_scope_data_t),
-            "::",
-            stringify!(trace_count)
-        )
-    );
-}
 #[doc = " Data for one traced allocation. Note that tracing must be explicitly enabled for a scope with"]
 #[doc = " [[set_scope_tracing()]] for trace data to be recorded."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_memory_tracker_trace_data_t {
     #[doc = " File where this allocation occurred."]
     pub file: *const ::std::os::raw::c_char,
@@ -10140,83 +4067,8 @@ pub struct tm_memory_tracker_trace_data_t {
     #[doc = " Number of allocations for this trace."]
     pub allocation_count: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_memory_tracker_trace_data_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_memory_tracker_trace_data_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_memory_tracker_trace_data_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_memory_tracker_trace_data_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_memory_tracker_trace_data_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).file as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_trace_data_t),
-            "::",
-            stringify!(file)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).line as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_trace_data_t),
-            "::",
-            stringify!(line)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).scope as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_trace_data_t),
-            "::",
-            stringify!(scope)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).allocated_bytes as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_trace_data_t),
-            "::",
-            stringify!(allocated_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).allocation_count as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_trace_data_t),
-            "::",
-            stringify!(allocation_count)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_memory_tracker_api {
     #[doc = " Called at the end of the program, when all created scopes should have been released. Checks"]
     #[doc = " that all scopes created by [[create_scope()]] have been destroyed."]
@@ -10286,150 +4138,13 @@ pub struct tm_memory_tracker_api {
         unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *mut tm_memory_tracker_trace_data_t,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_memory_tracker_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_memory_tracker_api>(),
-        80usize,
-        concat!("Size of: ", stringify!(tm_memory_tracker_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_memory_tracker_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_memory_tracker_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).check_for_leaked_scopes as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(check_for_leaked_scopes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).create_scope as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(create_scope)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).destroy_scope as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(destroy_scope)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).destroy_scope_allowing_leaks
-                as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(destroy_scope_allowing_leaks)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).record_realloc as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(record_realloc)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).allocated_bytes as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(allocated_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).allocation_count as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(allocation_count)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).set_scope_tracing as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(set_scope_tracing)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).scope_data_snapshot as *const _
-                as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(scope_data_snapshot)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_memory_tracker_api>())).trace_data_snapshot as *const _
-                as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_memory_tracker_api),
-            "::",
-            stringify!(trace_data_snapshot)
-        )
-    );
-}
 #[doc = " Interface to the virtual memory system."]
 #[doc = ""]
 #[doc = " !!! WARNING"]
 #[doc = "     Calling these functions directly will bypass our memory tracking system. Instead of calling"]
 #[doc = "     these functions directly, you should use the allocators defined in the [[tm_allocator_api]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_virtual_memory_api {
     #[doc = " Maps an area of the specified size and returns a pointer to it."]
     pub map: ::std::option::Option<unsafe extern "C" fn(size: u64) -> *mut ::std::os::raw::c_void>,
@@ -10448,113 +4163,15 @@ pub struct tm_os_virtual_memory_api {
     pub commit:
         ::std::option::Option<unsafe extern "C" fn(p: *mut ::std::os::raw::c_void, size: u64)>,
 }
-#[test]
-fn bindgen_test_layout_tm_os_virtual_memory_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_virtual_memory_api>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_os_virtual_memory_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_virtual_memory_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_virtual_memory_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).map as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_virtual_memory_api),
-            "::",
-            stringify!(map)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).unmap as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_virtual_memory_api),
-            "::",
-            stringify!(unmap)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).reserve as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_virtual_memory_api),
-            "::",
-            stringify!(reserve)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).commit as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_virtual_memory_api),
-            "::",
-            stringify!(commit)
-        )
-    );
-}
 #[doc = " Represents a file handle."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_file_o {
     #[doc = " Opaque OS representation of file handle."]
     pub handle: u64,
     #[doc = " True if `tm_file_o` represents a valid file handle."]
     pub valid: bool,
     pub _padding_51: [::std::os::raw::c_char; 7usize],
-}
-#[test]
-fn bindgen_test_layout_tm_file_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_file_o>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_file_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_file_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_file_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_o>())).handle as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_o),
-            "::",
-            stringify!(handle)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_o>())).valid as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_o),
-            "::",
-            stringify!(valid)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_o>()))._padding_51 as *const _ as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_o),
-            "::",
-            stringify!(_padding_51)
-        )
-    );
 }
 #[doc = " Represents a time in the file system (such as the time a file was last modified)."]
 #[doc = ""]
@@ -10563,36 +4180,13 @@ fn bindgen_test_layout_tm_file_o() {
 #[doc = " the resolution of the timer. Instead, use [[tm_os_time_api->file_time_delta()]] to convert elapsed"]
 #[doc = " time to seconds."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_file_time_o {
     pub opaque: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_file_time_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_file_time_o>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_file_time_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_file_time_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_file_time_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_time_o>())).opaque as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_time_o),
-            "::",
-            stringify!(opaque)
-        )
-    );
-}
 #[doc = " Interface for File I/O."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_file_io_api {
     #[doc = " Opens the specified path for input. If opening fails, returns an invalid file handle."]
     pub open_input: ::std::option::Option<
@@ -10661,135 +4255,9 @@ pub struct tm_os_file_io_api {
     #[doc = " Closes the file."]
     pub close: ::std::option::Option<unsafe extern "C" fn(file: tm_file_o)>,
 }
-#[test]
-fn bindgen_test_layout_tm_os_file_io_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_file_io_api>(),
-        88usize,
-        concat!("Size of: ", stringify!(tm_os_file_io_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_file_io_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_file_io_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).open_input as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(open_input)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).open_output as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(open_output)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).open_append as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(open_append)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).set_position as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(set_position)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).size as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).read as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(read)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).write as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(write)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).read_at as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(read_at)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).write_at as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(write_at)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_io_api>())).set_last_modified_time as *const _
-                as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(set_last_modified_time)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).close as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_io_api),
-            "::",
-            stringify!(close)
-        )
-    );
-}
 #[doc = " Information about a file returned by the [[stat()]] function."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_file_stat_t {
     #[doc = " True if the file (or directory) exists."]
     pub exists: bool,
@@ -10801,71 +4269,6 @@ pub struct tm_file_stat_t {
     #[doc = " The size of the file."]
     pub size: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_file_stat_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_file_stat_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_file_stat_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_file_stat_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_file_stat_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>())).exists as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_stat_t),
-            "::",
-            stringify!(exists)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>())).is_directory as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_stat_t),
-            "::",
-            stringify!(is_directory)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>()))._padding_123 as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_stat_t),
-            "::",
-            stringify!(_padding_123)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_file_stat_t>())).last_modified_time as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_stat_t),
-            "::",
-            stringify!(last_modified_time)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_stat_t),
-            "::",
-            stringify!(size)
-        )
-    );
-}
 #[doc = " Represents a collection of strings. The struct is followed by"]
 #[doc = " `char[bytes - sizeof(struct tm_strings_t)]` bytes of string data in memory. The strings are"]
 #[doc = " laid out consecutively in memory, each string terminated by a `0` byte and followed"]
@@ -10874,77 +4277,21 @@ fn bindgen_test_layout_tm_file_stat_t() {
 #[doc = " !!! TODO: API-REVIEW"]
 #[doc = "     Change this to an easier to use structure with an array of string pointers."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_strings_t {
     #[doc = " The number of strings in this data structure."]
     pub count: u32,
     #[doc = " The total number of bytes used by the header and all the strings."]
     pub bytes: u32,
 }
-#[test]
-fn bindgen_test_layout_tm_strings_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_strings_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_strings_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_strings_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_strings_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_strings_t>())).count as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_strings_t),
-            "::",
-            stringify!(count)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_strings_t>())).bytes as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_strings_t),
-            "::",
-            stringify!(bytes)
-        )
-    );
-}
 #[doc = " Represents a file system watcher."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_file_system_watcher_o {
     pub opaque: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_file_system_watcher_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_file_system_watcher_o>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_file_system_watcher_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_file_system_watcher_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_file_system_watcher_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_system_watcher_o>())).opaque as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_system_watcher_o),
-            "::",
-            stringify!(opaque)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_file_system_detailed_watcher_o {
     _unused: [u8; 0],
 }
@@ -10964,7 +4311,7 @@ pub const TM_FILE_SYSTEM_CHANGE_ACTION__MODIFIED: tm_file_system_change_action =
 pub type tm_file_system_change_action = ::std::os::raw::c_int;
 #[doc = " Represents a change to the file system, detected by the [[tm_file_system_detailed_watcher_o]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_file_system_change_t {
     #[doc = " The relative path from the watched directory where the changed happened."]
     pub relative_path: *const ::std::os::raw::c_char,
@@ -10972,56 +4319,9 @@ pub struct tm_file_system_change_t {
     pub action: tm_file_system_change_action,
     pub _padding_182: [::std::os::raw::c_char; 4usize],
 }
-#[test]
-fn bindgen_test_layout_tm_file_system_change_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_file_system_change_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_file_system_change_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_file_system_change_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_file_system_change_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_file_system_change_t>())).relative_path as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_system_change_t),
-            "::",
-            stringify!(relative_path)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_file_system_change_t>())).action as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_system_change_t),
-            "::",
-            stringify!(action)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_file_system_change_t>()))._padding_182 as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_file_system_change_t),
-            "::",
-            stringify!(_padding_182)
-        )
-    );
-}
 #[doc = " Interface to the file system."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_file_system_api {
     #[doc = " Returns information about the file at `path`."]
     pub stat: ::std::option::Option<
@@ -11133,240 +4433,9 @@ pub struct tm_os_file_system_api {
         unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *const ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_os_file_system_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_file_system_api>(),
-        152usize,
-        concat!("Size of: ", stringify!(tm_os_file_system_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_file_system_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_file_system_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).stat as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(stat)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).directory_entries as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(directory_entries)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).make_directory as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(make_directory)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).remove_file as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(remove_file)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).remove_directory as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(remove_directory)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).rename as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(rename)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).copy_file as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(copy_file)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).getcwd as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(getcwd)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).chdir as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(chdir)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).is_absolute as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(is_absolute)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).absolute as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(absolute)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).temp_directory as *const _ as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(temp_directory)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).create_watcher as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(create_watcher)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).any_changes as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(any_changes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).destroy_watcher as *const _ as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(destroy_watcher)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).create_detailed_watcher as *const _
-                as usize
-        },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(create_detailed_watcher)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).detailed_changes as *const _ as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(detailed_changes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).destroy_detailed_watcher as *const _
-                as usize
-        },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(destroy_detailed_watcher)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_file_system_api>())).app_folder as *const _ as usize
-        },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_file_system_api),
-            "::",
-            stringify!(app_folder)
-        )
-    );
-}
 #[doc = " Represents a loaded DLL."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_dll_o {
     #[doc = " Opaque system handle to DLL."]
     pub handle: u64,
@@ -11374,52 +4443,9 @@ pub struct tm_dll_o {
     pub valid: bool,
     pub _padding_278: [::std::os::raw::c_char; 7usize],
 }
-#[test]
-fn bindgen_test_layout_tm_dll_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_dll_o>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_dll_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_dll_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_dll_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_dll_o>())).handle as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_dll_o),
-            "::",
-            stringify!(handle)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_dll_o>())).valid as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_dll_o),
-            "::",
-            stringify!(valid)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_dll_o>()))._padding_278 as *const _ as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_dll_o),
-            "::",
-            stringify!(_padding_278)
-        )
-    );
-}
 #[doc = " Interface for loading shared libraries."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_dll_api {
     #[doc = " Opens a shared library file. In case of an error, an invalid [[tm_dll_o]] object will be"]
     #[doc = " returned."]
@@ -11441,111 +4467,15 @@ pub struct tm_os_dll_api {
     #[doc = " Closes a shared library opened by [[open()]]."]
     pub close: ::std::option::Option<unsafe extern "C" fn(handle: tm_dll_o)>,
 }
-#[test]
-fn bindgen_test_layout_tm_os_dll_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_dll_api>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_os_dll_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_dll_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_dll_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).open as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dll_api),
-            "::",
-            stringify!(open)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).get as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dll_api),
-            "::",
-            stringify!(get)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).sym as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dll_api),
-            "::",
-            stringify!(sym)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).close as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dll_api),
-            "::",
-            stringify!(close)
-        )
-    );
-}
 #[doc = " Represents an open socket."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_socket_o {
     #[doc = " Opaque handle to system socket."]
     pub handle: u64,
     #[doc = " True if socket is valid."]
     pub valid: bool,
     pub _padding_309: [::std::os::raw::c_char; 7usize],
-}
-#[test]
-fn bindgen_test_layout_tm_socket_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_socket_o>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_socket_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_socket_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_socket_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_socket_o>())).handle as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_socket_o),
-            "::",
-            stringify!(handle)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_socket_o>())).valid as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_socket_o),
-            "::",
-            stringify!(valid)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_socket_o>()))._padding_309 as *const _ as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_socket_o),
-            "::",
-            stringify!(_padding_309)
-        )
-    );
 }
 #[doc = " Represents an address to a socket."]
 #[repr(C)]
@@ -11561,70 +4491,6 @@ pub struct tm_socket_address_t {
 pub union tm_socket_address_t__bindgen_ty_1 {
     pub ip: u32,
     pub ip_byte: [u8; 4usize],
-}
-#[test]
-fn bindgen_test_layout_tm_socket_address_t__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_socket_address_t__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(tm_socket_address_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_socket_address_t__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_socket_address_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_socket_address_t__bindgen_ty_1>())).ip as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_socket_address_t__bindgen_ty_1),
-            "::",
-            stringify!(ip)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_socket_address_t__bindgen_ty_1>())).ip_byte as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_socket_address_t__bindgen_ty_1),
-            "::",
-            stringify!(ip_byte)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_tm_socket_address_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_socket_address_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_socket_address_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_socket_address_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(tm_socket_address_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_socket_address_t>())).port as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_socket_address_t),
-            "::",
-            stringify!(port)
-        )
-    );
 }
 pub const TM_OS_SOCKET_TYPE_TCP: tm_os_socket_type = 1;
 pub const TM_OS_SOCKET_TYPE_UDP: tm_os_socket_type = 2;
@@ -11672,7 +4538,7 @@ pub const TM_SOCKET_OPTION__NONBLOCK: tm_os_socket_option = 1;
 pub type tm_os_socket_option = ::std::os::raw::c_int;
 #[doc = " Interface to the IP socket layer."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_socket_api {
     #[doc = " Initializes the socket communication layer. You should call this before performing any other"]
     #[doc = " socket operation."]
@@ -11803,193 +4669,6 @@ pub struct tm_os_socket_api {
         ) -> tm_os_socket_getaddrinfo,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_os_socket_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_socket_api>(),
-        136usize,
-        concat!("Size of: ", stringify!(tm_os_socket_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_socket_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_socket_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).init as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(init)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).shutdown as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(shutdown)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).socket as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(socket)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).set_option as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(set_option)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).bind as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(bind)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).getsockname as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(getsockname)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).listen as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(listen)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).accept as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(accept)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).connect as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(connect)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).send as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(send)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).recv as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).sendto as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(sendto)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).recvfrom as *const _ as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(recvfrom)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).close as *const _ as usize },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(close)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).getaddrinfo as *const _ as usize },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(getaddrinfo)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_socket_api>())).getaddrinfo_async as *const _ as usize
-        },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(getaddrinfo_async)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_socket_api>())).getaddrinfo_result as *const _ as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_socket_api),
-            "::",
-            stringify!(getaddrinfo_result)
-        )
-    );
-}
 pub const TM_OS_THREAD__PRIORITY__LOWEST: tm_os_thread__priority = 0;
 pub const TM_OS_THREAD__PRIOIRTY__LOW: tm_os_thread__priority = 1;
 pub const TM_OS_THREAD__PRIORITY__NORMAL: tm_os_thread__priority = 2;
@@ -12008,123 +4687,31 @@ pub type tm_fiber_entry_f =
 #[doc = " Represents a critical section. Note that on OS X, critical sections are not relocatable,"]
 #[doc = " i.e., they cannot be passed by value."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_critical_section_o {
     pub opaque: [u64; 8usize],
 }
-#[test]
-fn bindgen_test_layout_tm_critical_section_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_critical_section_o>(),
-        64usize,
-        concat!("Size of: ", stringify!(tm_critical_section_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_critical_section_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_critical_section_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_critical_section_o>())).opaque as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_critical_section_o),
-            "::",
-            stringify!(opaque)
-        )
-    );
-}
 #[doc = " Represents a semaphore."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_semaphore_o {
     pub opaque: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_semaphore_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_semaphore_o>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_semaphore_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_semaphore_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_semaphore_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_semaphore_o>())).opaque as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_semaphore_o),
-            "::",
-            stringify!(opaque)
-        )
-    );
-}
 #[doc = " Represents a thread."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_thread_o {
     pub opaque: [u64; 2usize],
 }
-#[test]
-fn bindgen_test_layout_tm_thread_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_thread_o>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_thread_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_thread_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_thread_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_thread_o>())).opaque as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_thread_o),
-            "::",
-            stringify!(opaque)
-        )
-    );
-}
 #[doc = " Represents a fiber."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_fiber_o {
     pub opaque: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_fiber_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_fiber_o>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_fiber_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_fiber_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_fiber_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_fiber_o>())).opaque as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_fiber_o),
-            "::",
-            stringify!(opaque)
-        )
-    );
-}
 #[doc = " Interface for manipulating threads, mutexes, semaphores, etc."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_thread_api {
     #[doc = " Creates a new critical section and returns it."]
     pub create_critical_section:
@@ -12207,285 +4794,9 @@ pub struct tm_os_thread_api {
     #[doc = " Sleeps the current thread for the specified number of seconds."]
     pub sleep: ::std::option::Option<unsafe extern "C" fn(seconds: f64)>,
 }
-#[test]
-fn bindgen_test_layout_tm_os_thread_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_thread_api>(),
-        184usize,
-        concat!("Size of: ", stringify!(tm_os_thread_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_thread_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_thread_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).create_critical_section as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(create_critical_section)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).enter_critical_section as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(enter_critical_section)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).leave_critical_section as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(leave_critical_section)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).destroy_critical_section as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(destroy_critical_section)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).create_semaphore as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(create_semaphore)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).semaphore_add as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(semaphore_add)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).semaphore_wait as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(semaphore_wait)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).semaphore_poll as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(semaphore_poll)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).destroy_semaphore as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(destroy_semaphore)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).thread_id as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(thread_id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).processor_id as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(processor_id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).create_thread as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(create_thread)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).set_thread_priority as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(set_thread_priority)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).wait_for_thread as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(wait_for_thread)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).thread_id_from_tm_thread as *const _
-                as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(thread_id_from_tm_thread)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).convert_thread_to_fiber as *const _
-                as usize
-        },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(convert_thread_to_fiber)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).convert_fiber_to_thread as *const _
-                as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(convert_fiber_to_thread)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).create_fiber as *const _ as usize },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(create_fiber)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).destroy_fiber as *const _ as usize },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(destroy_fiber)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).switch_to_fiber as *const _ as usize
-        },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(switch_to_fiber)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).fiber_user_data as *const _ as usize
-        },
-        160usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(fiber_user_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_thread_api>())).yield_processor as *const _ as usize
-        },
-        168usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(yield_processor)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).sleep as *const _ as usize },
-        176usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_thread_api),
-            "::",
-            stringify!(sleep)
-        )
-    );
-}
 #[doc = " Interface for manipulating time."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_time_api {
     #[doc = " Returns the current time."]
     #[doc = ""]
@@ -12509,72 +4820,9 @@ pub struct tm_os_time_api {
         unsafe extern "C" fn(to: tm_file_time_o, from: tm_file_time_o) -> f64,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_os_time_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_time_api>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_os_time_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_time_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_time_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).now as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_time_api),
-            "::",
-            stringify!(now)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).delta as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_time_api),
-            "::",
-            stringify!(delta)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).add as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_time_api),
-            "::",
-            stringify!(add)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).file_time_now as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_time_api),
-            "::",
-            stringify!(file_time_now)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).file_time_delta as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_time_api),
-            "::",
-            stringify!(file_time_delta)
-        )
-    );
-}
 #[doc = " Arguments to [[tm_os_dialogs_api->open()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_dialogs_open_t {
     #[doc = " List of extensions that can be opened, separated by space, e.g. (\"gif png\")."]
     pub extensions: *const ::std::os::raw::c_char,
@@ -12585,68 +4833,9 @@ pub struct tm_os_dialogs_open_t {
     pub allow_multi_select: bool,
     pub _padding_699: [::std::os::raw::c_char; 7usize],
 }
-#[test]
-fn bindgen_test_layout_tm_os_dialogs_open_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_dialogs_open_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_os_dialogs_open_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_dialogs_open_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_dialogs_open_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_open_t>())).extensions as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_open_t),
-            "::",
-            stringify!(extensions)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_dialogs_open_t>())).description as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_open_t),
-            "::",
-            stringify!(description)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_dialogs_open_t>())).allow_multi_select as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_open_t),
-            "::",
-            stringify!(allow_multi_select)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_dialogs_open_t>()))._padding_699 as *const _ as usize
-        },
-        17usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_open_t),
-            "::",
-            stringify!(_padding_699)
-        )
-    );
-}
 #[doc = " Result of [[tm_os_dialogs_api->open()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_dialogs_open_res_t {
     #[doc = " Number of files that were selected."]
     pub num_files: u32,
@@ -12654,87 +4843,15 @@ pub struct tm_os_dialogs_open_res_t {
     #[doc = " Array of filenames."]
     pub files: *mut *mut ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_os_dialogs_open_res_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_dialogs_open_res_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_os_dialogs_open_res_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_dialogs_open_res_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_dialogs_open_res_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_dialogs_open_res_t>())).num_files as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_open_res_t),
-            "::",
-            stringify!(num_files)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_dialogs_open_res_t>()))._padding_707 as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_open_res_t),
-            "::",
-            stringify!(_padding_707)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_open_res_t>())).files as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_open_res_t),
-            "::",
-            stringify!(files)
-        )
-    );
-}
 #[doc = " Arguments to [[tm_os_dialogs_api->save()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_dialogs_save_t {
     #[doc = " Default filename to use for the saved file."]
     pub default_name: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_os_dialogs_save_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_dialogs_save_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_os_dialogs_save_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_dialogs_save_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_dialogs_save_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_dialogs_save_t>())).default_name as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_save_t),
-            "::",
-            stringify!(default_name)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_dialogs_api {
     #[doc = " Shows the system \"Open File...\" dialog and lets the user pick a file. Returns the"]
     #[doc = " result of the operation. The result is allocated using the supplied temp allocator `ta`."]
@@ -12774,116 +4891,18 @@ pub struct tm_os_dialogs_api {
     #[doc = " reset any held input state (pressed keys, etc)."]
     pub show_count: ::std::option::Option<unsafe extern "C" fn() -> u64>,
 }
-#[test]
-fn bindgen_test_layout_tm_os_dialogs_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_dialogs_api>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_os_dialogs_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_dialogs_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_dialogs_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).open as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_api),
-            "::",
-            stringify!(open)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).open_folder as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_api),
-            "::",
-            stringify!(open_folder)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).save as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_api),
-            "::",
-            stringify!(save)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).message_box as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_api),
-            "::",
-            stringify!(message_box)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).show_count as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_dialogs_api),
-            "::",
-            stringify!(show_count)
-        )
-    );
-}
 #[doc = " API for obtaining information about the system."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_info_api {
     #[doc = " Returns the number of logical processors."]
     pub num_logical_processors: ::std::option::Option<unsafe extern "C" fn() -> u32>,
     #[doc = " Returns true if the processor supports the AVX instruction set."]
     pub avx_support: ::std::option::Option<unsafe extern "C" fn() -> bool>,
 }
-#[test]
-fn bindgen_test_layout_tm_os_info_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_info_api>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_os_info_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_info_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_info_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_info_api>())).num_logical_processors as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_info_api),
-            "::",
-            stringify!(num_logical_processors)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_info_api>())).avx_support as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_info_api),
-            "::",
-            stringify!(avx_support)
-        )
-    );
-}
 #[doc = " [[tm_os_debugger_api]] is used to interact with the debugger."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_debugger_api {
     #[doc = " Returns `true` if the current process is connected to a debugger."]
     pub is_debugger_present: ::std::option::Option<unsafe extern "C" fn() -> bool>,
@@ -12891,44 +4910,9 @@ pub struct tm_os_debugger_api {
     #[doc = " any debugger is connected).)"]
     pub debug_break: ::std::option::Option<unsafe extern "C" fn()>,
 }
-#[test]
-fn bindgen_test_layout_tm_os_debugger_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_debugger_api>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_os_debugger_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_debugger_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_debugger_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_debugger_api>())).is_debugger_present as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_debugger_api),
-            "::",
-            stringify!(is_debugger_present)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_debugger_api>())).debug_break as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_debugger_api),
-            "::",
-            stringify!(debug_break)
-        )
-    );
-}
 #[doc = " [[tm_os_system_api]] is used to interact with system services."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_system_api {
     #[doc = " Opens the specified `url` using the default system handler."]
     pub open_url: ::std::option::Option<unsafe extern "C" fn(url: *const ::std::os::raw::c_char)>,
@@ -12981,84 +4965,9 @@ pub struct tm_os_system_api {
         ) -> *mut ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_os_system_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_system_api>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_os_system_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_system_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_system_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).open_url as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_system_api),
-            "::",
-            stringify!(open_url)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).open_file as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_system_api),
-            "::",
-            stringify!(open_file)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).exe_path as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_system_api),
-            "::",
-            stringify!(exe_path)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).execute as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_system_api),
-            "::",
-            stringify!(execute)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_os_system_api>())).execute_in_background as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_system_api),
-            "::",
-            stringify!(execute_in_background)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).execute_stdout as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_system_api),
-            "::",
-            stringify!(execute_stdout)
-        )
-    );
-}
 #[doc = " [[tm_os_api]] is a \"master\" API, used to access the APIs for different parts of the OS."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_os_api {
     pub virtual_memory: *mut tm_os_virtual_memory_api,
     pub file_io: *mut tm_os_file_io_api,
@@ -13072,132 +4981,9 @@ pub struct tm_os_api {
     pub debugger: *mut tm_os_debugger_api,
     pub system: *mut tm_os_system_api,
 }
-#[test]
-fn bindgen_test_layout_tm_os_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_os_api>(),
-        88usize,
-        concat!("Size of: ", stringify!(tm_os_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_os_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_os_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).virtual_memory as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(virtual_memory)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).file_io as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(file_io)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).file_system as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(file_system)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).dll as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(dll)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).socket as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(socket)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).thread as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(thread)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).time as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(time)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).dialogs as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(dialogs)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).info as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(info)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).debugger as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(debugger)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_os_api>())).system as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_os_api),
-            "::",
-            stringify!(system)
-        )
-    );
-}
 #[doc = " API for path manipulation"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_path_api {
     #[doc = " Returns the file extension of the `path`, i.e. everything after the last \".\"."]
     #[doc = ""]
@@ -13297,119 +5083,6 @@ pub struct tm_path_api {
         unsafe extern "C" fn(a: tm_str_t, b: tm_str_t, ta: *mut tm_temp_allocator_i) -> tm_str_t,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_path_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_path_api>(),
-        80usize,
-        concat!("Size of: ", stringify!(tm_path_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_path_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_path_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).extension as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(extension)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).extension_cstr as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(extension_cstr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).strip_extension as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(strip_extension)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).base as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(base)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).base_cstr as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(base_cstr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).directory as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(directory)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).pop_last as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(pop_last)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).pop_first as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(pop_first)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).split_all as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(split_all)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_path_api>())).join as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_path_api),
-            "::",
-            stringify!(join)
-        )
-    );
-}
 #[doc = " [[tm_plugin_load_f]] is the type of the `tm_load_plugin()` function that should be implemented by"]
 #[doc = " plugins. The plugin system will call `tm_load_plugin(reg, true)` to load the plugin and"]
 #[doc = " `tm_load_plugin(reg, false)` to unload it. `reg` is the pointer to the API registry and can be"]
@@ -13427,7 +5100,7 @@ pub type tm_plugin_load_f =
 #[doc = " how the \"handover\" happens -- how much data is preserved automatically, and what the clients of"]
 #[doc = " the plugin need to do in order to \"switch over\" to the new version."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_plugins_api {
     #[doc = " Loads a plugin from the specified `path`."]
     #[doc = ""]
@@ -13510,121 +5183,6 @@ pub struct tm_plugins_api {
         ) -> *const ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_plugins_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_plugins_api>(),
-        80usize,
-        concat!("Size of: ", stringify!(tm_plugins_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_plugins_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_plugins_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).load as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(load)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).unload as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(unload)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).reload as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(reload)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).set_path as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(set_path)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).check_hot_reload as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(check_hot_reload)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).reload_count as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(reload_count)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).enumerate as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(enumerate)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_plugins_api>())).load_plugin_context as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(load_plugin_context)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).plugin_dllpath as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(plugin_dllpath)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).app_dllpath as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugins_api),
-            "::",
-            stringify!(app_dllpath)
-        )
-    );
-}
 #[doc = " bool"]
 pub const TM_TT_PROP__PLUGIN__IMPORT_ON_CHANGE: TM_TT_PROP__PLUGIN = 0;
 #[doc = " string"]
@@ -13645,7 +5203,7 @@ pub type TM_TT_PROP__PLUGIN = ::std::os::raw::c_int;
 #[doc = " the executable. Typically this would be at the same point where you do your regular plugin"]
 #[doc = " hot-reload."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_plugin_assets_api {
     #[doc = " Returns *true* if the truth `tt` contains any plugin assets. You can use this to determine"]
     #[doc = " if you should ask the user if she wants to run the plugins. (If there are no plugins in the"]
@@ -13684,214 +5242,30 @@ pub struct tm_plugin_assets_api {
         unsafe extern "C" fn(tt: *mut tm_the_truth_o, allow_code_execution: bool),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_plugin_assets_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_plugin_assets_api>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_plugin_assets_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_plugin_assets_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_plugin_assets_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_plugin_assets_api>())).any_plugins as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_assets_api),
-            "::",
-            stringify!(any_plugins)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_assets_api>())).init_truth as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_assets_api),
-            "::",
-            stringify!(init_truth)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_plugin_assets_api>())).shutdown_truth as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_assets_api),
-            "::",
-            stringify!(shutdown_truth)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_plugin_assets_api>())).update_truth as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_assets_api),
-            "::",
-            stringify!(update_truth)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_plugin_assets_api>())).allow_code_execution as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_assets_api),
-            "::",
-            stringify!(allow_code_execution)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_plugin_assets_api>())).set_allow_code_execution as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_assets_api),
-            "::",
-            stringify!(set_allow_code_execution)
-        )
-    );
-}
 #[doc = " [[tm_plugin_init_i]] is typically called as early as possible after all plugins have been loaded."]
 #[doc = " [[tm_plugin_init_i]] is not called when a plugin is reloaded."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_plugin_init_i {
     pub inst: *mut tm_plugin_o,
     pub init: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut tm_plugin_o, allocator: *mut tm_allocator_i),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_plugin_init_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_plugin_init_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_plugin_init_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_plugin_init_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_plugin_init_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_init_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_init_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_init_i>())).init as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_init_i),
-            "::",
-            stringify!(init)
-        )
-    );
-}
 #[doc = " [[tm_plugin_shutdown_i]] is typically be called as early as possible during the application"]
 #[doc = " shutdown sequence. [[tm_plugin_shutdown_i]] is not called when a plugin is reloaded."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_plugin_shutdown_i {
     pub inst: *mut tm_plugin_o,
     pub shutdown: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_plugin_o)>,
 }
-#[test]
-fn bindgen_test_layout_tm_plugin_shutdown_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_plugin_shutdown_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_plugin_shutdown_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_plugin_shutdown_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_plugin_shutdown_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_shutdown_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_shutdown_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_shutdown_i>())).shutdown as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_shutdown_i),
-            "::",
-            stringify!(shutdown)
-        )
-    );
-}
 #[doc = " [[tm_plugin_tick_i]] is typically called as early as possible in the application main loop \"tick\"."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_plugin_tick_i {
     pub inst: *mut tm_plugin_o,
     pub tick: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_plugin_o, dt: f32)>,
-}
-#[test]
-fn bindgen_test_layout_tm_plugin_tick_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_plugin_tick_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_plugin_tick_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_plugin_tick_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_plugin_tick_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_tick_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_tick_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_tick_i>())).tick as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_tick_i),
-            "::",
-            stringify!(tick)
-        )
-    );
 }
 #[doc = " [[tm_plugin_set_the_truth_i]] is called whenever the \"main\" Truth of the application changes. The"]
 #[doc = " \"main\" Truth is the primary Truth used for editing data in the application."]
@@ -13900,47 +5274,12 @@ fn bindgen_test_layout_tm_plugin_tick_i() {
 #[doc = "     This interface should be removed. The Truth shouldn't be treated as a singleton by"]
 #[doc = "     plugins."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_plugin_set_the_truth_i {
     pub inst: *mut tm_plugin_o,
     pub set_the_truth: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut tm_plugin_o, tt: *mut tm_the_truth_o),
     >,
-}
-#[test]
-fn bindgen_test_layout_tm_plugin_set_the_truth_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_plugin_set_the_truth_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_plugin_set_the_truth_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_plugin_set_the_truth_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_plugin_set_the_truth_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_plugin_set_the_truth_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_set_the_truth_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_plugin_set_the_truth_i>())).set_the_truth as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_plugin_set_the_truth_i),
-            "::",
-            stringify!(set_the_truth)
-        )
-    );
 }
 #[doc = " Start of a time interval. (Corresponds to `B` in Chrome tracing.)"]
 pub const TM_PROFILER_EVENT_TYPE_BEGIN: tm_profiler_event_type = 0;
@@ -13976,7 +5315,7 @@ pub union tm_profiler_event_t__bindgen_ty_1 {
 }
 #[doc = " Data for BEGIN, END, INSTANT, START, and FINISH events."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1 {
     #[doc = " ID used to match begin/end events."]
     pub id: u32,
@@ -13990,202 +5329,14 @@ pub struct tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1 {
     #[doc = " them as object names."]
     pub object: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>(),
-        32usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).id
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>()))._padding_51
-                as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(_padding_51)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).category
-                as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(category)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).name
-                as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).object
-                as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(object)
-        )
-    );
-}
 #[doc = " Data for FIBER_SWITCH events."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2 {
     #[doc = " Index of fiber that is being switched out."]
     pub from_fiber: u32,
     #[doc = " Index of fiber that is being switched in."]
     pub to_fiber: u32,
-}
-#[test]
-fn bindgen_test_layout_tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>())).from_fiber
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2),
-            "::",
-            stringify!(from_fiber)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>())).to_fiber
-                as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2),
-            "::",
-            stringify!(to_fiber)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_tm_profiler_event_t__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_profiler_event_t__bindgen_ty_1>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_profiler_event_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_profiler_event_t__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_profiler_event_t__bindgen_ty_1)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_tm_profiler_event_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_profiler_event_t>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_profiler_event_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_profiler_event_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_profiler_event_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_event_t>())).type_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_event_t>())).thread_id as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t),
-            "::",
-            stringify!(thread_id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_event_t>())).time_stamp as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_event_t),
-            "::",
-            stringify!(time_stamp)
-        )
-    );
 }
 #[doc = " Represents the internal buffer of profiler events that the profiler keeps."]
 #[doc = ""]
@@ -14193,7 +5344,7 @@ fn bindgen_test_layout_tm_profiler_event_t() {
 #[doc = " we return it in two parts. The first part (`[0]`) is the data before the ring buffer wraps around"]
 #[doc = " and the second part (`[1]`) is the data after the wraparound."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_profiler_buffer_t {
     #[doc = " The total number of profiler events that have been recorded. Note that not all of these may"]
     #[doc = " be retained in the buffer, since the buffer is fixed sized. To track all events, the buffer"]
@@ -14206,67 +5357,12 @@ pub struct tm_profiler_buffer_t {
     #[doc = " Number of events in each segment."]
     pub count: [u32; 2usize],
 }
-#[test]
-fn bindgen_test_layout_tm_profiler_buffer_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_profiler_buffer_t>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_profiler_buffer_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_profiler_buffer_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_profiler_buffer_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_profiler_buffer_t>())).total_recorded as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_buffer_t),
-            "::",
-            stringify!(total_recorded)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_buffer_t>())).start as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_buffer_t),
-            "::",
-            stringify!(start)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_buffer_t>())).events as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_buffer_t),
-            "::",
-            stringify!(events)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_buffer_t>())).count as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_buffer_t),
-            "::",
-            stringify!(count)
-        )
-    );
-}
 #[doc = " [[tm_profiler_api]] is used to collect and retain profiling events. Other systems can query the"]
 #[doc = " profiler for these events and take appropriate action."]
 #[doc = ""]
 #[doc = " The profiler is global and thread-safe."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_profiler_api {
     #[doc = " Initializes the global profiler for data recording."]
     pub init: ::std::option::Option<
@@ -14359,149 +5455,6 @@ pub struct tm_profiler_api {
     #[doc = " necessary for some applications."]
     pub buffer: ::std::option::Option<unsafe extern "C" fn() -> tm_profiler_buffer_t>,
 }
-#[test]
-fn bindgen_test_layout_tm_profiler_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_profiler_api>(),
-        104usize,
-        concat!("Size of: ", stringify!(tm_profiler_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_profiler_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_profiler_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).init as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(init)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).shutdown as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(shutdown)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).enabled as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(enabled)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).begin as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(begin)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).end as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(end)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).instant as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(instant)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).start as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(start)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).finish as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(finish)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).intern as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(intern)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).fiber_switch as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(fiber_switch)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).submit as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(submit)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).copy as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(copy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).buffer as *const _ as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_profiler_api),
-            "::",
-            stringify!(buffer)
-        )
-    );
-}
 #[doc = " [[tm_task_progress_t]] represents the current progress in a form suitable for display in a"]
 #[doc = " single-line status bar."]
 #[doc = ""]
@@ -14509,7 +5462,7 @@ fn bindgen_test_layout_tm_profiler_api() {
 #[doc = " task. The highlighted task will rotate in a round-robin fashion between all the tasks in"]
 #[doc = " progress, displaying for `task_display_time` seconds before it rotates to the next task."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_task_progress_t {
     #[doc = " Number of tasks currently reporting progress."]
     pub num_tasks: u32,
@@ -14521,72 +5474,9 @@ pub struct tm_task_progress_t {
     pub fraction: f32,
     pub _padding_32: [::std::os::raw::c_char; 4usize],
 }
-#[test]
-fn bindgen_test_layout_tm_task_progress_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_task_progress_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_task_progress_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_task_progress_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_task_progress_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).num_tasks as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_progress_t),
-            "::",
-            stringify!(num_tasks)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).task_index as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_progress_t),
-            "::",
-            stringify!(task_index)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).text as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_progress_t),
-            "::",
-            stringify!(text)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).fraction as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_progress_t),
-            "::",
-            stringify!(fraction)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>()))._padding_32 as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_progress_t),
-            "::",
-            stringify!(_padding_32)
-        )
-    );
-}
 #[doc = " [[tm_task_status_t]] represents the progress of all background tasks."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_task_status_t {
     #[doc = " Total number of tasks in progress. The arrays below each contain `num_tasks` elements."]
     pub num_tasks: u32,
@@ -14598,71 +5488,8 @@ pub struct tm_task_status_t {
     #[doc = " Array of task progresses as a fraction [0,1]."]
     pub fraction: *mut f32,
 }
-#[test]
-fn bindgen_test_layout_tm_task_status_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_task_status_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_task_status_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_task_status_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_task_status_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).num_tasks as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_status_t),
-            "::",
-            stringify!(num_tasks)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_status_t>()))._padding_40 as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_status_t),
-            "::",
-            stringify!(_padding_40)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).task_id as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_status_t),
-            "::",
-            stringify!(task_id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).text as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_status_t),
-            "::",
-            stringify!(text)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).fraction as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_status_t),
-            "::",
-            stringify!(fraction)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_progress_report_api {
     #[doc = " Creates the progress report singleton if not already created. `task_display_time` is the time"]
     #[doc = "  in seconds that each task should be highlighted in the result returned by [[update()]]."]
@@ -14707,82 +5534,6 @@ pub struct tm_progress_report_api {
         unsafe extern "C" fn(task: u64, text: *const ::std::os::raw::c_char, fraction: f32),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_progress_report_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_progress_report_api>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_progress_report_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_progress_report_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_progress_report_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_progress_report_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).destroy as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_progress_report_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).update as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_progress_report_api),
-            "::",
-            stringify!(update)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).status as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_progress_report_api),
-            "::",
-            stringify!(status)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).idle as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_progress_report_api),
-            "::",
-            stringify!(idle)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_progress_report_api>())).set_task_progress as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_progress_report_api),
-            "::",
-            stringify!(set_task_progress)
-        )
-    );
-}
 #[doc = " [[tm_random_api]] generates random numbers using the"]
 #[doc = " [xoroshiro128+](http://prng.di.unimi.it/xoroshiro128plus.c) RNG from above and a global state."]
 #[doc = " The state is randomly initialized from system entropy sources."]
@@ -14798,7 +5549,7 @@ fn bindgen_test_layout_tm_progress_report_api() {
 #[doc = " If you want deterministic state progresssion, use [[seed_new_state()]] to generate a seed and use"]
 #[doc = " that to seed a local RNG that is used by your specific system in a thread-safe way."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_random_api {
     #[doc = " Returns the next random `uint64_t` from the global state."]
     pub next: ::std::option::Option<unsafe extern "C" fn() -> u64>,
@@ -14811,94 +5562,18 @@ pub struct tm_random_api {
     #[doc = " the jump."]
     pub seed_new_state: ::std::option::Option<unsafe extern "C" fn(s: *mut u64)>,
 }
-#[test]
-fn bindgen_test_layout_tm_random_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_random_api>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_random_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_random_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_random_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_random_api>())).next as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_random_api),
-            "::",
-            stringify!(next)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_random_api>())).next_n as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_random_api),
-            "::",
-            stringify!(next_n)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_random_api>())).seed_new_state as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_random_api),
-            "::",
-            stringify!(seed_new_state)
-        )
-    );
-}
 #[doc = " Result of a runtime data lookup operation."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_runtime_data_t {
     #[doc = " The truth version number when the lookup happened."]
     pub version: u64,
     #[doc = " Runtime data mapped to The Truth object."]
     pub data: *mut ::std::os::raw::c_void,
 }
-#[test]
-fn bindgen_test_layout_tm_runtime_data_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_runtime_data_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_runtime_data_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_runtime_data_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_runtime_data_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_runtime_data_t>())).version as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_t),
-            "::",
-            stringify!(version)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_runtime_data_t>())).data as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_t),
-            "::",
-            stringify!(data)
-        )
-    );
-}
 #[doc = " [[tm_runtime_data_io_i]] is the interface for loading/unloading runtime data."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_runtime_data_io_i {
     #[doc = " Loads/creates the runtime data associated with the object `id` from The Truth `tt`. The"]
     #[doc = " `io_context` is passed from [[tm_runtime_data_repository_api->lookup()]]."]
@@ -14922,47 +5597,14 @@ pub struct tm_runtime_data_io_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_runtime_data_io_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_runtime_data_io_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_runtime_data_io_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_runtime_data_io_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_runtime_data_io_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_runtime_data_io_i>())).load as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_io_i),
-            "::",
-            stringify!(load)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_runtime_data_io_i>())).unload as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_io_i),
-            "::",
-            stringify!(unload)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_runtime_data_repository_o {
     _unused: [u8; 0],
 }
 #[doc = " API for managing runtime data."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_runtime_data_repository_api {
     #[doc = " Creates a new runtime data repository for objects of type `type` in The Truth `tt`. Each"]
     #[doc = " runtime data object will have the size `runtime_data_size` and the `io_interface` will be"]
@@ -15023,118 +5665,13 @@ pub struct tm_runtime_data_repository_api {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_runtime_data_repository_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_runtime_data_repository_api>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_runtime_data_repository_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_runtime_data_repository_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_runtime_data_repository_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).create as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_repository_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).destroy as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_repository_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).lookup as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_repository_api),
-            "::",
-            stringify!(lookup)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).garbage_collect as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_runtime_data_repository_api),
-            "::",
-            stringify!(garbage_collect)
-        )
-    );
-}
 #[doc = " Represents the current SHA1 state."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct SHA1_CTX {
     pub state: [u32; 5usize],
     pub count: [u32; 2usize],
     pub buffer: [u8; 64usize],
-}
-#[test]
-fn bindgen_test_layout_SHA1_CTX() {
-    assert_eq!(
-        ::std::mem::size_of::<SHA1_CTX>(),
-        92usize,
-        concat!("Size of: ", stringify!(SHA1_CTX))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<SHA1_CTX>(),
-        4usize,
-        concat!("Alignment of ", stringify!(SHA1_CTX))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<SHA1_CTX>())).state as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SHA1_CTX),
-            "::",
-            stringify!(state)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<SHA1_CTX>())).count as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SHA1_CTX),
-            "::",
-            stringify!(count)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<SHA1_CTX>())).buffer as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SHA1_CTX),
-            "::",
-            stringify!(buffer)
-        )
-    );
 }
 #[doc = " Callback used for custom printing of a struct that has been registered with [[add_printer()]]."]
 #[doc = ""]
@@ -15169,7 +5706,7 @@ pub type tm_sprintf_printer = ::std::option::Option<
     ) -> ::std::os::raw::c_int,
 >;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_sprintf_api {
     #[doc = " Replacement for C `sprintf()`."]
     pub print_unsafe: ::std::option::Option<
@@ -15218,71 +5755,8 @@ pub struct tm_sprintf_api {
         unsafe extern "C" fn(name: *const ::std::os::raw::c_char, printer: tm_sprintf_printer),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_sprintf_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_sprintf_api>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_sprintf_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_sprintf_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_sprintf_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).print_unsafe as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_sprintf_api),
-            "::",
-            stringify!(print_unsafe)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).print as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_sprintf_api),
-            "::",
-            stringify!(print)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).vprint_unsafe as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_sprintf_api),
-            "::",
-            stringify!(vprint_unsafe)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).vprint as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_sprintf_api),
-            "::",
-            stringify!(vprint)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).add_printer as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_sprintf_api),
-            "::",
-            stringify!(add_printer)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_set_strhash_t {
     _unused: [u8; 0],
 }
@@ -15290,7 +5764,7 @@ pub struct tm_set_strhash_t {
 #[doc = ""]
 #[doc = " Also see [[string.inl]] for inline string functions."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_string_api {
     #[doc = " Finds a unique name based on `desired_name`, avoiding the names in the `taken_names` set. The"]
     #[doc = " returned name is allocated using the temp allocator `ta`."]
@@ -15325,29 +5799,6 @@ pub struct tm_string_api {
         ) -> *const ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_string_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_string_api>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_string_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_string_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_string_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_api>())).find_unique_name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_api),
-            "::",
-            stringify!(find_unique_name)
-        )
-    );
-}
 #[doc = " Stores a number of strings. Can be used both for holding the string data and for doing reverse"]
 #[doc = " lookups of string hashes."]
 #[doc = ""]
@@ -15361,7 +5812,7 @@ fn bindgen_test_layout_tm_string_api() {
 #[doc = " calling [[remove()]], its memory might be reclaimed and reused for other strings. If you want"]
 #[doc = " strings to be permanently allocated, just don't call [[remove()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_string_repository_i {
     pub inst: *mut tm_string_repository_o,
     #[doc = " Adds a new string to the repository. Returns the murmur hash of the string. Strings are"]
@@ -15408,82 +5859,9 @@ pub struct tm_string_repository_i {
         ) -> *const ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_string_repository_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_string_repository_i>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_string_repository_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_string_repository_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_string_repository_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).add as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_i),
-            "::",
-            stringify!(add)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).retain as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_i),
-            "::",
-            stringify!(retain)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).remove as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_i),
-            "::",
-            stringify!(remove)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).lookup as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_i),
-            "::",
-            stringify!(lookup)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).intern as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_i),
-            "::",
-            stringify!(intern)
-        )
-    );
-}
 #[doc = " API for creating and destroying string repositories."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_string_repository_api {
     #[doc = " Creates a new string repository."]
     pub create: ::std::option::Option<
@@ -15492,46 +5870,11 @@ pub struct tm_string_repository_api {
     #[doc = " Destroys a string repository created by [[create()]]."]
     pub destroy: ::std::option::Option<unsafe extern "C" fn(i: *mut tm_string_repository_i)>,
 }
-#[test]
-fn bindgen_test_layout_tm_string_repository_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_string_repository_api>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_string_repository_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_string_repository_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_string_repository_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_string_repository_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_string_repository_api>())).destroy as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_string_repository_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-}
 #[doc = " A system for executing long-running background tasks that take multiple frames to complete. Each"]
 #[doc = " background task queued with the system runs on its own thread, but the threads are recycled when"]
 #[doc = " the tasks complete."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_task_system_api {
     #[doc = " Runs the specified task, returns an ID identifying the task. The returned ID is guaranteed to"]
     #[doc = " be non-zero. The callback `f` will be passed `data` as well as the ID of the task."]
@@ -15561,74 +5904,6 @@ pub struct tm_task_system_api {
     #[doc = " on the task."]
     pub is_task_canceled: ::std::option::Option<unsafe extern "C" fn(id: u64) -> bool>,
 }
-#[test]
-fn bindgen_test_layout_tm_task_system_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_task_system_api>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_task_system_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_task_system_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_task_system_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_system_api>())).run_task as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_system_api),
-            "::",
-            stringify!(run_task)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_system_api>())).is_task_done as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_system_api),
-            "::",
-            stringify!(is_task_done)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_task_system_api>())).is_task_done_else_assist as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_system_api),
-            "::",
-            stringify!(is_task_done_else_assist)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_task_system_api>())).cancel_task as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_system_api),
-            "::",
-            stringify!(cancel_task)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_task_system_api>())).is_task_canceled as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_task_system_api),
-            "::",
-            stringify!(is_task_canceled)
-        )
-    );
-}
 #[doc = " Interface for temp allocators. Temp allocators are used for short-term temporary memory"]
 #[doc = " allocations. Memory allocated through a temporary allocator doesn't need to be explicitly freed."]
 #[doc = " It is automatically destroyed when the allocator is destroyed."]
@@ -15636,7 +5911,7 @@ fn bindgen_test_layout_tm_task_system_api() {
 #[doc = " Temp allocators don't use memory tracking, since the memory they allocate is assumed to be"]
 #[doc = " short-lived."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_temp_allocator_i {
     #[doc = " User data for this temp allocator."]
     pub inst: *mut tm_temp_allocator_o,
@@ -15655,39 +5930,6 @@ pub struct tm_temp_allocator_i {
         ) -> *mut ::std::os::raw::c_void,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_temp_allocator_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_temp_allocator_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_temp_allocator_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_temp_allocator_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_temp_allocator_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_i>())).realloc as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_i),
-            "::",
-            stringify!(realloc)
-        )
-    );
-}
 #[doc = " User data for the [[tm_temp_allocator_1024_o]] temp allocator."]
 #[doc = ""]
 #[doc = " This allocator uses 1024 bytes of stack storage (`buffer`) and a backing allocator (`backing`) to"]
@@ -15704,7 +5946,7 @@ fn bindgen_test_layout_tm_temp_allocator_i() {
 #[doc = " Typically, you would never do this directly though, as the [[TM_INIT_TEMP_ALLOCATOR()]] and"]
 #[doc = " [[TM_SHUTDOWN_TEMP_ALLOCATOR()]] macros do it for you."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_temp_allocator_1024_o {
     #[doc = " Temp allocator interface that can be passed to functions that need a temp allocator."]
     pub ta: tm_temp_allocator_i,
@@ -15715,66 +5957,9 @@ pub struct tm_temp_allocator_1024_o {
     #[doc = " Internally used pointer to the first block of allocated memory."]
     pub first_block: *mut ::std::os::raw::c_void,
 }
-#[test]
-fn bindgen_test_layout_tm_temp_allocator_1024_o() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_temp_allocator_1024_o>(),
-        1056usize,
-        concat!("Size of: ", stringify!(tm_temp_allocator_1024_o))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_temp_allocator_1024_o>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_temp_allocator_1024_o))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).ta as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_1024_o),
-            "::",
-            stringify!(ta)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).buffer as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_1024_o),
-            "::",
-            stringify!(buffer)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).backing as *const _ as usize
-        },
-        1040usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_1024_o),
-            "::",
-            stringify!(backing)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).first_block as *const _ as usize
-        },
-        1048usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_1024_o),
-            "::",
-            stringify!(first_block)
-        )
-    );
-}
 #[doc = " Statistics for the temp allocator."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_temp_allocator_statistics_t {
     #[doc = " Number of blocks allocated for the temp allocator (since this counter was externally reset)."]
     pub temp_allocation_blocks: u64,
@@ -15785,74 +5970,9 @@ pub struct tm_temp_allocator_statistics_t {
     #[doc = " Number of bytes allocated for the frame allocator (since this counter was externally reset)."]
     pub frame_allocation_bytes: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_temp_allocator_statistics_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_temp_allocator_statistics_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_temp_allocator_statistics_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_temp_allocator_statistics_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_temp_allocator_statistics_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).temp_allocation_blocks
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_statistics_t),
-            "::",
-            stringify!(temp_allocation_blocks)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).temp_allocation_bytes
-                as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_statistics_t),
-            "::",
-            stringify!(temp_allocation_bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).frame_allocation_blocks
-                as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_statistics_t),
-            "::",
-            stringify!(frame_allocation_blocks)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).frame_allocation_bytes
-                as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_statistics_t),
-            "::",
-            stringify!(frame_allocation_bytes)
-        )
-    );
-}
 #[doc = " API for temp allocators."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_temp_allocator_api {
     #[doc = " Initializes a [[tm_temp_allocator_1024_o]] on the stack. You need to initialize the allocator"]
     #[doc = " before using it to allocate memory. If `backing` is NULL, the VM allocator will be used as"]
@@ -15947,170 +6067,13 @@ pub struct tm_temp_allocator_api {
     #[doc = " Holds statistics for the temp allocator system."]
     pub statistics: *mut tm_temp_allocator_statistics_t,
 }
-#[test]
-fn bindgen_test_layout_tm_temp_allocator_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_temp_allocator_api>(),
-        104usize,
-        concat!("Size of: ", stringify!(tm_temp_allocator_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_temp_allocator_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_temp_allocator_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).init_1024 as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(init_1024)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_api>())).shutdown_1024 as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(shutdown_1024)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).create as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).destroy as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).allocator as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(allocator)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_alloc as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(frame_alloc)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_allocator as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(frame_allocator)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_api>())).tick_frame as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(tick_frame)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).printf as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(printf)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).vprintf as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(vprintf)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_printf as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(frame_printf)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_vprintf as *const _ as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(frame_vprintf)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_temp_allocator_api>())).statistics as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_temp_allocator_api),
-            "::",
-            stringify!(statistics)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_hash_id_to_id_t {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_set_t {
     _unused: [u8; 0],
 }
@@ -16146,7 +6109,7 @@ pub const TM_THE_TRUTH__EDITOR__STRING__SAVE_PATH: tm_the_truth_editor = 4;
 pub type tm_the_truth_editor = ::std::os::raw::c_int;
 #[doc = " Settings for properties using the [[TM_THE_TRUTH__EDITOR__UINT32_T__ENUM]] editor."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_editor_enum_t {
     #[doc = " Number of enums."]
     pub count: u32,
@@ -16164,164 +6127,26 @@ pub struct tm_the_truth_editor_enum_t {
     #[doc = " Tooltips for the enums. This array should use [[TM_LOCALIZE_LATER()]] and can be `NULL`."]
     pub tooltips: *const *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_editor_enum_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_editor_enum_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_the_truth_editor_enum_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_editor_enum_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_editor_enum_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>())).count as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_editor_enum_t),
-            "::",
-            stringify!(count)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>()))._padding_357 as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_editor_enum_t),
-            "::",
-            stringify!(_padding_357)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>())).names as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_editor_enum_t),
-            "::",
-            stringify!(names)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>())).tooltips as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_editor_enum_t),
-            "::",
-            stringify!(tooltips)
-        )
-    );
-}
 #[doc = " Editors settings for the [[TM_THE_TRUTH__EDITOR__STRING__OPEN_PATH]] editor."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_editor_string_open_path_t {
     #[doc = " Extensions passed to [[tm_os_dialogs_api->open()]]."]
     pub extensions: *const ::std::os::raw::c_char,
     #[doc = " File description passed to [[tm_os_dialogs_api->open()]]."]
     pub description: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_editor_string_open_path_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_editor_string_open_path_t>(),
-        16usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_the_truth_editor_string_open_path_t)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_editor_string_open_path_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_the_truth_editor_string_open_path_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_editor_string_open_path_t>())).extensions
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_editor_string_open_path_t),
-            "::",
-            stringify!(extensions)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_editor_string_open_path_t>())).description
-                as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_editor_string_open_path_t),
-            "::",
-            stringify!(description)
-        )
-    );
-}
 #[doc = " Editors settings for the [[TM_THE_TRUTH__EDITOR__STRING__SAVE_PATH]] editor."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_editor_string_save_path_t {
     #[doc = " Default file name passed to [[tm_os_dialogs_api->save()]]. Note, the default file name is only"]
     #[doc = " used if the path property is not set. If the path property is set, its value will be used for"]
     #[doc = " the default file name."]
     pub default_file_name: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_editor_string_save_path_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_editor_string_save_path_t>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_the_truth_editor_string_save_path_t)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_editor_string_save_path_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_the_truth_editor_string_save_path_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_editor_string_save_path_t>())).default_file_name
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_editor_string_save_path_t),
-            "::",
-            stringify!(default_file_name)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_object_o {
     _unused: [u8; 0],
 }
@@ -16393,235 +6218,6 @@ pub union tm_the_truth_property_definition_t__bindgen_ty_1 {
     pub string_open_path_editor: tm_the_truth_editor_string_open_path_t,
     pub string_save_path_editor: tm_the_truth_editor_string_save_path_t,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_property_definition_t__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_property_definition_t__bindgen_ty_1>(),
-        24usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_property_definition_t__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t__bindgen_ty_1>())).enum_editor
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1),
-            "::",
-            stringify!(enum_editor)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t__bindgen_ty_1>()))
-                .string_open_path_editor as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1),
-            "::",
-            stringify!(string_open_path_editor)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t__bindgen_ty_1>()))
-                .string_save_path_editor as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1),
-            "::",
-            stringify!(string_save_path_editor)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_tm_the_truth_property_definition_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_property_definition_t>(),
-        96usize,
-        concat!("Size of: ", stringify!(tm_the_truth_property_definition_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_property_definition_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_the_truth_property_definition_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).name as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).type_ as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).editor as *const _
-                as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(editor)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).type_hash as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(type_hash)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).allow_other_types
-                as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(allow_other_types)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>()))._padding_451 as *const _
-                as usize
-        },
-        49usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(_padding_451)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).buffer_extension
-                as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(buffer_extension)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).buffer_extension_f
-                as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(buffer_extension_f)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).tooltip as *const _
-                as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(tooltip)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).not_serialized
-                as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(not_serialized)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>()))._padding_469 as *const _
-                as usize
-        },
-        81usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(_padding_469)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).ui_name as *const _
-                as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_property_definition_t),
-            "::",
-            stringify!(ui_name)
-        )
-    );
-}
 #[doc = " Interface for creating types in The Truth."]
 pub type tm_the_truth_create_types_i =
     ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>;
@@ -16639,103 +6235,25 @@ pub const TM_THE_TRUTH_CREATE_TYPES_ALL: tm_the_truth_create_types = 1;
 pub type tm_the_truth_create_types = ::std::os::raw::c_int;
 #[doc = " Used for the return value of [[get_types_with_aspect()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_get_types_with_aspect_t {
     #[doc = " The type that implements the aspect."]
     pub type_: tm_tt_type_t,
     #[doc = " The aspect data."]
     pub data: *mut ::std::os::raw::c_void,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_get_types_with_aspect_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_get_types_with_aspect_t>(),
-        16usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_the_truth_get_types_with_aspect_t)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_get_types_with_aspect_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_the_truth_get_types_with_aspect_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_get_types_with_aspect_t>())).type_ as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_get_types_with_aspect_t),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_get_types_with_aspect_t>())).data as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_get_types_with_aspect_t),
-            "::",
-            stringify!(data)
-        )
-    );
-}
 #[doc = " Used for the return value of [[get_aspects()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_get_aspects_t {
     #[doc = " The hashed name of the aspect."]
     pub id: tm_strhash_t,
     #[doc = " The aspect data."]
     pub data: *mut ::std::os::raw::c_void,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_get_aspects_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_get_aspects_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_the_truth_get_aspects_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_get_aspects_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_get_aspects_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_get_aspects_t>())).id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_get_aspects_t),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_get_aspects_t>())).data as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_get_aspects_t),
-            "::",
-            stringify!(data)
-        )
-    );
-}
 #[doc = " Used for the return value of [[get_local_subobject_set()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_local_set_t {
     #[doc = " Objects added at this instance."]
     pub num_added: u32,
@@ -16750,129 +6268,9 @@ pub struct tm_the_truth_local_set_t {
     pub _padding_534: [::std::os::raw::c_char; 4usize],
     pub instantiated: *const tm_tt_id_t,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_local_set_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_local_set_t>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_the_truth_local_set_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_local_set_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_local_set_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).num_added as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(num_added)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>()))._padding_524 as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(_padding_524)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).added as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(added)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).num_removed as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(num_removed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>()))._padding_529 as *const _ as usize
-        },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(_padding_529)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).removed as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(removed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).num_instantiated as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(num_instantiated)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>()))._padding_534 as *const _ as usize
-        },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(_padding_534)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).instantiated as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_local_set_t),
-            "::",
-            stringify!(instantiated)
-        )
-    );
-}
 #[doc = " Used for [[set_local_subobject_set()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_set_local_subobject_set_t {
     #[doc = " Objects added at this instance."]
     pub num_added: u32,
@@ -16887,145 +6285,9 @@ pub struct tm_the_truth_set_local_subobject_set_t {
     pub _padding_553: [::std::os::raw::c_char; 4usize],
     pub instantiated: *mut *mut tm_the_truth_object_o,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_set_local_subobject_set_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_set_local_subobject_set_t>(),
-        48usize,
-        concat!(
-            "Size of: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_set_local_subobject_set_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_the_truth_set_local_subobject_set_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).num_added as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(num_added)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>()))._padding_543
-                as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(_padding_543)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).added as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(added)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).num_removed
-                as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(num_removed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>()))._padding_548
-                as *const _ as usize
-        },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(_padding_548)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).removed as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(removed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).num_instantiated
-                as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(num_instantiated)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>()))._padding_553
-                as *const _ as usize
-        },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(_padding_553)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).instantiated
-                as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_set_local_subobject_set_t),
-            "::",
-            stringify!(instantiated)
-        )
-    );
-}
 #[doc = " Used for the return value of [[changed_objects()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_changed_objects_t {
     #[doc = " If *true*, some changes were lost because we only have a fixed buffer for keeping track of"]
     #[doc = " changes. In this case, the caller should assume that all the objects might have changed."]
@@ -17039,90 +6301,15 @@ pub struct tm_the_truth_changed_objects_t {
     #[doc = " after this."]
     pub version: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_changed_objects_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_changed_objects_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_the_truth_changed_objects_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_changed_objects_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_changed_objects_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).overflow as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_changed_objects_t),
-            "::",
-            stringify!(overflow)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>()))._padding_563 as *const _
-                as usize
-        },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_changed_objects_t),
-            "::",
-            stringify!(_padding_563)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).num_objects as *const _
-                as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_changed_objects_t),
-            "::",
-            stringify!(num_objects)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).objects as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_changed_objects_t),
-            "::",
-            stringify!(objects)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).version as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_changed_objects_t),
-            "::",
-            stringify!(version)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_hash_u64_to_id_t {
     _unused: [u8; 0],
 }
 #[doc = " Used for coordinating inter-truth operations, such as copying objects between two separate"]
 #[doc = " truths. See [[interop_clone_object()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_interop_context_t {
     pub to_tt: *mut tm_the_truth_o,
     pub from_tt: *mut tm_the_truth_o,
@@ -17130,95 +6317,6 @@ pub struct tm_the_truth_interop_context_t {
     pub property_lookup: *mut tm_hash32_t,
     pub buffer_lookup: *mut tm_hash32_t,
     pub object_lookup: *mut tm_hash_u64_to_id_t,
-}
-#[test]
-fn bindgen_test_layout_tm_the_truth_interop_context_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_interop_context_t>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_the_truth_interop_context_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_interop_context_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_interop_context_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).to_tt as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_interop_context_t),
-            "::",
-            stringify!(to_tt)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).from_tt as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_interop_context_t),
-            "::",
-            stringify!(from_tt)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).type_lookup as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_interop_context_t),
-            "::",
-            stringify!(type_lookup)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).property_lookup as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_interop_context_t),
-            "::",
-            stringify!(property_lookup)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).buffer_lookup as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_interop_context_t),
-            "::",
-            stringify!(buffer_lookup)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).object_lookup as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_interop_context_t),
-            "::",
-            stringify!(object_lookup)
-        )
-    );
 }
 #[doc = " This object was added to the parent's instance, and does not exist in the parent's prototype."]
 #[doc = " (If the parent doesn't have a prototype, all its children will be of type"]
@@ -17240,7 +6338,7 @@ pub const TM_TT_PROTOTYPE_RELATION_NONE: tm_the_truth_prototype_relation = 5;
 pub type tm_the_truth_prototype_relation = ::std::os::raw::c_int;
 #[doc = " Result of [[get_buffer()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_buffer_t {
     #[doc = " ID identifying the buffer."]
     #[doc = ""]
@@ -17255,69 +6353,6 @@ pub struct tm_tt_buffer_t {
     pub data: *const ::std::os::raw::c_void,
     #[doc = " Hash value of buffer."]
     pub hash: u64,
-}
-#[test]
-fn bindgen_test_layout_tm_tt_buffer_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_buffer_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_tt_buffer_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_buffer_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_buffer_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_buffer_t),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>()))._padding_627 as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_buffer_t),
-            "::",
-            stringify!(_padding_627)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_buffer_t),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).data as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_buffer_t),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).hash as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_buffer_t),
-            "::",
-            stringify!(hash)
-        )
-    );
 }
 #[doc = " Variant structure that can hold any property value."]
 #[repr(C)]
@@ -17340,208 +6375,18 @@ pub union tm_tt_prop_value_t__bindgen_ty_1 {
     pub object: tm_tt_id_t,
     pub set: *const tm_tt_id_t,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_prop_value_t__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_prop_value_t__bindgen_ty_1>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_tt_prop_value_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_prop_value_t__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).b as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(b)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).u32_ as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(u32_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).u64_ as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(u64_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).f32_ as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(f32_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).f64_ as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(f64_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).string as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(string)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).buffer as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(buffer)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).object as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).set as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
-            "::",
-            stringify!(set)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_tm_tt_prop_value_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_prop_value_t>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_tt_prop_value_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_prop_value_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_prop_value_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_prop_value_t>())).type_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_prop_value_t>()))._padding_643 as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_prop_value_t),
-            "::",
-            stringify!(_padding_643)
-        )
-    );
-}
 #[doc = " Represents an action in an undo scope."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_undo_action_t {
     #[doc = " The state of the object before the action."]
     pub before: *const tm_the_truth_object_o,
     #[doc = " The state of the object after the action."]
     pub after: *const tm_the_truth_object_o,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_undo_action_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_undo_action_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_tt_undo_action_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_undo_action_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_undo_action_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_undo_action_t>())).before as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_undo_action_t),
-            "::",
-            stringify!(before)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_undo_action_t>())).after as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_undo_action_t),
-            "::",
-            stringify!(after)
-        )
-    );
-}
 #[doc = " Options for [[serialize()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_serialize_options_t {
     #[doc = " In the `buffer_data`, instead of serializing the full buffers, just serialize their hashes."]
     #[doc = " This is used for network serialization. Instead of sending all the buffers over the network,"]
@@ -17558,67 +6403,6 @@ pub struct tm_tt_serialize_options_t {
     #[doc = " If not NULL, this set will accumulate all the object types found when serializing the object."]
     pub types: *mut tm_set_t,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_serialize_options_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_serialize_options_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_tt_serialize_options_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_serialize_options_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_serialize_options_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_serialize_options_t>())).serialize_buffers_as_hashes
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_serialize_options_t),
-            "::",
-            stringify!(serialize_buffers_as_hashes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_serialize_options_t>())).skip_type_index as *const _
-                as usize
-        },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_serialize_options_t),
-            "::",
-            stringify!(skip_type_index)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_serialize_options_t>()))._padding_684 as *const _ as usize
-        },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_serialize_options_t),
-            "::",
-            stringify!(_padding_684)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_serialize_options_t>())).types as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_serialize_options_t),
-            "::",
-            stringify!(types)
-        )
-    );
-}
 pub const TM_THE_TRUTH_MAX_PROPERTIES: ::std::os::raw::c_int = 64;
 #[doc = " Maximum number of properties supported for objects in The Truth. This is set to 64, because we"]
 #[doc = " use 64 bits in the property bitmask."]
@@ -17629,7 +6413,7 @@ pub type _bindgen_ty_1 = ::std::os::raw::c_int;
 #[doc = "    Use pointers for `file_property_to_memory_property` and `file_property_type`"]
 #[doc = "    rather than auto-sizing them to 64 entries."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_serialized_type_info_t {
     #[doc = " Runtime type, corresponding to this serialized type."]
     pub runtime_type: tm_tt_type_t,
@@ -17643,103 +6427,9 @@ pub struct tm_the_truth_serialized_type_info_t {
     #[doc = " Type of the serialized property."]
     pub serialized_property_type: [u32; 64usize],
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_serialized_type_info_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_serialized_type_info_t>(),
-        528usize,
-        concat!("Size of: ", stringify!(tm_the_truth_serialized_type_info_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_serialized_type_info_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_the_truth_serialized_type_info_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).runtime_type as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_serialized_type_info_t),
-            "::",
-            stringify!(runtime_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).properties_differ
-                as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_serialized_type_info_t),
-            "::",
-            stringify!(properties_differ)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>()))._padding_706 as *const _
-                as usize
-        },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_serialized_type_info_t),
-            "::",
-            stringify!(_padding_706)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).num_properties
-                as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_serialized_type_info_t),
-            "::",
-            stringify!(num_properties)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>()))
-                .serialized_property_to_runtime_property as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_serialized_type_info_t),
-            "::",
-            stringify!(serialized_property_to_runtime_property)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).serialized_property_type
-                as *const _ as usize
-        },
-        272usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_serialized_type_info_t),
-            "::",
-            stringify!(serialized_property_type)
-        )
-    );
-}
 #[doc = " Options for [[deserialize()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_deserialize_options_t {
     #[doc = " Corresponds to the `serialize_buffers_as_hashes` serialization option. If this is set for"]
     #[doc = " deserialize it indicates that the buffers have *not* been serialized into the data and that"]
@@ -17758,73 +6448,9 @@ pub struct tm_tt_deserialize_options_t {
     #[doc = " properties as the runtime Truth."]
     pub type_infos: *const tm_the_truth_serialized_type_info_t,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_deserialize_options_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_deserialize_options_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_tt_deserialize_options_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_deserialize_options_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_deserialize_options_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>())).buffers_preloaded as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_deserialize_options_t),
-            "::",
-            stringify!(buffers_preloaded)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>())).skip_type_index as *const _
-                as usize
-        },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_deserialize_options_t),
-            "::",
-            stringify!(skip_type_index)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>()))._padding_731 as *const _
-                as usize
-        },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_deserialize_options_t),
-            "::",
-            stringify!(_padding_731)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>())).type_infos as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_deserialize_options_t),
-            "::",
-            stringify!(type_infos)
-        )
-    );
-}
 #[doc = " Options for [[serialize_changes()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_serialize_changes_options_t {
     #[doc = " If *true*, the changes will be serialized without a header. This can be useful when you"]
     #[doc = " serialize multiple messages onto the same stream. Since the header includes the type list"]
@@ -17837,118 +6463,27 @@ pub struct tm_tt_serialize_changes_options_t {
     #[doc = " in the stream, since that includes the header.)"]
     pub no_header: bool,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_serialize_changes_options_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_serialize_changes_options_t>(),
-        1usize,
-        concat!("Size of: ", stringify!(tm_tt_serialize_changes_options_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_serialize_changes_options_t>(),
-        1usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_tt_serialize_changes_options_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_serialize_changes_options_t>())).no_header as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_serialize_changes_options_t),
-            "::",
-            stringify!(no_header)
-        )
-    );
-}
 #[doc = " Options for [[deserialize_changes()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_deserialize_changes_options_t {
     #[doc = " If you are deserializing a message that was serialized with `no_header` you must pass a"]
     #[doc = " header from a previous message in the `header` field. Typically this should just be a"]
     #[doc = " previous message from the same stream that was serialized with a header."]
     pub header: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_deserialize_changes_options_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_deserialize_changes_options_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_tt_deserialize_changes_options_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_deserialize_changes_options_t>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(tm_tt_deserialize_changes_options_t)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_deserialize_changes_options_t>())).header as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_deserialize_changes_options_t),
-            "::",
-            stringify!(header)
-        )
-    );
-}
 #[doc = " Return value of [[memory_use()]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_memory_use_t {
     #[doc = " Amount of memory belonging to the object that is currently resident in memory."]
     pub resident: u64,
     #[doc = " Additional object memory that can be loaded on request."]
     pub unloaded: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_memory_use_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_memory_use_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_tt_memory_use_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_memory_use_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_memory_use_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_memory_use_t>())).resident as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_memory_use_t),
-            "::",
-            stringify!(resident)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_memory_use_t>())).unloaded as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_memory_use_t),
-            "::",
-            stringify!(unloaded)
-        )
-    );
-}
 #[doc = " API for manipulating The Truth."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_api {
     #[doc = " Returns the allocator used by The Truth."]
     pub allocator:
@@ -19491,1872 +8026,6 @@ pub struct tm_the_truth_api {
     #[doc = " Destroys The Truth created by [[create()]]."]
     pub destroy: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_api>(),
-        1304usize,
-        concat!("Size of: ", stringify!(tm_the_truth_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).allocator as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(allocator)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).buffers as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(buffers)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).streamable_buffers as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(streamable_buffers)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_type as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(create_object_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_default_object as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_default_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_default_object_to_create_subobjects
-                as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_default_object_to_create_subobjects)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).default_object as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(default_object)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).is_default as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(is_default)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_aspect as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_aspect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_default_aspect as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_default_aspect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_property_aspect as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_property_aspect)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).reload_aspects as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(reload_aspects)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).object_type_from_name_hash as *const _
-                as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(object_type_from_name_hash)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).optional_object_type_from_name_hash
-                as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(optional_object_type_from_name_hash)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).num_types as *const _ as usize },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(num_types)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).type_name as *const _ as usize },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(type_name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).type_name_hash as *const _ as usize },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(type_name_hash)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).num_properties as *const _ as usize },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(num_properties)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).properties as *const _ as usize },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(properties)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).find_property as *const _ as usize },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(find_property)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).property_index as *const _ as usize },
-        160usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(property_index)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).has_property as *const _ as usize },
-        168usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(has_property)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_aspect as *const _ as usize },
-        176usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_aspect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_types_with_aspect as *const _ as usize
-        },
-        184usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_types_with_aspect)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_aspects as *const _ as usize },
-        192usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_aspects)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_property_aspect as *const _ as usize
-        },
-        200usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_property_aspect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).all_objects_of_type as *const _ as usize
-        },
-        208usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(all_objects_of_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).create_undo_scope as *const _ as usize
-        },
-        216usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(create_undo_scope)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).create_thread_safe_undo_scope as *const _
-                as usize
-        },
-        224usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(create_thread_safe_undo_scope)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).undo_scope_name as *const _ as usize
-        },
-        232usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(undo_scope_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).undo_scope_objects as *const _ as usize
-        },
-        240usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(undo_scope_objects)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).undo_scope_actions as *const _ as usize
-        },
-        248usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(undo_scope_actions)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).undo as *const _ as usize },
-        256usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(undo)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).redo as *const _ as usize },
-        264usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(redo)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_of_type as *const _ as usize
-        },
-        272usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(create_object_of_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_of_hash as *const _ as usize
-        },
-        280usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(create_object_of_hash)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_from_prototype as *const _
-                as usize
-        },
-        288usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(create_object_from_prototype)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).clone_object as *const _ as usize },
-        296usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(clone_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).instantiate_subobject as *const _ as usize
-        },
-        304usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(instantiate_subobject)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_instantiated_subobject as *const _
-                as usize
-        },
-        312usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(remove_instantiated_subobject)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).instantiate_subobject_from_set as *const _
-                as usize
-        },
-        320usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(instantiate_subobject_from_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_instantiated_subobject_from_set
-                as *const _ as usize
-        },
-        328usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(remove_instantiated_subobject_from_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).add_instantiated_subobject_back_to_set
-                as *const _ as usize
-        },
-        336usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(add_instantiated_subobject_back_to_set)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).id as *const _ as usize },
-        344usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).destroy_object as *const _ as usize },
-        352usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(destroy_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).destroy_objects as *const _ as usize
-        },
-        360usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(destroy_objects)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).garbage_collect as *const _ as usize
-        },
-        368usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(garbage_collect)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).is_alive as *const _ as usize },
-        376usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(is_alive)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).interop_ensure_compatibility as *const _
-                as usize
-        },
-        384usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(interop_ensure_compatibility)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).interop_clone_object as *const _ as usize
-        },
-        392usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(interop_clone_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).deep_clone_assets as *const _ as usize
-        },
-        400usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(deep_clone_assets)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).uuid as *const _ as usize },
-        408usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(uuid)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).read as *const _ as usize },
-        416usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(read)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_bool as *const _ as usize },
-        424usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_bool)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_uint32_t as *const _ as usize },
-        432usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_uint32_t)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_uint64_t as *const _ as usize },
-        440usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_uint64_t)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_float as *const _ as usize },
-        448usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_float)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_double as *const _ as usize },
-        456usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_double)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_string as *const _ as usize },
-        464usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_string)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_string_hash as *const _ as usize
-        },
-        472usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_string_hash)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_str as *const _ as usize },
-        480usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_str)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_buffer as *const _ as usize },
-        488usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_buffer)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_reference as *const _ as usize },
-        496usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_reference)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject as *const _ as usize },
-        504usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_subobject)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_property_value as *const _ as usize
-        },
-        512usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_property_value)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).property_value_equal as *const _ as usize
-        },
-        520usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(property_value_equal)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_reference_set as *const _ as usize
-        },
-        528usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject_set as *const _ as usize
-        },
-        536usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_reference_set_size as *const _ as usize
-        },
-        544usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_reference_set_size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject_set_size as *const _ as usize
-        },
-        552usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_subobject_set_size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject_set_locally_removed
-                as *const _ as usize
-        },
-        560usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_subobject_set_locally_removed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).find_subobject_of_type as *const _ as usize
-        },
-        568usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(find_subobject_of_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).is_subobject_of as *const _ as usize
-        },
-        576usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(is_subobject_of)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).is_in_reference_set as *const _ as usize
-        },
-        584usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(is_in_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).property_index_of_subobject as *const _
-                as usize
-        },
-        592usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(property_index_of_subobject)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).write as *const _ as usize },
-        600usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(write)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).commit as *const _ as usize },
-        608usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(commit)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).commit_range as *const _ as usize },
-        616usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(commit_range)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).retarget_write as *const _ as usize },
-        624usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(retarget_write)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).try_write as *const _ as usize },
-        632usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(try_write)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).try_commit as *const _ as usize },
-        640usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(try_commit)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_bool as *const _ as usize },
-        648usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_bool)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_uint32_t as *const _ as usize },
-        656usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_uint32_t)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_uint64_t as *const _ as usize },
-        664usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_uint64_t)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_float as *const _ as usize },
-        672usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_float)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_double as *const _ as usize },
-        680usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_double)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_string as *const _ as usize },
-        688usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_string)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_str as *const _ as usize },
-        696usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_str)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_buffer as *const _ as usize },
-        704usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_buffer)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_buffer_content as *const _ as usize
-        },
-        712usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_buffer_content)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_reference as *const _ as usize },
-        720usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_reference)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_subobject as *const _ as usize },
-        728usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_subobject)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_subobject_id as *const _ as usize
-        },
-        736usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_subobject_id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_property_value as *const _ as usize
-        },
-        744usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_property_value)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).clear as *const _ as usize },
-        752usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(clear)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).clear_object as *const _ as usize },
-        760usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(clear_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_property as *const _ as usize
-        },
-        768usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(propagate_property)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_property_except as *const _
-                as usize
-        },
-        776usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(propagate_property_except)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_property_subobject as *const _
-                as usize
-        },
-        784usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(propagate_property_subobject)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_object as *const _ as usize
-        },
-        792usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(propagate_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_object_except as *const _
-                as usize
-        },
-        800usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(propagate_object_except)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).add_to_reference_set as *const _ as usize
-        },
-        808usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(add_to_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_reference_set as *const _
-                as usize
-        },
-        816usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(remove_from_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).clear_reference_set as *const _ as usize
-        },
-        824usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(clear_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_prototype_reference_set
-                as *const _ as usize
-        },
-        832usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(remove_from_prototype_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).cancel_remove_from_prototype_reference_set
-                as *const _ as usize
-        },
-        840usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(cancel_remove_from_prototype_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).add_to_subobject_set as *const _ as usize
-        },
-        848usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(add_to_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_subobject_set as *const _
-                as usize
-        },
-        856usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(remove_from_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).clear_subobject_set as *const _ as usize
-        },
-        864usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(clear_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_prototype_subobject_set
-                as *const _ as usize
-        },
-        872usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(remove_from_prototype_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).cancel_remove_from_prototype_subobject_set
-                as *const _ as usize
-        },
-        880usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(cancel_remove_from_prototype_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).prototype as *const _ as usize },
-        888usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(prototype)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).owner as *const _ as usize },
-        896usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(owner)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).is_currently_owner_of as *const _ as usize
-        },
-        904usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(is_currently_owner_of)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).is_overridden as *const _ as usize },
-        912usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(is_overridden)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).has_data as *const _ as usize },
-        920usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(has_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).prototype_relation as *const _ as usize
-        },
-        928usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(prototype_relation)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).version as *const _ as usize },
-        936usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(version)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).changed_objects as *const _ as usize
-        },
-        944usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(changed_objects)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).request_changelog as *const _ as usize
-        },
-        952usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(request_changelog)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).relinquish_changelog as *const _ as usize
-        },
-        960usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(relinquish_changelog)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).disable_changelog_start_scope as *const _
-                as usize
-        },
-        968usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(disable_changelog_start_scope)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).disable_changelog_end_scope as *const _
-                as usize
-        },
-        976usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(disable_changelog_end_scope)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).changelog_size as *const _ as usize },
-        984usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(changelog_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).serialize as *const _ as usize },
-        992usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(serialize)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize as *const _ as usize },
-        1000usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(deserialize)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).buffer_hashes as *const _ as usize },
-        1008usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(buffer_hashes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_from_file as *const _ as usize
-        },
-        1016usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(deserialize_from_file)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).migration_ids as *const _ as usize },
-        1024usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(migration_ids)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_changes_header as *const _
-                as usize
-        },
-        1032usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(serialize_changes_header)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_changes as *const _ as usize
-        },
-        1040usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(serialize_changes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_changes as *const _ as usize
-        },
-        1048usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(deserialize_changes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_patch as *const _ as usize
-        },
-        1056usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(serialize_patch)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_patch as *const _ as usize
-        },
-        1064usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(deserialize_patch)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_patch_from_file as *const _
-                as usize
-        },
-        1072usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(deserialize_patch_from_file)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_type as *const _ as usize },
-        1080usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(serialize_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_type as *const _ as usize
-        },
-        1088usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(deserialize_type)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).memory_use as *const _ as usize },
-        1096usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(memory_use)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).add_properties as *const _ as usize },
-        1104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(add_properties)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).resolve_or_create_placeholder as *const _
-                as usize
-        },
-        1112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(resolve_or_create_placeholder)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).resolve_or_fail as *const _ as usize
-        },
-        1120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(resolve_or_fail)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_uuid as *const _ as usize },
-        1128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_uuid)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_prototype as *const _ as usize },
-        1136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_prototype)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).detach_from_prototype as *const _ as usize
-        },
-        1144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(detach_from_prototype)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).detach_all_instances as *const _ as usize
-        },
-        1152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(detach_all_instances)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_local_reference_set as *const _
-                as usize
-        },
-        1160usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_local_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).get_local_subobject_set as *const _
-                as usize
-        },
-        1168usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(get_local_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_local_reference_set as *const _
-                as usize
-        },
-        1176usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_local_reference_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_local_subobject_set as *const _
-                as usize
-        },
-        1184usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_local_subobject_set)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).string_repository as *const _ as usize
-        },
-        1192usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(string_repository)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_migration_ids as *const _ as usize
-        },
-        1200usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_migration_ids)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).set_properties_to_default as *const _
-                as usize
-        },
-        1208usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(set_properties_to_default)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).instantiate_subobjects_recursively
-                as *const _ as usize
-        },
-        1216usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(instantiate_subobjects_recursively)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).quick_set_properties as *const _ as usize
-        },
-        1224usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(quick_set_properties)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).quick_create_object as *const _ as usize
-        },
-        1232usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(quick_create_object)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).quick_get_property as *const _ as usize
-        },
-        1240usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(quick_get_property)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).copy_properties_by_name as *const _
-                as usize
-        },
-        1248usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(copy_properties_by_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>()))
-                .internal__make_into_pseudo_object_with_owner as *const _ as usize
-        },
-        1256usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(internal__make_into_pseudo_object_with_owner)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>()))
-                .internal__convert_pseudo_object_back_to_regular_object as *const _
-                as usize
-        },
-        1264usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(internal__convert_pseudo_object_back_to_regular_object)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).debug_inspect as *const _ as usize },
-        1272usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(debug_inspect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_api>())).internal__detect_overlapping_writes
-                as *const _ as usize
-        },
-        1280usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(internal__detect_overlapping_writes)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).create as *const _ as usize },
-        1288usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).destroy as *const _ as usize },
-        1296usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-}
 #[doc = " subobject_set [[TM_TT_TYPE__ASSET]]"]
 pub const TM_TT_PROP__ASSET_ROOT__ASSETS: ::std::os::raw::c_int = 0;
 #[doc = " subobject_set [[TM_TT_TYPE__ASSET_DIRECTORY]]"]
@@ -21383,37 +8052,14 @@ pub const TM_TT_PROP__ASSET_LABEL__UUID: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_5 = ::std::os::raw::c_int;
 #[doc = " Struct for the asset label UUID."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_label_uuid_t {
     pub uuid: u64,
-}
-#[test]
-fn bindgen_test_layout_tm_asset_label_uuid_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_label_uuid_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_asset_label_uuid_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_label_uuid_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_label_uuid_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_label_uuid_t>())).uuid as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_label_uuid_t),
-            "::",
-            stringify!(uuid)
-        )
-    );
 }
 #[doc = " Interface to register under [[TM_ASSET_LABEL_INTERFACE_NAME]] to expose a new code-defined asset"]
 #[doc = " label."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_label_t {
     #[doc = " Unique identifier of the asset label."]
     pub uuid: tm_asset_label_uuid_t,
@@ -21424,66 +8070,13 @@ pub struct tm_asset_label_t {
     #[doc = " Color to use for the icon (enum tm_ui_color)."]
     pub icon_color: u32,
 }
-#[test]
-fn bindgen_test_layout_tm_asset_label_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_asset_label_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_asset_label_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_asset_label_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_asset_label_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).uuid as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_label_t),
-            "::",
-            stringify!(uuid)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).name as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_label_t),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).icon as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_label_t),
-            "::",
-            stringify!(icon)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).icon_color as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_asset_label_t),
-            "::",
-            stringify!(icon_color)
-        )
-    );
-}
 #[doc = " Aspect that defines the file extension that should be used for objects of this type in The Truth."]
 #[doc = " The extension string should not include the initial period. For example, [[TM_TT_TYPE__ENTITY]]"]
 #[doc = " objects have the file extension `\"entity\"`."]
 pub type tm_tt_assets_file_extension_aspect_i = ::std::os::raw::c_char;
 #[doc = " Used to return the buffers when writing a config file."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_tt_assets_buffer_write_t {
     #[doc = " Id of the buffer."]
     pub id: u32,
@@ -21492,64 +8085,6 @@ pub struct tm_tt_assets_buffer_write_t {
     pub hash: u64,
     #[doc = " Extension (if any) for the buffer."]
     pub ext: *const ::std::os::raw::c_char,
-}
-#[test]
-fn bindgen_test_layout_tm_tt_assets_buffer_write_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_assets_buffer_write_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_tt_assets_buffer_write_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_assets_buffer_write_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_assets_buffer_write_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>())).id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_write_t),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>()))._padding_118 as *const _
-                as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_write_t),
-            "::",
-            stringify!(_padding_118)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>())).hash as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_write_t),
-            "::",
-            stringify!(hash)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>())).ext as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_write_t),
-            "::",
-            stringify!(ext)
-        )
-    );
 }
 #[doc = " Used to return the buffers when parsing a config file."]
 #[repr(C)]
@@ -21563,65 +8098,8 @@ pub struct tm_tt_assets_buffer_t {
     #[doc = " The hash of the buffer."]
     pub hash: u64,
 }
-#[test]
-fn bindgen_test_layout_tm_tt_assets_buffer_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_tt_assets_buffer_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_tt_assets_buffer_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_tt_assets_buffer_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_tt_assets_buffer_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_t>())).object_id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_t),
-            "::",
-            stringify!(object_id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_assets_buffer_t>())).property_index as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_t),
-            "::",
-            stringify!(property_index)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_tt_assets_buffer_t>()))._padding_135 as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_t),
-            "::",
-            stringify!(_padding_135)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_t>())).hash as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_tt_assets_buffer_t),
-            "::",
-            stringify!(hash)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_saved_truth_data_o {
     _unused: [u8; 0],
 }
@@ -21631,7 +8109,7 @@ pub struct tm_saved_truth_data_o {
 #[doc = "     This API includes both general functions for interacting with the asset tree and"]
 #[doc = "     functions specific to the git-friendly disk save format."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_assets_api {
     #[doc = " Gets the last `n` characters of the `asset`'s path into the buffer `path`. Returns the total"]
     #[doc = " length of the path."]
@@ -21946,382 +8424,14 @@ pub struct tm_the_truth_assets_api {
         ) -> bool,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_assets_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_assets_api>(),
-        224usize,
-        concat!("Size of: ", stringify!(tm_the_truth_assets_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_assets_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_assets_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).get_asset_path as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(get_asset_path)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).get_directory_path as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(get_directory_path)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).get_asset_path_with_extension
-                as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(get_asset_path_with_extension)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_from_path as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(asset_from_path)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_from_path_with_type
-                as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(asset_from_path_with_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_object_from_path as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(asset_object_from_path)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_object_from_path_with_type
-                as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(asset_object_from_path_with_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).directory_from_path as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(directory_from_path)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).find_subdirectory_by_name
-                as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(find_subdirectory_by_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).unique_asset_name as *const _
-                as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(unique_asset_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).unique_directory_name as *const _
-                as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(unique_directory_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).object_asset_name as *const _
-                as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(object_asset_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).find_directory_settings as *const _
-                as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(find_directory_settings)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).object_to_config as *const _
-                as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(object_to_config)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).create_object_from_config
-                as *const _ as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(create_object_from_config)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).read_object_from_config as *const _
-                as usize
-        },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(read_object_from_config)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).save_to_directory as *const _
-                as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(save_to_directory)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).load_from_directory as *const _
-                as usize
-        },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(load_from_directory)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).current_truth_data as *const _
-                as usize
-        },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(current_truth_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).revert_asset as *const _ as usize
-        },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(revert_asset)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).save_asset as *const _ as usize
-        },
-        160usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(save_asset)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).saved_name as *const _ as usize
-        },
-        168usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(saved_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).saved_directory as *const _ as usize
-        },
-        176usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(saved_directory)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).saved_version as *const _ as usize
-        },
-        184usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(saved_version)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).all_saved_items as *const _ as usize
-        },
-        192usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(all_saved_items)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).free_saved_data as *const _ as usize
-        },
-        200usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(free_saved_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).set_mock_file_system as *const _
-                as usize
-        },
-        208usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(set_mock_file_system)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).any_disk_changes as *const _
-                as usize
-        },
-        216usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_assets_api),
-            "::",
-            stringify!(any_disk_changes)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_migration_o {
     _unused: [u8; 0],
 }
 #[doc = " Defines the interface for a migration."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_migration_i {
     #[doc = " User data for this migration. This data is passed to [[migrate()]] when called."]
     pub inst: *mut tm_the_truth_migration_o,
@@ -22343,121 +8453,14 @@ pub struct tm_the_truth_migration_i {
         unsafe extern "C" fn(inst: *mut tm_the_truth_migration_o, tt: *mut tm_the_truth_o) -> bool,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_migration_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_migration_i>(),
-        40usize,
-        concat!("Size of: ", stringify!(tm_the_truth_migration_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_migration_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_migration_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_migration_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_migration_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_the_truth_migration_i>())).id as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_migration_i),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_migration_i>())).num_prerequisites as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_migration_i),
-            "::",
-            stringify!(num_prerequisites)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_migration_i>()))._padding_81 as *const _ as usize
-        },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_migration_i),
-            "::",
-            stringify!(_padding_81)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_migration_i>())).prerequisites as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_migration_i),
-            "::",
-            stringify!(prerequisites)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_migration_i>())).migrate as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_migration_i),
-            "::",
-            stringify!(migrate)
-        )
-    );
-}
 #[doc = " API for performing migrations of The Truth."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_migration_api {
     #[doc = " Calls [[migrate()]] for all migrations that have not yet been applied to The Truth. (Determined"]
     #[doc = " by comparing the list of migration IDs stored in The Truth to the list currently registered"]
     #[doc = " with the API registry). Returns *true* if any migration was applied."]
     pub migrate: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> bool>,
-}
-#[test]
-fn bindgen_test_layout_tm_the_truth_migration_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_migration_api>(),
-        8usize,
-        concat!("Size of: ", stringify!(tm_the_truth_migration_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_migration_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_migration_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_migration_api>())).migrate as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_migration_api),
-            "::",
-            stringify!(migrate)
-        )
-    );
 }
 #[doc = " float"]
 pub const TM_TT_PROP__VEC2__X: ::std::os::raw::c_int = 0;
@@ -22529,7 +8532,7 @@ pub const TM_TT_PROP__RECT__W: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__RECT__H: ::std::os::raw::c_int = 3;
 pub type _bindgen_ty_14 = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_the_truth_common_types_api {
     #[doc = " Creates the common types in the specified truth object."]
     pub create_common_types: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
@@ -22739,336 +8742,8 @@ pub struct tm_the_truth_common_types_api {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_the_truth_common_types_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_the_truth_common_types_api>(),
-        200usize,
-        concat!("Size of: ", stringify!(tm_the_truth_common_types_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_the_truth_common_types_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_the_truth_common_types_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).create_common_types
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(create_common_types)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_vec2 as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_vec2)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_vec3 as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_vec3)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_vec4 as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_vec4)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_rect as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_rect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_position as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_position)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_rotation as *const _
-                as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_rotation)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_scale as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_scale)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_rgb as *const _
-                as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_color_rgb)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_rgba as *const _
-                as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_color_rgba)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_srgb as *const _
-                as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_color_srgb)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_srgba as *const _
-                as usize
-        },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(get_color_srgba)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_vec2 as *const _ as usize
-        },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_vec2)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_vec3 as *const _ as usize
-        },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_vec3)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_vec4 as *const _ as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_vec4)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_rect as *const _ as usize
-        },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_rect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_position as *const _
-                as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_position)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_rotation as *const _
-                as usize
-        },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_rotation)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_scale as *const _ as usize
-        },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_scale)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_rgb as *const _
-                as usize
-        },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_color_rgb)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_rgba as *const _
-                as usize
-        },
-        160usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_color_rgba)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_srgb as *const _
-                as usize
-        },
-        168usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_color_srgb)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_srgba as *const _
-                as usize
-        },
-        176usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(set_color_srgba)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).read_floats as *const _
-                as usize
-        },
-        184usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(read_floats)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).write_floats as *const _
-                as usize
-        },
-        192usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_the_truth_common_types_api),
-            "::",
-            stringify!(write_floats)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_undo_stack_o {
     _unused: [u8; 0],
 }
@@ -23077,7 +8752,7 @@ pub struct tm_undo_stack_o {
 #[doc = " The [[tm_undo_stack_i]] interface must be implemented to be thread-safe. Callers can call it from"]
 #[doc = " any thread."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_undo_stack_i {
     #[doc = " User data for interface functions."]
     pub inst: *mut tm_undo_stack_o,
@@ -23101,49 +8776,6 @@ pub struct tm_undo_stack_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_undo_stack_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_undo_stack_i>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_undo_stack_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_undo_stack_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_undo_stack_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_undo_stack_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_undo_stack_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_undo_stack_i>())).add as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_undo_stack_i),
-            "::",
-            stringify!(add)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_undo_stack_i>())).add_to_document as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_undo_stack_i),
-            "::",
-            stringify!(add_to_document)
-        )
-    );
-}
 #[doc = " API for converting between UTF-8 encoded text and UTF-16 or UTF-32. All strings in The Machinery"]
 #[doc = " are UTF-8 encoded, but UTF-16 and UTF-32 are sometimes needed to communicate with external APIs."]
 #[doc = " For example, Windows uses UTF-16."]
@@ -23151,7 +8783,7 @@ fn bindgen_test_layout_tm_undo_stack_i() {
 #[doc = " !!! TODO: API-REVIEW"]
 #[doc = "     * Add `tm_str_t codepoint_range(tm_str_t s)`."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_unicode_api {
     #[doc = " Returns *true* if `utf8` is a valid UTF-8 string, *false* otherwise."]
     pub is_valid:
@@ -23265,181 +8897,6 @@ pub struct tm_unicode_api {
         ) -> *mut ::std::os::raw::c_char,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_unicode_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_unicode_api>(),
-        128usize,
-        concat!("Size of: ", stringify!(tm_unicode_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_unicode_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_unicode_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).is_valid as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(is_valid)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).truncate as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(truncate)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_encode as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_encode)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_decode as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_decode)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_unicode_api>())).utf8_num_codepoints as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_num_codepoints)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_decode_n as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_decode_n)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf32 as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_to_utf32)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf32_n as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_to_utf32_n)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf32_to_utf8 as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf32_to_utf8)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf32_to_utf8_n as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf32_to_utf8_n)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_encode as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf16_encode)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_decode as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf16_decode)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf16 as *const _ as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_to_utf16)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf16_n as *const _ as usize },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf8_to_utf16_n)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_to_utf8 as *const _ as usize },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf16_to_utf8)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_to_utf8_n as *const _ as usize },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unicode_api),
-            "::",
-            stringify!(utf16_to_utf8_n)
-        )
-    );
-}
 #[doc = " …"]
 pub const TM_UNICODE__HORIZONTAL_ELLIPSIS: ::std::os::raw::c_int = 8230;
 #[doc = " ↑"]
@@ -23455,7 +8912,7 @@ pub const TM_UNICODE__DOUBLE_PRIME: ::std::os::raw::c_int = 8243;
 #[doc = " Symbol codepoints"]
 pub type _bindgen_ty_15 = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_unit_test_runner_o {
     _unused: [u8; 0],
 }
@@ -23465,7 +8922,7 @@ pub struct tm_unit_test_runner_o {
 #[doc = " A codebase may have multiple unit test runners. One runner might log the results to the command"]
 #[doc = " line, while another uploads it to a web server, etc."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_unit_test_runner_i {
     #[doc = " User data for callback functions."]
     pub inst: *mut tm_unit_test_runner_o,
@@ -23543,107 +9000,6 @@ pub struct tm_unit_test_runner_i {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_unit_test_runner_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_unit_test_runner_i>(),
-        64usize,
-        concat!("Size of: ", stringify!(tm_unit_test_runner_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_unit_test_runner_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_unit_test_runner_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).inst as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(inst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_file as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(test_file)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_custom as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(test_custom)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_disk as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(test_disk)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_network as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(test_network)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_slow_paths as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(test_slow_paths)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).record as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(record)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).expect_error as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_runner_i),
-            "::",
-            stringify!(expect_error)
-        )
-    );
-}
 #[doc = " Interface for unit tests."]
 #[doc = ""]
 #[doc = " Plugins that want to implement a set of unit tests can register them using this interface. To"]
@@ -23654,7 +9010,7 @@ fn bindgen_test_layout_tm_unit_test_runner_i() {
 #[doc = "     for the plugin. You don't have to register a separate [[tm_unit_test_i]] for each individual"]
 #[doc = "     unit test in the plugin."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_unit_test_i {
     #[doc = " Name of this unit test. Typically, this is identical to the name of the plugin."]
     pub name: *const ::std::os::raw::c_char,
@@ -23663,39 +9019,6 @@ pub struct tm_unit_test_i {
     pub test: ::std::option::Option<
         unsafe extern "C" fn(tr: *mut tm_unit_test_runner_i, a: *mut tm_allocator_i),
     >,
-}
-#[test]
-fn bindgen_test_layout_tm_unit_test_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_unit_test_i>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_unit_test_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_unit_test_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_unit_test_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unit_test_i>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_i),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_unit_test_i>())).test as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_unit_test_i),
-            "::",
-            stringify!(test)
-        )
-    );
 }
 #[doc = " The visibility flag is disabled by default."]
 pub const TM_VISIBILITY_FLAG_OPT_IN: tm_visibility_flag_behaviour = 0;
@@ -23708,7 +9031,7 @@ pub type tm_visibility_flag_behaviour = ::std::os::raw::c_int;
 #[doc = " To register a new visibility flag, register a `tm_visibility_flag_desc_i *` under  the"]
 #[doc = " [[TM_VISIBILITY_FLAGS_EDITOR_INTERFACE_NAME]]."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_visibility_flag_desc_i {
     #[doc = " Hashed name of the flag. Used for loose coupling between the visibility flag and"]
     #[doc = " other systems (e.g. the shader system)."]
@@ -23723,77 +9046,8 @@ pub struct tm_visibility_flag_desc_i {
     #[doc = " Flag behaviour, see `enum tm_visibility_flag_behaviour`."]
     pub behaviour: tm_visibility_flag_behaviour,
 }
-#[test]
-fn bindgen_test_layout_tm_visibility_flag_desc_i() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_visibility_flag_desc_i>(),
-        32usize,
-        concat!("Size of: ", stringify!(tm_visibility_flag_desc_i))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_visibility_flag_desc_i>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_visibility_flag_desc_i))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flag_desc_i),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).description as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flag_desc_i),
-            "::",
-            stringify!(description)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).tooltip as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flag_desc_i),
-            "::",
-            stringify!(tooltip)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).uuid as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flag_desc_i),
-            "::",
-            stringify!(uuid)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).behaviour as *const _ as usize
-        },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flag_desc_i),
-            "::",
-            stringify!(behaviour)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_visibility_context_o {
     _unused: [u8; 0],
 }
@@ -23801,7 +9055,7 @@ pub struct tm_visibility_context_o {
 #[doc = ""]
 #[doc = " Threading: This API is internally synchronized."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_visibility_flags_api {
     #[doc = " Creates a visibility context. Each context can hold a maximum of 64 flags. `name` is a hashed"]
     #[doc = " string used to identify a particular context, registered as an implementation under the"]
@@ -23867,132 +9121,6 @@ pub struct tm_visibility_flags_api {
         ) -> u64,
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_visibility_flags_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_visibility_flags_api>(),
-        72usize,
-        concat!("Size of: ", stringify!(tm_visibility_flags_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_visibility_flags_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_visibility_flags_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).create_context as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(create_context)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).context_name as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(context_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).destroy_context as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(destroy_context)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).register_visibility_flag as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(register_visibility_flag)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).name_from_visibility_flag
-                as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(name_from_visibility_flag)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).visibility_flag_from_name
-                as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(visibility_flag_from_name)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).unregister_visibility_flag
-                as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(unregister_visibility_flag)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).enumerate_flags as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(enumerate_flags)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_visibility_flags_api>())).build_visibility_mask as *const _
-                as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_visibility_flags_api),
-            "::",
-            stringify!(build_visibility_mask)
-        )
-    );
-}
 #[doc = " uint32_t"]
 pub const TM_TT_PROP__VISIBILITY_FLAG__UUID: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_16 = ::std::os::raw::c_int;
@@ -24006,7 +9134,7 @@ pub const TM_WEB_SOCKET_OPCODE_PONG: tm_web_socket_opcode = 10;
 pub type tm_web_socket_opcode = ::std::os::raw::c_int;
 #[doc = " Helper functions for processing web socket protocol data."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_web_socket_protocol_api {
     #[doc = " Creates a client handshake message to `host:port` with specified `request` and `key` and"]
     #[doc = " stores it in `buffer` of size `size`."]
@@ -24066,96 +9194,6 @@ pub struct tm_web_socket_protocol_api {
         unsafe extern "C" fn(seg: *mut tm_segmented_buffer_t, size: u64, mask: u32),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_web_socket_protocol_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_web_socket_protocol_api>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_web_socket_protocol_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_web_socket_protocol_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_web_socket_protocol_api))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).make_client_handshake as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_protocol_api),
-            "::",
-            stringify!(make_client_handshake)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).make_server_handshake as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_protocol_api),
-            "::",
-            stringify!(make_server_handshake)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).make_frame_header as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_protocol_api),
-            "::",
-            stringify!(make_frame_header)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).parse_frame_header as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_protocol_api),
-            "::",
-            stringify!(parse_frame_header)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).mask_data as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_protocol_api),
-            "::",
-            stringify!(mask_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).mask_segmented_buffer as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_protocol_api),
-            "::",
-            stringify!(mask_segmented_buffer)
-        )
-    );
-}
 #[doc = " The request is in progress, but has not yet completed."]
 pub const TM_HTTP_REQUEST_STATUS_IN_PROGRESS: tm_http_request_status = 0;
 #[doc = " The request has succeeded and has data to read."]
@@ -24168,52 +9206,17 @@ pub const TM_HTTP_REQUEST_STATUS_CLOSED: tm_http_request_status = 3;
 pub type tm_http_request_status = ::std::os::raw::c_int;
 #[doc = " Represents a HTTP request sent to the web talker."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_http_request_t {
     #[doc = " Unique ID of the request."]
     pub id: u64,
     #[doc = " Target for the request. Will be `/` for the root web page."]
     pub request_target: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_http_request_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_http_request_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_http_request_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_http_request_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_http_request_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_http_request_t>())).id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_http_request_t),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_http_request_t>())).request_target as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_http_request_t),
-            "::",
-            stringify!(request_target)
-        )
-    );
-}
 #[doc = " Used to represent a buffer that is split into multiple separate segments. The segments are linked"]
 #[doc = " together in a linked list."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_segmented_buffer_t {
     #[doc = " Pointer to the data in this segment."]
     pub data: *mut ::std::os::raw::c_void,
@@ -24221,49 +9224,6 @@ pub struct tm_segmented_buffer_t {
     pub size: u64,
     #[doc = " Pointer to the next segment or NULL if this is the last segment in the linked list."]
     pub next: *mut tm_segmented_buffer_t,
-}
-#[test]
-fn bindgen_test_layout_tm_segmented_buffer_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_segmented_buffer_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(tm_segmented_buffer_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_segmented_buffer_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_segmented_buffer_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_segmented_buffer_t>())).data as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_segmented_buffer_t),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_segmented_buffer_t>())).size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_segmented_buffer_t),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_segmented_buffer_t>())).next as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_segmented_buffer_t),
-            "::",
-            stringify!(next)
-        )
-    );
 }
 pub const TM_WEB_SOCKET_PSEUDO_OPCODE_OPEN: tm_web_socket_pseudo_opcode = 16;
 pub const TM_WEB_SOCKET_PSEUDO_OPCODE_ERROR: tm_web_socket_pseudo_opcode = 17;
@@ -24283,51 +9243,16 @@ pub const TM_WEB_SOCKET_STATUS_ERROR: tm_web_socket_status = 4;
 pub type tm_web_socket_status = ::std::os::raw::c_int;
 #[doc = " Represents a web socket connection request."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_web_socket_request_t {
     #[doc = " ID of the request."]
     pub id: u64,
     #[doc = " String representing the request target. This will be `/` for the root request."]
     pub request_target: *const ::std::os::raw::c_char,
 }
-#[test]
-fn bindgen_test_layout_tm_web_socket_request_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_web_socket_request_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(tm_web_socket_request_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_web_socket_request_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_web_socket_request_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_socket_request_t>())).id as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_request_t),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_request_t>())).request_target as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_request_t),
-            "::",
-            stringify!(request_target)
-        )
-    );
-}
 #[doc = " Represents an event received on a web socket."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_web_socket_event_t {
     #[doc = " Opcode for the event. This will be one of the [[enum tm_web_socket_opcode]] opcodes."]
     pub opcode: u32,
@@ -24339,83 +9264,14 @@ pub struct tm_web_socket_event_t {
     #[doc = " Reference to the payload data."]
     pub payload_reference: *mut ::std::os::raw::c_void,
 }
-#[test]
-fn bindgen_test_layout_tm_web_socket_event_t() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_web_socket_event_t>(),
-        48usize,
-        concat!("Size of: ", stringify!(tm_web_socket_event_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_web_socket_event_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_web_socket_event_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_socket_event_t>())).opcode as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_event_t),
-            "::",
-            stringify!(opcode)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_event_t>()))._padding_107 as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_event_t),
-            "::",
-            stringify!(_padding_107)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_event_t>())).payload_size as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_event_t),
-            "::",
-            stringify!(payload_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_socket_event_t>())).payload as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_event_t),
-            "::",
-            stringify!(payload)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_socket_event_t>())).payload_reference as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_socket_event_t),
-            "::",
-            stringify!(payload_reference)
-        )
-    );
-}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_web_talker_o {
     _unused: [u8; 0],
 }
 #[doc = " Interface for managing HTTP and WebSocket connections (both as client and a server)."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_web_talker_api {
     #[doc = " Creates a new web talker listening to the specified `port` using the specified OS `socket`"]
     #[doc = " interface. Use `port = 0` to bind to a system assigned port. If we fail to bind to the"]
@@ -24576,319 +9432,41 @@ pub struct tm_web_talker_api {
         ),
     >,
 }
-#[test]
-fn bindgen_test_layout_tm_web_talker_api() {
-    assert_eq!(
-        ::std::mem::size_of::<tm_web_talker_api>(),
-        192usize,
-        concat!("Size of: ", stringify!(tm_web_talker_api))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm_web_talker_api>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm_web_talker_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).create as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(create)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).listening_address as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(listening_address)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).create_no_server as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(create_no_server)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).destroy as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).receive as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(receive)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).send as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(send)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).http_get_requests as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(http_get_requests)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).http_respond_raw as *const _ as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(http_respond_raw)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).http_respond_html as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(http_respond_html)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).http_request as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(http_request)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).http_request_status as *const _ as usize
-        },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(http_request_status)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).http_response as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(http_response)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).http_close as *const _ as usize },
-        96usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(http_close)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_connect as *const _ as usize },
-        104usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_connect)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_get_requests as *const _ as usize
-        },
-        112usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_get_requests)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_status as *const _ as usize },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_status)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_recv_progress as *const _ as usize
-        },
-        128usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_recv_progress)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_get_events as *const _ as usize },
-        136usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_get_events)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_text_frame as *const _ as usize
-        },
-        144usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_send_text_frame)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_binary_frame as *const _ as usize
-        },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_send_binary_frame)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_segmented_binary_frame as *const _
-                as usize
-        },
-        160usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_send_segmented_binary_frame)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_ping as *const _ as usize },
-        168usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_send_ping)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_close as *const _ as usize },
-        176usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(ws_close)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<tm_web_talker_api>())).copy_segmented_buffer as *const _ as usize
-        },
-        184usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(tm_web_talker_api),
-            "::",
-            stringify!(copy_segmented_buffer)
-        )
-    );
-}
 #[doc = " Returns the application's viewer manager that keeps track of all the application's viewers."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_viewer_manager_o {
     pub _address: u8,
 }
 #[doc = " Returns the API for the application's default render pipeline."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_render_pipeline_api {
     pub _address: u8,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_asset_io_o {
     pub _address: u8,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_plugin_o {
     pub _address: u8,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_string_repository_o {
     pub _address: u8,
 }
 #[doc = " User data for this temp allocator."]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_temp_allocator_o {
     pub _address: u8,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct tm_hash32_t {
     pub _address: u8,
 }
