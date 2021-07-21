@@ -1,4 +1,4 @@
-use std::{fs, path::Path, process::Command};
+use std::{collections::HashSet, fs, path::Path, process::Command};
 
 use heck::{CamelCase, ShoutySnakeCase};
 use proc_macro2::{Ident, Span, TokenStream};
@@ -24,6 +24,17 @@ fn main() {
     src.push_str("use unsafe_unwrap::UnsafeUnwrap;\n");
     src.push_str("use machinery_sys::foundation::*;\n\n");
 
+    // Find all defined names, so we know what can have an Api trait
+    let mut defined_names = HashSet::new();
+    for item in &file.items {
+        if let Item::Const(cons) = item {
+            let name = cons.ident.to_string();
+            if name.ends_with("_NAME") {
+                defined_names.insert(name);
+            }
+        }
+    }
+
     for item in file.items {
         if let Item::Struct(item) = item {
             let name = item.ident.to_string();
@@ -37,7 +48,7 @@ fn main() {
                 continue;
             }
 
-            generate_api(&mut src, item);
+            generate_api(&mut src, item, &defined_names);
         }
     }
 
@@ -50,7 +61,7 @@ fn main() {
         .expect("Failed to run rustfmt");
 }
 
-fn generate_api(src: &mut String, item: ItemStruct) {
+fn generate_api(src: &mut String, item: ItemStruct, defined_names: &HashSet<String>) {
     let raw_name = item.ident;
     let name = raw_name.to_string()[3..].to_camel_case();
 
@@ -62,6 +73,13 @@ fn generate_api(src: &mut String, item: ItemStruct) {
     src.push_str(&format!("impl {} {{\n", name));
 
     for field in item.fields {
+        let field_name = field.ident.unwrap();
+
+        // Skip internals
+        if field_name.to_string().starts_with("internal__") {
+            continue;
+        }
+
         let path_type = if let Type::Path(path_type) = field.ty {
             path_type
         } else {
@@ -97,10 +115,9 @@ fn generate_api(src: &mut String, item: ItemStruct) {
         let (in_args, conversions, out_args) = generate_in_args(fn_type);
         let in_args: Vec<_> = vec![quote!(&self)].into_iter().chain(in_args).collect();
 
-        let name = field.ident.unwrap();
         let output = &fn_type.output;
         let function = quote! {
-            pub unsafe fn #name(#(#in_args),*) #output
+            pub unsafe fn #field_name(#(#in_args),*) #output
         };
 
         src.push_str(&format!("{} {{\n", function));
@@ -112,7 +129,7 @@ fn generate_api(src: &mut String, item: ItemStruct) {
 
         // Call into the field
         let call = quote! {
-            ((*self.0).#name).unsafe_unwrap()(#(#out_args),*)
+            ((*self.0).#field_name).unsafe_unwrap()(#(#out_args),*)
         };
         src.push_str(&format!("{}\n", call));
 
@@ -122,24 +139,28 @@ fn generate_api(src: &mut String, item: ItemStruct) {
     src.push_str("}\n\n");
 
     // Trait implementation for fetching from the registry
-    let name_ident = Ident::new(
-        &format!("{}_NAME", raw_name.to_string().to_shouty_snake_case()),
-        Span::call_site(),
-    );
     let name_token = Ident::new(&name, Span::call_site());
-    let reg_impl = quote! {
-        impl crate::Api for #name_token {
-            const NAME: *const i8 = #name_ident as *const _ as *const i8;
+    let define_name = format!("{}_NAME", raw_name.to_string().to_shouty_snake_case());
+    if defined_names.contains(&define_name) {
+        let name_ident = Ident::new(&define_name, Span::call_site());
+        let reg_impl = quote! {
+            impl crate::Api for #name_token {
+                const NAME: *const i8 = #name_ident as *const _ as *const i8;
 
-            unsafe fn from_raw(raw: *const std::ffi::c_void) -> Self {
-                Self(raw as *const #raw_name)
+                unsafe fn from_raw(raw: *const std::ffi::c_void) -> Self {
+                    Self(raw as *const #raw_name)
+                }
             }
-        }
+        };
+        src.push_str(&reg_impl.to_string());
+    }
 
+    let send_sync_impl = quote! {
         unsafe impl Send for #name_token {}
         unsafe impl Sync for #name_token {}
     };
-    src.push_str(&reg_impl.to_string());
+    src.push_str(&send_sync_impl.to_string());
+
     src.push_str("\n");
 }
 
@@ -160,7 +181,9 @@ fn generate_in_args<'a>(
         // If this is a type we can convert, add a conversion
         if let Type::Ptr(ptr) = &input.ty {
             if let Type::Path(ty_path) = ptr.elem.as_ref() {
-                if ty_path.path.segments.last().unwrap().ident == "c_char" {
+                if ty_path.path.segments.last().unwrap().ident == "c_char"
+                    && ptr.mutability.is_none()
+                {
                     let conversion = quote! {
                         let #name = std::ffi::CString::new(#name).unwrap();
                     };

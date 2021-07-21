@@ -99,8 +99,105 @@ pub const WCHAR_MAX: u32 = 65535;
 pub const WINT_MIN: u32 = 0;
 pub const WINT_MAX: u32 = 65535;
 pub const TM_USE_STRHASH_TYPE: u32 = 1;
+pub const TM_ALLOCATOR_API_NAME: &'static [u8; 17usize] = b"tm_allocator_api\0";
 pub const TM_API_REGISTRY_API_NAME: &'static [u8; 20usize] = b"tm_api_registry_api\0";
+pub const TM_APPLICATION_API_NAME: &'static [u8; 19usize] = b"tm_application_api\0";
+pub const TM_ASSET_DATABASE_API_NAME: &'static [u8; 22usize] = b"tm_asset_database_api\0";
+pub const TM_ASSET_IO_API_NAME: &'static [u8; 16usize] = b"tm_asset_io_api\0";
+pub const TM_BASE_64_API_NAME: &'static [u8; 15usize] = b"tm_base_64_api\0";
+pub const TM_BUDDY_ALLOCATOR_RAW_API_NAME: &'static [u8; 27usize] = b"tm_buddy_allocator_raw_api\0";
+pub const TM_BUDDY_ALLOCATOR_API_NAME: &'static [u8; 23usize] = b"tm_buddy_allocator_api\0";
+pub const TM_BUFFERS_API_NAME: &'static [u8; 15usize] = b"tm_buffers_api\0";
+pub const TM_BUFFER_FORMAT_API_NAME: &'static [u8; 21usize] = b"tm_buffer_format_api\0";
+pub const TM_CAMERA_API_NAME: &'static [u8; 14usize] = b"tm_camera_api\0";
+pub const TM_COLLABORATION_API_NAME: &'static [u8; 21usize] = b"tm_collaboration_api\0";
+pub const TM_COLLABORATION_P2P_API_NAME: &'static [u8; 25usize] = b"tm_collaboration_p2p_api\0";
+pub const TM_CONFIG_API_NAME: &'static [u8; 14usize] = b"tm_config_api\0";
+pub const TM_CORE_ASSET_INTERFACE_NAME: &'static [u8; 16usize] = b"tm_core_asset_i\0";
+pub const TM_CORE_API_NAME: &'static [u8; 12usize] = b"tm_core_api\0";
+pub const TM_CORE_IMPORTER_API_NAME: &'static [u8; 21usize] = b"tm_core_importer_api\0";
+pub const TM_CRASH_RECOVERY_API_NAME: &'static [u8; 22usize] = b"tm_crash_recovery_api\0";
+pub const TM_ERROR_API_NAME: &'static [u8; 13usize] = b"tm_error_api\0";
+pub const TM_FEATURE_FLAGS_API_NAME: &'static [u8; 17usize] = b"tm_feature_flags\0";
+pub const TM_GIT_IGNORE_API_NAME: &'static [u8; 18usize] = b"tm_git_ignore_api\0";
+pub const TM_IMAGE_LOADER_API_NAME: &'static [u8; 20usize] = b"tm_image_loader_api\0";
+pub const TM_INPUT_API_NAME: &'static [u8; 13usize] = b"tm_input_api\0";
+pub const TM_INTEGRATION_TEST_INTERFACE_NAME: &'static [u8; 22usize] = b"tm_integration_test_i\0";
+pub const TM_JOB_SYSTEM_API_NAME: &'static [u8; 18usize] = b"tm_job_system_api\0";
+pub const TM_JSON_ERROR_STRING_LENGTH: u32 = 79;
+pub const TM_JSON_API_NAME: &'static [u8; 12usize] = b"tm_json_api\0";
+pub const TM_LOCALIZER_STRINGS_INTERFACE_NAME: &'static [u8; 23usize] = b"tm_localizer_strings_i\0";
+pub const TM_LOCALIZER_API_NAME: &'static [u8; 17usize] = b"tm_localizer_api\0";
 pub const TM_LOGGER_API_NAME: &'static [u8; 14usize] = b"tm_logger_api\0";
+pub const TM_LZ4_API_NAME: &'static [u8; 11usize] = b"tm_lz4_api\0";
+pub const TM_MATH_API_NAME: &'static [u8; 12usize] = b"tm_math_api\0";
+pub const TM_MEMORY_TRACKER_SCOPE__NONE: u32 = 4294967295;
+pub const TM_MEMORY_TRACKER_API_NAME: &'static [u8; 22usize] = b"tm_memory_tracker_api\0";
+pub const TM_OS_API_NAME: &'static [u8; 10usize] = b"tm_os_api\0";
+pub const TM_DIRECTORY_SEPARATOR: u8 = 47u8;
+pub const TM_PATH_API_NAME: &'static [u8; 12usize] = b"tm_path_api\0";
+pub const TM_PLUGINS_API_NAME: &'static [u8; 15usize] = b"tm_plugins_api\0";
+pub const TM_TT_TYPE__PLUGIN: &'static [u8; 10usize] = b"tm_plugin\0";
+pub const TM_PLUGIN_ASSETS_API_NAME: &'static [u8; 21usize] = b"tm_plugin_assets_api\0";
+pub const TM_PLUGIN_INIT_INTERFACE_NAME: &'static [u8; 17usize] = b"tm_plugin_init_i\0";
+pub const TM_PLUGIN_SHUTDOWN_INTERFACE_NAME: &'static [u8; 21usize] = b"tm_plugin_shutdown_i\0";
+pub const TM_PLUGIN_TICK_INTERFACE_NAME: &'static [u8; 17usize] = b"tm_plugin_tick_i\0";
+pub const TM_PLUGIN_SET_THE_TRUTH_INTERFACE_NAME: &'static [u8; 26usize] =
+    b"tm_plugin_set_the_truth_i\0";
+pub const TM_PROFILER_API_NAME: &'static [u8; 16usize] = b"tm_profiler_api\0";
+pub const TM_PROGRESS_REPORT_API_NAME: &'static [u8; 23usize] = b"tm_progress_report_api\0";
+pub const TM_RANDOM_API_NAME: &'static [u8; 14usize] = b"tm_random_api\0";
+pub const TM_RUNTIME_DATA_REPOSITORY_API_NAME: &'static [u8; 31usize] =
+    b"tm_runtime_data_repository_api\0";
+pub const SHA1_DIGEST_SIZE: u32 = 20;
+pub const TM_SPRINTF_API_NAME: &'static [u8; 15usize] = b"tm_sprintf_api\0";
+pub const TM_STRING_API_NAME: &'static [u8; 14usize] = b"tm_string_api\0";
+pub const TM_STRING_REPOSITORY_API_NAME: &'static [u8; 25usize] = b"tm_string_repository_api\0";
+pub const TM_TASK_SYSTEM_API_NAME: &'static [u8; 19usize] = b"tm_task_system_api\0";
+pub const TM_TEMP_ALLOCATOR_API_NAME: &'static [u8; 22usize] = b"tm_temp_allocator_api\0";
+pub const TM_TT_TYPE__ANYTHING: &'static [u8; 12usize] = b"tm_anything\0";
+pub const TM_THE_TRUTH_PROPERTY_NAME_LENGTH: u32 = 63;
+pub const TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME: &'static [u8; 28usize] =
+    b"tm_the_truth_create_types_i\0";
+pub const TM_THE_TRUTH_DESTROYED_INTERFACE_NAME: &'static [u8; 25usize] =
+    b"tm_the_truth_destroyed_i\0";
+pub const TM_THE_TRUTH_API_NAME: &'static [u8; 17usize] = b"tm_the_truth_api\0";
+pub const TM_TT_TYPE__ASSET_ROOT: &'static [u8; 14usize] = b"tm_asset_root\0";
+pub const TM_TT_TYPE__ASSET: &'static [u8; 9usize] = b"tm_asset\0";
+pub const TM_TT_TYPE__ASSET_DIRECTORY: &'static [u8; 19usize] = b"tm_asset_directory\0";
+pub const TM_TT_TYPE__ASSET_LABEL: &'static [u8; 15usize] = b"tm_asset_label\0";
+pub const TM_ASSET_LABEL_INTERFACE_NAME: &'static [u8; 25usize] = b"tm_asset_label_interface\0";
+pub const TM_THE_TRUTH_ASSETS_API_NAME: &'static [u8; 24usize] = b"tm_the_truth_assets_api\0";
+pub const TM_THE_TRUTH_MIGRATION_INTERFACE_NAME: &'static [u8; 25usize] =
+    b"tm_the_truth_migration_i\0";
+pub const TM_THE_TRUTH_MIGRATION_API_NAME: &'static [u8; 27usize] = b"tm_the_truth_migration_api\0";
+pub const TM_TT_TYPE__BOOL: &'static [u8; 8usize] = b"tm_bool\0";
+pub const TM_TT_TYPE__UINT32_T: &'static [u8; 12usize] = b"tm_uint32_t\0";
+pub const TM_TT_TYPE__UINT64_T: &'static [u8; 12usize] = b"tm_uint64_t\0";
+pub const TM_TT_TYPE__FLOAT: &'static [u8; 9usize] = b"tm_float\0";
+pub const TM_TT_TYPE__DOUBLE: &'static [u8; 10usize] = b"tm_double\0";
+pub const TM_TT_TYPE__STRING: &'static [u8; 10usize] = b"tm_string\0";
+pub const TM_TT_TYPE__VEC2: &'static [u8; 10usize] = b"tm_vec2_t\0";
+pub const TM_TT_TYPE__VEC3: &'static [u8; 10usize] = b"tm_vec3_t\0";
+pub const TM_TT_TYPE__VEC4: &'static [u8; 10usize] = b"tm_vec4_t\0";
+pub const TM_TT_TYPE__POSITION: &'static [u8; 12usize] = b"tm_position\0";
+pub const TM_TT_TYPE__ROTATION: &'static [u8; 12usize] = b"tm_rotation\0";
+pub const TM_TT_TYPE__SCALE: &'static [u8; 9usize] = b"tm_scale\0";
+pub const TM_TT_TYPE__COLOR_RGB: &'static [u8; 13usize] = b"tm_color_rgb\0";
+pub const TM_TT_TYPE__COLOR_RGBA: &'static [u8; 14usize] = b"tm_color_rgba\0";
+pub const TM_TT_TYPE__RECT: &'static [u8; 10usize] = b"tm_rect_t\0";
+pub const TM_THE_TRUTH_COMMON_TYPES_API_NAME: &'static [u8; 30usize] =
+    b"tm_the_truth_common_types_api\0";
+pub const TM_UNICODE_API_NAME: &'static [u8; 15usize] = b"tm_unicode_api\0";
+pub const TM_UNIT_TEST_INTERFACE_NAME: &'static [u8; 15usize] = b"tm_unit_test_i\0";
+pub const TM_VISIBILITY_FLAGS_EDITOR_INTERFACE_NAME: &'static [u8; 28usize] =
+    b"tm_visibility_editor_name_i\0";
+pub const TM_VISIBILITY_FLAGS_CONTEXT_INTERFACE_NAME: &'static [u8; 24usize] =
+    b"tm_visibility_context_o\0";
+pub const TM_VISIBILITY_FLAGS_API_NAME: &'static [u8; 24usize] = b"tm_visibility_flags_api\0";
+pub const TM_TT_TYPE__VISIBILITY_FLAG: &'static [u8; 19usize] = b"tm_visibility_flag\0";
+pub const TM_WEB_SOCKET_PROTOCOL_API_NAME: &'static [u8; 27usize] = b"tm_web_socket_protocol_api\0";
+pub const TM_WEB_TALKER_API_NAME: &'static [u8; 18usize] = b"tm_web_talker_api\0";
 pub type va_list = *mut ::std::os::raw::c_char;
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
@@ -1033,8 +1130,422 @@ fn bindgen_test_layout_tm_strhash_t() {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct tm_allocator_i {
+pub struct tm_allocator_o {
     _unused: [u8; 0],
+}
+#[doc = " Interface for allocating memory."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_allocator_i {
+    #[doc = " Opaque struct storing instance data for this allocator."]
+    pub inst: *mut tm_allocator_o,
+    #[doc = " Memory scope used for tracking allocations made with this allocator. The memory scope is"]
+    #[doc = " initialized by calling [[tm_allocator_api->create_child()]]."]
+    pub mem_scope: u32,
+    pub _padding_16: [::std::os::raw::c_char; 4usize],
+    #[doc = " Basic memory allocator for The Machinery. The [[realloc()]] function provides a functionality"]
+    #[doc = " similar to stdlib `realloc()`, but not exactly the same."]
+    #[doc = ""]
+    #[doc = " Its arguments are `a`, the [[tm_allocator_i]] structure; `ptr`, a pointer to the block being"]
+    #[doc = " allocated/reallocated/freed; `old_size`, the current size of the memory block; `new_size`,"]
+    #[doc = " the new size of the block."]
+    #[doc = ""]
+    #[doc = " Note that the caller of [[realloc()]] is responsible for keeping track of the sizes of memory"]
+    #[doc = " blocks. This should not be an imposition, because the caller has to know the size of the"]
+    #[doc = " memory block anyway. Otherwise, it couldn't use it without risking an access violation."]
+    #[doc = ""]
+    #[doc = " The realloc function should implement the following behavior:"]
+    #[doc = ""]
+    #[doc = " * When `new_size` is zero, it should behave like `free()` and return `NULL`."]
+    #[doc = " * When `new_size` is not zero, it should behave like `realloc()`. In this case it should"]
+    #[doc = "   return NULL if and only if it can't fulfill the request."]
+    #[doc = ""]
+    #[doc = " The `file` and `line` parameters are used together with the `mem_scope` member for tracking"]
+    #[doc = " memory allocations. `file` and `line` should typically be set to the C `__FILE__` and"]
+    #[doc = " `__LINE__` macros."]
+    #[doc = ""]
+    #[doc = " If you are writing a low-level collection class, it is recommended that you don't use"]
+    #[doc = " `__FILE__` and `__LINE__` directly but instead pass them down from the caller. That way, the"]
+    #[doc = " memory allocations get attributed to the class using the collection class instead of the"]
+    #[doc = " collection class itself, which is more useful. See [[carray.inl]] for an example of this."]
+    #[doc = ""]
+    #[doc = " In addition to allocating memory, the allocator is also responsible for registering the"]
+    #[doc = " allocation with the global memory tracker."]
+    pub realloc: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            ptr: *mut ::std::os::raw::c_void,
+            old_size: u64,
+            new_size: u64,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_allocator_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_allocator_i>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_allocator_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_allocator_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_allocator_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_i>())).mem_scope as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_i),
+            "::",
+            stringify!(mem_scope)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_i>()))._padding_16 as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_i),
+            "::",
+            stringify!(_padding_16)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_i>())).realloc as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_i),
+            "::",
+            stringify!(realloc)
+        )
+    );
+}
+#[doc = " Allocator statstics."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_allocator_statistics_t {
+    #[doc = " Total number of allocations in the `system` allocator."]
+    pub system_allocation_count: u64,
+    #[doc = " Total allocated bytes in the `system` allocator."]
+    pub system_allocated_bytes: u64,
+    #[doc = " Total reserved address space in the `vm` and `fixed_vm` allocators."]
+    pub vm_reserved: u64,
+    #[doc = " Total committed memory in the `vm` and `fixed_vm` allocators."]
+    pub vm_committed: u64,
+    #[doc = " Allocations in `system` allocator since this counter was externally reset."]
+    pub system_churn_allocation_count: u64,
+    #[doc = " Bytes allocated in the `system` allocator since this counter was externally reset."]
+    pub system_churn_allocated_bytes: u64,
+    #[doc = " Virtual memory commited since this counter was externally reset."]
+    pub vm_churn_committed: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_allocator_statistics_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_allocator_statistics_t>(),
+        56usize,
+        concat!("Size of: ", stringify!(tm_allocator_statistics_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_allocator_statistics_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_allocator_statistics_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_allocation_count
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_statistics_t),
+            "::",
+            stringify!(system_allocation_count)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_allocated_bytes as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_statistics_t),
+            "::",
+            stringify!(system_allocated_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).vm_reserved as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_statistics_t),
+            "::",
+            stringify!(vm_reserved)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).vm_committed as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_statistics_t),
+            "::",
+            stringify!(vm_committed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_churn_allocation_count
+                as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_statistics_t),
+            "::",
+            stringify!(system_churn_allocation_count)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).system_churn_allocated_bytes
+                as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_statistics_t),
+            "::",
+            stringify!(system_churn_allocated_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_statistics_t>())).vm_churn_committed as *const _
+                as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_statistics_t),
+            "::",
+            stringify!(vm_churn_committed)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_allocator_api {
+    #[doc = " Allocator using the standard system [[realloc()]] function."]
+    pub system: *mut tm_allocator_i,
+    #[doc = " Allocator used to detect buffer overflow problems. This allocator allocates whole pages from"]
+    #[doc = " the VM for every allocation and aligns the allocated memory at the end of the page. This"]
+    #[doc = " means that any code that tries to write beyond the end of the allocated memory triggers a"]
+    #[doc = " page fault exception. Similarly, writing to freed memory will trigger a page fault -- unless"]
+    #[doc = " another page has been allocated to the same location which in practice seems rare."]
+    #[doc = ""]
+    #[doc = " If you are having issues with memory overwrites that are hard to pin down, you can try to"]
+    #[doc = " switch out the regular allocator for the [[end_of_page]] one to see if you can detect the"]
+    #[doc = " problem."]
+    pub end_of_page: *mut tm_allocator_i,
+    #[doc = " Allocator that allocates memory directly from the VM. Note that these allocations will always"]
+    #[doc = " be rounded up to the page size, so it is not a good choice for small allocations. For large"]
+    #[doc = " allocations it can be a good choice since allocating VM pages will never cause fragmentation."]
+    #[doc = " Note though that since allocating from the VM involves a system call and requires the OS to"]
+    #[doc = " clear the page (for security reasons) it can be slower than other allocators."]
+    pub vm: *mut tm_allocator_i,
+    #[doc = " Allocator system statistics."]
+    pub statistics: *mut tm_allocator_statistics_t,
+    #[doc = " Creates a child allocator of the specified `parent` allocator with the given description."]
+    #[doc = " Parent and child allocators form a hierarchy that can be examined in the memory tracker."]
+    pub create_child: ::std::option::Option<
+        unsafe extern "C" fn(
+            parent: *const tm_allocator_i,
+            desc: *const ::std::os::raw::c_char,
+        ) -> tm_allocator_i,
+    >,
+    #[doc = " Destroys a child allocator created by [[create_child()]]. When an allocator is destroyed we"]
+    #[doc = " verify that all the memory allocated by that allocator has been freed (to prevent memory"]
+    #[doc = " leaks)."]
+    pub destroy_child: ::std::option::Option<unsafe extern "C" fn(child: *const tm_allocator_i)>,
+    #[doc = " As [[destroy_child()]] but allows leaking up to `max_leaked_bytes` bytes without generating an"]
+    #[doc = " error. This can be used if the allocator is being used by third-party code that is leaking"]
+    #[doc = " stuff beyond our control."]
+    #[doc = ""]
+    #[doc = " It should not be left permanently in the code, rather the goal should be to get the third"]
+    #[doc = " party code cleaned up so it doesn't leak anymore."]
+    pub destroy_child_allowing_leaks: ::std::option::Option<
+        unsafe extern "C" fn(child: *const tm_allocator_i, max_leaked_bytes: u64),
+    >,
+    #[doc = " Creates a root allocator based on `parent` that is allowed to leak. I.e., [[destroy_child()]]"]
+    #[doc = " will never be called for the returned allocator and thus we will never check whether it leaks"]
+    #[doc = " memory or not."]
+    #[doc = ""]
+    #[doc = " This should be used judiciously, because we want to have memory leak detection enabled for as"]
+    #[doc = " many of our allocators as possible. However it can be useful for some global \"singleton\""]
+    #[doc = " systems that never gets destroyed, such as our list of plugins, etc."]
+    pub create_leaky_root_scope: ::std::option::Option<
+        unsafe extern "C" fn(
+            parent: *const tm_allocator_i,
+            desc: *const ::std::os::raw::c_char,
+        ) -> tm_allocator_i,
+    >,
+    #[doc = " Creates a fixed address VM allocator with the specified maximum size and tracking scope."]
+    #[doc = ""]
+    #[doc = " The fixed address allocator can be used to make allocations that stay at the same address,"]
+    #[doc = " even if they get realloc:ed to a bigger size. It works by using the virtual memory system to"]
+    #[doc = " first reserve a large range of address space, and then commit memory out of this reserved"]
+    #[doc = " space as requested (with calls to `realloc`)."]
+    #[doc = ""]
+    #[doc = " The `reserve_size` parameter specifies the amount of address space that is reserved. This is"]
+    #[doc = " also the maximum amount of memory that an allocation can be realloc:ed to. (Trying to"]
+    #[doc = " allocate more will result in an error.)"]
+    #[doc = ""]
+    #[doc = " The `mem_scope` specifies the tracking scope for the allocator. You can use the scope"]
+    #[doc = " returned from an existing allocator created by [[create_child()]] or"]
+    #[doc = " [[create_leaky_root_scope()]]."]
+    #[doc = ""]
+    #[doc = " These allocators are useful when you want to allocate an array of objects and ensure that the"]
+    #[doc = " objects in the array stay at a fixed address in memory, even as the array grows."]
+    #[doc = ""]
+    #[doc = " See also: [[create_leaky_root_scope()]]."]
+    pub create_fixed_vm: ::std::option::Option<
+        unsafe extern "C" fn(reserve_size: u64, mem_scope: u32) -> tm_allocator_i,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_allocator_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_allocator_api>(),
+        72usize,
+        concat!("Size of: ", stringify!(tm_allocator_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_allocator_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_allocator_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).system as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(system)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).end_of_page as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(end_of_page)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).vm as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(vm)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).statistics as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(statistics)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).create_child as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(create_child)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_allocator_api>())).destroy_child as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(destroy_child)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_api>())).destroy_child_allowing_leaks as *const _
+                as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(destroy_child_allowing_leaks)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_api>())).create_leaky_root_scope as *const _
+                as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(create_leaky_root_scope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_allocator_api>())).create_fixed_vm as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_allocator_api),
+            "::",
+            stringify!(create_fixed_vm)
+        )
+    );
 }
 #[doc = " Listener for receiving information about changes to the API registry. Use [[add_listener()]] to add"]
 #[doc = " a listener to the API registry."]
@@ -1351,6 +1862,7782 @@ fn bindgen_test_layout_tm_api_registry_api() {
 #[doc = " Function type for loading plugins or subparts of plugins."]
 pub type tm_load_function =
     ::std::option::Option<unsafe extern "C" fn(reg: *mut tm_api_registry_api, load: bool)>;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_ui_o {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_draw2d_font_t {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_color_space_desc_t {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_application_o {
+    _unused: [u8; 0],
+}
+#[doc = " Callback function for modal dialogs. This callback is called for every window/UI in the"]
+#[doc = " application to draw the modal dialog on top of it and limit interaction to the modal UI. If the"]
+#[doc = " callback function returns `true`, the modal UI will be closed."]
+pub type tm_application_modal_f = ::std::option::Option<
+    unsafe extern "C" fn(
+        data: *mut ::std::os::raw::c_void,
+        ui: *mut tm_ui_o,
+        rect: tm_rect_t,
+        font: *const tm_draw2d_font_t,
+        font_scale: f32,
+        ui_has_focus: bool,
+        delta_time: f32,
+    ) -> bool,
+>;
+#[doc = " Interface for applications. This interface allows applications to be defined in DLLs"]
+#[doc = " and executed by a host program, so that they can be hot reloaded."]
+#[doc = ""]
+#[doc = " The application can expect that these methods will be called by the host on a fiber"]
+#[doc = " locked to a specific job thread."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     This API has become a bit of a \"dumping ground\" for storing stuff that you want to be"]
+#[doc = "     generally accessible, but that doesn't really belong here. For example [[viewer_manager()]]"]
+#[doc = "     probably shouldn't be here, because the foundation doesn't have a concept of \"viewers\". We"]
+#[doc = "     should consider refactoring this to get rid of \"backward dependencies\" where `foundation` (a"]
+#[doc = "     lower level library) depends on concepts from higher levels (ui, etc)."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_application_api {
+    #[doc = " Returns the current application as created by [[create()]]. If you call it before [[create()]] or"]
+    #[doc = " after [[destroy()]], it will return 0."]
+    pub application: ::std::option::Option<unsafe extern "C" fn() -> *mut tm_application_o>,
+    #[doc = " Creates the application and returns it. `argc` and `argv` are the command line arguments"]
+    #[doc = " for the application."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            argc: ::std::os::raw::c_int,
+            argv: *mut *mut ::std::os::raw::c_char,
+        ) -> *mut tm_application_o,
+    >,
+    #[doc = " Ticks the application. The application should return at regular intervals from the [[tick()]]"]
+    #[doc = " function to give the host program the opportunity to reload the application DLL."]
+    #[doc = ""]
+    #[doc = " Should return `true` if the application should continue to run and `false` if it should be"]
+    #[doc = " terminated."]
+    pub tick: ::std::option::Option<unsafe extern "C" fn(app: *mut tm_application_o) -> bool>,
+    #[doc = " Called to destroy the application after [[tick()]] has returned false."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(app: *mut tm_application_o)>,
+    #[doc = " Sets a \"modal\" callback function for the framework. If set, the modal callback function"]
+    #[doc = " supplied will be called for each UI in the application to render a modal sheet/lightbox on"]
+    #[doc = " top of the UI."]
+    pub set_modal: ::std::option::Option<
+        unsafe extern "C" fn(
+            app: *mut tm_application_o,
+            f: tm_application_modal_f,
+            data: *mut ::std::os::raw::c_void,
+        ),
+    >,
+    #[doc = " Returns *true* if the application is running modal."]
+    pub is_modal: ::std::option::Option<unsafe extern "C" fn(app: *const tm_application_o) -> bool>,
+    #[doc = " Returns the asset root of the application. May be zero if the application does not have an asset root."]
+    pub asset_root:
+        ::std::option::Option<unsafe extern "C" fn(app: *const tm_application_o) -> tm_tt_id_t>,
+    #[doc = " True if the application should load the core project."]
+    pub load_core:
+        ::std::option::Option<unsafe extern "C" fn(app: *const tm_application_o) -> bool>,
+    #[doc = " Updates the core project from the loaded core project. Make sure `load_core` is true before"]
+    #[doc = " calling. The return value is true if anything was updated."]
+    pub update_core:
+        ::std::option::Option<unsafe extern "C" fn(app: *const tm_application_o) -> bool>,
+    #[doc = " Signals the application to exit."]
+    pub exit: ::std::option::Option<unsafe extern "C" fn(app: *mut tm_application_o)>,
+    #[doc = " Sets the cursor to be hidden for all windows of the application."]
+    pub set_cursor_hidden:
+        ::std::option::Option<unsafe extern "C" fn(app: *mut tm_application_o, hidden: bool)>,
+    #[doc = " Returns the application's viewer manager that keeps track of all the application's viewers."]
+    pub viewer_manager: ::std::option::Option<
+        unsafe extern "C" fn(app: *mut tm_application_o) -> *mut tm_viewer_manager_o,
+    >,
+    #[doc = " Returns the API for the application's default render pipeline."]
+    pub default_render_pipeline_api: ::std::option::Option<
+        unsafe extern "C" fn(app: *mut tm_application_o) -> *mut tm_render_pipeline_api,
+    >,
+    #[doc = " Returns the scale factor used for the application's UI."]
+    pub ui_scale_factor: ::std::option::Option<
+        unsafe extern "C" fn(app: *mut tm_application_o, ui: *mut tm_ui_o) -> f32,
+    >,
+    #[doc = " Returns the directory where application data is stored."]
+    pub data_dir: ::std::option::Option<
+        unsafe extern "C" fn(app: *mut tm_application_o) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the color space and output format used by the application windows."]
+    #[doc = " TODO (Frank): Should we support different color spaces per window?"]
+    pub color_space: ::std::option::Option<
+        unsafe extern "C" fn(
+            app: *const tm_application_o,
+            color_space: *mut tm_color_space_desc_t,
+            format: *mut u32,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_application_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_application_api>(),
+        128usize,
+        concat!("Size of: ", stringify!(tm_application_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_application_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_application_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).application as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(application)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).create as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).tick as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(tick)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).destroy as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).set_modal as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(set_modal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).is_modal as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(is_modal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).asset_root as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(asset_root)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).load_core as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(load_core)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).update_core as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(update_core)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).exit as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(exit)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_application_api>())).set_cursor_hidden as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(set_cursor_hidden)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_application_api>())).viewer_manager as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(viewer_manager)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_application_api>())).default_render_pipeline_api as *const _
+                as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(default_render_pipeline_api)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_application_api>())).ui_scale_factor as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(ui_scale_factor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).data_dir as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(data_dir)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_application_api>())).color_space as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_application_api),
+            "::",
+            stringify!(color_space)
+        )
+    );
+}
+#[doc = " Defines a callback API for the application to call into plugins."]
+#[doc = ""]
+#[doc = " If and when these callbacks are called is defined by the application. For example, not all"]
+#[doc = " applications have the concept of a main loop and thus would never call `TICK`. Not all"]
+#[doc = " applications have the concept of a \"main truth\" and thus would never call `SET_MAIN_TRUTH`."]
+#[doc = ""]
+#[doc = " It is recommended to rely on these calls as little as possible."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_o {
+    _unused: [u8; 0],
+}
+#[doc = " Configuration settings for the asset database."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_database_config_t {
+    #[doc = " Allocator used by the database."]
+    pub allocator: *mut tm_allocator_i,
+    #[doc = " Optional. Custom file system APIs used to access the database. If NULL, the standard file"]
+    #[doc = " system will be used."]
+    pub fs: *mut tm_os_file_system_api,
+    pub file_io: *mut tm_os_file_io_api,
+}
+#[test]
+fn bindgen_test_layout_tm_asset_database_config_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_database_config_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_asset_database_config_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_database_config_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_database_config_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_config_t>())).allocator as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_config_t),
+            "::",
+            stringify!(allocator)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_database_config_t>())).fs as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_config_t),
+            "::",
+            stringify!(fs)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_config_t>())).file_io as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_config_t),
+            "::",
+            stringify!(file_io)
+        )
+    );
+}
+#[doc = " Information about a saved item in the database."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_dabase_saved_item_t {
+    pub uuid: tm_uuid_t,
+    pub is_directory: bool,
+    pub _padding_30: [::std::os::raw::c_char; 7usize],
+}
+#[test]
+fn bindgen_test_layout_tm_asset_dabase_saved_item_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_dabase_saved_item_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_asset_dabase_saved_item_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_dabase_saved_item_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_dabase_saved_item_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_dabase_saved_item_t>())).uuid as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_dabase_saved_item_t),
+            "::",
+            stringify!(uuid)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_dabase_saved_item_t>())).is_directory as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_dabase_saved_item_t),
+            "::",
+            stringify!(is_directory)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_dabase_saved_item_t>()))._padding_30 as *const _
+                as usize
+        },
+        17usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_dabase_saved_item_t),
+            "::",
+            stringify!(_padding_30)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_database_o {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_database_api {
+    #[doc = " Creates a new asset database in `file` for saving The Truth `tt`."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            file: *const ::std::os::raw::c_char,
+            tt: *mut tm_the_truth_o,
+            config: *const tm_asset_database_config_t,
+        ) -> *mut tm_asset_database_o,
+    >,
+    #[doc = " Opens an existing asset database `file` for loading into The Truth `tt`. Note that this does"]
+    #[doc = " not load the assets from the database into `tt`, you have to explicitly call [[load()]] to load"]
+    #[doc = " the assets."]
+    pub open: ::std::option::Option<
+        unsafe extern "C" fn(
+            file: *const ::std::os::raw::c_char,
+            tt: *mut tm_the_truth_o,
+            config: *const tm_asset_database_config_t,
+        ) -> *mut tm_asset_database_o,
+    >,
+    #[doc = " Closes a database opened with [[create()]] or [[open()]]."]
+    pub close: ::std::option::Option<unsafe extern "C" fn(db: *mut tm_asset_database_o)>,
+    #[doc = " Saves the assets that have been modified since the last save/load of the database. Assets"]
+    #[doc = " that have been deleted are deleted from the database."]
+    pub save_modified: ::std::option::Option<
+        unsafe extern "C" fn(db: *mut tm_asset_database_o, asset_root: tm_tt_id_t),
+    >,
+    #[doc = " As [[save_modified()]], but ignores the assets listed in `ignore`, even if they have"]
+    #[doc = " modifications."]
+    pub save_modified_except: ::std::option::Option<
+        unsafe extern "C" fn(
+            db: *mut tm_asset_database_o,
+            asset_root: tm_tt_id_t,
+            ignore: *mut tm_tt_id_t,
+            num_ignore: u32,
+        ),
+    >,
+    #[doc = " Saves the specified `asset`."]
+    pub save_asset: ::std::option::Option<
+        unsafe extern "C" fn(db: *mut tm_asset_database_o, asset: tm_tt_id_t),
+    >,
+    #[doc = " Deletes the specified `asset`."]
+    pub delete_asset: ::std::option::Option<
+        unsafe extern "C" fn(db: *mut tm_asset_database_o, asset: tm_tt_id_t),
+    >,
+    #[doc = " Reverts the `asset` to the last saved version in the project. Returns *true* if the asset"]
+    #[doc = " could be successfully reverted."]
+    pub revert_asset: ::std::option::Option<
+        unsafe extern "C" fn(
+            db: *mut tm_asset_database_o,
+            asset: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> bool,
+    >,
+    #[doc = " Loads all the assets from the database into the corresponding Truth. Returns the loaded asset"]
+    #[doc = " root. If `load_fraction` is not `NULL`, it's value will be continuously updated with the"]
+    #[doc = " progress of the load as a fraction in the range [0,1], reaching 1.0f when loading is"]
+    #[doc = " complete."]
+    pub load: ::std::option::Option<
+        unsafe extern "C" fn(db: *mut tm_asset_database_o, load_fraction: *mut f32) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns the name the `item` (asset or directory) had when saved. This can be used to detect"]
+    #[doc = " changes to item names. Returns `NULL` if the item has not been saved."]
+    pub saved_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            db: *mut tm_asset_database_o,
+            item: tm_uuid_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the directory the `item` (asset or directory) was last saved in. This can be used to"]
+    #[doc = " detect moved items. Returns `{0}` f the item has not been saved."]
+    pub saved_directory: ::std::option::Option<
+        unsafe extern "C" fn(db: *mut tm_asset_database_o, item: tm_uuid_t) -> tm_uuid_t,
+    >,
+    #[doc = " Returns the saved version of the asset in the database. Returns 0 if the asset does not exist in the database."]
+    pub saved_version: ::std::option::Option<
+        unsafe extern "C" fn(db: *mut tm_asset_database_o, asset: tm_uuid_t) -> u64,
+    >,
+    #[doc = " Returns an carray of all saved items (assets and directories) that exist in the saved data,"]
+    #[doc = " allocated using the supplied temp allocator. This can be used to find items that have been"]
+    #[doc = " deleted since the save."]
+    pub all_saved_items: ::std::option::Option<
+        unsafe extern "C" fn(
+            db: *mut tm_asset_database_o,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_asset_dabase_saved_item_t,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_asset_database_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_database_api>(),
+        104usize,
+        concat!("Size of: ", stringify!(tm_asset_database_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_database_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_database_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).open as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(open)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).close as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(close)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).save_modified as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(save_modified)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).save_modified_except as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(save_modified_except)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).save_asset as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(save_asset)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).delete_asset as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(delete_asset)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).revert_asset as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(revert_asset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_database_api>())).load as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(load)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).saved_name as *const _ as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(saved_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).saved_directory as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(saved_directory)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).saved_version as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(saved_version)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_database_api>())).all_saved_items as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_database_api),
+            "::",
+            stringify!(all_saved_items)
+        )
+    );
+}
+#[doc = " Arguments for the [[tm_asset_io_i->import_asset()]] function."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_asset_io_import {
+    #[doc = " Allocator that can be used by the import task."]
+    pub allocator: *mut tm_allocator_i,
+    #[doc = " Truth to import into."]
+    pub tt: *mut tm_the_truth_o,
+    #[doc = " Optional. If non-zero, specifies that the file should be re-imported into this existing asset"]
+    #[doc = " object. Note that `reimport_into` should be the data object below the asset, not the asset"]
+    #[doc = " itself."]
+    pub reimport_into: tm_tt_id_t,
+    #[doc = " Optional. Specifies the ASSET_DIRECTORY to import the file into. This parameter is ignored if"]
+    #[doc = " `reimport_into` is set. If zero, imports into the top-level directory."]
+    pub target_dir: tm_tt_id_t,
+    #[doc = " Asset root to import into."]
+    pub asset_root: tm_tt_id_t,
+    #[doc = " Optional. UI where the import action happened (used to find asset browser to select the"]
+    #[doc = " imported item). If not specified, we will search for an asset browser window globally (not in"]
+    #[doc = " any particular UI)."]
+    #[doc = ""]
+    #[doc = " TODO: It's a bit ugly to have a backwards dependency like this, because the foundation API is"]
+    #[doc = " lower-level than the UI API."]
+    pub ui: *mut tm_ui_o,
+    #[doc = " Optional. Specifies the `asset_browser` UI object and the version of that UI object at the"]
+    #[doc = " start of the import operation. This is used to determine if the imported item should be"]
+    #[doc = " selected or not. (We only want to select it if the asset browser hasn't been touched since"]
+    #[doc = " the import started.)"]
+    #[doc = ""]
+    #[doc = " If not specified, item will not be selected."]
+    #[doc = ""]
+    #[doc = " TODO: It is a bit ugly to pass down high level information like this to the low-level import"]
+    #[doc = " task, consider refactoring this."]
+    pub asset_browser: tm_tt_id_t,
+    pub asset_browser_version_at_start: u64,
+    #[doc = " Undo-scope for the import operation."]
+    pub undo_scope: tm_tt_undo_scope_t,
+}
+#[test]
+fn bindgen_test_layout_tm_asset_io_import() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_io_import>(),
+        72usize,
+        concat!("Size of: ", stringify!(tm_asset_io_import))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_io_import>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_io_import))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).allocator as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(allocator)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).tt as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(tt)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_io_import>())).reimport_into as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(reimport_into)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).target_dir as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(target_dir)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).asset_root as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(asset_root)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).ui as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(ui)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_io_import>())).asset_browser as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(asset_browser)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_io_import>())).asset_browser_version_at_start
+                as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(asset_browser_version_at_start)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_import>())).undo_scope as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_import),
+            "::",
+            stringify!(undo_scope)
+        )
+    );
+}
+#[doc = " Interface for an asset importer. Implement this interface to add a new asset import type to the"]
+#[doc = " engine."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW:"]
+#[doc = "     Should this interface be registered with [[tm_api_registry_api->add_implementation()]]"]
+#[doc = "     rather than [[tm_asset_io_api->add_asset_io()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_io_i {
+    pub inst: *mut tm_asset_io_o,
+    #[doc = " Returns `true` if this io interface is enabled. Required. If this returns `false`, asset"]
+    #[doc = " imports through this interface are disabled."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Should be *Optional* -- and if not implemented, the importer should always be enabled."]
+    pub enabled: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_asset_io_o) -> bool>,
+    #[doc = " Returns `true` if this asset IO interface can import archives with the file extension"]
+    #[doc = " `extension`. Optional, if not implemented, nothing can be imported."]
+    pub can_import: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            extension: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+    #[doc = " Returns `true` if this asset IO interface can re-import the specified truth asset (of type"]
+    #[doc = " [[TM_TT_TYPE__ASSET]]). Optional, if not implemented, nothing can be re-imported."]
+    pub can_reimport: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            tt: *mut tm_the_truth_o,
+            asset: tm_tt_id_t,
+        ) -> bool,
+    >,
+    #[doc = " Appends a string with all supported file extensions the asset IO interface can import to the"]
+    #[doc = " carray `output`, allocated by `ta`. Each file extension should be separated by the"]
+    #[doc = " `separator` string. Optional, if not implemented, nothing can be imported."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     The \"stringly-typed\" approach here is a bit weird, return an array instead?"]
+    pub importer_extensions_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            output: *mut *mut ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+            separator: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Appends a string with all supported file descriptions the asset IO interface can import to"]
+    #[doc = " the carray `output`, allocated by `ta`. Each file extension should be separated by the"]
+    #[doc = " `separator` string. Optional, if not implemented, nothing can be imported."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     This function should be optional and if you leave it out the description should"]
+    #[doc = "     just be \"XXX file\" where `XXX` is the extension."]
+    pub importer_description_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            output: *mut *mut ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+            separator: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Imports the specified `file` into The Truth using the `import` arguments."]
+    #[doc = ""]
+    #[doc = " Optional, if not implemented, nothing can be imported."]
+    #[doc = ""]
+    #[doc = " If non-zero, the return value is the ID of the background task from [[tm_task_system_api]] that"]
+    #[doc = " does the import."]
+    pub import_asset: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            file: *const ::std::os::raw::c_char,
+            import: *const tm_asset_io_import,
+        ) -> u64,
+    >,
+    #[doc = " Returns `true` if this asset IO interface can export the specified Truth asset (of type"]
+    #[doc = " [[TM_TT_TYPE__ASSET]]). Optional, if not implemented, nothing can be exported."]
+    pub can_export: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            tt: *mut tm_the_truth_o,
+            asset: tm_tt_id_t,
+        ) -> bool,
+    >,
+    #[doc = " Returns the extension that should be used for the exported file. Required if [[can_export()]]"]
+    #[doc = " returns true."]
+    #[doc = ""]
+    #[doc = " !!! TODO: TODO"]
+    #[doc = "     Should we support exporting to different formats? I.e. allow an image to be exported"]
+    #[doc = "     as JPEG, PNG, etc regardless of the source format."]
+    pub exporter_extension: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            tt: *mut tm_the_truth_o,
+            asset: tm_tt_id_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Exports the specified truth `asset` to `file`. The asset should be of type [[TM_TT_TYPE__ASSET]]. Required if"]
+    #[doc = " [[can_export()]] returns `true`."]
+    pub export_asset: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_asset_io_o,
+            file: *const ::std::os::raw::c_char,
+            tt: *mut tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            asset: tm_tt_id_t,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_asset_io_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_io_i>(),
+        80usize,
+        concat!("Size of: ", stringify!(tm_asset_io_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_io_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_io_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).enabled as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(enabled)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).can_import as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(can_import)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).can_reimport as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(can_reimport)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_io_i>())).importer_extensions_string as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(importer_extensions_string)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_io_i>())).importer_description_string as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(importer_description_string)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).import_asset as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(import_asset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).can_export as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(can_export)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_asset_io_i>())).exporter_extension as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(exporter_extension)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_i>())).export_asset as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_i),
+            "::",
+            stringify!(export_asset)
+        )
+    );
+}
+#[doc = " API for talking to the Asset IO system."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_io_api {
+    #[doc = " Adds a new asset IO interface to the registry."]
+    pub add_asset_io: ::std::option::Option<unsafe extern "C" fn(loader: *mut tm_asset_io_i)>,
+    #[doc = " Remove an asset IO interface from the registry."]
+    pub remove_asset_io: ::std::option::Option<unsafe extern "C" fn(loader: *mut tm_asset_io_i)>,
+    #[doc = " Returns the first asset IO interface that supports importing the file format"]
+    #[doc = " `extension`."]
+    pub importer: ::std::option::Option<
+        unsafe extern "C" fn(extension: *const ::std::os::raw::c_char) -> *mut tm_asset_io_i,
+    >,
+    #[doc = " Returns the first asset IO interface that supports re-importing the specified asset."]
+    pub reimporter: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, asset: tm_tt_id_t) -> *mut tm_asset_io_i,
+    >,
+    #[doc = " Returns the first asset IO interface that supports exporting the specified asset."]
+    pub exporter: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, asset: tm_tt_id_t) -> *mut tm_asset_io_i,
+    >,
+    #[doc = " Returns all registered asset IO interfaces in `interfaces`. `interfaces` must have room to"]
+    #[doc = " hold all `interfaces`. Returns the total number of interfaces. Pass `NULL` for `interfaces'"]
+    #[doc = " to query the number of active interfaces."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Should take length of `interfaces` as argument to prevent overwrite."]
+    pub io_interfaces:
+        ::std::option::Option<unsafe extern "C" fn(interfaces: *mut *mut tm_asset_io_i) -> u32>,
+}
+#[test]
+fn bindgen_test_layout_tm_asset_io_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_io_api>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_asset_io_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_io_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_io_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).add_asset_io as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_api),
+            "::",
+            stringify!(add_asset_io)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).remove_asset_io as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_api),
+            "::",
+            stringify!(remove_asset_io)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).importer as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_api),
+            "::",
+            stringify!(importer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).reimporter as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_api),
+            "::",
+            stringify!(reimporter)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).exporter as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_api),
+            "::",
+            stringify!(exporter)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_io_api>())).io_interfaces as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_io_api),
+            "::",
+            stringify!(io_interfaces)
+        )
+    );
+}
+#[doc = " Functions for dealing with Base64 encoded content."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_base_64_api {
+    #[doc = " Returns the number of bytes a binary chunk of size `raw_size` will use when encoded. This"]
+    #[doc = " does not include the `\\0` character at the end of the string."]
+    pub encoded_size: ::std::option::Option<unsafe extern "C" fn(raw_size: u64) -> u64>,
+    #[doc = " Encodes the binary data `raw` of size `raw_size` in Base64 format and stores the encoded"]
+    #[doc = " string in `encoded`. Also adds a `\\0` terminator at the end of the string. `encode` must have"]
+    #[doc = " room for the encoded string and the 0 character (`encoded_size()+ 1`). Returns the number of"]
+    #[doc = " written characters, not including the `\\0` character."]
+    pub encode: ::std::option::Option<
+        unsafe extern "C" fn(
+            encoded: *mut ::std::os::raw::c_char,
+            raw: *const u8,
+            raw_size: u64,
+        ) -> u64,
+    >,
+    #[doc = " Returns the number of bytes that the encoded chunk `encoded` will decode to."]
+    pub decoded_size: ::std::option::Option<
+        unsafe extern "C" fn(encoded: *const ::std::os::raw::c_char, encoded_size: u64) -> u64,
+    >,
+    #[doc = " Decodes the data in `encoded` into `raw`. `raw` must have room for [[decoded_size()]] bytes."]
+    #[doc = " Returns the number of decoded characters. If an invalid Base64 sequence is found the decoding"]
+    #[doc = " is aborted. This will cause the returned value to be smaller than [[decoded_size()]]."]
+    pub decode: ::std::option::Option<
+        unsafe extern "C" fn(
+            raw: *mut u8,
+            encoded: *const ::std::os::raw::c_char,
+            encoded_size: u64,
+        ) -> u64,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_base_64_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_base_64_api>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_base_64_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_base_64_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_base_64_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).encoded_size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_base_64_api),
+            "::",
+            stringify!(encoded_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).encode as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_base_64_api),
+            "::",
+            stringify!(encode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).decoded_size as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_base_64_api),
+            "::",
+            stringify!(decoded_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_base_64_api>())).decode as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_base_64_api),
+            "::",
+            stringify!(decode)
+        )
+    );
+}
+pub const TM_BOUNDING_VOLUME_TYPE_SPHERE: tm_bounding_volume_type = 0;
+pub const TM_BOUNDING_VOLUME_TYPE_BOX: tm_bounding_volume_type = 1;
+#[doc = " The type of the bounding volume."]
+pub type tm_bounding_volume_type = ::std::os::raw::c_int;
+#[doc = " Represents a spherical bounding volume."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_bounding_volume_sphere_t {
+    pub visibility_mask: u64,
+    pub culling_disabled: bool,
+    pub _padding_18: [::std::os::raw::c_char; 3usize],
+    pub position: tm_vec3_t,
+    pub radius: f32,
+    pub _padding_21: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_bounding_volume_sphere_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_bounding_volume_sphere_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_bounding_volume_sphere_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_bounding_volume_sphere_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_bounding_volume_sphere_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).visibility_mask as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_sphere_t),
+            "::",
+            stringify!(visibility_mask)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).culling_disabled as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_sphere_t),
+            "::",
+            stringify!(culling_disabled)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>()))._padding_18 as *const _ as usize
+        },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_sphere_t),
+            "::",
+            stringify!(_padding_18)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).position as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_sphere_t),
+            "::",
+            stringify!(position)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>())).radius as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_sphere_t),
+            "::",
+            stringify!(radius)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_sphere_t>()))._padding_21 as *const _ as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_sphere_t),
+            "::",
+            stringify!(_padding_21)
+        )
+    );
+}
+#[doc = " Represents a box bounding volume."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_bounding_volume_box_t {
+    pub visibility_mask: u64,
+    pub culling_disabled: bool,
+    pub _padding_29: [::std::os::raw::c_char; 3usize],
+    pub tm: tm_mat44_t,
+    pub min: tm_vec3_t,
+    pub max: tm_vec3_t,
+    pub _padding_33: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_bounding_volume_box_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_bounding_volume_box_t>(),
+        104usize,
+        concat!("Size of: ", stringify!(tm_bounding_volume_box_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_bounding_volume_box_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_bounding_volume_box_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).visibility_mask as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_box_t),
+            "::",
+            stringify!(visibility_mask)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).culling_disabled as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_box_t),
+            "::",
+            stringify!(culling_disabled)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_box_t>()))._padding_29 as *const _ as usize
+        },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_box_t),
+            "::",
+            stringify!(_padding_29)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).tm as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_box_t),
+            "::",
+            stringify!(tm)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).min as *const _ as usize },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_box_t),
+            "::",
+            stringify!(min)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_bounding_volume_box_t>())).max as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_box_t),
+            "::",
+            stringify!(max)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_bounding_volume_box_t>()))._padding_33 as *const _ as usize
+        },
+        100usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_bounding_volume_box_t),
+            "::",
+            stringify!(_padding_33)
+        )
+    );
+}
+#[doc = " Low-level interface to buddy allocator system."]
+#[doc = ""]
+#[doc = " Implements a buddy allocator (http://en.wikipedia.org/wiki/Buddy_memory_allocation)"]
+#[doc = " in a fixed size memory buffer. The buddy allocator's headers and block bitmap are"]
+#[doc = " stored directly in the memory buffer."]
+#[doc = ""]
+#[doc = " The buddy allocator cannot grow outside its memory buffer. If you attempt to"]
+#[doc = " allocate beyond the size of the memory buffer, [[realloc()]] will return `NULL`."]
+#[doc = ""]
+#[doc = " The raw buddy allocator interface is not thread-safe."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_buddy_allocator_raw_api {
+    #[doc = " Initializes the specified memory region as a buddy allocator. The `block_size`"]
+    #[doc = " is the smallest memory allocation in bytes that the buddy allocator can make."]
+    #[doc = " Allocations are always a power-of-two of the block size. The `block_size`"]
+    #[doc = " must be at least 16 bytes."]
+    pub init:
+        ::std::option::Option<unsafe extern "C" fn(buffer: *mut u8, size: u32, block_size: u32)>,
+    #[doc = " Allocates memory using the buddy allocation strategy. The buffer must have"]
+    #[doc = " been initialized with [[init()]] before [[realloc()]] is called."]
+    pub realloc: ::std::option::Option<
+        unsafe extern "C" fn(
+            buffer: *mut u8,
+            ptr: *mut ::std::os::raw::c_void,
+            old_size: u64,
+            new_size: u64,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_buddy_allocator_raw_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_buddy_allocator_raw_api>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_buddy_allocator_raw_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_buddy_allocator_raw_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_buddy_allocator_raw_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buddy_allocator_raw_api>())).init as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buddy_allocator_raw_api),
+            "::",
+            stringify!(init)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buddy_allocator_raw_api>())).realloc as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buddy_allocator_raw_api),
+            "::",
+            stringify!(realloc)
+        )
+    );
+}
+#[doc = " High-level interface to the buddy allocator system."]
+#[doc = ""]
+#[doc = " Uses a sequency of bigger and bigger buddy allocator arenas to provide growable buddy allocators."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_buddy_allocator_api {
+    #[doc = " Create a buddy allocator stack. This allocator uses a sequence of larger and"]
+    #[doc = " larger buddy allocators to fulfill allocation requests. The buffer for each"]
+    #[doc = " buddy allocator is allocated using the backing_allocator."]
+    #[doc = ""]
+    #[doc = " `initial_size` is the size of the first buddy allocator created. Don't set"]
+    #[doc = " this to too small a value (probably at least 16 K), since that will create"]
+    #[doc = " a large number of allocators in the stack."]
+    #[doc = ""]
+    #[doc = " `block_size` is the block size of the buddy allocators."]
+    #[doc = ""]
+    #[doc = " The created allocator is thread-safe."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            backing: *mut tm_allocator_i,
+            initial_size: u32,
+            block_size: u32,
+        ) -> *mut tm_allocator_i,
+    >,
+    #[doc = " Destroys a buddy allocator created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(a: *mut tm_allocator_i)>,
+}
+#[test]
+fn bindgen_test_layout_tm_buddy_allocator_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_buddy_allocator_api>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_buddy_allocator_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_buddy_allocator_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_buddy_allocator_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buddy_allocator_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buddy_allocator_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buddy_allocator_api>())).destroy as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buddy_allocator_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_buffers_o {
+    _unused: [u8; 0],
+}
+#[doc = " Manages a set of \"buffers\". A buffer is an immutable blob of binary data ."]
+#[doc = ""]
+#[doc = " The buffer API is thread-safe, but it is up to the caller of the API to make sure that the *use*"]
+#[doc = " of the buffers is thread-safe. (I.e., that no-one is currently reading the content of a buffer"]
+#[doc = " that is being released.)"]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     Should we get rid of the concept of a buffer ID and just refer to buffers by their hash?"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_buffers_i {
+    pub inst: *mut tm_buffers_o,
+    #[doc = " Allocates a buffer of `size` bytes to be passed into the [[add()]] function. If `initialize` is"]
+    #[doc = " non-zero, the buffer will be initialized with data copied from the `initialize` pointer."]
+    #[doc = " Otherwise you are responsible for filling the buffer with data yourself before calling"]
+    #[doc = " [[add()]]."]
+    #[doc = ""]
+    #[doc = " Note that you must call [[add()]] with the allocated data. If you don't, the allocated memory"]
+    #[doc = " is leaked."]
+    pub allocate: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_buffers_o,
+            size: u64,
+            initialize: *const ::std::os::raw::c_void,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    #[doc = " Adds a buffer containing the specified `data` of size `size`. Returns an ID identifying the"]
+    #[doc = " new buffer. If you know the hash of the data, you can pass it in the `hash` paramter."]
+    #[doc = " Otherwise, if you pass `0` for hash, the hash of the data will be computed automatically."]
+    #[doc = ""]
+    #[doc = " The data passed to [[add()]] must come from an [[allocate()]] call. [[add()]] will take over"]
+    #[doc = " ownership of the data. You cannot reuse the data pointer for two different [[add()]] calls."]
+    pub add: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_buffers_o,
+            data: *const ::std::os::raw::c_void,
+            size: u64,
+            hash: u64,
+        ) -> u32,
+    >,
+    #[doc = " Increases the buffer's reference count by 1. (The buffer starts at 1 after [[create()]].)"]
+    pub retain: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_buffers_o, id: u32)>,
+    #[doc = " Decreases the buffer's reference count by 1. When the reference count reaches zero, the"]
+    #[doc = " buffer is destroyed."]
+    pub release: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_buffers_o, id: u32)>,
+    #[doc = " Returns the content of the buffer. The size is returned in `size`."]
+    pub get: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *const tm_buffers_o,
+            id: u32,
+            size: *mut u64,
+        ) -> *const ::std::os::raw::c_void,
+    >,
+    #[doc = " Returns the size of the buffer."]
+    pub size:
+        ::std::option::Option<unsafe extern "C" fn(inst: *const tm_buffers_o, id: u32) -> u64>,
+    #[doc = " Returns the hash of the buffer."]
+    pub hash:
+        ::std::option::Option<unsafe extern "C" fn(inst: *const tm_buffers_o, id: u32) -> u64>,
+    #[doc = " If a buffer exists with the specified hash, returns its ID. Otherwise, returns zero."]
+    pub lookup:
+        ::std::option::Option<unsafe extern "C" fn(inst: *const tm_buffers_o, hash: u64) -> u32>,
+    #[doc = " For debugging purposes only. Returns the reference count of the buffer."]
+    pub debug__refcount:
+        ::std::option::Option<unsafe extern "C" fn(inst: *const tm_buffers_o, id: u32) -> u32>,
+}
+#[test]
+fn bindgen_test_layout_tm_buffers_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_buffers_i>(),
+        80usize,
+        concat!("Size of: ", stringify!(tm_buffers_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_buffers_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_buffers_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).allocate as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(allocate)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).add as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(add)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).retain as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(retain)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).release as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(release)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).get as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(get)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).size as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).hash as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(hash)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).lookup as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(lookup)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_i>())).debug__refcount as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_i),
+            "::",
+            stringify!(debug__refcount)
+        )
+    );
+}
+#[doc = " Manages a set of streamable buffers. Streamable buffers work as regular buffers except that they"]
+#[doc = " can optionally be created with disk backing. Buffers with disk backing can be loaded on-demand or"]
+#[doc = " streamed in by a background process. They can also be flushed out of main memory as necessary"]
+#[doc = " (since they are backed up on disk)."]
+#[doc = ""]
+#[doc = " * Calling [[get()]] or [[hash()]] on a buffer that isn't loaded will on-demand load the buffer before"]
+#[doc = "   the function returns. Note that this can stall the application, so you might want to pre-load"]
+#[doc = "   buffers by calling [[get()]] on them in a background thread before they're actually needed."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_streamable_buffers_i {
+    pub __bindgen_padding_0: [u64; 10usize],
+    #[doc = " Creates a streamable buffer with the content mapped to the specified region (`offset`,"]
+    #[doc = " `size`) of the specified `path`. The buffer is created in \"unloaded\" state (not mapped to"]
+    #[doc = " main memory). It will be loaded on demand by a subsequent [[get()]] operation. If `size` is"]
+    #[doc = " zero, the size of the buffer will automatically be set from the size of the mapped file."]
+    #[doc = ""]
+    #[doc = " If `hash` is non-zero, the specified value is used for the hash of the data, otherwise, the"]
+    #[doc = " hash is computed for the data."]
+    pub map: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_buffers_o,
+            path: *const ::std::os::raw::c_char,
+            offset: u64,
+            size: u64,
+            hash: u64,
+        ) -> u32,
+    >,
+    #[doc = " Creates a streamable buffer mapped to an asset database (see [[asset_database.h]])."]
+    #[doc = ""]
+    #[doc = " `hash` and `size` specify the hash and size of the buffer. The buffer is stored in a sequence"]
+    #[doc = " of linked \"pages\" of size `page_size`. Pages have `page_header_size` byte header where the"]
+    #[doc = " first four bytes are the index of the next page in the sequence. After the header bytes, the"]
+    #[doc = " data for the page follows."]
+    pub map_database: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_buffers_o,
+            hash: u64,
+            size: u64,
+            file: *const tm_file_o,
+            page_size: u32,
+            page_header_size: u32,
+            first_page: u32,
+        ) -> u32,
+    >,
+    #[doc = " Returns *true* if the specified buffer is backed by file data, *false* if it only exists in"]
+    #[doc = " memory."]
+    pub is_mapped:
+        ::std::option::Option<unsafe extern "C" fn(inst: *const tm_buffers_o, id: u32) -> bool>,
+    #[doc = " Returns *true* if the specified buffer has been loaded into main memory, *false* if it only"]
+    #[doc = " exists on disk."]
+    pub is_loaded:
+        ::std::option::Option<unsafe extern "C" fn(inst: *const tm_buffers_o, id: u32) -> bool>,
+    #[doc = " If the `buffer` is currently loaded into main memory -- unloads it from main memory. You can"]
+    #[doc = " only call this on buffers that are mapped to disk, because we need to be able to get the"]
+    #[doc = " content back on-demand."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     We might need a concept of \"buffers in use\" to know when its safe to unload buffers."]
+    pub unload: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_buffers_o, id: u32)>,
+    #[doc = " Saves the content of the buffer to the specified file and offset. This creates a mapping"]
+    #[doc = " between the buffer and the file."]
+    pub save: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_buffers_o,
+            id: u32,
+            path: *const ::std::os::raw::c_char,
+            offset: u64,
+        ),
+    >,
+    #[doc = " Preloads all buffers on a background thread."]
+    #[doc = " If `percentage` is not null, it will be filled continously with the current buffer loading percentage."]
+    pub background_load_all:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_buffers_o, percentage: *mut f32)>,
+    #[doc = " Waits until all buffer data has been loaded."]
+    pub ensure_all_loaded: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_buffers_o)>,
+    #[doc = " Sets the IO interface to use for file access This is mostly used for testing with mock file"]
+    #[doc = " systems. If `io` is `NULL`, the default file system interface ([[tm_os_api->file_system]]) will"]
+    #[doc = " be used."]
+    pub set_io: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_buffers_o, io: *mut tm_os_file_io_api),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_streamable_buffers_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_streamable_buffers_i>(),
+        152usize,
+        concat!("Size of: ", stringify!(tm_streamable_buffers_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_streamable_buffers_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_streamable_buffers_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).map as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(map)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).map_database as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(map_database)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).is_mapped as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(is_mapped)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).is_loaded as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(is_loaded)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).unload as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(unload)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).save as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(save)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).background_load_all as *const _
+                as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(background_load_all)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_streamable_buffers_i>())).ensure_all_loaded as *const _
+                as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(ensure_all_loaded)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_streamable_buffers_i>())).set_io as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_streamable_buffers_i),
+            "::",
+            stringify!(set_io)
+        )
+    );
+}
+#[doc = " API for creating [[tm_buffers_i]] and [[tm_streamable_buffers_i]] objects."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_buffers_api {
+    #[doc = " Creates a new buffer container."]
+    pub create:
+        ::std::option::Option<unsafe extern "C" fn(a: *mut tm_allocator_i) -> *mut tm_buffers_i>,
+    #[doc = " Destroys a buffer container created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(i: *mut tm_buffers_i)>,
+    #[doc = " Creates a new streamable buffer container. If `io` is specified, it will be used for all file"]
+    #[doc = " operations. Otherwise, [[tm_os_api->file_io]] will be used."]
+    pub create_streamable: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            io: *mut tm_os_file_io_api,
+        ) -> *mut tm_streamable_buffers_i,
+    >,
+    #[doc = " Destroys a buffer container created by [[create_streamable()]]."]
+    pub destroy_streamable:
+        ::std::option::Option<unsafe extern "C" fn(i: *mut tm_streamable_buffers_i)>,
+}
+#[test]
+fn bindgen_test_layout_tm_buffers_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_buffers_api>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_buffers_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_buffers_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_buffers_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_buffers_api>())).destroy as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffers_api>())).create_streamable as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_api),
+            "::",
+            stringify!(create_streamable)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffers_api>())).destroy_streamable as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffers_api),
+            "::",
+            stringify!(destroy_streamable)
+        )
+    );
+}
+#[doc = " Bits should be interpreted as a floating point number (64 bits means double, 32 bits means"]
+#[doc = " float, 16 bits means half/float16). Floating point components are always signed."]
+pub const TM_BUFFER_COMPONENT_TYPE_FLOAT: tm_buffer_component_type = 0;
+#[doc = " Bits should be interpreted as a normalized integers specifying a number in the range [0 - 1]"]
+#[doc = " for an unsigned component, or [-1 - 1] for a signed component."]
+pub const TM_BUFFER_COMPONENT_TYPE_NORMALIZED_INTEGER: tm_buffer_component_type = 1;
+#[doc = " Bits should be interpreted as an integer. If `sign` is true the integer is interpreted as a"]
+#[doc = " two-complements signed integer."]
+pub const TM_BUFFER_COMPONENT_TYPE_INTEGER: tm_buffer_component_type = 2;
+#[doc = " Bits store depth and/or stencil values. Depth precision should be specified in `x_bits` (16,"]
+#[doc = " 24 or 32 bits) If `stencil` is enabled, 8 bits should be passed in `y_bits` Note: `sign`"]
+#[doc = " should always be `false`. This format will try to map to the closest available format in the"]
+#[doc = " backend."]
+pub const TM_BUFFER_COMPONENT_TYPE_DEPTH_STENCIL: tm_buffer_component_type = 3;
+#[doc = " Describes how the bits of a component should be interpreted."]
+pub type tm_buffer_component_type = ::std::os::raw::c_int;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC1_RGB: tm_buffer_compression_format = 0;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC1_RGBA: tm_buffer_compression_format = 1;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC2: tm_buffer_compression_format = 2;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC3: tm_buffer_compression_format = 3;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC4: tm_buffer_compression_format = 4;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC5: tm_buffer_compression_format = 5;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC6H_U: tm_buffer_compression_format = 6;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC6H_S: tm_buffer_compression_format = 7;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_BC7: tm_buffer_compression_format = 8;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_ETC2_RGB: tm_buffer_compression_format = 9;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_ETC2_RGBA: tm_buffer_compression_format = 10;
+#[doc = " Block compression (DXT)"]
+pub const TM_BUFFER_COMPRESSION_FORMAT_MAX_FORMATS: tm_buffer_compression_format = 11;
+#[doc = " Describes the compression format used by a buffer."]
+#[doc = ""]
+#[doc = " !!! note: TODO"]
+#[doc = "     Do we want to expose an interface for registering user-defined compression formats?"]
+pub type tm_buffer_compression_format = ::std::os::raw::c_int;
+#[doc = " Functions for encoding and decoding unique format identifiers describing the contents of a buffer or image."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_buffer_format_api {
+    #[doc = " Creates a unique ID describing an uncompressed format described by:"]
+    #[doc = ""]
+    #[doc = " component_type"]
+    #[doc = " :    The type of the components. ([[enum tm_buffer_component_type]])."]
+    #[doc = " sign"]
+    #[doc = " :    True if components are signed."]
+    #[doc = " bits_*"]
+    #[doc = " :    Number of bits in component (x, y, z, w)."]
+    pub encode_uncompressed_format: ::std::option::Option<
+        unsafe extern "C" fn(
+            component_type: tm_buffer_component_type,
+            sign: bool,
+            bits_x: u8,
+            bits_y: u8,
+            bits_z: u8,
+            bits_w: u8,
+        ) -> u32,
+    >,
+    #[doc = " Creates a unique ID describing a compressed format. `compression_type` is one of [[enum tm_buffer_compression_format]]"]
+    pub encode_compressed_format: ::std::option::Option<
+        unsafe extern "C" fn(compression_type: tm_buffer_compression_format) -> u32,
+    >,
+    #[doc = " Returns true if the buffer is compressed. Use `decode_compression_format` to retrieve compression format."]
+    pub is_compressed: ::std::option::Option<unsafe extern "C" fn(format: u32) -> bool>,
+    #[doc = " Decodes an uncompressed format UID. Returns false if format is compressed. All output"]
+    #[doc = " parameters are optional."]
+    #[doc = ""]
+    #[doc = " component_type"]
+    #[doc = " :    The type of the components. ([[enum tm_buffer_component_type]])."]
+    #[doc = " sign"]
+    #[doc = " :    True if components are signed."]
+    #[doc = " bits_*"]
+    #[doc = " :    Number of bits in component (x, y, z, w)."]
+    pub decode_uncompressed: ::std::option::Option<
+        unsafe extern "C" fn(
+            format: u32,
+            component_type: *mut tm_buffer_component_type,
+            sign: *mut bool,
+            bits_x: *mut u8,
+            bits_y: *mut u8,
+            bits_z: *mut u8,
+            bits_w: *mut u8,
+        ) -> bool,
+    >,
+    #[doc = " Retrieves the compression format from a compressed format UID. Returns false if format UID is uncompressed."]
+    pub decode_compression_format: ::std::option::Option<
+        unsafe extern "C" fn(
+            format: u32,
+            compression_format: *mut tm_buffer_compression_format,
+        ) -> bool,
+    >,
+    #[doc = " Returns total number of bits per buffer element."]
+    pub bits_per_element: ::std::option::Option<unsafe extern "C" fn(format: u32) -> u32>,
+    #[doc = " Returns number of components per element."]
+    pub num_components: ::std::option::Option<unsafe extern "C" fn(format: u32) -> u32>,
+    #[doc = " Returns a human readable format name, string allocated using temporary allocator 'ta'."]
+    pub human_readable: ::std::option::Option<
+        unsafe extern "C" fn(
+            format: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_buffer_format_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_buffer_format_api>(),
+        64usize,
+        concat!("Size of: ", stringify!(tm_buffer_format_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_buffer_format_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_buffer_format_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).encode_uncompressed_format as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(encode_uncompressed_format)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).encode_compressed_format as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(encode_compressed_format)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).is_compressed as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(is_compressed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).decode_uncompressed as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(decode_uncompressed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).decode_compression_format as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(decode_compression_format)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).bits_per_element as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(bits_per_element)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).num_components as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(num_components)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_buffer_format_api>())).human_readable as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_buffer_format_api),
+            "::",
+            stringify!(human_readable)
+        )
+    );
+}
+pub const TM_CAMERA_TRANSFORM_DEFAULT: tm_camera_transform = 0;
+pub const TM_CAMERA_TRANSFORM_EYE_LEFT: tm_camera_transform = 1;
+pub const TM_CAMERA_TRANSFORM_EYE_RIGHT: tm_camera_transform = 2;
+pub const TM_CAMERA_TRANSFORM_MAX_TRANSFORMS: tm_camera_transform = 3;
+#[doc = " Describes what a camera transform represents."]
+pub type tm_camera_transform = ::std::os::raw::c_int;
+pub const TM_CAMERA_MODE_PERSPECTIVE: tm_camera_mode = 0;
+pub const TM_CAMERA_MODE_ORTHOGRAPHIC: tm_camera_mode = 1;
+pub type tm_camera_mode = ::std::os::raw::c_int;
+pub const TM_CAMERA_FRUSTUM_PLANE_LEFT: tm_camera_frustum_planes = 0;
+pub const TM_CAMERA_FRUSTUM_PLANE_RIGHT: tm_camera_frustum_planes = 1;
+pub const TM_CAMERA_FRUSTUM_PLANE_BOTTOM: tm_camera_frustum_planes = 2;
+pub const TM_CAMERA_FRUSTUM_PLANE_TOP: tm_camera_frustum_planes = 3;
+pub const TM_CAMERA_FRUSTUM_PLANE_NEAR: tm_camera_frustum_planes = 4;
+pub const TM_CAMERA_FRUSTUM_PLANE_FAR: tm_camera_frustum_planes = 5;
+pub const TM_CAMERA_FRUSTUM_PLANE_MAX_PLANES: tm_camera_frustum_planes = 6;
+pub type tm_camera_frustum_planes = ::std::os::raw::c_int;
+#[doc = " Describes a camera."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_camera_t {
+    pub projection: [tm_mat44_t; 3usize],
+    pub view: [tm_mat44_t; 3usize],
+    pub mode: tm_camera_mode,
+    pub near_plane: f32,
+    pub far_plane: f32,
+    pub vertical_fov: f32,
+    pub box_height: f32,
+    pub shutter_speed: f32,
+    pub aperture: f32,
+    pub iso: f32,
+}
+#[test]
+fn bindgen_test_layout_tm_camera_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_camera_t>(),
+        416usize,
+        concat!("Size of: ", stringify!(tm_camera_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_camera_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_camera_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).projection as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(projection)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).view as *const _ as usize },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(view)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).mode as *const _ as usize },
+        384usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(mode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).near_plane as *const _ as usize },
+        388usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(near_plane)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).far_plane as *const _ as usize },
+        392usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(far_plane)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).vertical_fov as *const _ as usize },
+        396usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(vertical_fov)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).box_height as *const _ as usize },
+        400usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(box_height)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).shutter_speed as *const _ as usize },
+        404usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(shutter_speed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).aperture as *const _ as usize },
+        408usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(aperture)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_t>())).iso as *const _ as usize },
+        412usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_t),
+            "::",
+            stringify!(iso)
+        )
+    );
+}
+#[doc = " API for manipulating cameras."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_camera_api {
+    #[doc = " Computes the view matrix from a camera's transform `tm` and stores it in `view`. Also returns `view`."]
+    #[doc = ""]
+    #[doc = " The return value is provided so that you can call the function and initialize a"]
+    #[doc = " variable for the return value with a one-liner:"]
+    #[doc = ""]
+    #[doc = " ~~~c"]
+    #[doc = " tm_mat44_t *view = view_from_transform(&(tm_mat44_t){0}, tm);"]
+    #[doc = " ~~~"]
+    pub view_from_transform: ::std::option::Option<
+        unsafe extern "C" fn(view: *mut tm_mat44_t, tm: *const tm_transform_t) -> *mut tm_mat44_t,
+    >,
+    #[doc = " Computes the camera's transform `tm` from the `view` matrix."]
+    pub transform_from_view: ::std::option::Option<
+        unsafe extern "C" fn(
+            tm: *mut tm_transform_t,
+            view: *const tm_mat44_t,
+        ) -> *mut tm_transform_t,
+    >,
+    #[doc = " Computes a projection matrix `proj` from frustum bounding planes."]
+    pub projection_from_frustum: ::std::option::Option<
+        unsafe extern "C" fn(
+            proj: *mut tm_mat44_t,
+            left: f32,
+            right: f32,
+            bottom: f32,
+            top: f32,
+            near: f32,
+            far: f32,
+        ) -> *mut tm_mat44_t,
+    >,
+    #[doc = " Computes a projection matrix `proj` from near plane, far plane, FOV, and aspect."]
+    pub projection_from_fov: ::std::option::Option<
+        unsafe extern "C" fn(
+            proj: *mut tm_mat44_t,
+            near_plane: f32,
+            far_plane: f32,
+            vertical_fov: f32,
+            aspect: f32,
+        ) -> *mut tm_mat44_t,
+    >,
+    #[doc = " Computes an orthographic projection matrix `proj` from frustum bounding planes."]
+    pub orthographic_from_frustum: ::std::option::Option<
+        unsafe extern "C" fn(
+            proj: *mut tm_mat44_t,
+            left: f32,
+            right: f32,
+            bottom: f32,
+            top: f32,
+            near: f32,
+            far: f32,
+        ) -> *mut tm_mat44_t,
+    >,
+    #[doc = " Computes an orthographic projection matrix `proj` from near plane, far plane, width, and height."]
+    pub orthographics_from_dimensions: ::std::option::Option<
+        unsafe extern "C" fn(
+            proj: *mut tm_mat44_t,
+            near_plane: f32,
+            far_plane: f32,
+            width: f32,
+            height: f32,
+        ) -> *mut tm_mat44_t,
+    >,
+    #[doc = " Computes a projection matrix for the specified [[tm_camera_t]]."]
+    pub projection_from_camera: ::std::option::Option<
+        unsafe extern "C" fn(
+            camera: *mut tm_camera_t,
+            transform: tm_camera_transform,
+            aspect: f32,
+        ) -> *mut tm_mat44_t,
+    >,
+    #[doc = " Updates a free flight camera with the specified translation and rotation."]
+    pub update_free_flight: ::std::option::Option<
+        unsafe extern "C" fn(tm: *mut tm_transform_t, t: tm_vec3_t, r: tm_vec2_t),
+    >,
+    #[doc = " Updates a panning camera, panning by the specified amount. If `focus_position` is not `NULL`"]
+    #[doc = " it will also pan accordingly."]
+    pub update_pan: ::std::option::Option<
+        unsafe extern "C" fn(
+            tm: *mut tm_transform_t,
+            focus_position: *mut tm_vec3_t,
+            pan: tm_vec2_t,
+        ),
+    >,
+    #[doc = " Updates a Maya-style camera to focus on the specified position. `zoom` and `rot` specifies"]
+    #[doc = " zoom and rotation amounts around the position."]
+    pub update_maya: ::std::option::Option<
+        unsafe extern "C" fn(
+            tm: *mut tm_transform_t,
+            focus_position: tm_vec3_t,
+            zoom: f32,
+            rot: tm_vec2_t,
+        ),
+    >,
+    #[doc = " Converts from world coordinates to screen coordinates as seen by a camera. `transform`"]
+    #[doc = " specifies which view and projection transform to use. Returns a pointer to the `screen`"]
+    #[doc = " array."]
+    #[doc = ""]
+    #[doc = " !!! Tip"]
+    #[doc = "     `screen.z` is clip space Z with near plane at 0.f and far plane at 1.f regardless"]
+    #[doc = "     if engine is setup to run with reversed Z or not."]
+    pub world_to_screen: ::std::option::Option<
+        unsafe extern "C" fn(
+            camera: *const tm_camera_t,
+            transform: tm_camera_transform,
+            viewport: tm_rect_t,
+            world: *const tm_vec3_t,
+            screen: *mut tm_vec3_t,
+            n: u32,
+        ) -> *mut tm_vec3_t,
+    >,
+    #[doc = " Does the opposite of [[world_to_screen()]] -- i.e. converts from screen coordinates back to"]
+    #[doc = " world coordinates. Returns a pointer to the `world` array."]
+    #[doc = ""]
+    #[doc = " !!! Tip"]
+    #[doc = "     `screen.z` should is clip space Z with near plane mapped to 0.f and far plane at 1.f"]
+    #[doc = "     regardless if engine is setup to run with reversed Z or not."]
+    pub screen_to_world: ::std::option::Option<
+        unsafe extern "C" fn(
+            camera: *const tm_camera_t,
+            transform: tm_camera_transform,
+            viewport: tm_rect_t,
+            screen: *const tm_vec3_t,
+            world: *mut tm_vec3_t,
+            n: u32,
+        ) -> *mut tm_vec3_t,
+    >,
+    #[doc = " Returns how many meters something needs to be in the world to become one pixel on the screen."]
+    #[doc = " `distance` is the distance between the object and the camera, `vertical_fov` is the vertical"]
+    #[doc = " field-of-view in radians and `viewport_height` the height of the viewport in pixels."]
+    pub meters_per_pixel: ::std::option::Option<
+        unsafe extern "C" fn(distance: f32, vertical_fov: f32, viewport_height: f32) -> f32,
+    >,
+    #[doc = " Returns the default instance of a [[tm_camera_t]]."]
+    pub default_camera: ::std::option::Option<unsafe extern "C" fn() -> *const tm_camera_t>,
+    #[doc = " Calculates world space frustum planes from `view` and `projection`, plane normals are pointing out of the frustum."]
+    pub frustum_planes_from_view_projection: ::std::option::Option<
+        unsafe extern "C" fn(
+            view: *const tm_mat44_t,
+            projection: *const tm_mat44_t,
+            frustum_planes: *mut tm_vec4_t,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_camera_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_camera_api>(),
+        120usize,
+        concat!("Size of: ", stringify!(tm_camera_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_camera_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_camera_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).view_from_transform as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(view_from_transform)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).transform_from_view as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(transform_from_view)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).projection_from_frustum as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(projection_from_frustum)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).projection_from_fov as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(projection_from_fov)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).orthographic_from_frustum as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(orthographic_from_frustum)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).orthographics_from_dimensions as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(orthographics_from_dimensions)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).projection_from_camera as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(projection_from_camera)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).update_free_flight as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(update_free_flight)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).update_pan as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(update_pan)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).update_maya as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(update_maya)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).world_to_screen as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(world_to_screen)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).screen_to_world as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(screen_to_world)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).meters_per_pixel as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(meters_per_pixel)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_camera_api>())).default_camera as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(default_camera)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_camera_api>())).frustum_planes_from_view_projection
+                as *const _ as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_camera_api),
+            "::",
+            stringify!(frustum_planes_from_view_projection)
+        )
+    );
+}
+#[doc = " We are not connected to any collaboration session."]
+pub const TM_COLLABORATION_STATUS_DISCONNECTED: tm_collaboration_status = 0;
+#[doc = " We are in the process of creating a host session."]
+pub const TM_COLLABORATION_STATUS_HOST_STARTING: tm_collaboration_status = 1;
+#[doc = " We are hosting a collaboration session for others to join."]
+pub const TM_COLLABORATION_STATUS_HOST: tm_collaboration_status = 2;
+#[doc = " We are connecting to a host."]
+pub const TM_COLLABORATION_STATUS_CONNECTING: tm_collaboration_status = 3;
+#[doc = " We are joined in a collaboration session hosted by someone else."]
+pub const TM_COLLABORATION_STATUS_CLIENT: tm_collaboration_status = 4;
+#[doc = " An error occurred somewhere."]
+pub const TM_COLLABORATION_STATUS_ERROR: tm_collaboration_status = 5;
+#[doc = " Status of the collaboration."]
+pub type tm_collaboration_status = ::std::os::raw::c_int;
+#[doc = " Callbacks called by the collaboration system."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_config_i {
+    #[doc = " The truth that is synchronized during the collaboration session."]
+    pub tt: *mut tm_the_truth_o,
+    #[doc = " User data used for callbacks."]
+    pub ud: *mut ::std::os::raw::c_void,
+    #[doc = " Optional. Called when a collaboration session is started in"]
+    #[doc = " [[TM_COLLABORATION_SESSION_TYPE_HOST]] mode."]
+    pub host_init: ::std::option::Option<unsafe extern "C" fn(ud: *mut ::std::os::raw::c_void)>,
+    #[doc = " Optional. Called when a collaboration session is started in"]
+    #[doc = " [[TM_COLLABORATION_SESSION_TYPE_CLIENT]] mode."]
+    pub client_init: ::std::option::Option<unsafe extern "C" fn(ud: *mut ::std::os::raw::c_void)>,
+    #[doc = " Saves the initial state on the server. The saved state does not include the full buffers in"]
+    #[doc = " The Truth, only their hashes. The client will load the buffers by extracting the buffer"]
+    #[doc = " hashes from the state by calling [[client_buffer_hashes()]] and then send messages to the"]
+    #[doc = " host to request each buffer."]
+    pub host_save_state: ::std::option::Option<
+        unsafe extern "C" fn(
+            ud: *mut ::std::os::raw::c_void,
+            carray: *mut *mut ::std::os::raw::c_char,
+            a: *mut tm_allocator_i,
+        ),
+    >,
+    #[doc = " Resets the client's Truth and returns a pointer to the new Truth. You must call this before"]
+    #[doc = " calling [[client_load_state()]]."]
+    pub client_reset_truth: ::std::option::Option<
+        unsafe extern "C" fn(ud: *mut ::std::os::raw::c_void) -> *mut tm_the_truth_o,
+    >,
+    #[doc = " Decompresses the state received by the client. (The state sent by the host is compressed.)"]
+    #[doc = " You need to call this before calling [[client_buffer_hashes()]] or [[client_load_state()]] on"]
+    #[doc = " the state."]
+    pub client_decompress_state: ::std::option::Option<
+        unsafe extern "C" fn(
+            app_ud: *mut ::std::os::raw::c_void,
+            state: *const ::std::os::raw::c_char,
+            size: u64,
+            allocator: *mut tm_allocator_i,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the buffers in the `state` received by the client. `count` receives the buffer count."]
+    #[doc = " The client can use this to request the buffer contents from the host."]
+    pub client_buffer_hashes: ::std::option::Option<
+        unsafe extern "C" fn(
+            ud: *mut ::std::os::raw::c_void,
+            state: *const ::std::os::raw::c_char,
+            size: u64,
+            count: *mut u64,
+        ) -> *const u64,
+    >,
+    #[doc = " Loads the initial state received by the client from the server. Before calling this function,"]
+    #[doc = " you must first call [[client_reset_truth()]] to reset the client's Truth. You must also load"]
+    #[doc = " all the buffers in The Truth as returned by [[client_buffer_hashes()]]."]
+    #[doc = ""]
+    #[doc = " Returns *true* if the state was successfully loaded and *false* if there was an error loading"]
+    #[doc = " the state."]
+    pub client_load_state: ::std::option::Option<
+        unsafe extern "C" fn(
+            ud: *mut ::std::os::raw::c_void,
+            state: *const ::std::os::raw::c_char,
+            size: u64,
+        ) -> bool,
+    >,
+    #[doc = " Optional. If non-zero, specifies a directory on disk that caches large buffers so that"]
+    #[doc = " they don't have to be transferred over the network for the collaboration session."]
+    pub cache_dir: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_collaboration_config_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_collaboration_config_i>(),
+        80usize,
+        concat!("Size of: ", stringify!(tm_collaboration_config_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_collaboration_config_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_collaboration_config_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_config_i>())).tt as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(tt)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_config_i>())).ud as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(ud)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).host_init as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(host_init)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_init as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(client_init)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).host_save_state as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(host_save_state)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_reset_truth as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(client_reset_truth)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_decompress_state
+                as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(client_decompress_state)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_buffer_hashes as *const _
+                as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(client_buffer_hashes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).client_load_state as *const _
+                as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(client_load_state)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_config_i>())).cache_dir as *const _ as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_config_i),
+            "::",
+            stringify!(cache_dir)
+        )
+    );
+}
+#[doc = " The session has not yet been set-up properly."]
+pub const TM_COLLABORATION_SESSION_TYPE_NONE: tm_collaboration_session_type = 0;
+#[doc = " The session is for hosting."]
+pub const TM_COLLABORATION_SESSION_TYPE_HOST: tm_collaboration_session_type = 1;
+#[doc = " The session is for for connecting to a host."]
+pub const TM_COLLABORATION_SESSION_TYPE_CLIENT: tm_collaboration_session_type = 2;
+#[doc = " Describes the type (host/client) of a collaboration session."]
+pub type tm_collaboration_session_type = ::std::os::raw::c_int;
+#[doc = " The session has not yet been connected, or has been gracefully disconnected."]
+pub const TM_COLLABORATION_SESSION_STATUS_DISCONNECTED: tm_collaboration_session_status = 0;
+#[doc = " The session is currently connecting, i.e. the local client is trying to connect to a server."]
+pub const TM_COLLABORATION_SESSION_STATUS_CONNECTING: tm_collaboration_session_status = 1;
+#[doc = " The session is connect. This is always the value for a host."]
+pub const TM_COLLABORATION_SESSION_STATUS_CONNECTED: tm_collaboration_session_status = 2;
+#[doc = " Some error has occurred."]
+pub const TM_COLLABORATION_SESSION_STATUS_ERROR: tm_collaboration_session_status = 3;
+#[doc = " Describes the current status of a collaboration session."]
+pub type tm_collaboration_session_status = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_session_o {
+    _unused: [u8; 0],
+}
+#[doc = " Provides a layer of abstraction for collaboration. We may have multiple different implementations"]
+#[doc = " of a session, such as a peer-to-peer session and a Discord session. The sessions are usually"]
+#[doc = " created by some other api (see [[tm_collaboration_p2p_api]] or [[tm_collaboration_discord_api]]) and"]
+#[doc = " then passed to the `host` or `connect` functions of [[tm_collaboration_api]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_session_i {
+    pub inst: *mut tm_collaboration_session_o,
+    #[doc = " Disconnects and destroys the state of the session."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_collaboration_session_o)>,
+    #[doc = " Returns an identifier unique for the backing library, i.e. there will be one value for a"]
+    #[doc = " peer-to-peer connection and another for a Discord connection. For example, see:"]
+    #[doc = " [[TM_COLLABORATION_SESSION_ARCHITECTURE__P2P]]."]
+    pub architecture: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_collaboration_session_o) -> tm_strhash_t,
+    >,
+    #[doc = " Returns the ID of the session's host."]
+    pub host_id:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_collaboration_session_o) -> u64>,
+    #[doc = " Checks if any client has requested to connect to the session. If there is a waiting client,"]
+    #[doc = " the function returns *true* and sets `client_id` to the ID of the client. Otherwise, returns"]
+    #[doc = " *false*."]
+    pub get_client_request: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_collaboration_session_o, client_id: *mut u64) -> bool,
+    >,
+    #[doc = " Tells the session that the client with ID `client_id` has been accepted. The ID should come"]
+    #[doc = " from a call to [[get_client_request()]]."]
+    pub accept_client: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_collaboration_session_o, client_id: u64),
+    >,
+    #[doc = " Sends the contents of `buf` to the client with ID `client_id`. Data is buffered internally"]
+    #[doc = " and is not guranteed to be actually sent until [[flush()]] is called."]
+    pub send: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_collaboration_session_o,
+            client_id: u64,
+            buf: *const u8,
+            size: u64,
+        ),
+    >,
+    #[doc = " Sends any queued data."]
+    pub flush: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_collaboration_session_o)>,
+    #[doc = " Receives data and performs other session-specific per-frame actions."]
+    pub update: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_collaboration_session_o)>,
+    #[doc = " Returns *true* if there is incoming package data for the client with ID *client_id*. In this"]
+    #[doc = " case, the data is returned in `(data, size)`. The`data` buffer is assumed to be able to hold"]
+    #[doc = " all the received data. Returns *false* if there is no incoming package data for the client."]
+    pub get_package_data: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_collaboration_session_o,
+            client_id: u64,
+            data: *mut u8,
+            size: *mut u64,
+        ) -> bool,
+    >,
+    #[doc = " Closes the connection to client with ID `client_id`. May be used both by host and client to"]
+    #[doc = " close a connection."]
+    pub close_client: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_collaboration_session_o, client_id: u64),
+    >,
+    #[doc = " Sends a ping message to client with id `client_id`. This makes sure that the connection"]
+    #[doc = " doesn't time-out when nothing else is happening."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Shouldn't this be handled automatically by [[update()]]?"]
+    pub send_ping: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_collaboration_session_o, client_id: u64),
+    >,
+    #[doc = " Returns the type of session, i.e. if it is a host or client session. May return"]
+    #[doc = " [[TM_COLLABORATION_SESSION_TYPE_NONE]] if the session hasn't been set-up properly yet."]
+    pub type_: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_collaboration_session_o,
+        ) -> tm_collaboration_session_type,
+    >,
+    #[doc = " Returns the status of the session. For a client-session there are several possible values"]
+    #[doc = " of return value type [[enum tm_collaboration_session_status]], for hosts the value will always be"]
+    #[doc = " [[TM_COLLABORATION_SESSION_TYPE_HOST]]."]
+    pub status: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_collaboration_session_o,
+        ) -> tm_collaboration_session_status,
+    >,
+    #[doc = " Return true if client with ID `client_id` is still alive."]
+    pub is_client_alive: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_collaboration_session_o, client_id: u64) -> bool,
+    >,
+    #[doc = " Returns *true* if the session is in the process of downloading a large data package."]
+    #[doc = " In this case, the progress of the download is returned in `bytes` and `total`. Returns"]
+    #[doc = " *false* if no big download is in progress."]
+    pub receive_progress: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *const tm_collaboration_session_o,
+            bytes: *mut u64,
+            total: *mut u64,
+        ) -> bool,
+    >,
+    #[doc = " Returns a text message into `buf`, of maximum size `max_size`, that can be used in the UI"]
+    #[doc = " to provide feedback to the user about the session status."]
+    pub status_message: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_collaboration_session_o,
+            buf: *mut ::std::os::raw::c_char,
+            max_size: u32,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_collaboration_session_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_collaboration_session_i>(),
+        136usize,
+        concat!("Size of: ", stringify!(tm_collaboration_session_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_collaboration_session_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_collaboration_session_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_session_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).destroy as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).architecture as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(architecture)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).host_id as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(host_id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).get_client_request as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(get_client_request)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).accept_client as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(accept_client)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_session_i>())).send as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(send)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).flush as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(flush)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).update as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(update)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).get_package_data as *const _
+                as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(get_package_data)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).close_client as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(close_client)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).send_ping as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(send_ping)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).type_ as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).status as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(status)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).is_client_alive as *const _
+                as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(is_client_alive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).receive_progress as *const _
+                as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(receive_progress)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_session_i>())).status_message as *const _
+                as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_session_i),
+            "::",
+            stringify!(status_message)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_o {
+    _unused: [u8; 0],
+}
+#[doc = " Implements a collaboration protocol that allows changes to The Truth to be made by multiple"]
+#[doc = " people on separate computers."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_api {
+    #[doc = " Creates a new collaboration object."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            config: *const tm_collaboration_config_i,
+        ) -> *mut tm_collaboration_o,
+    >,
+    #[doc = " Destroys a collaboration object created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(coll: *mut tm_collaboration_o)>,
+    #[doc = " Returns the current collaboration status."]
+    pub status: ::std::option::Option<
+        unsafe extern "C" fn(coll: *const tm_collaboration_o) -> tm_collaboration_status,
+    >,
+    #[doc = " If the client is currently downloading a big data chunk, returns `true`, the number of"]
+    #[doc = " `bytes` downloaded so far and the `total` number of bytes. Otherwise, returns `false`."]
+    pub is_downloading: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll: *const tm_collaboration_o,
+            bytes: *mut u64,
+            total: *mut u64,
+        ) -> bool,
+    >,
+    #[doc = " Sets the Collaboration System to use the provided session for communication. All underlying"]
+    #[doc = " network traffic is routed through the session. This function is called by the"]
+    #[doc = " [[tm_collaboration_p2p_api->host()]] and [[tm_collaboration_p2p_api->connect()]]."]
+    pub set_session: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll: *mut tm_collaboration_o,
+            session: *const tm_collaboration_session_i,
+        ),
+    >,
+    #[doc = " Returns the current session. The returned value is never `NULL`. If there is no current"]
+    #[doc = " session, a dummy implementation is returned."]
+    pub session: ::std::option::Option<
+        unsafe extern "C" fn(coll: *mut tm_collaboration_o) -> *mut tm_collaboration_session_i,
+    >,
+    #[doc = " Disconnects from the current session, if any."]
+    pub disconnect: ::std::option::Option<unsafe extern "C" fn(coll: *mut tm_collaboration_o)>,
+    #[doc = " Updates the connection as necessary -- sending and receiving data."]
+    pub update: ::std::option::Option<unsafe extern "C" fn(coll: *mut tm_collaboration_o)>,
+    #[doc = " Returns the identifying chat handle for this collaborator."]
+    pub handle: ::std::option::Option<
+        unsafe extern "C" fn(coll: *const tm_collaboration_o) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Sets a chat handle that will be used to identify this collaborator"]
+    pub set_handle: ::std::option::Option<
+        unsafe extern "C" fn(c: *mut tm_collaboration_o, handle: *mut ::std::os::raw::c_char),
+    >,
+    #[doc = " Returns the chat handle of the host."]
+    pub host_handle: ::std::option::Option<
+        unsafe extern "C" fn(c: *const tm_collaboration_o) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the number of clients in the session."]
+    pub num_clients:
+        ::std::option::Option<unsafe extern "C" fn(coll: *const tm_collaboration_o) -> u32>,
+    #[doc = " Returns the handle of the `i`th client."]
+    pub client_handle: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll: *const tm_collaboration_o,
+            i: u32,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the handle of everyone in the session."]
+    pub all_handles: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll: *const tm_collaboration_o,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Sends a chat message."]
+    pub send_chat: ::std::option::Option<
+        unsafe extern "C" fn(coll: *mut tm_collaboration_o, msg: *const ::std::os::raw::c_char),
+    >,
+    #[doc = " Number of chat messages in backlog."]
+    pub num_chat_messages:
+        ::std::option::Option<unsafe extern "C" fn(coll: *const tm_collaboration_o) -> u32>,
+    #[doc = " Returns the `i`th message in the chat backlog, together with the name of the sender."]
+    pub chat_message: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll: *const tm_collaboration_o,
+            i: u32,
+            sender: *mut *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Call this if a complete resynchronization of the state from the host is needed. `tt` is the"]
+    #[doc = " new Truth object for the host."]
+    pub resynchronize_state: ::std::option::Option<
+        unsafe extern "C" fn(coll: *mut tm_collaboration_o, tt: *mut tm_the_truth_o),
+    >,
+    #[doc = " For testing purposes. Sends `num` packages of `size` to all peers. The recieving peers will"]
+    #[doc = " print how long it took for them to receive the packages."]
+    pub send_test_packages: ::std::option::Option<
+        unsafe extern "C" fn(coll: *mut tm_collaboration_o, size: u64, num: u32),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_collaboration_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_collaboration_api>(),
+        152usize,
+        concat!("Size of: ", stringify!(tm_collaboration_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_collaboration_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_collaboration_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).destroy as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).status as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(status)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).is_downloading as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(is_downloading)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).set_session as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(set_session)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).session as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(session)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).disconnect as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(disconnect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).update as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(update)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).handle as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(handle)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).set_handle as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(set_handle)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).host_handle as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(host_handle)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).num_clients as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(num_clients)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).client_handle as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(client_handle)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).all_handles as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(all_handles)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_api>())).send_chat as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(send_chat)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).num_chat_messages as *const _ as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(num_chat_messages)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).chat_message as *const _ as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(chat_message)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).resynchronize_state as *const _
+                as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(resynchronize_state)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_api>())).send_test_packages as *const _ as usize
+        },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_api),
+            "::",
+            stringify!(send_test_packages)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_p2p_o {
+    _unused: [u8; 0],
+}
+#[doc = " Represents a host that was discovered on the LAN."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_discovered_host_t {
+    #[doc = " Address of the host."]
+    pub address: *const tm_socket_address_t,
+    #[doc = " Name of the host (handle of host user)."]
+    pub name: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_collaboration_discovered_host_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_collaboration_discovered_host_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_collaboration_discovered_host_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_collaboration_discovered_host_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_collaboration_discovered_host_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_discovered_host_t>())).address as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_discovered_host_t),
+            "::",
+            stringify!(address)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_discovered_host_t>())).name as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_discovered_host_t),
+            "::",
+            stringify!(name)
+        )
+    );
+}
+#[doc = " This API creates instances of [[tm_collaboration_session_i]] for hosting and connecting"]
+#[doc = " peer-to-peer collaboration sessions. It also takes care of LAN host discovery."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_collaboration_p2p_api {
+    #[doc = " Creates the P2P collaboration interface object. Typically, you call this during"]
+    #[doc = " application startup, so you can call [[update()]] in the tick loop to discover"]
+    #[doc = " any new hosts on the LAN."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll: *mut tm_collaboration_o,
+            allocator: *mut tm_allocator_i,
+        ) -> *mut tm_collaboration_p2p_o,
+    >,
+    #[doc = " Destroys the P2P collaboration interface object created by [[create()]]. Typically,"]
+    #[doc = " you call this during application shutdown."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(coll_p2p: *mut tm_collaboration_p2p_o)>,
+    #[doc = " Updates the LAN host discovery, to detect any new collaboration hosts on the network."]
+    #[doc = " Typically, you call this in the application's tick loop, whether the collaboration tab is open"]
+    #[doc = " or not."]
+    pub update: ::std::option::Option<unsafe extern "C" fn(coll_p2p: *mut tm_collaboration_p2p_o)>,
+    #[doc = " Creates a session for hosting peer-to-peer collaboration on the specified `port`. If `port`"]
+    #[doc = " is zero, a random port will be assigned. This function calls the[[host()]] function of"]
+    #[doc = " [[tm_collaboration_api]] to set the session up."]
+    pub host: ::std::option::Option<
+        unsafe extern "C" fn(coll_p2p: *mut tm_collaboration_p2p_o, port: u32, use_upnp: bool),
+    >,
+    #[doc = " Creates a client peer-to-peer collaboration session, connecting to the collaboration host at"]
+    #[doc = " `address`. Calls the [[connect()]] function in [[tm_collaboration_api]] to set the session up."]
+    pub connect: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll_p2p: *mut tm_collaboration_p2p_o,
+            address: *const tm_socket_address_t,
+        ),
+    >,
+    #[doc = " Returns the hosts discovered on the LAN. The return value is the total number of hosts"]
+    #[doc = " found. The function also stores as many of these as it can fit into the array `hosts`"]
+    #[doc = " of size `max_hosts`."]
+    pub discovered_lan_hosts: ::std::option::Option<
+        unsafe extern "C" fn(
+            coll_p2p: *const tm_collaboration_p2p_o,
+            hosts: *mut tm_collaboration_discovered_host_t,
+            max_hosts: u32,
+        ) -> u32,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_collaboration_p2p_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_collaboration_p2p_api>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_collaboration_p2p_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_collaboration_p2p_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_collaboration_p2p_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_p2p_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).destroy as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_p2p_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).update as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_p2p_api),
+            "::",
+            stringify!(update)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).host as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_p2p_api),
+            "::",
+            stringify!(host)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).connect as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_p2p_api),
+            "::",
+            stringify!(connect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_collaboration_p2p_api>())).discovered_lan_hosts as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_collaboration_p2p_api),
+            "::",
+            stringify!(discovered_lan_hosts)
+        )
+    );
+}
+pub const TM_CONFIG_TYPE_NULL: tm_config_type = 0;
+pub const TM_CONFIG_TYPE_FALSE: tm_config_type = 1;
+pub const TM_CONFIG_TYPE_TRUE: tm_config_type = 2;
+pub const TM_CONFIG_TYPE_NUMBER: tm_config_type = 3;
+pub const TM_CONFIG_TYPE_STRING: tm_config_type = 4;
+pub const TM_CONFIG_TYPE_ARRAY: tm_config_type = 5;
+pub const TM_CONFIG_TYPE_OBJECT: tm_config_type = 6;
+#[doc = " Types supported in the system."]
+pub type tm_config_type = ::std::os::raw::c_int;
+#[doc = " Represents a config item."]
+#[doc = ""]
+#[doc = " Config files are stored in big binary data blocks. Each item in the config file appears at a"]
+#[doc = " particular offset in that data block and ca be uniquely identified by its `type`"]
+#[doc = " ([[enum tm_config_type]])  and `offset`."]
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_config_item_t {
+    pub _bitfield_align_1: [u32; 0],
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+}
+#[test]
+fn bindgen_test_layout_tm_config_item_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_config_item_t>(),
+        4usize,
+        concat!("Size of: ", stringify!(tm_config_item_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_config_item_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_config_item_t))
+    );
+}
+impl tm_config_item_t {
+    #[inline]
+    pub fn type_(&self) -> u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 3u8) as u32) }
+    }
+    #[inline]
+    pub fn set_type(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 3u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn offset(&self) -> u32 {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 29u8) as u32) }
+    }
+    #[inline]
+    pub fn set_offset(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 29u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(type_: u32, offset: u32) -> __BindgenBitfieldUnit<[u8; 4usize]> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize]> = Default::default();
+        __bindgen_bitfield_unit.set(0usize, 3u8, {
+            let type_: u32 = unsafe { ::std::mem::transmute(type_) };
+            type_ as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 29u8, {
+            let offset: u32 = unsafe { ::std::mem::transmute(offset) };
+            offset as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_config_o {
+    _unused: [u8; 0],
+}
+#[doc = " Represents a free form \"configuration\" structure that can represent JSON-like data."]
+#[doc = ""]
+#[doc = " The structure uses a single memory buffer internally to represent all the data. While it has a"]
+#[doc = " read/write interface, it does not try to reclaim deleted or unreferenced data, so it is not"]
+#[doc = " suitable for situations where the data mutates constantly. Instead, it is intended for a typical"]
+#[doc = " \"configuration file\" use case where the data first goes through a *construction* phase (for"]
+#[doc = " example parsing it from a JSON file) and then a *query* phase where the data is being used."]
+#[doc = ""]
+#[doc = " Use cases very different from this, for example string data that mutates every frame, can cause"]
+#[doc = " unbounded memory growth."]
+#[doc = ""]
+#[doc = " Using the `copy` function to copy the data to a fresh [[tm_config_i]] object will pack the data and"]
+#[doc = " get rid of unreferenced items."]
+#[doc = ""]
+#[doc = " !!! TIP: Numeric type"]
+#[doc = "     Similar to JavaScript, 64-bit doubles are used to represent all numbers in the file."]
+#[doc = "     This means that it cannot accurately represent 64-bit integers. (32-bit integers can"]
+#[doc = "     be accurately represented by a 64-bit double.) To store 64-bit integers in the config"]
+#[doc = "     object you have to resort to other means (such as using a string representation)."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     The functions here should be moved to a [[tm_config_api]] API. There is no reason to use"]
+#[doc = "     an interface type, since we only have a single implementation and don't expect that to"]
+#[doc = "     change."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_config_i {
+    pub inst: *mut tm_config_o,
+    #[doc = " Returns the root object of the config tree."]
+    pub root:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_config_o) -> tm_config_item_t>,
+    #[doc = " Returns the specified `item` as number. If the item type is not [[TM_CONFIG_TYPE_NUMBER]],"]
+    #[doc = " this returns `0.0`."]
+    pub to_number: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_config_o, item: tm_config_item_t) -> f64,
+    >,
+    #[doc = " Returns the specified `item` as string. If the item type is not [[TM_CONFIG_TYPE_STRING]],"]
+    #[doc = " this returns `\"\"`."]
+    pub to_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            item: tm_config_item_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Retrieves the items of a [[TM_CONFIG_TYPE_ARRAY]]. The function will return the number of"]
+    #[doc = " items in the array, and a pointer to the array in the `items` parameter. If the item type is"]
+    #[doc = " not [[TM_CONFIG_TYPE_ARRAY]], this returns an empty array."]
+    #[doc = ""]
+    #[doc = " The returned array is invalidated if you add new data to the config structure."]
+    pub to_array: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            item: tm_config_item_t,
+            items: *mut *mut tm_config_item_t,
+        ) -> u32,
+    >,
+    #[doc = " Retrieves the keys and values of a [[TM_CONFIG_TYPE_OBJECT]]. The function will return the"]
+    #[doc = " number of items in the object, a pointer to the keys in `keys`, and a pointer to the values"]
+    #[doc = " in `values`. If the item type is not [[TM_CONFIG_TYPE_OBJECT]], this returns an empty object."]
+    #[doc = ""]
+    #[doc = " The returned arrays are invalidated if you add new data to the config structure."]
+    pub to_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            item: tm_config_item_t,
+            keys: *mut *mut tm_config_item_t,
+            values: *mut *mut tm_config_item_t,
+        ) -> u32,
+    >,
+    #[doc = " Adds a new number to the config and returns a reference to it."]
+    pub add_number: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_config_o, n: f64) -> tm_config_item_t,
+    >,
+    #[doc = " Adds a new string to the config and returns a reference to it."]
+    pub add_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            s: *const ::std::os::raw::c_char,
+        ) -> tm_config_item_t,
+    >,
+    #[doc = " Adds a new array to the config with the specified list of items in it."]
+    pub add_array: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            items: *const tm_config_item_t,
+            size: u32,
+        ) -> tm_config_item_t,
+    >,
+    #[doc = " Adds a new object to the config with the specified list of keys and values."]
+    pub add_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            keys: *const tm_config_item_t,
+            values: *const tm_config_item_t,
+            size: u32,
+        ) -> tm_config_item_t,
+    >,
+    #[doc = " Convenience version of [[add_object()]] that calls [[add_string()]] on all the `keys`"]
+    #[doc = " automatically before creating the object."]
+    pub add_object_with_string_keys: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            keys: *mut *const ::std::os::raw::c_char,
+            values: *const tm_config_item_t,
+            size: u32,
+        ) -> tm_config_item_t,
+    >,
+    #[doc = " Sets the `i`th element of `array` to `item`. `i` must be within the range"]
+    #[doc = " of indices of the array."]
+    pub array_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            array: tm_config_item_t,
+            i: u32,
+            item: tm_config_item_t,
+        ),
+    >,
+    #[doc = " Pushes `item` to the end of the array."]
+    pub array_push: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            array: tm_config_item_t,
+            item: tm_config_item_t,
+        ),
+    >,
+    #[doc = " Gets the value of the `object` key `key_hash`. `key_hash` should be the"]
+    #[doc = " [[tm_murmur_hash_string()]] of the key string you are querying for. If the"]
+    #[doc = " key doesn't exist in the object, [[tm_config_api->c_null]] will be returned."]
+    pub object_get: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            object: tm_config_item_t,
+            key_hash: tm_strhash_t,
+        ) -> tm_config_item_t,
+    >,
+    #[doc = " Updates the value of the `object` key `key_hash` to `value`. If `key_hash`"]
+    #[doc = " does not exist in the object, this function is a NOP. You must use"]
+    #[doc = " `object_add` to add new keys."]
+    pub object_update: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            object: tm_config_item_t,
+            key_hash: tm_strhash_t,
+            value: tm_config_item_t,
+        ),
+    >,
+    #[doc = " If the key `key` exists in the object, its value will be updated to"]
+    #[doc = " `value`. Otherwise, it will be added to the object."]
+    pub object_add: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            object: tm_config_item_t,
+            key: *const ::std::os::raw::c_char,
+            value: tm_config_item_t,
+        ),
+    >,
+    #[doc = " Sets the root of the config tree to `root`."]
+    pub set_root:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_config_o, root: tm_config_item_t)>,
+    #[doc = " Copies the entire tree from `src` to `dst`. Unreferenced data in `src`"]
+    #[doc = " will not be copied."]
+    pub copy:
+        ::std::option::Option<unsafe extern "C" fn(dst: *mut tm_config_o, src: *mut tm_config_o)>,
+    #[doc = " Returns the allocator of the config object."]
+    pub allocator:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_config_o) -> *mut tm_allocator_i>,
+    #[doc = " Validates the child keys of the specified object, logs any unknown children."]
+    #[doc = " Returns whether any errors were found."]
+    pub validate_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_config_o,
+            object: tm_config_item_t,
+            object_display_name: *const ::std::os::raw::c_char,
+            valid_child_keys: *mut *const ::std::os::raw::c_char,
+            num_valid_child_keys: u32,
+        ) -> bool,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_config_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_config_i>(),
+        160usize,
+        concat!("Size of: ", stringify!(tm_config_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_config_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_config_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).root as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(root)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_number as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(to_number)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_string as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(to_string)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_array as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(to_array)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).to_object as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(to_object)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_number as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(add_number)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_string as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(add_string)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_array as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(add_array)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).add_object as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(add_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_config_i>())).add_object_with_string_keys as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(add_object_with_string_keys)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).array_set as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(array_set)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).array_push as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(array_push)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).object_get as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(object_get)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).object_update as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(object_update)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).object_add as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(object_add)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).set_root as *const _ as usize },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(set_root)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).copy as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(copy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).allocator as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(allocator)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_i>())).validate_object as *const _ as usize },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_i),
+            "::",
+            stringify!(validate_object)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_config_api {
+    #[doc = " Creates a new config object."]
+    pub create:
+        ::std::option::Option<unsafe extern "C" fn(a: *mut tm_allocator_i) -> *mut tm_config_i>,
+    #[doc = " Destroys a config object created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(cdi: *mut tm_config_i)>,
+    #[doc = " The `null` item."]
+    pub c_null: tm_config_item_t,
+    #[doc = " The `false` item."]
+    pub c_false: tm_config_item_t,
+    #[doc = " The `true` item."]
+    pub c_true: tm_config_item_t,
+    pub _padding_182: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_config_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_config_api>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_config_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_config_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_config_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_api>())).destroy as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_api>())).c_null as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_api),
+            "::",
+            stringify!(c_null)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_api>())).c_false as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_api),
+            "::",
+            stringify!(c_false)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_api>())).c_true as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_api),
+            "::",
+            stringify!(c_true)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_config_api>()))._padding_182 as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_config_api),
+            "::",
+            stringify!(_padding_182)
+        )
+    );
+}
+#[doc = " If you open a project and this asset is missing -- it will be created."]
+pub const TM_CORE_CREATE_POLICY__CREATE: tm_core_create_policy = 0;
+#[doc = " If you open a project and this asset exists -- it will be removed. This can be used to"]
+#[doc = " delete old/deprecated core assets."]
+pub const TM_CORE_CREATE_POLICY__REMOVE: tm_core_create_policy = 1;
+#[doc = " The asset will neither be created or removed."]
+pub const TM_CORE_CREATE_POLICY__IGNORE: tm_core_create_policy = 2;
+#[doc = " Policy value that controls if the asset should be created if a project is opened and the asset"]
+#[doc = " is missing. Can also be used to explicitly remove old/deprecated assets."]
+pub type tm_core_create_policy = ::std::os::raw::c_int;
+#[doc = " Interface used to define a core asset."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_core_asset_i {
+    #[doc = " Hashed string ID that uniquely identifies the core asset. This is used to determine if the"]
+    #[doc = " asset already exists in the project or if it needs to be created."]
+    pub core_id: tm_strhash_t,
+    #[doc = " Default path in the asset browser where this asset will be created. Typically this path"]
+    #[doc = " should start with `core/`. The path should include the file name but not the extension (this"]
+    #[doc = " is set automatically based on the resource type)."]
+    #[doc = ""]
+    #[doc = " Note that users may move/rename core assets in their projects and we will still be able to"]
+    #[doc = " track them (through their Core IDs)."]
+    pub path: *const ::std::os::raw::c_char,
+    #[doc = " Policy object that determines when the asset should be created/destroyed."]
+    pub create_policy: tm_core_create_policy,
+    pub _padding_61: [::std::os::raw::c_char; 4usize],
+    #[doc = " Current version of the core asset. Whenever you make changes to the asset that is shipped"]
+    #[doc = " with the engine, you should increase this version number so that [[update()]] can get called"]
+    #[doc = " properly."]
+    pub version: u64,
+    #[doc = " User-data that is passed along to `create` and `update`. Useful when data-driving the"]
+    #[doc = " creation of assets. See `core_importer.c` for an example."]
+    pub user_data: *const ::std::os::raw::c_void,
+    #[doc = " Called by [[tm_core_api]] to create the asset in the project. Returns the ID of the created"]
+    #[doc = " object in The Truth."]
+    #[doc = ""]
+    #[doc = " !!! note"]
+    #[doc = "     This function should return the content/data of the asset. [[tm_core_api]] will"]
+    #[doc = "     automatically wrap it in a [[TM_TT_TYPE__ASSET]] object to create an asset out of it."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            user_data: *const ::std::os::raw::c_void,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Optional. Called to update the core asset when the project is loaded."]
+    #[doc = ""]
+    #[doc = " When a project is loaded and the `version` of a [[tm_core_asset_i]] is greater than the stored"]
+    #[doc = " version in the project, [[update()]] will be called to update the asset in the project."]
+    #[doc = ""]
+    #[doc = " `data_id` is the Truth ID of the asset's content/data and `old_version` is the old version"]
+    #[doc = " number that was stored in the file. It is up to the [[update()]] function to decide what to do."]
+    #[doc = " It might overwrite user changes, try to merge them with changes made in the engine, etc."]
+    pub update: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            data_id: tm_tt_id_t,
+            old_version: u64,
+            user_data: *const ::std::os::raw::c_void,
+        ),
+    >,
+    #[doc = " Optional. Called whenever an asset has been created or updated, after the data object of"]
+    #[doc = " the asset has been wrapped in a [[TM_TT_TYPE__ASSET]]. The owner of `data_id` is guaranteed"]
+    #[doc = " to be this asset. This can be used for patching up the asset with for example asset labels."]
+    pub on_change: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            data_id: tm_tt_id_t,
+            user_data: *const ::std::os::raw::c_void,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_core_asset_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_core_asset_i>(),
+        64usize,
+        concat!("Size of: ", stringify!(tm_core_asset_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_core_asset_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_core_asset_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).core_id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(core_id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).path as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(path)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).create_policy as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(create_policy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>()))._padding_61 as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(_padding_61)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).version as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(version)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).user_data as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(user_data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).create as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).update as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(update)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_asset_i>())).on_change as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_asset_i),
+            "::",
+            stringify!(on_change)
+        )
+    );
+}
+#[doc = " Used for the result of [[tm_core_api->update()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_core_update_result_t {
+    #[doc = " A carray of assets that were created as part of the update operation."]
+    #[doc = "* carray */"]
+    pub created_assets: *mut tm_tt_id_t,
+    #[doc = " A carray of assets that were removed as part of the update operation."]
+    #[doc = "* carray */"]
+    pub removed_assets: *mut tm_tt_id_t,
+    #[doc = " A carray of assets that were updated as part of the update operation."]
+    #[doc = "* carray */"]
+    pub updated_assets: *mut tm_tt_id_t,
+}
+#[test]
+fn bindgen_test_layout_tm_core_update_result_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_core_update_result_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_core_update_result_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_core_update_result_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_core_update_result_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_core_update_result_t>())).created_assets as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_update_result_t),
+            "::",
+            stringify!(created_assets)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_core_update_result_t>())).removed_assets as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_update_result_t),
+            "::",
+            stringify!(removed_assets)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_core_update_result_t>())).updated_assets as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_update_result_t),
+            "::",
+            stringify!(updated_assets)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_core_api {
+    #[doc = " Creates the core assets in The Truth `tt`. This is called when a new Truth project is"]
+    #[doc = " created."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, asset_root_id: tm_tt_id_t),
+    >,
+    #[doc = " Updates the core assets in The Truth `tt`. This is called when a Truth project is opened."]
+    pub update: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            asset_root_id: tm_tt_id_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> tm_core_update_result_t,
+    >,
+    #[doc = " Locates the core asset with the specified `core_id` and returns its ID in The Truth. Returns"]
+    #[doc = " 0 if `tt` doesn't contain the asset. Note that this function returns the ID of the `DATA`"]
+    #[doc = " object, the corresponding `ASSET` object is its owner."]
+    pub locate_asset: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            asset_root_id: tm_tt_id_t,
+            core_id: tm_strhash_t,
+        ) -> tm_tt_id_t,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_core_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_core_api>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_core_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_core_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_core_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_api>())).update as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_api),
+            "::",
+            stringify!(update)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_api>())).locate_asset as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_api),
+            "::",
+            stringify!(locate_asset)
+        )
+    );
+}
+#[doc = " Defines an asset to import from the core project."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_core_importer_asset_t {
+    #[doc = " Will be used as `core_id` when this is translated into a [[tm_core_asset_i]]. Use something"]
+    #[doc = " that is static between sessions, such as a TM_STATIC_HASH."]
+    pub id: tm_strhash_t,
+    #[doc = " The version of the asset, needs to be manually bumped whenever the asset is changed on disk."]
+    pub version: u64,
+    #[doc = " The path to the asset within the core project."]
+    pub path: *const ::std::os::raw::c_char,
+    #[doc = " The creation policy, see [[enum tm_core_create_policy]]. Set to"]
+    #[doc = " [[TM_CORE_CREATE_POLICY__REMOVE]] when a core asset has been deleted in the core project,"]
+    #[doc = " this will trigger a delete in the user project as well."]
+    pub create_policy: u32,
+    pub _padding_50: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_core_importer_asset_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_core_importer_asset_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_core_importer_asset_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_core_importer_asset_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_core_importer_asset_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_importer_asset_t>())).id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_asset_t),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_core_importer_asset_t>())).version as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_asset_t),
+            "::",
+            stringify!(version)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_importer_asset_t>())).path as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_asset_t),
+            "::",
+            stringify!(path)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_core_importer_asset_t>())).create_policy as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_asset_t),
+            "::",
+            stringify!(create_policy)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_core_importer_asset_t>()))._padding_50 as *const _ as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_asset_t),
+            "::",
+            stringify!(_padding_50)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_core_importer_state_o {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_core_importer_api {
+    #[doc = " Creates a core importer for importing/updating the core project found at `core_project_path`"]
+    #[doc = " into The Truth `user_tt` with asset root `user_asset_root`."]
+    #[doc = ""]
+    #[doc = " `output_path` is the path in the `user_tt` project where imported core assets will be stored."]
+    #[doc = ""]
+    #[doc = " In order to actually import the assets, you first need to register them with the"]
+    #[doc = " [[tm_core_api]] system by calling [[register_assets()]] and then call [[tm_core_api->create()]] or"]
+    #[doc = " [[tm_core_api->update()]]. Only the assets that are explicitly registered in the"]
+    #[doc = " [[register_assets()]] call will be imported."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            user_tt: *mut tm_the_truth_o,
+            user_asset_root: tm_tt_id_t,
+            core_project_path: *const ::std::os::raw::c_char,
+            output_path: *const ::std::os::raw::c_char,
+        ) -> *mut tm_core_importer_state_o,
+    >,
+    #[doc = " Destroys a core importer created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(state: *mut tm_core_importer_state_o)>,
+    #[doc = " Registers imported core assets with [[tm_core_api]]."]
+    #[doc = ""]
+    #[doc = " `to_register` is an array describing the imported assets to register. The assets will be"]
+    #[doc = " registered using the [[TM_CORE_ASSET_INTERFACE_NAME]] interface in [[core.h]], making them"]
+    #[doc = " visible to [[tm_core_api->create()]] and [[tm_core_api->update()]]."]
+    pub register_assets: ::std::option::Option<
+        unsafe extern "C" fn(
+            state: *mut tm_core_importer_state_o,
+            to_register: *const tm_core_importer_asset_t,
+            num_to_register: u32,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_core_importer_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_core_importer_api>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_core_importer_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_core_importer_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_core_importer_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_importer_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_core_importer_api>())).destroy as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_core_importer_api>())).register_assets as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_core_importer_api),
+            "::",
+            stringify!(register_assets)
+        )
+    );
+}
+#[doc = " Result of the [[can_recover()]] function."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_crash_recovery_can_recover_result_t {
+    #[doc = " Non-zero if there is recovery data to use. The `data` is allocated with the temp allocator"]
+    #[doc = " `ta` passed to the [[can_recover()]] function."]
+    pub data: *const ::std::os::raw::c_char,
+    pub data_bytes: u32,
+    pub _padding_24: [::std::os::raw::c_char; 4usize],
+    #[doc = " Pointer to the original project file that we are recovering from, or NULL if we are"]
+    #[doc = " recovering from a blank project. The project data from this file should be loaded before"]
+    #[doc = " calling [[recover()]], since the recovery data is a delta from the project data."]
+    pub project: *const ::std::os::raw::c_char,
+    #[doc = " Pointer to the UUID of the root object in the crash recovery data. This is useful when"]
+    #[doc = " recovering from a blank project. You want to make sure that the UUID of your root object"]
+    #[doc = " matches the one in the crash recovery data, so that anything added to the root in the crash"]
+    #[doc = " recovery ends up in your project."]
+    #[doc = ""]
+    #[doc = " Note: If you are not recovering from a blank project, the root UUID will automatically be"]
+    #[doc = " correct, since it is loaded from the project data."]
+    pub root: *const tm_uuid_t,
+}
+#[test]
+fn bindgen_test_layout_tm_crash_recovery_can_recover_result_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_crash_recovery_can_recover_result_t>(),
+        32usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_crash_recovery_can_recover_result_t)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_crash_recovery_can_recover_result_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_crash_recovery_can_recover_result_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).data as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_can_recover_result_t),
+            "::",
+            stringify!(data)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).data_bytes
+                as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_can_recover_result_t),
+            "::",
+            stringify!(data_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>()))._padding_24
+                as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_can_recover_result_t),
+            "::",
+            stringify!(_padding_24)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).project as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_can_recover_result_t),
+            "::",
+            stringify!(project)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_can_recover_result_t>())).root as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_can_recover_result_t),
+            "::",
+            stringify!(root)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_crash_recovery_o {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_crash_recovery_api {
+    #[doc = " Creates a crash recovery system for The Truth `tt`. `recovery_path` is the path that will be"]
+    #[doc = " used for the crash recovery file."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            recovery_path: *const ::std::os::raw::c_char,
+        ) -> *mut tm_crash_recovery_o,
+    >,
+    #[doc = " Destroys the crash recovery system. Calling this function is considered a \"clean shutdown\" of"]
+    #[doc = " the recovery system and will delete the recovery file."]
+    #[doc = ""]
+    #[doc = " The presence of a recovery file is indication that the shutdown was not \"clean\". This is used"]
+    #[doc = " by [[can_recover()]] to return the state of the recovery system."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(cr: *mut tm_crash_recovery_o)>,
+    #[doc = " Starts recording crash recovery data for the specified `project` file. If `project` is"]
+    #[doc = " `NULL`, starts recording data for a new empty project. `root` should be the ID of the    root"]
+    #[doc = " object in The Truth."]
+    #[doc = ""]
+    #[doc = " Calling [[start_recording()]] will erase any previously created crash recording file."]
+    pub start_recording: ::std::option::Option<
+        unsafe extern "C" fn(
+            cr: *mut tm_crash_recovery_o,
+            project: *const ::std::os::raw::c_char,
+            tt: *mut tm_the_truth_o,
+            root: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " Stops recording crash recovery data and deletes the recovery file."]
+    pub stop_recording: ::std::option::Option<unsafe extern "C" fn(cr: *mut tm_crash_recovery_o)>,
+    #[doc = " Updates the crash recovery system. If a recording is in progress, the latest changes will be"]
+    #[doc = " appended to the crash recovery file."]
+    pub update: ::std::option::Option<unsafe extern "C" fn(cr: *mut tm_crash_recovery_o)>,
+    #[doc = " Checks if there is any crash recovery data to recover and returns the result. You would"]
+    #[doc = " typically call this at start of an editor to check if there is any data left from a previous"]
+    #[doc = " session and if so, prompt the user to recover the data."]
+    pub can_recover: ::std::option::Option<
+        unsafe extern "C" fn(
+            cr: *mut tm_crash_recovery_o,
+            ta: *mut tm_temp_allocator_i,
+        ) -> tm_crash_recovery_can_recover_result_t,
+    >,
+    #[doc = " Uses the recovery file to recover unsaved changes to The Truth `tt`."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     [[recover()]] will only apply the delta changes saved in the recovery file, not load the"]
+    #[doc = "     original project. It is the responsibility of the caller to load the original project"]
+    #[doc = "     data from the project file returned by [[can_recover()]] before calling [[recover()]]."]
+    pub recover: ::std::option::Option<
+        unsafe extern "C" fn(
+            cr: *mut tm_crash_recovery_o,
+            rd: tm_crash_recovery_can_recover_result_t,
+            tt: *mut tm_the_truth_o,
+        ),
+    >,
+    #[doc = " Deletes the crash recovery physical file, if any."]
+    pub delete_physical_file:
+        ::std::option::Option<unsafe extern "C" fn(cr: *mut tm_crash_recovery_o)>,
+}
+#[test]
+fn bindgen_test_layout_tm_crash_recovery_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_crash_recovery_api>(),
+        64usize,
+        concat!("Size of: ", stringify!(tm_crash_recovery_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_crash_recovery_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_crash_recovery_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).destroy as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_api>())).start_recording as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(start_recording)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_api>())).stop_recording as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(stop_recording)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).update as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(update)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_api>())).can_recover as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(can_recover)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_crash_recovery_api>())).recover as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(recover)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_crash_recovery_api>())).delete_physical_file as *const _
+                as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_crash_recovery_api),
+            "::",
+            stringify!(delete_physical_file)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_error_o {
+    _unused: [u8; 0],
+}
+#[doc = " Interface for error handling."]
+#[doc = ""]
+#[doc = " Application errors will be reported to this interface. It is up to the interface to decide"]
+#[doc = " how to deal with them."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_error_i {
+    pub inst: *mut tm_error_o,
+    #[doc = " Reports an error at the specified `file` and `line` of the code. The error message should be"]
+    #[doc = " a verbose enough description of the error that someone who reads the error message can"]
+    #[doc = " diagnose and fix the problem."]
+    pub errorf: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_error_o,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+            format: *const ::std::os::raw::c_char,
+            ...
+        ),
+    >,
+    #[doc = " As [[errorf()]], but used to report a fatal error."]
+    #[doc = ""]
+    #[doc = " This is called whenever a \"fatal\" error occurs -- an error so serious that there is no possible"]
+    #[doc = " way the engine can continue running. (When a normal error occur, the engine tries to keep"]
+    #[doc = " running to give the user a chance to save their data.)"]
+    #[doc = ""]
+    #[doc = " [[fatal()]] is typically called by the [[TM_FATAL_ASSERT()]] macro. Note that this macro calls"]
+    #[doc = " [[errorf()]] first, so [[fatal()]] does not have to repeat the logging that [[errorf()]] does, but"]
+    #[doc = " it might want to show a more prominent error, such as an error dialog box, before shutting"]
+    #[doc = " down the application."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     For consistency, this function should be called `fatalf()`."]
+    pub fatal: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_error_o,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+            format: *const ::std::os::raw::c_char,
+            ...
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_error_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_error_i>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_error_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_error_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_error_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_i>())).errorf as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_i),
+            "::",
+            stringify!(errorf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_i>())).fatal as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_i),
+            "::",
+            stringify!(fatal)
+        )
+    );
+}
+#[doc = " Structure used by [[tm_error_api->create_record_handler()]] to record error messages. In addition"]
+#[doc = " to recording the errors in the `errors` array, this handler also passes them on to the `backing`"]
+#[doc = " error handler (if it is non-zero)."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_error_record_t {
+    pub ta: *mut tm_temp_allocator_i,
+    #[doc = " carray"]
+    pub errors: *mut *mut ::std::os::raw::c_char,
+    pub backing: *mut tm_error_i,
+}
+#[test]
+fn bindgen_test_layout_tm_error_record_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_error_record_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_error_record_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_error_record_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_error_record_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_record_t>())).ta as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_record_t),
+            "::",
+            stringify!(ta)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_record_t>())).errors as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_record_t),
+            "::",
+            stringify!(errors)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_record_t>())).backing as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_record_t),
+            "::",
+            stringify!(backing)
+        )
+    );
+}
+#[doc = " API for error handling. This API provides a number of default error handlers."]
+#[doc = ""]
+#[doc = " !!! TIP"]
+#[doc = "     In addition to the error handlers defined here, you can also create your own error"]
+#[doc = "     handler. You can use this for example to implement a unit test that tests that a"]
+#[doc = "     certain action produces an expected error."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_error_api {
+    #[doc = " Basic error handler that just logs the error messages using [[tm_logger_api->print()]]. Fatal"]
+    #[doc = " errors are shown in a dialog box using [[tm_os_dialogs_api->message_box()]]."]
+    pub log: *mut tm_error_i,
+    #[doc = " Default error handler. This can be used by systems that for one reason or another don't want"]
+    #[doc = " to take an explicit [[tm_error_i]] argument."]
+    #[doc = ""]
+    #[doc = " Assign this value to change the default error handler. By default, this is mapped to the"]
+    #[doc = " `log` error handler."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Currently, a lot of system just use the default error handler. We should update them"]
+    #[doc = "     to expose the error handler as an argument, so that the caller can get detailed"]
+    #[doc = "     control over how errors are handled."]
+    pub def: *mut tm_error_i,
+    #[doc = " Creates an error handler that stores all the encountered error messages in the `mem`"]
+    #[doc = " structure. In addition, it also passes along the errors to `mem->backing` (if non-zero)."]
+    pub create_record_handler:
+        ::std::option::Option<unsafe extern "C" fn(mem: *mut tm_error_record_t) -> tm_error_i>,
+}
+#[test]
+fn bindgen_test_layout_tm_error_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_error_api>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_error_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_error_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_error_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_api>())).log as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_api),
+            "::",
+            stringify!(log)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_error_api>())).def as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_api),
+            "::",
+            stringify!(def)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_error_api>())).create_record_handler as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_error_api),
+            "::",
+            stringify!(create_record_handler)
+        )
+    );
+}
+#[doc = " API for querying and setting feature flags."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_feature_flags_api {
+    #[doc = " Returns true if the specified feature flag is enabled."]
+    pub enabled: ::std::option::Option<unsafe extern "C" fn(flag: tm_strhash_t) -> bool>,
+    #[doc = " Enables or disables the specified feature flag."]
+    pub set_enabled: ::std::option::Option<unsafe extern "C" fn(flag: tm_strhash_t, enabled: bool)>,
+    #[doc = " Returns a list of all enabled feature flags. `count` returns the number of items in the list."]
+    pub all_enabled:
+        ::std::option::Option<unsafe extern "C" fn(count: *mut u32) -> *const tm_strhash_t>,
+}
+#[test]
+fn bindgen_test_layout_tm_feature_flags_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_feature_flags_api>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_feature_flags_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_feature_flags_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_feature_flags_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_feature_flags_api>())).enabled as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_feature_flags_api),
+            "::",
+            stringify!(enabled)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_feature_flags_api>())).set_enabled as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_feature_flags_api),
+            "::",
+            stringify!(set_enabled)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_feature_flags_api>())).all_enabled as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_feature_flags_api),
+            "::",
+            stringify!(all_enabled)
+        )
+    );
+}
+#[doc = " API for querying for `gitignore` patterns."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_git_ignore_api {
+    #[doc = " Returns *true* if one of the `patterns` matches the `path` (i.e., the `gitignore` file"]
+    #[doc = " specifies that the `path` should be ignored)."]
+    #[doc = ""]
+    #[doc = " `patterns` should use the [gitignore](https://git-scm.com/docs/gitignore) syntax, for example"]
+    #[doc = " the content of a `.gitignore` file."]
+    pub match_: ::std::option::Option<
+        unsafe extern "C" fn(
+            patterns: *const ::std::os::raw::c_char,
+            path: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_git_ignore_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_git_ignore_api>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_git_ignore_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_git_ignore_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_git_ignore_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_git_ignore_api>())).match_ as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_git_ignore_api),
+            "::",
+            stringify!(match_)
+        )
+    );
+}
+#[doc = " Image is one dimensional."]
+pub const TM_IMAGE_TYPE_1D: tm_image_type = 0;
+#[doc = " Image is two dimensional."]
+pub const TM_IMAGE_TYPE_2D: tm_image_type = 1;
+#[doc = " Image is three dimensional / volume."]
+pub const TM_IMAGE_TYPE_3D: tm_image_type = 2;
+#[doc = " Image is a cube map."]
+pub const TM_IMAGE_TYPE_CUBE: tm_image_type = 3;
+#[doc = " Describes the type of an image."]
+pub type tm_image_type = ::std::os::raw::c_int;
+#[doc = " Image information."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_image_t {
+    #[doc = " One of [[enum tm_image_type]]."]
+    pub type_: u32,
+    #[doc = " Buffer format UID, use [[tm_buffer_format_api]] to interpret."]
+    pub pixel_format: u32,
+    #[doc = " Width of image in pixels."]
+    pub width: u32,
+    #[doc = " Height of image in pixels."]
+    pub height: u32,
+    #[doc = " Depth of image in pixels, always 1 unless `type == TM_IMAGE_TYPE_3D`."]
+    pub depth: u32,
+    #[doc = " Number of mip levels in image."]
+    pub mip_levels: u32,
+    #[doc = " If layers > 1, the image is a texture array."]
+    pub layers: u32,
+    #[doc = " Size of image in bytes."]
+    pub size: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_image_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_image_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_image_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_image_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_image_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).type_ as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).pixel_format as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(pixel_format)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).width as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).height as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(height)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).depth as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(depth)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).mip_levels as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(mip_levels)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).layers as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(layers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_t>())).size as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_t),
+            "::",
+            stringify!(size)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_image_archive_o {
+    _unused: [u8; 0],
+}
+#[doc = " Abstract interface used by image loaders for loading image data from an archive."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_image_archive_i {
+    pub inst: *mut tm_image_archive_o,
+    #[doc = " Attempts to read `size` of bytes into `buffer` starting at `offset`, returns number of bytes"]
+    #[doc = " actually read."]
+    pub read: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_image_archive_o,
+            buffer: *mut ::std::os::raw::c_void,
+            offset: u64,
+            size: u32,
+        ) -> u32,
+    >,
+    #[doc = " Returns the size of the archive."]
+    pub size: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_image_archive_o) -> u64>,
+}
+#[test]
+fn bindgen_test_layout_tm_image_archive_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_image_archive_i>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_image_archive_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_image_archive_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_image_archive_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_archive_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_archive_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_archive_i>())).read as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_archive_i),
+            "::",
+            stringify!(read)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_archive_i>())).size as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_archive_i),
+            "::",
+            stringify!(size)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_image_loader_o {
+    _unused: [u8; 0],
+}
+#[doc = " Interface for an \"image loader\" that can load images from an archive."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_image_loader_i {
+    pub inst: *mut tm_image_loader_o,
+    #[doc = " Appends a string with all supported file extensions the image loader interface can load to the"]
+    #[doc = " carray `output`. Each file extension is separated by the `separator` string."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Use a regular array instead?"]
+    pub extensions_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_image_loader_o,
+            output: *mut *mut ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+            separator: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Appends a string with all supported file descriptions the image loader interface can load to"]
+    #[doc = " the carray `output`. Each file extension is separated by the `separator` string."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Make this optional."]
+    pub description_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_image_loader_o,
+            output: *mut *mut ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+            separator: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Returns `true` if this loader supports loading an image from `image_archive`. Implemented by"]
+    #[doc = " peeking into the archive header to determine the file type."]
+    pub support_from_archive: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_image_loader_o,
+            image_archive: *mut tm_image_archive_i,
+        ) -> bool,
+    >,
+    #[doc = " Returns `true` if loader supports loading archives with file extension `extension`. Typically"]
+    #[doc = " faster than [[support_from_archive()]] since it just needs to compare `extension` against a"]
+    #[doc = " known list of supported extensions. `extension` should include the leading dot, e.g `.dds`,"]
+    #[doc = " `.tga`, ..."]
+    pub support_from_extension: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_image_loader_o,
+            extension: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+    #[doc = " Attempts to load an image from `image_archive` into the descriptor `image` and the data array"]
+    #[doc = " `bits`. Returns `true` if the image was successfully loaded."]
+    #[doc = ""]
+    #[doc = " If `bits` is `NULL`, only the image descriptor will be parsed. Use this and `image->size` to"]
+    #[doc = " determine the amount of memory to allocate for `bits`."]
+    pub load_image: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_image_loader_o,
+            image_archive: *mut tm_image_archive_i,
+            image: *mut tm_image_t,
+            bits: *mut u8,
+        ) -> bool,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_image_loader_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_image_loader_i>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_image_loader_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_image_loader_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_image_loader_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_loader_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_image_loader_i>())).extensions_string as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_i),
+            "::",
+            stringify!(extensions_string)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_image_loader_i>())).description_string as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_i),
+            "::",
+            stringify!(description_string)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_image_loader_i>())).support_from_archive as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_i),
+            "::",
+            stringify!(support_from_archive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_image_loader_i>())).support_from_extension as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_i),
+            "::",
+            stringify!(support_from_extension)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_loader_i>())).load_image as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_i),
+            "::",
+            stringify!(load_image)
+        )
+    );
+}
+#[doc = " API for adding and removing image loaders."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW: Use API registry instead of [[add_loader()]]?"]
+#[doc = "     Remove this API and use [[tm_api_registry_api->add_implementation()]] instead?"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_image_loader_api {
+    #[doc = " Adds a new image loader into the registry."]
+    pub add_loader: ::std::option::Option<unsafe extern "C" fn(loader: *mut tm_image_loader_i)>,
+    #[doc = " Removes an image loader from the registry."]
+    pub remove_loader: ::std::option::Option<unsafe extern "C" fn(loader: *mut tm_image_loader_i)>,
+    #[doc = " Returns the first image loader from the registry that supports loading the image pointed to"]
+    #[doc = " by `image_archive`. If no loader is found, 0 is returned."]
+    pub loader_from_archive: ::std::option::Option<
+        unsafe extern "C" fn(image_archive: *mut tm_image_archive_i) -> *mut tm_image_loader_i,
+    >,
+    #[doc = " Returns the first image loader from the registry that supports loading the image with the"]
+    #[doc = " file `extension`. Typically faster than [[loader_from_archive()]] if the file extension is"]
+    #[doc = " known. If no loader is found, 0 is returned."]
+    pub loader_from_extension: ::std::option::Option<
+        unsafe extern "C" fn(extension: *const ::std::os::raw::c_char) -> *mut tm_image_loader_i,
+    >,
+    #[doc = " Returns all registered image loader interfaces in `loaders`, pass `NULL` for `loaders` to"]
+    #[doc = " query the number of active loaders."]
+    pub loaders:
+        ::std::option::Option<unsafe extern "C" fn(loaders: *mut *mut tm_image_loader_i) -> u32>,
+}
+#[test]
+fn bindgen_test_layout_tm_image_loader_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_image_loader_api>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_image_loader_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_image_loader_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_image_loader_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_loader_api>())).add_loader as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_api),
+            "::",
+            stringify!(add_loader)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_image_loader_api>())).remove_loader as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_api),
+            "::",
+            stringify!(remove_loader)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_image_loader_api>())).loader_from_archive as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_api),
+            "::",
+            stringify!(loader_from_archive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_image_loader_api>())).loader_from_extension as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_api),
+            "::",
+            stringify!(loader_from_extension)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_image_loader_api>())).loaders as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_image_loader_api),
+            "::",
+            stringify!(loaders)
+        )
+    );
+}
+pub const TM_INPUT_CONTROLLER_TYPE_NONE: tm_input_controller_type = 0;
+pub const TM_INPUT_CONTROLLER_TYPE_KEYBOARD: tm_input_controller_type = 1;
+pub const TM_INPUT_CONTROLLER_TYPE_MOUSE: tm_input_controller_type = 2;
+pub const TM_INPUT_CONTROLLER_TYPE_GAMEPAD: tm_input_controller_type = 3;
+pub const TM_INPUT_CONTROLLER_TYPE_TOUCH: tm_input_controller_type = 4;
+pub const TM_INPUT_CONTROLLER_TYPE_PEN: tm_input_controller_type = 5;
+pub const TM_INPUT_CONTROLLER_TYPE_OTHER: tm_input_controller_type = -1;
+#[doc = " Defines the type of an input controller."]
+pub type tm_input_controller_type = ::std::os::raw::c_int;
+pub const TM_INPUT_MOUSE_ITEM_NONE: tm_input_mouse_item = 0;
+#[doc = " BUTTON_1"]
+pub const TM_INPUT_MOUSE_ITEM_BUTTON_LEFT: tm_input_mouse_item = 1;
+#[doc = " BUTTON_2"]
+pub const TM_INPUT_MOUSE_ITEM_BUTTON_RIGHT: tm_input_mouse_item = 2;
+#[doc = " BUTTON_3"]
+pub const TM_INPUT_MOUSE_ITEM_BUTTON_MIDDLE: tm_input_mouse_item = 3;
+pub const TM_INPUT_MOUSE_ITEM_BUTTON_4: tm_input_mouse_item = 4;
+pub const TM_INPUT_MOUSE_ITEM_BUTTON_5: tm_input_mouse_item = 5;
+pub const TM_INPUT_MOUSE_ITEM_WHEEL: tm_input_mouse_item = 6;
+pub const TM_INPUT_MOUSE_ITEM_MOVE: tm_input_mouse_item = 7;
+pub const TM_INPUT_MOUSE_ITEM_POSITION: tm_input_mouse_item = 8;
+pub const TM_INPUT_MOUSE_ITEM_COUNT: tm_input_mouse_item = 9;
+#[doc = " Common input items for mice."]
+pub type tm_input_mouse_item = ::std::os::raw::c_int;
+pub const TM_INPUT_PEN_ITEM_NONE: tm_input_pen_item = 0;
+pub const TM_INPUT_PEN_ITEM_BUTTON_1: tm_input_pen_item = 1;
+pub const TM_INPUT_PEN_ITEM_BUTTON_2: tm_input_pen_item = 2;
+pub const TM_INPUT_PEN_ITEM_BUTTON_3: tm_input_pen_item = 3;
+pub const TM_INPUT_PEN_ITEM_BUTTON_4: tm_input_pen_item = 4;
+pub const TM_INPUT_PEN_ITEM_BUTTON_5: tm_input_pen_item = 5;
+pub const TM_INPUT_PEN_ITEM_WHEEL: tm_input_pen_item = 6;
+pub const TM_INPUT_PEN_ITEM_POSITION: tm_input_pen_item = 7;
+pub const TM_INPUT_PEN_ITEM_PRESSURE: tm_input_pen_item = 8;
+pub const TM_INPUT_PEN_ITEM_ROTATION: tm_input_pen_item = 9;
+pub const TM_INPUT_PEN_ITEM_TILT: tm_input_pen_item = 10;
+pub const TM_INPUT_PEN_ITEM_INVERTED: tm_input_pen_item = 11;
+pub const TM_INPUT_PEN_ITEM_ERASER: tm_input_pen_item = 12;
+pub const TM_INPUT_PEN_ITEM_COUNT: tm_input_pen_item = 13;
+#[doc = " Common input items for pens."]
+pub type tm_input_pen_item = ::std::os::raw::c_int;
+pub const TM_INPUT_TOUCH_ITEM_NONE: tm_input_touch_item = 0;
+pub const TM_INPUT_TOUCH_ITEM_TOUCH: tm_input_touch_item = 1;
+pub const TM_INPUT_TOUCH_ITEM_POSITION: tm_input_touch_item = 2;
+pub const TM_INPUT_TOUCH_ITEM_PRESSURE: tm_input_touch_item = 3;
+pub const TM_INPUT_TOUCH_ITEM_ORIENTATION: tm_input_touch_item = 4;
+pub const TM_INPUT_TOUCH_ITEM_COUNT: tm_input_touch_item = 5;
+#[doc = " Common input items for touches."]
+pub type tm_input_touch_item = ::std::os::raw::c_int;
+#[doc = " Standard windows keys."]
+pub const TM_INPUT_KEYBOARD_ITEM_NONE: tm_input_keyboard_item = 0;
+#[doc = " Standard windows keys."]
+pub const TM_INPUT_KEYBOARD_ITEM_LBUTTON: tm_input_keyboard_item = 1;
+#[doc = " Standard windows keys."]
+pub const TM_INPUT_KEYBOARD_ITEM_RBUTTON: tm_input_keyboard_item = 2;
+#[doc = " Standard windows keys."]
+pub const TM_INPUT_KEYBOARD_ITEM_CANCEL: tm_input_keyboard_item = 3;
+#[doc = " Standard windows keys."]
+pub const TM_INPUT_KEYBOARD_ITEM_MBUTTON: tm_input_keyboard_item = 4;
+#[doc = " Standard windows keys."]
+pub const TM_INPUT_KEYBOARD_ITEM_XBUTTON1: tm_input_keyboard_item = 5;
+#[doc = " Standard windows keys."]
+pub const TM_INPUT_KEYBOARD_ITEM_XBUTTON2: tm_input_keyboard_item = 6;
+#[doc = " VK_BACK"]
+pub const TM_INPUT_KEYBOARD_ITEM_BACKSPACE: tm_input_keyboard_item = 8;
+pub const TM_INPUT_KEYBOARD_ITEM_TAB: tm_input_keyboard_item = 9;
+pub const TM_INPUT_KEYBOARD_ITEM_CLEAR: tm_input_keyboard_item = 12;
+#[doc = " VK_RETURN"]
+pub const TM_INPUT_KEYBOARD_ITEM_ENTER: tm_input_keyboard_item = 13;
+pub const TM_INPUT_KEYBOARD_ITEM_SHIFT: tm_input_keyboard_item = 16;
+pub const TM_INPUT_KEYBOARD_ITEM_CONTROL: tm_input_keyboard_item = 17;
+pub const TM_INPUT_KEYBOARD_ITEM_MENU: tm_input_keyboard_item = 18;
+pub const TM_INPUT_KEYBOARD_ITEM_PAUSE: tm_input_keyboard_item = 19;
+#[doc = " VK_CAPITAL"]
+pub const TM_INPUT_KEYBOARD_ITEM_CAPSLOCK: tm_input_keyboard_item = 20;
+pub const TM_INPUT_KEYBOARD_ITEM_KANA: tm_input_keyboard_item = 21;
+pub const TM_INPUT_KEYBOARD_ITEM_JUNJA: tm_input_keyboard_item = 23;
+pub const TM_INPUT_KEYBOARD_ITEM_FINAL: tm_input_keyboard_item = 24;
+pub const TM_INPUT_KEYBOARD_ITEM_HANJA: tm_input_keyboard_item = 25;
+pub const TM_INPUT_KEYBOARD_ITEM_KANJI: tm_input_keyboard_item = 25;
+pub const TM_INPUT_KEYBOARD_ITEM_ESCAPE: tm_input_keyboard_item = 27;
+#[doc = " IME"]
+pub const TM_INPUT_KEYBOARD_ITEM_CONVERT: tm_input_keyboard_item = 28;
+#[doc = " IME"]
+pub const TM_INPUT_KEYBOARD_ITEM_NONCONVERT: tm_input_keyboard_item = 29;
+#[doc = " IME"]
+pub const TM_INPUT_KEYBOARD_ITEM_ACCEPT: tm_input_keyboard_item = 30;
+#[doc = " IME"]
+pub const TM_INPUT_KEYBOARD_ITEM_MODECHANGE: tm_input_keyboard_item = 31;
+pub const TM_INPUT_KEYBOARD_ITEM_SPACE: tm_input_keyboard_item = 32;
+#[doc = " VK_PRIOR"]
+pub const TM_INPUT_KEYBOARD_ITEM_PAGEUP: tm_input_keyboard_item = 33;
+#[doc = " VK_NEXT"]
+pub const TM_INPUT_KEYBOARD_ITEM_PAGEDOWN: tm_input_keyboard_item = 34;
+pub const TM_INPUT_KEYBOARD_ITEM_END: tm_input_keyboard_item = 35;
+pub const TM_INPUT_KEYBOARD_ITEM_HOME: tm_input_keyboard_item = 36;
+pub const TM_INPUT_KEYBOARD_ITEM_LEFT: tm_input_keyboard_item = 37;
+pub const TM_INPUT_KEYBOARD_ITEM_UP: tm_input_keyboard_item = 38;
+pub const TM_INPUT_KEYBOARD_ITEM_RIGHT: tm_input_keyboard_item = 39;
+pub const TM_INPUT_KEYBOARD_ITEM_DOWN: tm_input_keyboard_item = 40;
+pub const TM_INPUT_KEYBOARD_ITEM_SELECT: tm_input_keyboard_item = 41;
+pub const TM_INPUT_KEYBOARD_ITEM_PRINT: tm_input_keyboard_item = 42;
+pub const TM_INPUT_KEYBOARD_ITEM_EXECUTE: tm_input_keyboard_item = 43;
+#[doc = " VK_SNAPSHOT, SysRq"]
+pub const TM_INPUT_KEYBOARD_ITEM_PRINTSCREEN: tm_input_keyboard_item = 44;
+pub const TM_INPUT_KEYBOARD_ITEM_INSERT: tm_input_keyboard_item = 45;
+pub const TM_INPUT_KEYBOARD_ITEM_DELETE: tm_input_keyboard_item = 46;
+pub const TM_INPUT_KEYBOARD_ITEM_HELP: tm_input_keyboard_item = 47;
+pub const TM_INPUT_KEYBOARD_ITEM_0: tm_input_keyboard_item = 48;
+pub const TM_INPUT_KEYBOARD_ITEM_1: tm_input_keyboard_item = 49;
+pub const TM_INPUT_KEYBOARD_ITEM_2: tm_input_keyboard_item = 50;
+pub const TM_INPUT_KEYBOARD_ITEM_3: tm_input_keyboard_item = 51;
+pub const TM_INPUT_KEYBOARD_ITEM_4: tm_input_keyboard_item = 52;
+pub const TM_INPUT_KEYBOARD_ITEM_5: tm_input_keyboard_item = 53;
+pub const TM_INPUT_KEYBOARD_ITEM_6: tm_input_keyboard_item = 54;
+pub const TM_INPUT_KEYBOARD_ITEM_7: tm_input_keyboard_item = 55;
+pub const TM_INPUT_KEYBOARD_ITEM_8: tm_input_keyboard_item = 56;
+pub const TM_INPUT_KEYBOARD_ITEM_9: tm_input_keyboard_item = 57;
+pub const TM_INPUT_KEYBOARD_ITEM_A: tm_input_keyboard_item = 65;
+pub const TM_INPUT_KEYBOARD_ITEM_B: tm_input_keyboard_item = 66;
+pub const TM_INPUT_KEYBOARD_ITEM_C: tm_input_keyboard_item = 67;
+pub const TM_INPUT_KEYBOARD_ITEM_D: tm_input_keyboard_item = 68;
+pub const TM_INPUT_KEYBOARD_ITEM_E: tm_input_keyboard_item = 69;
+pub const TM_INPUT_KEYBOARD_ITEM_F: tm_input_keyboard_item = 70;
+pub const TM_INPUT_KEYBOARD_ITEM_G: tm_input_keyboard_item = 71;
+pub const TM_INPUT_KEYBOARD_ITEM_H: tm_input_keyboard_item = 72;
+pub const TM_INPUT_KEYBOARD_ITEM_I: tm_input_keyboard_item = 73;
+pub const TM_INPUT_KEYBOARD_ITEM_J: tm_input_keyboard_item = 74;
+pub const TM_INPUT_KEYBOARD_ITEM_K: tm_input_keyboard_item = 75;
+pub const TM_INPUT_KEYBOARD_ITEM_L: tm_input_keyboard_item = 76;
+pub const TM_INPUT_KEYBOARD_ITEM_M: tm_input_keyboard_item = 77;
+pub const TM_INPUT_KEYBOARD_ITEM_N: tm_input_keyboard_item = 78;
+pub const TM_INPUT_KEYBOARD_ITEM_O: tm_input_keyboard_item = 79;
+pub const TM_INPUT_KEYBOARD_ITEM_P: tm_input_keyboard_item = 80;
+pub const TM_INPUT_KEYBOARD_ITEM_Q: tm_input_keyboard_item = 81;
+pub const TM_INPUT_KEYBOARD_ITEM_R: tm_input_keyboard_item = 82;
+pub const TM_INPUT_KEYBOARD_ITEM_S: tm_input_keyboard_item = 83;
+pub const TM_INPUT_KEYBOARD_ITEM_T: tm_input_keyboard_item = 84;
+pub const TM_INPUT_KEYBOARD_ITEM_U: tm_input_keyboard_item = 85;
+pub const TM_INPUT_KEYBOARD_ITEM_V: tm_input_keyboard_item = 86;
+pub const TM_INPUT_KEYBOARD_ITEM_W: tm_input_keyboard_item = 87;
+pub const TM_INPUT_KEYBOARD_ITEM_X: tm_input_keyboard_item = 88;
+pub const TM_INPUT_KEYBOARD_ITEM_Y: tm_input_keyboard_item = 89;
+pub const TM_INPUT_KEYBOARD_ITEM_Z: tm_input_keyboard_item = 90;
+pub const TM_INPUT_KEYBOARD_ITEM_LWIN: tm_input_keyboard_item = 91;
+pub const TM_INPUT_KEYBOARD_ITEM_RWIN: tm_input_keyboard_item = 92;
+pub const TM_INPUT_KEYBOARD_ITEM_APPS: tm_input_keyboard_item = 93;
+pub const TM_INPUT_KEYBOARD_ITEM_SLEEP: tm_input_keyboard_item = 95;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD0: tm_input_keyboard_item = 96;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD1: tm_input_keyboard_item = 97;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD2: tm_input_keyboard_item = 98;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD3: tm_input_keyboard_item = 99;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD4: tm_input_keyboard_item = 100;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD5: tm_input_keyboard_item = 101;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD6: tm_input_keyboard_item = 102;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD7: tm_input_keyboard_item = 103;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD8: tm_input_keyboard_item = 104;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPAD9: tm_input_keyboard_item = 105;
+#[doc = " VK_MULTIPLY"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADASTERISK: tm_input_keyboard_item = 106;
+#[doc = " VK_ADD"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADPLUS: tm_input_keyboard_item = 107;
+#[doc = " VK_SEPARATOR"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADENTER: tm_input_keyboard_item = 108;
+#[doc = " VK_SUBTRACT"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADMINUS: tm_input_keyboard_item = 109;
+#[doc = " VK_DECIMAL"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADDOT: tm_input_keyboard_item = 110;
+#[doc = " VK_DIVIDE"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADSLASH: tm_input_keyboard_item = 111;
+pub const TM_INPUT_KEYBOARD_ITEM_F1: tm_input_keyboard_item = 112;
+pub const TM_INPUT_KEYBOARD_ITEM_F2: tm_input_keyboard_item = 113;
+pub const TM_INPUT_KEYBOARD_ITEM_F3: tm_input_keyboard_item = 114;
+pub const TM_INPUT_KEYBOARD_ITEM_F4: tm_input_keyboard_item = 115;
+pub const TM_INPUT_KEYBOARD_ITEM_F5: tm_input_keyboard_item = 116;
+pub const TM_INPUT_KEYBOARD_ITEM_F6: tm_input_keyboard_item = 117;
+pub const TM_INPUT_KEYBOARD_ITEM_F7: tm_input_keyboard_item = 118;
+pub const TM_INPUT_KEYBOARD_ITEM_F8: tm_input_keyboard_item = 119;
+pub const TM_INPUT_KEYBOARD_ITEM_F9: tm_input_keyboard_item = 120;
+pub const TM_INPUT_KEYBOARD_ITEM_F10: tm_input_keyboard_item = 121;
+pub const TM_INPUT_KEYBOARD_ITEM_F11: tm_input_keyboard_item = 122;
+pub const TM_INPUT_KEYBOARD_ITEM_F12: tm_input_keyboard_item = 123;
+pub const TM_INPUT_KEYBOARD_ITEM_F13: tm_input_keyboard_item = 124;
+pub const TM_INPUT_KEYBOARD_ITEM_F14: tm_input_keyboard_item = 125;
+pub const TM_INPUT_KEYBOARD_ITEM_F15: tm_input_keyboard_item = 126;
+pub const TM_INPUT_KEYBOARD_ITEM_F16: tm_input_keyboard_item = 127;
+pub const TM_INPUT_KEYBOARD_ITEM_F17: tm_input_keyboard_item = 128;
+pub const TM_INPUT_KEYBOARD_ITEM_F18: tm_input_keyboard_item = 129;
+pub const TM_INPUT_KEYBOARD_ITEM_F19: tm_input_keyboard_item = 130;
+pub const TM_INPUT_KEYBOARD_ITEM_F20: tm_input_keyboard_item = 131;
+pub const TM_INPUT_KEYBOARD_ITEM_F21: tm_input_keyboard_item = 132;
+pub const TM_INPUT_KEYBOARD_ITEM_F22: tm_input_keyboard_item = 133;
+pub const TM_INPUT_KEYBOARD_ITEM_F23: tm_input_keyboard_item = 134;
+pub const TM_INPUT_KEYBOARD_ITEM_F24: tm_input_keyboard_item = 135;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_VIEW: tm_input_keyboard_item = 136;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_MENU: tm_input_keyboard_item = 137;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_UP: tm_input_keyboard_item = 138;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_DOWN: tm_input_keyboard_item = 139;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_LEFT: tm_input_keyboard_item = 140;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_RIGHT: tm_input_keyboard_item = 141;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_ACCEPT: tm_input_keyboard_item = 142;
+pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_CANCEL: tm_input_keyboard_item = 143;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMLOCK: tm_input_keyboard_item = 144;
+#[doc = " VK_SCROLL"]
+pub const TM_INPUT_KEYBOARD_ITEM_SCROLLLOCK: tm_input_keyboard_item = 145;
+#[doc = " VK_OEM_NEC_EQUAL"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADEQUAL: tm_input_keyboard_item = 146;
+#[doc = " 'Dictionary' key"]
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_JISHO: tm_input_keyboard_item = 146;
+#[doc = " 'Unregister word' key"]
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_MASSHOU: tm_input_keyboard_item = 147;
+#[doc = " 'Register word' key"]
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_TOUROKU: tm_input_keyboard_item = 148;
+#[doc = " 'Left OYAYUBI' key"]
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_LOYA: tm_input_keyboard_item = 149;
+#[doc = " 'Right OYAYUBI' key"]
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_ROYA: tm_input_keyboard_item = 150;
+#[doc = " VK_LSHIFT"]
+pub const TM_INPUT_KEYBOARD_ITEM_LEFTSHIFT: tm_input_keyboard_item = 160;
+#[doc = " VK_RSHIFT"]
+pub const TM_INPUT_KEYBOARD_ITEM_RIGHTSHIFT: tm_input_keyboard_item = 161;
+#[doc = " VK_LCONTROL"]
+pub const TM_INPUT_KEYBOARD_ITEM_LEFTCONTROL: tm_input_keyboard_item = 162;
+#[doc = " VK_RCONTROL"]
+pub const TM_INPUT_KEYBOARD_ITEM_RIGHTCONTROL: tm_input_keyboard_item = 163;
+#[doc = " VK_LMENU"]
+pub const TM_INPUT_KEYBOARD_ITEM_LEFTALT: tm_input_keyboard_item = 164;
+#[doc = " VK_RMENU"]
+pub const TM_INPUT_KEYBOARD_ITEM_RIGHTALT: tm_input_keyboard_item = 165;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_BACK: tm_input_keyboard_item = 166;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_FORWARD: tm_input_keyboard_item = 167;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_REFRESH: tm_input_keyboard_item = 168;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_STOP: tm_input_keyboard_item = 169;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_SEARCH: tm_input_keyboard_item = 170;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_FAVORITES: tm_input_keyboard_item = 171;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_HOME: tm_input_keyboard_item = 172;
+pub const TM_INPUT_KEYBOARD_ITEM_VOLUME_MUTE: tm_input_keyboard_item = 173;
+pub const TM_INPUT_KEYBOARD_ITEM_VOLUME_DOWN: tm_input_keyboard_item = 174;
+pub const TM_INPUT_KEYBOARD_ITEM_VOLUME_UP: tm_input_keyboard_item = 175;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_NEXT_TRACK: tm_input_keyboard_item = 176;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_PREV_TRACK: tm_input_keyboard_item = 177;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_STOP: tm_input_keyboard_item = 178;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_PLAY_PAUSE: tm_input_keyboard_item = 179;
+pub const TM_INPUT_KEYBOARD_ITEM_LAUNCH_MAIL: tm_input_keyboard_item = 180;
+pub const TM_INPUT_KEYBOARD_ITEM_LAUNCH_MEDIA_SELECT: tm_input_keyboard_item = 181;
+pub const TM_INPUT_KEYBOARD_ITEM_LAUNCH_APP1: tm_input_keyboard_item = 182;
+pub const TM_INPUT_KEYBOARD_ITEM_LAUNCH_APP2: tm_input_keyboard_item = 183;
+#[doc = " VK_OEM_1"]
+pub const TM_INPUT_KEYBOARD_ITEM_SEMICOLON: tm_input_keyboard_item = 186;
+#[doc = " VK_OEM_PLUS"]
+pub const TM_INPUT_KEYBOARD_ITEM_EQUAL: tm_input_keyboard_item = 187;
+#[doc = " VK_OEM_COMMA"]
+pub const TM_INPUT_KEYBOARD_ITEM_COMMA: tm_input_keyboard_item = 188;
+#[doc = " VK_OEM_MINUS"]
+pub const TM_INPUT_KEYBOARD_ITEM_MINUS: tm_input_keyboard_item = 189;
+#[doc = " VK_OEM_PERIOD"]
+pub const TM_INPUT_KEYBOARD_ITEM_DOT: tm_input_keyboard_item = 190;
+#[doc = " VK_OEM_2"]
+pub const TM_INPUT_KEYBOARD_ITEM_SLASH: tm_input_keyboard_item = 191;
+#[doc = " VK_OEM_3"]
+pub const TM_INPUT_KEYBOARD_ITEM_GRAVE: tm_input_keyboard_item = 192;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_A: tm_input_keyboard_item = 195;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_B: tm_input_keyboard_item = 196;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_X: tm_input_keyboard_item = 197;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_Y: tm_input_keyboard_item = 198;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_RIGHT_SHOULDER: tm_input_keyboard_item = 199;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_LEFT_SHOULDER: tm_input_keyboard_item = 200;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_LEFT_TRIGGER: tm_input_keyboard_item = 201;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_RIGHT_TRIGGER: tm_input_keyboard_item = 202;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_DPAD_UP: tm_input_keyboard_item = 203;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_DPAD_DOWN: tm_input_keyboard_item = 204;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_DPAD_LEFT: tm_input_keyboard_item = 205;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_DPAD_RIGHT: tm_input_keyboard_item = 206;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_MENU: tm_input_keyboard_item = 207;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_VIEW: tm_input_keyboard_item = 208;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_LEFT_THUMBSTICK_BUTTON: tm_input_keyboard_item = 209;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_RIGHT_THUMBSTICK_BUTTON: tm_input_keyboard_item = 210;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_LEFT_THUMBSTICK_UP: tm_input_keyboard_item = 211;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_LEFT_THUMBSTICK_DOWN: tm_input_keyboard_item = 212;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_LEFT_THUMBSTICK_RIGHT: tm_input_keyboard_item = 213;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_LEFT_THUMBSTICK_LEFT: tm_input_keyboard_item = 214;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_RIGHT_THUMBSTICK_UP: tm_input_keyboard_item = 215;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_RIGHT_THUMBSTICK_DOWN: tm_input_keyboard_item = 216;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_RIGHT_THUMBSTICK_RIGHT: tm_input_keyboard_item = 217;
+pub const TM_INPUT_KEYBOARD_ITEM_GAMEPAD_RIGHT_THUMBSTICK_LEFT: tm_input_keyboard_item = 218;
+#[doc = "  VK_OEM_4"]
+pub const TM_INPUT_KEYBOARD_ITEM_LEFTBRACE: tm_input_keyboard_item = 219;
+#[doc = " VK_OEM_5"]
+pub const TM_INPUT_KEYBOARD_ITEM_BACKSLASH: tm_input_keyboard_item = 220;
+#[doc = "  VK_OEM_6"]
+pub const TM_INPUT_KEYBOARD_ITEM_RIGHTBRACE: tm_input_keyboard_item = 221;
+#[doc = "  VK_OEM_7"]
+pub const TM_INPUT_KEYBOARD_ITEM_APOSTROPHE: tm_input_keyboard_item = 222;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_8: tm_input_keyboard_item = 223;
+#[doc = "  'AX' key on Japanese AX kbd"]
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_AX: tm_input_keyboard_item = 225;
+#[doc = "  \"<>\" or \"\\|\" on RT 102-key kbd."]
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_102: tm_input_keyboard_item = 226;
+#[doc = "  Help key on ICO"]
+pub const TM_INPUT_KEYBOARD_ITEM_ICO_HELP: tm_input_keyboard_item = 227;
+#[doc = "  00 key on ICO"]
+pub const TM_INPUT_KEYBOARD_ITEM_ICO_00: tm_input_keyboard_item = 228;
+pub const TM_INPUT_KEYBOARD_ITEM_PROCESSKEY: tm_input_keyboard_item = 229;
+pub const TM_INPUT_KEYBOARD_ITEM_ICO_CLEAR: tm_input_keyboard_item = 230;
+pub const TM_INPUT_KEYBOARD_ITEM_PACKET: tm_input_keyboard_item = 231;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_RESET: tm_input_keyboard_item = 233;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_JUMP: tm_input_keyboard_item = 234;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_PA1: tm_input_keyboard_item = 235;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_PA2: tm_input_keyboard_item = 236;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_PA3: tm_input_keyboard_item = 237;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_WSCTRL: tm_input_keyboard_item = 238;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_CUSEL: tm_input_keyboard_item = 239;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_ATTN: tm_input_keyboard_item = 240;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_FINISH: tm_input_keyboard_item = 241;
+pub const TM_INPUT_KEYBOARD_ITEM_COPY: tm_input_keyboard_item = 242;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_AUTO: tm_input_keyboard_item = 243;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_ENLW: tm_input_keyboard_item = 244;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_BACKTAB: tm_input_keyboard_item = 245;
+pub const TM_INPUT_KEYBOARD_ITEM_ATTN: tm_input_keyboard_item = 246;
+pub const TM_INPUT_KEYBOARD_ITEM_CRSEL: tm_input_keyboard_item = 247;
+pub const TM_INPUT_KEYBOARD_ITEM_EXSEL: tm_input_keyboard_item = 248;
+pub const TM_INPUT_KEYBOARD_ITEM_EREOF: tm_input_keyboard_item = 249;
+pub const TM_INPUT_KEYBOARD_ITEM_PLAY: tm_input_keyboard_item = 250;
+pub const TM_INPUT_KEYBOARD_ITEM_ZOOM: tm_input_keyboard_item = 251;
+pub const TM_INPUT_KEYBOARD_ITEM_NONAME: tm_input_keyboard_item = 252;
+pub const TM_INPUT_KEYBOARD_ITEM_PA1: tm_input_keyboard_item = 253;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_CLEAR: tm_input_keyboard_item = 254;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_HASHTILDE: tm_input_keyboard_item = 255;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_102ND: tm_input_keyboard_item = 256;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_COMPOSE: tm_input_keyboard_item = 257;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_POWER: tm_input_keyboard_item = 258;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_OPEN: tm_input_keyboard_item = 259;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_PROPS: tm_input_keyboard_item = 260;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_FRONT: tm_input_keyboard_item = 261;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_STOP: tm_input_keyboard_item = 262;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_AGAIN: tm_input_keyboard_item = 263;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_UNDO: tm_input_keyboard_item = 264;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_CUT: tm_input_keyboard_item = 265;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_PASTE: tm_input_keyboard_item = 266;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_FIND: tm_input_keyboard_item = 267;
+#[doc = " Keys not available as Windows virtual keys."]
+#[doc = ""]
+#[doc = " I've tried as best I can to match up the key codes from the OS X HID input system with"]
+#[doc = " Windows Virtual Key Codes, but I might have missed something. I.e., some of the keys listed"]
+#[doc = " below might be duplicates of the Windows keys above. We should test with a bunch of keyboards"]
+#[doc = " on OS X and Windows and see that we have the best key matchup possible."]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADCOMMA: tm_input_keyboard_item = 268;
+#[doc = " Keyboard International1"]
+pub const TM_INPUT_KEYBOARD_ITEM_RO: tm_input_keyboard_item = 269;
+#[doc = " Keyboard International2"]
+pub const TM_INPUT_KEYBOARD_ITEM_KATAKANAHIRAGANA: tm_input_keyboard_item = 270;
+#[doc = " Keyboard International3"]
+pub const TM_INPUT_KEYBOARD_ITEM_YEN: tm_input_keyboard_item = 271;
+#[doc = " Keyboard International4"]
+pub const TM_INPUT_KEYBOARD_ITEM_HENKAN: tm_input_keyboard_item = 272;
+#[doc = " Keyboard International5"]
+pub const TM_INPUT_KEYBOARD_ITEM_MUHENKAN: tm_input_keyboard_item = 273;
+#[doc = " Keyboard International6"]
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADJPCOMMA: tm_input_keyboard_item = 274;
+pub const TM_INPUT_KEYBOARD_ITEM_INTERNATIONAL_7: tm_input_keyboard_item = 275;
+pub const TM_INPUT_KEYBOARD_ITEM_INTERNATIONAL_8: tm_input_keyboard_item = 276;
+pub const TM_INPUT_KEYBOARD_ITEM_INTERNATIONAL_9: tm_input_keyboard_item = 277;
+#[doc = " Keyboard LANG1"]
+pub const TM_INPUT_KEYBOARD_ITEM_HANGEUL: tm_input_keyboard_item = 278;
+#[doc = " Keyboard LANG3"]
+pub const TM_INPUT_KEYBOARD_ITEM_KATAKANA: tm_input_keyboard_item = 279;
+#[doc = " Keyboard LANG4"]
+pub const TM_INPUT_KEYBOARD_ITEM_HIRAGANA: tm_input_keyboard_item = 280;
+#[doc = " Keyboard LANG5"]
+pub const TM_INPUT_KEYBOARD_ITEM_ZENKAKUHANKAKU: tm_input_keyboard_item = 281;
+pub const TM_INPUT_KEYBOARD_ITEM_LANG_6: tm_input_keyboard_item = 282;
+pub const TM_INPUT_KEYBOARD_ITEM_LANG_7: tm_input_keyboard_item = 283;
+pub const TM_INPUT_KEYBOARD_ITEM_LANG_8: tm_input_keyboard_item = 284;
+pub const TM_INPUT_KEYBOARD_ITEM_LANG_9: tm_input_keyboard_item = 285;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADLEFTPAREN: tm_input_keyboard_item = 286;
+pub const TM_INPUT_KEYBOARD_ITEM_NUMPADRIGHTPAREN: tm_input_keyboard_item = 287;
+pub const TM_INPUT_KEYBOARD_ITEM_LEFTMETA: tm_input_keyboard_item = 288;
+pub const TM_INPUT_KEYBOARD_ITEM_RIGHTMETA: tm_input_keyboard_item = 289;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_EJECT: tm_input_keyboard_item = 290;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_VOLUME_UP: tm_input_keyboard_item = 291;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_VOLUME_DOWN: tm_input_keyboard_item = 292;
+pub const TM_INPUT_KEYBOARD_ITEM_MEDIA_MUTE: tm_input_keyboard_item = 293;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_WWW: tm_input_keyboard_item = 294;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_SCROLLUP: tm_input_keyboard_item = 295;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_SCROLLDOWN: tm_input_keyboard_item = 296;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_EDIT: tm_input_keyboard_item = 297;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_SLEEP: tm_input_keyboard_item = 298;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_COFFEE: tm_input_keyboard_item = 299;
+pub const TM_INPUT_KEYBOARD_ITEM_BROWSER_CALC: tm_input_keyboard_item = 300;
+pub const TM_INPUT_KEYBOARD_ITEM_COUNT: tm_input_keyboard_item = 301;
+#[doc = " Common input items for keyboards -- the first `0xff` entries in this list correspond to Windows"]
+#[doc = " virtual key codes, subsequent items are added to extend with keys available on other systems."]
+pub type tm_input_keyboard_item = ::std::os::raw::c_int;
+pub const TM_INPUT_GAMEPAD_ITEM_NONE: tm_input_gamepad_item = 0;
+#[doc = " BUTTON 1"]
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_A: tm_input_gamepad_item = 1;
+#[doc = " BUTTON 2"]
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_B: tm_input_gamepad_item = 2;
+#[doc = " BUTTON 3"]
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_X: tm_input_gamepad_item = 3;
+#[doc = " BUTTON 4"]
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_Y: tm_input_gamepad_item = 4;
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_LEFT_SHOULDER: tm_input_gamepad_item = 5;
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_RIGHT_SHOULDER: tm_input_gamepad_item = 6;
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_BACK: tm_input_gamepad_item = 7;
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_START: tm_input_gamepad_item = 8;
+pub const TM_INPUT_GAMEPAD_ITEM_DPAD_LEFT: tm_input_gamepad_item = 9;
+pub const TM_INPUT_GAMEPAD_ITEM_DPAD_RIGHT: tm_input_gamepad_item = 10;
+pub const TM_INPUT_GAMEPAD_ITEM_DPAD_UP: tm_input_gamepad_item = 11;
+pub const TM_INPUT_GAMEPAD_ITEM_DPAD_DOWN: tm_input_gamepad_item = 12;
+pub const TM_INPUT_GAMEPAD_BUTTON_LEFT_THUMB: tm_input_gamepad_item = 13;
+pub const TM_INPUT_GAMEPAD_BUTTON_RIGHT_THUMB: tm_input_gamepad_item = 14;
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_LEFT_TRIGGER: tm_input_gamepad_item = 15;
+pub const TM_INPUT_GAMEPAD_ITEM_BUTTON_RIGHT_TRIGGER: tm_input_gamepad_item = 16;
+pub const TM_INPUT_GAMEPAD_ITEM_LEFT_STICK: tm_input_gamepad_item = 17;
+pub const TM_INPUT_GAMEPAD_ITEM_RIGHT_STICK: tm_input_gamepad_item = 18;
+pub const TM_INPUT_GAMEPAD_ITEM_COUNT: tm_input_gamepad_item = 19;
+#[doc = " Common input items for gamepads."]
+pub type tm_input_gamepad_item = ::std::os::raw::c_int;
+pub const TM_INPUT_EVENT_TYPE_NONE: tm_input_event_type = 0;
+#[doc = " The value of an item (which may be a vector or a scalar depending on the type of the item)"]
+#[doc = " changed. The change is encoded in the `f` field of the [[tm_input_data_t]] struct."]
+pub const TM_INPUT_EVENT_TYPE_DATA_CHANGE: tm_input_event_type = 1;
+#[doc = " Used by input devices capable of generating text input. The text is encoded as a Unicode"]
+#[doc = " codepoint in the `u32` field of the [[tm_input_data_t]] struct. Note that text input should be"]
+#[doc = " processed through [[TM_INPUT_EVENT_TYPE_TEXT]] messages rather than as keyboard button presses"]
+#[doc = " to get the right key-to-text-mapping."]
+pub const TM_INPUT_EVENT_TYPE_TEXT: tm_input_event_type = 2;
+#[doc = " Describes the type of an input event."]
+pub type tm_input_event_type = ::std::os::raw::c_int;
+#[doc = " Describes an input item (button, axis, etc)."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_input_item_t {
+    #[doc = " Id of this input item."]
+    pub id: u64,
+    #[doc = " Name of this input item."]
+    pub name: *const ::std::os::raw::c_char,
+    #[doc = " Number of components (0--4) used for this item's `data` values. A button has 1 (pressed)."]
+    #[doc = " A mouse has 2 (x-axis, y-axis)."]
+    pub components: u32,
+    pub _padding_413: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_input_item_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_input_item_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_input_item_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_input_item_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_input_item_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_item_t>())).id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_item_t),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_item_t>())).name as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_item_t),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_item_t>())).components as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_item_t),
+            "::",
+            stringify!(components)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_item_t>()))._padding_413 as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_item_t),
+            "::",
+            stringify!(_padding_413)
+        )
+    );
+}
+#[doc = " Data for an input event."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_input_data_t {
+    pub __bindgen_anon_1: tm_input_data_t__bindgen_ty_1,
+}
+#[doc = " Events of type [[TM_INPUT_EVENT_TYPE_TEXT]] use the `codepoint` value. All other event types"]
+#[doc = " use the `f` value."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tm_input_data_t__bindgen_ty_1 {
+    #[doc = " Data value for the event. Scalar data is stored in `f.x`."]
+    pub f: tm_vec4_t,
+    #[doc = " Unicode codepoint for the event."]
+    pub codepoint: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_input_data_t__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_input_data_t__bindgen_ty_1>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_input_data_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_input_data_t__bindgen_ty_1>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_input_data_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_data_t__bindgen_ty_1>())).f as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_data_t__bindgen_ty_1),
+            "::",
+            stringify!(f)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_input_data_t__bindgen_ty_1>())).codepoint as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_data_t__bindgen_ty_1),
+            "::",
+            stringify!(codepoint)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_tm_input_data_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_input_data_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_input_data_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_input_data_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_input_data_t))
+    );
+}
+#[doc = " Describes an input event."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_input_event_t {
+    #[doc = " Timestamp when the event occurred. This can be used to sort events from different input"]
+    #[doc = " sources and get a consistent ordering."]
+    pub time: u64,
+    #[doc = " Source of the event."]
+    pub source: *mut tm_input_source_i,
+    #[doc = " ID of controller that generated the event."]
+    pub controller_id: u64,
+    #[doc = " Item that generated the event. This identifies a key on a keyboard, a button or axis on"]
+    #[doc = " a mouse, etc."]
+    pub item_id: u64,
+    #[doc = " TM_INPUT_EVENT_TYPE_*"]
+    pub type_: u64,
+    #[doc = " Basic data for the event."]
+    pub data: tm_input_data_t,
+    #[doc = " Pointer to extra data for special events. The meaning of this data is event/controller"]
+    #[doc = " specific."]
+    pub extra: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_tm_input_event_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_input_event_t>(),
+        64usize,
+        concat!("Size of: ", stringify!(tm_input_event_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_input_event_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_input_event_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).time as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_event_t),
+            "::",
+            stringify!(time)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).source as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_event_t),
+            "::",
+            stringify!(source)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).controller_id as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_event_t),
+            "::",
+            stringify!(controller_id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).item_id as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_event_t),
+            "::",
+            stringify!(item_id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).type_ as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_event_t),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).data as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_event_t),
+            "::",
+            stringify!(data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_event_t>())).extra as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_event_t),
+            "::",
+            stringify!(extra)
+        )
+    );
+}
+#[doc = " Interface for an input source."]
+#[doc = ""]
+#[doc = " An input source manages a number of controllers of the same \"type\", for example X360 gamepads."]
+#[doc = " The controllers managed by one [[tm_input_source_i]] all have the same axis and buttons, but"]
+#[doc = " controllers might be dynamically added and removed."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_input_source_i {
+    #[doc = " Returns the name of the controller type managed by this input source."]
+    pub controller_name: *const ::std::os::raw::c_char,
+    #[doc = " Returns the [[enum tm_input_controller_type]] type of this input source."]
+    pub controller_type: u32,
+    pub _padding_471: [::std::os::raw::c_char; 4usize],
+    #[doc = " Enumerates the connected controllers for this input source. The return value is the number"]
+    #[doc = " of connected controllers and `*ids` is set to an array of controller IDs."]
+    pub controllers: ::std::option::Option<unsafe extern "C" fn(ids: *mut *mut u64) -> u32>,
+    #[doc = " Enumerates all the input items (buttons, axes, etc) for controllers of this type."]
+    pub items: ::std::option::Option<unsafe extern "C" fn(items: *mut *mut tm_input_item_t) -> u32>,
+    #[doc = " Returns a set of events from the input source."]
+    #[doc = ""]
+    #[doc = " All input events are numbered with an `uint64_t` starting at 0 and stored in a queue."]
+    #[doc = " This function requests a sequence of events from that queue, starting at index `start`."]
+    #[doc = " A maximum of `buffer_size` events will be returned in the `events` parameter. The actual"]
+    #[doc = " number of returned events is returned by the function. This will be smaller than `buffer_size`"]
+    #[doc = " if there are fewer events in the queue."]
+    #[doc = ""]
+    #[doc = " It is up to the input source to decide how big a \"buffer\" of old input events it wants"]
+    #[doc = " to keep around. If [[events()]] isn't called often enough, some events will be lost (flushed"]
+    #[doc = " from the buffer). [[events()]] will return events of type [[TM_INPUT_EVENT_TYPE_NONE]] for"]
+    #[doc = " such events."]
+    #[doc = ""]
+    #[doc = " To continuously receive events from a source, you should call [[events()]] repeatedly and"]
+    #[doc = " add the returned value to `start` to retrieve the next set of events."]
+    #[doc = ""]
+    #[doc = " !!! WARNING:"]
+    #[doc = "     If you fail to query [[events()]] often enough, you might miss some events as they are"]
+    #[doc = "     flushed from the buffer."]
+    #[doc = ""]
+    #[doc = " For input devices that require polling, [[events()]] will poll the device before returning"]
+    #[doc = " the list of events."]
+    #[doc = ""]
+    #[doc = " !!! TIP"]
+    #[doc = "     If you are implementing support for an input device that is slow to poll, you should"]
+    #[doc = "     run the polling on a background thread."]
+    #[doc = ""]
+    #[doc = " If `events` is `NULL`, the function will return the number of events available (counting"]
+    #[doc = " from `start`). Note that in this case, the value of `buffer_size` is ignored."]
+    pub events: ::std::option::Option<
+        unsafe extern "C" fn(start: u64, events: *mut tm_input_event_t, buffer_size: u64) -> u64,
+    >,
+    #[doc = " Returns the \"state\" of the specified item in the controller. The state is the latest polled"]
+    #[doc = " value of the item. Note that the state is not guaranteed to be updated unless the controller"]
+    #[doc = " is polled with [[events()]]."]
+    pub state:
+        ::std::option::Option<unsafe extern "C" fn(controller: u64, item: u64) -> tm_input_data_t>,
+}
+#[test]
+fn bindgen_test_layout_tm_input_source_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_input_source_i>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_input_source_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_input_source_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_input_source_i))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_input_source_i>())).controller_name as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_source_i),
+            "::",
+            stringify!(controller_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_input_source_i>())).controller_type as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_source_i),
+            "::",
+            stringify!(controller_type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_source_i>()))._padding_471 as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_source_i),
+            "::",
+            stringify!(_padding_471)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).controllers as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_source_i),
+            "::",
+            stringify!(controllers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).items as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_source_i),
+            "::",
+            stringify!(items)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).events as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_source_i),
+            "::",
+            stringify!(events)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_source_i>())).state as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_source_i),
+            "::",
+            stringify!(state)
+        )
+    );
+}
+#[doc = " Coalesces the input from a number of input sources."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_input_api {
+    #[doc = " Adds an input source to be tracked."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     This should probably be done using the API registry implementations instead."]
+    pub add_source: ::std::option::Option<unsafe extern "C" fn(source: *mut tm_input_source_i)>,
+    #[doc = " Removes an input source to be tracked."]
+    pub remove_source: ::std::option::Option<unsafe extern "C" fn(source: *mut tm_input_source_i)>,
+    #[doc = " Enumerates all input sources."]
+    pub sources: ::std::option::Option<
+        unsafe extern "C" fn(sources: *mut *mut *mut tm_input_source_i) -> u32,
+    >,
+    #[doc = " Returns a set of events coalesced from all input sources."]
+    #[doc = ""]
+    #[doc = " See [[tm_input_source_i->events()]] for a descripton of the parameters."]
+    pub events: ::std::option::Option<
+        unsafe extern "C" fn(start: u64, events: *mut tm_input_event_t, buffer_size: u64) -> u64,
+    >,
+    #[doc = " Returns suitable display names for the [[enum tm_input_keyboard_item]]s."]
+    pub keyboard_item_names:
+        ::std::option::Option<unsafe extern "C" fn() -> *mut *const ::std::os::raw::c_char>,
+}
+#[test]
+fn bindgen_test_layout_tm_input_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_input_api>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_input_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_input_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_input_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_api>())).add_source as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_api),
+            "::",
+            stringify!(add_source)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_api>())).remove_source as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_api),
+            "::",
+            stringify!(remove_source)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_api>())).sources as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_api),
+            "::",
+            stringify!(sources)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_input_api>())).events as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_api),
+            "::",
+            stringify!(events)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_input_api>())).keyboard_item_names as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_input_api),
+            "::",
+            stringify!(keyboard_item_names)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_integration_test_runner_o {
+    _unused: [u8; 0],
+}
+#[doc = " Interface for a \"runner\" that runs integration tests. The individual test functions will receive"]
+#[doc = " the runner as an argument."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     Should we have a `record()` function, just as we do with the unit tests?"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_integration_test_runner_i {
+    pub inst: *mut tm_integration_test_runner_o,
+    #[doc = " The current context that the \"runner\" is running. Integration tests can check this value"]
+    #[doc = " and decide not to run, if the context does not match what they are expecting."]
+    pub context: tm_strhash_t,
+    #[doc = " Pointer to the \"application\" that the integration tests are running in. The actual value of"]
+    #[doc = " this parameter depends on which context the tests are running in. For example, in the"]
+    #[doc = " `THE_MACHINERY_EDITOR` context, this will point to the editor's application object."]
+    #[doc = ""]
+    #[doc = " Note that in some contexts, `app` may be NULL."]
+    pub app: *mut tm_application_o,
+    #[doc = " Used by the integration tests to implement tests that run over several frames. When you call"]
+    #[doc = " [[wait()]], the function will return *false* for the specified number of seconds, then return"]
+    #[doc = " *true* once and finally continue to return *false* again."]
+    #[doc = ""]
+    #[doc = " The `id` should be a unique non-zero identifier for this [[wait()]] call. Typically, you would"]
+    #[doc = " use `__LINE__`."]
+    #[doc = ""]
+    #[doc = " This function is typically used with the helper [[TM_WAIT()]] macro (see below)."]
+    pub wait: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_integration_test_runner_o, sec: f32, id: u64) -> bool,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_integration_test_runner_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_integration_test_runner_i>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_integration_test_runner_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_integration_test_runner_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_integration_test_runner_i))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).inst as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_integration_test_runner_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).context as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_integration_test_runner_i),
+            "::",
+            stringify!(context)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).app as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_integration_test_runner_i),
+            "::",
+            stringify!(app)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_integration_test_runner_i>())).wait as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_integration_test_runner_i),
+            "::",
+            stringify!(wait)
+        )
+    );
+}
+#[doc = " Interface for integration tests."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_integration_test_i {
+    #[doc = " Name of the test."]
+    pub name: *const ::std::os::raw::c_char,
+    #[doc = " Context that this test will run in. Tests will only be run in contexts that match their"]
+    #[doc = " `context` setting."]
+    pub context: tm_strhash_t,
+    #[doc = " Ticks the test. The [[tick()]] function will be called repeatedly until all its [[wait()]] calls"]
+    #[doc = " have completed."]
+    pub tick: ::std::option::Option<unsafe extern "C" fn(arg1: *mut tm_integration_test_runner_i)>,
+}
+#[test]
+fn bindgen_test_layout_tm_integration_test_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_integration_test_i>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_integration_test_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_integration_test_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_integration_test_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_integration_test_i>())).name as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_integration_test_i),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_integration_test_i>())).context as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_integration_test_i),
+            "::",
+            stringify!(context)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_integration_test_i>())).tick as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_integration_test_i),
+            "::",
+            stringify!(tick)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_atomic_counter_o {
+    _unused: [u8; 0],
+}
+#[doc = " Declares a job."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_jobdecl_t {
+    #[doc = " When the job executes `task()` will be called with `data` as argument."]
+    pub task: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void)>,
+    pub data: *mut ::std::os::raw::c_void,
+    #[doc = " If non-zero, pins the job to the specified worker thread. If `0`, the job is unpinned and"]
+    #[doc = " can run on any thread."]
+    #[doc = ""]
+    #[doc = " Only use this if absolutely necessary, such as if you are performing OS calls that *must*"]
+    #[doc = " be made on a certain thread."]
+    pub pin_thread_handle: u32,
+    pub _padding_45: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_jobdecl_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_jobdecl_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_jobdecl_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_jobdecl_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_jobdecl_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>())).task as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_jobdecl_t),
+            "::",
+            stringify!(task)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>())).data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_jobdecl_t),
+            "::",
+            stringify!(data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>())).pin_thread_handle as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_jobdecl_t),
+            "::",
+            stringify!(pin_thread_handle)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_jobdecl_t>()))._padding_45 as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_jobdecl_t),
+            "::",
+            stringify!(_padding_45)
+        )
+    );
+}
+#[doc = " A system for running arbitrary compute jobs."]
+#[doc = ""]
+#[doc = " To bootstrap the job system from an OS thread, first call [[tm_create_job_system()]] to create"]
+#[doc = " the job system and then [[run_jobs()]] to run your \"main application job\". Note that the OS"]
+#[doc = " thread must use [[wait_for_counter_and_free_no_fiber()]] to wait for the main job to finish."]
+#[doc = " Inside the jobs, you can use [[wait_for_counter()]] instead."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_job_system_api {
+    #[doc = " Queues `num_jobs` jobs for running. Creates and returns a `counter` that starts with the"]
+    #[doc = " value `num_jobs` and is decreased by one for each completed job."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     You must free the returned counter by calling [[wait_for_counter_and_free()]]"]
+    #[doc = "     at some point after queueing the job."]
+    #[doc = ""]
+    #[doc = " The job system will copy `jobs` into its own data structures, so you are free to use a"]
+    #[doc = " local variable for the array."]
+    pub run_jobs: ::std::option::Option<
+        unsafe extern "C" fn(jobs: *mut tm_jobdecl_t, num_jobs: u32) -> *mut tm_atomic_counter_o,
+    >,
+    #[doc = " As [[run_jobs()]], but the counter is allocated internally and automatically freed when the job"]
+    #[doc = " is done. You can use this if you have some other mechanism of synchronizing jobs and don't"]
+    #[doc = " need the counter."]
+    pub run_jobs_and_auto_free_counter:
+        ::std::option::Option<unsafe extern "C" fn(jobs: *mut tm_jobdecl_t, num_jobs: u32)>,
+    #[doc = " Waits for the `counter` to reach `value`. To wait for all jobs associated with the counter to complete, use 0 for `value`."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     Calling [[wait_for_counter()]] does not free the counter created by [[run_jobs()]]. To"]
+    #[doc = "     do that, you must call [[wait_for_counter_and_free()]]."]
+    #[doc = ""]
+    #[doc = " !!! WARNING: Can only be used from within job system jobs"]
+    #[doc = "     [[wait_for_counter()]] can only be used within fibers owned by the job system. If you are on"]
+    #[doc = "     a regular thread or a fiber created by `convert_thread_to_fiber()` you have to use"]
+    #[doc = "     [[wait_for_counter_and_free_no_fiber()]] instead."]
+    pub wait_for_counter:
+        ::std::option::Option<unsafe extern "C" fn(counter: *mut tm_atomic_counter_o, value: u32)>,
+    #[doc = " Waits for the counter to reach 0 and then frees it."]
+    #[doc = ""]
+    #[doc = " !!! WARNING: Can only be used from within job system jobs"]
+    #[doc = "     Just as [[wait_for_counter()]], this can only be used from within a job system job."]
+    pub wait_for_counter_and_free:
+        ::std::option::Option<unsafe extern "C" fn(counter: *mut tm_atomic_counter_o)>,
+    #[doc = " Works as [[wait_for_counter_and_free()]], but can be called from external OS threads (outside of"]
+    #[doc = " job system jobs)."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Rename to `wait_for_counter_and_free_from_os_thread()`?"]
+    pub wait_for_counter_and_free_no_fiber:
+        ::std::option::Option<unsafe extern "C" fn(counter: *mut tm_atomic_counter_o)>,
+    #[doc = " Returns a thread handle for the worker thread with the specified `worker_thread_index`"]
+    #[doc = " (between 0 - `num_worker_threads`). The returned handle can be used to pin a job to a specific"]
+    #[doc = " worker thread by setting the `pin_thread_handle` field in [[tm_jobdecl_t]]."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     The concept of a *thread handle* doesn't seem that useful since the only way you can get"]
+    #[doc = "     one is from a thread index. Should we change to use `pin_thread_index` instead and get"]
+    #[doc = "     rid of this function?"]
+    pub pin_thread_handle:
+        ::std::option::Option<unsafe extern "C" fn(worker_thread_index: u32) -> u32>,
+    #[doc = " Returns the number of worker threads in the job system."]
+    pub num_worker_threads: ::std::option::Option<unsafe extern "C" fn() -> u32>,
+}
+#[test]
+fn bindgen_test_layout_tm_job_system_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_job_system_api>(),
+        56usize,
+        concat!("Size of: ", stringify!(tm_job_system_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_job_system_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_job_system_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_job_system_api>())).run_jobs as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_job_system_api),
+            "::",
+            stringify!(run_jobs)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_job_system_api>())).run_jobs_and_auto_free_counter as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_job_system_api),
+            "::",
+            stringify!(run_jobs_and_auto_free_counter)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_job_system_api>())).wait_for_counter as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_job_system_api),
+            "::",
+            stringify!(wait_for_counter)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_job_system_api>())).wait_for_counter_and_free as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_job_system_api),
+            "::",
+            stringify!(wait_for_counter_and_free)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_job_system_api>())).wait_for_counter_and_free_no_fiber
+                as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_job_system_api),
+            "::",
+            stringify!(wait_for_counter_and_free_no_fiber)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_job_system_api>())).pin_thread_handle as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_job_system_api),
+            "::",
+            stringify!(pin_thread_handle)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_job_system_api>())).num_worker_threads as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_job_system_api),
+            "::",
+            stringify!(num_worker_threads)
+        )
+    );
+}
+#[doc = " Allow keys in JSON objects to be unquoted."]
+pub const TM_JSON_PARSE_EXT_ALLOW_UNQUOTED_KEYS: tm_json_parse_ext = 1;
+#[doc = " Allow C and C++ style comments in the JSON file."]
+#[doc = ""]
+#[doc = " !!! NOTE"]
+#[doc = "     Comments are ignored when parsing. They don't get saved in the parsed data and thus"]
+#[doc = "     do not round trip through the JSON writer."]
+pub const TM_JSON_PARSE_EXT_ALLOW_COMMENTS: tm_json_parse_ext = 2;
+#[doc = " Allow JSON files to be written without a root object. If this extension is enabled and the"]
+#[doc = " first non-whitespace character of the JSON data is not `{` the file will be parsed as if it"]
+#[doc = " was surrounded by an implicit `{}`."]
+pub const TM_JSON_PARSE_EXT_IMPLICIT_ROOT_OBJECT: tm_json_parse_ext = 4;
+#[doc = " Allow arrays and objects to be written without commas between the elements."]
+pub const TM_JSON_PARSE_EXT_OPTIONAL_COMMAS: tm_json_parse_ext = 8;
+#[doc = " Allow the use of `=` instead of `:` for assigning object values."]
+pub const TM_JSON_PARSE_EXT_EQUALS_FOR_COLON: tm_json_parse_ext = 16;
+#[doc = " Allow verbatim strings to be specified using Lua style quoting. `[[` starts a verbatim string"]
+#[doc = " and `]]` ends it. The quoted string can contain any characters except `]]`."]
+#[doc = ""]
+#[doc = " For quoting strings that may contain `]]` you can add an arbitrary number of equal signs"]
+#[doc = " between the brackets. I.e. `[==[` and `]==]`. The number of equal signs in the opening and"]
+#[doc = " closing brackets must match and the quoted string can contain any characters except the"]
+#[doc = " closing delimiter."]
+pub const TM_JSON_PARSE_EXT_LUA_QUOTING: tm_json_parse_ext = 32;
+#[doc = " Bit flags that turn on JSON parser extensions. Use `0` for standard JSON."]
+pub type tm_json_parse_ext = ::std::os::raw::c_int;
+#[doc = " If set, object keys that don't contain any special characters will be printed without"]
+#[doc = " quoting."]
+pub const TM_JSON_GENERATE_EXT_PREFER_UNQUOTED_KEYS: tm_json_generate_ext = 1;
+#[doc = " If set, and the root item is an object, the `{}` surrounding that root object will be left"]
+#[doc = " out in the output."]
+pub const TM_JSON_GENERATE_EXT_IMPLICIT_ROOT_OBJECT: tm_json_generate_ext = 4;
+#[doc = " If set, commas will not be printed to separate items in objects and arrays."]
+pub const TM_JSON_GENERATE_EXT_NO_COMMAS: tm_json_generate_ext = 8;
+#[doc = " If set, objects will be written using the `=` sign rather than `:`."]
+pub const TM_JSON_GENERATE_EXT_USE_EQUALS_INSTEAD_OF_COLON: tm_json_generate_ext = 16;
+#[doc = " If set, strings that would require string escapes in order to output will be written using"]
+#[doc = " Lua quotes instead, so that they can be output without string escapes. Strings that don't"]
+#[doc = " need escaping will use regular quotes."]
+pub const TM_JSON_GENERATE_EXT_USE_LUA_QUOTING: tm_json_generate_ext = 32;
+#[doc = " If true, arrays with 8 or fewer simple items will be written in a single line rather than"]
+#[doc = " broken into multiple lines."]
+pub const TM_JSON_GENERATE_INLINE_SMALL_ARRAYS: tm_json_generate_ext = 64;
+#[doc = " If true, objects with 4 or fewer simple items will be written in a single line rather than"]
+#[doc = " broken into multiple lines."]
+pub const TM_JSON_GENERATE_INLINE_SMALL_OBJECTS: tm_json_generate_ext = 128;
+#[doc = " Use tabs for indentation (default is four spaces)."]
+pub const TM_JSON_GENERATE_INDENT_WITH_TABS: tm_json_generate_ext = 256;
+#[doc = " Bit flags that control the output of the JSON generator. Note that the flags are set up to match"]
+#[doc = " the corresponding flags of the parser."]
+pub type tm_json_generate_ext = ::std::os::raw::c_int;
+#[doc = " Stores the line number that a certain JSON object was parsed from. This is used to give"]
+#[doc = " informative error messages about errors in JSON files."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_json_line_info_t {
+    #[doc = " Matches a [[tm_config_item_t]] in the parsed JSON data."]
+    pub config_item: u32,
+    #[doc = " The line number in the JSON file where the parsed item was found."]
+    pub line_number: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_json_line_info_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_json_line_info_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_json_line_info_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_json_line_info_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_json_line_info_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_line_info_t>())).config_item as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_line_info_t),
+            "::",
+            stringify!(config_item)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_line_info_t>())).line_number as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_line_info_t),
+            "::",
+            stringify!(line_number)
+        )
+    );
+}
+#[doc = " Returns information about a JSON parse."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_json_parse_info_t {
+    #[doc = " True if the parse was successful."]
+    pub success: bool,
+    #[doc = " Error message if the parse failed."]
+    pub error: [::std::os::raw::c_char; 80usize],
+    pub _padding_128: [::std::os::raw::c_char; 3usize],
+    #[doc = " The number of line information items."]
+    pub num_line_info: u32,
+    #[doc = " Items allocated for the `line_info` array. (May be greater than `num_line_info`, since the"]
+    #[doc = " array grows geometrically.)"]
+    pub allocated_line_info: u32,
+    #[doc = " Line information for the parsed lines. The entries in this array are sorted by the"]
+    #[doc = " `config_item` field to enable quick binary searches through the [[line_number()]] function."]
+    pub line_info: [tm_json_line_info_t; 1usize],
+}
+#[test]
+fn bindgen_test_layout_tm_json_parse_info_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_json_parse_info_t>(),
+        100usize,
+        concat!("Size of: ", stringify!(tm_json_parse_info_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_json_parse_info_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_json_parse_info_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_parse_info_t>())).success as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_parse_info_t),
+            "::",
+            stringify!(success)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_parse_info_t>())).error as *const _ as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_parse_info_t),
+            "::",
+            stringify!(error)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_json_parse_info_t>()))._padding_128 as *const _ as usize
+        },
+        81usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_parse_info_t),
+            "::",
+            stringify!(_padding_128)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_json_parse_info_t>())).num_line_info as *const _ as usize
+        },
+        84usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_parse_info_t),
+            "::",
+            stringify!(num_line_info)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_json_parse_info_t>())).allocated_line_info as *const _
+                as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_parse_info_t),
+            "::",
+            stringify!(allocated_line_info)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_parse_info_t>())).line_info as *const _ as usize },
+        92usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_parse_info_t),
+            "::",
+            stringify!(line_info)
+        )
+    );
+}
+#[doc = " Result of calling [[generate()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_json_generate_t {
+    #[doc = " The JSON string. This string is always NULL-terminated."]
+    pub s: *mut ::std::os::raw::c_char,
+    #[doc = " Length of the string. This is the same length as returned by `strlen()`. I.e., it does not"]
+    #[doc = " include the NULL character."]
+    pub len: u32,
+    #[doc = " Total bytes allocated for the string. This includes the NULL character and can also be"]
+    #[doc = " greater than `len + 1`, since the string grows geometrically."]
+    pub allocated: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_json_generate_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_json_generate_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_json_generate_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_json_generate_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_json_generate_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_generate_t>())).s as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_generate_t),
+            "::",
+            stringify!(s)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_generate_t>())).len as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_generate_t),
+            "::",
+            stringify!(len)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_generate_t>())).allocated as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_generate_t),
+            "::",
+            stringify!(allocated)
+        )
+    );
+}
+#[doc = " Interface for parsing and generating JSON files."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_json_api {
+    #[doc = " Parses the JSON string `s` using the `extensions` and returns the result in the `config`"]
+    #[doc = " object. Returns `true` on success. On error, the function returns `false` and an error"]
+    #[doc = " message is printed into the `error` variable."]
+    pub parse: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *const ::std::os::raw::c_char,
+            config: *mut tm_config_i,
+            extensions: tm_json_parse_ext,
+            error: *mut ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+    #[doc = " As [[parse()]] but also records information about the line where every config item was found in"]
+    #[doc = " the returned object. The returned object is allocated with a single allocation by the temp"]
+    #[doc = " allocator `ta`."]
+    pub parse_with_line_info: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *const ::std::os::raw::c_char,
+            config: *mut tm_config_i,
+            extensions: tm_json_parse_ext,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_json_parse_info_t,
+    >,
+    #[doc = " Finds the line number of the specified config item. Returns 0 if the line number could not"]
+    #[doc = " be found."]
+    pub line_number: ::std::option::Option<
+        unsafe extern "C" fn(pi: *const tm_json_parse_info_t, item: *const tm_config_item_t) -> u32,
+    >,
+    #[doc = " Generates a JSON string using the settings provided in the `flags` parameter. The generated"]
+    #[doc = " string is allocated using the temp allocator `ta`."]
+    pub generate: ::std::option::Option<
+        unsafe extern "C" fn(
+            config: *mut tm_config_i,
+            flags: tm_json_generate_ext,
+            ta: *mut tm_temp_allocator_i,
+        ) -> tm_json_generate_t,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_json_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_json_api>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_json_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_json_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_json_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_api>())).parse as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_api),
+            "::",
+            stringify!(parse)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_json_api>())).parse_with_line_info as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_api),
+            "::",
+            stringify!(parse_with_line_info)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_api>())).line_number as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_api),
+            "::",
+            stringify!(line_number)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_json_api>())).generate as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_json_api),
+            "::",
+            stringify!(generate)
+        )
+    );
+}
+#[doc = " Used to return a number of localization strings."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_localizer_strings_t {
+    #[doc = " Number of strings."]
+    pub num_strings: u32,
+    #[doc = " Stride in bytes between string pointers. I.e. the ith string pointer is found at"]
+    #[doc = " `(const char **)((char *)strings + i * stride_bytes)`."]
+    pub stride_bytes: u32,
+    #[doc = " Pointer to first string."]
+    pub strings: *const *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_localizer_strings_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_localizer_strings_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_localizer_strings_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_localizer_strings_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_localizer_strings_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_localizer_strings_t>())).num_strings as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_localizer_strings_t),
+            "::",
+            stringify!(num_strings)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_localizer_strings_t>())).stride_bytes as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_localizer_strings_t),
+            "::",
+            stringify!(stride_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_localizer_strings_t>())).strings as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_localizer_strings_t),
+            "::",
+            stringify!(strings)
+        )
+    );
+}
+#[doc = " Interface for a provider of localization strings. A localization string provider provides the"]
+#[doc = " translations of a number of English strings into one or more languages."]
+#[doc = ""]
+#[doc = " Returns an array of the strings for the specified `language`. The number of strings is returned"]
+#[doc = " in `num_strings`. String indexes must match between the languages provided by the provider."]
+#[doc = ""]
+#[doc = " Querying the function with [[TM_PSEUDO_LANGUAGE_CONTEXT]] should return the context strings for"]
+#[doc = " each string index. Context strings can be `NULL` for strings that don't have a specific context."]
+#[doc = ""]
+#[doc = " A caller of the interface would first call it with [[TM_LANGUAGE_ENGLISH]] to get a list of"]
+#[doc = " English strings, then with [[TM_PSEUDO_LANGUAGE_CONTEXT]] to get the corresponding contexts and"]
+#[doc = " finally with the destination language (e.g. [[TM_LANGUAGE_SWEDISH]]) to get translations for a"]
+#[doc = " specific target language."]
+#[doc = ""]
+#[doc = " If the language requested is not supported by this string provider, it should return a"]
+#[doc = " [[tm_localizer_strings_t]] with `num_strings` set to 0."]
+pub type tm_localizer_strings_i =
+    ::std::option::Option<unsafe extern "C" fn(language: tm_strhash_t) -> tm_localizer_strings_t>;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_localizer_o {
+    _unused: [u8; 0],
+}
+#[doc = " Abstract interface for localizer. Provides translations of UI strings."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_localizer_i {
+    pub inst: *mut tm_localizer_o,
+    #[doc = " Translates the English string `s`."]
+    #[doc = ""]
+    #[doc = " The `context` string can be used to disambiguate between situations where the same string has"]
+    #[doc = " different meanings in different contexts."]
+    #[doc = ""]
+    #[doc = " It's up to the localizer to keep track of the \"target\" language that it is translating to in"]
+    #[doc = " whatever way makes sense."]
+    #[doc = ""]
+    #[doc = " Note that the implementation of [[localize()]] must be thread-safe since it might be"]
+    #[doc = " simultaneously called from multiple threads."]
+    pub localize: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_localizer_o,
+            s: *const ::std::os::raw::c_char,
+            context: *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_localizer_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_localizer_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_localizer_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_localizer_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_localizer_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_localizer_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_localizer_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_localizer_i>())).localize as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_localizer_i),
+            "::",
+            stringify!(localize)
+        )
+    );
+}
+#[doc = " API for accessing localizers."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_localizer_api {
+    #[doc = " Returns the current default localizer. By default this is set to the `passthrough` localizer."]
+    #[doc = " To provide localization for your application, you should set this to a localizer that"]
+    #[doc = " translates to the current interface language."]
+    pub def: *mut *mut tm_localizer_i,
+    #[doc = " Passthrough localizer that returns the original string unmodified."]
+    pub passthrough: *mut tm_localizer_i,
+}
+#[test]
+fn bindgen_test_layout_tm_localizer_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_localizer_api>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_localizer_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_localizer_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_localizer_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_localizer_api>())).def as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_localizer_api),
+            "::",
+            stringify!(def)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_localizer_api>())).passthrough as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_localizer_api),
+            "::",
+            stringify!(passthrough)
+        )
+    );
+}
 #[doc = " Used for informational messages and command output."]
 pub const TM_LOG_TYPE_INFO: tm_log_type = 0;
 #[doc = " Used for debug prints when trying to diagnose a problem. Once the problem is fixed, all debug"]
@@ -1505,4 +9792,15103 @@ fn bindgen_test_layout_tm_logger_api() {
             stringify!(default_logger)
         )
     );
+}
+#[doc = " API for LZ4 compression/decompression."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_lz4_api {
+    #[doc = " Compresses `src_size` bytes form `src` to `dst`. `dst_capacity` specifies the capacity of the"]
+    #[doc = " `dst` buffer. Compression is guaranteed to succeed if `dst_capcity >= compress_bound(src_size)`."]
+    #[doc = ""]
+    #[doc = " Returns the number of compressed bytes or 0 if the compression failed because it ran out of"]
+    #[doc = " storage space."]
+    pub compress: ::std::option::Option<
+        unsafe extern "C" fn(
+            src: *const ::std::os::raw::c_char,
+            src_size: u32,
+            dst: *mut ::std::os::raw::c_char,
+            dst_capacity: u32,
+        ) -> u32,
+    >,
+    #[doc = " Decompresses `src_size` bytes from `src` to `dst`. Returns the number of decompressed bytes"]
+    #[doc = " or 0 on failure. To succeed, `dst_capacity` must be at least as large as the original size of"]
+    #[doc = " the compressed block. If you don't want to try different sizes for `dst_capacity`, you must"]
+    #[doc = " store the original size somewhere so you can pass it in to [[decompress()]]."]
+    pub decompress: ::std::option::Option<
+        unsafe extern "C" fn(
+            src: *const ::std::os::raw::c_char,
+            src_size: u32,
+            dst: *mut ::std::os::raw::c_char,
+            dst_capacity: u32,
+        ) -> u32,
+    >,
+    #[doc = " Returns the maximum size of the compressed data, when the input to [[compress()]] is `src_size`"]
+    #[doc = " bytes."]
+    pub compress_bound: ::std::option::Option<unsafe extern "C" fn(src_size: u32) -> u32>,
+}
+#[test]
+fn bindgen_test_layout_tm_lz4_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_lz4_api>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_lz4_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_lz4_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_lz4_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_lz4_api>())).compress as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_lz4_api),
+            "::",
+            stringify!(compress)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_lz4_api>())).decompress as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_lz4_api),
+            "::",
+            stringify!(decompress)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_lz4_api>())).compress_bound as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_lz4_api),
+            "::",
+            stringify!(compress_bound)
+        )
+    );
+}
+#[doc = " Shared math functions."]
+#[doc = ""]
+#[doc = " * Matrices are assumed to be in row-major order."]
+#[doc = " * Coordinate system is right-handed with x = right, y = up, -z = forward."]
+#[doc = ""]
+#[doc = " !!! NOTE"]
+#[doc = "     Most math functions are found in [[math.inl]]. [[tm_math_api]] just exposes a few \"expensive\""]
+#[doc = "     math operations. The reasoning is that you might want to ensure that these operations are"]
+#[doc = "     called as functions instead of being inlined to prevent the code size to grow."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     Not sure how valid this concern is. Should we get rid of this API and just use [[math.inl]]"]
+#[doc = "     instead?"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_math_api {
+    #[doc = " Multiplies `lhs` and `rhs` and stores the result in `res`."]
+    pub mat44_multiply: ::std::option::Option<
+        unsafe extern "C" fn(res: *mut tm_mat44_t, lhs: *const tm_mat44_t, rhs: *const tm_mat44_t),
+    >,
+    #[doc = " Inverts `m` and stores the result in `res`."]
+    pub mat44_inverse:
+        ::std::option::Option<unsafe extern "C" fn(res: *mut tm_mat44_t, m: *const tm_mat44_t)>,
+    #[doc = " Computes the determinant of `m`."]
+    pub mat44_determinant: ::std::option::Option<unsafe extern "C" fn(m: *const tm_mat44_t) -> f32>,
+    #[doc = " Computes the determinant of the upper left 3x3 part of `m`."]
+    pub mat44_determinant33:
+        ::std::option::Option<unsafe extern "C" fn(m: *const tm_mat44_t) -> f32>,
+    #[doc = " Extracts the rotation from `m` as a quarternion."]
+    pub mat44_to_quaternion:
+        ::std::option::Option<unsafe extern "C" fn(m: *const tm_mat44_t) -> tm_vec4_t>,
+    #[doc = " Decomposes `m` into translation, rotation and scale. Mirrored matrices will return a negative"]
+    #[doc = " scale component."]
+    pub mat44_to_translation_quaternion_scale: ::std::option::Option<
+        unsafe extern "C" fn(
+            t: *mut tm_vec3_t,
+            r: *mut tm_vec4_t,
+            s: *mut tm_vec3_t,
+            m: *const tm_mat44_t,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_math_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_math_api>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_math_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_math_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_math_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_multiply as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_math_api),
+            "::",
+            stringify!(mat44_multiply)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_inverse as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_math_api),
+            "::",
+            stringify!(mat44_inverse)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_determinant as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_math_api),
+            "::",
+            stringify!(mat44_determinant)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_determinant33 as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_math_api),
+            "::",
+            stringify!(mat44_determinant33)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_math_api>())).mat44_to_quaternion as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_math_api),
+            "::",
+            stringify!(mat44_to_quaternion)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_math_api>())).mat44_to_translation_quaternion_scale
+                as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_math_api),
+            "::",
+            stringify!(mat44_to_translation_quaternion_scale)
+        )
+    );
+}
+#[doc = " Information about allocations in a certain scope. Note that `allocated_bytes` and"]
+#[doc = " `allocation_count` are *exclusive*, i.e., they do not include the allocations in child scopes. If"]
+#[doc = " you want an inclusive count, you will have to sum the allocations yourself."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_memory_tracker_scope_data_t {
+    #[doc = " Description of the scope."]
+    pub desc: *const ::std::os::raw::c_char,
+    #[doc = " Bytes allocated in the scope."]
+    pub allocated_bytes: u64,
+    #[doc = " Number of allocations in the scope."]
+    pub allocation_count: u64,
+    #[doc = " Index of parent scope."]
+    pub parent: u32,
+    #[doc = " Number of children of this scope."]
+    pub num_children: u32,
+    #[doc = " True if tracing is enabled for this scope."]
+    pub tracing_enabled: bool,
+    pub _padding_44: [::std::os::raw::c_char; 3usize],
+    #[doc = " Number of traces for this scope."]
+    pub trace_count: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_memory_tracker_scope_data_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_memory_tracker_scope_data_t>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_memory_tracker_scope_data_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_memory_tracker_scope_data_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_memory_tracker_scope_data_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).desc as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(desc)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).allocated_bytes as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(allocated_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).allocation_count as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(allocation_count)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).parent as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(parent)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).num_children as *const _
+                as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(num_children)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).tracing_enabled as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(tracing_enabled)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>()))._padding_44 as *const _
+                as usize
+        },
+        33usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(_padding_44)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_scope_data_t>())).trace_count as *const _
+                as usize
+        },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_scope_data_t),
+            "::",
+            stringify!(trace_count)
+        )
+    );
+}
+#[doc = " Data for one traced allocation. Note that tracing must be explicitly enabled for a scope with"]
+#[doc = " [[set_scope_tracing()]] for trace data to be recorded."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_memory_tracker_trace_data_t {
+    #[doc = " File where this allocation occurred."]
+    pub file: *const ::std::os::raw::c_char,
+    #[doc = " Line where this allocation occurred."]
+    pub line: u32,
+    #[doc = " Scope that this trace belongs to."]
+    pub scope: u32,
+    #[doc = " Bytes allocated for this trace."]
+    pub allocated_bytes: u64,
+    #[doc = " Number of allocations for this trace."]
+    pub allocation_count: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_memory_tracker_trace_data_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_memory_tracker_trace_data_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_memory_tracker_trace_data_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_memory_tracker_trace_data_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_memory_tracker_trace_data_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).file as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_trace_data_t),
+            "::",
+            stringify!(file)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).line as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_trace_data_t),
+            "::",
+            stringify!(line)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).scope as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_trace_data_t),
+            "::",
+            stringify!(scope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).allocated_bytes as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_trace_data_t),
+            "::",
+            stringify!(allocated_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_trace_data_t>())).allocation_count as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_trace_data_t),
+            "::",
+            stringify!(allocation_count)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_memory_tracker_api {
+    #[doc = " Called at the end of the program, when all created scopes should have been released. Checks"]
+    #[doc = " that all scopes created by [[create_scope()]] have been destroyed."]
+    pub check_for_leaked_scopes: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " Creates a new \"scope\" for tracking memory allocations. The tracker will keep track of the"]
+    #[doc = " amount of memory allocated in each scope, and when the scope is destroyed, it will check that"]
+    #[doc = " all memory allocated in the scope has been freed."]
+    #[doc = ""]
+    #[doc = " `desc` is a description of the scope for debugging and tracking purposes. `parent_scope`"]
+    #[doc = " specifies the parent scope that \"owns\" this scope. All child scopes must be destroyed before"]
+    #[doc = " their parent scope is destroyed."]
+    #[doc = ""]
+    #[doc = " `0` is considered the \"root scope\". Use that as a `parent_scope` for allocators that don't"]
+    #[doc = " have parents."]
+    #[doc = ""]
+    #[doc = " If you use [[TM_MEMORY_TRACKER_SCOPE__NONE]] as the `parent` scope, the scope created will be"]
+    #[doc = " excluded from the [[check_for_leaked_scopes()]] check. I.e., you do not have to explicitly"]
+    #[doc = " destroy the scope. This can be useful for \"global\" allocations that live for the duration of"]
+    #[doc = " the application, but you should be a little bit careful with using it, since we won't be able"]
+    #[doc = " to do memory leak detection for such allocations."]
+    pub create_scope: ::std::option::Option<
+        unsafe extern "C" fn(desc: *const ::std::os::raw::c_char, parent_scope: u32) -> u32,
+    >,
+    #[doc = " Destroys a scope created by [[create_scope()]]. This function will assert that all memory in"]
+    #[doc = " the scope has been freed."]
+    pub destroy_scope: ::std::option::Option<unsafe extern "C" fn(s: u32)>,
+    #[doc = " As [[destroy_scope()]] but allows leaking up to `max_leaked_bytes` bytes without generating an"]
+    #[doc = " error. This can be used if the scope is being used by third-party code that is leaking stuff"]
+    #[doc = " beyond our control."]
+    #[doc = ""]
+    #[doc = " It should not be left permanently in the code, rather the goal should be to get the third"]
+    #[doc = " party code cleaned up so it doesn't leak anymore."]
+    pub destroy_scope_allowing_leaks:
+        ::std::option::Option<unsafe extern "C" fn(scope: u32, max_leaked_bytes: u64)>,
+    #[doc = " Records an allocation from an allocator."]
+    pub record_realloc: ::std::option::Option<
+        unsafe extern "C" fn(
+            old_ptr: *mut ::std::os::raw::c_void,
+            old_size: u64,
+            new_ptr: *mut ::std::os::raw::c_void,
+            new_size: u64,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+            scope: u32,
+        ),
+    >,
+    #[doc = " Returns the total number of bytes currently allocated in the specified scope."]
+    pub allocated_bytes: ::std::option::Option<unsafe extern "C" fn(scope: u32) -> u64>,
+    #[doc = " Returns the total number of allocations in the specified scope."]
+    pub allocation_count: ::std::option::Option<unsafe extern "C" fn(scope: u32) -> u64>,
+    #[doc = " Enables or disables tracing for the specified scope. When tracing is enabled, the file and"]
+    #[doc = " line number of all allocations are recorded. If there are any leaks when the scope is"]
+    #[doc = " destroyed, the locations of all the allocations that leaked will be printed."]
+    #[doc = ""]
+    #[doc = " Typically you enable tracing for a scope after [[destroy_scope()]] has alerted that the scope"]
+    #[doc = " is leaking memory to find out more details about where the leak occurs.`"]
+    pub set_scope_tracing: ::std::option::Option<unsafe extern "C" fn(scope: u32, enabled: bool)>,
+    #[doc = " Returns a snapshot of the scope data, allocated using `ta`. Note that the snapshot may"]
+    #[doc = " include unused scopes (with `desc` set to NULL)."]
+    #[doc = "* carray */"]
+    pub scope_data_snapshot: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *mut tm_memory_tracker_scope_data_t,
+    >,
+    #[doc = " Returns a snapshot of the trace data, allocated using `ta`."]
+    #[doc = "* carray */"]
+    pub trace_data_snapshot: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *mut tm_memory_tracker_trace_data_t,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_memory_tracker_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_memory_tracker_api>(),
+        80usize,
+        concat!("Size of: ", stringify!(tm_memory_tracker_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_memory_tracker_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_memory_tracker_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).check_for_leaked_scopes as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(check_for_leaked_scopes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).create_scope as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(create_scope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).destroy_scope as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(destroy_scope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).destroy_scope_allowing_leaks
+                as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(destroy_scope_allowing_leaks)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).record_realloc as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(record_realloc)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).allocated_bytes as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(allocated_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).allocation_count as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(allocation_count)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).set_scope_tracing as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(set_scope_tracing)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).scope_data_snapshot as *const _
+                as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(scope_data_snapshot)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_memory_tracker_api>())).trace_data_snapshot as *const _
+                as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_memory_tracker_api),
+            "::",
+            stringify!(trace_data_snapshot)
+        )
+    );
+}
+#[doc = " Interface to the virtual memory system."]
+#[doc = ""]
+#[doc = " !!! WARNING"]
+#[doc = "     Calling these functions directly will bypass our memory tracking system. Instead of calling"]
+#[doc = "     these functions directly, you should use the allocators defined in the [[tm_allocator_api]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_virtual_memory_api {
+    #[doc = " Maps an area of the specified size and returns a pointer to it."]
+    pub map: ::std::option::Option<unsafe extern "C" fn(size: u64) -> *mut ::std::os::raw::c_void>,
+    #[doc = " Unmaps an area mapped with [[map()]]."]
+    pub unmap:
+        ::std::option::Option<unsafe extern "C" fn(p: *mut ::std::os::raw::c_void, size: u64)>,
+    #[doc = " Reserves an address range without commiting the reserved addresses to actual memory."]
+    #[doc = ""]
+    #[doc = " [[reserve()]] and [[commit()]] together are equal to [[map()]]. Note that a reserved address range"]
+    #[doc = " can be committed in parts."]
+    #[doc = ""]
+    #[doc = " [[unmap()]] will free reserved addresses whether they have been committed or not."]
+    pub reserve:
+        ::std::option::Option<unsafe extern "C" fn(size: u64) -> *mut ::std::os::raw::c_void>,
+    #[doc = " Commits reserved memory."]
+    pub commit:
+        ::std::option::Option<unsafe extern "C" fn(p: *mut ::std::os::raw::c_void, size: u64)>,
+}
+#[test]
+fn bindgen_test_layout_tm_os_virtual_memory_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_virtual_memory_api>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_os_virtual_memory_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_virtual_memory_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_virtual_memory_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).map as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_virtual_memory_api),
+            "::",
+            stringify!(map)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).unmap as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_virtual_memory_api),
+            "::",
+            stringify!(unmap)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).reserve as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_virtual_memory_api),
+            "::",
+            stringify!(reserve)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_virtual_memory_api>())).commit as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_virtual_memory_api),
+            "::",
+            stringify!(commit)
+        )
+    );
+}
+#[doc = " Represents a file handle."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_file_o {
+    #[doc = " Opaque OS representation of file handle."]
+    pub handle: u64,
+    #[doc = " True if `tm_file_o` represents a valid file handle."]
+    pub valid: bool,
+    pub _padding_51: [::std::os::raw::c_char; 7usize],
+}
+#[test]
+fn bindgen_test_layout_tm_file_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_file_o>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_file_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_file_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_file_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_o>())).handle as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_o),
+            "::",
+            stringify!(handle)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_o>())).valid as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_o),
+            "::",
+            stringify!(valid)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_o>()))._padding_51 as *const _ as usize },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_o),
+            "::",
+            stringify!(_padding_51)
+        )
+    );
+}
+#[doc = " Represents a time in the file system (such as the time a file was last modified)."]
+#[doc = ""]
+#[doc = " You can assume the time to be monotonically increasing, i.e. a larger `opaque` value represents a"]
+#[doc = " later time, but you shouldn't assume anything else about what the `opaque` value represents or"]
+#[doc = " the resolution of the timer. Instead, use [[tm_os_time_api->file_time_delta()]] to convert elapsed"]
+#[doc = " time to seconds."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_file_time_o {
+    pub opaque: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_file_time_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_file_time_o>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_file_time_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_file_time_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_file_time_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_time_o>())).opaque as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_time_o),
+            "::",
+            stringify!(opaque)
+        )
+    );
+}
+#[doc = " Interface for File I/O."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_file_io_api {
+    #[doc = " Opens the specified path for input. If opening fails, returns an invalid file handle."]
+    pub open_input: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> tm_file_o,
+    >,
+    #[doc = " Opens the specified path for output. If the file doesn't exist, it will be created. If the"]
+    #[doc = " file exists, it will be truncated. Use [[open_append()]] to open a file for writing without"]
+    #[doc = " truncating it. If opening fails, returns an invalid file handle."]
+    pub open_output: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> tm_file_o,
+    >,
+    #[doc = " As [[open_output()]], but opens the file for appending. I.e., the existing file content will"]
+    #[doc = " not be truncated."]
+    pub open_append: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> tm_file_o,
+    >,
+    #[doc = " Sets the read/write offset from the start of the file."]
+    pub set_position: ::std::option::Option<unsafe extern "C" fn(file: tm_file_o, pos: u64)>,
+    #[doc = " Returns the current size of the file."]
+    pub size: ::std::option::Option<unsafe extern "C" fn(file: tm_file_o) -> u64>,
+    #[doc = " Reads `size` bytes into the `buffer` from the current file position. If the file size is"]
+    #[doc = " smaller than the requested read, the function will read the number of bytes that are"]
+    #[doc = " available and return the number of read bytes. At EOF, the function will return 0. If there"]
+    #[doc = " is an error, -1 is returned."]
+    pub read: ::std::option::Option<
+        unsafe extern "C" fn(
+            file: tm_file_o,
+            buffer: *mut ::std::os::raw::c_void,
+            size: u64,
+        ) -> i64,
+    >,
+    #[doc = " Writes `size` bytes from `buffer` to the file. Returns `true` on success and `false`"]
+    #[doc = " otherwise."]
+    pub write: ::std::option::Option<
+        unsafe extern "C" fn(
+            file: tm_file_o,
+            buffer: *const ::std::os::raw::c_void,
+            size: u64,
+        ) -> bool,
+    >,
+    #[doc = " As [[read()]], but reads from a specific offset in the file. This allows multiple threads to"]
+    #[doc = " read and write to the file without being disturbed by changes to the file offset made by"]
+    #[doc = " other threads."]
+    pub read_at: ::std::option::Option<
+        unsafe extern "C" fn(
+            file: tm_file_o,
+            offset: u64,
+            buffer: *mut ::std::os::raw::c_void,
+            size: u64,
+        ) -> i64,
+    >,
+    #[doc = " As [[write()]], but writes to a specific offset in the file. This allows"]
+    #[doc = " multiple threads to read and write to the file without being disturbed by changes to the file"]
+    #[doc = " offset made by other threads."]
+    pub write_at: ::std::option::Option<
+        unsafe extern "C" fn(
+            file: tm_file_o,
+            offset: u64,
+            buffer: *const ::std::os::raw::c_void,
+            size: u64,
+        ) -> bool,
+    >,
+    #[doc = " Sets the last modified time of `file`."]
+    pub set_last_modified_time:
+        ::std::option::Option<unsafe extern "C" fn(file: tm_file_o, time: tm_file_time_o)>,
+    #[doc = " Closes the file."]
+    pub close: ::std::option::Option<unsafe extern "C" fn(file: tm_file_o)>,
+}
+#[test]
+fn bindgen_test_layout_tm_os_file_io_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_file_io_api>(),
+        88usize,
+        concat!("Size of: ", stringify!(tm_os_file_io_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_file_io_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_file_io_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).open_input as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(open_input)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).open_output as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(open_output)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).open_append as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(open_append)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).set_position as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(set_position)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).size as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).read as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(read)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).write as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(write)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).read_at as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(read_at)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).write_at as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(write_at)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_io_api>())).set_last_modified_time as *const _
+                as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(set_last_modified_time)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_io_api>())).close as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_io_api),
+            "::",
+            stringify!(close)
+        )
+    );
+}
+#[doc = " Information about a file returned by the [[stat()]] function."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_file_stat_t {
+    #[doc = " True if the file (or directory) exists."]
+    pub exists: bool,
+    #[doc = " True if the file is a directory."]
+    pub is_directory: bool,
+    pub _padding_123: [::std::os::raw::c_char; 6usize],
+    #[doc = " The time the file was last modified."]
+    pub last_modified_time: tm_file_time_o,
+    #[doc = " The size of the file."]
+    pub size: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_file_stat_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_file_stat_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_file_stat_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_file_stat_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_file_stat_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>())).exists as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_stat_t),
+            "::",
+            stringify!(exists)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>())).is_directory as *const _ as usize },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_stat_t),
+            "::",
+            stringify!(is_directory)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>()))._padding_123 as *const _ as usize },
+        2usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_stat_t),
+            "::",
+            stringify!(_padding_123)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_file_stat_t>())).last_modified_time as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_stat_t),
+            "::",
+            stringify!(last_modified_time)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_stat_t>())).size as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_stat_t),
+            "::",
+            stringify!(size)
+        )
+    );
+}
+#[doc = " Represents a collection of strings. The struct is followed by"]
+#[doc = " `char[bytes - sizeof(struct tm_strings_t)]` bytes of string data in memory. The strings are"]
+#[doc = " laid out consecutively in memory, each string terminated by a `0` byte and followed"]
+#[doc = " immediately by the next string."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     Change this to an easier to use structure with an array of string pointers."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_strings_t {
+    #[doc = " The number of strings in this data structure."]
+    pub count: u32,
+    #[doc = " The total number of bytes used by the header and all the strings."]
+    pub bytes: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_strings_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_strings_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_strings_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_strings_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_strings_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_strings_t>())).count as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_strings_t),
+            "::",
+            stringify!(count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_strings_t>())).bytes as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_strings_t),
+            "::",
+            stringify!(bytes)
+        )
+    );
+}
+#[doc = " Represents a file system watcher."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_file_system_watcher_o {
+    pub opaque: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_file_system_watcher_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_file_system_watcher_o>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_file_system_watcher_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_file_system_watcher_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_file_system_watcher_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_system_watcher_o>())).opaque as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_system_watcher_o),
+            "::",
+            stringify!(opaque)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_file_system_detailed_watcher_o {
+    _unused: [u8; 0],
+}
+pub const TM_FILE_SYSTEM_CHANGE_ACTION__ADDED: tm_file_system_change_action = 0;
+pub const TM_FILE_SYSTEM_CHANGE_ACTION__REMOVED: tm_file_system_change_action = 1;
+pub const TM_FILE_SYSTEM_CHANGE_ACTION__MODIFIED: tm_file_system_change_action = 2;
+#[doc = " Specifies the type of action on the file that was detected by the"]
+#[doc = " [[tm_file_system_detailed_watcher_o]]."]
+#[doc = ""]
+#[doc = " !!! WARNING"]
+#[doc = "     Be careful what \"meaning\" you infer from the reported action. For example, some software"]
+#[doc = "     may modify a file by writing a temporary file and then replacing the original with the"]
+#[doc = "     temporary. This would be reported as a number of `ADDED` and `REMOVED` events, instead of as"]
+#[doc = "     a `MODIFIED` event."]
+#[doc = ""]
+#[doc = "     Renames are reported as a `REMOVED` of the old path followed by an `ADDDED` at the new path."]
+pub type tm_file_system_change_action = ::std::os::raw::c_int;
+#[doc = " Represents a change to the file system, detected by the [[tm_file_system_detailed_watcher_o]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_file_system_change_t {
+    #[doc = " The relative path from the watched directory where the changed happened."]
+    pub relative_path: *const ::std::os::raw::c_char,
+    #[doc = " The change that was detected."]
+    pub action: tm_file_system_change_action,
+    pub _padding_182: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_file_system_change_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_file_system_change_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_file_system_change_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_file_system_change_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_file_system_change_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_file_system_change_t>())).relative_path as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_system_change_t),
+            "::",
+            stringify!(relative_path)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_file_system_change_t>())).action as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_system_change_t),
+            "::",
+            stringify!(action)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_file_system_change_t>()))._padding_182 as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_file_system_change_t),
+            "::",
+            stringify!(_padding_182)
+        )
+    );
+}
+#[doc = " Interface to the file system."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_file_system_api {
+    #[doc = " Returns information about the file at `path`."]
+    pub stat: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> tm_file_stat_t,
+    >,
+    #[doc = " Returns a list of all directory items for the directory `path`. The string list is returned"]
+    #[doc = " in a pointer allocated by the temporary allocator `ta`. Note that only the file base names"]
+    #[doc = " are returned in the list. If you want to concatenate them with `path`, you have to do that"]
+    #[doc = " yourself. Also, note that the list will include the `.` and `..` directories, so you need to"]
+    #[doc = " filter them out if you do not want to process them."]
+    #[doc = ""]
+    #[doc = " On error, an empty list will be returned."]
+    pub directory_entries: ::std::option::Option<
+        unsafe extern "C" fn(
+            path: *const ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_strings_t,
+    >,
+    #[doc = " Creates a new directory at the specified `path`. Returns `true` on success."]
+    pub make_directory:
+        ::std::option::Option<unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> bool>,
+    #[doc = " Removes the file at the specified `path`. Returns `true` on success."]
+    pub remove_file:
+        ::std::option::Option<unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> bool>,
+    #[doc = " Removes the directory at the specified `path`. If the directory has any content, it will"]
+    #[doc = " be removed recursively. Returns `true` on success."]
+    pub remove_directory:
+        ::std::option::Option<unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> bool>,
+    #[doc = " Renames the file at `old_name` to `new_name`."]
+    pub rename: ::std::option::Option<
+        unsafe extern "C" fn(
+            old_name: *const ::std::os::raw::c_char,
+            new_name: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+    #[doc = " Copies a single file at `from` to `to`. Returns `true` on success. Overwrites any existing"]
+    #[doc = " file."]
+    pub copy_file: ::std::option::Option<
+        unsafe extern "C" fn(
+            from: *const ::std::os::raw::c_char,
+            to: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+    #[doc = " Returns the current directory, allocated with the specified temp allocator."]
+    pub getcwd: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Changes the current directory to the `path`."]
+    pub chdir:
+        ::std::option::Option<unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> bool>,
+    #[doc = " Returns true if the path is an absolute path."]
+    pub is_absolute:
+        ::std::option::Option<unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> bool>,
+    #[doc = " Returns the absolute path for the (possibly relative) `path`."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     This is a string operation only, it resolves the current working directory and"]
+    #[doc = "     processes any `/.`, `/..` and `//` in the path, but it doesn't resolve symlinks."]
+    pub absolute: ::std::option::Option<
+        unsafe extern "C" fn(
+            path: *const ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the path to the system's temporary directory."]
+    pub temp_directory: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Creates a file system watcher that watches the specified subtree for changes. (A"]
+    #[doc = " directory and all its descendents.)"]
+    pub create_watcher: ::std::option::Option<
+        unsafe extern "C" fn(
+            subtree_path: *const ::std::os::raw::c_char,
+        ) -> tm_file_system_watcher_o,
+    >,
+    #[doc = " Returns true if there were any changes to the subtree watched by `watcher` since the last"]
+    #[doc = " call to [[any_changes()]]."]
+    pub any_changes:
+        ::std::option::Option<unsafe extern "C" fn(watcher: tm_file_system_watcher_o) -> bool>,
+    #[doc = " Destroys a subtree watcher created by [[create_watcher()]]."]
+    pub destroy_watcher:
+        ::std::option::Option<unsafe extern "C" fn(watcher: tm_file_system_watcher_o)>,
+    #[doc = " Creates a file system watcher that watches a subtree for changes and can return detailed"]
+    #[doc = " information about those changes as [[tm_file_system_change_t]] objects."]
+    pub create_detailed_watcher: ::std::option::Option<
+        unsafe extern "C" fn(
+            subtree_path: *const ::std::os::raw::c_char,
+        ) -> *mut tm_file_system_detailed_watcher_o,
+    >,
+    #[doc = " Returns a detailed list of the changes that has happened since the last call to"]
+    #[doc = " [[detailed_changes()]] as a [[carray.inl]] of [[tm_file_system_change_t]] allocated by `ta`."]
+    #[doc = " If there were no changes, `NULL` is returned."]
+    pub detailed_changes: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *mut tm_file_system_detailed_watcher_o,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_file_system_change_t,
+    >,
+    #[doc = " Destroys a [[tm_file_system_detailed_watcher_o]] created by [[create_detailed_watcher()]]."]
+    pub destroy_detailed_watcher: ::std::option::Option<
+        unsafe extern "C" fn(watcher: *mut tm_file_system_detailed_watcher_o),
+    >,
+    #[doc = " On Windows, returns the path to the AppData folder On Linux & OSX, returns the path the home"]
+    #[doc = " directory."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     If an error occurs, the return value is `\"./\"`."]
+    pub app_folder: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *const ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_os_file_system_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_file_system_api>(),
+        152usize,
+        concat!("Size of: ", stringify!(tm_os_file_system_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_file_system_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_file_system_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).stat as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(stat)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).directory_entries as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(directory_entries)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).make_directory as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(make_directory)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).remove_file as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(remove_file)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).remove_directory as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(remove_directory)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).rename as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(rename)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).copy_file as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(copy_file)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).getcwd as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(getcwd)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).chdir as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(chdir)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).is_absolute as *const _ as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(is_absolute)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_file_system_api>())).absolute as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(absolute)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).temp_directory as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(temp_directory)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).create_watcher as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(create_watcher)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).any_changes as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(any_changes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).destroy_watcher as *const _ as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(destroy_watcher)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).create_detailed_watcher as *const _
+                as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(create_detailed_watcher)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).detailed_changes as *const _ as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(detailed_changes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).destroy_detailed_watcher as *const _
+                as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(destroy_detailed_watcher)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_file_system_api>())).app_folder as *const _ as usize
+        },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_file_system_api),
+            "::",
+            stringify!(app_folder)
+        )
+    );
+}
+#[doc = " Represents a loaded DLL."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_dll_o {
+    #[doc = " Opaque system handle to DLL."]
+    pub handle: u64,
+    #[doc = " True if DLL handle is valid."]
+    pub valid: bool,
+    pub _padding_278: [::std::os::raw::c_char; 7usize],
+}
+#[test]
+fn bindgen_test_layout_tm_dll_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_dll_o>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_dll_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_dll_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_dll_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_dll_o>())).handle as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_dll_o),
+            "::",
+            stringify!(handle)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_dll_o>())).valid as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_dll_o),
+            "::",
+            stringify!(valid)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_dll_o>()))._padding_278 as *const _ as usize },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_dll_o),
+            "::",
+            stringify!(_padding_278)
+        )
+    );
+}
+#[doc = " Interface for loading shared libraries."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_dll_api {
+    #[doc = " Opens a shared library file. In case of an error, an invalid [[tm_dll_o]] object will be"]
+    #[doc = " returned."]
+    pub open: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> tm_dll_o,
+    >,
+    #[doc = " Gets an already opened shader library file. An invalid [[tm_dll_o]] object will be"]
+    #[doc = " returned if the shared library was not loaded."]
+    pub get: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> tm_dll_o,
+    >,
+    #[doc = " Looks up and returns a symbol from a shared library. In the case of an error, returns `NULL`."]
+    pub sym: ::std::option::Option<
+        unsafe extern "C" fn(
+            handle: tm_dll_o,
+            name: *const ::std::os::raw::c_char,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    #[doc = " Closes a shared library opened by [[open()]]."]
+    pub close: ::std::option::Option<unsafe extern "C" fn(handle: tm_dll_o)>,
+}
+#[test]
+fn bindgen_test_layout_tm_os_dll_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_dll_api>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_os_dll_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_dll_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_dll_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).open as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dll_api),
+            "::",
+            stringify!(open)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).get as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dll_api),
+            "::",
+            stringify!(get)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).sym as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dll_api),
+            "::",
+            stringify!(sym)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dll_api>())).close as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dll_api),
+            "::",
+            stringify!(close)
+        )
+    );
+}
+#[doc = " Represents an open socket."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_socket_o {
+    #[doc = " Opaque handle to system socket."]
+    pub handle: u64,
+    #[doc = " True if socket is valid."]
+    pub valid: bool,
+    pub _padding_309: [::std::os::raw::c_char; 7usize],
+}
+#[test]
+fn bindgen_test_layout_tm_socket_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_socket_o>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_socket_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_socket_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_socket_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_socket_o>())).handle as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_socket_o),
+            "::",
+            stringify!(handle)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_socket_o>())).valid as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_socket_o),
+            "::",
+            stringify!(valid)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_socket_o>()))._padding_309 as *const _ as usize },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_socket_o),
+            "::",
+            stringify!(_padding_309)
+        )
+    );
+}
+#[doc = " Represents an address to a socket."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_socket_address_t {
+    pub __bindgen_anon_1: tm_socket_address_t__bindgen_ty_1,
+    #[doc = " Port."]
+    pub port: u32,
+}
+#[doc = " IP number."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tm_socket_address_t__bindgen_ty_1 {
+    pub ip: u32,
+    pub ip_byte: [u8; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_socket_address_t__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_socket_address_t__bindgen_ty_1>(),
+        4usize,
+        concat!("Size of: ", stringify!(tm_socket_address_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_socket_address_t__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_socket_address_t__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_socket_address_t__bindgen_ty_1>())).ip as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_socket_address_t__bindgen_ty_1),
+            "::",
+            stringify!(ip)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_socket_address_t__bindgen_ty_1>())).ip_byte as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_socket_address_t__bindgen_ty_1),
+            "::",
+            stringify!(ip_byte)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_tm_socket_address_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_socket_address_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_socket_address_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_socket_address_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tm_socket_address_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_socket_address_t>())).port as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_socket_address_t),
+            "::",
+            stringify!(port)
+        )
+    );
+}
+pub const TM_OS_SOCKET_TYPE_TCP: tm_os_socket_type = 1;
+pub const TM_OS_SOCKET_TYPE_UDP: tm_os_socket_type = 2;
+#[doc = " Identifies the socket type."]
+pub type tm_os_socket_type = ::std::os::raw::c_int;
+#[doc = " Returned if the operation would cause a non-blocking socket to block."]
+pub const TM_OS_SOCKET_ERROR_WOULD_BLOCK: tm_os_socket_error = -1000;
+#[doc = " Returned if the socket was closed."]
+pub const TM_OS_SOCKET_ERROR_CLOSED: tm_os_socket_error = -1001;
+#[doc = " Returned if an invalid socket was used."]
+pub const TM_OS_SOCKET_ERROR_INVALID: tm_os_socket_error = -1002;
+#[doc = " Used for all other errors."]
+pub const TM_OS_SOCKET_ERROR_OTHER: tm_os_socket_error = -1;
+#[doc = " Identifies socket errors."]
+pub type tm_os_socket_error = ::std::os::raw::c_int;
+#[doc = " Connection is pending (for non-blocking sockets only). You should repeat the connect()"]
+#[doc = " call until a different result is returned."]
+pub const TM_OS_SOCKET_CONNECT_PENDING: tm_os_socket_connect = 0;
+#[doc = " Connection was successfully established."]
+pub const TM_OS_SOCKET_CONNECT_ESTABLISHED: tm_os_socket_connect = 1;
+#[doc = " Connection was refused, failed, or timed out."]
+pub const TM_OS_SOCKET_CONNECT_FAILED: tm_os_socket_connect = 2;
+#[doc = " Identifies socket [[connect()]] results."]
+pub type tm_os_socket_connect = ::std::os::raw::c_int;
+#[doc = " getaddrinfo() is in progress. You should keep calling [[getaddrinfo_result()]] until a"]
+#[doc = " different value is returned."]
+pub const TM_OS_SOCKET_GETADDRINFO_IN_PROGRESS: tm_os_socket_getaddrinfo = 0;
+#[doc = " getaddrinfo() completed successfully."]
+pub const TM_OS_SOCKET_GETADDRINFO_SUCCESS: tm_os_socket_getaddrinfo = 1;
+#[doc = " getaddrinfo() completed with an error."]
+pub const TM_OS_SOCKET_GETADDRINFO_ERROR: tm_os_socket_getaddrinfo = 2;
+#[doc = " Result of asynchronous [[getaddrinfo()]] calls."]
+pub type tm_os_socket_getaddrinfo = ::std::os::raw::c_int;
+#[doc = " Disables Nagle's algorithm. When this option is enabled, the socket sends packages as soon as"]
+#[doc = " any data is available. When this option is disabled, the socket waits a little bit to see"]
+#[doc = " if it can send a bigger packet. We usually prefer low latency over high throughput, so this"]
+#[doc = " flag is enabled by default."]
+pub const TM_SOCKET_OPTION__NODELAY: tm_os_socket_option = 0;
+#[doc = " When this option is set, all socket operations are non-blocking. We set this flag by default"]
+#[doc = " since we typically want to make asynchronous network queries. However, if you are running"]
+#[doc = " your network code on a background thread anyway, you might want to clear this flag."]
+pub const TM_SOCKET_OPTION__NONBLOCK: tm_os_socket_option = 1;
+#[doc = " Configurable socket options. Note that only the options we find \"useful\" to change are listed"]
+#[doc = " here. We may add more in the future."]
+pub type tm_os_socket_option = ::std::os::raw::c_int;
+#[doc = " Interface to the IP socket layer."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_socket_api {
+    #[doc = " Initializes the socket communication layer. You should call this before performing any other"]
+    #[doc = " socket operation."]
+    pub init: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " Shuts down the socket communication layer."]
+    pub shutdown: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " Creates a new socket of the specified type (`TM_OS_SOCkET_TYPE_TCP` or"]
+    #[doc = " [[TM_OS_SOCKET_TYPE_UDP]]). If the call fails it will return an invalid socket. You can check"]
+    #[doc = " for that with the `.valid` field."]
+    #[doc = ""]
+    #[doc = " Sockets created with this function get a default set of options:"]
+    #[doc = ""]
+    #[doc = " * `TCP_NODELAY`"]
+    #[doc = " * `SO_NOSIGPIPE`"]
+    #[doc = " * `SO_BROADCAST`"]
+    #[doc = " * `O_NONBLOCK`"]
+    #[doc = ""]
+    #[doc = " You can change the options on the socket with [[set_option()]]. Note that not all options are"]
+    #[doc = " exposed in the [[set_option()]] interface."]
+    pub socket:
+        ::std::option::Option<unsafe extern "C" fn(type_: tm_os_socket_type) -> tm_socket_o>,
+    #[doc = " Enables or disables individual socket options."]
+    pub set_option: ::std::option::Option<
+        unsafe extern "C" fn(socket: tm_socket_o, option: tm_os_socket_option, enabled: bool),
+    >,
+    #[doc = " Binds the socket to the specified address. Returns `true` if successful."]
+    pub bind: ::std::option::Option<
+        unsafe extern "C" fn(socket: tm_socket_o, address: tm_socket_address_t) -> bool,
+    >,
+    #[doc = " Returns the current address to which the socket is bound. Returns `true`"]
+    #[doc = " if successful."]
+    pub getsockname: ::std::option::Option<
+        unsafe extern "C" fn(socket: tm_socket_o, address: *mut tm_socket_address_t) -> bool,
+    >,
+    #[doc = " Sets the socket up to listen for incoming connections. Returns `true` if"]
+    #[doc = " successful."]
+    pub listen:
+        ::std::option::Option<unsafe extern "C" fn(socket: tm_socket_o, queue_size: u32) -> bool>,
+    #[doc = " Accepts incoming connections to a socket in listen mode. If a connection comes in, its socket"]
+    #[doc = " will be returned and `address` will be set to the address of the incoming connection. If"]
+    #[doc = " there is no incoming connection, an invalid socket will be returned."]
+    pub accept: ::std::option::Option<
+        unsafe extern "C" fn(socket: tm_socket_o, address: *mut tm_socket_address_t) -> tm_socket_o,
+    >,
+    #[doc = " Connects the socket to a remote address. Returns one of the [[enum tm_os_socket_connect]] values."]
+    #[doc = " Note that for non-blocking sockets, [[TM_OS_SOCKET_CONNECT_PENDING]] may be returned. In this"]
+    #[doc = " case, you should call [[connect()]] repeatedly until it returns one of the other values."]
+    pub connect: ::std::option::Option<
+        unsafe extern "C" fn(
+            socket: tm_socket_o,
+            target: tm_socket_address_t,
+        ) -> tm_os_socket_connect,
+    >,
+    #[doc = " Sends data to the connected remote socket. Returns the number of transferred bytes on"]
+    #[doc = " success, otherwise an error code."]
+    pub send: ::std::option::Option<
+        unsafe extern "C" fn(
+            socket: tm_socket_o,
+            buffer: *const ::std::os::raw::c_void,
+            size: u32,
+        ) -> i32,
+    >,
+    #[doc = " Receives data from the connected remote socket into the `buffer`. Returns the number of bytes"]
+    #[doc = " received on success, otherwise an error code."]
+    pub recv: ::std::option::Option<
+        unsafe extern "C" fn(
+            socket: tm_socket_o,
+            buffer: *mut ::std::os::raw::c_void,
+            size: u32,
+        ) -> i32,
+    >,
+    #[doc = " Sends data to the `target`. Returns the number of transferred bytes on success, otherwise an"]
+    #[doc = " error code."]
+    pub sendto: ::std::option::Option<
+        unsafe extern "C" fn(
+            socket: tm_socket_o,
+            buffer: *const ::std::os::raw::c_void,
+            size: u32,
+            target: tm_socket_address_t,
+        ) -> i32,
+    >,
+    #[doc = " Receives data from any sender. The data is received in the `buffer` and sender's address in"]
+    #[doc = " `source`. Returns the number of transferred bytes on success, otherwise an error code."]
+    pub recvfrom: ::std::option::Option<
+        unsafe extern "C" fn(
+            socket: tm_socket_o,
+            buffer: *mut ::std::os::raw::c_void,
+            size: u32,
+            source: *mut tm_socket_address_t,
+        ) -> i32,
+    >,
+    #[doc = " Closes the `socket`. Returns `true` on success."]
+    pub close: ::std::option::Option<unsafe extern "C" fn(socket: tm_socket_o) -> bool>,
+    #[doc = " Resolves a host name based on its name (`\"ourmachinery.com\"`) and service (`\"https\"`). Note"]
+    #[doc = " that the name can be a numeric IP in the form (`\"127.0.0.1\"`). Returns a list of socket"]
+    #[doc = " addresses in `addresses`. At most `size` addresses are written to `addresses`. Returns the"]
+    #[doc = " total number of addresses found for the host (which may be larger than `size`)."]
+    #[doc = ""]
+    #[doc = " !!! WARNING"]
+    #[doc = "     This call may block querying DNS servers. Use [[getaddrinfo_async()]] for a non-blocking"]
+    #[doc = "     call."]
+    pub getaddrinfo: ::std::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            service: *const ::std::os::raw::c_char,
+            addresses: *mut tm_socket_address_t,
+            size: u32,
+        ) -> u32,
+    >,
+    #[doc = " Asynchronous version of [[getaddrinfo()]]."]
+    #[doc = ""]
+    #[doc = " Call [[getaddrinfo_async()]] to start a query and then repeatedly call [[getaddrinfo_result()]]"]
+    #[doc = " with the returned value until you get a different result than"]
+    #[doc = " [[TM_OS_SOCKET_GETADDRINFO_IN_PROGRESS]]."]
+    pub getaddrinfo_async: ::std::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            service: *const ::std::os::raw::c_char,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    #[doc = " Returns the result of a [[getaddrinfo_async()]] call. You should call this repeatedly until you"]
+    #[doc = " get a different result than [[TM_OS_SOCKET_GETADDRINFO_IN_PROGRESS]]."]
+    pub getaddrinfo_result: ::std::option::Option<
+        unsafe extern "C" fn(
+            query: *mut ::std::os::raw::c_void,
+            addresses: *mut tm_socket_address_t,
+            count: *mut u32,
+        ) -> tm_os_socket_getaddrinfo,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_os_socket_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_socket_api>(),
+        136usize,
+        concat!("Size of: ", stringify!(tm_os_socket_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_socket_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_socket_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).init as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(init)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).shutdown as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(shutdown)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).socket as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(socket)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).set_option as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(set_option)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).bind as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(bind)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).getsockname as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(getsockname)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).listen as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(listen)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).accept as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(accept)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).connect as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(connect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).send as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(send)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).recv as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(recv)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).sendto as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(sendto)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).recvfrom as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(recvfrom)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).close as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(close)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_socket_api>())).getaddrinfo as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(getaddrinfo)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_socket_api>())).getaddrinfo_async as *const _ as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(getaddrinfo_async)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_socket_api>())).getaddrinfo_result as *const _ as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_socket_api),
+            "::",
+            stringify!(getaddrinfo_result)
+        )
+    );
+}
+pub const TM_OS_THREAD__PRIORITY__LOWEST: tm_os_thread__priority = 0;
+pub const TM_OS_THREAD__PRIOIRTY__LOW: tm_os_thread__priority = 1;
+pub const TM_OS_THREAD__PRIORITY__NORMAL: tm_os_thread__priority = 2;
+pub const TM_OS_THREAD__PRIORITY__HIGH: tm_os_thread__priority = 3;
+pub const TM_OS_THREAD__PRIORITY__HIGHEST: tm_os_thread__priority = 4;
+pub const TM_OS_THREAD__PRIORITY__TIME_CRITICAL: tm_os_thread__priority = 5;
+#[doc = " Specifies the priority of threads. These pirority levels are translated to OS specific"]
+#[doc = " priorities."]
+pub type tm_os_thread__priority = ::std::os::raw::c_int;
+#[doc = " Callback function that acts as entry point for a new thread."]
+pub type tm_thread_entry_f =
+    ::std::option::Option<unsafe extern "C" fn(user_data: *mut ::std::os::raw::c_void)>;
+#[doc = " Callback function that acts as entry point for a new fiber."]
+pub type tm_fiber_entry_f =
+    ::std::option::Option<unsafe extern "C" fn(user_data: *mut ::std::os::raw::c_void)>;
+#[doc = " Represents a critical section. Note that on OS X, critical sections are not relocatable,"]
+#[doc = " i.e., they cannot be passed by value."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_critical_section_o {
+    pub opaque: [u64; 8usize],
+}
+#[test]
+fn bindgen_test_layout_tm_critical_section_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_critical_section_o>(),
+        64usize,
+        concat!("Size of: ", stringify!(tm_critical_section_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_critical_section_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_critical_section_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_critical_section_o>())).opaque as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_critical_section_o),
+            "::",
+            stringify!(opaque)
+        )
+    );
+}
+#[doc = " Represents a semaphore."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_semaphore_o {
+    pub opaque: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_semaphore_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_semaphore_o>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_semaphore_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_semaphore_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_semaphore_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_semaphore_o>())).opaque as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_semaphore_o),
+            "::",
+            stringify!(opaque)
+        )
+    );
+}
+#[doc = " Represents a thread."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_thread_o {
+    pub opaque: [u64; 2usize],
+}
+#[test]
+fn bindgen_test_layout_tm_thread_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_thread_o>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_thread_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_thread_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_thread_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_thread_o>())).opaque as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_thread_o),
+            "::",
+            stringify!(opaque)
+        )
+    );
+}
+#[doc = " Represents a fiber."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_fiber_o {
+    pub opaque: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_fiber_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_fiber_o>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_fiber_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_fiber_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_fiber_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_fiber_o>())).opaque as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_fiber_o),
+            "::",
+            stringify!(opaque)
+        )
+    );
+}
+#[doc = " Interface for manipulating threads, mutexes, semaphores, etc."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_thread_api {
+    #[doc = " Creates a new critical section and returns it."]
+    pub create_critical_section:
+        ::std::option::Option<unsafe extern "C" fn(cs: *mut tm_critical_section_o)>,
+    #[doc = " Enters the critical section `cs`. You can also use the macro [[TM_OS_ENTER_CRITICAL_SECTION()]]"]
+    #[doc = " for this, see below."]
+    pub enter_critical_section:
+        ::std::option::Option<unsafe extern "C" fn(cs: *mut tm_critical_section_o)>,
+    #[doc = " Leaves the critical section `cs`. You can also use the macro [[TM_OS_LEAVE_CRITICAL_SECTION()]]"]
+    #[doc = " for this, see below."]
+    pub leave_critical_section:
+        ::std::option::Option<unsafe extern "C" fn(cs: *mut tm_critical_section_o)>,
+    #[doc = " Destroys a critical section created by [[create_critical_section()]]."]
+    pub destroy_critical_section:
+        ::std::option::Option<unsafe extern "C" fn(cs: *mut tm_critical_section_o)>,
+    #[doc = " Creates a new semaphore with the `initial_count` and returns it."]
+    pub create_semaphore:
+        ::std::option::Option<unsafe extern "C" fn(initial_count: u32) -> tm_semaphore_o>,
+    #[doc = " Adds `count` to the semaphore."]
+    pub semaphore_add: ::std::option::Option<unsafe extern "C" fn(sem: tm_semaphore_o, count: u32)>,
+    #[doc = " Waits for the semaphore to reach a non-zero value. When it does,"]
+    #[doc = " decrease the semaphore and continue."]
+    pub semaphore_wait: ::std::option::Option<unsafe extern "C" fn(sem: tm_semaphore_o)>,
+    #[doc = " If the semaphore has a non-zero value, decreases it and returns `true`,"]
+    #[doc = " otherwise returns false."]
+    pub semaphore_poll: ::std::option::Option<unsafe extern "C" fn(sem: tm_semaphore_o) -> bool>,
+    #[doc = " Destroys a semaphore created by [[create_semaphore()]]."]
+    pub destroy_semaphore: ::std::option::Option<unsafe extern "C" fn(sem: tm_semaphore_o)>,
+    #[doc = " Gets the ID of the current thread."]
+    pub thread_id: ::std::option::Option<unsafe extern "C" fn() -> u32>,
+    #[doc = " Gets the ID of the processor the current thread is running on."]
+    pub processor_id: ::std::option::Option<unsafe extern "C" fn() -> u32>,
+    #[doc = " Creates a new thread running the `entry` function with `user_data`. `stack_size` specifies"]
+    #[doc = " the stack size to use for the new thread. `debug_name` is a debug name for the thread that"]
+    #[doc = " will be visible in debuggers, etc."]
+    pub create_thread: ::std::option::Option<
+        unsafe extern "C" fn(
+            entry: tm_thread_entry_f,
+            user_data: *mut ::std::os::raw::c_void,
+            stack_size: u32,
+            debug_name: *const ::std::os::raw::c_char,
+        ) -> tm_thread_o,
+    >,
+    #[doc = " Sets the `priority` of the specified `thread`."]
+    pub set_thread_priority: ::std::option::Option<
+        unsafe extern "C" fn(thread: tm_thread_o, priority: tm_os_thread__priority),
+    >,
+    #[doc = " Blocks and waits for the `thread` to complete running."]
+    pub wait_for_thread: ::std::option::Option<unsafe extern "C" fn(thread: tm_thread_o)>,
+    #[doc = " Returns the ID of `thread`."]
+    pub thread_id_from_tm_thread:
+        ::std::option::Option<unsafe extern "C" fn(thread: tm_thread_o) -> u32>,
+    #[doc = " Converts the current thread into a fiber. This is needed before you can call any other fiber"]
+    #[doc = " functions on the thread."]
+    pub convert_thread_to_fiber: ::std::option::Option<
+        unsafe extern "C" fn(user_data: *mut ::std::os::raw::c_void) -> tm_fiber_o,
+    >,
+    #[doc = " Releases any resources allocated by [[convert_thread_to_fiber()]] and converts the fiber back"]
+    #[doc = " to a regular thread. After this call, you can't call any other fiber functions on the thread."]
+    pub convert_fiber_to_thread: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " Creates a fiber running the `entry` function with `user_data`."]
+    #[doc = " `stack_size` specifies the stack size to use for the new fiber."]
+    pub create_fiber: ::std::option::Option<
+        unsafe extern "C" fn(
+            entry: tm_fiber_entry_f,
+            user_data: *mut ::std::os::raw::c_void,
+            stack_size: u32,
+        ) -> tm_fiber_o,
+    >,
+    #[doc = " Destroys a `fiber` created by [[create_fiber()]]."]
+    pub destroy_fiber: ::std::option::Option<unsafe extern "C" fn(fiber: tm_fiber_o)>,
+    #[doc = " Does co-operative multithreading by switching execution to the specified `fiber`."]
+    pub switch_to_fiber: ::std::option::Option<unsafe extern "C" fn(fiber: tm_fiber_o)>,
+    #[doc = " Returns the user data for the current fiber."]
+    pub fiber_user_data:
+        ::std::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>,
+    #[doc = " Yields the processor to another thread. You can call this in busy-wait loops to avoid"]
+    #[doc = " monopolizing the CPU core."]
+    pub yield_processor: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " Sleeps the current thread for the specified number of seconds."]
+    pub sleep: ::std::option::Option<unsafe extern "C" fn(seconds: f64)>,
+}
+#[test]
+fn bindgen_test_layout_tm_os_thread_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_thread_api>(),
+        184usize,
+        concat!("Size of: ", stringify!(tm_os_thread_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_thread_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_thread_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).create_critical_section as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(create_critical_section)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).enter_critical_section as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(enter_critical_section)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).leave_critical_section as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(leave_critical_section)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).destroy_critical_section as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(destroy_critical_section)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).create_semaphore as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(create_semaphore)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).semaphore_add as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(semaphore_add)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).semaphore_wait as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(semaphore_wait)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).semaphore_poll as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(semaphore_poll)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).destroy_semaphore as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(destroy_semaphore)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).thread_id as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(thread_id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).processor_id as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(processor_id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).create_thread as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(create_thread)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).set_thread_priority as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(set_thread_priority)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).wait_for_thread as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(wait_for_thread)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).thread_id_from_tm_thread as *const _
+                as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(thread_id_from_tm_thread)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).convert_thread_to_fiber as *const _
+                as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(convert_thread_to_fiber)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).convert_fiber_to_thread as *const _
+                as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(convert_fiber_to_thread)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).create_fiber as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(create_fiber)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).destroy_fiber as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(destroy_fiber)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).switch_to_fiber as *const _ as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(switch_to_fiber)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).fiber_user_data as *const _ as usize
+        },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(fiber_user_data)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_thread_api>())).yield_processor as *const _ as usize
+        },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(yield_processor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_thread_api>())).sleep as *const _ as usize },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_thread_api),
+            "::",
+            stringify!(sleep)
+        )
+    );
+}
+#[doc = " Interface for manipulating time."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_time_api {
+    #[doc = " Returns the current time."]
+    #[doc = ""]
+    #[doc = " The time is returned in an opaque format. You shouldn't assume anything about the returned"]
+    #[doc = " value, only use it as an argument to the [[delta()]] function."]
+    pub now: ::std::option::Option<unsafe extern "C" fn() -> tm_clock_o>,
+    #[doc = " Returns the time passed (in seconds) between the two timestamps `to` and `from`, obtained"]
+    #[doc = " from calling [[now()]]."]
+    pub delta: ::std::option::Option<unsafe extern "C" fn(to: tm_clock_o, from: tm_clock_o) -> f64>,
+    #[doc = " Returns the timestamp you get by adding the specified time (in seconds) to the timestamp"]
+    #[doc = " `from`."]
+    pub add:
+        ::std::option::Option<unsafe extern "C" fn(from: tm_clock_o, delta: f64) -> tm_clock_o>,
+    #[doc = " Returns the current time as a [[tm_file_time_o]]."]
+    #[doc = ""]
+    #[doc = " !!! WARNING"]
+    #[doc = "     The time format and clock resolution of [[tm_file_time_o]] may differ from [[tm_clock_o]]."]
+    pub file_time_now: ::std::option::Option<unsafe extern "C" fn() -> tm_file_time_o>,
+    #[doc = " Returns the time passed (in seconds) between the two file timestamps `to` and `from`."]
+    pub file_time_delta: ::std::option::Option<
+        unsafe extern "C" fn(to: tm_file_time_o, from: tm_file_time_o) -> f64,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_os_time_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_time_api>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_os_time_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_time_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_time_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).now as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_time_api),
+            "::",
+            stringify!(now)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).delta as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_time_api),
+            "::",
+            stringify!(delta)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).add as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_time_api),
+            "::",
+            stringify!(add)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).file_time_now as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_time_api),
+            "::",
+            stringify!(file_time_now)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_time_api>())).file_time_delta as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_time_api),
+            "::",
+            stringify!(file_time_delta)
+        )
+    );
+}
+#[doc = " Arguments to [[tm_os_dialogs_api->open()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_dialogs_open_t {
+    #[doc = " List of extensions that can be opened, separated by space, e.g. (\"gif png\")."]
+    pub extensions: *const ::std::os::raw::c_char,
+    #[doc = " Description of the files, such as \"The Machinery Projects\". If not specified, the description"]
+    #[doc = " \"Files\" will be used."]
+    pub description: *const ::std::os::raw::c_char,
+    #[doc = " If true, more than one file can be selected for opening."]
+    pub allow_multi_select: bool,
+    pub _padding_699: [::std::os::raw::c_char; 7usize],
+}
+#[test]
+fn bindgen_test_layout_tm_os_dialogs_open_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_dialogs_open_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_os_dialogs_open_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_dialogs_open_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_dialogs_open_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_open_t>())).extensions as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_open_t),
+            "::",
+            stringify!(extensions)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_dialogs_open_t>())).description as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_open_t),
+            "::",
+            stringify!(description)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_dialogs_open_t>())).allow_multi_select as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_open_t),
+            "::",
+            stringify!(allow_multi_select)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_dialogs_open_t>()))._padding_699 as *const _ as usize
+        },
+        17usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_open_t),
+            "::",
+            stringify!(_padding_699)
+        )
+    );
+}
+#[doc = " Result of [[tm_os_dialogs_api->open()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_dialogs_open_res_t {
+    #[doc = " Number of files that were selected."]
+    pub num_files: u32,
+    pub _padding_707: [::std::os::raw::c_char; 4usize],
+    #[doc = " Array of filenames."]
+    pub files: *mut *mut ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_os_dialogs_open_res_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_dialogs_open_res_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_os_dialogs_open_res_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_dialogs_open_res_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_dialogs_open_res_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_dialogs_open_res_t>())).num_files as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_open_res_t),
+            "::",
+            stringify!(num_files)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_dialogs_open_res_t>()))._padding_707 as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_open_res_t),
+            "::",
+            stringify!(_padding_707)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_open_res_t>())).files as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_open_res_t),
+            "::",
+            stringify!(files)
+        )
+    );
+}
+#[doc = " Arguments to [[tm_os_dialogs_api->save()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_dialogs_save_t {
+    #[doc = " Default filename to use for the saved file."]
+    pub default_name: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_os_dialogs_save_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_dialogs_save_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_os_dialogs_save_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_dialogs_save_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_dialogs_save_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_dialogs_save_t>())).default_name as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_save_t),
+            "::",
+            stringify!(default_name)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_dialogs_api {
+    #[doc = " Shows the system \"Open File...\" dialog and lets the user pick a file. Returns the"]
+    #[doc = " result of the operation. The result is allocated using the supplied temp allocator `ta`."]
+    pub open: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *const tm_os_dialogs_open_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> tm_os_dialogs_open_res_t,
+    >,
+    #[doc = " Shows the system \"Open Folder...\" dialog and lets the user pick a folder. Returns the path to"]
+    #[doc = " the picked folder or `NULL` if no folder was picked. The returned path is allocated using the"]
+    #[doc = " supplied temp allocator `ta`."]
+    pub open_folder: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " Shows the system \"Save File...\" dialog and lets the user pick a file. Returns the filename of"]
+    #[doc = " the picked file or `NULL` if no file was picked. The returned filename is allocated using the"]
+    #[doc = " supplied temp allocator `ta`."]
+    pub save: ::std::option::Option<
+        unsafe extern "C" fn(
+            s: *const tm_os_dialogs_save_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " Displays a message box with a single `OK` button, mostly used for displaying fatal error"]
+    #[doc = " messages. `title` is the message box caption and `text` is the message to display inside the"]
+    #[doc = " box."]
+    pub message_box: ::std::option::Option<
+        unsafe extern "C" fn(
+            title: *const ::std::os::raw::c_char,
+            text: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Returns the number of OS dialogs that has been shown."]
+    #[doc = ""]
+    #[doc = " This is used to detect if an OS dialog has been shown since the last frame and in that case,"]
+    #[doc = " reset any held input state (pressed keys, etc)."]
+    pub show_count: ::std::option::Option<unsafe extern "C" fn() -> u64>,
+}
+#[test]
+fn bindgen_test_layout_tm_os_dialogs_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_dialogs_api>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_os_dialogs_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_dialogs_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_dialogs_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).open as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_api),
+            "::",
+            stringify!(open)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).open_folder as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_api),
+            "::",
+            stringify!(open_folder)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).save as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_api),
+            "::",
+            stringify!(save)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).message_box as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_api),
+            "::",
+            stringify!(message_box)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_dialogs_api>())).show_count as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_dialogs_api),
+            "::",
+            stringify!(show_count)
+        )
+    );
+}
+#[doc = " API for obtaining information about the system."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_info_api {
+    #[doc = " Returns the number of logical processors."]
+    pub num_logical_processors: ::std::option::Option<unsafe extern "C" fn() -> u32>,
+    #[doc = " Returns true if the processor supports the AVX instruction set."]
+    pub avx_support: ::std::option::Option<unsafe extern "C" fn() -> bool>,
+}
+#[test]
+fn bindgen_test_layout_tm_os_info_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_info_api>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_os_info_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_info_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_info_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_info_api>())).num_logical_processors as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_info_api),
+            "::",
+            stringify!(num_logical_processors)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_info_api>())).avx_support as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_info_api),
+            "::",
+            stringify!(avx_support)
+        )
+    );
+}
+#[doc = " [[tm_os_debugger_api]] is used to interact with the debugger."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_debugger_api {
+    #[doc = " Returns `true` if the current process is connected to a debugger."]
+    pub is_debugger_present: ::std::option::Option<unsafe extern "C" fn() -> bool>,
+    #[doc = " Causes a breakpoint exception to occur and the process to break into the debugger (if"]
+    #[doc = " any debugger is connected).)"]
+    pub debug_break: ::std::option::Option<unsafe extern "C" fn()>,
+}
+#[test]
+fn bindgen_test_layout_tm_os_debugger_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_debugger_api>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_os_debugger_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_debugger_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_debugger_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_debugger_api>())).is_debugger_present as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_debugger_api),
+            "::",
+            stringify!(is_debugger_present)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_debugger_api>())).debug_break as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_debugger_api),
+            "::",
+            stringify!(debug_break)
+        )
+    );
+}
+#[doc = " [[tm_os_system_api]] is used to interact with system services."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_system_api {
+    #[doc = " Opens the specified `url` using the default system handler."]
+    pub open_url: ::std::option::Option<unsafe extern "C" fn(url: *const ::std::os::raw::c_char)>,
+    #[doc = " Opens the `file` using the default system application."]
+    pub open_file:
+        ::std::option::Option<unsafe extern "C" fn(file: *const ::std::os::raw::c_char) -> bool>,
+    #[doc = " Returns the path to the current executable. `argv_0` should be the argv[0] argument to"]
+    #[doc = " `main()`. It will be used if we can't determine the path through other means."]
+    pub exe_path: ::std::option::Option<
+        unsafe extern "C" fn(
+            argv_0: *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Calls `system()` with the `command` string to execute it using the host environment's command"]
+    #[doc = " processor."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     On Windows, [[execute()]] will run the command on the command prompt if one is"]
+    #[doc = "     already attached to the current process, otherwise it will run the command silenty. Tt"]
+    #[doc = "     will automatically wrap `command` in quotes if it going to be executed on the command"]
+    #[doc = "     prompt. Because of Windows arcane quoting rules, in addition to quoting individual"]
+    #[doc = "     arguments in the `command` string, the entire string also needs to be quoted."]
+    pub execute: ::std::option::Option<
+        unsafe extern "C" fn(command: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Same as [[execute()]] but the process is non-blocking."]
+    pub execute_in_background: ::std::option::Option<
+        unsafe extern "C" fn(command: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Similar to [[execute()]] but it returns the `stdout` and `stderr` in a `char *` allocated"]
+    #[doc = " with the temp allocator `ta`. If `timeout_ms > 0` the call will timeout in the specified"]
+    #[doc = " number of milliseconds. A `timeout_ms` of 0 means the call never times out."]
+    #[doc = ""]
+    #[doc = " If `exit_code` is non-NULL, it's used to return the exit code."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     [[execute_stdout()]] will automatically wrap `command` in quotes if it going to be"]
+    #[doc = "     executed on the command prompt. Because of Windows arcane quoting rules, in addition to"]
+    #[doc = "     quoting individual arguments in the `command` string, the entire string also needs to be"]
+    #[doc = "     quoted."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Use seconds as unit instead of milliseconds."]
+    pub execute_stdout: ::std::option::Option<
+        unsafe extern "C" fn(
+            command: *const ::std::os::raw::c_char,
+            timeout_ms: u32,
+            ta: *mut tm_temp_allocator_i,
+            exit_code: *mut ::std::os::raw::c_int,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_os_system_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_system_api>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_os_system_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_system_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_system_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).open_url as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_system_api),
+            "::",
+            stringify!(open_url)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).open_file as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_system_api),
+            "::",
+            stringify!(open_file)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).exe_path as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_system_api),
+            "::",
+            stringify!(exe_path)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).execute as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_system_api),
+            "::",
+            stringify!(execute)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_os_system_api>())).execute_in_background as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_system_api),
+            "::",
+            stringify!(execute_in_background)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_system_api>())).execute_stdout as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_system_api),
+            "::",
+            stringify!(execute_stdout)
+        )
+    );
+}
+#[doc = " [[tm_os_api]] is a \"master\" API, used to access the APIs for different parts of the OS."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_os_api {
+    pub virtual_memory: *mut tm_os_virtual_memory_api,
+    pub file_io: *mut tm_os_file_io_api,
+    pub file_system: *mut tm_os_file_system_api,
+    pub dll: *mut tm_os_dll_api,
+    pub socket: *mut tm_os_socket_api,
+    pub thread: *mut tm_os_thread_api,
+    pub time: *mut tm_os_time_api,
+    pub dialogs: *mut tm_os_dialogs_api,
+    pub info: *mut tm_os_info_api,
+    pub debugger: *mut tm_os_debugger_api,
+    pub system: *mut tm_os_system_api,
+}
+#[test]
+fn bindgen_test_layout_tm_os_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_os_api>(),
+        88usize,
+        concat!("Size of: ", stringify!(tm_os_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_os_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_os_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).virtual_memory as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(virtual_memory)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).file_io as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(file_io)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).file_system as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(file_system)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).dll as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(dll)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).socket as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(socket)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).thread as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(thread)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).time as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(time)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).dialogs as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(dialogs)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).info as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(info)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).debugger as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(debugger)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_os_api>())).system as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_os_api),
+            "::",
+            stringify!(system)
+        )
+    );
+}
+#[doc = " API for path manipulation"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_path_api {
+    #[doc = " Returns the file extension of the `path`, i.e. everything after the last \".\"."]
+    #[doc = ""]
+    #[doc = " path             | extension"]
+    #[doc = " ---------------- | -------"]
+    #[doc = " \"test.jpg\"       | \".jpg\""]
+    #[doc = " \"test\"           | (null)"]
+    #[doc = " \".test\"          | \".test\""]
+    #[doc = " \".test.jpg\"      | \".jpg\""]
+    #[doc = " \"a.b/test\"       | (null)"]
+    #[doc = " \"\"               | (null)"]
+    #[doc = " (null)           | (null)"]
+    pub extension: ::std::option::Option<unsafe extern "C" fn(path: tm_str_t) -> tm_str_t>,
+    #[doc = " As [[extension()]] but operates on C strings, instead of [[tm_str_t]]."]
+    pub extension_cstr: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the `path` without the file extension. Note that it is always true that:"]
+    #[doc = ""]
+    #[doc = " ~~~c"]
+    #[doc = " path == strip_extension(path) + extension(path)"]
+    #[doc = " ~~~"]
+    #[doc = ""]
+    #[doc = " path             | strip_extension"]
+    #[doc = " ---------------- | -------"]
+    #[doc = " \"test.jpg\"       | \"test\""]
+    #[doc = " \"test\"           | \"test\""]
+    #[doc = " \".test\"          | \"\""]
+    #[doc = " \".test.jpg\"      | \".test\""]
+    #[doc = " \"a.b/test\"       | \"a.b/test\""]
+    #[doc = " \"\"               | \"\""]
+    #[doc = " (null)           | (null)"]
+    pub strip_extension: ::std::option::Option<unsafe extern "C" fn(path: tm_str_t) -> tm_str_t>,
+    #[doc = " Returns the last element of the `path`. Trailing slashes are removed. If the path is empty,"]
+    #[doc = " returns \".\". If the path consists of just slashes, returns \"/\"."]
+    #[doc = ""]
+    #[doc = " path             | base"]
+    #[doc = " ---------------- | --------"]
+    #[doc = " \"test.jpg\"       | \"test.jpg\""]
+    #[doc = " \"a/b/c\"          | \"c\""]
+    #[doc = " \"a/b/c/\"         | \"c\""]
+    #[doc = " \"a/b/c///\"       | \"c\""]
+    #[doc = " \"/\"              | \"/\""]
+    #[doc = " \"////\"           | \"/\""]
+    #[doc = " \"C:\\\"            | \"C:\""]
+    #[doc = " \"\"               | \".\""]
+    pub base: ::std::option::Option<unsafe extern "C" fn(path: tm_str_t) -> tm_str_t>,
+    #[doc = " As base, but operates on C strings, instead of [[tm_str_t]]."]
+    pub base_cstr: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the \"directory\" of the `path`. I.e. everything before the [[base()]]. Trailing slashes"]
+    #[doc = " are removed, unless the directory is the root directory. If there is no directory in the path"]
+    #[doc = " or if the path is empty, returns \".\"."]
+    #[doc = ""]
+    #[doc = " path             | dir"]
+    #[doc = " ---------------- | --------"]
+    #[doc = " \"test.jpg\"       | \".\""]
+    #[doc = " \"a/b/c\"          | \"a/b\""]
+    #[doc = " \"a/b/c/\"         | \"a/b\""]
+    #[doc = " \"a/b/c///\"       | \"a/b\""]
+    #[doc = " \"/a\"             | \"/\""]
+    #[doc = " \"/\"              | \"/\""]
+    #[doc = " \"////\"           | \"/\""]
+    #[doc = " \"C:\\\"            | \".\""]
+    #[doc = " \"\"               | \".\""]
+    pub directory: ::std::option::Option<unsafe extern "C" fn(path: tm_str_t) -> tm_str_t>,
+    #[doc = " Pops the last elements of the path. Returns [[base()]] and sets `path` to [[directory()]]."]
+    pub pop_last: ::std::option::Option<unsafe extern "C" fn(path: *mut tm_str_t) -> tm_str_t>,
+    #[doc = " Pops the first element of the `path` and updates `path` to point to the rest of the elements."]
+    #[doc = ""]
+    #[doc = " path             | first      | rest"]
+    #[doc = " ---------------- | --------   | ----------"]
+    #[doc = " \"test.jpg\"       | \"test.jpg\" | NULL"]
+    #[doc = " \"a/b/c\"          | \"a\"        | \"b/c\""]
+    #[doc = " \"a//b/c///\"      | \"a\"        | \"b/c///\""]
+    #[doc = " \"/a/b/c\"         | \"/\"        | \"a/b/c\""]
+    #[doc = " \"C:\\a\\b\\c\"       | \"C:\"       | \"a\\b\\c\""]
+    #[doc = " \"/\"              | \"/\"        | NULL"]
+    #[doc = " \"////\"           | \"/\"        | NULL"]
+    #[doc = " \"\"               | \".\"        | NULL"]
+    pub pop_first: ::std::option::Option<unsafe extern "C" fn(path: *mut tm_str_t) -> tm_str_t>,
+    #[doc = " Splits the path into a [[carray.inl]] of [[tm_str_t]] representing the name of each directory"]
+    #[doc = " and file. The array is allocated using `ta`."]
+    #[doc = ""]
+    #[doc = " path           | return value"]
+    #[doc = " ---------------| --------------------"]
+    #[doc = " a/b/c/test.jpg | [a, b, c, test.jpeg]"]
+    pub split_all: ::std::option::Option<
+        unsafe extern "C" fn(path: tm_str_t, ta: *mut tm_temp_allocator_i) -> *mut tm_str_t,
+    >,
+    #[doc = " Joins the paths `a` and `b`. I.e., produces \"a/b\". Note that \"/\" is always used to join the"]
+    #[doc = " paths, regardless of platform."]
+    #[doc = ""]
+    #[doc = " The returned string is allocated using `ta`."]
+    pub join: ::std::option::Option<
+        unsafe extern "C" fn(a: tm_str_t, b: tm_str_t, ta: *mut tm_temp_allocator_i) -> tm_str_t,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_path_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_path_api>(),
+        80usize,
+        concat!("Size of: ", stringify!(tm_path_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_path_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_path_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).extension as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(extension)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).extension_cstr as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(extension_cstr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).strip_extension as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(strip_extension)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).base as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).base_cstr as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(base_cstr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).directory as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(directory)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).pop_last as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(pop_last)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).pop_first as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(pop_first)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).split_all as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(split_all)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_path_api>())).join as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_path_api),
+            "::",
+            stringify!(join)
+        )
+    );
+}
+#[doc = " [[tm_plugin_load_f]] is the type of the `tm_load_plugin()` function that should be implemented by"]
+#[doc = " plugins. The plugin system will call `tm_load_plugin(reg, true)` to load the plugin and"]
+#[doc = " `tm_load_plugin(reg, false)` to unload it. `reg` is the pointer to the API registry and can be"]
+#[doc = " used to register interfaces provided by the plugin as well as to query for interfaces provided by"]
+#[doc = " other plugins."]
+pub type tm_plugin_load_f =
+    ::std::option::Option<unsafe extern "C" fn(reg: *mut tm_api_registry_api, load: bool)>;
+#[doc = " [[tm_plugins_api]] keeps track of plugins -- shared libraries that are loaded dynamically."]
+#[doc = ""]
+#[doc = " The plugin system supports hot-reloading of plugins. When a plugin is hot-reloaded, the system"]
+#[doc = " will first call `tm_load_plugin(reg, true)` on the new plugin version and then"]
+#[doc = " `tm_load_plugin(reg, false)` on the old plugin"]
+#[doc = ""]
+#[doc = " It is up to each plugin to decide if it wants to support hot reloading or not and in that case"]
+#[doc = " how the \"handover\" happens -- how much data is preserved automatically, and what the clients of"]
+#[doc = " the plugin need to do in order to \"switch over\" to the new version."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_plugins_api {
+    #[doc = " Loads a plugin from the specified `path`."]
+    #[doc = ""]
+    #[doc = " `name` specifies the name of the plugin. If `hot_reload` is true, the system will"]
+    #[doc = " automatically hot-reload the plugin if it detects any changes to it."]
+    #[doc = ""]
+    #[doc = " Returns an identifier for the plugin that can be used to unload it."]
+    pub load: ::std::option::Option<
+        unsafe extern "C" fn(path: *const ::std::os::raw::c_char, hot_reload: bool) -> u64,
+    >,
+    #[doc = " Unloads a plugin loaded by [[load()]]."]
+    pub unload: ::std::option::Option<unsafe extern "C" fn(plugin: u64)>,
+    #[doc = " Reloads the specified plugin."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     When you reload a plugin we still keep the \"old version\" of the plugin in memory. If"]
+    #[doc = "     we unloaded the old version, touching any of its data (for example a through  a string or"]
+    #[doc = "     function pointer saved somewhere) would cause an instant access violation crash. Keeping"]
+    #[doc = "     the old version loaded wastes some memory, but modern computers have lot of memory, so"]
+    #[doc = "     wasting some of it during development is preferable to the risk of crashing."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     On Windows, we create hot-reload copies of DLLs with `.tm_hot_reload.` in the name before"]
+    #[doc = "     loading them. This is because Windows has a nasty habit of locking files that are in use."]
+    #[doc = "     If we didn't create hot-reload copies, you wouldn't be able to rebuild the DLLs"]
+    #[doc = "     on the fly, because the application would lock the them."]
+    #[doc = ""]
+    #[doc = "     The hot-reload copies are automatically cleaned up on the next run of the application."]
+    pub reload: ::std::option::Option<unsafe extern "C" fn(plugin: u64)>,
+    #[doc = " Can be used to change the path a plugin will be loaded from. If you [[reload()]] the plugin"]
+    #[doc = " after [[set_path()]], it will be loaded from the new path."]
+    pub set_path: ::std::option::Option<
+        unsafe extern "C" fn(plugin: u64, path: *const ::std::os::raw::c_char),
+    >,
+    #[doc = " Checks all loaded plugins for changes on disk and hot-reloads any plugins that have changed."]
+    #[doc = " Returns `true` if any plugin was reloaded and `false` otherwise."]
+    pub check_hot_reload: ::std::option::Option<unsafe extern "C" fn() -> bool>,
+    #[doc = " Returns the number of times plugins have been reloaded. Can be used to check if a reload has"]
+    #[doc = " happened since the last time this value was checked."]
+    #[doc = ""]
+    #[doc = " This is used in some places to do things like automatically update the list of interface"]
+    #[doc = " implementations when a reload happens."]
+    pub reload_count: ::std::option::Option<unsafe extern "C" fn() -> u64>,
+    #[doc = " Returns a list of plugins to load from the `directory`. Finds files matching `tm_*.dll` on"]
+    #[doc = " Windows, `libtm_*.dylib` on OS X, and `libtm_*.so` on Linux based systems."]
+    #[doc = ""]
+    #[doc = " Hot-reload copies (i.e. files with `.tm_hot_reload.` in the name) are automatically ignored."]
+    #[doc = ""]
+    #[doc = " The returned value is a carray allocated with the temp allocator `ta`."]
+    pub enumerate: ::std::option::Option<
+        unsafe extern "C" fn(
+            directory: *const ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut *const ::std::os::raw::c_char,
+    >,
+    #[doc = " If we are currently processing a `tm_load_plugin()` call -- returns the name of the plugin we"]
+    #[doc = " are loading. Otherwise, returns `NULL`."]
+    pub load_plugin_context:
+        ::std::option::Option<unsafe extern "C" fn() -> *const ::std::os::raw::c_char>,
+    #[doc = " Returns the path to the plugin named `name` in the `plugins` folder, given the path `exe` to"]
+    #[doc = " the main executable."]
+    #[doc = ""]
+    #[doc = " The returned path is allocated using the temp allocator `ta`."]
+    pub plugin_dllpath: ::std::option::Option<
+        unsafe extern "C" fn(
+            ta: *mut tm_temp_allocator_i,
+            exe: *const ::std::os::raw::c_char,
+            name: *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the path to the main application shared library `name`, stored next to the executable"]
+    #[doc = " `exe`."]
+    #[doc = ""]
+    #[doc = " The returned path is allocated using the temp allocator `ta`."]
+    pub app_dllpath: ::std::option::Option<
+        unsafe extern "C" fn(
+            ta: *mut tm_temp_allocator_i,
+            exe: *const ::std::os::raw::c_char,
+            name: *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_plugins_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_plugins_api>(),
+        80usize,
+        concat!("Size of: ", stringify!(tm_plugins_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_plugins_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_plugins_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).load as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(load)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).unload as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(unload)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).reload as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(reload)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).set_path as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(set_path)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).check_hot_reload as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(check_hot_reload)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).reload_count as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(reload_count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).enumerate as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(enumerate)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_plugins_api>())).load_plugin_context as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(load_plugin_context)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).plugin_dllpath as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(plugin_dllpath)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugins_api>())).app_dllpath as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugins_api),
+            "::",
+            stringify!(app_dllpath)
+        )
+    );
+}
+#[doc = " bool"]
+pub const TM_TT_PROP__PLUGIN__IMPORT_ON_CHANGE: TM_TT_PROP__PLUGIN = 0;
+#[doc = " string"]
+pub const TM_TT_PROP__PLUGIN__WINDOWS_DLL_IMPORT_PATH: TM_TT_PROP__PLUGIN = 1;
+#[doc = " buffer"]
+pub const TM_TT_PROP__PLUGIN__WINDOWS_DLL: TM_TT_PROP__PLUGIN = 2;
+#[doc = " string"]
+pub const TM_TT_PROP__PLUGIN__LINUX_DLL_IMPORT_PATH: TM_TT_PROP__PLUGIN = 3;
+#[doc = " buffer"]
+pub const TM_TT_PROP__PLUGIN__LINUX_DLL: TM_TT_PROP__PLUGIN = 4;
+#[doc = " bool"]
+pub const TM_TT_PROP__PLUGIN__IS_HELPER: TM_TT_PROP__PLUGIN = 5;
+#[doc = " Properties of [[TM_TT_TYPE__PLUGIN]]."]
+pub type TM_TT_PROP__PLUGIN = ::std::os::raw::c_int;
+#[doc = " API for loading and reloading plugin assets."]
+#[doc = ""]
+#[doc = " Loading plugins is not thread-safe, so these functions need to be called at a \"stable\" point in"]
+#[doc = " the executable. Typically this would be at the same point where you do your regular plugin"]
+#[doc = " hot-reload."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_plugin_assets_api {
+    #[doc = " Returns *true* if the truth `tt` contains any plugin assets. You can use this to determine"]
+    #[doc = " if you should ask the user if she wants to run the plugins. (If there are no plugins in the"]
+    #[doc = " project, you don't need to ask.)"]
+    pub any_plugins: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> bool>,
+    #[doc = " Inits the plugin system for the Truth `tt`."]
+    #[doc = ""]
+    #[doc = " If `allow_code_execution` is `true`, the plugin code will be loaded and executed. Otherwise, we will"]
+    #[doc = " just enumerate the plugins so that they can be auto-refreshed if they have the"]
+    #[doc = " [[TM_TT_PROP__PLUGIN__IMPORT_ON_CHANGE]] flag set."]
+    #[doc = ""]
+    #[doc = " !!! WARNING: Security Warning"]
+    #[doc = "     Setting `allow_code_execution` to *true* means the project plugins can"]
+    #[doc = "     execute arbitrary code on your machine, so it should only be used if you trust the"]
+    #[doc = "     project that contains the plugins."]
+    pub init_truth: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, allow_code_execution: bool),
+    >,
+    #[doc = " Shuts down the plugin system for the Truth `tt`. This will unload any loaded plugin assets."]
+    pub shutdown_truth: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+    #[doc = " Auto-imports any changed plugin code from disk and loads/unloads/reloads plugins from the"]
+    #[doc = " Truth."]
+    pub update_truth: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+    #[doc = " Returns *true* is code execution is allowed for `tt`."]
+    pub allow_code_execution:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> bool>,
+    #[doc = " Sets code execution to be allowed or not for `tt`."]
+    #[doc = ""]
+    #[doc = " If code execution is turned on, all plugins will be loaded. If code execution is turned off,"]
+    #[doc = " all plugins will be unloaded."]
+    #[doc = ""]
+    #[doc = " !!! Note"]
+    #[doc = "     This function won't do anything unless [[init_truth()]] has been called for `tt`"]
+    #[doc = "     first."]
+    pub set_allow_code_execution: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, allow_code_execution: bool),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_plugin_assets_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_plugin_assets_api>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_plugin_assets_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_plugin_assets_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_plugin_assets_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_plugin_assets_api>())).any_plugins as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_assets_api),
+            "::",
+            stringify!(any_plugins)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_assets_api>())).init_truth as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_assets_api),
+            "::",
+            stringify!(init_truth)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_plugin_assets_api>())).shutdown_truth as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_assets_api),
+            "::",
+            stringify!(shutdown_truth)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_plugin_assets_api>())).update_truth as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_assets_api),
+            "::",
+            stringify!(update_truth)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_plugin_assets_api>())).allow_code_execution as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_assets_api),
+            "::",
+            stringify!(allow_code_execution)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_plugin_assets_api>())).set_allow_code_execution as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_assets_api),
+            "::",
+            stringify!(set_allow_code_execution)
+        )
+    );
+}
+#[doc = " [[tm_plugin_init_i]] is typically called as early as possible after all plugins have been loaded."]
+#[doc = " [[tm_plugin_init_i]] is not called when a plugin is reloaded."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_plugin_init_i {
+    pub inst: *mut tm_plugin_o,
+    pub init: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_plugin_o, allocator: *mut tm_allocator_i),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_plugin_init_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_plugin_init_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_plugin_init_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_plugin_init_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_plugin_init_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_init_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_init_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_init_i>())).init as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_init_i),
+            "::",
+            stringify!(init)
+        )
+    );
+}
+#[doc = " [[tm_plugin_shutdown_i]] is typically be called as early as possible during the application"]
+#[doc = " shutdown sequence. [[tm_plugin_shutdown_i]] is not called when a plugin is reloaded."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_plugin_shutdown_i {
+    pub inst: *mut tm_plugin_o,
+    pub shutdown: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_plugin_o)>,
+}
+#[test]
+fn bindgen_test_layout_tm_plugin_shutdown_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_plugin_shutdown_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_plugin_shutdown_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_plugin_shutdown_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_plugin_shutdown_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_shutdown_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_shutdown_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_shutdown_i>())).shutdown as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_shutdown_i),
+            "::",
+            stringify!(shutdown)
+        )
+    );
+}
+#[doc = " [[tm_plugin_tick_i]] is typically called as early as possible in the application main loop \"tick\"."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_plugin_tick_i {
+    pub inst: *mut tm_plugin_o,
+    pub tick: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_plugin_o, dt: f32)>,
+}
+#[test]
+fn bindgen_test_layout_tm_plugin_tick_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_plugin_tick_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_plugin_tick_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_plugin_tick_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_plugin_tick_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_tick_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_tick_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_tick_i>())).tick as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_tick_i),
+            "::",
+            stringify!(tick)
+        )
+    );
+}
+#[doc = " [[tm_plugin_set_the_truth_i]] is called whenever the \"main\" Truth of the application changes. The"]
+#[doc = " \"main\" Truth is the primary Truth used for editing data in the application."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     This interface should be removed. The Truth shouldn't be treated as a singleton by"]
+#[doc = "     plugins."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_plugin_set_the_truth_i {
+    pub inst: *mut tm_plugin_o,
+    pub set_the_truth: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_plugin_o, tt: *mut tm_the_truth_o),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_plugin_set_the_truth_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_plugin_set_the_truth_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_plugin_set_the_truth_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_plugin_set_the_truth_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_plugin_set_the_truth_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_plugin_set_the_truth_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_set_the_truth_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_plugin_set_the_truth_i>())).set_the_truth as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_plugin_set_the_truth_i),
+            "::",
+            stringify!(set_the_truth)
+        )
+    );
+}
+#[doc = " Start of a time interval. (Corresponds to `B` in Chrome tracing.)"]
+pub const TM_PROFILER_EVENT_TYPE_BEGIN: tm_profiler_event_type = 0;
+#[doc = " End of a time interval. (Corresponds to `E`.)"]
+pub const TM_PROFILER_EVENT_TYPE_END: tm_profiler_event_type = 1;
+#[doc = " Instant event. (Corresponds to `I`.)"]
+pub const TM_PROFILER_EVENT_TYPE_INSTANT: tm_profiler_event_type = 2;
+#[doc = " Async event start. (Corresponds to `S`.)"]
+pub const TM_PROFILER_EVENT_TYPE_START: tm_profiler_event_type = 3;
+#[doc = " Async event finish. (Corresponds to `F`.)"]
+pub const TM_PROFILER_EVENT_TYPE_FINISH: tm_profiler_event_type = 4;
+#[doc = " A thread switched from running one fiber to another."]
+pub const TM_PROFILER_EVENT_TYPE_FIBER_SWITCH: tm_profiler_event_type = 5;
+#[doc = " Type of sampled profile event."]
+pub type tm_profiler_event_type = ::std::os::raw::c_int;
+#[doc = " Represents a sampled profile event."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_profiler_event_t {
+    #[doc = " [[enum tm_profiler_event_type]] type of event. (Corresponds to `ph` in Chrome tracing.)"]
+    pub type_: u32,
+    #[doc = " ID of thread that spawned the event (`tid`)."]
+    pub thread_id: u32,
+    #[doc = " Timestamp of when event was generated (`ts`)."]
+    pub time_stamp: u64,
+    pub __bindgen_anon_1: tm_profiler_event_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tm_profiler_event_t__bindgen_ty_1 {
+    pub __bindgen_anon_1: tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1,
+    pub __bindgen_anon_2: tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2,
+}
+#[doc = " Data for BEGIN, END, INSTANT, START, and FINISH events."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1 {
+    #[doc = " ID used to match begin/end events."]
+    pub id: u32,
+    pub _padding_51: [::std::os::raw::c_char; 4usize],
+    #[doc = " Event category (`cat`). This must point to a string with global lifetime."]
+    pub category: *const ::std::os::raw::c_char,
+    #[doc = " Name of event (`name`). This must point to a string with global lifetime."]
+    pub name: *const ::std::os::raw::c_char,
+    #[doc = " Object that is being processed, or NULL. Note that since object names typically do"]
+    #[doc = " not have global life time, you should call [[intern()]] on your strings before passing"]
+    #[doc = " them as object names."]
+    pub object: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>(),
+        32usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).id
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>()))._padding_51
+                as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(_padding_51)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).category
+                as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(category)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).name
+                as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1>())).object
+                as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(object)
+        )
+    );
+}
+#[doc = " Data for FIBER_SWITCH events."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2 {
+    #[doc = " Index of fiber that is being switched out."]
+    pub from_fiber: u32,
+    #[doc = " Index of fiber that is being switched in."]
+    pub to_fiber: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>())).from_fiber
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2),
+            "::",
+            stringify!(from_fiber)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2>())).to_fiber
+                as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1__bindgen_ty_2),
+            "::",
+            stringify!(to_fiber)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_tm_profiler_event_t__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_profiler_event_t__bindgen_ty_1>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_profiler_event_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_profiler_event_t__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_profiler_event_t__bindgen_ty_1)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_tm_profiler_event_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_profiler_event_t>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_profiler_event_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_profiler_event_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_profiler_event_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_event_t>())).type_ as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_event_t>())).thread_id as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t),
+            "::",
+            stringify!(thread_id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_event_t>())).time_stamp as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_event_t),
+            "::",
+            stringify!(time_stamp)
+        )
+    );
+}
+#[doc = " Represents the internal buffer of profiler events that the profiler keeps."]
+#[doc = ""]
+#[doc = " Profiler events are internally stored in a ring buffer, so to avoid creating a copy of the data,"]
+#[doc = " we return it in two parts. The first part (`[0]`) is the data before the ring buffer wraps around"]
+#[doc = " and the second part (`[1]`) is the data after the wraparound."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_profiler_buffer_t {
+    #[doc = " The total number of profiler events that have been recorded. Note that not all of these may"]
+    #[doc = " be retained in the buffer, since the buffer is fixed sized. To track all events, the buffer"]
+    #[doc = " must be regularly polled and flushed to permanent storage (memory/disk/network)."]
+    pub total_recorded: u64,
+    #[doc = " Starting event index of each of the two buffer segments."]
+    pub start: [u64; 2usize],
+    #[doc = " Pointer to events for each of the two buffer segments."]
+    pub events: [*const tm_profiler_event_t; 2usize],
+    #[doc = " Number of events in each segment."]
+    pub count: [u32; 2usize],
+}
+#[test]
+fn bindgen_test_layout_tm_profiler_buffer_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_profiler_buffer_t>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_profiler_buffer_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_profiler_buffer_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_profiler_buffer_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_profiler_buffer_t>())).total_recorded as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_buffer_t),
+            "::",
+            stringify!(total_recorded)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_buffer_t>())).start as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_buffer_t),
+            "::",
+            stringify!(start)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_buffer_t>())).events as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_buffer_t),
+            "::",
+            stringify!(events)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_buffer_t>())).count as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_buffer_t),
+            "::",
+            stringify!(count)
+        )
+    );
+}
+#[doc = " [[tm_profiler_api]] is used to collect and retain profiling events. Other systems can query the"]
+#[doc = " profiler for these events and take appropriate action."]
+#[doc = ""]
+#[doc = " The profiler is global and thread-safe."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_profiler_api {
+    #[doc = " Initializes the global profiler for data recording."]
+    pub init: ::std::option::Option<
+        unsafe extern "C" fn(allocator: *mut tm_allocator_i, event_buffer_size: u32),
+    >,
+    #[doc = " Shuts down the global profiler."]
+    pub shutdown: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " Flag that controls whether profiling is enabled or not. Profiling events are only recorded"]
+    #[doc = " when the profiler is enabled."]
+    pub enabled: *mut bool,
+    #[doc = " Records a `BEGIN` event and returns its ID. Calls to [[begin()]] must be matched by calls to"]
+    #[doc = " [[end()]] with the same ID."]
+    #[doc = ""]
+    #[doc = " `name` is typically the name of the function that is being profiled (or a description of"]
+    #[doc = " a sub-part of a function). `category` is the name of the file that the function appears in"]
+    #[doc = " (i.e. `__FILE__`). `object` can either be `NULL` or the name of the object that is being"]
+    #[doc = " operated on, where that makes sense."]
+    #[doc = ""]
+    #[doc = " !!! WARNING"]
+    #[doc = "     The profiler does not make copies of the string arguments, so you can only pass static"]
+    #[doc = "     strings (strings with global lifetime). If you want to use a string that doesn't have"]
+    #[doc = "     global lifetime (for example for the `object` parameter), convert it to a permanent"]
+    #[doc = "     string by calling [[intern()]] on it first."]
+    pub begin: ::std::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            category: *const ::std::os::raw::c_char,
+            object: *const ::std::os::raw::c_char,
+        ) -> u64,
+    >,
+    #[doc = " Records an `END` event. This must match a corresponding [[begin()]] call."]
+    pub end: ::std::option::Option<unsafe extern "C" fn(begin_id: u64)>,
+    #[doc = " Records an `INSTANT` event."]
+    pub instant: ::std::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            category: *const ::std::os::raw::c_char,
+            object: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Records a `START` event. Calls to [[start()]] must be matched by calls to"]
+    #[doc = " [[finish()]] with the same ID."]
+    pub start: ::std::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            category: *const ::std::os::raw::c_char,
+            object: *const ::std::os::raw::c_char,
+        ) -> u64,
+    >,
+    #[doc = " Records a `FINISH` event. This must match a corresponding [[start()]] call."]
+    pub finish: ::std::option::Option<unsafe extern "C" fn(start_id: u64)>,
+    #[doc = " Copies the string `s` into a \"permanent\" string (a string with the same lifetime as the"]
+    #[doc = " profiler itself) and returns the result. If you have strings with short lifetimes that you"]
+    #[doc = " want to use for profiler events, you must call [[intern()]] on them before passing them to"]
+    #[doc = " [[begin()]], [[instant()]], or [[start()]]."]
+    #[doc = ""]
+    #[doc = " Note that [[intern()]] uses a hash lookup to convert the string, so there is a performance hit."]
+    #[doc = " If you can, hoist the [[intern()]] call out of any hot loops."]
+    pub intern: ::std::option::Option<
+        unsafe extern "C" fn(s: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Records a fiber switch on the thread, from the fiber with index `from_fiber` to the fiber"]
+    #[doc = " with index `to_fiber`. A fiber switch swaps out the callstack of the thread (and hence the"]
+    #[doc = " profiler stack too)."]
+    pub fiber_switch: ::std::option::Option<unsafe extern "C" fn(from_fiber: u32, to_fiber: u32)>,
+    #[doc = " Submit a range of profiler events from an external source (for example the GPU)."]
+    pub submit:
+        ::std::option::Option<unsafe extern "C" fn(events: *mut tm_profiler_event_t, count: u32)>,
+    #[doc = " Requests to copy `count` events from the profiler buffer, starting at the event with index"]
+    #[doc = " `start` into the `dest` buffer."]
+    #[doc = ""]
+    #[doc = " The function will return the actual start of the copied events in the `actual_start`"]
+    #[doc = " parameter and the actual count of copied events in the `actual_count` parameter."]
+    #[doc = ""]
+    #[doc = " `actual_start` might differ from `start` if the internal event buffer ran out of space, so"]
+    #[doc = " the events at `start` are no longer available. `actual_count` might differ from `count` if"]
+    #[doc = " there are fewer than `count` items available in the internal buffer."]
+    pub copy: ::std::option::Option<
+        unsafe extern "C" fn(
+            dest: *mut tm_profiler_event_t,
+            start: u64,
+            count: u32,
+            actual_start: *mut u64,
+            actual_count: *mut u32,
+        ),
+    >,
+    #[doc = " Provides direct access to the internal buffer without copying the data out. This is faster"]
+    #[doc = " than using `copy`, but a bit more complicated and dangerous (buffer data may be overwritten"]
+    #[doc = " by another thread). However, since the profiler can generate a lot of data it might be"]
+    #[doc = " necessary for some applications."]
+    pub buffer: ::std::option::Option<unsafe extern "C" fn() -> tm_profiler_buffer_t>,
+}
+#[test]
+fn bindgen_test_layout_tm_profiler_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_profiler_api>(),
+        104usize,
+        concat!("Size of: ", stringify!(tm_profiler_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_profiler_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_profiler_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).init as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(init)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).shutdown as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(shutdown)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).enabled as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(enabled)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).begin as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(begin)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).end as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).instant as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(instant)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).start as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(start)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).finish as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(finish)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).intern as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(intern)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).fiber_switch as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(fiber_switch)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).submit as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(submit)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).copy as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(copy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_profiler_api>())).buffer as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_profiler_api),
+            "::",
+            stringify!(buffer)
+        )
+    );
+}
+#[doc = " [[tm_task_progress_t]] represents the current progress in a form suitable for display in a"]
+#[doc = " single-line status bar."]
+#[doc = ""]
+#[doc = " To work well with a single-line display, [[tm_task_progress_t]] uses the concept of a \"highlighted\""]
+#[doc = " task. The highlighted task will rotate in a round-robin fashion between all the tasks in"]
+#[doc = " progress, displaying for `task_display_time` seconds before it rotates to the next task."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_task_progress_t {
+    #[doc = " Number of tasks currently reporting progress."]
+    pub num_tasks: u32,
+    #[doc = " Task index of currently highlighted task."]
+    pub task_index: u32,
+    #[doc = " Text message of currently highlighted task."]
+    pub text: *const ::std::os::raw::c_char,
+    #[doc = " Fractional progress (0-1) of currently highlighted task."]
+    pub fraction: f32,
+    pub _padding_32: [::std::os::raw::c_char; 4usize],
+}
+#[test]
+fn bindgen_test_layout_tm_task_progress_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_task_progress_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_task_progress_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_task_progress_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_task_progress_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).num_tasks as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_progress_t),
+            "::",
+            stringify!(num_tasks)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).task_index as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_progress_t),
+            "::",
+            stringify!(task_index)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).text as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_progress_t),
+            "::",
+            stringify!(text)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>())).fraction as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_progress_t),
+            "::",
+            stringify!(fraction)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_progress_t>()))._padding_32 as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_progress_t),
+            "::",
+            stringify!(_padding_32)
+        )
+    );
+}
+#[doc = " [[tm_task_status_t]] represents the progress of all background tasks."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_task_status_t {
+    #[doc = " Total number of tasks in progress. The arrays below each contain `num_tasks` elements."]
+    pub num_tasks: u32,
+    pub _padding_40: [::std::os::raw::c_char; 4usize],
+    #[doc = " Array of IDs for the tasks."]
+    pub task_id: *mut u64,
+    #[doc = " Array of text messages for the tasks."]
+    pub text: *mut *const ::std::os::raw::c_char,
+    #[doc = " Array of task progresses as a fraction [0,1]."]
+    pub fraction: *mut f32,
+}
+#[test]
+fn bindgen_test_layout_tm_task_status_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_task_status_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_task_status_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_task_status_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_task_status_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).num_tasks as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_status_t),
+            "::",
+            stringify!(num_tasks)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_status_t>()))._padding_40 as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_status_t),
+            "::",
+            stringify!(_padding_40)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).task_id as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_status_t),
+            "::",
+            stringify!(task_id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).text as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_status_t),
+            "::",
+            stringify!(text)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_status_t>())).fraction as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_status_t),
+            "::",
+            stringify!(fraction)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_progress_report_api {
+    #[doc = " Creates the progress report singleton if not already created. `task_display_time` is the time"]
+    #[doc = "  in seconds that each task should be highlighted in the result returned by [[update()]]."]
+    pub create:
+        ::std::option::Option<unsafe extern "C" fn(a: *mut tm_allocator_i, task_display_time: f32)>,
+    #[doc = " Destroys the progress report singleton created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " Updates the progress report singleton and returns the currently highlighed task to display in"]
+    #[doc = " e.g a status bar. `dt` is the delta time since the last [[update()]] call."]
+    #[doc = ""]
+    #[doc = " Thread-safety: internally synchronized."]
+    #[doc = ""]
+    #[doc = " !!! NOTE: API-REVIEW"]
+    #[doc = "     The name [[update()]] is a bit confusing since this function does not"]
+    #[doc = "     really update anything except the currently highlighted task. It might be preferable to"]
+    #[doc = "     move the responsibility of keeping track of the \"highlighted\" task out of this API to a"]
+    #[doc = "     higher level, since it is primarily a UI feature."]
+    pub update: ::std::option::Option<
+        unsafe extern "C" fn(dt: f64, ta: *mut tm_temp_allocator_i) -> tm_task_progress_t,
+    >,
+    #[doc = " Fetches the status of all current tasks."]
+    #[doc = ""]
+    #[doc = " Thread-safety: internally synchronized."]
+    pub status: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_i) -> tm_task_status_t,
+    >,
+    #[doc = " True if there currently are no running background tasks."]
+    #[doc = ""]
+    #[doc = " Thread-safety: Only reads memory smaller than 64 bits, no synchronization needed."]
+    pub idle: ::std::option::Option<unsafe extern "C" fn() -> bool>,
+    #[doc = " [[set_task_progress()]] is used by tasks to report their progress."]
+    #[doc = ""]
+    #[doc = " Reports progress for the task with the unique ID `task`. `text` is the text message to"]
+    #[doc = " display and `fraction` is a progress indication between 0-1. The text message is copied to an"]
+    #[doc = " internal buffer."]
+    #[doc = ""]
+    #[doc = " If the `task` isn't already in the list of tracked tasks, it will be added by this call. To"]
+    #[doc = " remove a task from thelist, call [[set_task_progress()]] with `fraction = 1`."]
+    #[doc = ""]
+    #[doc = " Thead-safety: internally synchronized."]
+    pub set_task_progress: ::std::option::Option<
+        unsafe extern "C" fn(task: u64, text: *const ::std::os::raw::c_char, fraction: f32),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_progress_report_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_progress_report_api>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_progress_report_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_progress_report_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_progress_report_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_progress_report_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).destroy as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_progress_report_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).update as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_progress_report_api),
+            "::",
+            stringify!(update)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).status as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_progress_report_api),
+            "::",
+            stringify!(status)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_progress_report_api>())).idle as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_progress_report_api),
+            "::",
+            stringify!(idle)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_progress_report_api>())).set_task_progress as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_progress_report_api),
+            "::",
+            stringify!(set_task_progress)
+        )
+    );
+}
+#[doc = " [[tm_random_api]] generates random numbers using the"]
+#[doc = " [xoroshiro128+](http://prng.di.unimi.it/xoroshiro128plus.c) RNG from above and a global state."]
+#[doc = " The state is randomly initialized from system entropy sources."]
+#[doc = ""]
+#[doc = " Note that these functions are not thread-safe, in the sense that if you call them from multiple"]
+#[doc = " threads simultaneously you might get something other than the expected progression of states:"]
+#[doc = ""]
+#[doc = " $$ s_{i} \\rightarrow s_{i+1} \\rightarrow s_{i+2} \\rightarrow \\cdots $$"]
+#[doc = ""]
+#[doc = " However, since these are *random* numbers, you don't usually care about that, so in practice,"]
+#[doc = " it's fine to call this from multi-threaded code."]
+#[doc = ""]
+#[doc = " If you want deterministic state progresssion, use [[seed_new_state()]] to generate a seed and use"]
+#[doc = " that to seed a local RNG that is used by your specific system in a thread-safe way."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_random_api {
+    #[doc = " Returns the next random `uint64_t` from the global state."]
+    pub next: ::std::option::Option<unsafe extern "C" fn() -> u64>,
+    #[doc = " Returns the next `n` values in the `res` array."]
+    pub next_n: ::std::option::Option<unsafe extern "C" fn(res: *mut u64, n: u32)>,
+    #[doc = " Returns a new state suitable for use with [[tm_random_next()]] in `s`. This can be used to"]
+    #[doc = " create system-specific sub-RNGs from the global RNG."]
+    #[doc = ""]
+    #[doc = " This uses [[tm_random_jump()]] to advance the global state, and returns the original state before"]
+    #[doc = " the jump."]
+    pub seed_new_state: ::std::option::Option<unsafe extern "C" fn(s: *mut u64)>,
+}
+#[test]
+fn bindgen_test_layout_tm_random_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_random_api>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_random_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_random_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_random_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_random_api>())).next as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_random_api),
+            "::",
+            stringify!(next)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_random_api>())).next_n as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_random_api),
+            "::",
+            stringify!(next_n)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_random_api>())).seed_new_state as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_random_api),
+            "::",
+            stringify!(seed_new_state)
+        )
+    );
+}
+#[doc = " Result of a runtime data lookup operation."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_runtime_data_t {
+    #[doc = " The truth version number when the lookup happened."]
+    pub version: u64,
+    #[doc = " Runtime data mapped to The Truth object."]
+    pub data: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_tm_runtime_data_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_runtime_data_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_runtime_data_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_runtime_data_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_runtime_data_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_runtime_data_t>())).version as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_t),
+            "::",
+            stringify!(version)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_runtime_data_t>())).data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_t),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+#[doc = " [[tm_runtime_data_io_i]] is the interface for loading/unloading runtime data."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_runtime_data_io_i {
+    #[doc = " Loads/creates the runtime data associated with the object `id` from The Truth `tt`. The"]
+    #[doc = " `io_context` is passed from [[tm_runtime_data_repository_api->lookup()]]."]
+    #[doc = ""]
+    #[doc = " The result should be stored in the buffer pointed to by `result_runtime_data`. Returns `true`"]
+    #[doc = " if the load was successful and `false` otherwise."]
+    pub load: ::std::option::Option<
+        unsafe extern "C" fn(
+            io_context: *mut ::std::os::raw::c_void,
+            tt: *mut tm_the_truth_o,
+            id: tm_tt_id_t,
+            result_runtime_data: *mut ::std::os::raw::c_void,
+        ) -> bool,
+    >,
+    #[doc = " Unloads the `runtime_data`. The `io_context` is passed from the"]
+    #[doc = " [[tm_runtime_data_repository_api]] functions."]
+    pub unload: ::std::option::Option<
+        unsafe extern "C" fn(
+            io_context: *mut ::std::os::raw::c_void,
+            runtime_data: *mut ::std::os::raw::c_void,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_runtime_data_io_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_runtime_data_io_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_runtime_data_io_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_runtime_data_io_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_runtime_data_io_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_runtime_data_io_i>())).load as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_io_i),
+            "::",
+            stringify!(load)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_runtime_data_io_i>())).unload as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_io_i),
+            "::",
+            stringify!(unload)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_runtime_data_repository_o {
+    _unused: [u8; 0],
+}
+#[doc = " API for managing runtime data."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_runtime_data_repository_api {
+    #[doc = " Creates a new runtime data repository for objects of type `type` in The Truth `tt`. Each"]
+    #[doc = " runtime data object will have the size `runtime_data_size` and the `io_interface` will be"]
+    #[doc = " used to load and unload objects."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     Is there a reason `io_context` is passed to the individual functions instead of being"]
+    #[doc = "     supplied here? It seems to me that calling [[unload()]] with a different `io_context` than"]
+    #[doc = "     what was used for [[load()]] would be undefined, so we want to pass the same `io_context`"]
+    #[doc = "     to all functions anyway."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            allocator: *mut tm_allocator_i,
+            tt: *mut tm_the_truth_o,
+            type_: tm_tt_type_t,
+            runtime_data_size: u32,
+            io_interface: *mut tm_runtime_data_io_i,
+        ) -> *mut tm_runtime_data_repository_o,
+    >,
+    #[doc = " Destroys a previously created runtime data repository. Any runtime data slots still loaded in"]
+    #[doc = " memory will be unloaded using [[tm_runtime_data_io_i->unload()]], called with the"]
+    #[doc = " `io_interface` passed to the [[create()]] function."]
+    pub destroy: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_runtime_data_repository_o,
+            io_context: *mut ::std::os::raw::c_void,
+        ),
+    >,
+    #[doc = " Looks up the runtime data associated with `id`."]
+    #[doc = ""]
+    #[doc = " If no cached runtime data for `id` exists or if the cached runtime data is from an earlier"]
+    #[doc = " version of `id` than `wanted_version`, the data will be updated from the current version of"]
+    #[doc = " `id` by calling [[tm_runtime_data_io_i->load()]] and any old data will be immediately"]
+    #[doc = " unloaded with [[tm_runtime_data_io_i->unload()]]."]
+    #[doc = ""]
+    #[doc = " Note that this means that the returned runtime data is not guaranteed to be from"]
+    #[doc = " `wanted_version`, it could be from `wanted_version` or *any later version*. (The Truth only"]
+    #[doc = " tracks the latest version of objects, so returning the data exactly at `wanted_version` might"]
+    #[doc = " not be possible.)"]
+    #[doc = ""]
+    #[doc = " Typically, you would pass `tm_the_truth_api->version(tt, id)` for `wanted_version`."]
+    pub lookup: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_runtime_data_repository_o,
+            id: tm_tt_id_t,
+            wanted_version: u64,
+            io_context: *mut ::std::os::raw::c_void,
+        ) -> tm_runtime_data_t,
+    >,
+    #[doc = " Call this approximately once per frame to garbage collect any runtime data loaded in the"]
+    #[doc = " repository for asset IDs no longer present in The Truth. The runtime data is unloaded using"]
+    #[doc = " [[tm_runtime_data_io_i->unload()]], called with the `io_interace` that was passed to the"]
+    #[doc = " [[create()]] function."]
+    pub garbage_collect: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_runtime_data_repository_o,
+            io_context: *mut ::std::os::raw::c_void,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_runtime_data_repository_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_runtime_data_repository_api>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_runtime_data_repository_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_runtime_data_repository_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_runtime_data_repository_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).create as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_repository_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).destroy as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_repository_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).lookup as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_repository_api),
+            "::",
+            stringify!(lookup)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_runtime_data_repository_api>())).garbage_collect as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_runtime_data_repository_api),
+            "::",
+            stringify!(garbage_collect)
+        )
+    );
+}
+#[doc = " Represents the current SHA1 state."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct SHA1_CTX {
+    pub state: [u32; 5usize],
+    pub count: [u32; 2usize],
+    pub buffer: [u8; 64usize],
+}
+#[test]
+fn bindgen_test_layout_SHA1_CTX() {
+    assert_eq!(
+        ::std::mem::size_of::<SHA1_CTX>(),
+        92usize,
+        concat!("Size of: ", stringify!(SHA1_CTX))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<SHA1_CTX>(),
+        4usize,
+        concat!("Alignment of ", stringify!(SHA1_CTX))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<SHA1_CTX>())).state as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(SHA1_CTX),
+            "::",
+            stringify!(state)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<SHA1_CTX>())).count as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(SHA1_CTX),
+            "::",
+            stringify!(count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<SHA1_CTX>())).buffer as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(SHA1_CTX),
+            "::",
+            stringify!(buffer)
+        )
+    );
+}
+#[doc = " Callback used for custom printing of a struct that has been registered with [[add_printer()]]."]
+#[doc = ""]
+#[doc = " `buf` is the temporary buffer to print to and `count` it's size. The callback function should"]
+#[doc = " behave as [[print()]] (typically, the implementation will just call [[print()]])."]
+#[doc = ""]
+#[doc = " `type` is the type name from the format specifier. I.e. for `%p{tm_vec3_t}`, `type` is"]
+#[doc = " `\"tm_vec3_t\"`."]
+#[doc = ""]
+#[doc = " `args` the argument from the format specifier. I.e., for `%p{my_type_t:long}`, `args` will be"]
+#[doc = " `\"long\"`. If there is no argument string, `args` is `{0}`."]
+#[doc = ""]
+#[doc = " `args` can be used to customize the printing. It is up to each printer to decide how `args`"]
+#[doc = " should be interpreted."]
+#[doc = ""]
+#[doc = " `data` is a pointer to the struct that should be printed."]
+#[doc = ""]
+#[doc = " !!! TIP: Tip"]
+#[doc = "     If you are unsure how to format the output of a certain type, a good first choice is to use"]
+#[doc = "     the format you would use to write a literal of the same type in the code, but without the"]
+#[doc = "     type specifier. Use the same spacing as you get from auto-formatting the literal in the code."]
+#[doc = ""]
+#[doc = "     For example, a [[tm_vec3_t]] literal would be written as `(tm_vec3_t){ 1, 2, 3 }`, so a good"]
+#[doc = "     default for the string representation is `{ 1, 2, 3 }`."]
+pub type tm_sprintf_printer = ::std::option::Option<
+    unsafe extern "C" fn(
+        buf: *mut ::std::os::raw::c_char,
+        count: ::std::os::raw::c_int,
+        type_: tm_str_t,
+        args: tm_str_t,
+        data: *const ::std::os::raw::c_void,
+    ) -> ::std::os::raw::c_int,
+>;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_sprintf_api {
+    #[doc = " Replacement for C `sprintf()`."]
+    pub print_unsafe: ::std::option::Option<
+        unsafe extern "C" fn(
+            buf: *mut ::std::os::raw::c_char,
+            fmt: *const ::std::os::raw::c_char,
+            ...
+        ) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Replacement for C `snprintf()`."]
+    #[doc = ""]
+    #[doc = " [[print()]] truncates strings in a UTF-8 safe way -- i.e. it doesn't leave any split"]
+    #[doc = " codepoints at the end of the string. If there are any split codepoints at the end, they will"]
+    #[doc = " be replaced by `\\0`."]
+    pub print: ::std::option::Option<
+        unsafe extern "C" fn(
+            buf: *mut ::std::os::raw::c_char,
+            count: ::std::os::raw::c_int,
+            fmt: *const ::std::os::raw::c_char,
+            ...
+        ) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Replacement for C `vsprintf()`."]
+    pub vprint_unsafe: ::std::option::Option<
+        unsafe extern "C" fn(
+            buf: *mut ::std::os::raw::c_char,
+            fmt: *const ::std::os::raw::c_char,
+            va: va_list,
+        ) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Replacement for C `vsnprintf()`."]
+    #[doc = ""]
+    #[doc = " [[vprint()]] truncates strings in a UTF-8 safe way -- i.e. it doesn't leave any split"]
+    #[doc = " codepoints at the end of the string. If there are any split codepoints at the end, they will"]
+    #[doc = " be replaced by `\\0`."]
+    pub vprint: ::std::option::Option<
+        unsafe extern "C" fn(
+            buf: *mut ::std::os::raw::c_char,
+            count: ::std::os::raw::c_int,
+            fmt: *const ::std::os::raw::c_char,
+            va: va_list,
+        ) -> ::std::os::raw::c_int,
+    >,
+    #[doc = " Adds a custom printer callback function for the type `name`."]
+    pub add_printer: ::std::option::Option<
+        unsafe extern "C" fn(name: *const ::std::os::raw::c_char, printer: tm_sprintf_printer),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_sprintf_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_sprintf_api>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_sprintf_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_sprintf_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_sprintf_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).print_unsafe as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_sprintf_api),
+            "::",
+            stringify!(print_unsafe)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).print as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_sprintf_api),
+            "::",
+            stringify!(print)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).vprint_unsafe as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_sprintf_api),
+            "::",
+            stringify!(vprint_unsafe)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).vprint as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_sprintf_api),
+            "::",
+            stringify!(vprint)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_sprintf_api>())).add_printer as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_sprintf_api),
+            "::",
+            stringify!(add_printer)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_set_strhash_t {
+    _unused: [u8; 0],
+}
+#[doc = " Shared string functions."]
+#[doc = ""]
+#[doc = " Also see [[string.inl]] for inline string functions."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_string_api {
+    #[doc = " Finds a unique name based on `desired_name`, avoiding the names in the `taken_names` set. The"]
+    #[doc = " returned name is allocated using the temp allocator `ta`."]
+    #[doc = ""]
+    #[doc = " If `ignore_case` is *true*, case will be ignored when comparing names. (In this case, all the"]
+    #[doc = " hashes in the `taken` array should have been generated by"]
+    #[doc = " [[tm_murmur_hash_string_tolower()]].)"]
+    #[doc = ""]
+    #[doc = " If the `desired_name` is taken, a unique name will be formed by adding the separator and a"]
+    #[doc = " sequential number to the desired name."]
+    #[doc = ""]
+    #[doc = " If the `desired_name` already has a numeric suffix, that numeric suffix is increased instead."]
+    #[doc = " In this case, the existing separator will be used. Any prefixed zeros will also be preserved."]
+    #[doc = ""]
+    #[doc = " Desired Name | Separator | Name used if taken"]
+    #[doc = " ------------ | --------- | -------------------"]
+    #[doc = " `bork`         | `_`       | `bork_1`"]
+    #[doc = " `bork`         | `-`       | `bork-1`"]
+    #[doc = " `bork`         | ` `       | `bork 1`"]
+    #[doc = " `bork_1`       | *any*     | `bork_2`"]
+    #[doc = " `bork 1`       | *any*     | `bork 2`"]
+    #[doc = " `bork-112`     | *any*     | `bork-112`"]
+    #[doc = " `bork-003`     | *any*     | `bork-004`"]
+    #[doc = " `bork-999`     | *any*     | `bork-1000`"]
+    pub find_unique_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            taken_names: *mut tm_set_strhash_t,
+            ignore_case: bool,
+            desired_name: *const ::std::os::raw::c_char,
+            separator: *const ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_string_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_string_api>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_string_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_string_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_string_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_api>())).find_unique_name as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_api),
+            "::",
+            stringify!(find_unique_name)
+        )
+    );
+}
+#[doc = " Stores a number of strings. Can be used both for holding the string data and for doing reverse"]
+#[doc = " lookups of string hashes."]
+#[doc = ""]
+#[doc = " The string repository will always map 0 to the empty string `\"\"`, you don't have to explicitly"]
+#[doc = " add it to the repository."]
+#[doc = ""]
+#[doc = " The string repository is thread-safe and can safely be used from multiple threads simultaneously."]
+#[doc = ""]
+#[doc = " Once allocated, strings in a string repository never move, so you may cache the string pointer"]
+#[doc = " for the duration of the string's lifetime. But note that if you free the memory of the string by"]
+#[doc = " calling [[remove()]], its memory might be reclaimed and reused for other strings. If you want"]
+#[doc = " strings to be permanently allocated, just don't call [[remove()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_string_repository_i {
+    pub inst: *mut tm_string_repository_o,
+    #[doc = " Adds a new string to the repository. Returns the murmur hash of the string. Strings are"]
+    #[doc = " reference counted. Adding strings that already exist in the repository doesn't consume any"]
+    #[doc = " extra memory, it just bumps the reference count."]
+    pub add: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_string_repository_o,
+            s: *const ::std::os::raw::c_char,
+        ) -> tm_strhash_t,
+    >,
+    #[doc = " Retains another copy of the string. This is equivalent to `add(lookup(id))`."]
+    pub retain: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_string_repository_o, hash: tm_strhash_t),
+    >,
+    #[doc = " Removes a string from the repository. Strings are reference counted on the inside. When you"]
+    #[doc = " have called [[remove()]] the same number of times that you called [[add()]], the string data"]
+    #[doc = " might be reclaimed for use by other strings."]
+    #[doc = ""]
+    #[doc = " !!! NOTE: Implementation note"]
+    #[doc = "     String memory freed by [[remove()]] is not guaranteed to be completely reclaimed (because of"]
+    #[doc = "     fragmentation of the string buffers). In the typical use cases this is not a problem."]
+    #[doc = "     (For example, when parsing JSON, you don't expect to [[remove()]] a lot of strings.)"]
+    pub remove: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_string_repository_o, hash: tm_strhash_t),
+    >,
+    #[doc = " Looks up `hash` in the repository and returns the string corresponding to it. If the hash"]
+    #[doc = " doesn't exist in the repository, NULL is returned."]
+    pub lookup: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_string_repository_o,
+            hash: tm_strhash_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " \"Interns\" a string `s` to a \"permanent\" string pointer that lives as long as the string"]
+    #[doc = " repository does (unless explicitly removed). All strings with the same content will intern to"]
+    #[doc = " the same string pointer."]
+    #[doc = ""]
+    #[doc = " This is equivalent to `lookup(add(s))`."]
+    pub intern: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_string_repository_o,
+            s: *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_string_repository_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_string_repository_i>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_string_repository_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_string_repository_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_string_repository_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).add as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_i),
+            "::",
+            stringify!(add)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).retain as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_i),
+            "::",
+            stringify!(retain)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).remove as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_i),
+            "::",
+            stringify!(remove)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).lookup as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_i),
+            "::",
+            stringify!(lookup)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_repository_i>())).intern as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_i),
+            "::",
+            stringify!(intern)
+        )
+    );
+}
+#[doc = " API for creating and destroying string repositories."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_string_repository_api {
+    #[doc = " Creates a new string repository."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(a: *mut tm_allocator_i) -> *mut tm_string_repository_i,
+    >,
+    #[doc = " Destroys a string repository created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(i: *mut tm_string_repository_i)>,
+}
+#[test]
+fn bindgen_test_layout_tm_string_repository_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_string_repository_api>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_string_repository_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_string_repository_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_string_repository_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_string_repository_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_string_repository_api>())).destroy as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_string_repository_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+}
+#[doc = " A system for executing long-running background tasks that take multiple frames to complete. Each"]
+#[doc = " background task queued with the system runs on its own thread, but the threads are recycled when"]
+#[doc = " the tasks complete."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_task_system_api {
+    #[doc = " Runs the specified task, returns an ID identifying the task. The returned ID is guaranteed to"]
+    #[doc = " be non-zero. The callback `f` will be passed `data` as well as the ID of the task."]
+    pub run_task: ::std::option::Option<
+        unsafe extern "C" fn(
+            f: ::std::option::Option<
+                unsafe extern "C" fn(data: *mut ::std::os::raw::c_void, id: u64),
+            >,
+            data: *mut ::std::os::raw::c_void,
+            debug_name: *const ::std::os::raw::c_char,
+        ) -> u64,
+    >,
+    #[doc = " Returns `true` if the task with the specified ID has completed. If you need additional"]
+    #[doc = " synchronization (events, semaphores, etc), you should put it in the task function"]
+    #[doc = " itself."]
+    pub is_task_done: ::std::option::Option<unsafe extern "C" fn(id: u64) -> bool>,
+    #[doc = " As [[is_task_done()]], but if the task is not done, the calling thread will assist by picking"]
+    #[doc = " up an unfinished task before returning. You should use this if you need the task to finish"]
+    #[doc = " before you can continue. A typical case might be when shutting down a system -- you want to"]
+    #[doc = " stop all tasks as quickly as possible so you can do a clean shutdown."]
+    pub is_task_done_else_assist: ::std::option::Option<unsafe extern "C" fn(id: u64) -> bool>,
+    #[doc = " Flags the task with ID `id` as canceled. Note that this call does not automatically cancel"]
+    #[doc = " the task. To be canceled, ,the task needs to manually poll [[is_task_canceled()]] and abort"]
+    #[doc = " itself if the function returns `true`."]
+    pub cancel_task: ::std::option::Option<unsafe extern "C" fn(id: u64)>,
+    #[doc = " Returns `true` if the task is flagged as canceled, i.e., if [[cancel_task()]] has been called"]
+    #[doc = " on the task."]
+    pub is_task_canceled: ::std::option::Option<unsafe extern "C" fn(id: u64) -> bool>,
+}
+#[test]
+fn bindgen_test_layout_tm_task_system_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_task_system_api>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_task_system_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_task_system_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_task_system_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_system_api>())).run_task as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_system_api),
+            "::",
+            stringify!(run_task)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_system_api>())).is_task_done as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_system_api),
+            "::",
+            stringify!(is_task_done)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_task_system_api>())).is_task_done_else_assist as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_system_api),
+            "::",
+            stringify!(is_task_done_else_assist)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_task_system_api>())).cancel_task as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_system_api),
+            "::",
+            stringify!(cancel_task)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_task_system_api>())).is_task_canceled as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_task_system_api),
+            "::",
+            stringify!(is_task_canceled)
+        )
+    );
+}
+#[doc = " Interface for temp allocators. Temp allocators are used for short-term temporary memory"]
+#[doc = " allocations. Memory allocated through a temporary allocator doesn't need to be explicitly freed."]
+#[doc = " It is automatically destroyed when the allocator is destroyed."]
+#[doc = ""]
+#[doc = " Temp allocators don't use memory tracking, since the memory they allocate is assumed to be"]
+#[doc = " short-lived."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_temp_allocator_i {
+    #[doc = " User data for this temp allocator."]
+    pub inst: *mut tm_temp_allocator_o,
+    #[doc = " Allocates memory through the temporary allocator. This function works as the [[realloc()]]"]
+    #[doc = " function in [[tm_allocator_i]] with two exceptions:"]
+    #[doc = ""]
+    #[doc = " * Memory does not need to be explicitly freed, it is automatically freed when the temp"]
+    #[doc = "   allocator is destroyed."]
+    #[doc = " * Memory tracking (file, line, scope) is not used, since the memory is short-lived anyway."]
+    pub realloc: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_temp_allocator_o,
+            ptr: *mut ::std::os::raw::c_void,
+            old_size: u64,
+            new_size: u64,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_temp_allocator_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_temp_allocator_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_temp_allocator_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_temp_allocator_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_temp_allocator_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_i>())).realloc as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_i),
+            "::",
+            stringify!(realloc)
+        )
+    );
+}
+#[doc = " User data for the [[tm_temp_allocator_1024_o]] temp allocator."]
+#[doc = ""]
+#[doc = " This allocator uses 1024 bytes of stack storage (`buffer`) and a backing allocator (`backing`) to"]
+#[doc = " service allocation requests. It first tries to allocate from the buffer (which lives on the"]
+#[doc = " stack). When that is exhausted, it will use the backing allocator."]
+#[doc = ""]
+#[doc = " Note that this means that if you are allocating < 1K your allocations will not touch the backing"]
+#[doc = " allocator. You get the same performance as if you were just using local variables."]
+#[doc = ""]
+#[doc = " To use this allocator, you declare a local variable of type [[tm_temp_allocator_1024_o]] and then"]
+#[doc = " use [[tm_temp_allocator_api->init_1024()]] and [[tm_temp_allocator_api->shutdown_1024()]] to setup"]
+#[doc = " and destroy a temp allocator using this data."]
+#[doc = ""]
+#[doc = " Typically, you would never do this directly though, as the [[TM_INIT_TEMP_ALLOCATOR()]] and"]
+#[doc = " [[TM_SHUTDOWN_TEMP_ALLOCATOR()]] macros do it for you."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_temp_allocator_1024_o {
+    #[doc = " Temp allocator interface that can be passed to functions that need a temp allocator."]
+    pub ta: tm_temp_allocator_i,
+    #[doc = " Buffer used to serve the initial memory requests."]
+    pub buffer: [::std::os::raw::c_char; 1024usize],
+    #[doc = " Backing allocator that will be used if the local buffer is exhausted."]
+    pub backing: *mut tm_allocator_i,
+    #[doc = " Internally used pointer to the first block of allocated memory."]
+    pub first_block: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_tm_temp_allocator_1024_o() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_temp_allocator_1024_o>(),
+        1056usize,
+        concat!("Size of: ", stringify!(tm_temp_allocator_1024_o))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_temp_allocator_1024_o>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_temp_allocator_1024_o))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).ta as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_1024_o),
+            "::",
+            stringify!(ta)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).buffer as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_1024_o),
+            "::",
+            stringify!(buffer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).backing as *const _ as usize
+        },
+        1040usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_1024_o),
+            "::",
+            stringify!(backing)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_1024_o>())).first_block as *const _ as usize
+        },
+        1048usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_1024_o),
+            "::",
+            stringify!(first_block)
+        )
+    );
+}
+#[doc = " Statistics for the temp allocator."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_temp_allocator_statistics_t {
+    #[doc = " Number of blocks allocated for the temp allocator (since this counter was externally reset)."]
+    pub temp_allocation_blocks: u64,
+    #[doc = " Number of bytes allocated for the temp allocator (since this counter was externally reset)."]
+    pub temp_allocation_bytes: u64,
+    #[doc = " Number of currently live frame allocation blocks."]
+    pub frame_allocation_blocks: u64,
+    #[doc = " Number of bytes allocated for the frame allocator (since this counter was externally reset)."]
+    pub frame_allocation_bytes: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_temp_allocator_statistics_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_temp_allocator_statistics_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_temp_allocator_statistics_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_temp_allocator_statistics_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_temp_allocator_statistics_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).temp_allocation_blocks
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_statistics_t),
+            "::",
+            stringify!(temp_allocation_blocks)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).temp_allocation_bytes
+                as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_statistics_t),
+            "::",
+            stringify!(temp_allocation_bytes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).frame_allocation_blocks
+                as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_statistics_t),
+            "::",
+            stringify!(frame_allocation_blocks)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_statistics_t>())).frame_allocation_bytes
+                as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_statistics_t),
+            "::",
+            stringify!(frame_allocation_bytes)
+        )
+    );
+}
+#[doc = " API for temp allocators."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_temp_allocator_api {
+    #[doc = " Initializes a [[tm_temp_allocator_1024_o]] on the stack. You need to initialize the allocator"]
+    #[doc = " before using it to allocate memory. If `backing` is NULL, the VM allocator will be used as"]
+    #[doc = " backing allocator."]
+    #[doc = ""]
+    #[doc = " Typically, you would not call this function directly, but instead use the"]
+    #[doc = " [[TM_INIT_TEMP_ALLOCATOR()]] macro."]
+    pub init_1024: ::std::option::Option<
+        unsafe extern "C" fn(ta: *mut tm_temp_allocator_1024_o, backing: *mut tm_allocator_i),
+    >,
+    #[doc = " Shuts down a temp allocator inited with [[tm_temp_allocator_api->init_1024()]]. Shutting down"]
+    #[doc = " the allocator frees all memory allocated with it."]
+    #[doc = ""]
+    #[doc = " Typically, you would not call this function directly, but instead use the"]
+    #[doc = " [[TM_SHUTDOWN_TEMP_ALLOCATOR()]] macro."]
+    pub shutdown_1024:
+        ::std::option::Option<unsafe extern "C" fn(ta: *mut tm_temp_allocator_1024_o)>,
+    #[doc = " Creates a [[tm_temp_allocator_i]] that doesn't use any stack space. Instead, all the memory is"]
+    #[doc = " allocated using the backing allocator. This can be used in situations where the temp allocator"]
+    #[doc = " needs to live longer than the current stack."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(backing: *mut tm_allocator_i) -> *mut tm_temp_allocator_i,
+    >,
+    #[doc = " Destroys a temp allocator created with [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(ta: *mut tm_temp_allocator_i)>,
+    #[doc = " Creates a regular allocator `a` from a temp allocator `ta`."]
+    #[doc = ""]
+    #[doc = " This function provides \"glue\" code for adapting the temp allocator interface"]
+    #[doc = " [[tm_temp_allocator_i]] to the regular allocator interface [[tm_allocator_i]] so that you can use"]
+    #[doc = " the temp allocator with systems that expect a regular allocator."]
+    #[doc = ""]
+    #[doc = " Typically, you would not call this function directly, but instead use the"]
+    #[doc = " [[TM_INIT_TEMP_ALLOCATOR_WITH_ADAPTER()]] macro to create both a temporary allocator and a"]
+    #[doc = " regular allocator interface for it."]
+    pub allocator: ::std::option::Option<
+        unsafe extern "C" fn(a: *mut tm_allocator_i, ta: *mut tm_temp_allocator_i),
+    >,
+    #[doc = " Allocates memory for the current \"frame\"."]
+    #[doc = ""]
+    #[doc = " Temp allocated memory is automatically freed when the temp allocator is destroyed (goes out"]
+    #[doc = " of scope). Frame allocated memory is automatically freed at the end of the current frame"]
+    #[doc = " (when [[tick_frame()]] is called)."]
+    #[doc = ""]
+    #[doc = " Frame memory is even simpler to use than temp memory, because you don't have to keep track of"]
+    #[doc = " the allocator's lifetime, but it has a higher cost, because the allocations live longer (for"]
+    #[doc = " a whole frame, rather than just the current scope). A typical use case is for small UI"]
+    #[doc = " strings that gets rendered later in the frame. Since it's just a small allocation, having it"]
+    #[doc = " live for the duration of the frame is not a huge problem and since the data is used later"]
+    #[doc = " than when it's generated, using a scoped temporary allocator doesn't work very well."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     If you use this function anywhere in your code, you must call [[tick_frame()]]"]
+    #[doc = "     regularly in order to eventually free the frame allocated memory."]
+    pub frame_alloc:
+        ::std::option::Option<unsafe extern "C" fn(size: u64) -> *mut ::std::os::raw::c_void>,
+    #[doc = " Returns an allocator that uses [[frame_alloc()]] to service allocation requests."]
+    pub frame_allocator: ::std::option::Option<unsafe extern "C" fn() -> *mut tm_allocator_i>,
+    #[doc = " Ticks a \"frame\" so that memory allocated by [[frame_alloc()]] can be freed."]
+    pub tick_frame: ::std::option::Option<unsafe extern "C" fn()>,
+    #[doc = " As C [[printf()]], but prints to a buffer allocated by the temporary allocator `ta` and returns"]
+    #[doc = " the result."]
+    pub printf: ::std::option::Option<
+        unsafe extern "C" fn(
+            ta: *mut tm_temp_allocator_i,
+            format: *const ::std::os::raw::c_char,
+            ...
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " `va_list` version of [[printf()]]."]
+    pub vprintf: ::std::option::Option<
+        unsafe extern "C" fn(
+            ta: *mut tm_temp_allocator_i,
+            format: *const ::std::os::raw::c_char,
+            args: va_list,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " As C [[printf()]], but prints to a buffer allocated by the frame allocator and returns the"]
+    #[doc = " result."]
+    pub frame_printf: ::std::option::Option<
+        unsafe extern "C" fn(
+            format: *const ::std::os::raw::c_char,
+            ...
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " `va_list` version of [[frame_printf()]]."]
+    pub frame_vprintf: ::std::option::Option<
+        unsafe extern "C" fn(
+            format: *const ::std::os::raw::c_char,
+            args: va_list,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " Holds statistics for the temp allocator system."]
+    pub statistics: *mut tm_temp_allocator_statistics_t,
+}
+#[test]
+fn bindgen_test_layout_tm_temp_allocator_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_temp_allocator_api>(),
+        104usize,
+        concat!("Size of: ", stringify!(tm_temp_allocator_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_temp_allocator_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_temp_allocator_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).init_1024 as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(init_1024)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_api>())).shutdown_1024 as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(shutdown_1024)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).create as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).destroy as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).allocator as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(allocator)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_alloc as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(frame_alloc)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_allocator as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(frame_allocator)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_api>())).tick_frame as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(tick_frame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).printf as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(printf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_temp_allocator_api>())).vprintf as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(vprintf)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_printf as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(frame_printf)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_api>())).frame_vprintf as *const _ as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(frame_vprintf)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_temp_allocator_api>())).statistics as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_temp_allocator_api),
+            "::",
+            stringify!(statistics)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_hash_id_to_id_t {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_set_t {
+    _unused: [u8; 0],
+}
+pub const TM_THE_TRUTH_PROPERTY_TYPE_NONE: tm_the_truth_property_type = 0;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_BOOL: tm_the_truth_property_type = 1;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_UINT32_T: tm_the_truth_property_type = 2;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_UINT64_T: tm_the_truth_property_type = 3;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_FLOAT: tm_the_truth_property_type = 4;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_DOUBLE: tm_the_truth_property_type = 5;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_STRING: tm_the_truth_property_type = 6;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_BUFFER: tm_the_truth_property_type = 7;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_REFERENCE: tm_the_truth_property_type = 8;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT: tm_the_truth_property_type = 9;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_REFERENCE_SET: tm_the_truth_property_type = 10;
+pub const TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT_SET: tm_the_truth_property_type = 11;
+pub const TM_THE_TRUTH_NUM_PROPERTY_TYPES: tm_the_truth_property_type = 12;
+#[doc = " Property types supported by The Truth."]
+pub type tm_the_truth_property_type = ::std::os::raw::c_int;
+#[doc = " The property should use the default editor for the type."]
+pub const TM_THE_TRUTH__EDITOR__DEFAULT: tm_the_truth_editor = 0;
+#[doc = " The property should be hidden in the editor."]
+pub const TM_THE_TRUTH__EDITOR__HIDDEN: tm_the_truth_editor = 1;
+#[doc = " The property should use the \"enum\" editor -- an enum value is picked from a dropdown list."]
+pub const TM_THE_TRUTH__EDITOR__UINT32_T__ENUM: tm_the_truth_editor = 2;
+#[doc = " The property is a string that is set with a path picker using the standard system open file"]
+#[doc = " dialog box."]
+pub const TM_THE_TRUTH__EDITOR__STRING__OPEN_PATH: tm_the_truth_editor = 3;
+#[doc = " The property is a string that is set with the standard system save file dialog box."]
+pub const TM_THE_TRUTH__EDITOR__STRING__SAVE_PATH: tm_the_truth_editor = 4;
+#[doc = " Specifies the \"editor\" that should be used for the property. (Note that"]
+#[doc = " [[TM_TT_ASPECT__PROPERTIES]] can also be used as an alternative way of implementing a custom"]
+#[doc = " property editor.)"]
+pub type tm_the_truth_editor = ::std::os::raw::c_int;
+#[doc = " Settings for properties using the [[TM_THE_TRUTH__EDITOR__UINT32_T__ENUM]] editor."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_editor_enum_t {
+    #[doc = " Number of enums."]
+    pub count: u32,
+    pub _padding_357: [::std::os::raw::c_char; 4usize],
+    #[doc = " Names of the enums."]
+    #[doc = ""]
+    #[doc = " Note that these names should not be localized. They are localized later in the property"]
+    #[doc = " editor. The reason is that these names are specified statically and we want localizations to"]
+    #[doc = " dynamically react to language changes. Use the [[TM_LOCALIZE_LATER()]] macro to define these"]
+    #[doc = " strings."]
+    #[doc = ""]
+    #[doc = " Also note, that [[create_object_type()]] will not make a copy of the `names` array, so you"]
+    #[doc = " can't use a local variable, it must live in permanent storage."]
+    pub names: *const *const ::std::os::raw::c_char,
+    #[doc = " Tooltips for the enums. This array should use [[TM_LOCALIZE_LATER()]] and can be `NULL`."]
+    pub tooltips: *const *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_editor_enum_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_editor_enum_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_the_truth_editor_enum_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_editor_enum_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_editor_enum_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>())).count as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_editor_enum_t),
+            "::",
+            stringify!(count)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>()))._padding_357 as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_editor_enum_t),
+            "::",
+            stringify!(_padding_357)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>())).names as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_editor_enum_t),
+            "::",
+            stringify!(names)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_editor_enum_t>())).tooltips as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_editor_enum_t),
+            "::",
+            stringify!(tooltips)
+        )
+    );
+}
+#[doc = " Editors settings for the [[TM_THE_TRUTH__EDITOR__STRING__OPEN_PATH]] editor."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_editor_string_open_path_t {
+    #[doc = " Extensions passed to [[tm_os_dialogs_api->open()]]."]
+    pub extensions: *const ::std::os::raw::c_char,
+    #[doc = " File description passed to [[tm_os_dialogs_api->open()]]."]
+    pub description: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_editor_string_open_path_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_editor_string_open_path_t>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_the_truth_editor_string_open_path_t)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_editor_string_open_path_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_the_truth_editor_string_open_path_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_editor_string_open_path_t>())).extensions
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_editor_string_open_path_t),
+            "::",
+            stringify!(extensions)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_editor_string_open_path_t>())).description
+                as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_editor_string_open_path_t),
+            "::",
+            stringify!(description)
+        )
+    );
+}
+#[doc = " Editors settings for the [[TM_THE_TRUTH__EDITOR__STRING__SAVE_PATH]] editor."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_editor_string_save_path_t {
+    #[doc = " Default file name passed to [[tm_os_dialogs_api->save()]]. Note, the default file name is only"]
+    #[doc = " used if the path property is not set. If the path property is set, its value will be used for"]
+    #[doc = " the default file name."]
+    pub default_file_name: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_editor_string_save_path_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_editor_string_save_path_t>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_the_truth_editor_string_save_path_t)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_editor_string_save_path_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_the_truth_editor_string_save_path_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_editor_string_save_path_t>())).default_file_name
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_editor_string_save_path_t),
+            "::",
+            stringify!(default_file_name)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_object_o {
+    _unused: [u8; 0],
+}
+#[doc = " Defines a property."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_the_truth_property_definition_t {
+    #[doc = " Name of the property, e.g. \"cast_shadows\"."]
+    #[doc = ""]
+    #[doc = " This name is used both for serialization and for the UI of editing the property. When"]
+    #[doc = " displayed in the UI, the name will be automatically capitalized (e.g. \"Cast Shadows\")."]
+    #[doc = ""]
+    #[doc = " The name shouldn't be longer than [[TM_THE_TRUTH_PROPERTY_NAME_LENGTH]] characters."]
+    pub name: *const ::std::os::raw::c_char,
+    #[doc = " [[enum tm_the_truth_property_type]] type of the property."]
+    pub type_: u32,
+    #[doc = " [[enum tm_the_truth_editor]] enum defining what editor should be used for editing the property."]
+    pub editor: u32,
+    pub __bindgen_anon_1: tm_the_truth_property_definition_t__bindgen_ty_1,
+    #[doc = " For properties referring to other objects (references & subobjects), specifies the type of"]
+    #[doc = " objects that they can refer to. A value of [[TM_TT_TYPE__ANYTHING]] is used for an object"]
+    #[doc = " that can refer to anything."]
+    #[doc = ""]
+    #[doc = " Note: We currently don't have any system for representing \"interfaces\" or groups of types."]
+    #[doc = " I.e. you can't say \"I want this to reference any type that inherits from the GRAPH_NODE_TYPE,"]
+    #[doc = " but no other types.\" We may add this in the future."]
+    pub type_hash: tm_strhash_t,
+    #[doc = " Specifies that the property is allowed to refer to other types than the `type_hash`."]
+    #[doc = ""]
+    #[doc = " !!! NOTE: Note"]
+    #[doc = "     This flag should not be used going forward. Instead, if a property can refer to multiple"]
+    #[doc = "     types, you should use a `type_hash` of [[TM_TT_TYPE__ANYTHING]]. It is provided for"]
+    #[doc = "     compatibility purposes, because some object types have a `type_hash` specified but"]
+    #[doc = "     store subobjects of other types. We cannot simply change the `type_hash` of those objects"]
+    #[doc = "     to [[TM_TT_TYPE__ANYTHING]], because there may be saved data that has serialized versions"]
+    #[doc = "     of those objects that omits the object type (if it is `type_hash`). We can't deserialize"]
+    #[doc = "     those objects if we don't know the `type_hash` of the type."]
+    pub allow_other_types: bool,
+    pub _padding_451: [::std::os::raw::c_char; 7usize],
+    #[doc = " For buffer properties, the extension (if any) used to represent the buffer type. This can"]
+    #[doc = " either be hard-coded in `buffer_extension`, or computed by the `buffer_extension_f()`"]
+    #[doc = " callback (set the unused option to `NULL`)."]
+    pub buffer_extension: *const ::std::os::raw::c_char,
+    pub buffer_extension_f: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: tm_tt_id_t,
+            property: u32,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Tooltip used to describe the property in more detail. The tooltip text will be displayed in"]
+    #[doc = " the property editor when the property is hovered over."]
+    #[doc = ""]
+    #[doc = " The tooltip should be registered using [[TM_LOCALIZE_LATER()]]. It will be dynamically"]
+    #[doc = " localized to the current interface language with [[TM_LOCALIZE_DYNAMIC()]] before being"]
+    #[doc = " displayed in the UI."]
+    pub tooltip: *const ::std::os::raw::c_char,
+    #[doc = " If *true*, this property will be skipped during serialization."]
+    pub not_serialized: bool,
+    pub _padding_469: [::std::os::raw::c_char; 7usize],
+    #[doc = " If specified, this will be used instead of `name` for the UI."]
+    pub ui_name: *const ::std::os::raw::c_char,
+}
+#[doc = " Editor specific settings."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tm_the_truth_property_definition_t__bindgen_ty_1 {
+    pub enum_editor: tm_the_truth_editor_enum_t,
+    pub string_open_path_editor: tm_the_truth_editor_string_open_path_t,
+    pub string_save_path_editor: tm_the_truth_editor_string_save_path_t,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_property_definition_t__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_property_definition_t__bindgen_ty_1>(),
+        24usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_property_definition_t__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t__bindgen_ty_1>())).enum_editor
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1),
+            "::",
+            stringify!(enum_editor)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t__bindgen_ty_1>()))
+                .string_open_path_editor as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1),
+            "::",
+            stringify!(string_open_path_editor)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t__bindgen_ty_1>()))
+                .string_save_path_editor as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t__bindgen_ty_1),
+            "::",
+            stringify!(string_save_path_editor)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_property_definition_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_property_definition_t>(),
+        96usize,
+        concat!("Size of: ", stringify!(tm_the_truth_property_definition_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_property_definition_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_the_truth_property_definition_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).name as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).type_ as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).editor as *const _
+                as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(editor)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).type_hash as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(type_hash)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).allow_other_types
+                as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(allow_other_types)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>()))._padding_451 as *const _
+                as usize
+        },
+        49usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(_padding_451)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).buffer_extension
+                as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(buffer_extension)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).buffer_extension_f
+                as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(buffer_extension_f)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).tooltip as *const _
+                as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(tooltip)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).not_serialized
+                as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(not_serialized)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>()))._padding_469 as *const _
+                as usize
+        },
+        81usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(_padding_469)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_property_definition_t>())).ui_name as *const _
+                as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_property_definition_t),
+            "::",
+            stringify!(ui_name)
+        )
+    );
+}
+#[doc = " Interface for creating types in The Truth."]
+pub type tm_the_truth_create_types_i =
+    ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>;
+#[doc = " Interface called a The Truth is destroyed. This can be used to perform cleanup of globally saved Truth data."]
+pub type tm_the_truth_destroyed_i =
+    ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>;
+#[doc = " Creates a \"naked\" truth with no types defined. Any types you want must be created manually"]
+#[doc = " with [[create_object_type()]]."]
+pub const TM_THE_TRUTH_CREATE_TYPES_NONE: tm_the_truth_create_types = 0;
+#[doc = " Creates a Truth that includes all the object types registered with the"]
+#[doc = "  [[TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME]] interface."]
+pub const TM_THE_TRUTH_CREATE_TYPES_ALL: tm_the_truth_create_types = 1;
+#[doc = " Argument to [[tm_the_truth_api->create()]] specifying whether the Truth should be set up with"]
+#[doc = " the types defined in [[TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME]] or not."]
+pub type tm_the_truth_create_types = ::std::os::raw::c_int;
+#[doc = " Used for the return value of [[get_types_with_aspect()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_get_types_with_aspect_t {
+    #[doc = " The type that implements the aspect."]
+    pub type_: tm_tt_type_t,
+    #[doc = " The aspect data."]
+    pub data: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_get_types_with_aspect_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_get_types_with_aspect_t>(),
+        16usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_the_truth_get_types_with_aspect_t)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_get_types_with_aspect_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_the_truth_get_types_with_aspect_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_get_types_with_aspect_t>())).type_ as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_get_types_with_aspect_t),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_get_types_with_aspect_t>())).data as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_get_types_with_aspect_t),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+#[doc = " Used for the return value of [[get_aspects()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_get_aspects_t {
+    #[doc = " The hashed name of the aspect."]
+    pub id: tm_strhash_t,
+    #[doc = " The aspect data."]
+    pub data: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_get_aspects_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_get_aspects_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_the_truth_get_aspects_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_get_aspects_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_get_aspects_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_get_aspects_t>())).id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_get_aspects_t),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_get_aspects_t>())).data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_get_aspects_t),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+#[doc = " Used for the return value of [[get_local_subobject_set()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_local_set_t {
+    #[doc = " Objects added at this instance."]
+    pub num_added: u32,
+    pub _padding_524: [::std::os::raw::c_char; 4usize],
+    pub added: *const tm_tt_id_t,
+    #[doc = " Objects added at this instance."]
+    pub num_removed: u32,
+    pub _padding_529: [::std::os::raw::c_char; 4usize],
+    pub removed: *const tm_tt_id_t,
+    #[doc = " Objects added at this instance."]
+    pub num_instantiated: u32,
+    pub _padding_534: [::std::os::raw::c_char; 4usize],
+    pub instantiated: *const tm_tt_id_t,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_local_set_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_local_set_t>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_the_truth_local_set_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_local_set_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_local_set_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).num_added as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(num_added)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>()))._padding_524 as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(_padding_524)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).added as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(added)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).num_removed as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(num_removed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>()))._padding_529 as *const _ as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(_padding_529)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).removed as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(removed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).num_instantiated as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(num_instantiated)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>()))._padding_534 as *const _ as usize
+        },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(_padding_534)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_local_set_t>())).instantiated as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_local_set_t),
+            "::",
+            stringify!(instantiated)
+        )
+    );
+}
+#[doc = " Used for [[set_local_subobject_set()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_set_local_subobject_set_t {
+    #[doc = " Objects added at this instance."]
+    pub num_added: u32,
+    pub _padding_543: [::std::os::raw::c_char; 4usize],
+    pub added: *mut *mut tm_the_truth_object_o,
+    #[doc = " Objects removed at this instance."]
+    pub num_removed: u32,
+    pub _padding_548: [::std::os::raw::c_char; 4usize],
+    pub removed: *const tm_tt_id_t,
+    #[doc = " Objects instantiated at this instance."]
+    pub num_instantiated: u32,
+    pub _padding_553: [::std::os::raw::c_char; 4usize],
+    pub instantiated: *mut *mut tm_the_truth_object_o,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_set_local_subobject_set_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_set_local_subobject_set_t>(),
+        48usize,
+        concat!(
+            "Size of: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_set_local_subobject_set_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_the_truth_set_local_subobject_set_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).num_added as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(num_added)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>()))._padding_543
+                as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(_padding_543)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).added as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(added)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).num_removed
+                as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(num_removed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>()))._padding_548
+                as *const _ as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(_padding_548)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).removed as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(removed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).num_instantiated
+                as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(num_instantiated)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>()))._padding_553
+                as *const _ as usize
+        },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(_padding_553)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_set_local_subobject_set_t>())).instantiated
+                as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_set_local_subobject_set_t),
+            "::",
+            stringify!(instantiated)
+        )
+    );
+}
+#[doc = " Used for the return value of [[changed_objects()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_changed_objects_t {
+    #[doc = " If *true*, some changes were lost because we only have a fixed buffer for keeping track of"]
+    #[doc = " changes. In this case, the caller should assume that all the objects might have changed."]
+    pub overflow: bool,
+    pub _padding_563: [::std::os::raw::c_char; 3usize],
+    #[doc = " Number of changed objects in the list."]
+    pub num_objects: u32,
+    #[doc = " The list of changed objects, allocated with the temp allocator."]
+    pub objects: *mut tm_tt_id_t,
+    #[doc = " Version returned. Query later with this as `since_version` to get the changes that happened"]
+    #[doc = " after this."]
+    pub version: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_changed_objects_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_changed_objects_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_the_truth_changed_objects_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_changed_objects_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_changed_objects_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).overflow as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_changed_objects_t),
+            "::",
+            stringify!(overflow)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>()))._padding_563 as *const _
+                as usize
+        },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_changed_objects_t),
+            "::",
+            stringify!(_padding_563)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).num_objects as *const _
+                as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_changed_objects_t),
+            "::",
+            stringify!(num_objects)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).objects as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_changed_objects_t),
+            "::",
+            stringify!(objects)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_changed_objects_t>())).version as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_changed_objects_t),
+            "::",
+            stringify!(version)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_hash_u64_to_id_t {
+    _unused: [u8; 0],
+}
+#[doc = " Used for coordinating inter-truth operations, such as copying objects between two separate"]
+#[doc = " truths. See [[interop_clone_object()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_interop_context_t {
+    pub to_tt: *mut tm_the_truth_o,
+    pub from_tt: *mut tm_the_truth_o,
+    pub type_lookup: *mut tm_hash32_t,
+    pub property_lookup: *mut tm_hash32_t,
+    pub buffer_lookup: *mut tm_hash32_t,
+    pub object_lookup: *mut tm_hash_u64_to_id_t,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_interop_context_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_interop_context_t>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_the_truth_interop_context_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_interop_context_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_interop_context_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).to_tt as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_interop_context_t),
+            "::",
+            stringify!(to_tt)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).from_tt as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_interop_context_t),
+            "::",
+            stringify!(from_tt)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).type_lookup as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_interop_context_t),
+            "::",
+            stringify!(type_lookup)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).property_lookup as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_interop_context_t),
+            "::",
+            stringify!(property_lookup)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).buffer_lookup as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_interop_context_t),
+            "::",
+            stringify!(buffer_lookup)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_interop_context_t>())).object_lookup as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_interop_context_t),
+            "::",
+            stringify!(object_lookup)
+        )
+    );
+}
+#[doc = " This object was added to the parent's instance, and does not exist in the parent's prototype."]
+#[doc = " (If the parent doesn't have a prototype, all its children will be of type"]
+#[doc = " [[TM_TT_PROTOTYPE_RELATION_ADDED]].)"]
+pub const TM_TT_PROTOTYPE_RELATION_ADDED: tm_the_truth_prototype_relation = 0;
+#[doc = " This object was instantiated from a prototype asset."]
+pub const TM_TT_PROTOTYPE_RELATION_ASSET: tm_the_truth_prototype_relation = 1;
+#[doc = " This object was inherited (without modification) from the parent's prototype. It cannot be"]
+#[doc = " modified locally without first being instantiated."]
+pub const TM_TT_PROTOTYPE_RELATION_INHERITED: tm_the_truth_prototype_relation = 2;
+#[doc = " This object was instantiated from a child of the parent's prototype, so that local"]
+#[doc = " modifications can be made to it."]
+pub const TM_TT_PROTOTYPE_RELATION_INSTANTIATED: tm_the_truth_prototype_relation = 3;
+#[doc = " This object was removed locally. I.e., it exists in the prototype, but not in the instance."]
+pub const TM_TT_PROTOTYPE_RELATION_REMOVED: tm_the_truth_prototype_relation = 4;
+#[doc = " The object's are not related."]
+pub const TM_TT_PROTOTYPE_RELATION_NONE: tm_the_truth_prototype_relation = 5;
+#[doc = " Indicates the relation between an object and its prototype."]
+pub type tm_the_truth_prototype_relation = ::std::os::raw::c_int;
+#[doc = " Result of [[get_buffer()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_buffer_t {
+    #[doc = " ID identifying the buffer."]
+    #[doc = ""]
+    #[doc = " !!! NOTE: TODO"]
+    #[doc = "     Should we remove this and hide how buffers are implemented in The Truth? Currently, the"]
+    #[doc = "     render system uses this ID quite a lot."]
+    pub id: u32,
+    pub _padding_627: [::std::os::raw::c_char; 4usize],
+    #[doc = " Size of buffer."]
+    pub size: u64,
+    #[doc = " Data of buffer."]
+    pub data: *const ::std::os::raw::c_void,
+    #[doc = " Hash value of buffer."]
+    pub hash: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_buffer_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_buffer_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_tt_buffer_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_buffer_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_buffer_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_buffer_t),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>()))._padding_627 as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_buffer_t),
+            "::",
+            stringify!(_padding_627)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).size as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_buffer_t),
+            "::",
+            stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).data as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_buffer_t),
+            "::",
+            stringify!(data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_buffer_t>())).hash as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_buffer_t),
+            "::",
+            stringify!(hash)
+        )
+    );
+}
+#[doc = " Variant structure that can hold any property value."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_tt_prop_value_t {
+    pub type_: tm_the_truth_property_type,
+    pub _padding_643: [::std::os::raw::c_char; 4usize],
+    pub __bindgen_anon_1: tm_tt_prop_value_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union tm_tt_prop_value_t__bindgen_ty_1 {
+    pub b: bool,
+    pub u32_: u32,
+    pub u64_: u64,
+    pub f32_: f32,
+    pub f64_: f64,
+    pub string: *const ::std::os::raw::c_char,
+    pub buffer: tm_tt_buffer_t,
+    pub object: tm_tt_id_t,
+    pub set: *const tm_tt_id_t,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_prop_value_t__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_prop_value_t__bindgen_ty_1>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_tt_prop_value_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_prop_value_t__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).b as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(b)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).u32_ as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(u32_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).u64_ as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(u64_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).f32_ as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(f32_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).f64_ as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(f64_)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).string as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(string)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).buffer as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(buffer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).object as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_prop_value_t__bindgen_ty_1>())).set as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t__bindgen_ty_1),
+            "::",
+            stringify!(set)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_tm_tt_prop_value_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_prop_value_t>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_tt_prop_value_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_prop_value_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_prop_value_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_prop_value_t>())).type_ as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_prop_value_t>()))._padding_643 as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_prop_value_t),
+            "::",
+            stringify!(_padding_643)
+        )
+    );
+}
+#[doc = " Represents an action in an undo scope."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_undo_action_t {
+    #[doc = " The state of the object before the action."]
+    pub before: *const tm_the_truth_object_o,
+    #[doc = " The state of the object after the action."]
+    pub after: *const tm_the_truth_object_o,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_undo_action_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_undo_action_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_tt_undo_action_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_undo_action_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_undo_action_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_undo_action_t>())).before as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_undo_action_t),
+            "::",
+            stringify!(before)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_undo_action_t>())).after as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_undo_action_t),
+            "::",
+            stringify!(after)
+        )
+    );
+}
+#[doc = " Options for [[serialize()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_serialize_options_t {
+    #[doc = " In the `buffer_data`, instead of serializing the full buffers, just serialize their hashes."]
+    #[doc = " This is used for network serialization. Instead of sending all the buffers over the network,"]
+    #[doc = " we just send the hashes. On the receiving end we check those hashes against a cache and only"]
+    #[doc = " request the sender to send the hashes that we are missing."]
+    pub serialize_buffers_as_hashes: bool,
+    #[doc = " Don't put the type index in the serialized data. The type index consumes about ~100 K, so"]
+    #[doc = " it's not something you want to include when serializing small pieces of data. The purpose of"]
+    #[doc = " the type index is to make it possible to deserialize the data into a Truth with a different"]
+    #[doc = " set of types. If you don't need this capability or if you have other ways of providing the"]
+    #[doc = " type information, you don't need to serialize the type index."]
+    pub skip_type_index: bool,
+    pub _padding_684: [::std::os::raw::c_char; 6usize],
+    #[doc = " If not NULL, this set will accumulate all the object types found when serializing the object."]
+    pub types: *mut tm_set_t,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_serialize_options_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_serialize_options_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_tt_serialize_options_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_serialize_options_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_serialize_options_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_serialize_options_t>())).serialize_buffers_as_hashes
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_serialize_options_t),
+            "::",
+            stringify!(serialize_buffers_as_hashes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_serialize_options_t>())).skip_type_index as *const _
+                as usize
+        },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_serialize_options_t),
+            "::",
+            stringify!(skip_type_index)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_serialize_options_t>()))._padding_684 as *const _ as usize
+        },
+        2usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_serialize_options_t),
+            "::",
+            stringify!(_padding_684)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_serialize_options_t>())).types as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_serialize_options_t),
+            "::",
+            stringify!(types)
+        )
+    );
+}
+pub const TM_THE_TRUTH_MAX_PROPERTIES: ::std::os::raw::c_int = 64;
+#[doc = " Maximum number of properties supported for objects in The Truth. This is set to 64, because we"]
+#[doc = " use 64 bits in the property bitmask."]
+pub type _bindgen_ty_1 = ::std::os::raw::c_int;
+#[doc = " Structure specifiying how a serialized type maps to a type in the runtime Truth."]
+#[doc = ""]
+#[doc = " !!! NOTE: TODO"]
+#[doc = "    Use pointers for `file_property_to_memory_property` and `file_property_type`"]
+#[doc = "    rather than auto-sizing them to 64 entries."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_serialized_type_info_t {
+    #[doc = " Runtime type, corresponding to this serialized type."]
+    pub runtime_type: tm_tt_type_t,
+    #[doc = " True if the properties differ between the runtime type and the serialized type."]
+    pub properties_differ: bool,
+    pub _padding_706: [::std::os::raw::c_char; 3usize],
+    #[doc = " Number of properties in the serialized type."]
+    pub num_properties: u32,
+    #[doc = " Lookup table from serialized property to the corresponding runtime property."]
+    pub serialized_property_to_runtime_property: [u32; 64usize],
+    #[doc = " Type of the serialized property."]
+    pub serialized_property_type: [u32; 64usize],
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_serialized_type_info_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_serialized_type_info_t>(),
+        528usize,
+        concat!("Size of: ", stringify!(tm_the_truth_serialized_type_info_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_serialized_type_info_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_the_truth_serialized_type_info_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).runtime_type as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_serialized_type_info_t),
+            "::",
+            stringify!(runtime_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).properties_differ
+                as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_serialized_type_info_t),
+            "::",
+            stringify!(properties_differ)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>()))._padding_706 as *const _
+                as usize
+        },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_serialized_type_info_t),
+            "::",
+            stringify!(_padding_706)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).num_properties
+                as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_serialized_type_info_t),
+            "::",
+            stringify!(num_properties)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>()))
+                .serialized_property_to_runtime_property as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_serialized_type_info_t),
+            "::",
+            stringify!(serialized_property_to_runtime_property)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_serialized_type_info_t>())).serialized_property_type
+                as *const _ as usize
+        },
+        272usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_serialized_type_info_t),
+            "::",
+            stringify!(serialized_property_type)
+        )
+    );
+}
+#[doc = " Options for [[deserialize()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_deserialize_options_t {
+    #[doc = " Corresponds to the `serialize_buffers_as_hashes` serialization option. If this is set for"]
+    #[doc = " deserialize it indicates that the buffers have *not* been serialized into the data and that"]
+    #[doc = " the data just contains buffer hashes. When this option is given, the deserializer will assume"]
+    #[doc = " that buffer data has already been loaded into the [[buffers()]] object and can be retrieved"]
+    #[doc = " with a [[tm_buffers_i->lookup()]] from the hash."]
+    pub buffers_preloaded: bool,
+    #[doc = " Skip type index when deserializing. This must match the `skip_type_index` flag used when"]
+    #[doc = " serializing the data."]
+    pub skip_type_index: bool,
+    pub _padding_731: [::std::os::raw::c_char; 6usize],
+    #[doc = " If not NULL -- specifies an explicit mapping of how the types in the serialized data map to"]
+    #[doc = " the types in the runtime Truth. If this is NULL, and `skip_type_index == false` we will read"]
+    #[doc = " a serialized type index from the file and create a type mapping from that. If this is NULL"]
+    #[doc = " and `skip_type_index == true`, the serialized data is assumed to have the same types and"]
+    #[doc = " properties as the runtime Truth."]
+    pub type_infos: *const tm_the_truth_serialized_type_info_t,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_deserialize_options_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_deserialize_options_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_tt_deserialize_options_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_deserialize_options_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_deserialize_options_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>())).buffers_preloaded as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_deserialize_options_t),
+            "::",
+            stringify!(buffers_preloaded)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>())).skip_type_index as *const _
+                as usize
+        },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_deserialize_options_t),
+            "::",
+            stringify!(skip_type_index)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>()))._padding_731 as *const _
+                as usize
+        },
+        2usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_deserialize_options_t),
+            "::",
+            stringify!(_padding_731)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_deserialize_options_t>())).type_infos as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_deserialize_options_t),
+            "::",
+            stringify!(type_infos)
+        )
+    );
+}
+#[doc = " Options for [[serialize_changes()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_serialize_changes_options_t {
+    #[doc = " If *true*, the changes will be serialized without a header. This can be useful when you"]
+    #[doc = " serialize multiple messages onto the same stream. Since the header includes the type list"]
+    #[doc = " (for deserialization into a Truth with different types) it can be pretty big (~70 K), but it"]
+    #[doc = " will be the same for all messages in the stream, so you only really need it for the first"]
+    #[doc = " one."]
+    #[doc = ""]
+    #[doc = " If you serialize changes with the `no_header` option, you must explicitly pass the `header`"]
+    #[doc = " to the [[deserialize_changes()]] functions. (Typically you would just pass it the first message"]
+    #[doc = " in the stream, since that includes the header.)"]
+    pub no_header: bool,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_serialize_changes_options_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_serialize_changes_options_t>(),
+        1usize,
+        concat!("Size of: ", stringify!(tm_tt_serialize_changes_options_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_serialize_changes_options_t>(),
+        1usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_tt_serialize_changes_options_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_serialize_changes_options_t>())).no_header as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_serialize_changes_options_t),
+            "::",
+            stringify!(no_header)
+        )
+    );
+}
+#[doc = " Options for [[deserialize_changes()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_deserialize_changes_options_t {
+    #[doc = " If you are deserializing a message that was serialized with `no_header` you must pass a"]
+    #[doc = " header from a previous message in the `header` field. Typically this should just be a"]
+    #[doc = " previous message from the same stream that was serialized with a header."]
+    pub header: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_deserialize_changes_options_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_deserialize_changes_options_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_tt_deserialize_changes_options_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_deserialize_changes_options_t>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(tm_tt_deserialize_changes_options_t)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_deserialize_changes_options_t>())).header as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_deserialize_changes_options_t),
+            "::",
+            stringify!(header)
+        )
+    );
+}
+#[doc = " Return value of [[memory_use()]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_memory_use_t {
+    #[doc = " Amount of memory belonging to the object that is currently resident in memory."]
+    pub resident: u64,
+    #[doc = " Additional object memory that can be loaded on request."]
+    pub unloaded: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_memory_use_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_memory_use_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_tt_memory_use_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_memory_use_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_memory_use_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_memory_use_t>())).resident as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_memory_use_t),
+            "::",
+            stringify!(resident)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_memory_use_t>())).unloaded as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_memory_use_t),
+            "::",
+            stringify!(unloaded)
+        )
+    );
+}
+#[doc = " API for manipulating The Truth."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_api {
+    #[doc = " Returns the allocator used by The Truth."]
+    pub allocator:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> *mut tm_allocator_i>,
+    #[doc = " Returns the buffers object used by The Truth."]
+    pub buffers:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> *mut tm_buffers_i>,
+    #[doc = " Returns the buffers object used by The Truth as a [[tm_streamable_buffers_i]]."]
+    pub streamable_buffers: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> *mut tm_streamable_buffers_i,
+    >,
+    #[doc = " Creates a new object type with the specified `name` and the specified `properties`."]
+    #[doc = ""]
+    #[doc = " If a type with `name` already exists, that type is returned. Different types with the same"]
+    #[doc = " name is not supported."]
+    #[doc = ""]
+    #[doc = " [[create_object_type()]] is not thread-safe and can only be called during the serial \"start-up\""]
+    #[doc = " phase of using The Truth."]
+    pub create_object_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            name: *const ::std::os::raw::c_char,
+            properties: *const tm_the_truth_property_definition_t,
+            num_properties: u32,
+        ) -> tm_tt_type_t,
+    >,
+    #[doc = " Sets the default `object` for the `object_type`."]
+    #[doc = ""]
+    #[doc = " If a type has a default object, creating an object of the type will clone the default object."]
+    #[doc = " This allows objects to have non-zero initialization. Note that from a design perspective, you"]
+    #[doc = " should strive for zero initialization, so only use this when necessary."]
+    pub set_default_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object_type: tm_tt_type_t,
+            object: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " Sets the default object of the type to be an object where all fields are zeroed, except for"]
+    #[doc = " any subobject fields, which are initialized to the subobjects default value."]
+    #[doc = ""]
+    #[doc = " This is a common enough case that it makes sense to have a custom function for it. Note that"]
+    #[doc = " if you need to set any `float` or `int` values to non-zero you have to use [[set_default_object()]]"]
+    #[doc = " instead."]
+    pub set_default_object_to_create_subobjects: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, object_type: tm_tt_type_t),
+    >,
+    #[doc = " Returns the default object of the specified object type."]
+    pub default_object: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object_type: tm_tt_type_t) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns true if the specified object property has the default value."]
+    pub is_default: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> bool,
+    >,
+    #[doc = " Sets an aspect for the specified object type."]
+    pub set_aspect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object_type: tm_tt_type_t,
+            aspect: tm_strhash_t,
+            data: *const ::std::os::raw::c_void,
+        ),
+    >,
+    #[doc = " Sets a default aspect that will be returned if no specific aspect has been set for the"]
+    #[doc = " object type."]
+    pub set_default_aspect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            aspect: tm_strhash_t,
+            data: *const ::std::os::raw::c_void,
+        ),
+    >,
+    #[doc = " Sets an aspect for the specified property of the specified object."]
+    pub set_property_aspect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object_type: tm_tt_type_t,
+            property: u32,
+            aspect: tm_strhash_t,
+            data: *const ::std::os::raw::c_void,
+        ),
+    >,
+    #[doc = " Called after a plugin hot reload to reload the aspects."]
+    pub reload_aspects: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+    #[doc = " Returns the type with the specified name. This function assumes that the type exists. If"]
+    #[doc = " the type is not found, an error is generated."]
+    pub object_type_from_name_hash: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, name_hash: tm_strhash_t) -> tm_tt_type_t,
+    >,
+    #[doc = " As [[object_type_from_name_hash()]], but does not generate an error if the type does not exist,"]
+    #[doc = " instead it just returns 0."]
+    pub optional_object_type_from_name_hash: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, name_hash: tm_strhash_t) -> tm_tt_type_t,
+    >,
+    #[doc = " Returns the total number of types. Type 0 is used to represent \"no type\". You can't create"]
+    #[doc = " any objets of type 0."]
+    pub num_types: ::std::option::Option<unsafe extern "C" fn(tt: *const tm_the_truth_o) -> u32>,
+    #[doc = " Returns the name of the specified object type."]
+    pub type_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object_type: tm_tt_type_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the hashed name of the specified object type."]
+    pub type_name_hash: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object_type: tm_tt_type_t) -> tm_strhash_t,
+    >,
+    #[doc = " Returns the number of properties of the object type."]
+    pub num_properties: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object_type: tm_tt_type_t) -> u32,
+    >,
+    #[doc = " Returns an array with information about each property of the object type. The returned"]
+    #[doc = " array has [[num_properties()]] entries."]
+    pub properties: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object_type: tm_tt_type_t,
+        ) -> *const tm_the_truth_property_definition_t,
+    >,
+    #[doc = " Returns *true* if the `object_type` has a property with specified `name_hash` and `type`. The"]
+    #[doc = " property index is returned in `res`. If there is no such property, *false* is returned and"]
+    #[doc = " `res` is not modified."]
+    pub find_property: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object_type: tm_tt_type_t,
+            name_hash: tm_strhash_t,
+            type_: u32,
+            res: *mut u32,
+        ) -> bool,
+    >,
+    #[doc = " Returns the index of the property with the specified name in the type. Property indices are"]
+    #[doc = " used as arguments to the property getters and setters. If no property with the specified name"]
+    #[doc = " exists, 0 is returned."]
+    #[doc = ""]
+    #[doc = " !!! WARNING"]
+    #[doc = "     0 can be a valid index, so this can't be used to test for existence of a property, use"]
+    #[doc = "     [[has_property()]] or [[find_property()]] for that."]
+    pub property_index: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            type_: tm_tt_type_t,
+            name_hash: tm_strhash_t,
+        ) -> u32,
+    >,
+    #[doc = " Returns *true* if the type has a property of the specified name and *false* otherwise."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     The returned value is `property_index() + 1`."]
+    pub has_property: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            type_: tm_tt_type_t,
+            name_hash: tm_strhash_t,
+        ) -> u32,
+    >,
+    #[doc = " Gets the specified aspect of the object type. If the specified aspect hasn't been set for"]
+    #[doc = " this object type, the default aspect will be returned."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     The default aspect is `NULL`, unless explicitly set with [[set_default_aspect()]]."]
+    pub get_aspect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object_type: tm_tt_type_t,
+            aspect: tm_strhash_t,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    #[doc = " Returns a carray of all the types implementing `aspect`, allocated with the temp allocator"]
+    #[doc = " `ta`."]
+    pub get_types_with_aspect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            aspect: tm_strhash_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_the_truth_get_types_with_aspect_t,
+    >,
+    #[doc = " Returns a carray of all aspects implemented by the specified object type."]
+    pub get_aspects: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object_type: tm_tt_type_t,
+        ) -> *const tm_the_truth_get_aspects_t,
+    >,
+    #[doc = " Gets the specified `aspect` of the `property`. If the specfied aspect hasn't been set for"]
+    #[doc = " this object type and property, `NULL` will be returned."]
+    pub get_property_aspect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object_type: tm_tt_type_t,
+            property: u32,
+            aspect: tm_strhash_t,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    #[doc = " Returns an carray of all the objects of `object_type`, allocated using the temp allocator"]
+    #[doc = " `ta`."]
+    pub all_objects_of_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object_type: tm_tt_type_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_tt_id_t,
+    >,
+    #[doc = " Create a scope for undo operations. All commits recorded under the scope will be saved and"]
+    #[doc = " can later be undone or redone."]
+    #[doc = ""]
+    #[doc = " The `name` should be a suitable name for the undo operations to be displayed in menus, etc."]
+    #[doc = " The Truth takes ownership of the name, so it can be a temporary string."]
+    #[doc = ""]
+    #[doc = " The returned undo scope can be passed to any function that modifies The Truth, to record that"]
+    #[doc = " action as an undoable action under the scope. If you don't want an action to be undoable, you"]
+    #[doc = " can pass [[TM_TT_NO_UNDO_SCOPE]] (0) for the `undo_scope` and no undo information will be"]
+    #[doc = " recorded. [[create_undo_scope()]] will never return 0."]
+    pub create_undo_scope: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            name: *const ::std::os::raw::c_char,
+        ) -> tm_tt_undo_scope_t,
+    >,
+    #[doc = " Similar to `create_undo_scope`, but the scope will be safe to use across multiple threads."]
+    #[doc = " The scope is flagged as thread safe by the top-most bit being set to 1."]
+    pub create_thread_safe_undo_scope: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            name: *const ::std::os::raw::c_char,
+        ) -> tm_tt_undo_scope_t,
+    >,
+    #[doc = " Returns the name registered with the undo scope."]
+    pub undo_scope_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            scope: tm_tt_undo_scope_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the objects modified in the undo scope as a carray allocated with `ta`."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     The returned carray is not de-duplicated, so the same object may appear in the"]
+    #[doc = "     carray more than once."]
+    pub undo_scope_objects: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            scope: tm_tt_undo_scope_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_tt_id_t,
+    >,
+    #[doc = " Get all the undo actions from the specified scope as a carray."]
+    pub undo_scope_actions: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            scope: tm_tt_undo_scope_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_tt_undo_action_t,
+    >,
+    #[doc = " Undoes the changes done under the specified `scope`. The scope should have been created with"]
+    #[doc = " the [[create_undo_scope()]] function."]
+    pub undo: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, scope: tm_tt_undo_scope_t),
+    >,
+    #[doc = " Redoes the changes done under the specified `scope`. The scope should have been created with"]
+    #[doc = " the [[create_undo_scope()]] function."]
+    pub redo: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, scope: tm_tt_undo_scope_t),
+    >,
+    #[doc = " Creates a new object of the specified type. The object will not have a prototype."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     We should introduce a type for `type` (and maybe for hashes too), to avoid confusing the"]
+    #[doc = "     arguments of this functions with [[create_object_of_hash()]]."]
+    pub create_object_of_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            type_: tm_tt_type_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Creates a new object of the specified type name hash. The object will not have a prototype."]
+    pub create_object_of_hash: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            type_name_hash: tm_strhash_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Creates a new object from the specified prototype. The object will have the same type as the"]
+    #[doc = " prototype."]
+    pub create_object_from_prototype: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            prototype: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Creates a new object by copying an existing object."]
+    #[doc = ""]
+    #[doc = " Unlike a prototype instance, a clone will have no references to the original object. Cloning"]
+    #[doc = " an object will clone its subobjects too. Buffers will not be cloned, instead the clone will"]
+    #[doc = " reference the buffer of the original object. However, since buffers are immutable, this"]
+    #[doc = " should not be an issue."]
+    pub clone_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Called on an instance to create a local copy of the subobject in the specified property."]
+    #[doc = " The local copy will have the corresponding subobject of `obj`'s prototype a its prototype."]
+    pub instantiate_subobject: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Removes a subobject that has been instantiated with [[instantiate_subobject()]]."]
+    pub remove_instantiated_subobject: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " As [[instantiate_subobject()]], but instantiates one of the members of a subobject set."]
+    pub instantiate_subobject_from_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            subobject: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Removes an instantiated subobject added with [[instantiate_subobject_from_set()]]."]
+    pub remove_instantiated_subobject_from_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            subobject: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Undoes [[remove_instantiated_subobject_from_set()]]. The `subobject` must be one previously"]
+    #[doc = " removed from the set by [[remove_instantiated_subobject_from_set()]]."]
+    pub add_instantiated_subobject_back_to_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            subobject: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " Returns the ID of the object from its pointer."]
+    pub id: ::std::option::Option<
+        unsafe extern "C" fn(obj: *const tm_the_truth_object_o) -> tm_tt_id_t,
+    >,
+    #[doc = " Destroys an object created by [[create_object_of_type()]], etc. Note that actual destruction"]
+    #[doc = " is deferred until the garbage collection phase."]
+    pub destroy_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Destroys a range of objects."]
+    pub destroy_objects: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *const tm_tt_id_t,
+            n: u32,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Should be called regularly in single-threaded scope to garbage collect deleted objects."]
+    pub garbage_collect: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+    #[doc = " Returns true if the specified object is still alive."]
+    pub is_alive: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object: tm_tt_id_t) -> bool,
+    >,
+    #[doc = " Ensures that `to_tt` in `ctx` contains all the types in `from_tt`. Also adds any missing"]
+    #[doc = " properties to types that already exist in `to_tt`. Populates `type_lookup` and"]
+    #[doc = " `property_lookup` in `ctx` with mappings between the two `to_tt` and `from_tt` objects."]
+    pub interop_ensure_compatibility:
+        ::std::option::Option<unsafe extern "C" fn(ctx: *mut tm_the_truth_interop_context_t)>,
+    #[doc = " Clones an object between two separate truths. The two The Truth objects are `to_tt` and"]
+    #[doc = " `from_tt` in `ctx`. Will populate `object_lookup` and `buffer_lookup` in `ctx` with any"]
+    #[doc = " new objects and buffers. `type_lookup` and `property_lookup` should be pre-populated by"]
+    #[doc = " [[interop_ensure_compatibility()]]. Does not clone references automatically."]
+    pub interop_clone_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut tm_the_truth_interop_context_t,
+            object: tm_tt_id_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Clones the `n` `assets` from `from_tt` to `to_tt`. Any assets that are referenced by any of"]
+    #[doc = " the cloned assets are automatically dragged along."]
+    #[doc = ""]
+    #[doc = " Returns a carray of the cloned assets, allocated by `ta`. This array includes not only the"]
+    #[doc = " initial `assets`, but also any assets referenced by them. The first `n` assets in the array"]
+    #[doc = " are guaranteed to map exactly to the `assets` passed, any assets after that represent"]
+    #[doc = " dragged-along dependencies."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     The returned assets are not added to the asset root automatically. This is the"]
+    #[doc = "     responsibility of the caller."]
+    #[doc = ""]
+    #[doc = " !!! NOTE: TODO"]
+    #[doc = "     * Should there be an option for \"remapping\" references into the existing Truth instead of"]
+    #[doc = "       cloning them. This could be useful if you copy/paste first one asset and then another one"]
+    #[doc = "       and they both refer the same third asset. You probably don't want that asset duplicated. It"]
+    #[doc = "       could also be used to avoid creating duplicates of for example core assets."]
+    #[doc = ""]
+    #[doc = "       A bit tricky to decide what the UI for this would look like. Any UI that deals with"]
+    #[doc = "       reference remapping will necessarily be a lot more complicated than simple copy/paste."]
+    #[doc = "* carray */"]
+    pub deep_clone_assets: ::std::option::Option<
+        unsafe extern "C" fn(
+            to_tt: *mut tm_the_truth_o,
+            from_tt: *const tm_the_truth_o,
+            assets: *const tm_tt_id_t,
+            n: u32,
+            undo_scope: tm_tt_undo_scope_t,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_tt_id_t,
+    >,
+    #[doc = " Returns the permanent unique identifier of the object. This identifier persists through"]
+    #[doc = " multiple loads of the object."]
+    pub uuid: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object: tm_tt_id_t) -> tm_uuid_t,
+    >,
+    #[doc = " Get a read pointer for reading properties from the object."]
+    pub read: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: tm_tt_id_t,
+        ) -> *const tm_the_truth_object_o,
+    >,
+    #[doc = " Gets the value of a `bool` property."]
+    pub get_bool: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> bool,
+    >,
+    #[doc = " Gets the value of an `uint32_t` property."]
+    pub get_uint32_t: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> u32,
+    >,
+    #[doc = " Gets the value of an `uint64_t` property."]
+    pub get_uint64_t: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> u64,
+    >,
+    #[doc = " Gets the value of a `float` property."]
+    pub get_float: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> f32,
+    >,
+    #[doc = " Gets the value of a `double` property."]
+    pub get_double: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> f64,
+    >,
+    #[doc = " Gets the value of a string property."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     The pointer returned by [[get_string()]] is not permanent. It is only guaranteed to"]
+    #[doc = "     live until the read object `obj` is garbage collected."]
+    pub get_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Gets the hash of a string property."]
+    pub get_string_hash: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_strhash_t,
+    >,
+    #[doc = " Gets the string property as a [[tm_str_t]]."]
+    pub get_str: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_str_t,
+    >,
+    #[doc = " Gets the value of a buffer property."]
+    pub get_buffer: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_tt_buffer_t,
+    >,
+    #[doc = " Gets the value of a reference property."]
+    pub get_reference: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Gets the value of a subobject property."]
+    pub get_subobject: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Gets the property value and returns it as a variant."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     It's legal to pass NULL for `ta`. If you do and the property is a set, the set pointer"]
+    #[doc = "     in [[tm_tt_prop_value_t]] will be `NULL`."]
+    pub get_property_value: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> tm_tt_prop_value_t,
+    >,
+    #[doc = " Returns *true* if `a` and `b` are equal."]
+    #[doc = ""]
+    #[doc = " If either `a` or `b` is a set with a `NULL` set pointer, the function will return *false*."]
+    pub property_value_equal: ::std::option::Option<
+        unsafe extern "C" fn(a: tm_tt_prop_value_t, b: tm_tt_prop_value_t) -> bool,
+    >,
+    #[doc = " Returns a carray of all members of the set, allocated using `ta`."]
+    #[doc = ""]
+    #[doc = " You can use the functions in the [[carray.inl]] interface to get the size of the returned"]
+    #[doc = " array. Since the size of a carray is stored as a `uint64_t` immediately preceeding the array,"]
+    #[doc = " you can also access the size as `a[-1]`."]
+    #[doc = ""]
+    #[doc = " Since the returned list is allocated locally and not shared, it can safely be cast to"]
+    #[doc = " `tm_tt_id_t *` for modification. It is returned as `const` since usually you do not want to"]
+    #[doc = " modify it."]
+    pub get_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *const tm_tt_id_t,
+    >,
+    #[doc = " Returns a carray of all members of the set, allocated using `ta`."]
+    #[doc = ""]
+    #[doc = " You can use the functions in the [[carray.inl]] interface to get the size of the returned"]
+    #[doc = " array. Since the size of a carray is stored as a `uint64_t` immediately preceeding the array,"]
+    #[doc = " you can also access the size as `a[-1]`."]
+    #[doc = ""]
+    #[doc = " Since the returned list is allocated locally and not shared, it can safely be cast to"]
+    #[doc = " `tm_tt_id_t *` for modification. It is returned as `const` since usually you do not want to"]
+    #[doc = " modify it."]
+    pub get_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *const tm_tt_id_t,
+    >,
+    #[doc = " Gets the size of the set without retrieving the elements. This is cheaper than calling"]
+    #[doc = " [[get_reference_set()]]."]
+    pub get_reference_set_size: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> u64,
+    >,
+    #[doc = " Gets the size of the set without retrieving the elements. This is cheaper than calling"]
+    #[doc = " [[get_subobject_set()]]."]
+    pub get_subobject_set_size: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> u64,
+    >,
+    #[doc = " Returns an array with the members of the set that have been locally removed. I.e., members"]
+    #[doc = " that exist in the prototype, but not in the local instance."]
+    pub get_subobject_set_locally_removed: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *const tm_tt_id_t,
+    >,
+    #[doc = " Returns the first subobject of the specified type or 0 if there is no subobject of the"]
+    #[doc = " specified type."]
+    pub find_subobject_of_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+            type_: tm_tt_type_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns *true* if `subobject` is a member of the subobject set `property`."]
+    pub is_subobject_of: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+            subobject: tm_tt_id_t,
+        ) -> bool,
+    >,
+    #[doc = " Returns *true* if `object` is contained in the reference set `property`."]
+    pub is_in_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+            object: tm_tt_id_t,
+        ) -> bool,
+    >,
+    #[doc = " Returns the property index of `subobject` in `object` or `UINT32_MAX` if `subobject` is not a"]
+    #[doc = " subobject of `object`."]
+    pub property_index_of_subobject: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: tm_tt_id_t,
+            subobject: tm_tt_id_t,
+        ) -> u32,
+    >,
+    #[doc = " Get a write pointer for setting properties on the object."]
+    pub write: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+        ) -> *mut tm_the_truth_object_o,
+    >,
+    #[doc = " Commits writes written through the write pointer. This makes the writes visible to readers."]
+    #[doc = " The old object data will be freed during garbage collection. If multiple writers commit the"]
+    #[doc = " same object, the last commit wins."]
+    pub commit: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Commits all the objects in the specified range."]
+    pub commit_range: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut *mut tm_the_truth_object_o,
+            n: u32,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Retargets the write pointer `obj` obtained from [[write()]] to instead target the `object`."]
+    #[doc = " This can be used when you want to update an object as a single operation, without"]
+    #[doc = " modifications to sub-objects sending version notification changes. Create a new object,"]
+    #[doc = " obtain a write pointer for that and retarget the write pointer before committing."]
+    pub retarget_write: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            object: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " As [[write()]], but records the original object pointer before the write in `original`."]
+    pub try_write: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            original: *mut *const tm_the_truth_object_o,
+        ) -> *mut tm_the_truth_object_o,
+    >,
+    #[doc = " As [[commit()]], but instead of using a *last-commit-wins* strategy, the commit only succeeds"]
+    #[doc = " if no one else has committed changes to the object since the write pointer was obtained."]
+    #[doc = ""]
+    #[doc = " `original` should be the original object pointer obtained from [[try_write()]]."]
+    #[doc = ""]
+    #[doc = " Returns *true* if the changes were successfully commited and *false* if someone else"]
+    #[doc = " committed the object before us. In this case, no changes are applied."]
+    #[doc = ""]
+    #[doc = " You typically call [[try_write()]] and [[try_commit()]] in a loop where you retry the"]
+    #[doc = " modifications you want to do until they succeed."]
+    pub try_commit: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            original: *const tm_the_truth_object_o,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> bool,
+    >,
+    #[doc = " Sets the value of a `bool` property."]
+    pub set_bool: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: bool,
+        ),
+    >,
+    #[doc = " Sets the value of an `uint32_t` property."]
+    pub set_uint32_t: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: u32,
+        ),
+    >,
+    #[doc = " Sets the value of an `uint64_t` property."]
+    pub set_uint64_t: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: u64,
+        ),
+    >,
+    #[doc = " Sets the value of a `float` property."]
+    pub set_float: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: f32,
+        ),
+    >,
+    #[doc = " Sets the value of a `double` property."]
+    pub set_double: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: f64,
+        ),
+    >,
+    #[doc = " Sets the value of a `string` property."]
+    pub set_string: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Sets the value of a `string` property as a [[tm_str_t]]."]
+    pub set_str: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: tm_str_t,
+        ),
+    >,
+    #[doc = " Sets the value of a `buffer` property."]
+    #[doc = ""]
+    #[doc = " [[set_buffer()]] takes over the buffer reference ownership from the caller. You should own a"]
+    #[doc = " reference to the buffer before calling [[set_buffer()]] and you don't need to call"]
+    #[doc = " [[tm_buffers_i->release()]] on the buffer."]
+    #[doc = ""]
+    #[doc = " After you call [[set_buffer()]], The Truth will properly track reference count of all its"]
+    #[doc = " buffer copies. Note that things like write copies, the undo stack and the changelog can own"]
+    #[doc = " references too."]
+    #[doc = ""]
+    #[doc = " If you call [[set_buffer()]] multiple times using the same buffer, you need to call call"]
+    #[doc = " [[tm_buffers_i->retain()]] on the buffer before each call except the first one, since you"]
+    #[doc = " give away the reference when you call [[set_buffer()]] and you are required to hold a"]
+    #[doc = " reference before calling [[set_buffer()]]."]
+    pub set_buffer: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: u32,
+        ),
+    >,
+    #[doc = " As [[set_buffer()]] but automatically allocates a new buffer and fills it with the data from"]
+    #[doc = " `p`."]
+    pub set_buffer_content: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            p: *mut ::std::os::raw::c_void,
+            size: u64,
+        ),
+    >,
+    #[doc = " Sets the value of a reference property."]
+    pub set_reference: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " Sets the value of a subobject property."]
+    pub set_subobject: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: *mut tm_the_truth_object_o,
+        ),
+    >,
+    #[doc = " Sets the value of a subobject property as a [[tm_tt_id_t]]."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     This setter will automatically call [[write()]] and [[commit()]] on the `value` object"]
+    #[doc = "     in order to change its owner to `obj`."]
+    pub set_subobject_id: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Sets the property value as a variant."]
+    pub set_property_value: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            value: tm_tt_prop_value_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Clears the property."]
+    #[doc = ""]
+    #[doc = " If this object is an instance, the property will return to the prototype's value, otherwise"]
+    #[doc = " the property will be cleared (empty string, zero numbers, etc)."]
+    pub clear: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+        ),
+    >,
+    #[doc = " Clears the object completely."]
+    pub clear_object: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, obj: *mut tm_the_truth_object_o),
+    >,
+    #[doc = " Propagates the value of `property` to the object's prototype and then clears the local"]
+    #[doc = " override."]
+    pub propagate_property: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            property: u32,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " As [[propagate_property()]], but doesn't propagate any subobjects in the `skip` list."]
+    pub propagate_property_except: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            property: u32,
+            skip: *const tm_tt_id_t,
+            num_skip: u32,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Assuming that `property` is of SUBOBJECT_SET type, propagate (add, remove, modify if necessary) only the specified"]
+    #[doc = " subobject."]
+    pub propagate_property_subobject: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            property: u32,
+            subobject: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Propagates all the object's overridden properties to the prototype and then clears the local"]
+    #[doc = " overrides."]
+    pub propagate_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " As [[propagate_object()]], but doesn't propagate any subobjects in the `skip` list."]
+    pub propagate_object_except: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            skip: *const tm_tt_id_t,
+            num_skip: u32,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Adds the items to the set."]
+    pub add_to_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *const tm_tt_id_t,
+            count: u32,
+        ),
+    >,
+    #[doc = " Removes the items from the set."]
+    pub remove_from_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *const tm_tt_id_t,
+            count: u32,
+        ),
+    >,
+    #[doc = " Clears the set."]
+    pub clear_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+        ),
+    >,
+    #[doc = " This adds an override to the instance which will remove the specified items from the"]
+    #[doc = " reference set of its prototype for this specific instance."]
+    pub remove_from_prototype_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *const tm_tt_id_t,
+            count: u32,
+        ),
+    >,
+    #[doc = " This stops removing the specified items when overriding the prototype set."]
+    pub cancel_remove_from_prototype_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *const tm_tt_id_t,
+            count: u32,
+        ),
+    >,
+    #[doc = " Adds the items to the set."]
+    pub add_to_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *mut *mut tm_the_truth_object_o,
+            count: u32,
+        ),
+    >,
+    #[doc = " Removes the items from the set."]
+    pub remove_from_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *const tm_tt_id_t,
+            count: u32,
+        ),
+    >,
+    #[doc = " Clears the set."]
+    pub clear_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+        ),
+    >,
+    #[doc = " This adds an override to the instance which will remove the specified items from the"]
+    #[doc = " subobject set of its prototype for this specific instance."]
+    pub remove_from_prototype_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *const tm_tt_id_t,
+            count: u32,
+        ),
+    >,
+    #[doc = " This stops removing the specified items when overriding the prototype set."]
+    pub cancel_remove_from_prototype_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            items: *const tm_tt_id_t,
+            count: u32,
+        ),
+    >,
+    #[doc = " Returns the prototype of the specified object."]
+    pub prototype: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object: tm_tt_id_t) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns the owner of the object."]
+    #[doc = ""]
+    #[doc = " Subobjects have exactly one owner, the enclosing parent object. If a subobject is later"]
+    #[doc = " detached from the parent, [[owner()]] will still return the original owner."]
+    pub owner: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object: tm_tt_id_t) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns *true* if `object` is currently the owner of `subobject`. Note that the result might"]
+    #[doc = " differ from [[owner()]] if `subobject` has been detached."]
+    #[doc = ""]
+    #[doc = " !!! note: TODO"]
+    #[doc = "     Investigate: maybe it's better to have the return value of [[owner()]] always be"]
+    #[doc = "     \"up-to-date\" so there would be no need for this function."]
+    pub is_currently_owner_of: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: tm_tt_id_t,
+            subobject: tm_tt_id_t,
+        ) -> bool,
+    >,
+    #[doc = " Returns `true` if the property is overridden from the object's prototype. For set types, this"]
+    #[doc = " function returns `true` if the set has been modified locally. If the object does not have a"]
+    #[doc = " prototype, this function will always return `false`."]
+    pub is_overridden: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> bool,
+    >,
+    #[doc = " Returns `true` if any data has been set for the property, either locally or in its prototype."]
+    pub has_data: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> bool,
+    >,
+    #[doc = " Returns the relation between the object `object` and its parent's prototype."]
+    pub prototype_relation: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            parent: tm_tt_id_t,
+            property: u32,
+            object: tm_tt_id_t,
+        ) -> tm_the_truth_prototype_relation,
+    >,
+    #[doc = " Returns the version of the object."]
+    #[doc = ""]
+    #[doc = " The version changes whenever the object or one of its subobject changes. It can be used to"]
+    #[doc = " detect when caches need to be invalidated. Note that the version number is guaranteed to"]
+    #[doc = " change if the object changes, but a changed version number does not necessarily mean a"]
+    #[doc = " changed object (the object could change to the same value)."]
+    #[doc = ""]
+    #[doc = " The version number starts at `1` for a newly created object. If the object doesn't exist or"]
+    #[doc = " has been destroyed, [[version()]] will return `0`."]
+    pub version: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, object: tm_tt_id_t) -> u32,
+    >,
+    #[doc = " Returns a list of objects of `type` that have changed since `since_version`."]
+    #[doc = ""]
+    #[doc = " The Truth keeps track of the last 512 changed objects. If more than 512 objects have changed,"]
+    #[doc = " the *overflow* flag will be set in the returned struct. In this case, the caller should"]
+    #[doc = " assume that any object of the type might have changed and do a complete resync."]
+    #[doc = ""]
+    #[doc = " Querying with a `since_version` greater than the current version will always result in an"]
+    #[doc = " overflow. You can use this to query for the current version without getting a list of changed"]
+    #[doc = " objects (just query with `UINT64_MAX`)."]
+    #[doc = ""]
+    #[doc = " !!! NOTE"]
+    #[doc = "     Objects might appear multiple times in the returned list if they've changed"]
+    #[doc = "     multiple times. It is up to the caller to de-duplicate the list as necessary. Note also, that"]
+    #[doc = "     objects in the change list might have been destroyed since they were put on the list, or"]
+    #[doc = "     destroyed and replaced with a new object at the same index."]
+    pub changed_objects: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            type_: tm_tt_type_t,
+            since_version: u64,
+            ta: *mut tm_temp_allocator_i,
+        ) -> tm_the_truth_changed_objects_t,
+    >,
+    #[doc = " Enables or disables the changelog."]
+    #[doc = ""]
+    #[doc = " An external system can request to use the changelog by calling [[request_changelog()]]. This"]
+    #[doc = " returns a handle that represents the request. When the external system does not need the"]
+    #[doc = " changelog anymore, it can call [[relinquish_changelog()]] with the same handle to free the"]
+    #[doc = " request. As long as one system has requested change logging, The Truth will log all changes."]
+    #[doc = ""]
+    #[doc = " Note that if a system forgets to call [[relinquish_changelog()]], change logging will be left"]
+    #[doc = " enabled indefinitely."]
+    pub request_changelog:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> u64>,
+    #[doc = " Ends a changelog request started by [[request_changelog()]]."]
+    pub relinquish_changelog:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o, h: u64)>,
+    #[doc = " Temporary disables the changelog in a scope. This can be used to disable change logging for"]
+    #[doc = " things like loading projects."]
+    pub disable_changelog_start_scope:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+    #[doc = " Ends a changelog disabling scope started by [[disable_changelog_start_scope()]]."]
+    pub disable_changelog_end_scope:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+    #[doc = " Returns the size of the changelog."]
+    pub changelog_size: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> u64>,
+    #[doc = " Serializes the object `o` and all its subobjects into the returned buffer."]
+    pub serialize: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            o: tm_tt_id_t,
+            carray: *mut *mut ::std::os::raw::c_char,
+            a: *mut tm_allocator_i,
+            opt: *const tm_tt_serialize_options_t,
+        ),
+    >,
+    #[doc = " Deserializes the object stored in the buffer into a Truth object and returns the ID of the"]
+    #[doc = " newly created object. The buffer pointer is advanced to point beyond the end of the"]
+    #[doc = " serialized object."]
+    pub deserialize: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            buffer: *mut *const ::std::os::raw::c_char,
+            opt: *const tm_tt_deserialize_options_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns the list of buffer hashes in the buffer when it has been serialized with the"]
+    #[doc = " `serialize_buffers_as_hashes` option. The number of hashes is returned in the `count`"]
+    #[doc = " parameter."]
+    pub buffer_hashes: ::std::option::Option<
+        unsafe extern "C" fn(
+            buffer: *mut *const ::std::os::raw::c_char,
+            count: *mut u64,
+        ) -> *const u64,
+    >,
+    #[doc = " As `deserialize`, but instead of deserializing a buffer, deserializes a file. When using"]
+    #[doc = " [[deserialize_from_file()]], only the object data is deserialized immediately. Buffer data is"]
+    #[doc = " lazily loaded."]
+    pub deserialize_from_file: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            file: *const ::std::os::raw::c_char,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns the list of migration IDs that have been applied to this Truth. The number of"]
+    #[doc = " migration IDs is returned in `n`."]
+    pub migration_ids: ::std::option::Option<
+        unsafe extern "C" fn(tt: *const tm_the_truth_o, n: *mut u32) -> *mut tm_strhash_t,
+    >,
+    #[doc = " Serializes just the header for a [[serialize_changes()]] message."]
+    pub serialize_changes_header: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            carray: *mut *mut ::std::os::raw::c_char,
+            a: *mut tm_allocator_i,
+        ),
+    >,
+    #[doc = " Serializes all the changes in the changelog from index `begin` to index `end`."]
+    pub serialize_changes: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            begin: u64,
+            end: u64,
+            carray: *mut *mut ::std::os::raw::c_char,
+            a: *mut tm_allocator_i,
+            opt: *const tm_tt_serialize_changes_options_t,
+        ),
+    >,
+    #[doc = " Deserializes a range of changes serialized by [[serialize_changes()]] and incorporates them"]
+    #[doc = " into The Truth. The buffer pointer is advanced to point beyond the end of the serialized"]
+    #[doc = " objects."]
+    pub deserialize_changes: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            buffer: *mut *const ::std::os::raw::c_char,
+            opt: *const tm_tt_deserialize_changes_options_t,
+        ),
+    >,
+    #[doc = " Creates a \"patch\" file that describes the changes that happened between object `to_o` in the"]
+    #[doc = " truth `to_tt` and the object `from_o` in the truth `from_tt`. Applying the changes to"]
+    #[doc = " `from_tt` using [[deserialize_patch()]] will reproduce `to_tt`."]
+    pub serialize_patch: ::std::option::Option<
+        unsafe extern "C" fn(
+            from_tt: *mut tm_the_truth_o,
+            from_o: tm_tt_id_t,
+            to_tt: *mut tm_the_truth_o,
+            to_o: tm_tt_id_t,
+            carray: *mut *mut ::std::os::raw::c_char,
+            a: *mut tm_allocator_i,
+        ),
+    >,
+    #[doc = " Deserializes a patch buffer into The Truth `tt`. The changes in the patch buffer will be"]
+    #[doc = " applied to the objects in The Truth `tt`."]
+    pub deserialize_patch: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, buffer: *mut *const ::std::os::raw::c_char),
+    >,
+    #[doc = " Deserializes a patch from a file."]
+    pub deserialize_patch_from_file: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, file: *const ::std::os::raw::c_char),
+    >,
+    #[doc = " Serializes the `type` into a temporarily allocated buffer and returns it. This function"]
+    #[doc = " can be used together with [[deserialize_type()]]."]
+    pub serialize_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            type_: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " Deserializes a type that has been serialized with [[serialize_type()]]."]
+    pub deserialize_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            buf: *mut *const ::std::os::raw::c_char,
+            type_info: *mut tm_the_truth_serialized_type_info_t,
+        ),
+    >,
+    #[doc = " Estimates the memory use of The Truth object `id`, including all its subobjects and buffers."]
+    #[doc = ""]
+    #[doc = " Since buffers and strings are de-duplicated in The Truth, their memory use should only count"]
+    #[doc = " once. The `buffers` set keeps track of which buffers and strings have already been counted"]
+    #[doc = " and should be ignored. [[memory_use()]] will append the buffers it counts to this set."]
+    #[doc = ""]
+    #[doc = " You can use `NULL` for the `buffers` if you don't need to de-duplicate them."]
+    pub memory_use: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            id: tm_tt_id_t,
+            buffers: *mut tm_set_t,
+        ) -> tm_tt_memory_use_t,
+    >,
+    #[doc = " Adds properties to an existing type."]
+    #[doc = ""]
+    #[doc = " If there are any existing objects of the type, the data for the new properties will be"]
+    #[doc = " zero-initialized. Calling this will invalidate any existing `tm_the_truth_objects_o *`"]
+    #[doc = " pointers, as the existing data needs to be moved to make room for the new properties."]
+    #[doc = ""]
+    #[doc = " This function is primarily intended to be used by `the_truth_assets.c` when deserializing old"]
+    #[doc = " versions of objects that have old properties that have been removed in the current version."]
+    #[doc = " When [[tm_the_truth_assets_api]] encounters unknown object properties in an object, it will"]
+    #[doc = " add those properties to the type. This preserves any data in those properties during"]
+    #[doc = " deserialization, so that it can later be processed by migration code, bringing the object up"]
+    #[doc = " to the current version."]
+    pub add_properties: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            type_: tm_tt_type_t,
+            properties: *const tm_the_truth_property_definition_t,
+            num_properties: u32,
+        ),
+    >,
+    #[doc = " If an object with the `uuid` exists, returns that object. Otherwise, creates a new object of"]
+    #[doc = " `type` with the `uuid` and returns that object. If `default_initialize` is true, the newly"]
+    #[doc = " created object will be default initialized, otherwise it will be left empty."]
+    #[doc = ""]
+    #[doc = " [[resolve_or_create_placeholder()]] is used during deserialization to deserialize references."]
+    #[doc = " If the object that is being referenced has not yet been encountered, a placeholder is created"]
+    #[doc = " instead. When the object is encountered, the placeholder will be replaced with the real"]
+    #[doc = " object."]
+    #[doc = ""]
+    #[doc = " !!! NOTE: NOTE"]
+    #[doc = "     If the referenced object is never encountered, the placeholder object will remain as"]
+    #[doc = "     an \"orphan\" object in the loaded Truth (not owned by any asset). We should maybe make an"]
+    #[doc = "     effort to clean up such orphan objects from The Truth."]
+    pub resolve_or_create_placeholder: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            uuid: tm_uuid_t,
+            type_: tm_tt_type_t,
+            default_initialize: bool,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " If an object with the `uuid` exists, returns that object. Otherwise, returns 0."]
+    pub resolve_or_fail: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            uuid: tm_uuid_t,
+            type_: tm_tt_type_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Sets the UUID of the object to the specified value. This function can be used to force the"]
+    #[doc = " value of a specific object to always be the same. Currently the only use is to change the"]
+    #[doc = " UUID of the asset root of a blank project before loading crash recovery data, so that the"]
+    #[doc = " UUID matches the one in the saved crash recovery data."]
+    #[doc = ""]
+    #[doc = " This function must be called right after the object has been created, before the system has"]
+    #[doc = " assigned a UUID to the object."]
+    pub set_uuid: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, id: tm_tt_id_t, uuid: tm_uuid_t),
+    >,
+    #[doc = " Sets the prototype of `obj` to `id`. This function does no patching of overridden data. It is thus"]
+    #[doc = " only safe to call for newly created objects."]
+    pub set_prototype: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            id: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " Detaches the object `id` from its prototype. `id` becomes a free standing object with no"]
+    #[doc = " prototype. The properties that were inherited through the prototype become properties on"]
+    #[doc = " `id` itself. `lookup` is optional and may be pre-populated with indirections to use while"]
+    #[doc = " detaching, such as mapping references to prototypes to their instances."]
+    pub detach_from_prototype: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            id: tm_tt_id_t,
+            lookup: *mut tm_hash_id_to_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Detaches all instances of the prototype object `id`."]
+    #[doc = ""]
+    #[doc = " Note: This function is currently somewhat expensive to call because we have no lookup table"]
+    #[doc = " to find all instances of an object."]
+    #[doc = ""]
+    #[doc = " !!! note: TODO"]
+    #[doc = "     If we can call this function cheaper, either by a lookup table as described above or"]
+    #[doc = "     maybe just with a flag on the object that tells us if it is being used as a prototype"]
+    #[doc = "     anywhere, we should remove this function and instead call it internally on each call to"]
+    #[doc = "     [[destroy_object()]]."]
+    pub detach_all_instances: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            id: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Returns the \"local\" set. I.e. the set members that are added, removed or instantiated on this"]
+    #[doc = " object instance and do not come from any of the prototypes. This can be used to implement"]
+    #[doc = " serialization outside the API."]
+    pub get_local_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_the_truth_local_set_t,
+    >,
+    #[doc = " Returns the \"local\" set. I.e. the set members that are added, removed or instantiated on this"]
+    #[doc = " object instance and do not come from any of the prototypes. This can be used to implement"]
+    #[doc = " serialization outside the API."]
+    pub get_local_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_the_truth_local_set_t,
+    >,
+    #[doc = " Sets the \"local\" set. This function should only be used when the object is newly created and"]
+    #[doc = " the local set is empty. It can be used to implement serialization outside the API."]
+    pub set_local_reference_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            set: tm_the_truth_local_set_t,
+        ),
+    >,
+    #[doc = " Sets the \"local\" set. This function should only be used when the object is newly created and"]
+    #[doc = " the local set is empty. It can be used to implement serialization outside the API."]
+    pub set_local_subobject_set: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            property: u32,
+            set: tm_the_truth_set_local_subobject_set_t,
+        ),
+    >,
+    #[doc = " Returns the string repository where strings are stored for The Truth. You can use this to"]
+    #[doc = " [[tm_string_repository_i->intern()]] any strings that should have the same lifetime as The"]
+    #[doc = " Truth, for example dynamically generated property names."]
+    pub string_repository: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> *mut tm_string_repository_i,
+    >,
+    #[doc = " Sets the migration IDs registered with this Truth."]
+    pub set_migration_ids: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, ids: *mut tm_strhash_t, n: u32),
+    >,
+    #[doc = " If the type of `obj` has a default object, the properties in the mask are copied to `obj` from"]
+    #[doc = " the default object. This is only used by the serialization system."]
+    pub set_properties_to_default: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, obj: *mut tm_the_truth_object_o, mask: u64),
+    >,
+    #[doc = " Recursively instantiates all subobjects of the object."]
+    pub instantiate_subobjects_recursively: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Helper function for quickly setting the properties of a Truth object for test cases,"]
+    #[doc = " debugging, etc. Properties are specified in a vararg list with `property_id, value` for each"]
+    #[doc = " property to set. The list is ended with a property_id of -1."]
+    #[doc = ""]
+    #[doc = " The property value is based on the property type. For example a `bool` for"]
+    #[doc = " [[TM_THE_TRUTH_PROPERTY_TYPE_BOOL]], etc. For buffer properties, two values should be provided"]
+    #[doc = " `pointer, size_in_bytes`. The size should be an `uint64_t`. For set values, specify a single"]
+    #[doc = " item to add to the set. If you need more than one item in the set, use the set property key"]
+    #[doc = " more than once."]
+    pub quick_set_properties: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            undo_scope: tm_tt_undo_scope_t,
+            id: tm_tt_id_t,
+            ...
+        ),
+    >,
+    #[doc = " Helper function for quickly creating a truth object. Uses [[quick_set_properties()]] to set the"]
+    #[doc = " properties of the object. Note that the object type is specified with a hash, not with a"]
+    #[doc = " looked up object type."]
+    pub quick_create_object: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            undo_scope: tm_tt_undo_scope_t,
+            type_hash: tm_strhash_t,
+            ...
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Helper function for quickly getting a deeply nested property value from an object. I.e. the"]
+    #[doc = " function can be used to lookup:"]
+    #[doc = ""]
+    #[doc = " ~~~c"]
+    #[doc = " id.prop_1.prop_2.prop_3..."]
+    #[doc = " ~~~"]
+    #[doc = ""]
+    #[doc = " And return it as a variant [[tm_tt_prop_value_t]]."]
+    #[doc = ""]
+    #[doc = " The variable argument list is a list of property keys to \"dig deeper\" into the object, ending"]
+    #[doc = " with -1. If one of the properties is a set, the next key in the list will be the index into"]
+    #[doc = " the set, rather than a property index. Then, the next value after that is again a property"]
+    #[doc = " key. If the last element in the property list is a set, the return value will be the size of"]
+    #[doc = " the set as an `uint32_t`."]
+    pub quick_get_property: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            id: tm_tt_id_t,
+            prop_1: u32,
+            ...
+        ) -> tm_tt_prop_value_t,
+    >,
+    #[doc = " For all the properties in `from`, if there is a property in `to` with a matching name and"]
+    #[doc = " type -- copy the `from` property over to the `to` property."]
+    #[doc = ""]
+    #[doc = " This is useful when you want to \"change the type\" of an object to a similar type."]
+    pub copy_properties_by_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            t: *mut tm_the_truth_o,
+            to: tm_tt_id_t,
+            from: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Sets `obj` to be a \"pseudo-object\" with the specified owner."]
+    #[doc = ""]
+    #[doc = " Pseudo-objects are essentially a hack for when you want a Truth object (so that you can use"]
+    #[doc = " things like the property editor) and you want that Truth object to have an owner (so that"]
+    #[doc = " things that depend on the owner hierarchy, such as browsing for object in the same asset,"]
+    #[doc = " still work), but you don't *actually* want to create a real object that is a subobject of the"]
+    #[doc = " owner."]
+    #[doc = ""]
+    #[doc = " With pseudo-objects, you can still use [[owner()]] to find the owner of the object, but the"]
+    #[doc = " object isn't actually added as a subobject of the [[owner()]]. Also, version ticks won't"]
+    #[doc = " propagate to the owner, so if the pseudo-object is modified, the owner is not marked as"]
+    #[doc = " dirty."]
+    #[doc = ""]
+    #[doc = " Currently, pseudo-objects are used in two places:"]
+    #[doc = ""]
+    #[doc = " * As multi-edit proxies in the property editor. I.e., when you select multiple objects, we"]
+    #[doc = "   create a pseudo-object proxy that represents all of those objects. Edits made to the proxy"]
+    #[doc = "   are then propagated to all the selected objects."]
+    #[doc = ""]
+    #[doc = " * In the graph views to represent node data with default values. If the data is edited, a"]
+    #[doc = "   real object will be created to represent it."]
+    #[doc = ""]
+    #[doc = " !!! WARNING: Warning"]
+    #[doc = "     We consider pseudo-objects a hack, so please avoid using them except"]
+    #[doc = "     where absolutely necessary."]
+    pub internal__make_into_pseudo_object_with_owner: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            owner: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " Changes a pseduo-object created by [[internal__make_into_pseudo_object_with_owner()]] back to a"]
+    #[doc = " regular object. This also clears the `owner` set by"]
+    #[doc = " [[internal__make_into_pseudo_object_with_owner()]]."]
+    #[doc = ""]
+    #[doc = " !!! WARNING: Warning"]
+    #[doc = "     We consider pseudo-objects a hack, so please avoid using them except"]
+    #[doc = "     where absolutely necessary."]
+    pub internal__convert_pseudo_object_back_to_regular_object: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut tm_the_truth_o, obj: *mut tm_the_truth_object_o),
+    >,
+    #[doc = " Returns a string representation of `object` for debugging. The string is frame allocated and"]
+    #[doc = " will be automatically freed at the end of the frame."]
+    pub debug_inspect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: tm_tt_id_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns *true* if detection of overlapping writes is enabled in The Truth."]
+    pub internal__detect_overlapping_writes:
+        ::std::option::Option<unsafe extern "C" fn(tt: *const tm_the_truth_o) -> bool>,
+    #[doc = " Creates The Truth using the specified allocator. `types` specifies whether the create Truth"]
+    #[doc = " should include the registered default types or not."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            types: tm_the_truth_create_types,
+        ) -> *mut tm_the_truth_o,
+    >,
+    #[doc = " Destroys The Truth created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_api>(),
+        1304usize,
+        concat!("Size of: ", stringify!(tm_the_truth_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).allocator as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(allocator)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).buffers as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(buffers)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).streamable_buffers as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(streamable_buffers)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_type as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(create_object_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_default_object as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_default_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_default_object_to_create_subobjects
+                as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_default_object_to_create_subobjects)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).default_object as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(default_object)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).is_default as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(is_default)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_aspect as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_aspect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_default_aspect as *const _ as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_default_aspect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_property_aspect as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_property_aspect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).reload_aspects as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(reload_aspects)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).object_type_from_name_hash as *const _
+                as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(object_type_from_name_hash)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).optional_object_type_from_name_hash
+                as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(optional_object_type_from_name_hash)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).num_types as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(num_types)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).type_name as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(type_name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).type_name_hash as *const _ as usize },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(type_name_hash)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).num_properties as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(num_properties)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).properties as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(properties)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).find_property as *const _ as usize },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(find_property)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).property_index as *const _ as usize },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(property_index)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).has_property as *const _ as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(has_property)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_aspect as *const _ as usize },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_aspect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_types_with_aspect as *const _ as usize
+        },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_types_with_aspect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_aspects as *const _ as usize },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_aspects)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_property_aspect as *const _ as usize
+        },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_property_aspect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).all_objects_of_type as *const _ as usize
+        },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(all_objects_of_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).create_undo_scope as *const _ as usize
+        },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(create_undo_scope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).create_thread_safe_undo_scope as *const _
+                as usize
+        },
+        224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(create_thread_safe_undo_scope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).undo_scope_name as *const _ as usize
+        },
+        232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(undo_scope_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).undo_scope_objects as *const _ as usize
+        },
+        240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(undo_scope_objects)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).undo_scope_actions as *const _ as usize
+        },
+        248usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(undo_scope_actions)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).undo as *const _ as usize },
+        256usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(undo)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).redo as *const _ as usize },
+        264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(redo)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_of_type as *const _ as usize
+        },
+        272usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(create_object_of_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_of_hash as *const _ as usize
+        },
+        280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(create_object_of_hash)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).create_object_from_prototype as *const _
+                as usize
+        },
+        288usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(create_object_from_prototype)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).clone_object as *const _ as usize },
+        296usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(clone_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).instantiate_subobject as *const _ as usize
+        },
+        304usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(instantiate_subobject)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_instantiated_subobject as *const _
+                as usize
+        },
+        312usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(remove_instantiated_subobject)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).instantiate_subobject_from_set as *const _
+                as usize
+        },
+        320usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(instantiate_subobject_from_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_instantiated_subobject_from_set
+                as *const _ as usize
+        },
+        328usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(remove_instantiated_subobject_from_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).add_instantiated_subobject_back_to_set
+                as *const _ as usize
+        },
+        336usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(add_instantiated_subobject_back_to_set)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).id as *const _ as usize },
+        344usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).destroy_object as *const _ as usize },
+        352usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(destroy_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).destroy_objects as *const _ as usize
+        },
+        360usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(destroy_objects)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).garbage_collect as *const _ as usize
+        },
+        368usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(garbage_collect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).is_alive as *const _ as usize },
+        376usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(is_alive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).interop_ensure_compatibility as *const _
+                as usize
+        },
+        384usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(interop_ensure_compatibility)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).interop_clone_object as *const _ as usize
+        },
+        392usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(interop_clone_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).deep_clone_assets as *const _ as usize
+        },
+        400usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(deep_clone_assets)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).uuid as *const _ as usize },
+        408usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(uuid)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).read as *const _ as usize },
+        416usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(read)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_bool as *const _ as usize },
+        424usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_bool)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_uint32_t as *const _ as usize },
+        432usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_uint32_t)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_uint64_t as *const _ as usize },
+        440usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_uint64_t)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_float as *const _ as usize },
+        448usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_float)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_double as *const _ as usize },
+        456usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_double)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_string as *const _ as usize },
+        464usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_string)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_string_hash as *const _ as usize
+        },
+        472usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_string_hash)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_str as *const _ as usize },
+        480usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_str)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_buffer as *const _ as usize },
+        488usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_buffer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_reference as *const _ as usize },
+        496usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_reference)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject as *const _ as usize },
+        504usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_subobject)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_property_value as *const _ as usize
+        },
+        512usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_property_value)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).property_value_equal as *const _ as usize
+        },
+        520usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(property_value_equal)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_reference_set as *const _ as usize
+        },
+        528usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject_set as *const _ as usize
+        },
+        536usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_reference_set_size as *const _ as usize
+        },
+        544usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_reference_set_size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject_set_size as *const _ as usize
+        },
+        552usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_subobject_set_size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_subobject_set_locally_removed
+                as *const _ as usize
+        },
+        560usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_subobject_set_locally_removed)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).find_subobject_of_type as *const _ as usize
+        },
+        568usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(find_subobject_of_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).is_subobject_of as *const _ as usize
+        },
+        576usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(is_subobject_of)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).is_in_reference_set as *const _ as usize
+        },
+        584usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(is_in_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).property_index_of_subobject as *const _
+                as usize
+        },
+        592usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(property_index_of_subobject)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).write as *const _ as usize },
+        600usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(write)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).commit as *const _ as usize },
+        608usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(commit)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).commit_range as *const _ as usize },
+        616usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(commit_range)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).retarget_write as *const _ as usize },
+        624usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(retarget_write)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).try_write as *const _ as usize },
+        632usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(try_write)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).try_commit as *const _ as usize },
+        640usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(try_commit)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_bool as *const _ as usize },
+        648usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_bool)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_uint32_t as *const _ as usize },
+        656usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_uint32_t)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_uint64_t as *const _ as usize },
+        664usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_uint64_t)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_float as *const _ as usize },
+        672usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_float)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_double as *const _ as usize },
+        680usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_double)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_string as *const _ as usize },
+        688usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_string)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_str as *const _ as usize },
+        696usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_str)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_buffer as *const _ as usize },
+        704usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_buffer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_buffer_content as *const _ as usize
+        },
+        712usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_buffer_content)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_reference as *const _ as usize },
+        720usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_reference)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_subobject as *const _ as usize },
+        728usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_subobject)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_subobject_id as *const _ as usize
+        },
+        736usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_subobject_id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_property_value as *const _ as usize
+        },
+        744usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_property_value)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).clear as *const _ as usize },
+        752usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(clear)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).clear_object as *const _ as usize },
+        760usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(clear_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_property as *const _ as usize
+        },
+        768usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(propagate_property)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_property_except as *const _
+                as usize
+        },
+        776usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(propagate_property_except)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_property_subobject as *const _
+                as usize
+        },
+        784usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(propagate_property_subobject)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_object as *const _ as usize
+        },
+        792usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(propagate_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).propagate_object_except as *const _
+                as usize
+        },
+        800usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(propagate_object_except)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).add_to_reference_set as *const _ as usize
+        },
+        808usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(add_to_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_reference_set as *const _
+                as usize
+        },
+        816usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(remove_from_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).clear_reference_set as *const _ as usize
+        },
+        824usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(clear_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_prototype_reference_set
+                as *const _ as usize
+        },
+        832usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(remove_from_prototype_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).cancel_remove_from_prototype_reference_set
+                as *const _ as usize
+        },
+        840usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(cancel_remove_from_prototype_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).add_to_subobject_set as *const _ as usize
+        },
+        848usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(add_to_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_subobject_set as *const _
+                as usize
+        },
+        856usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(remove_from_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).clear_subobject_set as *const _ as usize
+        },
+        864usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(clear_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).remove_from_prototype_subobject_set
+                as *const _ as usize
+        },
+        872usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(remove_from_prototype_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).cancel_remove_from_prototype_subobject_set
+                as *const _ as usize
+        },
+        880usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(cancel_remove_from_prototype_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).prototype as *const _ as usize },
+        888usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(prototype)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).owner as *const _ as usize },
+        896usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(owner)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).is_currently_owner_of as *const _ as usize
+        },
+        904usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(is_currently_owner_of)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).is_overridden as *const _ as usize },
+        912usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(is_overridden)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).has_data as *const _ as usize },
+        920usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(has_data)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).prototype_relation as *const _ as usize
+        },
+        928usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(prototype_relation)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).version as *const _ as usize },
+        936usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(version)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).changed_objects as *const _ as usize
+        },
+        944usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(changed_objects)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).request_changelog as *const _ as usize
+        },
+        952usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(request_changelog)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).relinquish_changelog as *const _ as usize
+        },
+        960usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(relinquish_changelog)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).disable_changelog_start_scope as *const _
+                as usize
+        },
+        968usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(disable_changelog_start_scope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).disable_changelog_end_scope as *const _
+                as usize
+        },
+        976usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(disable_changelog_end_scope)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).changelog_size as *const _ as usize },
+        984usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(changelog_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).serialize as *const _ as usize },
+        992usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(serialize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize as *const _ as usize },
+        1000usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(deserialize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).buffer_hashes as *const _ as usize },
+        1008usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(buffer_hashes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_from_file as *const _ as usize
+        },
+        1016usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(deserialize_from_file)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).migration_ids as *const _ as usize },
+        1024usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(migration_ids)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_changes_header as *const _
+                as usize
+        },
+        1032usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(serialize_changes_header)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_changes as *const _ as usize
+        },
+        1040usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(serialize_changes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_changes as *const _ as usize
+        },
+        1048usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(deserialize_changes)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_patch as *const _ as usize
+        },
+        1056usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(serialize_patch)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_patch as *const _ as usize
+        },
+        1064usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(deserialize_patch)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_patch_from_file as *const _
+                as usize
+        },
+        1072usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(deserialize_patch_from_file)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).serialize_type as *const _ as usize },
+        1080usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(serialize_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).deserialize_type as *const _ as usize
+        },
+        1088usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(deserialize_type)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).memory_use as *const _ as usize },
+        1096usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(memory_use)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).add_properties as *const _ as usize },
+        1104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(add_properties)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).resolve_or_create_placeholder as *const _
+                as usize
+        },
+        1112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(resolve_or_create_placeholder)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).resolve_or_fail as *const _ as usize
+        },
+        1120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(resolve_or_fail)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_uuid as *const _ as usize },
+        1128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_uuid)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).set_prototype as *const _ as usize },
+        1136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_prototype)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).detach_from_prototype as *const _ as usize
+        },
+        1144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(detach_from_prototype)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).detach_all_instances as *const _ as usize
+        },
+        1152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(detach_all_instances)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_local_reference_set as *const _
+                as usize
+        },
+        1160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_local_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).get_local_subobject_set as *const _
+                as usize
+        },
+        1168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(get_local_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_local_reference_set as *const _
+                as usize
+        },
+        1176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_local_reference_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_local_subobject_set as *const _
+                as usize
+        },
+        1184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_local_subobject_set)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).string_repository as *const _ as usize
+        },
+        1192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(string_repository)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_migration_ids as *const _ as usize
+        },
+        1200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_migration_ids)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).set_properties_to_default as *const _
+                as usize
+        },
+        1208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(set_properties_to_default)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).instantiate_subobjects_recursively
+                as *const _ as usize
+        },
+        1216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(instantiate_subobjects_recursively)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).quick_set_properties as *const _ as usize
+        },
+        1224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(quick_set_properties)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).quick_create_object as *const _ as usize
+        },
+        1232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(quick_create_object)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).quick_get_property as *const _ as usize
+        },
+        1240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(quick_get_property)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).copy_properties_by_name as *const _
+                as usize
+        },
+        1248usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(copy_properties_by_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>()))
+                .internal__make_into_pseudo_object_with_owner as *const _ as usize
+        },
+        1256usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(internal__make_into_pseudo_object_with_owner)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>()))
+                .internal__convert_pseudo_object_back_to_regular_object as *const _
+                as usize
+        },
+        1264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(internal__convert_pseudo_object_back_to_regular_object)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).debug_inspect as *const _ as usize },
+        1272usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(debug_inspect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_api>())).internal__detect_overlapping_writes
+                as *const _ as usize
+        },
+        1280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(internal__detect_overlapping_writes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).create as *const _ as usize },
+        1288usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_api>())).destroy as *const _ as usize },
+        1296usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+}
+#[doc = " subobject_set [[TM_TT_TYPE__ASSET]]"]
+pub const TM_TT_PROP__ASSET_ROOT__ASSETS: ::std::os::raw::c_int = 0;
+#[doc = " subobject_set [[TM_TT_TYPE__ASSET_DIRECTORY]]"]
+pub const TM_TT_PROP__ASSET_ROOT__DIRECTORIES: ::std::os::raw::c_int = 1;
+pub type _bindgen_ty_2 = ::std::os::raw::c_int;
+#[doc = " string"]
+pub const TM_TT_PROP__ASSET__NAME: ::std::os::raw::c_int = 0;
+#[doc = " reference [[TM_TT_TYPE__ASSET_DIRECTORY]]"]
+pub const TM_TT_PROP__ASSET__DIRECTORY: ::std::os::raw::c_int = 1;
+#[doc = " subobject_set(UINT64_T) storing the UUID of the associated label."]
+pub const TM_TT_PROP__ASSET__UUID_LABELS: ::std::os::raw::c_int = 2;
+#[doc = " subobject(*)"]
+pub const TM_TT_PROP__ASSET__OBJECT: ::std::os::raw::c_int = 3;
+#[doc = " buffer"]
+pub const TM_TT_PROP__ASSET__THUMBNAIL: ::std::os::raw::c_int = 4;
+pub type _bindgen_ty_3 = ::std::os::raw::c_int;
+#[doc = " string"]
+pub const TM_TT_PROP__ASSET_DIRECTORY__NAME: ::std::os::raw::c_int = 0;
+#[doc = " reference [[TM_TT_TYPE__ASSET_DIRECTORY]]"]
+pub const TM_TT_PROP__ASSET_DIRECTORY__PARENT: ::std::os::raw::c_int = 1;
+pub type _bindgen_ty_4 = ::std::os::raw::c_int;
+#[doc = " uint64_t"]
+pub const TM_TT_PROP__ASSET_LABEL__UUID: ::std::os::raw::c_int = 0;
+pub type _bindgen_ty_5 = ::std::os::raw::c_int;
+#[doc = " Struct for the asset label UUID."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_label_uuid_t {
+    pub uuid: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_asset_label_uuid_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_label_uuid_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_asset_label_uuid_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_label_uuid_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_label_uuid_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_label_uuid_t>())).uuid as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_label_uuid_t),
+            "::",
+            stringify!(uuid)
+        )
+    );
+}
+#[doc = " Interface to register under [[TM_ASSET_LABEL_INTERFACE_NAME]] to expose a new code-defined asset"]
+#[doc = " label."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_label_t {
+    #[doc = " Unique identifier of the asset label."]
+    pub uuid: tm_asset_label_uuid_t,
+    #[doc = " Name of the label."]
+    pub name: *const ::std::os::raw::c_char,
+    #[doc = " enum tm_ui_icon"]
+    pub icon: u32,
+    #[doc = " Color to use for the icon (enum tm_ui_color)."]
+    pub icon_color: u32,
+}
+#[test]
+fn bindgen_test_layout_tm_asset_label_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_asset_label_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_asset_label_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_asset_label_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_asset_label_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).uuid as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_label_t),
+            "::",
+            stringify!(uuid)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).name as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_label_t),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).icon as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_label_t),
+            "::",
+            stringify!(icon)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_asset_label_t>())).icon_color as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_asset_label_t),
+            "::",
+            stringify!(icon_color)
+        )
+    );
+}
+#[doc = " Aspect that defines the file extension that should be used for objects of this type in The Truth."]
+#[doc = " The extension string should not include the initial period. For example, [[TM_TT_TYPE__ENTITY]]"]
+#[doc = " objects have the file extension `\"entity\"`."]
+pub type tm_tt_assets_file_extension_aspect_i = ::std::os::raw::c_char;
+#[doc = " Used to return the buffers when writing a config file."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_tt_assets_buffer_write_t {
+    #[doc = " Id of the buffer."]
+    pub id: u32,
+    pub _padding_118: [::std::os::raw::c_char; 4usize],
+    #[doc = " Hash of the buffer."]
+    pub hash: u64,
+    #[doc = " Extension (if any) for the buffer."]
+    pub ext: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_assets_buffer_write_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_assets_buffer_write_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_tt_assets_buffer_write_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_assets_buffer_write_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_assets_buffer_write_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>())).id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_write_t),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>()))._padding_118 as *const _
+                as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_write_t),
+            "::",
+            stringify!(_padding_118)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>())).hash as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_write_t),
+            "::",
+            stringify!(hash)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_write_t>())).ext as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_write_t),
+            "::",
+            stringify!(ext)
+        )
+    );
+}
+#[doc = " Used to return the buffers when parsing a config file."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tm_tt_assets_buffer_t {
+    #[doc = " The ID of the object that owns this buffer."]
+    pub object_id: tm_tt_id_t,
+    #[doc = " The index of the property where the buffer is stored."]
+    pub property_index: u32,
+    pub _padding_135: [::std::os::raw::c_char; 4usize],
+    #[doc = " The hash of the buffer."]
+    pub hash: u64,
+}
+#[test]
+fn bindgen_test_layout_tm_tt_assets_buffer_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_tt_assets_buffer_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_tt_assets_buffer_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_tt_assets_buffer_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_tt_assets_buffer_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_t>())).object_id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_t),
+            "::",
+            stringify!(object_id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_assets_buffer_t>())).property_index as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_t),
+            "::",
+            stringify!(property_index)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_tt_assets_buffer_t>()))._padding_135 as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_t),
+            "::",
+            stringify!(_padding_135)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_tt_assets_buffer_t>())).hash as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_tt_assets_buffer_t),
+            "::",
+            stringify!(hash)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_saved_truth_data_o {
+    _unused: [u8; 0],
+}
+#[doc = " API for interacting with Truth Assets."]
+#[doc = ""]
+#[doc = " !!! NOTE"]
+#[doc = "     This API includes both general functions for interacting with the asset tree and"]
+#[doc = "     functions specific to the git-friendly disk save format."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_assets_api {
+    #[doc = " Gets the last `n` characters of the `asset`'s path into the buffer `path`. Returns the total"]
+    #[doc = " length of the path."]
+    pub get_asset_path: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset: tm_tt_id_t,
+            path: *mut ::std::os::raw::c_char,
+            n: u32,
+        ) -> u32,
+    >,
+    #[doc = " Gets the last `n` characters of the `directory`'s path into the buffer `path`. Returns the"]
+    #[doc = " total length of the path. The directory path ends with a slash."]
+    pub get_directory_path: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            directory: tm_tt_id_t,
+            path: *mut ::std::os::raw::c_char,
+            n: u32,
+        ) -> u32,
+    >,
+    #[doc = " As [[get_asset_path()]] but also adds the asset's extension to the end of the path."]
+    pub get_asset_path_with_extension: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset: tm_tt_id_t,
+            path: *mut ::std::os::raw::c_char,
+            n: u32,
+        ) -> u32,
+    >,
+    #[doc = " Given a `path`, returns the asset (type [[TM_TT_TYPE__ASSET]]) at that path. If there is"]
+    #[doc = " no asset at the path, returns  `(tm_tt_id_t){0}`. If there are multiple assets with the same"]
+    #[doc = " path, an arbitrary one will be returned."]
+    #[doc = ""]
+    #[doc = " If the path includes an extension, an asset will only be returned if its type matches that"]
+    #[doc = " extension. If the path doesn't include an extension, any asset type matching the path"]
+    #[doc = " matches."]
+    #[doc = ""]
+    #[doc = " `asset_root` should be the asset root object of type [[TM_TT_TYPE__ASSET_ROOT]]."]
+    pub asset_from_path: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            path: *const ::std::os::raw::c_char,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Similar to [[asset_from_path()]], but assumes that `path` is without the extension, and the"]
+    #[doc = " user can specify which type they look for using `type`."]
+    #[doc = ""]
+    #[doc = " `asset_root` should be the asset root object of type [[TM_TT_TYPE__ASSET_ROOT]]."]
+    pub asset_from_path_with_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            path: *const ::std::os::raw::c_char,
+            type_: tm_tt_type_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Identical to [[asset_from_path()]], but returns the asset object ([[TM_TT_PROP__ASSET__OBJECT]])"]
+    #[doc = " instead of the asset itself."]
+    pub asset_object_from_path: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            path: *const ::std::os::raw::c_char,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Identical to [[asset_from_path_with_type()]], but returns the asset object"]
+    #[doc = " ([[TM_TT_PROP__ASSET__OBJECT]]) instead of the asset itself."]
+    pub asset_object_from_path_with_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            path: *const ::std::os::raw::c_char,
+            type_: tm_tt_type_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Given a `path`, returns the directory at that path. Returns `(tm_tt_id_t){0}` if there is"]
+    #[doc = " no directory at the path."]
+    #[doc = ""]
+    #[doc = " `asset_root` should be the asset root object of type [[TM_TT_TYPE__ASSET_ROOT]]."]
+    pub directory_from_path: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            path: *const ::std::os::raw::c_char,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Given a directory `parent_dir`, finds a subdirectory with name `subdir_name`. Returns"]
+    #[doc = " `(tm_tt_id_t){0}` if no subdirectory is found."]
+    #[doc = ""]
+    #[doc = " `asset_root` should be the asset root object of type [[TM_TT_TYPE__ASSET_ROOT]]."]
+    pub find_subdirectory_by_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            parent_dir: tm_tt_id_t,
+            subdir_name: *const ::std::os::raw::c_char,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns a name for an asset that is assured to be unique among all the assets of the same"]
+    #[doc = " type in the same directory. If `desired_name` is already unique, it is returned, otherwise a"]
+    #[doc = " name of the form *desired_name_1*, *desired_name_2*, ... is returned. That name will be"]
+    #[doc = " allocated using the frame allocator."]
+    #[doc = ""]
+    #[doc = " `asset_root` should be the asset root object of type [[TM_TT_TYPE__ASSET_ROOT]]."]
+    pub unique_asset_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            asset_r: *const tm_the_truth_object_o,
+            desired_name: *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns a name for an directory that is assured to be unique among all the directories in the"]
+    #[doc = " same parent directory. If `desired_name` is already unique, it is returned, otherwise a name"]
+    #[doc = " of the form *desired_name_1*, *desired_name_2*, ... is returned. That name will be allocated"]
+    #[doc = " using the frame allocator."]
+    #[doc = ""]
+    #[doc = " `asset_root` should be the asset root object of type [[TM_TT_TYPE__ASSET_ROOT]]."]
+    pub unique_directory_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            directory_r: *const tm_the_truth_object_o,
+            desired_name: *const ::std::os::raw::c_char,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Finds the owning asset and returns it's name, or `NULL` if there is no owning asset."]
+    pub object_asset_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: tm_tt_id_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Given an object `relative_to`, finds a settings asset of type `target_type_hash` in the same"]
+    #[doc = " directory, or in parents of that directory (directories closer to the `relative_to` asset"]
+    #[doc = " have priority.)"]
+    #[doc = ""]
+    #[doc = " If a settings asset is found, it's object (of type `target_type_hash`) is returned."]
+    #[doc = " Otherwise, `(tm_tt_id_t){0}` is returned. If there are multiple assets of the type in the"]
+    #[doc = " directory, any one of them may be returned."]
+    #[doc = ""]
+    #[doc = " `relative_to` may be a [[TM_TT_TYPE__ASSET]] in which case we will look in its directory,"]
+    #[doc = " a [[TM_TT_TYPE__ASSET_DIRECTORY]] in which case we will look in that directory, or a child"]
+    #[doc = " object of an asset (in which case we will walk the owner chain to find the asset)."]
+    #[doc = ""]
+    #[doc = " This function is useful in the scenario where you put a settings asset in a directory to"]
+    #[doc = " control the settings for all the objects in the directory."]
+    #[doc = ""]
+    #[doc = ""]
+    pub find_directory_settings: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            relative_to: tm_tt_id_t,
+            target_type_hash: tm_strhash_t,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Writes the Truth object `object` to the JSON-like config item `config`."]
+    #[doc = ""]
+    #[doc = " Note that buffers are not stored in the JSON data. Instead, [[object_to_config()]] returns a"]
+    #[doc = " carray of the buffer IDs referenced by the object and its subobjects in `buffer_ids`. These"]
+    #[doc = " buffers are referenced by their hash values in the config file. The buffer array is allocated"]
+    #[doc = " using `buffers_ta`."]
+    #[doc = ""]
+    #[doc = " If `save_uuid` is `true`, each object is saved with a unique *UUID* that acts as a permanent"]
+    #[doc = " identifier for the object. If it's `false`, no UUIDs are saved (note that this means that it"]
+    #[doc = " won't be possible to reference the objects)."]
+    pub object_to_config: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: tm_tt_id_t,
+            config: *mut tm_config_i,
+            buffers: *mut *mut tm_tt_assets_buffer_write_t,
+            buffers_ta: *mut tm_temp_allocator_i,
+            save_uuid: bool,
+        ),
+    >,
+    #[doc = " Creates a Truth object from a JSON `config` object and returns it."]
+    #[doc = ""]
+    #[doc = " This can be used to restore a Truth object that has been saved with [[object_to_config()]]."]
+    #[doc = ""]
+    #[doc = " Returns a carray of the buffers referenced by the object in `buffers`."]
+    pub create_object_from_config: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            config: *mut tm_config_i,
+            buffers: *mut *mut tm_tt_assets_buffer_t,
+            buffers_ta: *mut tm_temp_allocator_i,
+        ) -> tm_tt_id_t,
+    >,
+    #[doc = " Writes the JSON `config` data into the Truth object `id`. The Truth object will be cleared"]
+    #[doc = " before the data is written."]
+    #[doc = ""]
+    #[doc = " Buffers are returned in the `buffers` array, allocated by `buffers_ta`."]
+    pub read_object_from_config: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            config: *mut tm_config_i,
+            buffers: *mut *mut tm_tt_assets_buffer_t,
+            buffers_ta: *mut tm_temp_allocator_i,
+            id: tm_tt_id_t,
+        ),
+    >,
+    #[doc = " Saves all the assets accessible from the `asset_root` into the directory `dir`, except the"]
+    #[doc = " ones listed in the `ignore` list. The `old_std` data can optionally be used to pass data from"]
+    #[doc = " a previous [[load_from_directory()]] or [[save_to_directory()]] operation."]
+    #[doc = " [[save_to_directory()]] uses the information in `old_std` to perform an incremental save --"]
+    #[doc = " only the data that has been modified since the last save needs to be updated on disk."]
+    #[doc = ""]
+    #[doc = " Returns a [[tm_saved_truth_data_o]] object that can be used to interact with the saved data."]
+    #[doc = " The returned object is allocated with the specified `allocator` and must be freed with a call"]
+    #[doc = " to [[free_saved_data()]]."]
+    pub save_to_directory: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            dir: *const ::std::os::raw::c_char,
+            ignore: *mut tm_tt_id_t,
+            num_ignore: u32,
+            old_std: *mut tm_saved_truth_data_o,
+            allocator: *mut tm_allocator_i,
+        ) -> *mut tm_saved_truth_data_o,
+    >,
+    #[doc = " Loads the assets from the specified directory `dir` into a new asset root object (returned in"]
+    #[doc = " `asset_root`)."]
+    #[doc = ""]
+    #[doc = " Returns a [[tm_saved_truth_data_o]] object that can be used to interact with the saved data."]
+    #[doc = " The returned object is allocated with the specified allocator and must be freed with a call"]
+    #[doc = " to [[free_saved_data()]]."]
+    #[doc = ""]
+    #[doc = " Any errors encountered during loading are reported using the `error` API."]
+    pub load_from_directory: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            dir: *const ::std::os::raw::c_char,
+            allocator: *mut tm_allocator_i,
+            asset_root: *mut tm_tt_id_t,
+            error: *mut tm_error_i,
+        ) -> *mut tm_saved_truth_data_o,
+    >,
+    #[doc = " Returns a record of the current truth data (names and versions of assets of directories)"]
+    #[doc = " without actually saving the data. Note that the returned data will not contain any `path`"]
+    #[doc = " information, because we haven't actually changed the data. But it can still be used to"]
+    #[doc = " determine what has changed in The Truth for non-directory saved projects."]
+    pub current_truth_data: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            asset_root: tm_tt_id_t,
+            allocator: *mut tm_allocator_i,
+        ) -> *mut tm_saved_truth_data_o,
+    >,
+    #[doc = " Reverts the `asset` to the last saved version in the project `sd`. Returns *true* if the"]
+    #[doc = " asset could be successfully reverted."]
+    pub revert_asset: ::std::option::Option<
+        unsafe extern "C" fn(
+            sd: *mut tm_saved_truth_data_o,
+            asset: tm_tt_id_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ) -> bool,
+    >,
+    #[doc = " Saves the `asset` to the project `sd` without saving any other data. Returns *true* if the"]
+    #[doc = " asset could be successfully saved."]
+    pub save_asset: ::std::option::Option<
+        unsafe extern "C" fn(sd: *mut tm_saved_truth_data_o, asset: tm_tt_id_t) -> bool,
+    >,
+    #[doc = " Returns the name the `item` (asset or directory) had when saved. This can be used to detect"]
+    #[doc = " changes to item names. If the item has not been saved, returns NULL."]
+    pub saved_name: ::std::option::Option<
+        unsafe extern "C" fn(
+            sd: *mut tm_saved_truth_data_o,
+            item: tm_tt_id_t,
+        ) -> *const ::std::os::raw::c_char,
+    >,
+    #[doc = " Returns the directory the `item` (asset or directory) was saved in. This can be used to"]
+    #[doc = " detect moved items. If the item has not been saved, returns 0."]
+    pub saved_directory: ::std::option::Option<
+        unsafe extern "C" fn(sd: *mut tm_saved_truth_data_o, item: tm_tt_id_t) -> tm_tt_id_t,
+    >,
+    #[doc = " Returns the version of the item when saved. If the item has not been saved, returns 0."]
+    pub saved_version: ::std::option::Option<
+        unsafe extern "C" fn(sd: *mut tm_saved_truth_data_o, item: tm_tt_id_t) -> u64,
+    >,
+    #[doc = " Returns a carray of all saved items (assets and directories) that exist in the saved data,"]
+    #[doc = " allocated using the supplied temp allocator `ta`. This can be used to find items that have"]
+    #[doc = " been deleted since the save."]
+    pub all_saved_items: ::std::option::Option<
+        unsafe extern "C" fn(
+            sd: *mut tm_saved_truth_data_o,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut tm_tt_id_t,
+    >,
+    #[doc = " Frees the saved data `sd`."]
+    pub free_saved_data:
+        ::std::option::Option<unsafe extern "C" fn(sd: *mut tm_saved_truth_data_o)>,
+    #[doc = " Sets a mock file system to be used for loading and saving data for testing purposes. Calling"]
+    #[doc = " `set_mock_file_system(0,0)` resets [[tm_the_truth_assets_api]] back to use the [[tm_os_api]]"]
+    #[doc = " file system."]
+    pub set_mock_file_system: ::std::option::Option<
+        unsafe extern "C" fn(fs: *mut tm_os_file_system_api, file_io: *mut tm_os_file_io_api),
+    >,
+    #[doc = " Returns *true* if any disk changes to the project folder has happened since the data was last"]
+    #[doc = " saved or loaded. This can happen if the user manually edits file on disk, in a text editor,"]
+    #[doc = " by doing `git pull` or by moving or renaming files in the explorer."]
+    #[doc = ""]
+    #[doc = " Typically, this function should be called every frame, and if it returns *true*, the user"]
+    #[doc = " should be offered to import the changes from disk."]
+    pub any_disk_changes: ::std::option::Option<
+        unsafe extern "C" fn(
+            sd: *mut tm_saved_truth_data_o,
+            dir: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_assets_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_assets_api>(),
+        224usize,
+        concat!("Size of: ", stringify!(tm_the_truth_assets_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_assets_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_assets_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).get_asset_path as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(get_asset_path)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).get_directory_path as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(get_directory_path)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).get_asset_path_with_extension
+                as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(get_asset_path_with_extension)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_from_path as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(asset_from_path)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_from_path_with_type
+                as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(asset_from_path_with_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_object_from_path as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(asset_object_from_path)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).asset_object_from_path_with_type
+                as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(asset_object_from_path_with_type)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).directory_from_path as *const _
+                as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(directory_from_path)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).find_subdirectory_by_name
+                as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(find_subdirectory_by_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).unique_asset_name as *const _
+                as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(unique_asset_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).unique_directory_name as *const _
+                as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(unique_directory_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).object_asset_name as *const _
+                as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(object_asset_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).find_directory_settings as *const _
+                as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(find_directory_settings)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).object_to_config as *const _
+                as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(object_to_config)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).create_object_from_config
+                as *const _ as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(create_object_from_config)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).read_object_from_config as *const _
+                as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(read_object_from_config)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).save_to_directory as *const _
+                as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(save_to_directory)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).load_from_directory as *const _
+                as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(load_from_directory)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).current_truth_data as *const _
+                as usize
+        },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(current_truth_data)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).revert_asset as *const _ as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(revert_asset)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).save_asset as *const _ as usize
+        },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(save_asset)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).saved_name as *const _ as usize
+        },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(saved_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).saved_directory as *const _ as usize
+        },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(saved_directory)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).saved_version as *const _ as usize
+        },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(saved_version)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).all_saved_items as *const _ as usize
+        },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(all_saved_items)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).free_saved_data as *const _ as usize
+        },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(free_saved_data)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).set_mock_file_system as *const _
+                as usize
+        },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(set_mock_file_system)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_assets_api>())).any_disk_changes as *const _
+                as usize
+        },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_assets_api),
+            "::",
+            stringify!(any_disk_changes)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_migration_o {
+    _unused: [u8; 0],
+}
+#[doc = " Defines the interface for a migration."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_migration_i {
+    #[doc = " User data for this migration. This data is passed to [[migrate()]] when called."]
+    pub inst: *mut tm_the_truth_migration_o,
+    #[doc = " ID uniquely identifying this migration. This is checked against a list of saved migration IDs"]
+    #[doc = " when we open a file to determine if the migration needs to run or not."]
+    pub id: tm_strhash_t,
+    #[doc = " Lists migration IDs that should run before this migration. This can be used when migrations"]
+    #[doc = " are dependant on one another. Before migrations are applied they are sorted into a DAG by"]
+    #[doc = " their prerequisites."]
+    pub num_prerequisites: u32,
+    pub _padding_81: [::std::os::raw::c_char; 4usize],
+    pub prerequisites: *mut tm_strhash_t,
+    #[doc = " Migrates the data in `tt` in-place to the new format. Should return *true* if any data was"]
+    #[doc = " migrated (if any changes were made to `tt`) and *false* if no data was migrated."]
+    #[doc = ""]
+    #[doc = " To improve migration performance, make sure that you exit early if The Truth has already been"]
+    #[doc = " upgraded."]
+    pub migrate: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_the_truth_migration_o, tt: *mut tm_the_truth_o) -> bool,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_migration_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_migration_i>(),
+        40usize,
+        concat!("Size of: ", stringify!(tm_the_truth_migration_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_migration_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_migration_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_migration_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_migration_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_the_truth_migration_i>())).id as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_migration_i),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_migration_i>())).num_prerequisites as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_migration_i),
+            "::",
+            stringify!(num_prerequisites)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_migration_i>()))._padding_81 as *const _ as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_migration_i),
+            "::",
+            stringify!(_padding_81)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_migration_i>())).prerequisites as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_migration_i),
+            "::",
+            stringify!(prerequisites)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_migration_i>())).migrate as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_migration_i),
+            "::",
+            stringify!(migrate)
+        )
+    );
+}
+#[doc = " API for performing migrations of The Truth."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_migration_api {
+    #[doc = " Calls [[migrate()]] for all migrations that have not yet been applied to The Truth. (Determined"]
+    #[doc = " by comparing the list of migration IDs stored in The Truth to the list currently registered"]
+    #[doc = " with the API registry). Returns *true* if any migration was applied."]
+    pub migrate: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o) -> bool>,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_migration_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_migration_api>(),
+        8usize,
+        concat!("Size of: ", stringify!(tm_the_truth_migration_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_migration_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_migration_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_migration_api>())).migrate as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_migration_api),
+            "::",
+            stringify!(migrate)
+        )
+    );
+}
+#[doc = " float"]
+pub const TM_TT_PROP__VEC2__X: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC2__Y: ::std::os::raw::c_int = 1;
+pub type _bindgen_ty_6 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC3__X: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC3__Y: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC3__Z: ::std::os::raw::c_int = 2;
+pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC4__X: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC4__Y: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC4__Z: ::std::os::raw::c_int = 2;
+#[doc = " float"]
+pub const TM_TT_PROP__VEC4__W: ::std::os::raw::c_int = 3;
+pub type _bindgen_ty_8 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__POSITION__X: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__POSITION__Y: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__POSITION__Z: ::std::os::raw::c_int = 2;
+pub type _bindgen_ty_9 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__ROTATION__X: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__ROTATION__Y: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__ROTATION__Z: ::std::os::raw::c_int = 2;
+#[doc = " float"]
+pub const TM_TT_PROP__ROTATION__W: ::std::os::raw::c_int = 3;
+pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__SCALE__X: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__SCALE__Y: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__SCALE__Z: ::std::os::raw::c_int = 2;
+pub type _bindgen_ty_11 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__COLOR_RGB__R: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__COLOR_RGB__G: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__COLOR_RGB__B: ::std::os::raw::c_int = 2;
+pub type _bindgen_ty_12 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__COLOR_RGBA__R: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__COLOR_RGBA__G: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__COLOR_RGBA__B: ::std::os::raw::c_int = 2;
+#[doc = " float"]
+pub const TM_TT_PROP__COLOR_RGBA__A: ::std::os::raw::c_int = 3;
+pub type _bindgen_ty_13 = ::std::os::raw::c_int;
+#[doc = " float"]
+pub const TM_TT_PROP__RECT__X: ::std::os::raw::c_int = 0;
+#[doc = " float"]
+pub const TM_TT_PROP__RECT__Y: ::std::os::raw::c_int = 1;
+#[doc = " float"]
+pub const TM_TT_PROP__RECT__W: ::std::os::raw::c_int = 2;
+#[doc = " float"]
+pub const TM_TT_PROP__RECT__H: ::std::os::raw::c_int = 3;
+pub type _bindgen_ty_14 = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_the_truth_common_types_api {
+    #[doc = " Creates the common types in the specified truth object."]
+    pub create_common_types: ::std::option::Option<unsafe extern "C" fn(tt: *mut tm_the_truth_o)>,
+    #[doc = " Property getters"]
+    #[doc = ""]
+    #[doc = " These functions read a subobject in the `property` of the `object` as one of the vector"]
+    #[doc = " types defined in this file."]
+    pub get_vec2: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec2_t,
+    >,
+    pub get_vec3: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec3_t,
+    >,
+    pub get_vec4: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec4_t,
+    >,
+    pub get_rect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_rect_t,
+    >,
+    pub get_position: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec3_t,
+    >,
+    pub get_rotation: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec4_t,
+    >,
+    pub get_scale: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec3_t,
+    >,
+    pub get_color_rgb: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec3_t,
+    >,
+    pub get_color_rgba: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_vec4_t,
+    >,
+    pub get_color_srgb: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_color_srgb_t,
+    >,
+    pub get_color_srgba: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            object: *const tm_the_truth_object_o,
+            property: u32,
+        ) -> tm_color_srgb_t,
+    >,
+    #[doc = " Property setters"]
+    #[doc = ""]
+    #[doc = " These functions write a subobject in the `property` of the `object` as one of the vector"]
+    #[doc = " types in this file. If the subobject is currently a NULL object, a new object is created. The"]
+    #[doc = " write is logged under the specified `undo_scope`. Use [[TM_TT_NO_UNDO_SCOPE]] if you don't need"]
+    #[doc = " the action to be undoable."]
+    pub set_vec2: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec2: tm_vec2_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_vec3: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec3: tm_vec3_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_vec4: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec4: tm_vec4_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_rect: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            rect: tm_rect_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_position: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec3: tm_vec3_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_rotation: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec4: tm_vec4_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_scale: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec3: tm_vec3_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_color_rgb: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec3: tm_vec3_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_color_rgba: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            vec4: tm_vec4_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_color_srgb: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            col: tm_color_srgb_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    pub set_color_srgba: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            object: *mut tm_the_truth_object_o,
+            property: u32,
+            col: tm_color_srgb_t,
+            undo_scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " Reads the first `n` properties of `obj` as floats into `res`. `res` should have room for `n`"]
+    #[doc = " floats. Returns a pointer to `res`."]
+    pub read_floats: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const tm_the_truth_o,
+            obj: *const tm_the_truth_object_o,
+            res: *mut f32,
+            n: u32,
+        ) -> *mut f32,
+    >,
+    #[doc = " Writes the first `n` properties of `obj` as floats from the `values` array."]
+    pub write_floats: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut tm_the_truth_o,
+            obj: *mut tm_the_truth_object_o,
+            values: *const f32,
+            n: u32,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_the_truth_common_types_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_the_truth_common_types_api>(),
+        200usize,
+        concat!("Size of: ", stringify!(tm_the_truth_common_types_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_the_truth_common_types_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_the_truth_common_types_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).create_common_types
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(create_common_types)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_vec2 as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_vec2)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_vec3 as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_vec3)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_vec4 as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_vec4)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_rect as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_rect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_position as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_position)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_rotation as *const _
+                as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_rotation)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_scale as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_scale)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_rgb as *const _
+                as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_color_rgb)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_rgba as *const _
+                as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_color_rgba)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_srgb as *const _
+                as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_color_srgb)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).get_color_srgba as *const _
+                as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(get_color_srgba)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_vec2 as *const _ as usize
+        },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_vec2)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_vec3 as *const _ as usize
+        },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_vec3)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_vec4 as *const _ as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_vec4)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_rect as *const _ as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_rect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_position as *const _
+                as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_position)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_rotation as *const _
+                as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_rotation)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_scale as *const _ as usize
+        },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_scale)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_rgb as *const _
+                as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_color_rgb)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_rgba as *const _
+                as usize
+        },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_color_rgba)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_srgb as *const _
+                as usize
+        },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_color_srgb)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).set_color_srgba as *const _
+                as usize
+        },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(set_color_srgba)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).read_floats as *const _
+                as usize
+        },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(read_floats)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_the_truth_common_types_api>())).write_floats as *const _
+                as usize
+        },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_the_truth_common_types_api),
+            "::",
+            stringify!(write_floats)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_undo_stack_o {
+    _unused: [u8; 0],
+}
+#[doc = " Interface that represents an undo stack, where undo actions can be queued."]
+#[doc = ""]
+#[doc = " The [[tm_undo_stack_i]] interface must be implemented to be thread-safe. Callers can call it from"]
+#[doc = " any thread."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_undo_stack_i {
+    #[doc = " User data for interface functions."]
+    pub inst: *mut tm_undo_stack_o,
+    #[doc = " Adds the specified `scope` to the undo stack. The document that will be used for the undo"]
+    #[doc = " stack is determined automatically by looking at the objects that were changed in the scope."]
+    pub add: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_undo_stack_o,
+            tt: *mut tm_the_truth_o,
+            scope: tm_tt_undo_scope_t,
+        ),
+    >,
+    #[doc = " As `add`, but the object used to determine the document that the undo operation goes into is"]
+    #[doc = " explicitly passed."]
+    pub add_to_document: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_undo_stack_o,
+            tt: *mut tm_the_truth_o,
+            scope: tm_tt_undo_scope_t,
+            document_object: tm_tt_id_t,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_undo_stack_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_undo_stack_i>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_undo_stack_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_undo_stack_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_undo_stack_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_undo_stack_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_undo_stack_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_undo_stack_i>())).add as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_undo_stack_i),
+            "::",
+            stringify!(add)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_undo_stack_i>())).add_to_document as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_undo_stack_i),
+            "::",
+            stringify!(add_to_document)
+        )
+    );
+}
+#[doc = " API for converting between UTF-8 encoded text and UTF-16 or UTF-32. All strings in The Machinery"]
+#[doc = " are UTF-8 encoded, but UTF-16 and UTF-32 are sometimes needed to communicate with external APIs."]
+#[doc = " For example, Windows uses UTF-16."]
+#[doc = ""]
+#[doc = " !!! TODO: API-REVIEW"]
+#[doc = "     * Add `tm_str_t codepoint_range(tm_str_t s)`."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_unicode_api {
+    #[doc = " Returns *true* if `utf8` is a valid UTF-8 string, *false* otherwise."]
+    pub is_valid:
+        ::std::option::Option<unsafe extern "C" fn(utf8: *const ::std::os::raw::c_char) -> bool>,
+    #[doc = " Fixes the truncation of a UTF-8 encoded string `utf-8` by replacing any split codepoints at"]
+    #[doc = " the end of the string with `\\0` bytes. You can use this after truncating a string to make"]
+    #[doc = " sure that the resulting string is still a valid UTF-8 string."]
+    pub truncate: ::std::option::Option<unsafe extern "C" fn(utf8: *mut ::std::os::raw::c_char)>,
+    #[doc = " Encodes the `codepoint` as UTF-8 into `utf8` and returns a pointer to the position where"]
+    #[doc = " to insert the next codepoint. `utf8` should have room for at least four bytes (the"]
+    #[doc = " maximum size of a UTF-8 encoded codepoint)."]
+    pub utf8_encode: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf8: *mut ::std::os::raw::c_char,
+            codepoint: u32,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " Decodes and returns the first codepoint in the UTF-8 string `utf8`. The string pointer is"]
+    #[doc = " advanced to point to the next codepoint in the string. Will generate an error message"]
+    #[doc = " if the string is not a UTF-8 string."]
+    pub utf8_decode: ::std::option::Option<
+        unsafe extern "C" fn(utf8: *mut *const ::std::os::raw::c_char) -> u32,
+    >,
+    #[doc = " Returns the number of codepoints in `utf8`."]
+    pub utf8_num_codepoints:
+        ::std::option::Option<unsafe extern "C" fn(utf8: *const ::std::os::raw::c_char) -> u32>,
+    #[doc = " Decodes the first `n` codepoints in `utf8` to the `codepoints` buffer. If `utf8`"]
+    #[doc = " contains fewer than `n` codepoints -- decodes as many codepoints there are in `utf8`."]
+    #[doc = " Returns the number of decoded codepoints."]
+    pub utf8_decode_n: ::std::option::Option<
+        unsafe extern "C" fn(
+            codepoints: *mut u32,
+            n: u32,
+            utf8: *const ::std::os::raw::c_char,
+        ) -> u32,
+    >,
+    #[doc = " Converts a UTF-8 encoded string to a UTF-32 encoded one, allocated with the supplied"]
+    #[doc = " temp allocator. Will generate an error message if the string is not a UTF-8 string."]
+    pub utf8_to_utf32: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf8: *const ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut u32,
+    >,
+    #[doc = " As [[utf8_to_utf32()]], but uses an explicit length instead of a zero terminated string. Note"]
+    #[doc = " that the result string will still be zero terminated."]
+    pub utf8_to_utf32_n: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf8: *const ::std::os::raw::c_char,
+            n: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut u32,
+    >,
+    #[doc = " Converts a UTF-32 encoded string to a UTF-8 encoded one, allocated with the specified temp"]
+    #[doc = " allocator. Generates an error if the data is outside the UTF-8 encoding range."]
+    pub utf32_to_utf8: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf32: *const u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " As [[utf32_to_utf8()]], but uses an explicit length instead of a zero terminated string. Note"]
+    #[doc = " that the result string will still be zero terminated."]
+    pub utf32_to_utf8_n: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf32: *const u32,
+            n: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " Encodes the codepoint as UTF-16 into `utf16` and returns a pointer to the position where to"]
+    #[doc = " insert the next codepoint. `utf16` should have at room for at least two `uint16_t` (the"]
+    #[doc = " maximum size of a UTF-16 encoded codepoint)."]
+    pub utf16_encode:
+        ::std::option::Option<unsafe extern "C" fn(utf16: *mut u16, codepoint: u32) -> *mut u16>,
+    #[doc = " Decodes and returns the first codepoint in the UTF-16 string `utf16`. The string pointer is"]
+    #[doc = " advanced to point to the next codepoint in the string."]
+    pub utf16_decode: ::std::option::Option<unsafe extern "C" fn(utf16: *mut *const u16) -> u32>,
+    #[doc = " Converts a UTF-8 encoded string to a UTF-16 encoded one, allocated with the supplied temp"]
+    #[doc = " allocator. Will generate an error message if the data is outside the UTF-8 encoding range."]
+    pub utf8_to_utf16: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf8: *const ::std::os::raw::c_char,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut u16,
+    >,
+    #[doc = " As [[utf8_to_utf16()]] but uses an explicit length instead of a zero terminated string. Note"]
+    #[doc = " that the result string will still be zero terminated."]
+    pub utf8_to_utf16_n: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf8: *const ::std::os::raw::c_char,
+            n: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut u16,
+    >,
+    #[doc = " Converts a UTF-16 encoded string to a UTF-8 encoded one, allocated with the specified"]
+    #[doc = " temp allocator. Will generate an error message if the string is not a UTF-16 string."]
+    pub utf16_to_utf8: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf16: *const u16,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+    #[doc = " As [[utf16_to_utf8()]] but uses an explicit length instead of a zero terminated string. Note"]
+    #[doc = " that the result string will still be zero terminated."]
+    pub utf16_to_utf8_n: ::std::option::Option<
+        unsafe extern "C" fn(
+            utf16: *const u16,
+            n: u32,
+            ta: *mut tm_temp_allocator_i,
+        ) -> *mut ::std::os::raw::c_char,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_unicode_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_unicode_api>(),
+        128usize,
+        concat!("Size of: ", stringify!(tm_unicode_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_unicode_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_unicode_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).is_valid as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(is_valid)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).truncate as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(truncate)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_encode as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_encode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_decode as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_decode)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_unicode_api>())).utf8_num_codepoints as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_num_codepoints)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_decode_n as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_decode_n)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf32 as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_to_utf32)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf32_n as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_to_utf32_n)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf32_to_utf8 as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf32_to_utf8)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf32_to_utf8_n as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf32_to_utf8_n)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_encode as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf16_encode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_decode as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf16_decode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf16 as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_to_utf16)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf8_to_utf16_n as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf8_to_utf16_n)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_to_utf8 as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf16_to_utf8)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unicode_api>())).utf16_to_utf8_n as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unicode_api),
+            "::",
+            stringify!(utf16_to_utf8_n)
+        )
+    );
+}
+#[doc = " …"]
+pub const TM_UNICODE__HORIZONTAL_ELLIPSIS: ::std::os::raw::c_int = 8230;
+#[doc = " ↑"]
+pub const TM_UNICODE__ARROW_UPWARDS: ::std::os::raw::c_int = 8593;
+#[doc = " ↓"]
+pub const TM_UNICODE__ARROW_DOWNWARDS: ::std::os::raw::c_int = 8595;
+#[doc = " ©"]
+pub const TM_UNICODE__COPYRIGHT: ::std::os::raw::c_int = 169;
+#[doc = " ❌"]
+pub const TM_UNICODE__CROSS_MARK: ::std::os::raw::c_int = 10060;
+#[doc = " ″"]
+pub const TM_UNICODE__DOUBLE_PRIME: ::std::os::raw::c_int = 8243;
+#[doc = " Symbol codepoints"]
+pub type _bindgen_ty_15 = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_unit_test_runner_o {
+    _unused: [u8; 0],
+}
+#[doc = " [[tm_unit_test_runner_i]] defines an interface for *Unit Test Runners* -- objects capable of"]
+#[doc = " running unit tests."]
+#[doc = ""]
+#[doc = " A codebase may have multiple unit test runners. One runner might log the results to the command"]
+#[doc = " line, while another uploads it to a web server, etc."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_unit_test_runner_i {
+    #[doc = " User data for callback functions."]
+    pub inst: *mut tm_unit_test_runner_o,
+    #[doc = " Returns `true` if the tests in the file named `name` should run. You can use this to"]
+    #[doc = " configure a runner to only run a subset of the tests."]
+    pub test_file: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_unit_test_runner_o,
+            name: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+    #[doc = " Returns `true` if the custom test with the specified `name` should be run. Custom tests"]
+    #[doc = " are tests that don't run in every build (typically because they are expensive to run)."]
+    pub test_custom: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_unit_test_runner_o,
+            name: *const ::std::os::raw::c_char,
+        ) -> bool,
+    >,
+    #[doc = " Returns `true` if the unit tests are allowed to touch the disk. If it returns `false`, disk"]
+    #[doc = " tests should be skipped."]
+    pub test_disk:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_unit_test_runner_o) -> bool>,
+    #[doc = " Returns `true` if the unit tests are allowed to access the network. If it returns `false`,"]
+    #[doc = " network tests should be skipped."]
+    pub test_network:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_unit_test_runner_o) -> bool>,
+    #[doc = " Returns `true` if \"slow\" tests should run. The entire test suite of The Machinery should"]
+    #[doc = " finish in a fraction of a section. If you have complicated tests that take longer, you should"]
+    #[doc = " only run them when slow test paths are enabled."]
+    pub test_slow_paths:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_unit_test_runner_o) -> bool>,
+    #[doc = " Records the result of a unit test with the runner."]
+    #[doc = ""]
+    #[doc = " * `pass` specifies if the test succeeded or not."]
+    #[doc = " * `test_str` is a string describing the test that will be printed in test reports."]
+    #[doc = " * `file` is the `__FILE__` where the test is located."]
+    #[doc = " * `line` is the `__LINE__` where the test is located."]
+    #[doc = ""]
+    #[doc = " Returns the value of `pass`."]
+    pub record: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_unit_test_runner_o,
+            pass: bool,
+            test_str: *const ::std::os::raw::c_char,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+        ) -> bool,
+    >,
+    #[doc = " Tells the test runner to expect the error message `err`."]
+    #[doc = ""]
+    #[doc = " Normally, a test runner does not expect any errors to occurs, so if a test logs an error"]
+    #[doc = " (using [[tm_error_i->errorf()]]), the test is considered to have failed."]
+    #[doc = ""]
+    #[doc = " However, sometimes you want to test that the error handling works and that an API produces a"]
+    #[doc = " certain error when called in a certain way. To do that, you first call [[expect_error()]] with"]
+    #[doc = " the error you expect and then run the specific unit test that should produce the error"]
+    #[doc = " message."]
+    #[doc = ""]
+    #[doc = " If the expected error message is written to [[tm_error_i]] before the next call to [[record()]],"]
+    #[doc = " the test is considered to have succeeded (produced the expected error message), otherwise,"]
+    #[doc = " the test is considered to have failed (not produced the right error message)."]
+    #[doc = ""]
+    #[doc = " Note that to make this work, the unit test runner has to set up the [[tm_error_api->def]]"]
+    #[doc = " interface to call into the unit test runner code. That way, it can intercept the"]
+    #[doc = " [[tm_error_i->errorf()]] call and check if the error matches the expectations or not."]
+    #[doc = ""]
+    #[doc = " For a sample implementation of how this can work, see `unit_test/unit_test.c`."]
+    pub expect_error: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_unit_test_runner_o,
+            err: *const ::std::os::raw::c_char,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_unit_test_runner_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_unit_test_runner_i>(),
+        64usize,
+        concat!("Size of: ", stringify!(tm_unit_test_runner_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_unit_test_runner_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_unit_test_runner_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).inst as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(inst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_file as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(test_file)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_custom as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(test_custom)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_disk as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(test_disk)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_network as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(test_network)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).test_slow_paths as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(test_slow_paths)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unit_test_runner_i>())).record as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(record)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_unit_test_runner_i>())).expect_error as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_runner_i),
+            "::",
+            stringify!(expect_error)
+        )
+    );
+}
+#[doc = " Interface for unit tests."]
+#[doc = ""]
+#[doc = " Plugins that want to implement a set of unit tests can register them using this interface. To"]
+#[doc = " find all unit test, query the API registry for [[TM_UNIT_TEST_INTERFACE_NAME]] implementations."]
+#[doc = ""]
+#[doc = " !!! TIP"]
+#[doc = "     Typically a plugin would register a single [[tm_unit_test_i]], that runs all the unit tests"]
+#[doc = "     for the plugin. You don't have to register a separate [[tm_unit_test_i]] for each individual"]
+#[doc = "     unit test in the plugin."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_unit_test_i {
+    #[doc = " Name of this unit test. Typically, this is identical to the name of the plugin."]
+    pub name: *const ::std::os::raw::c_char,
+    #[doc = " Callback that runs the unit tests, using the specified test runner. The supplied allocator"]
+    #[doc = " can be used for any allocations that the unit test needs to make."]
+    pub test: ::std::option::Option<
+        unsafe extern "C" fn(tr: *mut tm_unit_test_runner_i, a: *mut tm_allocator_i),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_unit_test_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_unit_test_i>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_unit_test_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_unit_test_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_unit_test_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unit_test_i>())).name as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_i),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_unit_test_i>())).test as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_unit_test_i),
+            "::",
+            stringify!(test)
+        )
+    );
+}
+#[doc = " The visibility flag is disabled by default."]
+pub const TM_VISIBILITY_FLAG_OPT_IN: tm_visibility_flag_behaviour = 0;
+#[doc = " The visibility flag is enabled by default."]
+pub const TM_VISIBILITY_FLAG_OPT_OUT: tm_visibility_flag_behaviour = 1;
+#[doc = " Specifies the default behavior of a visibility flag."]
+pub type tm_visibility_flag_behaviour = ::std::os::raw::c_int;
+#[doc = " Interface for visibility flags."]
+#[doc = ""]
+#[doc = " To register a new visibility flag, register a `tm_visibility_flag_desc_i *` under  the"]
+#[doc = " [[TM_VISIBILITY_FLAGS_EDITOR_INTERFACE_NAME]]."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_visibility_flag_desc_i {
+    #[doc = " Hashed name of the flag. Used for loose coupling between the visibility flag and"]
+    #[doc = " other systems (e.g. the shader system)."]
+    pub name: tm_strhash_t,
+    #[doc = " Description of the flag. Used to present this flag in the user interface. This text should"]
+    #[doc = " use [[TM_LOCALIZE_LATER()]]."]
+    pub description: *const ::std::os::raw::c_char,
+    #[doc = " Tooltip for the flag. This text should use [[TM_LOCALIZE_LATER()]]."]
+    pub tooltip: *const ::std::os::raw::c_char,
+    #[doc = " Unique identifier for the flag, used to serialize state."]
+    pub uuid: u32,
+    #[doc = " Flag behaviour, see `enum tm_visibility_flag_behaviour`."]
+    pub behaviour: tm_visibility_flag_behaviour,
+}
+#[test]
+fn bindgen_test_layout_tm_visibility_flag_desc_i() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_visibility_flag_desc_i>(),
+        32usize,
+        concat!("Size of: ", stringify!(tm_visibility_flag_desc_i))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_visibility_flag_desc_i>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_visibility_flag_desc_i))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).name as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flag_desc_i),
+            "::",
+            stringify!(name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).description as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flag_desc_i),
+            "::",
+            stringify!(description)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).tooltip as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flag_desc_i),
+            "::",
+            stringify!(tooltip)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).uuid as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flag_desc_i),
+            "::",
+            stringify!(uuid)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flag_desc_i>())).behaviour as *const _ as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flag_desc_i),
+            "::",
+            stringify!(behaviour)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_visibility_context_o {
+    _unused: [u8; 0],
+}
+#[doc = " API for managing visibility flags."]
+#[doc = ""]
+#[doc = " Threading: This API is internally synchronized."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_visibility_flags_api {
+    #[doc = " Creates a visibility context. Each context can hold a maximum of 64 flags. `name` is a hashed"]
+    #[doc = " string used to identify a particular context, registered as an implementation under the"]
+    #[doc = " [[TM_VISIBILITY_FLAGS_CONTEXT_INTERFACE_NAME]] in the [[tm_api_registry_api]]."]
+    pub create_context: ::std::option::Option<
+        unsafe extern "C" fn(
+            allocator: *mut tm_allocator_i,
+            name: tm_strhash_t,
+        ) -> *mut tm_visibility_context_o,
+    >,
+    #[doc = " Returns the hashed name of the `context`."]
+    pub context_name: ::std::option::Option<
+        unsafe extern "C" fn(context: *mut tm_visibility_context_o) -> tm_strhash_t,
+    >,
+    #[doc = " Destroys the visibility `context`."]
+    pub destroy_context:
+        ::std::option::Option<unsafe extern "C" fn(context: *mut tm_visibility_context_o)>,
+    #[doc = " Register a new visibility flag to the `context`. Returns a `uint64_t` with the corresponding"]
+    #[doc = " bit set or 0 in case there are no free flags in the context."]
+    pub register_visibility_flag: ::std::option::Option<
+        unsafe extern "C" fn(
+            context: *mut tm_visibility_context_o,
+            desc: *const tm_visibility_flag_desc_i,
+        ) -> u64,
+    >,
+    #[doc = " Looks up the hashed name from a `visibility_flag`."]
+    pub name_from_visibility_flag: ::std::option::Option<
+        unsafe extern "C" fn(
+            context: *mut tm_visibility_context_o,
+            visibility_flag: u64,
+        ) -> tm_strhash_t,
+    >,
+    #[doc = " Looks up the visibility flag from a hashed `name`."]
+    pub visibility_flag_from_name: ::std::option::Option<
+        unsafe extern "C" fn(context: *mut tm_visibility_context_o, name: tm_strhash_t) -> u64,
+    >,
+    #[doc = " Unregisters a visibility flag identified by its unique id (`uuid`)."]
+    pub unregister_visibility_flag: ::std::option::Option<
+        unsafe extern "C" fn(context: *mut tm_visibility_context_o, uuid: u32),
+    >,
+    #[doc = " Returns all the visibility flags in the context in the array `flags` of size `num_flags`."]
+    #[doc = " `num_flags` will be updated to hold the number of entries."]
+    #[doc = ""]
+    #[doc = " To query the number of flags, pass `NULL` for `flags`. The total number of flags will be"]
+    #[doc = " returned in `num_flags`."]
+    pub enumerate_flags: ::std::option::Option<
+        unsafe extern "C" fn(
+            context: *mut tm_visibility_context_o,
+            flags: *mut tm_visibility_flag_desc_i,
+            num_flags: *mut u32,
+        ),
+    >,
+    #[doc = " Builds a 64-bit visibility mask. The flags in the returned visibility mask will have the"]
+    #[doc = " default visibility specified by the `enum tm_visibility_flag_behaviour`."]
+    #[doc = ""]
+    #[doc = " `(uuids, num_uuids)` is a list of flag UUIDs whose state should be toggled from the default"]
+    #[doc = " state."]
+    pub build_visibility_mask: ::std::option::Option<
+        unsafe extern "C" fn(
+            context: *mut tm_visibility_context_o,
+            uuids: *const u32,
+            num_uuids: u32,
+        ) -> u64,
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_visibility_flags_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_visibility_flags_api>(),
+        72usize,
+        concat!("Size of: ", stringify!(tm_visibility_flags_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_visibility_flags_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_visibility_flags_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).create_context as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(create_context)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).context_name as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(context_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).destroy_context as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(destroy_context)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).register_visibility_flag as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(register_visibility_flag)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).name_from_visibility_flag
+                as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(name_from_visibility_flag)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).visibility_flag_from_name
+                as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(visibility_flag_from_name)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).unregister_visibility_flag
+                as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(unregister_visibility_flag)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).enumerate_flags as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(enumerate_flags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_visibility_flags_api>())).build_visibility_mask as *const _
+                as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_visibility_flags_api),
+            "::",
+            stringify!(build_visibility_mask)
+        )
+    );
+}
+#[doc = " uint32_t"]
+pub const TM_TT_PROP__VISIBILITY_FLAG__UUID: ::std::os::raw::c_int = 0;
+pub type _bindgen_ty_16 = ::std::os::raw::c_int;
+pub const TM_WEB_SOCKET_OPCODE_CONTINUATION: tm_web_socket_opcode = 0;
+pub const TM_WEB_SOCKET_OPCODE_TEXT: tm_web_socket_opcode = 1;
+pub const TM_WEB_SOCKET_OPCODE_BINARY: tm_web_socket_opcode = 2;
+pub const TM_WEB_SOCKET_OPCODE_CLOSE: tm_web_socket_opcode = 8;
+pub const TM_WEB_SOCKET_OPCODE_PING: tm_web_socket_opcode = 9;
+pub const TM_WEB_SOCKET_OPCODE_PONG: tm_web_socket_opcode = 10;
+#[doc = " Enumerates the web socket opcodes."]
+pub type tm_web_socket_opcode = ::std::os::raw::c_int;
+#[doc = " Helper functions for processing web socket protocol data."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_web_socket_protocol_api {
+    #[doc = " Creates a client handshake message to `host:port` with specified `request` and `key` and"]
+    #[doc = " stores it in `buffer` of size `size`."]
+    pub make_client_handshake: ::std::option::Option<
+        unsafe extern "C" fn(
+            buffer: *mut ::std::os::raw::c_char,
+            size: u32,
+            host: *const ::std::os::raw::c_char,
+            port: u32,
+            request: *const ::std::os::raw::c_char,
+            key: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Creates a server handshake message with the specified key and stores it in the `buffer`."]
+    pub make_server_handshake: ::std::option::Option<
+        unsafe extern "C" fn(
+            buffer: *mut ::std::os::raw::c_char,
+            size: u32,
+            key: *const ::std::os::raw::c_char,
+            key_size: u32,
+        ),
+    >,
+    #[doc = " Creates a frame header for a web socket frame."]
+    #[doc = ""]
+    #[doc = " * `fin`: Should the `FIN` flag be set."]
+    #[doc = " * `opcode`: Opcode of the message"]
+    #[doc = " * `size`: Size of the payload that will follow the header"]
+    #[doc = " * `mask`: Mask of the payload or 0 for no mask"]
+    #[doc = ""]
+    #[doc = " The header is created in the `buffer` and the function returns the `size` in bytes of the"]
+    #[doc = " header data."]
+    pub make_frame_header: ::std::option::Option<
+        unsafe extern "C" fn(buffer: *mut u8, fin: bool, opcode: u8, size: u64, mask: u32) -> u32,
+    >,
+    #[doc = " Parses a web socket frame header from the `buffer` of size `buf_siz`. `fin`, `opcode`, `size`"]
+    #[doc = " and `mask` from the header are returned in the corresponding parameters. The function returns"]
+    #[doc = " the size of the parsed header. If there is not enough data in `buf_size` to parse a complete"]
+    #[doc = " web socket header, the function will return 0."]
+    pub parse_frame_header: ::std::option::Option<
+        unsafe extern "C" fn(
+            buffer: *mut u8,
+            buf_size: u64,
+            fin: *mut bool,
+            opcode: *mut u8,
+            size: *mut u64,
+            mask: *mut u32,
+        ) -> u32,
+    >,
+    #[doc = " Masks or unmasks `data` using the specified `mask`. If this is a partial data segment being"]
+    #[doc = " parsed, `offset` specifies the offset of this segment from the start of the data. It is used"]
+    #[doc = " to align the mask properly."]
+    pub mask_data: ::std::option::Option<
+        unsafe extern "C" fn(data: *mut u8, size: u64, offset: u64, mask: u32),
+    >,
+    #[doc = " Masks or unmasks the segmented buffer `seg` with the specified mask."]
+    pub mask_segmented_buffer: ::std::option::Option<
+        unsafe extern "C" fn(seg: *mut tm_segmented_buffer_t, size: u64, mask: u32),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_web_socket_protocol_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_web_socket_protocol_api>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_web_socket_protocol_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_web_socket_protocol_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_web_socket_protocol_api))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).make_client_handshake as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_protocol_api),
+            "::",
+            stringify!(make_client_handshake)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).make_server_handshake as *const _
+                as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_protocol_api),
+            "::",
+            stringify!(make_server_handshake)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).make_frame_header as *const _
+                as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_protocol_api),
+            "::",
+            stringify!(make_frame_header)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).parse_frame_header as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_protocol_api),
+            "::",
+            stringify!(parse_frame_header)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).mask_data as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_protocol_api),
+            "::",
+            stringify!(mask_data)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_protocol_api>())).mask_segmented_buffer as *const _
+                as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_protocol_api),
+            "::",
+            stringify!(mask_segmented_buffer)
+        )
+    );
+}
+#[doc = " The request is in progress, but has not yet completed."]
+pub const TM_HTTP_REQUEST_STATUS_IN_PROGRESS: tm_http_request_status = 0;
+#[doc = " The request has succeeded and has data to read."]
+pub const TM_HTTP_REQUEST_STATUS_SUCCESS: tm_http_request_status = 1;
+#[doc = " The request has failed."]
+pub const TM_HTTP_REQUEST_STATUS_ERROR: tm_http_request_status = 2;
+#[doc = " The request has been closed and information about it is no longer available."]
+pub const TM_HTTP_REQUEST_STATUS_CLOSED: tm_http_request_status = 3;
+#[doc = " Represents the status of a HTTP client request."]
+pub type tm_http_request_status = ::std::os::raw::c_int;
+#[doc = " Represents a HTTP request sent to the web talker."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_http_request_t {
+    #[doc = " Unique ID of the request."]
+    pub id: u64,
+    #[doc = " Target for the request. Will be `/` for the root web page."]
+    pub request_target: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_http_request_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_http_request_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_http_request_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_http_request_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_http_request_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_http_request_t>())).id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_http_request_t),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_http_request_t>())).request_target as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_http_request_t),
+            "::",
+            stringify!(request_target)
+        )
+    );
+}
+#[doc = " Used to represent a buffer that is split into multiple separate segments. The segments are linked"]
+#[doc = " together in a linked list."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_segmented_buffer_t {
+    #[doc = " Pointer to the data in this segment."]
+    pub data: *mut ::std::os::raw::c_void,
+    #[doc = " Size of the data in this segment."]
+    pub size: u64,
+    #[doc = " Pointer to the next segment or NULL if this is the last segment in the linked list."]
+    pub next: *mut tm_segmented_buffer_t,
+}
+#[test]
+fn bindgen_test_layout_tm_segmented_buffer_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_segmented_buffer_t>(),
+        24usize,
+        concat!("Size of: ", stringify!(tm_segmented_buffer_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_segmented_buffer_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_segmented_buffer_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_segmented_buffer_t>())).data as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_segmented_buffer_t),
+            "::",
+            stringify!(data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_segmented_buffer_t>())).size as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_segmented_buffer_t),
+            "::",
+            stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_segmented_buffer_t>())).next as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_segmented_buffer_t),
+            "::",
+            stringify!(next)
+        )
+    );
+}
+pub const TM_WEB_SOCKET_PSEUDO_OPCODE_OPEN: tm_web_socket_pseudo_opcode = 16;
+pub const TM_WEB_SOCKET_PSEUDO_OPCODE_ERROR: tm_web_socket_pseudo_opcode = 17;
+#[doc = " Pseudo opcodes that are used to represent events that are not part of the web socket protocol."]
+pub type tm_web_socket_pseudo_opcode = ::std::os::raw::c_int;
+#[doc = " The connection is not yet open."]
+pub const TM_WEB_SOCKET_STATUS_CONNECTING: tm_web_socket_status = 0;
+#[doc = " The connection is open and ready to communicate."]
+pub const TM_WEB_SOCKET_STATUS_OPEN: tm_web_socket_status = 1;
+#[doc = " The web socket is in the process of closing."]
+pub const TM_WEB_SOCKET_STATUS_CLOSING: tm_web_socket_status = 2;
+#[doc = " The web socket is closed."]
+pub const TM_WEB_SOCKET_STATUS_CLOSED: tm_web_socket_status = 3;
+#[doc = " The web socket encountered an error."]
+pub const TM_WEB_SOCKET_STATUS_ERROR: tm_web_socket_status = 4;
+#[doc = " Represents the status of a web socket connection."]
+pub type tm_web_socket_status = ::std::os::raw::c_int;
+#[doc = " Represents a web socket connection request."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_web_socket_request_t {
+    #[doc = " ID of the request."]
+    pub id: u64,
+    #[doc = " String representing the request target. This will be `/` for the root request."]
+    pub request_target: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_tm_web_socket_request_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_web_socket_request_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(tm_web_socket_request_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_web_socket_request_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_web_socket_request_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_socket_request_t>())).id as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_request_t),
+            "::",
+            stringify!(id)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_request_t>())).request_target as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_request_t),
+            "::",
+            stringify!(request_target)
+        )
+    );
+}
+#[doc = " Represents an event received on a web socket."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_web_socket_event_t {
+    #[doc = " Opcode for the event. This will be one of the [[enum tm_web_socket_opcode]] opcodes."]
+    pub opcode: u32,
+    pub _padding_107: [::std::os::raw::c_char; 4usize],
+    #[doc = " For messages with a payload, the size of the payload."]
+    pub payload_size: u64,
+    #[doc = " Segmented buffer representing the payload data."]
+    pub payload: tm_segmented_buffer_t,
+    #[doc = " Reference to the payload data."]
+    pub payload_reference: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_tm_web_socket_event_t() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_web_socket_event_t>(),
+        48usize,
+        concat!("Size of: ", stringify!(tm_web_socket_event_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_web_socket_event_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_web_socket_event_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_socket_event_t>())).opcode as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_event_t),
+            "::",
+            stringify!(opcode)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_event_t>()))._padding_107 as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_event_t),
+            "::",
+            stringify!(_padding_107)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_event_t>())).payload_size as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_event_t),
+            "::",
+            stringify!(payload_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_socket_event_t>())).payload as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_event_t),
+            "::",
+            stringify!(payload)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_socket_event_t>())).payload_reference as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_socket_event_t),
+            "::",
+            stringify!(payload_reference)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_web_talker_o {
+    _unused: [u8; 0],
+}
+#[doc = " Interface for managing HTTP and WebSocket connections (both as client and a server)."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_web_talker_api {
+    #[doc = " Creates a new web talker listening to the specified `port` using the specified OS `socket`"]
+    #[doc = " interface. Use `port = 0` to bind to a system assigned port. If we fail to bind to the"]
+    #[doc = " specified port, we will bind to a system assigned port instead. Use [[listening_address()]] to"]
+    #[doc = " detect the assigned port."]
+    pub create: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            socket: *mut tm_os_socket_api,
+            port: u32,
+        ) -> *mut tm_web_talker_o,
+    >,
+    #[doc = " Returns the address that the web talker is listening to."]
+    pub listening_address: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_web_talker_o, address: *mut tm_socket_address_t) -> bool,
+    >,
+    #[doc = " Creates a web talker without a listening port. This web talker will not accept incoming"]
+    #[doc = " connections and only run in client mode."]
+    pub create_no_server: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut tm_allocator_i,
+            socket: *mut tm_os_socket_api,
+        ) -> *mut tm_web_talker_o,
+    >,
+    #[doc = " Destroys a web talker created by [[create()]]."]
+    pub destroy: ::std::option::Option<unsafe extern "C" fn(arg1: *mut tm_web_talker_o)>,
+    #[doc = " Receives data from all connected clients. This should be called every frame to fetch more"]
+    #[doc = " data."]
+    pub receive: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_web_talker_o)>,
+    #[doc = " Sends data to all connected clients. This should be called every frame to send more data."]
+    pub send: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_web_talker_o)>,
+    #[doc = " Returns a list of all the open HTTP GET requests. The requests will stay open until you"]
+    #[doc = " explicitly respond to them with [[http_respond_raw()]] or [[http_respond_html()]]. The"]
+    #[doc = " requests are returned in the `buffer`, which should have room for `capacity` requests. The"]
+    #[doc = " actual number of received requests (which may be greater than `capacity`) is returned by the"]
+    #[doc = " function."]
+    pub http_get_requests: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            buffer: *mut tm_http_request_t,
+            capacity: u32,
+        ) -> u32,
+    >,
+    #[doc = " Responds to the request `id` with a raw HTTP response string."]
+    pub http_respond_raw: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            id: u64,
+            response: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Responds to the request `id` with a HTML string. The `200 OK` HTTP headers are added"]
+    #[doc = " automatically"]
+    pub http_respond_html: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            id: u64,
+            html: *const ::std::os::raw::c_char,
+        ),
+    >,
+    #[doc = " Starts a HTTP request to the specified `address`, with the specified `headers` and returns"]
+    #[doc = " its ID."]
+    pub http_request: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            address: tm_socket_address_t,
+            headers: *const ::std::os::raw::c_char,
+        ) -> u64,
+    >,
+    #[doc = " Returns a [[enum tm_http_request_status]] representing the status of the request `id`."]
+    pub http_request_status: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_web_talker_o, id: u64) -> tm_http_request_status,
+    >,
+    #[doc = " Returns the response of the HTTP request with the specified `id`."]
+    pub http_response: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            id: u64,
+            size: *mut u64,
+        ) -> tm_segmented_buffer_t,
+    >,
+    #[doc = " Closes the HTTP request with the specified `id`."]
+    pub http_close:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_web_talker_o, id: u64)>,
+    #[doc = " As a client, connect the web socket server at the specified address. `host` is the host name"]
+    #[doc = " passed in the `Host:` field of the HTTP request (can be important if you use virtual hosting)"]
+    #[doc = " and `request` is the HTTP request string."]
+    pub ws_connect: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            address: tm_socket_address_t,
+            host: *const ::std::os::raw::c_char,
+            request: *const ::std::os::raw::c_char,
+        ) -> u64,
+    >,
+    #[doc = " As a server, returns a list of received incoming web socket connection requests. The returned"]
+    #[doc = " requests are considered processed and will not be returned again."]
+    pub ws_get_requests: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            buffer: *mut tm_web_socket_request_t,
+            capacity: u32,
+        ) -> u32,
+    >,
+    #[doc = " Returns the status of the web socket connection."]
+    pub ws_status: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_web_talker_o, id: u64) -> tm_web_socket_status,
+    >,
+    #[doc = " If the web socket connection has received a partial web socket, frame returns `true`, the"]
+    #[doc = " number of bytes received in `bytes` and the total number of bytes in the frame in `total`. If"]
+    #[doc = " the connection has received no frame, or a full frame, returns `false`."]
+    pub ws_recv_progress: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            id: u64,
+            bytes: *mut u64,
+            total: *mut u64,
+        ) -> bool,
+    >,
+    #[doc = " Returns a list of received web socket events. The returned events are considered processed"]
+    #[doc = " and will not be returned again."]
+    pub ws_get_events: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            id: u64,
+            buffer: *mut tm_web_socket_event_t,
+            capacity: u32,
+        ) -> u32,
+    >,
+    #[doc = " Sends a text frame to the web socket connection `id`."]
+    pub ws_send_text_frame: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_web_talker_o, id: u64, s: *const ::std::os::raw::c_char),
+    >,
+    #[doc = " Sends a binary frame to the web socket connection `id`."]
+    pub ws_send_binary_frame: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut tm_web_talker_o, id: u64, data: *const u8, size: u64),
+    >,
+    #[doc = " Sends a binary frame using a segmented buffer."]
+    pub ws_send_segmented_binary_frame: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut tm_web_talker_o,
+            id: u64,
+            buf: *const tm_segmented_buffer_t,
+            size: u64,
+        ),
+    >,
+    #[doc = " Sends a ping to the web socket connection `id`."]
+    pub ws_send_ping:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_web_talker_o, id: u64)>,
+    #[doc = " Closes the web socket connection `id`."]
+    pub ws_close: ::std::option::Option<unsafe extern "C" fn(inst: *mut tm_web_talker_o, id: u64)>,
+    #[doc = " Copies `size` bytes of data from the segmented buffer `segments` into `buffer`."]
+    pub copy_segmented_buffer: ::std::option::Option<
+        unsafe extern "C" fn(
+            buffer: *mut ::std::os::raw::c_void,
+            segments: *const tm_segmented_buffer_t,
+            size: u64,
+        ),
+    >,
+}
+#[test]
+fn bindgen_test_layout_tm_web_talker_api() {
+    assert_eq!(
+        ::std::mem::size_of::<tm_web_talker_api>(),
+        192usize,
+        concat!("Size of: ", stringify!(tm_web_talker_api))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tm_web_talker_api>(),
+        8usize,
+        concat!("Alignment of ", stringify!(tm_web_talker_api))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).create as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(create)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).listening_address as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(listening_address)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).create_no_server as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(create_no_server)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).destroy as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(destroy)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).receive as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(receive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).send as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(send)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).http_get_requests as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(http_get_requests)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).http_respond_raw as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(http_respond_raw)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).http_respond_html as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(http_respond_html)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).http_request as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(http_request)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).http_request_status as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(http_request_status)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).http_response as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(http_response)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).http_close as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(http_close)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_connect as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_connect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_get_requests as *const _ as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_get_requests)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_status as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_status)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_recv_progress as *const _ as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_recv_progress)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_get_events as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_get_events)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_text_frame as *const _ as usize
+        },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_send_text_frame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_binary_frame as *const _ as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_send_binary_frame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_segmented_binary_frame as *const _
+                as usize
+        },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_send_segmented_binary_frame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_send_ping as *const _ as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_send_ping)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tm_web_talker_api>())).ws_close as *const _ as usize },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(ws_close)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<tm_web_talker_api>())).copy_segmented_buffer as *const _ as usize
+        },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tm_web_talker_api),
+            "::",
+            stringify!(copy_segmented_buffer)
+        )
+    );
+}
+#[doc = " Returns the application's viewer manager that keeps track of all the application's viewers."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_viewer_manager_o {
+    pub _address: u8,
+}
+#[doc = " Returns the API for the application's default render pipeline."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_render_pipeline_api {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_asset_io_o {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_plugin_o {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_string_repository_o {
+    pub _address: u8,
+}
+#[doc = " User data for this temp allocator."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_temp_allocator_o {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm_hash32_t {
+    pub _address: u8,
 }
