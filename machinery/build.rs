@@ -191,8 +191,8 @@ fn generate_in_args<'a>(
         let name = &input.name.as_ref().unwrap().0;
 
         let raw_ty = &input.ty;
-        let mut in_ty = quote! {#raw_ty};
-        let mut out_arg = quote!(#name);
+        let mut in_ty = quote! { #raw_ty };
+        let out_arg = quote! { #name };
 
         // If this is a type we can convert, add a conversion
         if let Type::Ptr(ptr) = &input.ty {
@@ -201,17 +201,16 @@ fn generate_in_args<'a>(
                     && ptr.mutability.is_none()
                 {
                     let conversion = quote! {
-                        let #name = std::ffi::CString::new(#name).unwrap();
+                        let #name = #name.as_ptr();
                     };
                     conversions.push(conversion);
 
-                    in_ty = quote! { &str };
-                    out_arg = quote! { #name.as_ptr() };
+                    in_ty = quote! { &std::ffi::CStr };
                 }
             }
         }
 
-        in_args.push(quote!(#name: #in_ty));
+        in_args.push(quote! { #name: #in_ty });
         out_args.push(out_arg);
     }
 

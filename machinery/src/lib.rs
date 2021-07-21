@@ -10,13 +10,11 @@ use std::{
 use machinery_sys::foundation::tm_api_registry_api;
 use tm::foundation::ApiRegistryApi;
 
-pub type PluginInstance<P> = AtomicPtr<P>;
-
 #[macro_export]
 macro_rules! plugin {
     ($ty:ident) => {
-        static INSTANCE: machinery::PluginInstance<$ty> =
-            machinery::PluginInstance::new(std::ptr::null_mut());
+        static INSTANCE: std::sync::atomic::AtomicPtr<$ty> =
+            std::sync::atomic::AtomicPtr::new(std::ptr::null_mut());
 
         #[no_mangle]
         pub unsafe extern "C" fn tm_load_plugin(
@@ -27,6 +25,10 @@ macro_rules! plugin {
         }
 
         impl $ty {
+            /// # Safety
+            ///
+            /// The data behind this pointer will only be valid for as long as the singleton is
+            /// initialized.
             unsafe fn as_ptr() -> *const $ty {
                 INSTANCE.load(std::sync::atomic::Ordering::SeqCst)
             }
@@ -35,7 +37,7 @@ macro_rules! plugin {
 }
 
 pub fn load_plugin<P: Plugin>(
-    instance: &PluginInstance<P>,
+    instance: &AtomicPtr<P>,
     registry: *const tm_api_registry_api,
     load: bool,
 ) {

@@ -6,9 +6,13 @@ use unsafe_unwrap::UnsafeUnwrap;
 pub struct AllocatorApi(pub *const tm_allocator_api);
 
 impl AllocatorApi {
-    pub unsafe fn create_child(&self, parent: *const tm_allocator_i, desc: &str) -> tm_allocator_i {
-        let desc = std::ffi::CString::new(desc).unwrap();
-        ((*self.0).create_child).unsafe_unwrap()(parent, desc.as_ptr())
+    pub unsafe fn create_child(
+        &self,
+        parent: *const tm_allocator_i,
+        desc: &std::ffi::CStr,
+    ) -> tm_allocator_i {
+        let desc = desc.as_ptr();
+        ((*self.0).create_child).unsafe_unwrap()(parent, desc)
     }
 
     pub unsafe fn destroy_child(&self, child: *const tm_allocator_i) {
@@ -26,10 +30,10 @@ impl AllocatorApi {
     pub unsafe fn create_leaky_root_scope(
         &self,
         parent: *const tm_allocator_i,
-        desc: &str,
+        desc: &std::ffi::CStr,
     ) -> tm_allocator_i {
-        let desc = std::ffi::CString::new(desc).unwrap();
-        ((*self.0).create_leaky_root_scope).unsafe_unwrap()(parent, desc.as_ptr())
+        let desc = desc.as_ptr();
+        ((*self.0).create_leaky_root_scope).unsafe_unwrap()(parent, desc)
     }
 
     pub unsafe fn create_fixed_vm(&self, reserve_size: u64, mem_scope: u32) -> tm_allocator_i {
@@ -143,22 +147,22 @@ pub struct AssetDatabaseApi(pub *const tm_asset_database_api);
 impl AssetDatabaseApi {
     pub unsafe fn create(
         &self,
-        file: &str,
+        file: &std::ffi::CStr,
         tt: *mut tm_the_truth_o,
         config: *const tm_asset_database_config_t,
     ) -> *mut tm_asset_database_o {
-        let file = std::ffi::CString::new(file).unwrap();
-        ((*self.0).create).unsafe_unwrap()(file.as_ptr(), tt, config)
+        let file = file.as_ptr();
+        ((*self.0).create).unsafe_unwrap()(file, tt, config)
     }
 
     pub unsafe fn open(
         &self,
-        file: &str,
+        file: &std::ffi::CStr,
         tt: *mut tm_the_truth_o,
         config: *const tm_asset_database_config_t,
     ) -> *mut tm_asset_database_o {
-        let file = std::ffi::CString::new(file).unwrap();
-        ((*self.0).open).unsafe_unwrap()(file.as_ptr(), tt, config)
+        let file = file.as_ptr();
+        ((*self.0).open).unsafe_unwrap()(file, tt, config)
     }
 
     pub unsafe fn close(&self, db: *mut tm_asset_database_o) {
@@ -248,9 +252,9 @@ impl AssetIoApi {
         ((*self.0).remove_asset_io).unsafe_unwrap()(loader)
     }
 
-    pub unsafe fn importer(&self, extension: &str) -> *mut tm_asset_io_i {
-        let extension = std::ffi::CString::new(extension).unwrap();
-        ((*self.0).importer).unsafe_unwrap()(extension.as_ptr())
+    pub unsafe fn importer(&self, extension: &std::ffi::CStr) -> *mut tm_asset_io_i {
+        let extension = extension.as_ptr();
+        ((*self.0).importer).unsafe_unwrap()(extension)
     }
 
     pub unsafe fn reimporter(
@@ -298,14 +302,14 @@ impl Base64Api {
         ((*self.0).encode).unsafe_unwrap()(encoded, raw, raw_size)
     }
 
-    pub unsafe fn decoded_size(&self, encoded: &str, encoded_size: u64) -> u64 {
-        let encoded = std::ffi::CString::new(encoded).unwrap();
-        ((*self.0).decoded_size).unsafe_unwrap()(encoded.as_ptr(), encoded_size)
+    pub unsafe fn decoded_size(&self, encoded: &std::ffi::CStr, encoded_size: u64) -> u64 {
+        let encoded = encoded.as_ptr();
+        ((*self.0).decoded_size).unsafe_unwrap()(encoded, encoded_size)
     }
 
-    pub unsafe fn decode(&self, raw: *mut u8, encoded: &str, encoded_size: u64) -> u64 {
-        let encoded = std::ffi::CString::new(encoded).unwrap();
-        ((*self.0).decode).unsafe_unwrap()(raw, encoded.as_ptr(), encoded_size)
+    pub unsafe fn decode(&self, raw: *mut u8, encoded: &std::ffi::CStr, encoded_size: u64) -> u64 {
+        let encoded = encoded.as_ptr();
+        ((*self.0).decode).unsafe_unwrap()(raw, encoded, encoded_size)
     }
 }
 
@@ -744,9 +748,9 @@ impl CollaborationApi {
         ((*self.0).all_handles).unsafe_unwrap()(coll, ta)
     }
 
-    pub unsafe fn send_chat(&self, coll: *mut tm_collaboration_o, msg: &str) {
-        let msg = std::ffi::CString::new(msg).unwrap();
-        ((*self.0).send_chat).unsafe_unwrap()(coll, msg.as_ptr())
+    pub unsafe fn send_chat(&self, coll: *mut tm_collaboration_o, msg: &std::ffi::CStr) {
+        let msg = msg.as_ptr();
+        ((*self.0).send_chat).unsafe_unwrap()(coll, msg)
     }
 
     pub unsafe fn num_chat_messages(&self, coll: *const tm_collaboration_o) -> u32 {
@@ -894,17 +898,17 @@ impl CoreImporterApi {
         a: *mut tm_allocator_i,
         user_tt: *mut tm_the_truth_o,
         user_asset_root: tm_tt_id_t,
-        core_project_path: &str,
-        output_path: &str,
+        core_project_path: &std::ffi::CStr,
+        output_path: &std::ffi::CStr,
     ) -> *mut tm_core_importer_state_o {
-        let core_project_path = std::ffi::CString::new(core_project_path).unwrap();
-        let output_path = std::ffi::CString::new(output_path).unwrap();
+        let core_project_path = core_project_path.as_ptr();
+        let output_path = output_path.as_ptr();
         ((*self.0).create).unsafe_unwrap()(
             a,
             user_tt,
             user_asset_root,
-            core_project_path.as_ptr(),
-            output_path.as_ptr(),
+            core_project_path,
+            output_path,
         )
     }
 
@@ -936,10 +940,10 @@ impl CrashRecoveryApi {
     pub unsafe fn create(
         &self,
         a: *mut tm_allocator_i,
-        recovery_path: &str,
+        recovery_path: &std::ffi::CStr,
     ) -> *mut tm_crash_recovery_o {
-        let recovery_path = std::ffi::CString::new(recovery_path).unwrap();
-        ((*self.0).create).unsafe_unwrap()(a, recovery_path.as_ptr())
+        let recovery_path = recovery_path.as_ptr();
+        ((*self.0).create).unsafe_unwrap()(a, recovery_path)
     }
 
     pub unsafe fn destroy(&self, cr: *mut tm_crash_recovery_o) {
@@ -949,12 +953,12 @@ impl CrashRecoveryApi {
     pub unsafe fn start_recording(
         &self,
         cr: *mut tm_crash_recovery_o,
-        project: &str,
+        project: &std::ffi::CStr,
         tt: *mut tm_the_truth_o,
         root: tm_tt_id_t,
     ) {
-        let project = std::ffi::CString::new(project).unwrap();
-        ((*self.0).start_recording).unsafe_unwrap()(cr, project.as_ptr(), tt, root)
+        let project = project.as_ptr();
+        ((*self.0).start_recording).unsafe_unwrap()(cr, project, tt, root)
     }
 
     pub unsafe fn stop_recording(&self, cr: *mut tm_crash_recovery_o) {
@@ -1038,10 +1042,10 @@ unsafe impl Sync for FeatureFlagsApi {}
 pub struct GitIgnoreApi(pub *const tm_git_ignore_api);
 
 impl GitIgnoreApi {
-    pub unsafe fn match_(&self, patterns: &str, path: &str) -> bool {
-        let patterns = std::ffi::CString::new(patterns).unwrap();
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).match_).unsafe_unwrap()(patterns.as_ptr(), path.as_ptr())
+    pub unsafe fn match_(&self, patterns: &std::ffi::CStr, path: &std::ffi::CStr) -> bool {
+        let patterns = patterns.as_ptr();
+        let path = path.as_ptr();
+        ((*self.0).match_).unsafe_unwrap()(patterns, path)
     }
 }
 
@@ -1071,9 +1075,12 @@ impl ImageLoaderApi {
         ((*self.0).loader_from_archive).unsafe_unwrap()(image_archive)
     }
 
-    pub unsafe fn loader_from_extension(&self, extension: &str) -> *mut tm_image_loader_i {
-        let extension = std::ffi::CString::new(extension).unwrap();
-        ((*self.0).loader_from_extension).unsafe_unwrap()(extension.as_ptr())
+    pub unsafe fn loader_from_extension(
+        &self,
+        extension: &std::ffi::CStr,
+    ) -> *mut tm_image_loader_i {
+        let extension = extension.as_ptr();
+        ((*self.0).loader_from_extension).unsafe_unwrap()(extension)
     }
 
     pub unsafe fn loaders(&self, loaders: *mut *mut tm_image_loader_i) -> u32 {
@@ -1175,24 +1182,24 @@ pub struct JsonApi(pub *const tm_json_api);
 impl JsonApi {
     pub unsafe fn parse(
         &self,
-        s: &str,
+        s: &std::ffi::CStr,
         config: *mut tm_config_i,
         extensions: tm_json_parse_ext,
         error: *mut ::std::os::raw::c_char,
     ) -> bool {
-        let s = std::ffi::CString::new(s).unwrap();
-        ((*self.0).parse).unsafe_unwrap()(s.as_ptr(), config, extensions, error)
+        let s = s.as_ptr();
+        ((*self.0).parse).unsafe_unwrap()(s, config, extensions, error)
     }
 
     pub unsafe fn parse_with_line_info(
         &self,
-        s: &str,
+        s: &std::ffi::CStr,
         config: *mut tm_config_i,
         extensions: tm_json_parse_ext,
         ta: *mut tm_temp_allocator_i,
     ) -> *mut tm_json_parse_info_t {
-        let s = std::ffi::CString::new(s).unwrap();
-        ((*self.0).parse_with_line_info).unsafe_unwrap()(s.as_ptr(), config, extensions, ta)
+        let s = s.as_ptr();
+        ((*self.0).parse_with_line_info).unsafe_unwrap()(s, config, extensions, ta)
     }
 
     pub unsafe fn line_number(
@@ -1244,14 +1251,18 @@ impl LoggerApi {
         ((*self.0).remove_logger).unsafe_unwrap()(logger)
     }
 
-    pub unsafe fn print(&self, log_type: tm_log_type, msg: &str) {
-        let msg = std::ffi::CString::new(msg).unwrap();
-        ((*self.0).print).unsafe_unwrap()(log_type, msg.as_ptr())
+    pub unsafe fn print(&self, log_type: tm_log_type, msg: &std::ffi::CStr) {
+        let msg = msg.as_ptr();
+        ((*self.0).print).unsafe_unwrap()(log_type, msg)
     }
 
-    pub unsafe fn printf(&self, log_type: tm_log_type, format: &str) -> ::std::os::raw::c_int {
-        let format = std::ffi::CString::new(format).unwrap();
-        ((*self.0).printf).unsafe_unwrap()(log_type, format.as_ptr())
+    pub unsafe fn printf(
+        &self,
+        log_type: tm_log_type,
+        format: &std::ffi::CStr,
+    ) -> ::std::os::raw::c_int {
+        let format = format.as_ptr();
+        ((*self.0).printf).unsafe_unwrap()(log_type, format)
     }
 }
 
@@ -1268,24 +1279,24 @@ pub struct Lz4Api(pub *const tm_lz4_api);
 impl Lz4Api {
     pub unsafe fn compress(
         &self,
-        src: &str,
+        src: &std::ffi::CStr,
         src_size: u32,
         dst: *mut ::std::os::raw::c_char,
         dst_capacity: u32,
     ) -> u32 {
-        let src = std::ffi::CString::new(src).unwrap();
-        ((*self.0).compress).unsafe_unwrap()(src.as_ptr(), src_size, dst, dst_capacity)
+        let src = src.as_ptr();
+        ((*self.0).compress).unsafe_unwrap()(src, src_size, dst, dst_capacity)
     }
 
     pub unsafe fn decompress(
         &self,
-        src: &str,
+        src: &std::ffi::CStr,
         src_size: u32,
         dst: *mut ::std::os::raw::c_char,
         dst_capacity: u32,
     ) -> u32 {
-        let src = std::ffi::CString::new(src).unwrap();
-        ((*self.0).decompress).unsafe_unwrap()(src.as_ptr(), src_size, dst, dst_capacity)
+        let src = src.as_ptr();
+        ((*self.0).decompress).unsafe_unwrap()(src, src_size, dst, dst_capacity)
     }
 
     pub unsafe fn compress_bound(&self, src_size: u32) -> u32 {
@@ -1355,9 +1366,9 @@ impl MemoryTrackerApi {
         ((*self.0).check_for_leaked_scopes).unsafe_unwrap()()
     }
 
-    pub unsafe fn create_scope(&self, desc: &str, parent_scope: u32) -> u32 {
-        let desc = std::ffi::CString::new(desc).unwrap();
-        ((*self.0).create_scope).unsafe_unwrap()(desc.as_ptr(), parent_scope)
+    pub unsafe fn create_scope(&self, desc: &std::ffi::CStr, parent_scope: u32) -> u32 {
+        let desc = desc.as_ptr();
+        ((*self.0).create_scope).unsafe_unwrap()(desc, parent_scope)
     }
 
     pub unsafe fn destroy_scope(&self, s: u32) {
@@ -1374,19 +1385,13 @@ impl MemoryTrackerApi {
         old_size: u64,
         new_ptr: *mut ::std::os::raw::c_void,
         new_size: u64,
-        file: &str,
+        file: &std::ffi::CStr,
         line: u32,
         scope: u32,
     ) {
-        let file = std::ffi::CString::new(file).unwrap();
+        let file = file.as_ptr();
         ((*self.0).record_realloc).unsafe_unwrap()(
-            old_ptr,
-            old_size,
-            new_ptr,
-            new_size,
-            file.as_ptr(),
-            line,
-            scope,
+            old_ptr, old_size, new_ptr, new_size, file, line, scope,
         )
     }
 
@@ -1450,19 +1455,19 @@ unsafe impl Sync for OsVirtualMemoryApi {}
 pub struct OsFileIoApi(pub *const tm_os_file_io_api);
 
 impl OsFileIoApi {
-    pub unsafe fn open_input(&self, path: &str) -> tm_file_o {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).open_input).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn open_input(&self, path: &std::ffi::CStr) -> tm_file_o {
+        let path = path.as_ptr();
+        ((*self.0).open_input).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn open_output(&self, path: &str) -> tm_file_o {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).open_output).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn open_output(&self, path: &std::ffi::CStr) -> tm_file_o {
+        let path = path.as_ptr();
+        ((*self.0).open_output).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn open_append(&self, path: &str) -> tm_file_o {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).open_append).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn open_append(&self, path: &std::ffi::CStr) -> tm_file_o {
+        let path = path.as_ptr();
+        ((*self.0).open_append).unsafe_unwrap()(path)
     }
 
     pub unsafe fn set_position(&self, file: tm_file_o, pos: u64) {
@@ -1525,68 +1530,68 @@ unsafe impl Sync for OsFileIoApi {}
 pub struct OsFileSystemApi(pub *const tm_os_file_system_api);
 
 impl OsFileSystemApi {
-    pub unsafe fn stat(&self, path: &str) -> tm_file_stat_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).stat).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn stat(&self, path: &std::ffi::CStr) -> tm_file_stat_t {
+        let path = path.as_ptr();
+        ((*self.0).stat).unsafe_unwrap()(path)
     }
 
     pub unsafe fn directory_entries(
         &self,
-        path: &str,
+        path: &std::ffi::CStr,
         ta: *mut tm_temp_allocator_i,
     ) -> *mut tm_strings_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).directory_entries).unsafe_unwrap()(path.as_ptr(), ta)
+        let path = path.as_ptr();
+        ((*self.0).directory_entries).unsafe_unwrap()(path, ta)
     }
 
-    pub unsafe fn make_directory(&self, path: &str) -> bool {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).make_directory).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn make_directory(&self, path: &std::ffi::CStr) -> bool {
+        let path = path.as_ptr();
+        ((*self.0).make_directory).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn remove_file(&self, path: &str) -> bool {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).remove_file).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn remove_file(&self, path: &std::ffi::CStr) -> bool {
+        let path = path.as_ptr();
+        ((*self.0).remove_file).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn remove_directory(&self, path: &str) -> bool {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).remove_directory).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn remove_directory(&self, path: &std::ffi::CStr) -> bool {
+        let path = path.as_ptr();
+        ((*self.0).remove_directory).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn rename(&self, old_name: &str, new_name: &str) -> bool {
-        let old_name = std::ffi::CString::new(old_name).unwrap();
-        let new_name = std::ffi::CString::new(new_name).unwrap();
-        ((*self.0).rename).unsafe_unwrap()(old_name.as_ptr(), new_name.as_ptr())
+    pub unsafe fn rename(&self, old_name: &std::ffi::CStr, new_name: &std::ffi::CStr) -> bool {
+        let old_name = old_name.as_ptr();
+        let new_name = new_name.as_ptr();
+        ((*self.0).rename).unsafe_unwrap()(old_name, new_name)
     }
 
-    pub unsafe fn copy_file(&self, from: &str, to: &str) -> bool {
-        let from = std::ffi::CString::new(from).unwrap();
-        let to = std::ffi::CString::new(to).unwrap();
-        ((*self.0).copy_file).unsafe_unwrap()(from.as_ptr(), to.as_ptr())
+    pub unsafe fn copy_file(&self, from: &std::ffi::CStr, to: &std::ffi::CStr) -> bool {
+        let from = from.as_ptr();
+        let to = to.as_ptr();
+        ((*self.0).copy_file).unsafe_unwrap()(from, to)
     }
 
     pub unsafe fn getcwd(&self, ta: *mut tm_temp_allocator_i) -> *const ::std::os::raw::c_char {
         ((*self.0).getcwd).unsafe_unwrap()(ta)
     }
 
-    pub unsafe fn chdir(&self, path: &str) -> bool {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).chdir).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn chdir(&self, path: &std::ffi::CStr) -> bool {
+        let path = path.as_ptr();
+        ((*self.0).chdir).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn is_absolute(&self, path: &str) -> bool {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).is_absolute).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn is_absolute(&self, path: &std::ffi::CStr) -> bool {
+        let path = path.as_ptr();
+        ((*self.0).is_absolute).unsafe_unwrap()(path)
     }
 
     pub unsafe fn absolute(
         &self,
-        path: &str,
+        path: &std::ffi::CStr,
         ta: *mut tm_temp_allocator_i,
     ) -> *const ::std::os::raw::c_char {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).absolute).unsafe_unwrap()(path.as_ptr(), ta)
+        let path = path.as_ptr();
+        ((*self.0).absolute).unsafe_unwrap()(path, ta)
     }
 
     pub unsafe fn temp_directory(
@@ -1596,9 +1601,9 @@ impl OsFileSystemApi {
         ((*self.0).temp_directory).unsafe_unwrap()(ta)
     }
 
-    pub unsafe fn create_watcher(&self, subtree_path: &str) -> tm_file_system_watcher_o {
-        let subtree_path = std::ffi::CString::new(subtree_path).unwrap();
-        ((*self.0).create_watcher).unsafe_unwrap()(subtree_path.as_ptr())
+    pub unsafe fn create_watcher(&self, subtree_path: &std::ffi::CStr) -> tm_file_system_watcher_o {
+        let subtree_path = subtree_path.as_ptr();
+        ((*self.0).create_watcher).unsafe_unwrap()(subtree_path)
     }
 
     pub unsafe fn any_changes(&self, watcher: tm_file_system_watcher_o) -> bool {
@@ -1611,10 +1616,10 @@ impl OsFileSystemApi {
 
     pub unsafe fn create_detailed_watcher(
         &self,
-        subtree_path: &str,
+        subtree_path: &std::ffi::CStr,
     ) -> *mut tm_file_system_detailed_watcher_o {
-        let subtree_path = std::ffi::CString::new(subtree_path).unwrap();
-        ((*self.0).create_detailed_watcher).unsafe_unwrap()(subtree_path.as_ptr())
+        let subtree_path = subtree_path.as_ptr();
+        ((*self.0).create_detailed_watcher).unsafe_unwrap()(subtree_path)
     }
 
     pub unsafe fn detailed_changes(
@@ -1639,19 +1644,23 @@ unsafe impl Sync for OsFileSystemApi {}
 pub struct OsDllApi(pub *const tm_os_dll_api);
 
 impl OsDllApi {
-    pub unsafe fn open(&self, path: &str) -> tm_dll_o {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).open).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn open(&self, path: &std::ffi::CStr) -> tm_dll_o {
+        let path = path.as_ptr();
+        ((*self.0).open).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn get(&self, path: &str) -> tm_dll_o {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).get).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn get(&self, path: &std::ffi::CStr) -> tm_dll_o {
+        let path = path.as_ptr();
+        ((*self.0).get).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn sym(&self, handle: tm_dll_o, name: &str) -> *mut ::std::os::raw::c_void {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).sym).unsafe_unwrap()(handle, name.as_ptr())
+    pub unsafe fn sym(
+        &self,
+        handle: tm_dll_o,
+        name: &std::ffi::CStr,
+    ) -> *mut ::std::os::raw::c_void {
+        let name = name.as_ptr();
+        ((*self.0).sym).unsafe_unwrap()(handle, name)
     }
 
     pub unsafe fn close(&self, handle: tm_dll_o) {
@@ -1761,24 +1770,24 @@ impl OsSocketApi {
 
     pub unsafe fn getaddrinfo(
         &self,
-        name: &str,
-        service: &str,
+        name: &std::ffi::CStr,
+        service: &std::ffi::CStr,
         addresses: *mut tm_socket_address_t,
         size: u32,
     ) -> u32 {
-        let name = std::ffi::CString::new(name).unwrap();
-        let service = std::ffi::CString::new(service).unwrap();
-        ((*self.0).getaddrinfo).unsafe_unwrap()(name.as_ptr(), service.as_ptr(), addresses, size)
+        let name = name.as_ptr();
+        let service = service.as_ptr();
+        ((*self.0).getaddrinfo).unsafe_unwrap()(name, service, addresses, size)
     }
 
     pub unsafe fn getaddrinfo_async(
         &self,
-        name: &str,
-        service: &str,
+        name: &std::ffi::CStr,
+        service: &std::ffi::CStr,
     ) -> *mut ::std::os::raw::c_void {
-        let name = std::ffi::CString::new(name).unwrap();
-        let service = std::ffi::CString::new(service).unwrap();
-        ((*self.0).getaddrinfo_async).unsafe_unwrap()(name.as_ptr(), service.as_ptr())
+        let name = name.as_ptr();
+        let service = service.as_ptr();
+        ((*self.0).getaddrinfo_async).unsafe_unwrap()(name, service)
     }
 
     pub unsafe fn getaddrinfo_result(
@@ -1845,10 +1854,10 @@ impl OsThreadApi {
         entry: tm_thread_entry_f,
         user_data: *mut ::std::os::raw::c_void,
         stack_size: u32,
-        debug_name: &str,
+        debug_name: &std::ffi::CStr,
     ) -> tm_thread_o {
-        let debug_name = std::ffi::CString::new(debug_name).unwrap();
-        ((*self.0).create_thread).unsafe_unwrap()(entry, user_data, stack_size, debug_name.as_ptr())
+        let debug_name = debug_name.as_ptr();
+        ((*self.0).create_thread).unsafe_unwrap()(entry, user_data, stack_size, debug_name)
     }
 
     pub unsafe fn set_thread_priority(
@@ -1959,10 +1968,10 @@ impl OsDialogsApi {
         ((*self.0).save).unsafe_unwrap()(s, ta)
     }
 
-    pub unsafe fn message_box(&self, title: &str, text: &str) {
-        let title = std::ffi::CString::new(title).unwrap();
-        let text = std::ffi::CString::new(text).unwrap();
-        ((*self.0).message_box).unsafe_unwrap()(title.as_ptr(), text.as_ptr())
+    pub unsafe fn message_box(&self, title: &std::ffi::CStr, text: &std::ffi::CStr) {
+        let title = title.as_ptr();
+        let text = text.as_ptr();
+        ((*self.0).message_box).unsafe_unwrap()(title, text)
     }
 
     pub unsafe fn show_count(&self) -> u64 {
@@ -2003,40 +2012,40 @@ unsafe impl Sync for OsDebuggerApi {}
 pub struct OsSystemApi(pub *const tm_os_system_api);
 
 impl OsSystemApi {
-    pub unsafe fn open_url(&self, url: &str) {
-        let url = std::ffi::CString::new(url).unwrap();
-        ((*self.0).open_url).unsafe_unwrap()(url.as_ptr())
+    pub unsafe fn open_url(&self, url: &std::ffi::CStr) {
+        let url = url.as_ptr();
+        ((*self.0).open_url).unsafe_unwrap()(url)
     }
 
-    pub unsafe fn open_file(&self, file: &str) -> bool {
-        let file = std::ffi::CString::new(file).unwrap();
-        ((*self.0).open_file).unsafe_unwrap()(file.as_ptr())
+    pub unsafe fn open_file(&self, file: &std::ffi::CStr) -> bool {
+        let file = file.as_ptr();
+        ((*self.0).open_file).unsafe_unwrap()(file)
     }
 
-    pub unsafe fn exe_path(&self, argv_0: &str) -> *const ::std::os::raw::c_char {
-        let argv_0 = std::ffi::CString::new(argv_0).unwrap();
-        ((*self.0).exe_path).unsafe_unwrap()(argv_0.as_ptr())
+    pub unsafe fn exe_path(&self, argv_0: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
+        let argv_0 = argv_0.as_ptr();
+        ((*self.0).exe_path).unsafe_unwrap()(argv_0)
     }
 
-    pub unsafe fn execute(&self, command: &str) -> ::std::os::raw::c_int {
-        let command = std::ffi::CString::new(command).unwrap();
-        ((*self.0).execute).unsafe_unwrap()(command.as_ptr())
+    pub unsafe fn execute(&self, command: &std::ffi::CStr) -> ::std::os::raw::c_int {
+        let command = command.as_ptr();
+        ((*self.0).execute).unsafe_unwrap()(command)
     }
 
-    pub unsafe fn execute_in_background(&self, command: &str) -> ::std::os::raw::c_int {
-        let command = std::ffi::CString::new(command).unwrap();
-        ((*self.0).execute_in_background).unsafe_unwrap()(command.as_ptr())
+    pub unsafe fn execute_in_background(&self, command: &std::ffi::CStr) -> ::std::os::raw::c_int {
+        let command = command.as_ptr();
+        ((*self.0).execute_in_background).unsafe_unwrap()(command)
     }
 
     pub unsafe fn execute_stdout(
         &self,
-        command: &str,
+        command: &std::ffi::CStr,
         timeout_ms: u32,
         ta: *mut tm_temp_allocator_i,
         exit_code: *mut ::std::os::raw::c_int,
     ) -> *mut ::std::os::raw::c_char {
-        let command = std::ffi::CString::new(command).unwrap();
-        ((*self.0).execute_stdout).unsafe_unwrap()(command.as_ptr(), timeout_ms, ta, exit_code)
+        let command = command.as_ptr();
+        ((*self.0).execute_stdout).unsafe_unwrap()(command, timeout_ms, ta, exit_code)
     }
 }
 
@@ -2061,9 +2070,9 @@ impl PathApi {
         ((*self.0).extension).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn extension_cstr(&self, path: &str) -> *const ::std::os::raw::c_char {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).extension_cstr).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn extension_cstr(&self, path: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
+        let path = path.as_ptr();
+        ((*self.0).extension_cstr).unsafe_unwrap()(path)
     }
 
     pub unsafe fn strip_extension(&self, path: tm_str_t) -> tm_str_t {
@@ -2074,9 +2083,9 @@ impl PathApi {
         ((*self.0).base).unsafe_unwrap()(path)
     }
 
-    pub unsafe fn base_cstr(&self, path: &str) -> *const ::std::os::raw::c_char {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).base_cstr).unsafe_unwrap()(path.as_ptr())
+    pub unsafe fn base_cstr(&self, path: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
+        let path = path.as_ptr();
+        ((*self.0).base_cstr).unsafe_unwrap()(path)
     }
 
     pub unsafe fn directory(&self, path: tm_str_t) -> tm_str_t {
@@ -2111,9 +2120,9 @@ unsafe impl Sync for PathApi {}
 pub struct PluginsApi(pub *const tm_plugins_api);
 
 impl PluginsApi {
-    pub unsafe fn load(&self, path: &str, hot_reload: bool) -> u64 {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).load).unsafe_unwrap()(path.as_ptr(), hot_reload)
+    pub unsafe fn load(&self, path: &std::ffi::CStr, hot_reload: bool) -> u64 {
+        let path = path.as_ptr();
+        ((*self.0).load).unsafe_unwrap()(path, hot_reload)
     }
 
     pub unsafe fn unload(&self, plugin: u64) {
@@ -2124,9 +2133,9 @@ impl PluginsApi {
         ((*self.0).reload).unsafe_unwrap()(plugin)
     }
 
-    pub unsafe fn set_path(&self, plugin: u64, path: &str) {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).set_path).unsafe_unwrap()(plugin, path.as_ptr())
+    pub unsafe fn set_path(&self, plugin: u64, path: &std::ffi::CStr) {
+        let path = path.as_ptr();
+        ((*self.0).set_path).unsafe_unwrap()(plugin, path)
     }
 
     pub unsafe fn check_hot_reload(&self) -> bool {
@@ -2139,11 +2148,11 @@ impl PluginsApi {
 
     pub unsafe fn enumerate(
         &self,
-        directory: &str,
+        directory: &std::ffi::CStr,
         ta: *mut tm_temp_allocator_i,
     ) -> *mut *const ::std::os::raw::c_char {
-        let directory = std::ffi::CString::new(directory).unwrap();
-        ((*self.0).enumerate).unsafe_unwrap()(directory.as_ptr(), ta)
+        let directory = directory.as_ptr();
+        ((*self.0).enumerate).unsafe_unwrap()(directory, ta)
     }
 
     pub unsafe fn load_plugin_context(&self) -> *const ::std::os::raw::c_char {
@@ -2153,23 +2162,23 @@ impl PluginsApi {
     pub unsafe fn plugin_dllpath(
         &self,
         ta: *mut tm_temp_allocator_i,
-        exe: &str,
-        name: &str,
+        exe: &std::ffi::CStr,
+        name: &std::ffi::CStr,
     ) -> *const ::std::os::raw::c_char {
-        let exe = std::ffi::CString::new(exe).unwrap();
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).plugin_dllpath).unsafe_unwrap()(ta, exe.as_ptr(), name.as_ptr())
+        let exe = exe.as_ptr();
+        let name = name.as_ptr();
+        ((*self.0).plugin_dllpath).unsafe_unwrap()(ta, exe, name)
     }
 
     pub unsafe fn app_dllpath(
         &self,
         ta: *mut tm_temp_allocator_i,
-        exe: &str,
-        name: &str,
+        exe: &std::ffi::CStr,
+        name: &std::ffi::CStr,
     ) -> *const ::std::os::raw::c_char {
-        let exe = std::ffi::CString::new(exe).unwrap();
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).app_dllpath).unsafe_unwrap()(ta, exe.as_ptr(), name.as_ptr())
+        let exe = exe.as_ptr();
+        let name = name.as_ptr();
+        ((*self.0).app_dllpath).unsafe_unwrap()(ta, exe, name)
     }
 }
 
@@ -2232,38 +2241,53 @@ impl ProfilerApi {
         ((*self.0).shutdown).unsafe_unwrap()()
     }
 
-    pub unsafe fn begin(&self, name: &str, category: &str, object: &str) -> u64 {
-        let name = std::ffi::CString::new(name).unwrap();
-        let category = std::ffi::CString::new(category).unwrap();
-        let object = std::ffi::CString::new(object).unwrap();
-        ((*self.0).begin).unsafe_unwrap()(name.as_ptr(), category.as_ptr(), object.as_ptr())
+    pub unsafe fn begin(
+        &self,
+        name: &std::ffi::CStr,
+        category: &std::ffi::CStr,
+        object: &std::ffi::CStr,
+    ) -> u64 {
+        let name = name.as_ptr();
+        let category = category.as_ptr();
+        let object = object.as_ptr();
+        ((*self.0).begin).unsafe_unwrap()(name, category, object)
     }
 
     pub unsafe fn end(&self, begin_id: u64) {
         ((*self.0).end).unsafe_unwrap()(begin_id)
     }
 
-    pub unsafe fn instant(&self, name: &str, category: &str, object: &str) {
-        let name = std::ffi::CString::new(name).unwrap();
-        let category = std::ffi::CString::new(category).unwrap();
-        let object = std::ffi::CString::new(object).unwrap();
-        ((*self.0).instant).unsafe_unwrap()(name.as_ptr(), category.as_ptr(), object.as_ptr())
+    pub unsafe fn instant(
+        &self,
+        name: &std::ffi::CStr,
+        category: &std::ffi::CStr,
+        object: &std::ffi::CStr,
+    ) {
+        let name = name.as_ptr();
+        let category = category.as_ptr();
+        let object = object.as_ptr();
+        ((*self.0).instant).unsafe_unwrap()(name, category, object)
     }
 
-    pub unsafe fn start(&self, name: &str, category: &str, object: &str) -> u64 {
-        let name = std::ffi::CString::new(name).unwrap();
-        let category = std::ffi::CString::new(category).unwrap();
-        let object = std::ffi::CString::new(object).unwrap();
-        ((*self.0).start).unsafe_unwrap()(name.as_ptr(), category.as_ptr(), object.as_ptr())
+    pub unsafe fn start(
+        &self,
+        name: &std::ffi::CStr,
+        category: &std::ffi::CStr,
+        object: &std::ffi::CStr,
+    ) -> u64 {
+        let name = name.as_ptr();
+        let category = category.as_ptr();
+        let object = object.as_ptr();
+        ((*self.0).start).unsafe_unwrap()(name, category, object)
     }
 
     pub unsafe fn finish(&self, start_id: u64) {
         ((*self.0).finish).unsafe_unwrap()(start_id)
     }
 
-    pub unsafe fn intern(&self, s: &str) -> *const ::std::os::raw::c_char {
-        let s = std::ffi::CString::new(s).unwrap();
-        ((*self.0).intern).unsafe_unwrap()(s.as_ptr())
+    pub unsafe fn intern(&self, s: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
+        let s = s.as_ptr();
+        ((*self.0).intern).unsafe_unwrap()(s)
     }
 
     pub unsafe fn fiber_switch(&self, from_fiber: u32, to_fiber: u32) {
@@ -2321,9 +2345,9 @@ impl ProgressReportApi {
         ((*self.0).idle).unsafe_unwrap()()
     }
 
-    pub unsafe fn set_task_progress(&self, task: u64, text: &str, fraction: f32) {
-        let text = std::ffi::CString::new(text).unwrap();
-        ((*self.0).set_task_progress).unsafe_unwrap()(task, text.as_ptr(), fraction)
+    pub unsafe fn set_task_progress(&self, task: u64, text: &std::ffi::CStr, fraction: f32) {
+        let text = text.as_ptr();
+        ((*self.0).set_task_progress).unsafe_unwrap()(task, text, fraction)
     }
 }
 
@@ -2414,46 +2438,46 @@ impl SprintfApi {
     pub unsafe fn print_unsafe(
         &self,
         buf: *mut ::std::os::raw::c_char,
-        fmt: &str,
+        fmt: &std::ffi::CStr,
     ) -> ::std::os::raw::c_int {
-        let fmt = std::ffi::CString::new(fmt).unwrap();
-        ((*self.0).print_unsafe).unsafe_unwrap()(buf, fmt.as_ptr())
+        let fmt = fmt.as_ptr();
+        ((*self.0).print_unsafe).unsafe_unwrap()(buf, fmt)
     }
 
     pub unsafe fn print(
         &self,
         buf: *mut ::std::os::raw::c_char,
         count: ::std::os::raw::c_int,
-        fmt: &str,
+        fmt: &std::ffi::CStr,
     ) -> ::std::os::raw::c_int {
-        let fmt = std::ffi::CString::new(fmt).unwrap();
-        ((*self.0).print).unsafe_unwrap()(buf, count, fmt.as_ptr())
+        let fmt = fmt.as_ptr();
+        ((*self.0).print).unsafe_unwrap()(buf, count, fmt)
     }
 
     pub unsafe fn vprint_unsafe(
         &self,
         buf: *mut ::std::os::raw::c_char,
-        fmt: &str,
+        fmt: &std::ffi::CStr,
         va: va_list,
     ) -> ::std::os::raw::c_int {
-        let fmt = std::ffi::CString::new(fmt).unwrap();
-        ((*self.0).vprint_unsafe).unsafe_unwrap()(buf, fmt.as_ptr(), va)
+        let fmt = fmt.as_ptr();
+        ((*self.0).vprint_unsafe).unsafe_unwrap()(buf, fmt, va)
     }
 
     pub unsafe fn vprint(
         &self,
         buf: *mut ::std::os::raw::c_char,
         count: ::std::os::raw::c_int,
-        fmt: &str,
+        fmt: &std::ffi::CStr,
         va: va_list,
     ) -> ::std::os::raw::c_int {
-        let fmt = std::ffi::CString::new(fmt).unwrap();
-        ((*self.0).vprint).unsafe_unwrap()(buf, count, fmt.as_ptr(), va)
+        let fmt = fmt.as_ptr();
+        ((*self.0).vprint).unsafe_unwrap()(buf, count, fmt, va)
     }
 
-    pub unsafe fn add_printer(&self, name: &str, printer: tm_sprintf_printer) {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).add_printer).unsafe_unwrap()(name.as_ptr(), printer)
+    pub unsafe fn add_printer(&self, name: &std::ffi::CStr, printer: tm_sprintf_printer) {
+        let name = name.as_ptr();
+        ((*self.0).add_printer).unsafe_unwrap()(name, printer)
     }
 }
 
@@ -2472,17 +2496,17 @@ impl StringApi {
         &self,
         taken_names: *mut tm_set_strhash_t,
         ignore_case: bool,
-        desired_name: &str,
-        separator: &str,
+        desired_name: &std::ffi::CStr,
+        separator: &std::ffi::CStr,
         ta: *mut tm_temp_allocator_i,
     ) -> *const ::std::os::raw::c_char {
-        let desired_name = std::ffi::CString::new(desired_name).unwrap();
-        let separator = std::ffi::CString::new(separator).unwrap();
+        let desired_name = desired_name.as_ptr();
+        let separator = separator.as_ptr();
         ((*self.0).find_unique_name).unsafe_unwrap()(
             taken_names,
             ignore_case,
-            desired_name.as_ptr(),
-            separator.as_ptr(),
+            desired_name,
+            separator,
             ta,
         )
     }
@@ -2523,10 +2547,10 @@ impl TaskSystemApi {
         &self,
         f: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void, id: u64)>,
         data: *mut ::std::os::raw::c_void,
-        debug_name: &str,
+        debug_name: &std::ffi::CStr,
     ) -> u64 {
-        let debug_name = std::ffi::CString::new(debug_name).unwrap();
-        ((*self.0).run_task).unsafe_unwrap()(f, data, debug_name.as_ptr())
+        let debug_name = debug_name.as_ptr();
+        ((*self.0).run_task).unsafe_unwrap()(f, data, debug_name)
     }
 
     pub unsafe fn is_task_done(&self, id: u64) -> bool {
@@ -2596,30 +2620,34 @@ impl TempAllocatorApi {
     pub unsafe fn printf(
         &self,
         ta: *mut tm_temp_allocator_i,
-        format: &str,
+        format: &std::ffi::CStr,
     ) -> *mut ::std::os::raw::c_char {
-        let format = std::ffi::CString::new(format).unwrap();
-        ((*self.0).printf).unsafe_unwrap()(ta, format.as_ptr())
+        let format = format.as_ptr();
+        ((*self.0).printf).unsafe_unwrap()(ta, format)
     }
 
     pub unsafe fn vprintf(
         &self,
         ta: *mut tm_temp_allocator_i,
-        format: &str,
+        format: &std::ffi::CStr,
         args: va_list,
     ) -> *mut ::std::os::raw::c_char {
-        let format = std::ffi::CString::new(format).unwrap();
-        ((*self.0).vprintf).unsafe_unwrap()(ta, format.as_ptr(), args)
+        let format = format.as_ptr();
+        ((*self.0).vprintf).unsafe_unwrap()(ta, format, args)
     }
 
-    pub unsafe fn frame_printf(&self, format: &str) -> *mut ::std::os::raw::c_char {
-        let format = std::ffi::CString::new(format).unwrap();
-        ((*self.0).frame_printf).unsafe_unwrap()(format.as_ptr())
+    pub unsafe fn frame_printf(&self, format: &std::ffi::CStr) -> *mut ::std::os::raw::c_char {
+        let format = format.as_ptr();
+        ((*self.0).frame_printf).unsafe_unwrap()(format)
     }
 
-    pub unsafe fn frame_vprintf(&self, format: &str, args: va_list) -> *mut ::std::os::raw::c_char {
-        let format = std::ffi::CString::new(format).unwrap();
-        ((*self.0).frame_vprintf).unsafe_unwrap()(format.as_ptr(), args)
+    pub unsafe fn frame_vprintf(
+        &self,
+        format: &std::ffi::CStr,
+        args: va_list,
+    ) -> *mut ::std::os::raw::c_char {
+        let format = format.as_ptr();
+        ((*self.0).frame_vprintf).unsafe_unwrap()(format, args)
     }
 }
 
@@ -2652,17 +2680,12 @@ impl TheTruthApi {
     pub unsafe fn create_object_type(
         &self,
         tt: *mut tm_the_truth_o,
-        name: &str,
+        name: &std::ffi::CStr,
         properties: *const tm_the_truth_property_definition_t,
         num_properties: u32,
     ) -> tm_tt_type_t {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).create_object_type).unsafe_unwrap()(
-            tt,
-            name.as_ptr(),
-            properties,
-            num_properties,
-        )
+        let name = name.as_ptr();
+        ((*self.0).create_object_type).unsafe_unwrap()(tt, name, properties, num_properties)
     }
 
     pub unsafe fn set_default_object(
@@ -2862,19 +2885,19 @@ impl TheTruthApi {
     pub unsafe fn create_undo_scope(
         &self,
         tt: *mut tm_the_truth_o,
-        name: &str,
+        name: &std::ffi::CStr,
     ) -> tm_tt_undo_scope_t {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).create_undo_scope).unsafe_unwrap()(tt, name.as_ptr())
+        let name = name.as_ptr();
+        ((*self.0).create_undo_scope).unsafe_unwrap()(tt, name)
     }
 
     pub unsafe fn create_thread_safe_undo_scope(
         &self,
         tt: *mut tm_the_truth_o,
-        name: &str,
+        name: &std::ffi::CStr,
     ) -> tm_tt_undo_scope_t {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).create_thread_safe_undo_scope).unsafe_unwrap()(tt, name.as_ptr())
+        let name = name.as_ptr();
+        ((*self.0).create_thread_safe_undo_scope).unsafe_unwrap()(tt, name)
     }
 
     pub unsafe fn undo_scope_name(
@@ -3386,10 +3409,10 @@ impl TheTruthApi {
         tt: *mut tm_the_truth_o,
         obj: *mut tm_the_truth_object_o,
         property: u32,
-        value: &str,
+        value: &std::ffi::CStr,
     ) {
-        let value = std::ffi::CString::new(value).unwrap();
-        ((*self.0).set_string).unsafe_unwrap()(tt, obj, property, value.as_ptr())
+        let value = value.as_ptr();
+        ((*self.0).set_string).unsafe_unwrap()(tt, obj, property, value)
     }
 
     pub unsafe fn set_str(
@@ -3756,9 +3779,13 @@ impl TheTruthApi {
         ((*self.0).buffer_hashes).unsafe_unwrap()(buffer, count)
     }
 
-    pub unsafe fn deserialize_from_file(&self, tt: *mut tm_the_truth_o, file: &str) -> tm_tt_id_t {
-        let file = std::ffi::CString::new(file).unwrap();
-        ((*self.0).deserialize_from_file).unsafe_unwrap()(tt, file.as_ptr())
+    pub unsafe fn deserialize_from_file(
+        &self,
+        tt: *mut tm_the_truth_o,
+        file: &std::ffi::CStr,
+    ) -> tm_tt_id_t {
+        let file = file.as_ptr();
+        ((*self.0).deserialize_from_file).unsafe_unwrap()(tt, file)
     }
 
     pub unsafe fn migration_ids(
@@ -3819,9 +3846,13 @@ impl TheTruthApi {
         ((*self.0).deserialize_patch).unsafe_unwrap()(tt, buffer)
     }
 
-    pub unsafe fn deserialize_patch_from_file(&self, tt: *mut tm_the_truth_o, file: &str) {
-        let file = std::ffi::CString::new(file).unwrap();
-        ((*self.0).deserialize_patch_from_file).unsafe_unwrap()(tt, file.as_ptr())
+    pub unsafe fn deserialize_patch_from_file(
+        &self,
+        tt: *mut tm_the_truth_o,
+        file: &std::ffi::CStr,
+    ) {
+        let file = file.as_ptr();
+        ((*self.0).deserialize_patch_from_file).unsafe_unwrap()(tt, file)
     }
 
     pub unsafe fn serialize_type(
@@ -4089,57 +4120,52 @@ impl TheTruthAssetsApi {
         &self,
         tt: *const tm_the_truth_o,
         asset_root: tm_tt_id_t,
-        path: &str,
+        path: &std::ffi::CStr,
     ) -> tm_tt_id_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).asset_from_path).unsafe_unwrap()(tt, asset_root, path.as_ptr())
+        let path = path.as_ptr();
+        ((*self.0).asset_from_path).unsafe_unwrap()(tt, asset_root, path)
     }
 
     pub unsafe fn asset_from_path_with_type(
         &self,
         tt: *const tm_the_truth_o,
         asset_root: tm_tt_id_t,
-        path: &str,
+        path: &std::ffi::CStr,
         type_: tm_tt_type_t,
     ) -> tm_tt_id_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).asset_from_path_with_type).unsafe_unwrap()(tt, asset_root, path.as_ptr(), type_)
+        let path = path.as_ptr();
+        ((*self.0).asset_from_path_with_type).unsafe_unwrap()(tt, asset_root, path, type_)
     }
 
     pub unsafe fn asset_object_from_path(
         &self,
         tt: *const tm_the_truth_o,
         asset_root: tm_tt_id_t,
-        path: &str,
+        path: &std::ffi::CStr,
     ) -> tm_tt_id_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).asset_object_from_path).unsafe_unwrap()(tt, asset_root, path.as_ptr())
+        let path = path.as_ptr();
+        ((*self.0).asset_object_from_path).unsafe_unwrap()(tt, asset_root, path)
     }
 
     pub unsafe fn asset_object_from_path_with_type(
         &self,
         tt: *const tm_the_truth_o,
         asset_root: tm_tt_id_t,
-        path: &str,
+        path: &std::ffi::CStr,
         type_: tm_tt_type_t,
     ) -> tm_tt_id_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).asset_object_from_path_with_type).unsafe_unwrap()(
-            tt,
-            asset_root,
-            path.as_ptr(),
-            type_,
-        )
+        let path = path.as_ptr();
+        ((*self.0).asset_object_from_path_with_type).unsafe_unwrap()(tt, asset_root, path, type_)
     }
 
     pub unsafe fn directory_from_path(
         &self,
         tt: *const tm_the_truth_o,
         asset_root: tm_tt_id_t,
-        path: &str,
+        path: &std::ffi::CStr,
     ) -> tm_tt_id_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).directory_from_path).unsafe_unwrap()(tt, asset_root, path.as_ptr())
+        let path = path.as_ptr();
+        ((*self.0).directory_from_path).unsafe_unwrap()(tt, asset_root, path)
     }
 
     pub unsafe fn find_subdirectory_by_name(
@@ -4147,14 +4173,14 @@ impl TheTruthAssetsApi {
         tt: *const tm_the_truth_o,
         asset_root: tm_tt_id_t,
         parent_dir: tm_tt_id_t,
-        subdir_name: &str,
+        subdir_name: &std::ffi::CStr,
     ) -> tm_tt_id_t {
-        let subdir_name = std::ffi::CString::new(subdir_name).unwrap();
+        let subdir_name = subdir_name.as_ptr();
         ((*self.0).find_subdirectory_by_name).unsafe_unwrap()(
             tt,
             asset_root,
             parent_dir,
-            subdir_name.as_ptr(),
+            subdir_name,
         )
     }
 
@@ -4163,15 +4189,10 @@ impl TheTruthAssetsApi {
         tt: *mut tm_the_truth_o,
         asset_root: tm_tt_id_t,
         asset_r: *const tm_the_truth_object_o,
-        desired_name: &str,
+        desired_name: &std::ffi::CStr,
     ) -> *const ::std::os::raw::c_char {
-        let desired_name = std::ffi::CString::new(desired_name).unwrap();
-        ((*self.0).unique_asset_name).unsafe_unwrap()(
-            tt,
-            asset_root,
-            asset_r,
-            desired_name.as_ptr(),
-        )
+        let desired_name = desired_name.as_ptr();
+        ((*self.0).unique_asset_name).unsafe_unwrap()(tt, asset_root, asset_r, desired_name)
     }
 
     pub unsafe fn unique_directory_name(
@@ -4179,15 +4200,10 @@ impl TheTruthAssetsApi {
         tt: *mut tm_the_truth_o,
         asset_root: tm_tt_id_t,
         directory_r: *const tm_the_truth_object_o,
-        desired_name: &str,
+        desired_name: &std::ffi::CStr,
     ) -> *const ::std::os::raw::c_char {
-        let desired_name = std::ffi::CString::new(desired_name).unwrap();
-        ((*self.0).unique_directory_name).unsafe_unwrap()(
-            tt,
-            asset_root,
-            directory_r,
-            desired_name.as_ptr(),
-        )
+        let desired_name = desired_name.as_ptr();
+        ((*self.0).unique_directory_name).unsafe_unwrap()(tt, asset_root, directory_r, desired_name)
     }
 
     pub unsafe fn object_asset_name(
@@ -4246,40 +4262,28 @@ impl TheTruthAssetsApi {
         &self,
         tt: *mut tm_the_truth_o,
         asset_root: tm_tt_id_t,
-        dir: &str,
+        dir: &std::ffi::CStr,
         ignore: *mut tm_tt_id_t,
         num_ignore: u32,
         old_std: *mut tm_saved_truth_data_o,
         allocator: *mut tm_allocator_i,
     ) -> *mut tm_saved_truth_data_o {
-        let dir = std::ffi::CString::new(dir).unwrap();
+        let dir = dir.as_ptr();
         ((*self.0).save_to_directory).unsafe_unwrap()(
-            tt,
-            asset_root,
-            dir.as_ptr(),
-            ignore,
-            num_ignore,
-            old_std,
-            allocator,
+            tt, asset_root, dir, ignore, num_ignore, old_std, allocator,
         )
     }
 
     pub unsafe fn load_from_directory(
         &self,
         tt: *mut tm_the_truth_o,
-        dir: &str,
+        dir: &std::ffi::CStr,
         allocator: *mut tm_allocator_i,
         asset_root: *mut tm_tt_id_t,
         error: *mut tm_error_i,
     ) -> *mut tm_saved_truth_data_o {
-        let dir = std::ffi::CString::new(dir).unwrap();
-        ((*self.0).load_from_directory).unsafe_unwrap()(
-            tt,
-            dir.as_ptr(),
-            allocator,
-            asset_root,
-            error,
-        )
+        let dir = dir.as_ptr();
+        ((*self.0).load_from_directory).unsafe_unwrap()(tt, dir, allocator, asset_root, error)
     }
 
     pub unsafe fn current_truth_data(
@@ -4344,9 +4348,13 @@ impl TheTruthAssetsApi {
         ((*self.0).set_mock_file_system).unsafe_unwrap()(fs, file_io)
     }
 
-    pub unsafe fn any_disk_changes(&self, sd: *mut tm_saved_truth_data_o, dir: &str) -> bool {
-        let dir = std::ffi::CString::new(dir).unwrap();
-        ((*self.0).any_disk_changes).unsafe_unwrap()(sd, dir.as_ptr())
+    pub unsafe fn any_disk_changes(
+        &self,
+        sd: *mut tm_saved_truth_data_o,
+        dir: &std::ffi::CStr,
+    ) -> bool {
+        let dir = dir.as_ptr();
+        ((*self.0).any_disk_changes).unsafe_unwrap()(sd, dir)
     }
 }
 
@@ -4633,9 +4641,9 @@ unsafe impl Sync for TheTruthCommonTypesApi {}
 pub struct UnicodeApi(pub *const tm_unicode_api);
 
 impl UnicodeApi {
-    pub unsafe fn is_valid(&self, utf8: &str) -> bool {
-        let utf8 = std::ffi::CString::new(utf8).unwrap();
-        ((*self.0).is_valid).unsafe_unwrap()(utf8.as_ptr())
+    pub unsafe fn is_valid(&self, utf8: &std::ffi::CStr) -> bool {
+        let utf8 = utf8.as_ptr();
+        ((*self.0).is_valid).unsafe_unwrap()(utf8)
     }
 
     pub unsafe fn truncate(&self, utf8: *mut ::std::os::raw::c_char) {
@@ -4654,29 +4662,33 @@ impl UnicodeApi {
         ((*self.0).utf8_decode).unsafe_unwrap()(utf8)
     }
 
-    pub unsafe fn utf8_num_codepoints(&self, utf8: &str) -> u32 {
-        let utf8 = std::ffi::CString::new(utf8).unwrap();
-        ((*self.0).utf8_num_codepoints).unsafe_unwrap()(utf8.as_ptr())
+    pub unsafe fn utf8_num_codepoints(&self, utf8: &std::ffi::CStr) -> u32 {
+        let utf8 = utf8.as_ptr();
+        ((*self.0).utf8_num_codepoints).unsafe_unwrap()(utf8)
     }
 
-    pub unsafe fn utf8_decode_n(&self, codepoints: *mut u32, n: u32, utf8: &str) -> u32 {
-        let utf8 = std::ffi::CString::new(utf8).unwrap();
-        ((*self.0).utf8_decode_n).unsafe_unwrap()(codepoints, n, utf8.as_ptr())
+    pub unsafe fn utf8_decode_n(&self, codepoints: *mut u32, n: u32, utf8: &std::ffi::CStr) -> u32 {
+        let utf8 = utf8.as_ptr();
+        ((*self.0).utf8_decode_n).unsafe_unwrap()(codepoints, n, utf8)
     }
 
-    pub unsafe fn utf8_to_utf32(&self, utf8: &str, ta: *mut tm_temp_allocator_i) -> *mut u32 {
-        let utf8 = std::ffi::CString::new(utf8).unwrap();
-        ((*self.0).utf8_to_utf32).unsafe_unwrap()(utf8.as_ptr(), ta)
+    pub unsafe fn utf8_to_utf32(
+        &self,
+        utf8: &std::ffi::CStr,
+        ta: *mut tm_temp_allocator_i,
+    ) -> *mut u32 {
+        let utf8 = utf8.as_ptr();
+        ((*self.0).utf8_to_utf32).unsafe_unwrap()(utf8, ta)
     }
 
     pub unsafe fn utf8_to_utf32_n(
         &self,
-        utf8: &str,
+        utf8: &std::ffi::CStr,
         n: u32,
         ta: *mut tm_temp_allocator_i,
     ) -> *mut u32 {
-        let utf8 = std::ffi::CString::new(utf8).unwrap();
-        ((*self.0).utf8_to_utf32_n).unsafe_unwrap()(utf8.as_ptr(), n, ta)
+        let utf8 = utf8.as_ptr();
+        ((*self.0).utf8_to_utf32_n).unsafe_unwrap()(utf8, n, ta)
     }
 
     pub unsafe fn utf32_to_utf8(
@@ -4704,19 +4716,23 @@ impl UnicodeApi {
         ((*self.0).utf16_decode).unsafe_unwrap()(utf16)
     }
 
-    pub unsafe fn utf8_to_utf16(&self, utf8: &str, ta: *mut tm_temp_allocator_i) -> *mut u16 {
-        let utf8 = std::ffi::CString::new(utf8).unwrap();
-        ((*self.0).utf8_to_utf16).unsafe_unwrap()(utf8.as_ptr(), ta)
+    pub unsafe fn utf8_to_utf16(
+        &self,
+        utf8: &std::ffi::CStr,
+        ta: *mut tm_temp_allocator_i,
+    ) -> *mut u16 {
+        let utf8 = utf8.as_ptr();
+        ((*self.0).utf8_to_utf16).unsafe_unwrap()(utf8, ta)
     }
 
     pub unsafe fn utf8_to_utf16_n(
         &self,
-        utf8: &str,
+        utf8: &std::ffi::CStr,
         n: u32,
         ta: *mut tm_temp_allocator_i,
     ) -> *mut u16 {
-        let utf8 = std::ffi::CString::new(utf8).unwrap();
-        ((*self.0).utf8_to_utf16_n).unsafe_unwrap()(utf8.as_ptr(), n, ta)
+        let utf8 = utf8.as_ptr();
+        ((*self.0).utf8_to_utf16_n).unsafe_unwrap()(utf8, n, ta)
     }
 
     pub unsafe fn utf16_to_utf8(
@@ -4830,33 +4846,26 @@ impl WebSocketProtocolApi {
         &self,
         buffer: *mut ::std::os::raw::c_char,
         size: u32,
-        host: &str,
+        host: &std::ffi::CStr,
         port: u32,
-        request: &str,
-        key: &str,
+        request: &std::ffi::CStr,
+        key: &std::ffi::CStr,
     ) {
-        let host = std::ffi::CString::new(host).unwrap();
-        let request = std::ffi::CString::new(request).unwrap();
-        let key = std::ffi::CString::new(key).unwrap();
-        ((*self.0).make_client_handshake).unsafe_unwrap()(
-            buffer,
-            size,
-            host.as_ptr(),
-            port,
-            request.as_ptr(),
-            key.as_ptr(),
-        )
+        let host = host.as_ptr();
+        let request = request.as_ptr();
+        let key = key.as_ptr();
+        ((*self.0).make_client_handshake).unsafe_unwrap()(buffer, size, host, port, request, key)
     }
 
     pub unsafe fn make_server_handshake(
         &self,
         buffer: *mut ::std::os::raw::c_char,
         size: u32,
-        key: &str,
+        key: &std::ffi::CStr,
         key_size: u32,
     ) {
-        let key = std::ffi::CString::new(key).unwrap();
-        ((*self.0).make_server_handshake).unsafe_unwrap()(buffer, size, key.as_ptr(), key_size)
+        let key = key.as_ptr();
+        ((*self.0).make_server_handshake).unsafe_unwrap()(buffer, size, key, key_size)
     }
 
     pub unsafe fn make_frame_header(
@@ -4953,24 +4962,34 @@ impl WebTalkerApi {
         ((*self.0).http_get_requests).unsafe_unwrap()(inst, buffer, capacity)
     }
 
-    pub unsafe fn http_respond_raw(&self, inst: *mut tm_web_talker_o, id: u64, response: &str) {
-        let response = std::ffi::CString::new(response).unwrap();
-        ((*self.0).http_respond_raw).unsafe_unwrap()(inst, id, response.as_ptr())
+    pub unsafe fn http_respond_raw(
+        &self,
+        inst: *mut tm_web_talker_o,
+        id: u64,
+        response: &std::ffi::CStr,
+    ) {
+        let response = response.as_ptr();
+        ((*self.0).http_respond_raw).unsafe_unwrap()(inst, id, response)
     }
 
-    pub unsafe fn http_respond_html(&self, inst: *mut tm_web_talker_o, id: u64, html: &str) {
-        let html = std::ffi::CString::new(html).unwrap();
-        ((*self.0).http_respond_html).unsafe_unwrap()(inst, id, html.as_ptr())
+    pub unsafe fn http_respond_html(
+        &self,
+        inst: *mut tm_web_talker_o,
+        id: u64,
+        html: &std::ffi::CStr,
+    ) {
+        let html = html.as_ptr();
+        ((*self.0).http_respond_html).unsafe_unwrap()(inst, id, html)
     }
 
     pub unsafe fn http_request(
         &self,
         inst: *mut tm_web_talker_o,
         address: tm_socket_address_t,
-        headers: &str,
+        headers: &std::ffi::CStr,
     ) -> u64 {
-        let headers = std::ffi::CString::new(headers).unwrap();
-        ((*self.0).http_request).unsafe_unwrap()(inst, address, headers.as_ptr())
+        let headers = headers.as_ptr();
+        ((*self.0).http_request).unsafe_unwrap()(inst, address, headers)
     }
 
     pub unsafe fn http_request_status(
@@ -4998,12 +5017,12 @@ impl WebTalkerApi {
         &self,
         inst: *mut tm_web_talker_o,
         address: tm_socket_address_t,
-        host: &str,
-        request: &str,
+        host: &std::ffi::CStr,
+        request: &std::ffi::CStr,
     ) -> u64 {
-        let host = std::ffi::CString::new(host).unwrap();
-        let request = std::ffi::CString::new(request).unwrap();
-        ((*self.0).ws_connect).unsafe_unwrap()(inst, address, host.as_ptr(), request.as_ptr())
+        let host = host.as_ptr();
+        let request = request.as_ptr();
+        ((*self.0).ws_connect).unsafe_unwrap()(inst, address, host, request)
     }
 
     pub unsafe fn ws_get_requests(
@@ -5039,9 +5058,14 @@ impl WebTalkerApi {
         ((*self.0).ws_get_events).unsafe_unwrap()(inst, id, buffer, capacity)
     }
 
-    pub unsafe fn ws_send_text_frame(&self, inst: *mut tm_web_talker_o, id: u64, s: &str) {
-        let s = std::ffi::CString::new(s).unwrap();
-        ((*self.0).ws_send_text_frame).unsafe_unwrap()(inst, id, s.as_ptr())
+    pub unsafe fn ws_send_text_frame(
+        &self,
+        inst: *mut tm_web_talker_o,
+        id: u64,
+        s: &std::ffi::CStr,
+    ) {
+        let s = s.as_ptr();
+        ((*self.0).ws_send_text_frame).unsafe_unwrap()(inst, id, s)
     }
 
     pub unsafe fn ws_send_binary_frame(

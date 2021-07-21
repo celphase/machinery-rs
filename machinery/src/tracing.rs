@@ -1,4 +1,4 @@
-use std::fmt::Write;
+use std::{ffi::CString, fmt::Write};
 
 use machinery_sys::foundation::{TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO};
 use tracing::{
@@ -74,7 +74,8 @@ impl Subscriber for TmSubscriber {
                 Level::ERROR => TM_LOG_TYPE_ERROR,
             };
 
-            self.logger.print(level, &visitor.message);
+            let cstr = CString::new(visitor.message).unwrap();
+            self.logger.print(level, &cstr);
         }
     }
 

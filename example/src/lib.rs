@@ -99,7 +99,7 @@ impl ExamplePlugin {
 
             let spin_type = self.tt_api.create_object_type(
                 tt,
-                EXAMPLE_COMPONENT_NAME.as_cstr().to_str().unwrap(),
+                EXAMPLE_COMPONENT_NAME.as_cstr(),
                 &properties,
                 1,
             );

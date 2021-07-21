@@ -78,11 +78,11 @@ impl EntityApi {
     pub unsafe fn create_child_allocator(
         &self,
         ctx: *mut tm_entity_context_o,
-        name: &str,
+        name: &std::ffi::CStr,
         a: *mut tm_allocator_i,
     ) {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).create_child_allocator).unsafe_unwrap()(ctx, name.as_ptr(), a)
+        let name = name.as_ptr();
+        ((*self.0).create_child_allocator).unsafe_unwrap()(ctx, name, a)
     }
 
     pub unsafe fn destroy_child_allocator(
@@ -341,10 +341,10 @@ impl EntityApi {
         &self,
         ctx: *mut tm_entity_context_o,
         e: tm_entity_t,
-        path: &str,
+        path: &std::ffi::CStr,
     ) -> tm_entity_t {
-        let path = std::ffi::CString::new(path).unwrap();
-        ((*self.0).resolve_path).unsafe_unwrap()(ctx, e, path.as_ptr())
+        let path = path.as_ptr();
+        ((*self.0).resolve_path).unsafe_unwrap()(ctx, e, path)
     }
 
     pub unsafe fn propagate_asset_changes(&self, ctx: *mut tm_entity_context_o) {
@@ -641,10 +641,10 @@ impl SceneTreeComponentApi {
         st: *mut tm_scene_tree_component_t,
         nodes: *const tm_scene_tree_node_t,
         num_nodes: u32,
-        debug_names: &str,
+        debug_names: &std::ffi::CStr,
     ) {
-        let debug_names = std::ffi::CString::new(debug_names).unwrap();
-        ((*self.0).setup_nodes).unsafe_unwrap()(manager, st, nodes, num_nodes, debug_names.as_ptr())
+        let debug_names = debug_names.as_ptr();
+        ((*self.0).setup_nodes).unsafe_unwrap()(manager, st, nodes, num_nodes, debug_names)
     }
 
     pub unsafe fn node_names(
