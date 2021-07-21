@@ -39,20 +39,21 @@ impl ApiRegistryApi {
 
     pub unsafe fn add_implementation(
         &self,
-        name: &str,
+        name: &'static [u8],
         implementation: *const ::std::os::raw::c_void,
     ) {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).add_implementation).unsafe_unwrap()(name.as_ptr(), implementation)
+        ((*self.0).add_implementation).unsafe_unwrap()(name.as_ptr() as *const i8, implementation)
     }
 
     pub unsafe fn remove_implementation(
         &self,
-        name: &str,
+        name: &'static [u8],
         implementation: *const ::std::os::raw::c_void,
     ) {
-        let name = std::ffi::CString::new(name).unwrap();
-        ((*self.0).remove_implementation).unsafe_unwrap()(name.as_ptr(), implementation)
+        ((*self.0).remove_implementation).unsafe_unwrap()(
+            name.as_ptr() as *const i8,
+            implementation,
+        )
     }
 
     pub unsafe fn implementations(
@@ -94,3 +95,5 @@ impl crate::Api for ApiRegistryApi {
 
 unsafe impl Send for ApiRegistryApi {}
 unsafe impl Sync for ApiRegistryApi {}
+
+pub const TT_TYPE_HASH__POSITION: tm_strhash_t = tm_strhash_t { u64_: 0x7a29b8f6b1ca42ec };

@@ -1,58 +1,45 @@
 pub mod foundation;
 mod generated;
+pub mod plugins;
 mod tracing_sub;
-
-use std::sync::Mutex;
 
 use foundation::ApiRegistryApi;
 use machinery_sys::foundation::tm_api_registry_api;
-use once_cell::sync::OnceCell;
 
 use crate::tracing_sub::MachinerySubscriber;
-
-pub type PluginInstance<T> = OnceCell<Mutex<Option<T>>>;
 
 #[macro_export]
 macro_rules! plugin {
     ($ty:ident) => {
-        static INSTANCE: machinery::PluginInstance<$ty> = machinery::PluginInstance::new();
-
         #[no_mangle]
         pub unsafe extern "C" fn tm_load_plugin(
             registry: *const machinery_sys::foundation::tm_api_registry_api,
             load: bool,
         ) {
-            machinery::load_plugin::<$ty>(&INSTANCE, registry, load);
+            machinery::load_plugin::<$ty>(registry, load);
         }
     };
 }
 
-pub fn load_plugin<T: Plugin>(
-    instance: &PluginInstance<T>,
-    registry: *const tm_api_registry_api,
-    load: bool,
-) {
-    if load {
-        let registry = ApiRegistryApi(registry);
+pub fn load_plugin<P: Plugin>(registry: *const tm_api_registry_api, load: bool) {
+    let registry = ApiRegistryApi(registry);
 
+    if load {
         // Initialize logging
         let subscriber = MachinerySubscriber::new(&registry);
         tracing::subscriber::set_global_default(subscriber).unwrap();
 
-        // Load the plugin and store it
-        let plugin = T::load(&registry);
-        if let Err(_) = instance.set(Mutex::new(Some(plugin))) {
-            panic!("Instance was double initialized");
-        }
+        // Load the plugin
+        P::load(&registry);
     } else {
-        // Unload the plugin (drop will unload)
-        let instance = instance.get().unwrap();
-        instance.lock().unwrap().take();
+        // Unload the plugin
+        P::unload(&registry);
     }
 }
 
 pub trait Plugin {
-    fn load(registry: &ApiRegistryApi) -> Self;
+    fn load(registry: &ApiRegistryApi);
+    fn unload(registry: &ApiRegistryApi);
 }
 
 pub trait Api {
