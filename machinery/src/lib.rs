@@ -1,15 +1,13 @@
 pub mod foundation;
 mod generated;
 pub mod plugins;
-mod tracing_sub;
+pub mod tracing;
 
 use std::sync::{RwLock, RwLockReadGuard, RwLockWriteGuard};
 
 use foundation::ApiRegistryApi;
 use machinery_sys::foundation::tm_api_registry_api;
 use once_cell::sync::OnceCell;
-
-use crate::tracing_sub::MachinerySubscriber;
 
 pub type PluginInstance<P> = OnceCell<RwLock<Option<P>>>;
 
@@ -49,10 +47,6 @@ pub fn load_plugin<P: Plugin>(
 ) {
     if load {
         let registry = ApiRegistryApi(registry);
-
-        // Initialize logging
-        let subscriber = MachinerySubscriber::new(&registry);
-        tracing::subscriber::set_global_default(subscriber).unwrap();
 
         // Load the plugin
         let plugin = P::load(registry);

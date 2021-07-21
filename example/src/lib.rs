@@ -41,6 +41,8 @@ unsafe impl Sync for ExamplePlugin {}
 
 impl Plugin for ExamplePlugin {
     fn load(registry: ApiRegistryApi) -> Self {
+        machinery::tracing::initialize(&registry);
+
         let plugin = ExamplePlugin {
             tt_api: registry.get(),
             tt_common_types: registry.get(),
@@ -64,6 +66,8 @@ impl Plugin for ExamplePlugin {
                 component_create as *const c_void,
             );
         }
+
+        event!(Level::INFO, foo = 42, "Example logging with data.");
 
         event!(Level::INFO, "Example rust plugin loaded.");
 

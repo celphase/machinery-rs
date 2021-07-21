@@ -8,7 +8,13 @@ use tracing::{
 
 use crate::{foundation::ApiRegistryApi, generated::foundation::LoggerApi};
 
-pub struct MachinerySubscriber {
+/// Initialize a global default subscriber for tracing that prints to The Machinery logging API.
+pub fn initialize(registry: &ApiRegistryApi) {
+    let subscriber = MachinerySubscriber::new(registry);
+    tracing::subscriber::set_global_default(subscriber).unwrap();
+}
+
+struct MachinerySubscriber {
     logger: LoggerApi,
 }
 
@@ -38,8 +44,28 @@ impl Subscriber for MachinerySubscriber {
             let mut visitor = Visitor {
                 message: String::new(),
             };
+
+            // Prefix with the module
+            if let Some(path) = event.metadata().module_path() {
+                visitor.message.push_str(path);
+                visitor.message.push_str(": ");
+            }
+
+            // Add the message data
             event.record(&mut visitor);
 
+            // Add file metadata to the message
+            if let Some(file) = event.metadata().file() {
+                visitor.message.push_str("\n    at ");
+                visitor.message.push_str(file);
+
+                if let Some(file) = event.metadata().line() {
+                    visitor.message.push_str(":");
+                    visitor.message.push_str(&file.to_string());
+                }
+            }
+
+            // Convert from tracing level to machinery log type
             let level = match *event.metadata().level() {
                 Level::TRACE => TM_LOG_TYPE_DEBUG,
                 Level::DEBUG => TM_LOG_TYPE_DEBUG,
@@ -65,6 +91,8 @@ impl Visit for Visitor {
     fn record_debug(&mut self, field: &Field, value: &dyn std::fmt::Debug) {
         if field.name() == "message" {
             write!(&mut self.message, "{:?}", value).unwrap();
+        } else {
+            write!(&mut self.message, "\n    {} = {:?}", field.name(), value).unwrap();
         }
     }
 }
