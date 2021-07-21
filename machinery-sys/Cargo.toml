@@ -2,14 +2,6 @@
 name = "machinery-sys"
 version = "0.1.0"
 edition = "2018"
-build = "build.rs"
-
-[dependencies]
-unsafe_unwrap = "0.1.0"
 
 [build-dependencies]
 bindgen = "0.59.0"
-syn = { version = "1.0.73", features = ["full"] }
-quote = "1.0.9"
-proc-macro2 = "1.0.27"
-heck = "0.3.3"

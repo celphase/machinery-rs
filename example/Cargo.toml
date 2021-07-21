@@ -7,4 +7,5 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
+machinery = { path = "../machinery" }
 machinery-sys = { path = "../machinery-sys" }
