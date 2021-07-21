@@ -12,8 +12,10 @@ fn main() {
 
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
-        // Tell it where to find the includes for machinery
+        // Tell clang where to find the includes for machinery
         .clang_arg(format!("-I{}/headers", tm_sdk))
+        .clang_arg("-fretain-comments-from-system-headers")
+        .clang_arg("-fparse-all-comments")
         .parse_callbacks(Box::new(ParseCallbacks))
         .prepend_enum_name(false)
         .generate()

@@ -138,6 +138,7 @@ pub type uint_fast32_t = ::std::os::raw::c_uint;
 pub type uint_fast64_t = ::std::os::raw::c_ulonglong;
 pub type intmax_t = ::std::os::raw::c_longlong;
 pub type uintmax_t = ::std::os::raw::c_ulonglong;
+#[doc = " Represents a 2D vector."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_vec2_t {
@@ -177,6 +178,7 @@ fn bindgen_test_layout_tm_vec2_t() {
         )
     );
 }
+#[doc = " Represents a 3D vector."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_vec3_t {
@@ -227,6 +229,7 @@ fn bindgen_test_layout_tm_vec3_t() {
         )
     );
 }
+#[doc = " Represents a 4D vector."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_vec4_t {
@@ -288,6 +291,7 @@ fn bindgen_test_layout_tm_vec4_t() {
         )
     );
 }
+#[doc = " Represents a 4x4 matrix."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_mat44_t {
@@ -481,6 +485,7 @@ fn bindgen_test_layout_tm_mat44_t() {
         )
     );
 }
+#[doc = " Represents a transform in TRS form."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_transform_t {
@@ -531,6 +536,7 @@ fn bindgen_test_layout_tm_transform_t() {
         )
     );
 }
+#[doc = " Represents a rectangle."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_rect_t {
@@ -592,11 +598,26 @@ fn bindgen_test_layout_tm_rect_t() {
         )
     );
 }
+#[doc = " Used to represent a string slice with pointer and length."]
+#[doc = ""]
+#[doc = " This lets you reason about parts of a string, which you are not able to do with standard"]
+#[doc = " NULL-terminated strings."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_str_t {
+    #[doc = " Pointer to string bytes."]
     pub data: *const ::std::os::raw::c_char,
+    #[doc = " Length of the string."]
     pub size: u32,
+    #[doc = " If set to *true*, indicates that there is an allocated NULL-byte after the string data. I.e."]
+    #[doc = " `data[size] == 0`. This means that `data` can be used immediately as a C string without"]
+    #[doc = " needing to copy it to a separate memory area."]
+    #[doc = ""]
+    #[doc = " If *false*, there may or may not be a NULL-byte at the end of the string and accessing"]
+    #[doc = " `data[size]` may cause an access violation, so if you want to use it as a C-string you have"]
+    #[doc = " to copy it to a new memory area and append a NULL byte."]
+    #[doc = ""]
+    #[doc = " Note that the NULL-byte is never included in the `size`."]
     pub null_terminated: u32,
 }
 #[test]
@@ -642,6 +663,12 @@ fn bindgen_test_layout_tm_str_t() {
         )
     );
 }
+#[doc = " Represents a time from the system clock."]
+#[doc = ""]
+#[doc = " You can assume the clock to be monotonically increasing, i.e. a larger `opaque` value represents"]
+#[doc = " a later time, but you shouldn't assume anything else about what the `opaque` value represents or"]
+#[doc = " the resolution of the timer. Instead, use [[tm_os_time_api->delta()]] to convert elapsed time to"]
+#[doc = " seconds."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_clock_o {
@@ -670,6 +697,7 @@ fn bindgen_test_layout_tm_clock_o() {
         )
     );
 }
+#[doc = " Represents a unique 128-bit identifier."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_uuid_t {
@@ -709,6 +737,7 @@ fn bindgen_test_layout_tm_uuid_t() {
         )
     );
 }
+#[doc = " Represents an 8-bit per channel RGBA color in sRGB color space (Note: alpha is always linear.)"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_color_srgb_t {
@@ -770,6 +799,7 @@ fn bindgen_test_layout_tm_color_srgb_t() {
         )
     );
 }
+#[doc = " Type representing a type in The Truth."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_tt_type_t {
@@ -798,6 +828,7 @@ fn bindgen_test_layout_tm_tt_type_t() {
         )
     );
 }
+#[doc = " ID representing an object in The Truth."]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct tm_tt_id_t {
@@ -806,6 +837,7 @@ pub struct tm_tt_id_t {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union tm_tt_id_t__bindgen_ty_1 {
+    #[doc = " Used for comparing objects or storing them in hash tables."]
     pub u64_: u64,
     pub __bindgen_anon_1: tm_tt_id_t__bindgen_ty_1__bindgen_ty_1,
 }
@@ -927,6 +959,7 @@ fn bindgen_test_layout_tm_tt_id_t() {
         concat!("Alignment of ", stringify!(tm_tt_id_t))
     );
 }
+#[doc = " Type representing an undo scope in The Truth."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_tt_undo_scope_t {
@@ -955,6 +988,21 @@ fn bindgen_test_layout_tm_tt_undo_scope_t() {
         )
     );
 }
+#[doc = " Type-safe representation of a hashed string."]
+#[doc = ""]
+#[doc = " !!! WARNING: WARNING"]
+#[doc = "     In Visual Studio, string hashes won't use this string type, instead"]
+#[doc = "     [[tm_strhash_t]] will be typedefed to `uint64_t`. The reason for this is that the"]
+#[doc = "     [[TM_STATIC_HASH()]] macro is not seen as a constant by the MSVC compiler and thus using it"]
+#[doc = "     to initialize global variables yields the"]
+#[doc = "     [C2099](https://docs.microsoft.com/en-us/cpp/error-messages/compiler-errors-1/compiler-error-c2099?view=msvc-160)"]
+#[doc = "     compiler error."]
+#[doc = ""]
+#[doc = "     This means that the type safety of string hashes won't be checked when compiling with MSVC."]
+#[doc = "     Make sure you build your code under clang too, with `tmbuild --clang` to check the type"]
+#[doc = "     safety of string hashes. Also, always use the macros [[TM_STRHASH()]] and"]
+#[doc = "     [[TM_STRHASH_U64()]] to convert between [[tm_strhash_t]] and `uint64_t`. This ensures that"]
+#[doc = "     the conversions work on all platforms."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_strhash_t {
@@ -988,10 +1036,13 @@ fn bindgen_test_layout_tm_strhash_t() {
 pub struct tm_allocator_i {
     _unused: [u8; 0],
 }
+#[doc = " Listener for receiving information about changes to the API registry. Use [[add_listener()]] to add"]
+#[doc = " a listener to the API registry."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_api_registry_listener_i {
     pub ud: *mut ::std::os::raw::c_void,
+    #[doc = " Called when an implementation was added for the interface `name`."]
     pub add_implementation: ::std::option::Option<
         unsafe extern "C" fn(
             ud: *mut ::std::os::raw::c_void,
@@ -1036,9 +1087,27 @@ fn bindgen_test_layout_tm_api_registry_listener_i() {
         )
     );
 }
+#[doc = " Global registry that keeps track of loaded APIs and interface implementations."]
+#[doc = ""]
+#[doc = " The difference between an API and an interface is that APIs only have a single implementation,"]
+#[doc = " whereas interfaces can have many implementations."]
+#[doc = ""]
+#[doc = " For example the OS API [[tm_os_api]] provides the implementation of OS functions to access files,"]
+#[doc = " memory, etc. It only has a single implementation for each supported platform, and it is this"]
+#[doc = " implementation you call upon to perform OS functions."]
+#[doc = ""]
+#[doc = " In contrast, each module that supports unit tests implements the [[tm_unit_test_i]] interface. By"]
+#[doc = " querying for the [[tm_unit_test_i]] interface, you can enumerate all these implementations and run"]
+#[doc = " all the unit tests."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_api_registry_api {
+    #[doc = " Sets an API in the registry. `name` is the name of the API that is implemented and `api` is a"]
+    #[doc = " pointer to the struct of function pointers defining the API. `bytes` is the size of this"]
+    #[doc = " struct."]
+    #[doc = ""]
+    #[doc = " APIs can be implemented only once. If you call [[set()]] again, it replaces the previous API"]
+    #[doc = " pointers. This can be used to implement hot-reload of APIs."]
     pub set: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
@@ -1046,33 +1115,100 @@ pub struct tm_api_registry_api {
             bytes: u32,
         ),
     >,
+    #[doc = " Removes `API` if it is in use."]
     pub remove: ::std::option::Option<unsafe extern "C" fn(api: *const ::std::os::raw::c_void)>,
+    #[doc = " Gets a pointer to the API implementing the API `name`."]
+    #[doc = ""]
+    #[doc = " `get(name)` is guaranteed to always return the same pointer, throughout the lifetime of an"]
+    #[doc = " application (whether `set(name)` has been called zero, one or multiple times). It returns a"]
+    #[doc = " pointer to internal API registry memory and the actual API pointers are copied to this memory"]
+    #[doc = " by [[set()]]."]
+    #[doc = ""]
+    #[doc = " On hot-reload these function pointers will be overwritten, but this is transparent to users"]
+    #[doc = " of the API. They can continue to use the same interface pointer and will call the new methods"]
+    #[doc = " automatically. (If they have cached the function pointers in the API locally, they will keep"]
+    #[doc = " calling the old methods.)"]
+    #[doc = ""]
+    #[doc = " Calling [[get()]] on an API that hasn't been loaded yet will return a struct full of NULL"]
+    #[doc = " function pointers. When the API is loaded (and calls [[set()]]), these NULL pointers will be"]
+    #[doc = " replaced by the real function pointers of the API."]
+    #[doc = ""]
+    #[doc = " To test whether an API has been loaded, you can test if it contains NULL function pointers or"]
+    #[doc = " not."]
     pub get: ::std::option::Option<
         unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
     >,
+    #[doc = " As [[get()]], but indicates that this is an optional API, i.e. we will be able to continue to"]
+    #[doc = " run even if this API is not available."]
     pub get_optional: ::std::option::Option<
         unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
     >,
+    #[doc = " Adds an implementation of the interface named `name`."]
     pub add_implementation: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
             implementation: *const ::std::os::raw::c_void,
         ),
     >,
+    #[doc = " Removes the specified implementation of the interface `name`."]
     pub remove_implementation: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
             implementation: *const ::std::os::raw::c_void,
         ),
     >,
+    #[doc = " Returns an array of all the implementations implementing the interface `name`. The size of"]
+    #[doc = " the array is returned in `count`."]
+    #[doc = ""]
+    #[doc = " !!! TODO: API-REVIEW"]
+    #[doc = "     This function is kind of annoying to call, either improve this interface or provide an"]
+    #[doc = "     alternative one."]
     pub implementations: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
             count: *mut u32,
         ) -> *mut *mut ::std::os::raw::c_void,
     >,
+    #[doc = " Adds a listener that will be called with changes to the api_registry. Currently, only an"]
+    #[doc = " `add_implementation` callback is provided."]
     pub add_listener:
         ::std::option::Option<unsafe extern "C" fn(listener: *const tm_api_registry_listener_i)>,
+    #[doc = " Returns a pointer to a static variable that survives plugin reloads. `id` is a unique"]
+    #[doc = " identifier for the variable and `size` its size in bytes. The first time this function is"]
+    #[doc = " called, the variable will be zero-initialized."]
+    #[doc = ""]
+    #[doc = " Use of static variables in DLLs can be problematic, because when the DLL is reloaded, the"]
+    #[doc = " new instance of the DLL will get a new freshly initialized static variable, losing whatever"]
+    #[doc = " content the variable had before reload. By using [[static_variable()]] instead, the variable"]
+    #[doc = " data is saved in permanent memory."]
+    #[doc = ""]
+    #[doc = " Instead of this:"]
+    #[doc = ""]
+    #[doc = " ~~~c dont"]
+    #[doc = " uint64_t count;"]
+    #[doc = ""]
+    #[doc = " void f()"]
+    #[doc = " {"]
+    #[doc = "     ++count;"]
+    #[doc = " }"]
+    #[doc = " ~~~"]
+    #[doc = ""]
+    #[doc = " You would do this:"]
+    #[doc = ""]
+    #[doc = " ~~~c"]
+    #[doc = " uint64_t *count_ptr;"]
+    #[doc = ""]
+    #[doc = " void load(struct tm_api_registry_api *reg)"]
+    #[doc = " {"]
+    #[doc = "     count_ptr = (uint64_t *)reg->static_variable(TM_STATIC_HASH(\"my_count\", 0xa287d4b3ec9c2109ULL),"]
+    #[doc = "         sizeof(uint64_t), __FILE__, __LINE__);"]
+    #[doc = " }"]
+    #[doc = ""]
+    #[doc = " void f()"]
+    #[doc = " {"]
+    #[doc = "     ++*count_ptr;"]
+    #[doc = " }"]
+    #[doc = " ~~~"]
     pub static_variable: ::std::option::Option<
         unsafe extern "C" fn(
             id: tm_strhash_t,
@@ -1081,6 +1217,7 @@ pub struct tm_api_registry_api {
             line: u32,
         ) -> *mut ::std::os::raw::c_void,
     >,
+    #[doc = " Print a log message about APIs that were requested with [[get()]] but were never found."]
     pub log_missing_apis: ::std::option::Option<unsafe extern "C" fn()>,
 }
 #[test]
@@ -1211,21 +1348,31 @@ fn bindgen_test_layout_tm_api_registry_api() {
         )
     );
 }
+#[doc = " Function type for loading plugins or subparts of plugins."]
 pub type tm_load_function =
     ::std::option::Option<unsafe extern "C" fn(reg: *mut tm_api_registry_api, load: bool)>;
+#[doc = " Used for informational messages and command output."]
 pub const TM_LOG_TYPE_INFO: tm_log_type = 0;
+#[doc = " Used for debug prints when trying to diagnose a problem. Once the problem is fixed, all debug"]
+#[doc = " output should be removed."]
 pub const TM_LOG_TYPE_DEBUG: tm_log_type = 1;
+#[doc = " Used for error messages. This should only be used for actual errors and it should be possible"]
+#[doc = " for the user to fix the error and make the error message go away."]
 pub const TM_LOG_TYPE_ERROR: tm_log_type = 2;
+#[doc = " Specifies the type of a log message."]
 pub type tm_log_type = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_logger_o {
     _unused: [u8; 0],
 }
+#[doc = " Interface for loggers. A logger receives log messages and does something"]
+#[doc = " with them -- prints to a console, dumps to a file, etc."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_logger_i {
     pub inst: *mut tm_logger_o,
+    #[doc = " Logs the `msg` of type `log_type` to this logger."]
     pub log: ::std::option::Option<
         unsafe extern "C" fn(
             inst: *mut tm_logger_o,
@@ -1267,14 +1414,20 @@ fn bindgen_test_layout_tm_logger_i() {
         )
     );
 }
+#[doc = " Manages a list of active loggers. You can register more loggers to add more backend outputs for"]
+#[doc = " log messages."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tm_logger_api {
+    #[doc = " Adds a new logger to the registry."]
     pub add_logger: ::std::option::Option<unsafe extern "C" fn(logger: *const tm_logger_i)>,
+    #[doc = " Removes a previously added logger from the registry."]
     pub remove_logger: ::std::option::Option<unsafe extern "C" fn(logger: *const tm_logger_i)>,
+    #[doc = " Sends a log message to all registered loggers."]
     pub print: ::std::option::Option<
         unsafe extern "C" fn(log_type: tm_log_type, msg: *const ::std::os::raw::c_char),
     >,
+    #[doc = " Convenience function for sending a formatted string message to all registered loggers."]
     pub printf: ::std::option::Option<
         unsafe extern "C" fn(
             log_type: tm_log_type,
@@ -1282,6 +1435,12 @@ pub struct tm_logger_api {
             ...
         ) -> ::std::os::raw::c_int,
     >,
+    #[doc = " A default logger that will print log messages using `printf(...)`."]
+    #[doc = ""]
+    #[doc = " On Windows, these messages are also printed using `OutputDebugString()` so they appear in"]
+    #[doc = " Visual Studios log console."]
+    #[doc = ""]
+    #[doc = " Note that this logger is automatically added. You need to explicitly remove it, if you don't want to use it."]
     pub default_logger: *mut tm_logger_i,
 }
 #[test]

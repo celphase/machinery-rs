@@ -1,7 +1,7 @@
 use std::{fs, path::Path, process::Command};
 
 use heck::CamelCase;
-use proc_macro2::TokenStream;
+use proc_macro2::{Ident, Literal, Span, TokenStream};
 use quote::quote;
 use syn::{GenericArgument, Item, ItemStruct, PathArguments, Type, TypeBareFn};
 
@@ -52,13 +52,8 @@ fn generate_api(src: &mut String, item: ItemStruct) {
         "pub struct {}(pub *const {});\n\n",
         name, raw_name
     ));
-    src.push_str(&format!("impl {} {{\n", name));
 
-    // Associated name
-    src.push_str(&format!(
-        "    pub const NAME: &'static str = \"{}\";\n\n",
-        raw_name,
-    ));
+    src.push_str(&format!("impl {} {{\n", name));
 
     for field in item.fields {
         let path_type = if let Type::Path(path_type) = field.ty {
@@ -119,6 +114,21 @@ fn generate_api(src: &mut String, item: ItemStruct) {
     }
 
     src.push_str("}\n\n");
+
+    // Trait implementation for fetching from the registry
+    let literal = Literal::string(&raw_name.to_string());
+    let name_token = Ident::new(&name, Span::call_site());
+    let reg_impl = quote! {
+        impl crate::foundation::RegistryApi for #name_token {
+            const NAME: &'static str = #literal;
+
+            unsafe fn from_raw(raw: *const std::ffi::c_void) -> Self {
+                Self(raw as *const #raw_name)
+            }
+        }
+    };
+    src.push_str(&reg_impl.to_string());
+    src.push_str("\n");
 }
 
 fn generate_in_args<'a>(

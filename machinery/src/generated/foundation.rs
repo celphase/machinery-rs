@@ -6,8 +6,6 @@ use unsafe_unwrap::UnsafeUnwrap;
 pub struct ApiRegistryApi(pub *const tm_api_registry_api);
 
 impl ApiRegistryApi {
-    pub const NAME: &'static str = "tm_api_registry_api";
-
     pub unsafe fn set(&self, name: &str, api: *const ::std::os::raw::c_void, bytes: u32) {
         let name = std::ffi::CString::new(name).unwrap();
         ((*self.0).set).unsafe_unwrap()(name.as_ptr(), api, bytes)
@@ -74,11 +72,15 @@ impl ApiRegistryApi {
     }
 }
 
+impl crate::foundation::RegistryApi for ApiRegistryApi {
+    const NAME: &'static str = "tm_api_registry_api";
+    unsafe fn from_raw(raw: *const std::ffi::c_void) -> Self {
+        Self(raw as *const tm_api_registry_api)
+    }
+}
 pub struct LoggerApi(pub *const tm_logger_api);
 
 impl LoggerApi {
-    pub const NAME: &'static str = "tm_logger_api";
-
     pub unsafe fn add_logger(&self, logger: *const tm_logger_i) {
         ((*self.0).add_logger).unsafe_unwrap()(logger)
     }
@@ -95,5 +97,12 @@ impl LoggerApi {
     pub unsafe fn printf(&self, log_type: tm_log_type, format: &str) -> ::std::os::raw::c_int {
         let format = std::ffi::CString::new(format).unwrap();
         ((*self.0).printf).unsafe_unwrap()(log_type, format.as_ptr())
+    }
+}
+
+impl crate::foundation::RegistryApi for LoggerApi {
+    const NAME: &'static str = "tm_logger_api";
+    unsafe fn from_raw(raw: *const std::ffi::c_void) -> Self {
+        Self(raw as *const tm_logger_api)
     }
 }
