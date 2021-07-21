@@ -9,5 +9,6 @@ crate-type = ["cdylib"]
 [dependencies]
 const-cstr = "0.3.0"
 tracing = "0.1.26"
+ultraviolet = "0.8.1"
 machinery = { path = "../machinery" }
 machinery-sys = { path = "../machinery-sys" }

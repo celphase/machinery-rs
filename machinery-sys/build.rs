@@ -1,7 +1,10 @@
 use std::{env, path::Path};
 
 fn main() {
+    // TODO: Generate header lists from directory structure
+
     generate("./headers/foundation.h", "./src/foundation.rs");
+    generate("./headers/plugins/entity.h", "./src/plugins/entity.rs");
     generate("./headers/plugins/the_machinery_shared.h", "./src/plugins/the_machinery_shared.rs");
 }
 

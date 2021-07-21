@@ -67,7 +67,7 @@ pub fn load_plugin<P: Plugin>(
     }
 }
 
-pub trait Plugin: Sized {
+pub trait Plugin: Sized + Send + Sync {
     fn load(registry: ApiRegistryApi) -> Self;
 }
 
