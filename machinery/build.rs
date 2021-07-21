@@ -1,4 +1,4 @@
-use std::{fs, path::Path};
+use std::{fs, path::Path, process::Command};
 
 use heck::CamelCase;
 use proc_macro2::TokenStream;
@@ -36,13 +36,22 @@ fn main() {
     }
 
     fs::write(out_path, src).unwrap();
+
+    // Run rustfmt on the output file
+    Command::new("rustfmt")
+        .args(&[out_path.to_str().unwrap()])
+        .status()
+        .expect("Failed to run rustfmt");
 }
 
 fn generate_api(src: &mut String, item: ItemStruct) {
     let raw_name = item.ident;
     let name = raw_name.to_string()[3..].to_camel_case();
 
-    src.push_str(&format!("pub struct {}(pub *const {});\n\n", name, raw_name));
+    src.push_str(&format!(
+        "pub struct {}(pub *const {});\n\n",
+        name, raw_name
+    ));
     src.push_str(&format!("impl {} {{\n", name));
 
     // Associated name
