@@ -5,7 +5,7 @@ use machinery_sys::foundation::{tm_api_registry_api, TM_LOG_TYPE_INFO};
 pub unsafe extern "C" fn tm_load_plugin(registry: *const tm_api_registry_api, load: bool) {
     let registry = ApiRegistryApi(registry);
 
-    let logger: LoggerApi = registry.get_typed();
+    let logger: LoggerApi = registry.get();
 
     let text = format!(
         "Example rust plugin {}.",

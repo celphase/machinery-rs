@@ -1,7 +1,7 @@
 use std::{fs, path::Path, process::Command};
 
-use heck::CamelCase;
-use proc_macro2::{Ident, Literal, Span, TokenStream};
+use heck::{CamelCase, ShoutySnakeCase};
+use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
 use syn::{GenericArgument, Item, ItemStruct, PathArguments, Type, TypeBareFn};
 
@@ -12,6 +12,8 @@ fn main() {
     if out_path.exists() {
         return;
     }
+
+    let blocklist = vec!["tm_api_registry_api"];
 
     // Load the input file
     let input = fs::read_to_string("../machinery-sys/src/foundation.rs").unwrap();
@@ -25,6 +27,10 @@ fn main() {
     for item in file.items {
         if let Item::Struct(item) = item {
             let name = item.ident.to_string();
+
+            if blocklist.contains(&name.as_str()) {
+                continue;
+            }
 
             // Skip anything that isn't an API
             if !name.ends_with("_api") {
@@ -116,11 +122,14 @@ fn generate_api(src: &mut String, item: ItemStruct) {
     src.push_str("}\n\n");
 
     // Trait implementation for fetching from the registry
-    let literal = Literal::string(&raw_name.to_string());
+    let name_ident = Ident::new(
+        &format!("{}_NAME", raw_name.to_string().to_shouty_snake_case()),
+        Span::call_site(),
+    );
     let name_token = Ident::new(&name, Span::call_site());
     let reg_impl = quote! {
-        impl crate::foundation::RegistryApi for #name_token {
-            const NAME: &'static str = #literal;
+        impl crate::Api for #name_token {
+            const NAME: *const i8 = #name_ident as *const _ as *const i8;
 
             unsafe fn from_raw(raw: *const std::ffi::c_void) -> Self {
                 Self(raw as *const #raw_name)
