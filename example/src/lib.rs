@@ -22,6 +22,8 @@ struct ExamplePlugin {
     registry: ApiRegistryApi,
     truth_api: TheTruthApi,
     truth_common_types: TheTruthCommonTypesApi,
+
+    // Stored memory that we need to keep alive for the duration of the plugin
     editor_aspects: Vec<Box<tm_ci_editor_ui_i>>,
 }
 
@@ -77,12 +79,10 @@ extern "C" fn truth_create_types(tt: *mut tm_the_truth_o) {
             ..Default::default()
         };
 
-        let spin_type = (*plugin.truth_api.0).create_object_type.unwrap()(
-            tt,
-            const_cstr!("tm_rust_example_component").as_ptr(),
-            &properties,
-            1,
-        );
+        let spin_type =
+            plugin
+                .truth_api
+                .create_object_type(tt, "tm_rust_example_component", &properties, 1);
         plugin
             .truth_api
             .set_default_object_to_create_subobjects(tt, spin_type);
