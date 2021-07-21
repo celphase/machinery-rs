@@ -1,15 +1,29 @@
-use machinery::foundation::{ApiRegistryApi, LoggerApi};
-use machinery_sys::foundation::{tm_api_registry_api, TM_LOG_TYPE_INFO};
+use machinery::{Plugin, foundation::{ApiRegistryApi, LoggerApi}, plugin};
+use machinery_sys::foundation::TM_LOG_TYPE_INFO;
 
-#[no_mangle]
-pub unsafe extern "C" fn tm_load_plugin(registry: *const tm_api_registry_api, load: bool) {
-    let registry = ApiRegistryApi(registry);
+plugin!(ExamplePlugin);
 
-    let logger: LoggerApi = registry.get();
+struct ExamplePlugin {
+    logger: LoggerApi,
+}
 
-    let text = format!(
-        "Example rust plugin {}.",
-        if load { "loaded" } else { "unloaded" }
-    );
-    logger.printf(TM_LOG_TYPE_INFO, &text);
+impl Plugin for ExamplePlugin {
+    fn load(registry: &ApiRegistryApi) -> Self {
+        let logger: LoggerApi = registry.get();
+
+        unsafe {
+            logger.print(TM_LOG_TYPE_INFO, "Example rust plugin loaded.");
+        }
+
+        Self { logger }
+    }
+}
+
+impl Drop for ExamplePlugin {
+    fn drop(&mut self) {
+        unsafe {
+            self.logger
+                .print(TM_LOG_TYPE_INFO, "Example rust plugin unloaded.");
+        }
+    }
 }

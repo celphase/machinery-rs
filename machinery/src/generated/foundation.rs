@@ -31,3 +31,5 @@ impl crate::Api for LoggerApi {
         Self(raw as *const tm_logger_api)
     }
 }
+unsafe impl Send for LoggerApi {}
+unsafe impl Sync for LoggerApi {}

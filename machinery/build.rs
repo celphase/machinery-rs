@@ -135,6 +135,9 @@ fn generate_api(src: &mut String, item: ItemStruct) {
                 Self(raw as *const #raw_name)
             }
         }
+
+        unsafe impl Send for #name_token {}
+        unsafe impl Sync for #name_token {}
     };
     src.push_str(&reg_impl.to_string());
     src.push_str("\n");

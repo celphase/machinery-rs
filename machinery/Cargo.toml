@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
+once_cell = "1.8.0"
 unsafe_unwrap = "0.1.0"
 machinery-sys = { path = "../machinery-sys" }
 

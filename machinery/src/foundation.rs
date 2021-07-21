@@ -91,3 +91,6 @@ impl crate::Api for ApiRegistryApi {
         Self(raw as *const tm_api_registry_api)
     }
 }
+
+unsafe impl Send for ApiRegistryApi {}
+unsafe impl Sync for ApiRegistryApi {}
