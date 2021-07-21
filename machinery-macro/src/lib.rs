@@ -60,9 +60,7 @@ pub fn export_plugin_fn(
             let ret_val = &fun_item.sig.output;
             let wrapper = quote! {
                 unsafe extern "C" fn #original_name(#(#args_with_types),*) #ret_val {
-                    #ty_name::write()
-                        .as_mut()
-                        .unwrap()
+                    (*#ty_name::as_ptr())
                         .#internal_ident(#(#args_without_types),*)
                 }
             };

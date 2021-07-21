@@ -1,23 +1,22 @@
-pub mod tm;
 mod generated;
+pub mod tm;
 pub mod tracing;
 
-use std::sync::{RwLock, RwLockReadGuard, RwLockWriteGuard};
+use std::{
+    ptr::null_mut,
+    sync::atomic::{AtomicPtr, Ordering},
+};
 
-use tm::foundation::ApiRegistryApi;
 use machinery_sys::foundation::tm_api_registry_api;
-use once_cell::sync::OnceCell;
+use tm::foundation::ApiRegistryApi;
 
-pub type PluginInstance<P> = OnceCell<RwLock<Option<P>>>;
-
-pub type PluginReadGuard<P> = RwLockReadGuard<'static, Option<P>>;
-
-pub type PluginWriteGuard<P> = RwLockWriteGuard<'static, Option<P>>;
+pub type PluginInstance<P> = AtomicPtr<P>;
 
 #[macro_export]
 macro_rules! plugin {
     ($ty:ident) => {
-        static INSTANCE: machinery::PluginInstance<$ty> = machinery::PluginInstance::new();
+        static INSTANCE: machinery::PluginInstance<$ty> =
+            machinery::PluginInstance::new(std::ptr::null_mut());
 
         #[no_mangle]
         pub unsafe extern "C" fn tm_load_plugin(
@@ -28,12 +27,8 @@ macro_rules! plugin {
         }
 
         impl $ty {
-            fn read() -> machinery::PluginReadGuard<Self> {
-                INSTANCE.get().unwrap().read().unwrap()
-            }
-
-            fn write() -> machinery::PluginWriteGuard<Self> {
-                INSTANCE.get().unwrap().write().unwrap()
+            unsafe fn as_ptr() -> *const $ty {
+                INSTANCE.load(std::sync::atomic::Ordering::SeqCst)
             }
         }
     };
@@ -48,15 +43,18 @@ pub fn load_plugin<P: Plugin>(
         let registry = ApiRegistryApi(registry);
 
         // Load the plugin
-        let plugin = P::load(registry);
-        let result = instance.set(RwLock::new(Some(plugin)));
+        let plugin = Box::new(P::load(registry));
+        let result = instance.swap(Box::into_raw(plugin), Ordering::SeqCst);
 
-        if result.is_err() {
+        if !result.is_null() {
             panic!("Plugin was already loaded!");
         }
     } else {
         // Unload the plugin by dropping it
-        instance.get().unwrap().write().unwrap().take();
+        let plugin = instance.swap(null_mut(), Ordering::SeqCst);
+        unsafe {
+            let _ = Box::from_raw(plugin);
+        }
     }
 }
 

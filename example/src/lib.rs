@@ -1,4 +1,4 @@
-use std::{ffi::c_void, mem::size_of, os::raw::c_char};
+use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::{const_cstr, ConstCStr};
 use machinery::{
@@ -35,8 +35,8 @@ struct ExamplePlugin {
     entity_api: EntityApi,
 
     // Stored memory for the lifetime of the plugin
-    editor_aspects: Vec<Box<tm_ci_editor_ui_i>>,
-    components: Vec<Box<tm_component_i>>,
+    editor_aspects: Mutex<Vec<Box<tm_ci_editor_ui_i>>>,
+    components: Mutex<Vec<Box<tm_component_i>>>,
 }
 
 unsafe impl Send for ExamplePlugin {}
@@ -53,8 +53,8 @@ impl Plugin for ExamplePlugin {
             tt_common_types: registry.get(),
             entity_api: registry.get(),
 
-            editor_aspects: Vec::new(),
-            components: Vec::new(),
+            editor_aspects: Mutex::new(Vec::new()),
+            components: Mutex::new(Vec::new()),
 
             // Stored last because we use it previously
             registry,
@@ -80,7 +80,7 @@ impl Plugin for ExamplePlugin {
 
 #[export_plugin_fn]
 impl ExamplePlugin {
-    fn truth_create_types(&mut self, tt: *mut tm_the_truth_o) {
+    fn truth_create_types(&self, tt: *mut tm_the_truth_o) {
         // The Machinery stores component data in "entity assets", which are then constructed into
         // real components at runtime.
 
@@ -117,11 +117,11 @@ impl ExamplePlugin {
                 TM_CI_EDITOR_UI,
                 &*editor_aspect as *const _ as *const _,
             );
-            self.editor_aspects.push(editor_aspect);
+            self.editor_aspects.lock().unwrap().push(editor_aspect);
         }
     }
 
-    fn component_create(&mut self, ctx: *mut tm_entity_context_o) {
+    fn component_create(&self, ctx: *mut tm_entity_context_o) {
         event!(Level::INFO, "Registering components");
 
         unsafe {
@@ -134,12 +134,12 @@ impl ExamplePlugin {
             });
 
             self.entity_api.register_component(ctx, &*component);
-            self.components.push(component);
+            self.components.lock().unwrap().push(component);
         }
     }
 
     fn component_load_asset(
-        &mut self,
+        &self,
         _man: *mut tm_component_manager_o,
         _e: tm_entity_t,
         data: *mut c_void,
