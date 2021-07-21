@@ -2,9 +2,11 @@ use std::{ffi::c_void, mem::size_of, os::raw::c_char};
 
 use const_cstr::{const_cstr, ConstCStr};
 use machinery::{
-    foundation::{ApiRegistryApi, TheTruthApi, TheTruthCommonTypesApi, TT_TYPE_HASH__POSITION},
     plugin,
-    plugins::{entity::EntityApi, the_machinery_shared::TM_CI_EDITOR_UI},
+    tm::{
+        foundation::{ApiRegistryApi, TheTruthApi, TheTruthCommonTypesApi, TT_TYPE_HASH__POSITION},
+        plugins::{entity::EntityApi, the_machinery_shared::TM_CI_EDITOR_UI},
+    },
     Plugin,
 };
 use machinery_macro::export_plugin_fn;

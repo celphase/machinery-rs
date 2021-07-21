@@ -27,8 +27,7 @@ pub fn export_plugin_fn(
     let ty_name = if let Type::Path(ref path) = &*input.item.self_ty {
         path.path.segments.last().unwrap().ident.clone()
     } else {
-        // TODO: Better integrated error
-        panic!("Invalid target")
+        panic!("Invalid target for export_plugin_fn")
     };
 
     let mut wrappers = Vec::new();

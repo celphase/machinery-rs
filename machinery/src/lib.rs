@@ -1,11 +1,10 @@
-pub mod foundation;
+pub mod tm;
 mod generated;
-pub mod plugins;
 pub mod tracing;
 
 use std::sync::{RwLock, RwLockReadGuard, RwLockWriteGuard};
 
-use foundation::ApiRegistryApi;
+use tm::foundation::ApiRegistryApi;
 use machinery_sys::foundation::tm_api_registry_api;
 use once_cell::sync::OnceCell;
 

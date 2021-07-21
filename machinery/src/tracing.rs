@@ -6,19 +6,19 @@ use tracing::{
     span, Id, Level, Subscriber,
 };
 
-use crate::{foundation::ApiRegistryApi, generated::foundation::LoggerApi};
+use crate::{generated::foundation::LoggerApi, tm::foundation::ApiRegistryApi};
 
 /// Initialize a global default subscriber for tracing that prints to The Machinery logging API.
 pub fn initialize(registry: &ApiRegistryApi) {
-    let subscriber = MachinerySubscriber::new(registry);
+    let subscriber = TmSubscriber::new(registry);
     tracing::subscriber::set_global_default(subscriber).unwrap();
 }
 
-struct MachinerySubscriber {
+struct TmSubscriber {
     logger: LoggerApi,
 }
 
-impl MachinerySubscriber {
+impl TmSubscriber {
     pub fn new(registry: &ApiRegistryApi) -> Self {
         Self {
             logger: registry.get(),
@@ -26,7 +26,7 @@ impl MachinerySubscriber {
     }
 }
 
-impl Subscriber for MachinerySubscriber {
+impl Subscriber for TmSubscriber {
     fn enabled(&self, _metadata: &tracing::Metadata<'_>) -> bool {
         true
     }
@@ -41,7 +41,7 @@ impl Subscriber for MachinerySubscriber {
 
     fn event(&self, event: &tracing::Event<'_>) {
         unsafe {
-            let mut visitor = Visitor {
+            let mut visitor = TmVisitor {
                 message: String::new(),
             };
 
@@ -83,11 +83,11 @@ impl Subscriber for MachinerySubscriber {
     fn exit(&self, _span: &span::Id) {}
 }
 
-struct Visitor {
+struct TmVisitor {
     message: String,
 }
 
-impl Visit for Visitor {
+impl Visit for TmVisitor {
     fn record_debug(&mut self, field: &Field, value: &dyn std::fmt::Debug) {
         if field.name() == "message" {
             write!(&mut self.message, "{:?}", value).unwrap();
