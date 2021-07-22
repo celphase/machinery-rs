@@ -77,12 +77,12 @@ pub const TM_CI_EDITOR_UI: StrhashT = StrhashT {
 
 impl ApiRegistryApi {
     pub fn ext_get<T: Api>(&self) -> *const T {
-        unsafe { self.get.unwrap()(T::NAME.as_ptr()) as *const T }
+        unsafe { self.get(T::NAME.as_cstr()) as *const T }
     }
 
     pub fn ext_get_optional<T: Api>(&self) -> Option<*const T> {
         unsafe {
-            let raw = self.get_optional.unwrap()(T::NAME.as_ptr());
+            let raw = self.get_optional(T::NAME.as_cstr());
             if raw.is_null() {
                 None
             } else {
