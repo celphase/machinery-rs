@@ -79,6 +79,10 @@ pub const TM_ENGINE__SCENE_TREE: StrhashT = StrhashT {
     u64_: 0x767a56f56628ec44,
 };
 
+pub const TM_ENTITY_BB__DELTA_TIME: StrhashT = StrhashT {
+    u64_: 0x5e57dbf636f8eacb,
+};
+
 // TODO: Safer registry wrapper with utilities
 
 impl ApiRegistryApi {

@@ -25,7 +25,8 @@ use machinery::{
             the_machinery_shared::CiEditorUiI,
         },
     },
-    Plugin, TM_CI_EDITOR_UI, TM_ENGINE__SCENE_TREE, TT_TYPE_HASH__POSITION,
+    Plugin, TM_CI_EDITOR_UI, TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
+    TT_TYPE_HASH__POSITION,
 };
 use machinery_macro::export_plugin_fn;
 use tracing::{event, Level};
@@ -244,8 +245,19 @@ impl ExamplePlugin {
             let ctx = inst as *mut EntityContextO;
 
             let mut updated_entities = Vec::new();
-            let delta = 1.0 / 60.0;
 
+            // Fetch the scene delta-time from the blackboard
+            let mut delta = 1.0 / 60.0;
+            let mut current = (*data).blackboard_start;
+            while current != (*data).blackboard_end {
+                if (*current).id.u64_ == TM_ENTITY_BB__DELTA_TIME.u64_ {
+                    delta = (*current).__bindgen_anon_1.double_value as f32;
+                }
+
+                current = current.offset(1);
+            }
+
+            // Go through the components to update
             let start = (*data).arrays.as_ptr();
             for array_i in 0..(*data).num_arrays {
                 let current_array = start.offset(array_i as isize);
