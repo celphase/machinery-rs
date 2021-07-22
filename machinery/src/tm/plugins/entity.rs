@@ -804,9 +804,8 @@ impl Default for EngineSystemCommonI {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
 pub struct EngineI {
-    pub __bindgen_padding_0: [u64; 46usize],
+    pub super_: EngineSystemCommonI,
     pub inst: *mut EngineO,
     pub update: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut EngineO, data: *mut EngineUpdateSetT),
@@ -838,9 +837,8 @@ pub struct EntitySystemO {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
 pub struct EntitySystemI {
-    pub __bindgen_padding_0: [u64; 46usize],
+    pub super_: EngineSystemCommonI,
     pub inst: *mut EntitySystemO,
     pub update: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, inst: *mut EntitySystemO),

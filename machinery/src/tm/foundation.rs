@@ -969,9 +969,9 @@ impl Default for BuffersI {
     }
 }
 #[repr(C)]
-#[derive(Default, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct StreamableBuffersI {
-    pub __bindgen_padding_0: [u64; 10usize],
+    pub super_: BuffersI,
     pub map: ::std::option::Option<
         unsafe extern "C" fn(
             inst: *mut BuffersO,
@@ -1010,6 +1010,15 @@ pub struct StreamableBuffersI {
     pub ensure_all_loaded: ::std::option::Option<unsafe extern "C" fn(inst: *mut BuffersO)>,
     pub set_io:
         ::std::option::Option<unsafe extern "C" fn(inst: *mut BuffersO, io: *mut OsFileIoApi)>,
+}
+impl Default for StreamableBuffersI {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]

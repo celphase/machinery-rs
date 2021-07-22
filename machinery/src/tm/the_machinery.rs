@@ -899,9 +899,8 @@ extern "C" {
     pub fn localizer_interface(loc: *mut LocalizerO) -> *mut LocalizerI;
 }
 #[repr(C)]
-#[derive(Default, Copy, Clone)]
 pub struct TheMachineryTabVt {
-    pub __bindgen_padding_0: [u64; 25usize],
+    pub super_: TabVt,
     pub menu_title: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut TabO, ui: *mut UiO) -> *const ::std::os::raw::c_char,
     >,
@@ -914,21 +913,46 @@ pub struct TheMachineryTabVt {
         ),
     >,
 }
+impl Default for TheMachineryTabVt {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Default, Copy, Clone)]
 pub struct PreviewTabVt {
-    pub __bindgen_padding_0: [u64; 27usize],
+    pub super_: TheMachineryTabVt,
     pub preview_entity: ::std::option::Option<
         unsafe extern "C" fn(tab: *mut TabO, e: *mut EntityT) -> *mut EntityContextO,
     >,
 }
+impl Default for PreviewTabVt {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Default, Copy, Clone)]
 pub struct GraphTabVt {
-    pub __bindgen_padding_0: [u64; 27usize],
+    pub super_: TheMachineryTabVt,
     pub refresh_node_types: ::std::option::Option<
         unsafe extern "C" fn(tab: *mut TabO, node_interface_name: *const ::std::os::raw::c_char),
     >,
+}
+impl Default for GraphTabVt {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
