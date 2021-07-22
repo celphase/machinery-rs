@@ -1,4 +1,3 @@
-mod generated;
 pub mod tm;
 pub mod tracing;
 
@@ -7,8 +6,8 @@ use std::{
     sync::atomic::{AtomicPtr, Ordering},
 };
 
-use machinery_sys::foundation::tm_api_registry_api;
-use tm::foundation::ApiRegistryApi;
+use const_cstr::ConstCStr;
+use tm::foundation::{ApiRegistryApi, StrhashT};
 
 #[macro_export]
 macro_rules! plugin {
@@ -18,7 +17,7 @@ macro_rules! plugin {
 
         #[no_mangle]
         pub unsafe extern "C" fn tm_load_plugin(
-            registry: *const machinery_sys::foundation::tm_api_registry_api,
+            registry: *const machinery::tm::foundation::ApiRegistryApi,
             load: bool,
         ) {
             machinery::load_plugin::<$ty>(&INSTANCE, registry, load);
@@ -38,12 +37,10 @@ macro_rules! plugin {
 
 pub fn load_plugin<P: Plugin>(
     instance: &AtomicPtr<P>,
-    registry: *const tm_api_registry_api,
+    registry: *const ApiRegistryApi,
     load: bool,
 ) {
     if load {
-        let registry = ApiRegistryApi(registry);
-
         // Load the plugin
         let plugin = Box::new(P::load(registry));
         let result = instance.swap(Box::into_raw(plugin), Ordering::SeqCst);
@@ -61,11 +58,36 @@ pub fn load_plugin<P: Plugin>(
 }
 
 pub trait Plugin: Sized + Send + Sync {
-    fn load(registry: ApiRegistryApi) -> Self;
+    fn load(registry: *const ApiRegistryApi) -> Self;
 }
 
 pub trait Api {
-    const NAME: *const i8;
+    const NAME: ConstCStr;
+}
 
-    unsafe fn from_raw(raw: *const std::ffi::c_void) -> Self;
+// TODO: Auto-generate these from headers
+pub const TT_TYPE_HASH__POSITION: StrhashT = StrhashT {
+    u64_: 0x7a29b8f6b1ca42ec,
+};
+pub const TM_CI_EDITOR_UI: StrhashT = StrhashT {
+    u64_: 0xdd963167d23fc53a,
+};
+
+// TODO: Safer registry wrapper with utilities
+
+impl ApiRegistryApi {
+    pub fn ext_get<T: Api>(&self) -> *const T {
+        unsafe { self.get.unwrap()(T::NAME.as_ptr()) as *const T }
+    }
+
+    pub fn ext_get_optional<T: Api>(&self) -> Option<*const T> {
+        unsafe {
+            let raw = self.get_optional.unwrap()(T::NAME.as_ptr());
+            if raw.is_null() {
+                None
+            } else {
+                Some(raw as *const T)
+            }
+        }
+    }
 }

@@ -1,0 +1,7 @@
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+[tasks.generate]
+command = "cargo"
+args = ["run", "-p", "machinery-generator"]
+workspace = false

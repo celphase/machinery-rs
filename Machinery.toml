@@ -1,0 +1,42 @@
+[projects.foundation]
+headers = "$TM_SDK_DIR/headers/foundation"
+headers_prefix = "foundation"
+target = "./machinery/src/tm/foundation.rs"
+
+[projects.plugins-entity]
+headers = "$TM_SDK_DIR/headers/plugins/entity"
+headers_prefix = "plugins/entity"
+target = "./machinery/src/tm/plugins/entity.rs"
+uses = ["crate::tm::foundation::*"]
+
+[projects.plugins-ui]
+headers = "$TM_SDK_DIR/headers/plugins/ui"
+headers_prefix = "plugins/ui"
+target = "./machinery/src/tm/plugins/ui.rs"
+uses = [
+    "crate::tm::foundation::*",
+    "crate::tm::plugins::entity::*",
+]
+
+[projects.plugins-the-machinery-shared]
+headers = "$TM_SDK_DIR/headers/plugins/the_machinery_shared"
+headers_prefix = "plugins/the_machinery_shared"
+target = "./machinery/src/tm/plugins/the_machinery_shared.rs"
+prefix_headers = ["foundation/the_truth.h"]
+uses = [
+    "crate::tm::foundation::*",
+    "crate::tm::plugins::entity::*",
+    "crate::tm::plugins::ui::*",
+]
+
+[projects.the-machinery]
+headers = "$TM_SDK_DIR/headers/the_machinery"
+headers_prefix = "the_machinery"
+target = "./machinery/src/tm/the_machinery.rs"
+prefix_headers = ["plugins/ui/docking.h"]
+uses = [
+    "crate::tm::foundation::*",
+    "crate::tm::plugins::entity::*",
+    "crate::tm::plugins::ui::*",
+    "crate::tm::plugins::the_machinery_shared::*",
+]

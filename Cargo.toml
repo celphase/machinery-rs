@@ -2,7 +2,7 @@
 members = [
     "example",
     "machinery",
+    "machinery-generator",
     "machinery-macro",
-    "machinery-sys"
 ]
 resolver = "2"

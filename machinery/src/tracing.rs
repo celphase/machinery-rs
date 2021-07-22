@@ -1,12 +1,13 @@
 use std::{ffi::CString, fmt::Write};
 
-use machinery_sys::foundation::{TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO};
 use tracing::{
     field::{Field, Visit},
     span, Id, Level, Subscriber,
 };
 
-use crate::{generated::foundation::LoggerApi, tm::foundation::ApiRegistryApi};
+use crate::tm::foundation::{
+    ApiRegistryApi, LoggerApi, TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO,
+};
 
 /// Initialize a global default subscriber for tracing that prints to The Machinery logging API.
 pub fn initialize(registry: &ApiRegistryApi) {
@@ -15,13 +16,16 @@ pub fn initialize(registry: &ApiRegistryApi) {
 }
 
 struct TmSubscriber {
-    logger: LoggerApi,
+    logger: *const LoggerApi,
 }
+
+unsafe impl Send for TmSubscriber {}
+unsafe impl Sync for TmSubscriber {}
 
 impl TmSubscriber {
     pub fn new(registry: &ApiRegistryApi) -> Self {
         Self {
-            logger: registry.get(),
+            logger: registry.ext_get(),
         }
     }
 }
@@ -75,7 +79,7 @@ impl Subscriber for TmSubscriber {
             };
 
             let cstr = CString::new(visitor.message).unwrap();
-            self.logger.print(level, &cstr);
+            (*self.logger).print(level, &cstr);
         }
     }
 

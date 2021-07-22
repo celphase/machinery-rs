@@ -1,9 +1,0 @@
-#include <plugins/entity/camera_component.h>
-#include <plugins/entity/constraint_component.h>
-#include <plugins/entity/entity.h>
-#include <plugins/entity/entity_api_types.h>
-#include <plugins/entity/entity_loader.h>
-#include <plugins/entity/owner_component.h>
-#include <plugins/entity/scene_tree_component.h>
-#include <plugins/entity/tag_component.h>
-#include <plugins/entity/transform_component.h>
