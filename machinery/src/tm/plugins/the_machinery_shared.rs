@@ -286,26 +286,6 @@ impl Default for TtIdTBindgenTy1 {
         }
     }
 }
-pub const TM_THE_TRUTH_PROPERTY_TYPE_NONE: TheTruthPropertyType = 0;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_BOOL: TheTruthPropertyType = 1;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_UINT32_T: TheTruthPropertyType = 2;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_UINT64_T: TheTruthPropertyType = 3;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_FLOAT: TheTruthPropertyType = 4;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_DOUBLE: TheTruthPropertyType = 5;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_STRING: TheTruthPropertyType = 6;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_BUFFER: TheTruthPropertyType = 7;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_REFERENCE: TheTruthPropertyType = 8;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT: TheTruthPropertyType = 9;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_REFERENCE_SET: TheTruthPropertyType = 10;
-pub const TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT_SET: TheTruthPropertyType = 11;
-pub const TM_THE_TRUTH_NUM_PROPERTY_TYPES: TheTruthPropertyType = 12;
-pub type TheTruthPropertyType = ::std::os::raw::c_int;
-pub const TM_THE_TRUTH__EDITOR__DEFAULT: TheTruthEditor = 0;
-pub const TM_THE_TRUTH__EDITOR__HIDDEN: TheTruthEditor = 1;
-pub const TM_THE_TRUTH__EDITOR__UINT32_T__ENUM: TheTruthEditor = 2;
-pub const TM_THE_TRUTH__EDITOR__STRING__OPEN_PATH: TheTruthEditor = 3;
-pub const TM_THE_TRUTH__EDITOR__STRING__SAVE_PATH: TheTruthEditor = 4;
-pub type TheTruthEditor = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct TheTruthPropertyDefinitionTBindgenTy1 {
     pub enum_editor: __BindgenUnionField<TheTruthEditorEnumT>,
@@ -322,18 +302,6 @@ impl Default for TheTruthPropertyDefinitionTBindgenTy1 {
         }
     }
 }
-pub type TheTruthCreateTypesI = ::std::option::Option<unsafe extern "C" fn(tt: *mut TheTruthO)>;
-pub type TheTruthDestroyedI = ::std::option::Option<unsafe extern "C" fn(tt: *mut TheTruthO)>;
-pub const TM_THE_TRUTH_CREATE_TYPES_NONE: TheTruthCreateTypes = 0;
-pub const TM_THE_TRUTH_CREATE_TYPES_ALL: TheTruthCreateTypes = 1;
-pub type TheTruthCreateTypes = ::std::os::raw::c_int;
-pub const TM_TT_PROTOTYPE_RELATION_ADDED: TheTruthPrototypeRelation = 0;
-pub const TM_TT_PROTOTYPE_RELATION_ASSET: TheTruthPrototypeRelation = 1;
-pub const TM_TT_PROTOTYPE_RELATION_INHERITED: TheTruthPrototypeRelation = 2;
-pub const TM_TT_PROTOTYPE_RELATION_INSTANTIATED: TheTruthPrototypeRelation = 3;
-pub const TM_TT_PROTOTYPE_RELATION_REMOVED: TheTruthPrototypeRelation = 4;
-pub const TM_TT_PROTOTYPE_RELATION_NONE: TheTruthPrototypeRelation = 5;
-pub type TheTruthPrototypeRelation = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct TtPropValueTBindgenTy1 {
     pub b: __BindgenUnionField<bool>,
@@ -974,47 +942,6 @@ pub struct FrustumCullingApi {
         ),
     >,
 }
-pub const TM_RENDERER_SHADER_STAGE_VERTEX: RendererShaderStage = 0;
-pub const TM_RENDERER_SHADER_STAGE_HULL: RendererShaderStage = 1;
-pub const TM_RENDERER_SHADER_STAGE_DOMAIN: RendererShaderStage = 2;
-pub const TM_RENDERER_SHADER_STAGE_GEOMETRY: RendererShaderStage = 3;
-pub const TM_RENDERER_SHADER_STAGE_PIXEL: RendererShaderStage = 4;
-pub const TM_RENDERER_SHADER_STAGE_COMPUTE: RendererShaderStage = 5;
-pub const TM_RENDERER_SHADER_STAGE_RAYGEN: RendererShaderStage = 6;
-pub const TM_RENDERER_SHADER_STAGE_ANY_HIT: RendererShaderStage = 7;
-pub const TM_RENDERER_SHADER_STAGE_CLOSEST_HIT: RendererShaderStage = 8;
-pub const TM_RENDERER_SHADER_STAGE_MISS: RendererShaderStage = 9;
-pub const TM_RENDERER_SHADER_STAGE_INTERSECTION: RendererShaderStage = 10;
-pub const TM_RENDERER_SHADER_STAGE_MAX: RendererShaderStage = 11;
-pub type RendererShaderStage = ::std::os::raw::c_int;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_TESSELLATION: RendererStateBlockType = 0;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_RASTER: RendererStateBlockType = 1;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_DEPTH_STENCIL: RendererStateBlockType = 2;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_TEXTURE_SAMPLER: RendererStateBlockType = 3;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_RENDER_TARGET_BLEND: RendererStateBlockType = 4;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_BLEND: RendererStateBlockType = 5;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_MULTI_SAMPLE: RendererStateBlockType = 6;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_MAX_STATE_BLOCK_TYPES: RendererStateBlockType = 7;
-pub type RendererStateBlockType = ::std::os::raw::c_int;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BOOL: RendererStateValueType = 0;
-pub const TM_RENDERER_STATE_VALUE_TYPE_UINT32: RendererStateValueType = 1;
-pub const TM_RENDERER_STATE_VALUE_TYPE_FLOAT32: RendererStateValueType = 2;
-pub const TM_RENDERER_STATE_VALUE_TYPE_COMPARE_OP: RendererStateValueType = 3;
-pub const TM_RENDERER_STATE_VALUE_TYPE_CULL: RendererStateValueType = 4;
-pub const TM_RENDERER_STATE_VALUE_TYPE_FRONT_FACE: RendererStateValueType = 5;
-pub const TM_RENDERER_STATE_VALUE_TYPE_POLYGON_MODE: RendererStateValueType = 6;
-pub const TM_RENDERER_STATE_VALUE_TYPE_STENCIL_OP: RendererStateValueType = 7;
-pub const TM_RENDERER_STATE_VALUE_TYPE_FILTER: RendererStateValueType = 8;
-pub const TM_RENDERER_STATE_VALUE_TYPE_MIP_MODE: RendererStateValueType = 9;
-pub const TM_RENDERER_STATE_VALUE_TYPE_ADDRESS_MODE: RendererStateValueType = 10;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BORDER_COLOR: RendererStateValueType = 11;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BLEND_FACTOR: RendererStateValueType = 12;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BLEND_OPERATION: RendererStateValueType = 13;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BLEND_WRITE_MASK: RendererStateValueType = 14;
-pub const TM_RENDERER_STATE_VALUE_TYPE_LOGICAL_OPERATION: RendererStateValueType = 15;
-pub const TM_RENDERER_STATE_VALUE_TYPE_STATE_BLOCK: RendererStateValueType = -16777216;
-pub const TM_RENDERER_STATE_VALUE_TYPE_MAX_VALUE_TYPES: RendererStateValueType = -16777215;
-pub type RendererStateValueType = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct CreationGraphDrawCallDataT {

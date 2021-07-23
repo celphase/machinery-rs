@@ -266,17 +266,8 @@ impl Default for TtIdTBindgenTy1 {
         }
     }
 }
-pub const TM_TAB_FOCUS_EVENT__FOCUS: TabFocusEvent = 0;
-pub const TM_TAB_FOCUS_EVENT__OPEN: TabFocusEvent = 1;
-pub type TabFocusEvent = ::std::os::raw::c_int;
 pub const TM_TT_PROP__DOCKING_SETTINGS__TOOLBARS_SETTINGS: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
-pub const TM_DOCKING_TABWELL_SPLIT_NONE: DockingTabwellSplit = 0;
-pub const TM_DOCKING_TABWELL_SPLIT_RIGHT: DockingTabwellSplit = 1;
-pub const TM_DOCKING_TABWELL_SPLIT_LEFT: DockingTabwellSplit = 2;
-pub const TM_DOCKING_TABWELL_SPLIT_TOP: DockingTabwellSplit = 3;
-pub const TM_DOCKING_TABWELL_SPLIT_BOTTOM: DockingTabwellSplit = 4;
-pub type DockingTabwellSplit = ::std::os::raw::c_int;
 pub const TM_DOCKING_MAX_TABS_IN_TABWELL: ::std::os::raw::c_int = 32;
 pub type _bindgen_ty_2 = ::std::os::raw::c_int;
 #[repr(C)]

@@ -38,8 +38,22 @@ pub fn generate(project: &Project, target_headers: &[PathBuf], type_list: &mut V
     }
     module.push_str("\n");
 
+    // Store all identifiers that aren't internal so that we can avoid duplicates
+    for item in &file.items {
+        let ident = if let Some(ident) = get_ident(item) {
+            ident
+        } else {
+            continue;
+        };
+
+        // Store the type if it's not an internal utility
+        if !ident.starts_with("__") {
+            type_list.push(ident);
+        }
+    }
+
     // Individual generation steps
-    generate_apis(&file, &mut module, type_list);
+    generate_apis(&file, &mut module);
     generate_define_macros(target_headers, &mut module);
 
     // Write the generated code back to the output
@@ -52,7 +66,16 @@ pub fn generate(project: &Project, target_headers: &[PathBuf], type_list: &mut V
         .expect("Failed to run rustfmt");
 }
 
-fn generate_apis(file: &File, module: &mut String, type_list: &mut Vec<String>) {
+fn get_ident(name: &Item) -> Option<String> {
+    Some(match name {
+        Item::Const(item) => item.ident.to_string(),
+        Item::Struct(item) => item.ident.to_string(),
+        Item::Type(item) => item.ident.to_string(),
+        _ => return None,
+    })
+}
+
+fn generate_apis(file: &File, module: &mut String) {
     // Find all defined names, so we know what can have an Api trait
     let mut defined_names = HashSet::new();
     for item in &file.items {
@@ -67,11 +90,6 @@ fn generate_apis(file: &File, module: &mut String, type_list: &mut Vec<String>) 
     for item in &file.items {
         if let Item::Struct(item) = item {
             let name = item.ident.to_string();
-
-            // Store the type if it's not an internal utility
-            if !name.starts_with("__") {
-                type_list.push(name.clone());
-            }
 
             // Skip anything that isn't an API
             if !name.ends_with("Api") {
