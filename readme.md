@@ -2,6 +2,12 @@
 
 Rust bindings for [The Machinery](https://ourmachinery.com/) game engine.
 
+The repository hosts the following parts:
+
+- [![Crates.io](https://img.shields.io/crates/v/machinery.svg?label=machinery)](https://crates.io/crates/machinery) [![docs.rs](https://docs.rs/machinery/badge.svg)](https://docs.rs/machinery/) - Generated bindings and additional utilities for creating plugins.
+- [![Crates.io](https://img.shields.io/crates/v/machinery-macros.svg?label=machinery-macros)](https://crates.io/crates/machinery-macros) [![docs.rs](https://docs.rs/machinery-macros/badge.svg)](https://docs.rs/machinery-macros/) - Procedural macro utilities for creating plugins.
+- `machinery-generator` - Generator for generating Rust bindings from headers.
+- `example` - Short example plugin showcasing the bindings.
 
 ## Building Example
 
@@ -13,7 +19,6 @@ cd example
 cargo make machinery
 ```
 
-
 ## Generator
 
 This project includes a generator to generate bindings and utilities from The Machinery and plugins'
@@ -24,7 +29,6 @@ Generation can be configured through `Machinery.toml`.
 ```
 cargo make generator
 ```
-
 
 ## License
 
