@@ -65,7 +65,12 @@ pub trait Api {
     const NAME: ConstCStr;
 }
 
-/// Unique identifier, made up of a name and a hash generated from that name.
+/// Unique identifier, made up of a string name and a hash generated from that name.
+///
+/// Generated using the `tm_ident!` macro:
+/// ```no_run
+/// const FOO: Identifier = tm_ident!("tm_foo");
+/// ```
 pub struct Identifier {
     pub name: ConstCStr,
     pub hash: StrhashT,
