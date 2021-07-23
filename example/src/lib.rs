@@ -28,7 +28,7 @@ use machinery::{
     },
     Plugin,
 };
-use machinery_macro::export_plugin_fn;
+use machinery_macros::export_plugin_fn;
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
 

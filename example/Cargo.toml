@@ -12,4 +12,4 @@ tracing = "0.1.26"
 ultraviolet = "0.8.1"
 murmurhash64 = "0.3.1"
 machinery = { path = "../machinery" }
-machinery-macro = { path = "../machinery-macro" }
+machinery-macros = { path = "../machinery-macros" }

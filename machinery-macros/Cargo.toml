@@ -1,12 +1,16 @@
 [package]
-name = "machinery"
+name = "machinery-macros"
 version = "0.1.0"
 license = "MIT OR Apache-2.0"
-description = "Rust bindings for The Machinery game engine"
+description = "Macro utilities for the machinery crate"
 repository = "https://gitlab.com/celphase/machinery-rs"
 readme = "../readme.md"
 edition = "2018"
 
+[lib]
+proc-macro = true
+
 [dependencies]
-const-cstr = "0.3.0"
-tracing = "0.1.26"
+quote = "1.0.9"
+proc-macro2 = "1.0.27"
+syn = "1.0.73"

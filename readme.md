@@ -1,6 +1,6 @@
 # machinery-rs
 
-Rust bindings for [The Machinery](https://ourmachinery.com/).
+Rust bindings for [The Machinery](https://ourmachinery.com/) game engine.
 
 
 ## Building Example
