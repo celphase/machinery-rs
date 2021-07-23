@@ -1,9 +1,4 @@
-use std::{
-    ffi::{c_void, CStr},
-    mem::size_of,
-    os::raw::c_char,
-    sync::Mutex,
-};
+use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
 use machinery::{
@@ -70,19 +65,17 @@ impl Plugin for ExamplePlugin {
             // TODO: Wrappers for add_implementation that take a type-safe inteface as parameter
 
             (*plugin.registry).add_implementation(
-                &CStr::from_ptr(TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME.as_ptr() as *const i8),
+                TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME.as_ptr() as *const i8,
                 Self::truth_create_types as *const c_void,
             );
 
             (*plugin.registry).add_implementation(
-                &CStr::from_ptr(TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME.as_ptr() as *const i8),
+                TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME.as_ptr() as *const i8,
                 Self::component_create as *const c_void,
             );
 
             (*plugin.registry).add_implementation(
-                &CStr::from_ptr(
-                    TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME.as_ptr() as *const i8,
-                ),
+                TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME.as_ptr() as *const i8,
                 Self::register_engines as *const c_void,
             );
 
@@ -97,19 +90,17 @@ impl Drop for ExamplePlugin {
     fn drop(&mut self) {
         unsafe {
             (*self.registry).remove_implementation(
-                &CStr::from_ptr(TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME.as_ptr() as *const i8),
+                TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME.as_ptr() as *const i8,
                 Self::truth_create_types as *const c_void,
             );
 
             (*self.registry).remove_implementation(
-                &CStr::from_ptr(TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME.as_ptr() as *const i8),
+                TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME.as_ptr() as *const i8,
                 Self::component_create as *const c_void,
             );
 
             (*self.registry).remove_implementation(
-                &CStr::from_ptr(
-                    TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME.as_ptr() as *const i8,
-                ),
+                TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME.as_ptr() as *const i8,
                 Self::register_engines as *const c_void,
             );
         }
@@ -139,7 +130,7 @@ impl ExamplePlugin {
 
             let spin_type = (*self.tt_api).create_object_type(
                 tt,
-                RUST_EXAMPLE_COMPONENT.name.as_cstr(),
+                RUST_EXAMPLE_COMPONENT.name.as_ptr(),
                 &properties,
                 1,
             );

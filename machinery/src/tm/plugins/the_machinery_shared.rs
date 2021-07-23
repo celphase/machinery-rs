@@ -1817,12 +1817,11 @@ impl AssetSceneApi {
         inst: *mut AssetSceneO,
         tt: *mut TheTruthO,
         asset: TtIdT,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
         local_transform: *const TransformT,
         parent_entity: TtIdT,
         undo_stack: *mut UndoStackI,
     ) -> TtIdT {
-        let name = name.as_ptr();
         self.create_entity.unwrap()(
             inst,
             tt,
@@ -2370,9 +2369,8 @@ impl ViewerManagerApi {
     pub unsafe fn create(
         &self,
         manager: *mut ViewerManagerO,
-        main_module_name: &std::ffi::CStr,
+        main_module_name: *const ::std::os::raw::c_char,
     ) -> *mut ViewerO {
-        let main_module_name = main_module_name.as_ptr();
         self.create.unwrap()(manager, main_module_name)
     }
 

@@ -5583,28 +5583,24 @@ impl crate::Api for GizmoApi {
 impl UiModalApi {
     pub unsafe fn message_box(
         &self,
-        title: &std::ffi::CStr,
-        text: &std::ffi::CStr,
+        title: *const ::std::os::raw::c_char,
+        text: *const ::std::os::raw::c_char,
         buttons: *mut *const ::std::os::raw::c_char,
         num_buttons: u32,
     ) -> u32 {
-        let title = title.as_ptr();
-        let text = text.as_ptr();
         self.message_box.unwrap()(title, text, buttons, num_buttons)
     }
 
     pub unsafe fn message_box_with_checkboxes(
         &self,
-        title: &std::ffi::CStr,
-        text: &std::ffi::CStr,
+        title: *const ::std::os::raw::c_char,
+        text: *const ::std::os::raw::c_char,
         checkboxes: *mut *const ::std::os::raw::c_char,
         checkbox_values: *mut bool,
         num_checkboxes: u32,
         buttons: *mut *const ::std::os::raw::c_char,
         num_buttons: u32,
     ) -> u32 {
-        let title = title.as_ptr();
-        let text = text.as_ptr();
         self.message_box_with_checkboxes.unwrap()(
             title,
             text,
@@ -5618,8 +5614,8 @@ impl UiModalApi {
 
     pub unsafe fn progress_box(
         &self,
-        title: &std::ffi::CStr,
-        text: &std::ffi::CStr,
+        title: *const ::std::os::raw::c_char,
+        text: *const ::std::os::raw::c_char,
         buttons: *mut *const ::std::os::raw::c_char,
         num_buttons: u32,
         callback: ::std::option::Option<
@@ -5627,36 +5623,30 @@ impl UiModalApi {
         >,
         callback_data: *mut ::std::os::raw::c_void,
     ) -> u32 {
-        let title = title.as_ptr();
-        let text = text.as_ptr();
         self.progress_box.unwrap()(title, text, buttons, num_buttons, callback, callback_data)
     }
 
     pub unsafe fn infinite_progress_box(
         &self,
-        title: &std::ffi::CStr,
-        text: &std::ffi::CStr,
+        title: *const ::std::os::raw::c_char,
+        text: *const ::std::os::raw::c_char,
         callback: ::std::option::Option<
             unsafe extern "C" fn(data: *mut ::std::os::raw::c_void) -> f32,
         >,
         callback_data: *mut ::std::os::raw::c_void,
     ) {
-        let title = title.as_ptr();
-        let text = text.as_ptr();
         self.infinite_progress_box.unwrap()(title, text, callback, callback_data)
     }
 
     pub unsafe fn textinput_box(
         &self,
-        title: &std::ffi::CStr,
-        text: &std::ffi::CStr,
+        title: *const ::std::os::raw::c_char,
+        text: *const ::std::os::raw::c_char,
         buttons: *mut *const ::std::os::raw::c_char,
         num_buttons: u32,
         output_text: *mut ::std::os::raw::c_char,
         output_text_bytes: u32,
     ) -> u32 {
-        let title = title.as_ptr();
-        let text = text.as_ptr();
         self.textinput_box.unwrap()(
             title,
             text,
@@ -5925,8 +5915,11 @@ impl UiApi {
         self.text.unwrap()(ui, style, c)
     }
 
-    pub unsafe fn text_metrics(&self, style: *const UiStyleT, text: &std::ffi::CStr) -> RectT {
-        let text = text.as_ptr();
+    pub unsafe fn text_metrics(
+        &self,
+        style: *const UiStyleT,
+        text: *const ::std::os::raw::c_char,
+    ) -> RectT {
         self.text_metrics.unwrap()(style, text)
     }
 
@@ -5943,8 +5936,12 @@ impl UiApi {
         self.link.unwrap()(ui, style, c)
     }
 
-    pub unsafe fn tooltip(&self, ui: *mut UiO, style: *const UiStyleT, text: &std::ffi::CStr) {
-        let text = text.as_ptr();
+    pub unsafe fn tooltip(
+        &self,
+        ui: *mut UiO,
+        style: *const UiStyleT,
+        text: *const ::std::os::raw::c_char,
+    ) {
         self.tooltip.unwrap()(ui, style, text)
     }
 
@@ -6292,43 +6289,67 @@ impl UiApi {
         self.get_cache.unwrap()(ui, key, size)
     }
 
-    pub unsafe fn left_mouse_pressed(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn left_mouse_pressed(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.left_mouse_pressed.unwrap()(ui, help_text)
     }
 
-    pub unsafe fn middle_mouse_pressed(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn middle_mouse_pressed(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.middle_mouse_pressed.unwrap()(ui, help_text)
     }
 
-    pub unsafe fn right_mouse_pressed(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn right_mouse_pressed(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.right_mouse_pressed.unwrap()(ui, help_text)
     }
 
-    pub unsafe fn left_mouse_released(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn left_mouse_released(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.left_mouse_released.unwrap()(ui, help_text)
     }
 
-    pub unsafe fn middle_mouse_released(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn middle_mouse_released(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.middle_mouse_released.unwrap()(ui, help_text)
     }
 
-    pub unsafe fn right_mouse_released(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn right_mouse_released(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.right_mouse_released.unwrap()(ui, help_text)
     }
 
-    pub unsafe fn double_click(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn double_click(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.double_click.unwrap()(ui, help_text)
     }
 
-    pub unsafe fn triple_click(&self, ui: *mut UiO, help_text: &std::ffi::CStr) -> bool {
-        let help_text = help_text.as_ptr();
+    pub unsafe fn triple_click(
+        &self,
+        ui: *mut UiO,
+        help_text: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.triple_click.unwrap()(ui, help_text)
     }
 

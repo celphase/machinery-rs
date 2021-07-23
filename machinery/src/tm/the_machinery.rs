@@ -1021,8 +1021,11 @@ impl IntegrationTestRunnerApi {
         self.create.unwrap()(app, allocator, context)
     }
 
-    pub unsafe fn add_test(&self, runner: *mut IntegrationTestRunnerO, name: &std::ffi::CStr) {
-        let name = name.as_ptr();
+    pub unsafe fn add_test(
+        &self,
+        runner: *mut IntegrationTestRunnerO,
+        name: *const ::std::os::raw::c_char,
+    ) {
         self.add_test.unwrap()(runner, name)
     }
 
@@ -1053,12 +1056,10 @@ impl StatisticsTabApi {
     pub unsafe fn add_source(
         &self,
         tab: *mut TabI,
-        name: &std::ffi::CStr,
-        source: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
+        source: *const ::std::os::raw::c_char,
         color: ColorSrgbT,
     ) {
-        let name = name.as_ptr();
-        let source = source.as_ptr();
         self.add_source.unwrap()(tab, name, source, color)
     }
 }
@@ -1117,10 +1118,9 @@ impl TheMachineryApi {
         &self,
         app: *mut ApplicationO,
         ui: *mut UiO,
-        vt_name: &std::ffi::CStr,
+        vt_name: *const ::std::os::raw::c_char,
         opt: *const DockingFindTabOptT,
     ) -> *mut TabI {
-        let vt_name = vt_name.as_ptr();
         self.create_or_select_tab.unwrap()(app, ui, vt_name, opt)
     }
 
@@ -1159,29 +1159,33 @@ impl TheMachineryApi {
         &self,
         app: *mut ApplicationO,
         ui: *mut UiO,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
     ) -> bool {
-        let path = path.as_ptr();
         self.open_project.unwrap()(app, ui, path)
     }
 
-    pub unsafe fn open_any_project(&self, app: *mut ApplicationO, file: &std::ffi::CStr) {
-        let file = file.as_ptr();
+    pub unsafe fn open_any_project(
+        &self,
+        app: *mut ApplicationO,
+        file: *const ::std::os::raw::c_char,
+    ) {
         self.open_any_project.unwrap()(app, file)
     }
 
-    pub unsafe fn save_to_asset_database(&self, app: *mut ApplicationO, file: &std::ffi::CStr) {
-        let file = file.as_ptr();
+    pub unsafe fn save_to_asset_database(
+        &self,
+        app: *mut ApplicationO,
+        file: *const ::std::os::raw::c_char,
+    ) {
         self.save_to_asset_database.unwrap()(app, file)
     }
 
     pub unsafe fn import_asset(
         &self,
         app: *mut ApplicationO,
-        file: &std::ffi::CStr,
+        file: *const ::std::os::raw::c_char,
         reimport_into: TtIdT,
     ) {
-        let file = file.as_ptr();
         self.import_asset.unwrap()(app, file, reimport_into)
     }
 

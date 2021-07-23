@@ -6445,9 +6445,8 @@ impl AllocatorApi {
     pub unsafe fn create_child(
         &self,
         parent: *const AllocatorI,
-        desc: &std::ffi::CStr,
+        desc: *const ::std::os::raw::c_char,
     ) -> AllocatorI {
-        let desc = desc.as_ptr();
         self.create_child.unwrap()(parent, desc)
     }
 
@@ -6466,9 +6465,8 @@ impl AllocatorApi {
     pub unsafe fn create_leaky_root_scope(
         &self,
         parent: *const AllocatorI,
-        desc: &std::ffi::CStr,
+        desc: *const ::std::os::raw::c_char,
     ) -> AllocatorI {
-        let desc = desc.as_ptr();
         self.create_leaky_root_scope.unwrap()(parent, desc)
     }
 
@@ -6484,11 +6482,10 @@ impl crate::Api for AllocatorApi {
 impl ApiRegistryApi {
     pub unsafe fn set(
         &self,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
         api: *const ::std::os::raw::c_void,
         bytes: u32,
     ) {
-        let name = name.as_ptr();
         self.set.unwrap()(name, api, bytes)
     }
 
@@ -6496,40 +6493,38 @@ impl ApiRegistryApi {
         self.remove.unwrap()(api)
     }
 
-    pub unsafe fn get(&self, name: &std::ffi::CStr) -> *mut ::std::os::raw::c_void {
-        let name = name.as_ptr();
+    pub unsafe fn get(&self, name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void {
         self.get.unwrap()(name)
     }
 
-    pub unsafe fn get_optional(&self, name: &std::ffi::CStr) -> *mut ::std::os::raw::c_void {
-        let name = name.as_ptr();
+    pub unsafe fn get_optional(
+        &self,
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_void {
         self.get_optional.unwrap()(name)
     }
 
     pub unsafe fn add_implementation(
         &self,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
         implementation: *const ::std::os::raw::c_void,
     ) {
-        let name = name.as_ptr();
         self.add_implementation.unwrap()(name, implementation)
     }
 
     pub unsafe fn remove_implementation(
         &self,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
         implementation: *const ::std::os::raw::c_void,
     ) {
-        let name = name.as_ptr();
         self.remove_implementation.unwrap()(name, implementation)
     }
 
     pub unsafe fn implementations(
         &self,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
         count: *mut u32,
     ) -> *mut *mut ::std::os::raw::c_void {
-        let name = name.as_ptr();
         self.implementations.unwrap()(name, count)
     }
 
@@ -6541,10 +6536,9 @@ impl ApiRegistryApi {
         &self,
         id: StrhashT,
         size: u32,
-        file: &std::ffi::CStr,
+        file: *const ::std::os::raw::c_char,
         line: u32,
     ) -> *mut ::std::os::raw::c_void {
-        let file = file.as_ptr();
         self.static_variable.unwrap()(id, size, file, line)
     }
 
@@ -6647,21 +6641,19 @@ impl crate::Api for ApplicationApi {
 impl AssetDatabaseApi {
     pub unsafe fn create(
         &self,
-        file: &std::ffi::CStr,
+        file: *const ::std::os::raw::c_char,
         tt: *mut TheTruthO,
         config: *const AssetDatabaseConfigT,
     ) -> *mut AssetDatabaseO {
-        let file = file.as_ptr();
         self.create.unwrap()(file, tt, config)
     }
 
     pub unsafe fn open(
         &self,
-        file: &std::ffi::CStr,
+        file: *const ::std::os::raw::c_char,
         tt: *mut TheTruthO,
         config: *const AssetDatabaseConfigT,
     ) -> *mut AssetDatabaseO {
-        let file = file.as_ptr();
         self.open.unwrap()(file, tt, config)
     }
 
@@ -6742,8 +6734,7 @@ impl AssetIoApi {
         self.remove_asset_io.unwrap()(loader)
     }
 
-    pub unsafe fn importer(&self, extension: &std::ffi::CStr) -> *mut AssetIoI {
-        let extension = extension.as_ptr();
+    pub unsafe fn importer(&self, extension: *const ::std::os::raw::c_char) -> *mut AssetIoI {
         self.importer.unwrap()(extension)
     }
 
@@ -6778,13 +6769,20 @@ impl Base64Api {
         self.encode.unwrap()(encoded, raw, raw_size)
     }
 
-    pub unsafe fn decoded_size(&self, encoded: &std::ffi::CStr, encoded_size: u64) -> u64 {
-        let encoded = encoded.as_ptr();
+    pub unsafe fn decoded_size(
+        &self,
+        encoded: *const ::std::os::raw::c_char,
+        encoded_size: u64,
+    ) -> u64 {
         self.decoded_size.unwrap()(encoded, encoded_size)
     }
 
-    pub unsafe fn decode(&self, raw: *mut u8, encoded: &std::ffi::CStr, encoded_size: u64) -> u64 {
-        let encoded = encoded.as_ptr();
+    pub unsafe fn decode(
+        &self,
+        raw: *mut u8,
+        encoded: *const ::std::os::raw::c_char,
+        encoded_size: u64,
+    ) -> u64 {
         self.decode.unwrap()(raw, encoded, encoded_size)
     }
 }
@@ -7156,8 +7154,7 @@ impl CollaborationApi {
         self.all_handles.unwrap()(coll, ta)
     }
 
-    pub unsafe fn send_chat(&self, coll: *mut CollaborationO, msg: &std::ffi::CStr) {
-        let msg = msg.as_ptr();
+    pub unsafe fn send_chat(&self, coll: *mut CollaborationO, msg: *const ::std::os::raw::c_char) {
         self.send_chat.unwrap()(coll, msg)
     }
 
@@ -7274,11 +7271,9 @@ impl CoreImporterApi {
         a: *mut AllocatorI,
         user_tt: *mut TheTruthO,
         user_asset_root: TtIdT,
-        core_project_path: &std::ffi::CStr,
-        output_path: &std::ffi::CStr,
+        core_project_path: *const ::std::os::raw::c_char,
+        output_path: *const ::std::os::raw::c_char,
     ) -> *mut CoreImporterStateO {
-        let core_project_path = core_project_path.as_ptr();
-        let output_path = output_path.as_ptr();
         self.create.unwrap()(a, user_tt, user_asset_root, core_project_path, output_path)
     }
 
@@ -7304,9 +7299,8 @@ impl CrashRecoveryApi {
     pub unsafe fn create(
         &self,
         a: *mut AllocatorI,
-        recovery_path: &std::ffi::CStr,
+        recovery_path: *const ::std::os::raw::c_char,
     ) -> *mut CrashRecoveryO {
-        let recovery_path = recovery_path.as_ptr();
         self.create.unwrap()(a, recovery_path)
     }
 
@@ -7317,11 +7311,10 @@ impl CrashRecoveryApi {
     pub unsafe fn start_recording(
         &self,
         cr: *mut CrashRecoveryO,
-        project: &std::ffi::CStr,
+        project: *const ::std::os::raw::c_char,
         tt: *mut TheTruthO,
         root: TtIdT,
     ) {
-        let project = project.as_ptr();
         self.start_recording.unwrap()(cr, project, tt, root)
     }
 
@@ -7388,9 +7381,11 @@ impl crate::Api for FeatureFlagsApi {
 }
 
 impl GitIgnoreApi {
-    pub unsafe fn match_(&self, patterns: &std::ffi::CStr, path: &std::ffi::CStr) -> bool {
-        let patterns = patterns.as_ptr();
-        let path = path.as_ptr();
+    pub unsafe fn match_(
+        &self,
+        patterns: *const ::std::os::raw::c_char,
+        path: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.match_.unwrap()(patterns, path)
     }
 }
@@ -7415,8 +7410,10 @@ impl ImageLoaderApi {
         self.loader_from_archive.unwrap()(image_archive)
     }
 
-    pub unsafe fn loader_from_extension(&self, extension: &std::ffi::CStr) -> *mut ImageLoaderI {
-        let extension = extension.as_ptr();
+    pub unsafe fn loader_from_extension(
+        &self,
+        extension: *const ::std::os::raw::c_char,
+    ) -> *mut ImageLoaderI {
         self.loader_from_extension.unwrap()(extension)
     }
 
@@ -7492,23 +7489,21 @@ impl crate::Api for JobSystemApi {
 impl JsonApi {
     pub unsafe fn parse(
         &self,
-        s: &std::ffi::CStr,
+        s: *const ::std::os::raw::c_char,
         config: *mut ConfigI,
         extensions: JsonParseExt,
         error: *mut ::std::os::raw::c_char,
     ) -> bool {
-        let s = s.as_ptr();
         self.parse.unwrap()(s, config, extensions, error)
     }
 
     pub unsafe fn parse_with_line_info(
         &self,
-        s: &std::ffi::CStr,
+        s: *const ::std::os::raw::c_char,
         config: *mut ConfigI,
         extensions: JsonParseExt,
         ta: *mut TempAllocatorI,
     ) -> *mut JsonParseInfoT {
-        let s = s.as_ptr();
         self.parse_with_line_info.unwrap()(s, config, extensions, ta)
     }
 
@@ -7545,17 +7540,15 @@ impl LoggerApi {
         self.remove_logger.unwrap()(logger)
     }
 
-    pub unsafe fn print(&self, log_type: LogType, msg: &std::ffi::CStr) {
-        let msg = msg.as_ptr();
+    pub unsafe fn print(&self, log_type: LogType, msg: *const ::std::os::raw::c_char) {
         self.print.unwrap()(log_type, msg)
     }
 
     pub unsafe fn printf(
         &self,
         log_type: LogType,
-        format: &std::ffi::CStr,
+        format: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int {
-        let format = format.as_ptr();
         self.printf.unwrap()(log_type, format)
     }
 }
@@ -7567,23 +7560,21 @@ impl crate::Api for LoggerApi {
 impl Lz4Api {
     pub unsafe fn compress(
         &self,
-        src: &std::ffi::CStr,
+        src: *const ::std::os::raw::c_char,
         src_size: u32,
         dst: *mut ::std::os::raw::c_char,
         dst_capacity: u32,
     ) -> u32 {
-        let src = src.as_ptr();
         self.compress.unwrap()(src, src_size, dst, dst_capacity)
     }
 
     pub unsafe fn decompress(
         &self,
-        src: &std::ffi::CStr,
+        src: *const ::std::os::raw::c_char,
         src_size: u32,
         dst: *mut ::std::os::raw::c_char,
         dst_capacity: u32,
     ) -> u32 {
-        let src = src.as_ptr();
         self.decompress.unwrap()(src, src_size, dst, dst_capacity)
     }
 
@@ -7637,8 +7628,11 @@ impl MemoryTrackerApi {
         self.check_for_leaked_scopes.unwrap()()
     }
 
-    pub unsafe fn create_scope(&self, desc: &std::ffi::CStr, parent_scope: u32) -> u32 {
-        let desc = desc.as_ptr();
+    pub unsafe fn create_scope(
+        &self,
+        desc: *const ::std::os::raw::c_char,
+        parent_scope: u32,
+    ) -> u32 {
         self.create_scope.unwrap()(desc, parent_scope)
     }
 
@@ -7656,11 +7650,10 @@ impl MemoryTrackerApi {
         old_size: u64,
         new_ptr: *mut ::std::os::raw::c_void,
         new_size: u64,
-        file: &std::ffi::CStr,
+        file: *const ::std::os::raw::c_char,
         line: u32,
         scope: u32,
     ) {
-        let file = file.as_ptr();
         self.record_realloc.unwrap()(old_ptr, old_size, new_ptr, new_size, file, line, scope)
     }
 
@@ -7714,18 +7707,15 @@ impl OsVirtualMemoryApi {
 }
 
 impl OsFileIoApi {
-    pub unsafe fn open_input(&self, path: &std::ffi::CStr) -> FileO {
-        let path = path.as_ptr();
+    pub unsafe fn open_input(&self, path: *const ::std::os::raw::c_char) -> FileO {
         self.open_input.unwrap()(path)
     }
 
-    pub unsafe fn open_output(&self, path: &std::ffi::CStr) -> FileO {
-        let path = path.as_ptr();
+    pub unsafe fn open_output(&self, path: *const ::std::os::raw::c_char) -> FileO {
         self.open_output.unwrap()(path)
     }
 
-    pub unsafe fn open_append(&self, path: &std::ffi::CStr) -> FileO {
-        let path = path.as_ptr();
+    pub unsafe fn open_append(&self, path: *const ::std::os::raw::c_char) -> FileO {
         self.open_append.unwrap()(path)
     }
 
@@ -7780,44 +7770,43 @@ impl OsFileIoApi {
 }
 
 impl OsFileSystemApi {
-    pub unsafe fn stat(&self, path: &std::ffi::CStr) -> FileStatT {
-        let path = path.as_ptr();
+    pub unsafe fn stat(&self, path: *const ::std::os::raw::c_char) -> FileStatT {
         self.stat.unwrap()(path)
     }
 
     pub unsafe fn directory_entries(
         &self,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
         ta: *mut TempAllocatorI,
     ) -> *mut StringsT {
-        let path = path.as_ptr();
         self.directory_entries.unwrap()(path, ta)
     }
 
-    pub unsafe fn make_directory(&self, path: &std::ffi::CStr) -> bool {
-        let path = path.as_ptr();
+    pub unsafe fn make_directory(&self, path: *const ::std::os::raw::c_char) -> bool {
         self.make_directory.unwrap()(path)
     }
 
-    pub unsafe fn remove_file(&self, path: &std::ffi::CStr) -> bool {
-        let path = path.as_ptr();
+    pub unsafe fn remove_file(&self, path: *const ::std::os::raw::c_char) -> bool {
         self.remove_file.unwrap()(path)
     }
 
-    pub unsafe fn remove_directory(&self, path: &std::ffi::CStr) -> bool {
-        let path = path.as_ptr();
+    pub unsafe fn remove_directory(&self, path: *const ::std::os::raw::c_char) -> bool {
         self.remove_directory.unwrap()(path)
     }
 
-    pub unsafe fn rename(&self, old_name: &std::ffi::CStr, new_name: &std::ffi::CStr) -> bool {
-        let old_name = old_name.as_ptr();
-        let new_name = new_name.as_ptr();
+    pub unsafe fn rename(
+        &self,
+        old_name: *const ::std::os::raw::c_char,
+        new_name: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.rename.unwrap()(old_name, new_name)
     }
 
-    pub unsafe fn copy_file(&self, from: &std::ffi::CStr, to: &std::ffi::CStr) -> bool {
-        let from = from.as_ptr();
-        let to = to.as_ptr();
+    pub unsafe fn copy_file(
+        &self,
+        from: *const ::std::os::raw::c_char,
+        to: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.copy_file.unwrap()(from, to)
     }
 
@@ -7825,22 +7814,19 @@ impl OsFileSystemApi {
         self.getcwd.unwrap()(ta)
     }
 
-    pub unsafe fn chdir(&self, path: &std::ffi::CStr) -> bool {
-        let path = path.as_ptr();
+    pub unsafe fn chdir(&self, path: *const ::std::os::raw::c_char) -> bool {
         self.chdir.unwrap()(path)
     }
 
-    pub unsafe fn is_absolute(&self, path: &std::ffi::CStr) -> bool {
-        let path = path.as_ptr();
+    pub unsafe fn is_absolute(&self, path: *const ::std::os::raw::c_char) -> bool {
         self.is_absolute.unwrap()(path)
     }
 
     pub unsafe fn absolute(
         &self,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
         ta: *mut TempAllocatorI,
     ) -> *const ::std::os::raw::c_char {
-        let path = path.as_ptr();
         self.absolute.unwrap()(path, ta)
     }
 
@@ -7848,8 +7834,10 @@ impl OsFileSystemApi {
         self.temp_directory.unwrap()(ta)
     }
 
-    pub unsafe fn create_watcher(&self, subtree_path: &std::ffi::CStr) -> FileSystemWatcherO {
-        let subtree_path = subtree_path.as_ptr();
+    pub unsafe fn create_watcher(
+        &self,
+        subtree_path: *const ::std::os::raw::c_char,
+    ) -> FileSystemWatcherO {
         self.create_watcher.unwrap()(subtree_path)
     }
 
@@ -7863,9 +7851,8 @@ impl OsFileSystemApi {
 
     pub unsafe fn create_detailed_watcher(
         &self,
-        subtree_path: &std::ffi::CStr,
+        subtree_path: *const ::std::os::raw::c_char,
     ) -> *mut FileSystemDetailedWatcherO {
-        let subtree_path = subtree_path.as_ptr();
         self.create_detailed_watcher.unwrap()(subtree_path)
     }
 
@@ -7887,18 +7874,19 @@ impl OsFileSystemApi {
 }
 
 impl OsDllApi {
-    pub unsafe fn open(&self, path: &std::ffi::CStr) -> DllO {
-        let path = path.as_ptr();
+    pub unsafe fn open(&self, path: *const ::std::os::raw::c_char) -> DllO {
         self.open.unwrap()(path)
     }
 
-    pub unsafe fn get(&self, path: &std::ffi::CStr) -> DllO {
-        let path = path.as_ptr();
+    pub unsafe fn get(&self, path: *const ::std::os::raw::c_char) -> DllO {
         self.get.unwrap()(path)
     }
 
-    pub unsafe fn sym(&self, handle: DllO, name: &std::ffi::CStr) -> *mut ::std::os::raw::c_void {
-        let name = name.as_ptr();
+    pub unsafe fn sym(
+        &self,
+        handle: DllO,
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_void {
         self.sym.unwrap()(handle, name)
     }
 
@@ -7988,23 +7976,19 @@ impl OsSocketApi {
 
     pub unsafe fn getaddrinfo(
         &self,
-        name: &std::ffi::CStr,
-        service: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
+        service: *const ::std::os::raw::c_char,
         addresses: *mut SocketAddressT,
         size: u32,
     ) -> u32 {
-        let name = name.as_ptr();
-        let service = service.as_ptr();
         self.getaddrinfo.unwrap()(name, service, addresses, size)
     }
 
     pub unsafe fn getaddrinfo_async(
         &self,
-        name: &std::ffi::CStr,
-        service: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
+        service: *const ::std::os::raw::c_char,
     ) -> *mut ::std::os::raw::c_void {
-        let name = name.as_ptr();
-        let service = service.as_ptr();
         self.getaddrinfo_async.unwrap()(name, service)
     }
 
@@ -8068,9 +8052,8 @@ impl OsThreadApi {
         entry: ThreadEntryF,
         user_data: *mut ::std::os::raw::c_void,
         stack_size: u32,
-        debug_name: &std::ffi::CStr,
+        debug_name: *const ::std::os::raw::c_char,
     ) -> ThreadO {
-        let debug_name = debug_name.as_ptr();
         self.create_thread.unwrap()(entry, user_data, stack_size, debug_name)
     }
 
@@ -8167,9 +8150,11 @@ impl OsDialogsApi {
         self.save.unwrap()(s, ta)
     }
 
-    pub unsafe fn message_box(&self, title: &std::ffi::CStr, text: &std::ffi::CStr) {
-        let title = title.as_ptr();
-        let text = text.as_ptr();
+    pub unsafe fn message_box(
+        &self,
+        title: *const ::std::os::raw::c_char,
+        text: *const ::std::os::raw::c_char,
+    ) {
         self.message_box.unwrap()(title, text)
     }
 
@@ -8199,39 +8184,39 @@ impl OsDebuggerApi {
 }
 
 impl OsSystemApi {
-    pub unsafe fn open_url(&self, url: &std::ffi::CStr) {
-        let url = url.as_ptr();
+    pub unsafe fn open_url(&self, url: *const ::std::os::raw::c_char) {
         self.open_url.unwrap()(url)
     }
 
-    pub unsafe fn open_file(&self, file: &std::ffi::CStr) -> bool {
-        let file = file.as_ptr();
+    pub unsafe fn open_file(&self, file: *const ::std::os::raw::c_char) -> bool {
         self.open_file.unwrap()(file)
     }
 
-    pub unsafe fn exe_path(&self, argv_0: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
-        let argv_0 = argv_0.as_ptr();
+    pub unsafe fn exe_path(
+        &self,
+        argv_0: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char {
         self.exe_path.unwrap()(argv_0)
     }
 
-    pub unsafe fn execute(&self, command: &std::ffi::CStr) -> ::std::os::raw::c_int {
-        let command = command.as_ptr();
+    pub unsafe fn execute(&self, command: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int {
         self.execute.unwrap()(command)
     }
 
-    pub unsafe fn execute_in_background(&self, command: &std::ffi::CStr) -> ::std::os::raw::c_int {
-        let command = command.as_ptr();
+    pub unsafe fn execute_in_background(
+        &self,
+        command: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int {
         self.execute_in_background.unwrap()(command)
     }
 
     pub unsafe fn execute_stdout(
         &self,
-        command: &std::ffi::CStr,
+        command: *const ::std::os::raw::c_char,
         timeout_ms: u32,
         ta: *mut TempAllocatorI,
         exit_code: *mut ::std::os::raw::c_int,
     ) -> *mut ::std::os::raw::c_char {
-        let command = command.as_ptr();
         self.execute_stdout.unwrap()(command, timeout_ms, ta, exit_code)
     }
 }
@@ -8247,8 +8232,10 @@ impl PathApi {
         self.extension.unwrap()(path)
     }
 
-    pub unsafe fn extension_cstr(&self, path: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
-        let path = path.as_ptr();
+    pub unsafe fn extension_cstr(
+        &self,
+        path: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char {
         self.extension_cstr.unwrap()(path)
     }
 
@@ -8260,8 +8247,10 @@ impl PathApi {
         self.base.unwrap()(path)
     }
 
-    pub unsafe fn base_cstr(&self, path: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
-        let path = path.as_ptr();
+    pub unsafe fn base_cstr(
+        &self,
+        path: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char {
         self.base_cstr.unwrap()(path)
     }
 
@@ -8291,8 +8280,7 @@ impl crate::Api for PathApi {
 }
 
 impl PluginsApi {
-    pub unsafe fn load(&self, path: &std::ffi::CStr, hot_reload: bool) -> u64 {
-        let path = path.as_ptr();
+    pub unsafe fn load(&self, path: *const ::std::os::raw::c_char, hot_reload: bool) -> u64 {
         self.load.unwrap()(path, hot_reload)
     }
 
@@ -8304,8 +8292,7 @@ impl PluginsApi {
         self.reload.unwrap()(plugin)
     }
 
-    pub unsafe fn set_path(&self, plugin: u64, path: &std::ffi::CStr) {
-        let path = path.as_ptr();
+    pub unsafe fn set_path(&self, plugin: u64, path: *const ::std::os::raw::c_char) {
         self.set_path.unwrap()(plugin, path)
     }
 
@@ -8319,10 +8306,9 @@ impl PluginsApi {
 
     pub unsafe fn enumerate(
         &self,
-        directory: &std::ffi::CStr,
+        directory: *const ::std::os::raw::c_char,
         ta: *mut TempAllocatorI,
     ) -> *mut *const ::std::os::raw::c_char {
-        let directory = directory.as_ptr();
         self.enumerate.unwrap()(directory, ta)
     }
 
@@ -8333,22 +8319,18 @@ impl PluginsApi {
     pub unsafe fn plugin_dllpath(
         &self,
         ta: *mut TempAllocatorI,
-        exe: &std::ffi::CStr,
-        name: &std::ffi::CStr,
+        exe: *const ::std::os::raw::c_char,
+        name: *const ::std::os::raw::c_char,
     ) -> *const ::std::os::raw::c_char {
-        let exe = exe.as_ptr();
-        let name = name.as_ptr();
         self.plugin_dllpath.unwrap()(ta, exe, name)
     }
 
     pub unsafe fn app_dllpath(
         &self,
         ta: *mut TempAllocatorI,
-        exe: &std::ffi::CStr,
-        name: &std::ffi::CStr,
+        exe: *const ::std::os::raw::c_char,
+        name: *const ::std::os::raw::c_char,
     ) -> *const ::std::os::raw::c_char {
-        let exe = exe.as_ptr();
-        let name = name.as_ptr();
         self.app_dllpath.unwrap()(ta, exe, name)
     }
 }
@@ -8398,13 +8380,10 @@ impl ProfilerApi {
 
     pub unsafe fn begin(
         &self,
-        name: &std::ffi::CStr,
-        category: &std::ffi::CStr,
-        object: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
+        category: *const ::std::os::raw::c_char,
+        object: *const ::std::os::raw::c_char,
     ) -> u64 {
-        let name = name.as_ptr();
-        let category = category.as_ptr();
-        let object = object.as_ptr();
         self.begin.unwrap()(name, category, object)
     }
 
@@ -8414,25 +8393,19 @@ impl ProfilerApi {
 
     pub unsafe fn instant(
         &self,
-        name: &std::ffi::CStr,
-        category: &std::ffi::CStr,
-        object: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
+        category: *const ::std::os::raw::c_char,
+        object: *const ::std::os::raw::c_char,
     ) {
-        let name = name.as_ptr();
-        let category = category.as_ptr();
-        let object = object.as_ptr();
         self.instant.unwrap()(name, category, object)
     }
 
     pub unsafe fn start(
         &self,
-        name: &std::ffi::CStr,
-        category: &std::ffi::CStr,
-        object: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
+        category: *const ::std::os::raw::c_char,
+        object: *const ::std::os::raw::c_char,
     ) -> u64 {
-        let name = name.as_ptr();
-        let category = category.as_ptr();
-        let object = object.as_ptr();
         self.start.unwrap()(name, category, object)
     }
 
@@ -8440,8 +8413,7 @@ impl ProfilerApi {
         self.finish.unwrap()(start_id)
     }
 
-    pub unsafe fn intern(&self, s: &std::ffi::CStr) -> *const ::std::os::raw::c_char {
-        let s = s.as_ptr();
+    pub unsafe fn intern(&self, s: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char {
         self.intern.unwrap()(s)
     }
 
@@ -8494,8 +8466,12 @@ impl ProgressReportApi {
         self.idle.unwrap()()
     }
 
-    pub unsafe fn set_task_progress(&self, task: u64, text: &std::ffi::CStr, fraction: f32) {
-        let text = text.as_ptr();
+    pub unsafe fn set_task_progress(
+        &self,
+        task: u64,
+        text: *const ::std::os::raw::c_char,
+        fraction: f32,
+    ) {
         self.set_task_progress.unwrap()(task, text, fraction)
     }
 }
@@ -8569,9 +8545,8 @@ impl SprintfApi {
     pub unsafe fn print_unsafe(
         &self,
         buf: *mut ::std::os::raw::c_char,
-        fmt: &std::ffi::CStr,
+        fmt: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int {
-        let fmt = fmt.as_ptr();
         self.print_unsafe.unwrap()(buf, fmt)
     }
 
@@ -8579,19 +8554,17 @@ impl SprintfApi {
         &self,
         buf: *mut ::std::os::raw::c_char,
         count: ::std::os::raw::c_int,
-        fmt: &std::ffi::CStr,
+        fmt: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int {
-        let fmt = fmt.as_ptr();
         self.print.unwrap()(buf, count, fmt)
     }
 
     pub unsafe fn vprint_unsafe(
         &self,
         buf: *mut ::std::os::raw::c_char,
-        fmt: &std::ffi::CStr,
+        fmt: *const ::std::os::raw::c_char,
         va: va_list,
     ) -> ::std::os::raw::c_int {
-        let fmt = fmt.as_ptr();
         self.vprint_unsafe.unwrap()(buf, fmt, va)
     }
 
@@ -8599,15 +8572,13 @@ impl SprintfApi {
         &self,
         buf: *mut ::std::os::raw::c_char,
         count: ::std::os::raw::c_int,
-        fmt: &std::ffi::CStr,
+        fmt: *const ::std::os::raw::c_char,
         va: va_list,
     ) -> ::std::os::raw::c_int {
-        let fmt = fmt.as_ptr();
         self.vprint.unwrap()(buf, count, fmt, va)
     }
 
-    pub unsafe fn add_printer(&self, name: &std::ffi::CStr, printer: SprintfPrinter) {
-        let name = name.as_ptr();
+    pub unsafe fn add_printer(&self, name: *const ::std::os::raw::c_char, printer: SprintfPrinter) {
         self.add_printer.unwrap()(name, printer)
     }
 }
@@ -8621,12 +8592,10 @@ impl StringApi {
         &self,
         taken_names: *mut SetStrhashT,
         ignore_case: bool,
-        desired_name: &std::ffi::CStr,
-        separator: &std::ffi::CStr,
+        desired_name: *const ::std::os::raw::c_char,
+        separator: *const ::std::os::raw::c_char,
         ta: *mut TempAllocatorI,
     ) -> *const ::std::os::raw::c_char {
-        let desired_name = desired_name.as_ptr();
-        let separator = separator.as_ptr();
         self.find_unique_name.unwrap()(taken_names, ignore_case, desired_name, separator, ta)
     }
 }
@@ -8654,9 +8623,8 @@ impl TaskSystemApi {
         &self,
         f: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void, id: u64)>,
         data: *mut ::std::os::raw::c_void,
-        debug_name: &std::ffi::CStr,
+        debug_name: *const ::std::os::raw::c_char,
     ) -> u64 {
-        let debug_name = debug_name.as_ptr();
         self.run_task.unwrap()(f, data, debug_name)
     }
 
@@ -8717,33 +8685,32 @@ impl TempAllocatorApi {
     pub unsafe fn printf(
         &self,
         ta: *mut TempAllocatorI,
-        format: &std::ffi::CStr,
+        format: *const ::std::os::raw::c_char,
     ) -> *mut ::std::os::raw::c_char {
-        let format = format.as_ptr();
         self.printf.unwrap()(ta, format)
     }
 
     pub unsafe fn vprintf(
         &self,
         ta: *mut TempAllocatorI,
-        format: &std::ffi::CStr,
+        format: *const ::std::os::raw::c_char,
         args: va_list,
     ) -> *mut ::std::os::raw::c_char {
-        let format = format.as_ptr();
         self.vprintf.unwrap()(ta, format, args)
     }
 
-    pub unsafe fn frame_printf(&self, format: &std::ffi::CStr) -> *mut ::std::os::raw::c_char {
-        let format = format.as_ptr();
+    pub unsafe fn frame_printf(
+        &self,
+        format: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char {
         self.frame_printf.unwrap()(format)
     }
 
     pub unsafe fn frame_vprintf(
         &self,
-        format: &std::ffi::CStr,
+        format: *const ::std::os::raw::c_char,
         args: va_list,
     ) -> *mut ::std::os::raw::c_char {
-        let format = format.as_ptr();
         self.frame_vprintf.unwrap()(format, args)
     }
 }
@@ -8768,11 +8735,10 @@ impl TheTruthApi {
     pub unsafe fn create_object_type(
         &self,
         tt: *mut TheTruthO,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
         properties: *const TheTruthPropertyDefinitionT,
         num_properties: u32,
     ) -> TtTypeT {
-        let name = name.as_ptr();
         self.create_object_type.unwrap()(tt, name, properties, num_properties)
     }
 
@@ -8961,18 +8927,16 @@ impl TheTruthApi {
     pub unsafe fn create_undo_scope(
         &self,
         tt: *mut TheTruthO,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
     ) -> TtUndoScopeT {
-        let name = name.as_ptr();
         self.create_undo_scope.unwrap()(tt, name)
     }
 
     pub unsafe fn create_thread_safe_undo_scope(
         &self,
         tt: *mut TheTruthO,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
     ) -> TtUndoScopeT {
-        let name = name.as_ptr();
         self.create_thread_safe_undo_scope.unwrap()(tt, name)
     }
 
@@ -9469,9 +9433,8 @@ impl TheTruthApi {
         tt: *mut TheTruthO,
         obj: *mut TheTruthObjectO,
         property: u32,
-        value: &std::ffi::CStr,
+        value: *const ::std::os::raw::c_char,
     ) {
-        let value = value.as_ptr();
         self.set_string.unwrap()(tt, obj, property, value)
     }
 
@@ -9822,8 +9785,11 @@ impl TheTruthApi {
         self.buffer_hashes.unwrap()(buffer, count)
     }
 
-    pub unsafe fn deserialize_from_file(&self, tt: *mut TheTruthO, file: &std::ffi::CStr) -> TtIdT {
-        let file = file.as_ptr();
+    pub unsafe fn deserialize_from_file(
+        &self,
+        tt: *mut TheTruthO,
+        file: *const ::std::os::raw::c_char,
+    ) -> TtIdT {
         self.deserialize_from_file.unwrap()(tt, file)
     }
 
@@ -9881,8 +9847,11 @@ impl TheTruthApi {
         self.deserialize_patch.unwrap()(tt, buffer)
     }
 
-    pub unsafe fn deserialize_patch_from_file(&self, tt: *mut TheTruthO, file: &std::ffi::CStr) {
-        let file = file.as_ptr();
+    pub unsafe fn deserialize_patch_from_file(
+        &self,
+        tt: *mut TheTruthO,
+        file: *const ::std::os::raw::c_char,
+    ) {
         self.deserialize_patch_from_file.unwrap()(tt, file)
     }
 
@@ -10121,9 +10090,8 @@ impl TheTruthAssetsApi {
         &self,
         tt: *const TheTruthO,
         asset_root: TtIdT,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
     ) -> TtIdT {
-        let path = path.as_ptr();
         self.asset_from_path.unwrap()(tt, asset_root, path)
     }
 
@@ -10131,10 +10099,9 @@ impl TheTruthAssetsApi {
         &self,
         tt: *const TheTruthO,
         asset_root: TtIdT,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
         type_: TtTypeT,
     ) -> TtIdT {
-        let path = path.as_ptr();
         self.asset_from_path_with_type.unwrap()(tt, asset_root, path, type_)
     }
 
@@ -10142,9 +10109,8 @@ impl TheTruthAssetsApi {
         &self,
         tt: *const TheTruthO,
         asset_root: TtIdT,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
     ) -> TtIdT {
-        let path = path.as_ptr();
         self.asset_object_from_path.unwrap()(tt, asset_root, path)
     }
 
@@ -10152,10 +10118,9 @@ impl TheTruthAssetsApi {
         &self,
         tt: *const TheTruthO,
         asset_root: TtIdT,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
         type_: TtTypeT,
     ) -> TtIdT {
-        let path = path.as_ptr();
         self.asset_object_from_path_with_type.unwrap()(tt, asset_root, path, type_)
     }
 
@@ -10163,9 +10128,8 @@ impl TheTruthAssetsApi {
         &self,
         tt: *const TheTruthO,
         asset_root: TtIdT,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
     ) -> TtIdT {
-        let path = path.as_ptr();
         self.directory_from_path.unwrap()(tt, asset_root, path)
     }
 
@@ -10174,9 +10138,8 @@ impl TheTruthAssetsApi {
         tt: *const TheTruthO,
         asset_root: TtIdT,
         parent_dir: TtIdT,
-        subdir_name: &std::ffi::CStr,
+        subdir_name: *const ::std::os::raw::c_char,
     ) -> TtIdT {
-        let subdir_name = subdir_name.as_ptr();
         self.find_subdirectory_by_name.unwrap()(tt, asset_root, parent_dir, subdir_name)
     }
 
@@ -10185,9 +10148,8 @@ impl TheTruthAssetsApi {
         tt: *mut TheTruthO,
         asset_root: TtIdT,
         asset_r: *const TheTruthObjectO,
-        desired_name: &std::ffi::CStr,
+        desired_name: *const ::std::os::raw::c_char,
     ) -> *const ::std::os::raw::c_char {
-        let desired_name = desired_name.as_ptr();
         self.unique_asset_name.unwrap()(tt, asset_root, asset_r, desired_name)
     }
 
@@ -10196,9 +10158,8 @@ impl TheTruthAssetsApi {
         tt: *mut TheTruthO,
         asset_root: TtIdT,
         directory_r: *const TheTruthObjectO,
-        desired_name: &std::ffi::CStr,
+        desired_name: *const ::std::os::raw::c_char,
     ) -> *const ::std::os::raw::c_char {
-        let desired_name = desired_name.as_ptr();
         self.unique_directory_name.unwrap()(tt, asset_root, directory_r, desired_name)
     }
 
@@ -10256,25 +10217,23 @@ impl TheTruthAssetsApi {
         &self,
         tt: *mut TheTruthO,
         asset_root: TtIdT,
-        dir: &std::ffi::CStr,
+        dir: *const ::std::os::raw::c_char,
         ignore: *mut TtIdT,
         num_ignore: u32,
         old_std: *mut SavedTruthDataO,
         allocator: *mut AllocatorI,
     ) -> *mut SavedTruthDataO {
-        let dir = dir.as_ptr();
         self.save_to_directory.unwrap()(tt, asset_root, dir, ignore, num_ignore, old_std, allocator)
     }
 
     pub unsafe fn load_from_directory(
         &self,
         tt: *mut TheTruthO,
-        dir: &std::ffi::CStr,
+        dir: *const ::std::os::raw::c_char,
         allocator: *mut AllocatorI,
         asset_root: *mut TtIdT,
         error: *mut ErrorI,
     ) -> *mut SavedTruthDataO {
-        let dir = dir.as_ptr();
         self.load_from_directory.unwrap()(tt, dir, allocator, asset_root, error)
     }
 
@@ -10332,8 +10291,11 @@ impl TheTruthAssetsApi {
         self.set_mock_file_system.unwrap()(fs, file_io)
     }
 
-    pub unsafe fn any_disk_changes(&self, sd: *mut SavedTruthDataO, dir: &std::ffi::CStr) -> bool {
-        let dir = dir.as_ptr();
+    pub unsafe fn any_disk_changes(
+        &self,
+        sd: *mut SavedTruthDataO,
+        dir: *const ::std::os::raw::c_char,
+    ) -> bool {
         self.any_disk_changes.unwrap()(sd, dir)
     }
 }
@@ -10603,8 +10565,7 @@ impl crate::Api for TheTruthCommonTypesApi {
 }
 
 impl UnicodeApi {
-    pub unsafe fn is_valid(&self, utf8: &std::ffi::CStr) -> bool {
-        let utf8 = utf8.as_ptr();
+    pub unsafe fn is_valid(&self, utf8: *const ::std::os::raw::c_char) -> bool {
         self.is_valid.unwrap()(utf8)
     }
 
@@ -10624,28 +10585,33 @@ impl UnicodeApi {
         self.utf8_decode.unwrap()(utf8)
     }
 
-    pub unsafe fn utf8_num_codepoints(&self, utf8: &std::ffi::CStr) -> u32 {
-        let utf8 = utf8.as_ptr();
+    pub unsafe fn utf8_num_codepoints(&self, utf8: *const ::std::os::raw::c_char) -> u32 {
         self.utf8_num_codepoints.unwrap()(utf8)
     }
 
-    pub unsafe fn utf8_decode_n(&self, codepoints: *mut u32, n: u32, utf8: &std::ffi::CStr) -> u32 {
-        let utf8 = utf8.as_ptr();
+    pub unsafe fn utf8_decode_n(
+        &self,
+        codepoints: *mut u32,
+        n: u32,
+        utf8: *const ::std::os::raw::c_char,
+    ) -> u32 {
         self.utf8_decode_n.unwrap()(codepoints, n, utf8)
     }
 
-    pub unsafe fn utf8_to_utf32(&self, utf8: &std::ffi::CStr, ta: *mut TempAllocatorI) -> *mut u32 {
-        let utf8 = utf8.as_ptr();
+    pub unsafe fn utf8_to_utf32(
+        &self,
+        utf8: *const ::std::os::raw::c_char,
+        ta: *mut TempAllocatorI,
+    ) -> *mut u32 {
         self.utf8_to_utf32.unwrap()(utf8, ta)
     }
 
     pub unsafe fn utf8_to_utf32_n(
         &self,
-        utf8: &std::ffi::CStr,
+        utf8: *const ::std::os::raw::c_char,
         n: u32,
         ta: *mut TempAllocatorI,
     ) -> *mut u32 {
-        let utf8 = utf8.as_ptr();
         self.utf8_to_utf32_n.unwrap()(utf8, n, ta)
     }
 
@@ -10674,18 +10640,20 @@ impl UnicodeApi {
         self.utf16_decode.unwrap()(utf16)
     }
 
-    pub unsafe fn utf8_to_utf16(&self, utf8: &std::ffi::CStr, ta: *mut TempAllocatorI) -> *mut u16 {
-        let utf8 = utf8.as_ptr();
+    pub unsafe fn utf8_to_utf16(
+        &self,
+        utf8: *const ::std::os::raw::c_char,
+        ta: *mut TempAllocatorI,
+    ) -> *mut u16 {
         self.utf8_to_utf16.unwrap()(utf8, ta)
     }
 
     pub unsafe fn utf8_to_utf16_n(
         &self,
-        utf8: &std::ffi::CStr,
+        utf8: *const ::std::os::raw::c_char,
         n: u32,
         ta: *mut TempAllocatorI,
     ) -> *mut u16 {
-        let utf8 = utf8.as_ptr();
         self.utf8_to_utf16_n.unwrap()(utf8, n, ta)
     }
 
@@ -10784,14 +10752,11 @@ impl WebSocketProtocolApi {
         &self,
         buffer: *mut ::std::os::raw::c_char,
         size: u32,
-        host: &std::ffi::CStr,
+        host: *const ::std::os::raw::c_char,
         port: u32,
-        request: &std::ffi::CStr,
-        key: &std::ffi::CStr,
+        request: *const ::std::os::raw::c_char,
+        key: *const ::std::os::raw::c_char,
     ) {
-        let host = host.as_ptr();
-        let request = request.as_ptr();
-        let key = key.as_ptr();
         self.make_client_handshake.unwrap()(buffer, size, host, port, request, key)
     }
 
@@ -10799,10 +10764,9 @@ impl WebSocketProtocolApi {
         &self,
         buffer: *mut ::std::os::raw::c_char,
         size: u32,
-        key: &std::ffi::CStr,
+        key: *const ::std::os::raw::c_char,
         key_size: u32,
     ) {
-        let key = key.as_ptr();
         self.make_server_handshake.unwrap()(buffer, size, key, key_size)
     }
 
@@ -10893,14 +10857,17 @@ impl WebTalkerApi {
         &self,
         inst: *mut WebTalkerO,
         id: u64,
-        response: &std::ffi::CStr,
+        response: *const ::std::os::raw::c_char,
     ) {
-        let response = response.as_ptr();
         self.http_respond_raw.unwrap()(inst, id, response)
     }
 
-    pub unsafe fn http_respond_html(&self, inst: *mut WebTalkerO, id: u64, html: &std::ffi::CStr) {
-        let html = html.as_ptr();
+    pub unsafe fn http_respond_html(
+        &self,
+        inst: *mut WebTalkerO,
+        id: u64,
+        html: *const ::std::os::raw::c_char,
+    ) {
         self.http_respond_html.unwrap()(inst, id, html)
     }
 
@@ -10908,9 +10875,8 @@ impl WebTalkerApi {
         &self,
         inst: *mut WebTalkerO,
         address: SocketAddressT,
-        headers: &std::ffi::CStr,
+        headers: *const ::std::os::raw::c_char,
     ) -> u64 {
-        let headers = headers.as_ptr();
         self.http_request.unwrap()(inst, address, headers)
     }
 
@@ -10935,11 +10901,9 @@ impl WebTalkerApi {
         &self,
         inst: *mut WebTalkerO,
         address: SocketAddressT,
-        host: &std::ffi::CStr,
-        request: &std::ffi::CStr,
+        host: *const ::std::os::raw::c_char,
+        request: *const ::std::os::raw::c_char,
     ) -> u64 {
-        let host = host.as_ptr();
-        let request = request.as_ptr();
         self.ws_connect.unwrap()(inst, address, host, request)
     }
 
@@ -10976,8 +10940,12 @@ impl WebTalkerApi {
         self.ws_get_events.unwrap()(inst, id, buffer, capacity)
     }
 
-    pub unsafe fn ws_send_text_frame(&self, inst: *mut WebTalkerO, id: u64, s: &std::ffi::CStr) {
-        let s = s.as_ptr();
+    pub unsafe fn ws_send_text_frame(
+        &self,
+        inst: *mut WebTalkerO,
+        id: u64,
+        s: *const ::std::os::raw::c_char,
+    ) {
         self.ws_send_text_frame.unwrap()(inst, id, s)
     }
 

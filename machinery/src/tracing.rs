@@ -82,7 +82,7 @@ impl Subscriber for TmSubscriber {
             };
 
             let cstr = CString::new(visitor.message).unwrap();
-            (*self.logger).print(level, &cstr);
+            (*self.logger).print(level, cstr.as_ptr());
         }
     }
 

@@ -78,14 +78,14 @@ pub struct Identifier {
 
 /// Convenience utility for getting an API type-safe from the registry.
 pub fn get_api<T: Api>(registry: &ApiRegistryApi) -> *const T {
-    unsafe { registry.get(T::NAME.as_cstr()) as *const T }
+    unsafe { registry.get(T::NAME.as_ptr()) as *const T }
 }
 
 /// Convenience utility for getting an API type-safe from the registry, or returning None if it does
 /// not exist.
 pub fn get_api_optional<T: Api>(registry: &ApiRegistryApi) -> Option<*const T> {
     unsafe {
-        let raw = registry.get_optional(T::NAME.as_cstr());
+        let raw = registry.get_optional(T::NAME.as_ptr());
         if raw.is_null() {
             None
         } else {

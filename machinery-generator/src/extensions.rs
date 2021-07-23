@@ -13,9 +13,9 @@ use nom::{
     sequence::delimited,
     IResult,
 };
-use proc_macro2::{Span, TokenStream};
+use proc_macro2::Span;
 use quote::quote;
-use syn::{File, GenericArgument, Ident, Item, ItemStruct, PathArguments, Type, TypeBareFn};
+use syn::{File, GenericArgument, Ident, Item, ItemStruct, PathArguments, Type};
 
 use crate::config::Project;
 
@@ -127,9 +127,16 @@ fn generate_api(src: &mut String, item: &ItemStruct, defined_names: &HashSet<Str
             continue;
         };
 
-        // Convert the parameters
-        let (in_args, conversions, out_args) = generate_in_args(fn_type);
-        let in_args: Vec<_> = vec![quote!(&self)].into_iter().chain(in_args).collect();
+        // Generate in/out args code
+        let mut in_args = vec![quote!(&self)];
+        let mut out_args = Vec::new();
+
+        for input in &fn_type.inputs {
+            let name = &input.name.as_ref().unwrap().0;
+            let raw_ty = &input.ty;
+            in_args.push(quote! { #name: #raw_ty });
+            out_args.push(quote! { #name });
+        }
 
         let output = &fn_type.output;
         let function = quote! {
@@ -137,11 +144,6 @@ fn generate_api(src: &mut String, item: &ItemStruct, defined_names: &HashSet<Str
         };
 
         src.push_str(&format!("{} {{\n", function));
-
-        // Perform conversions
-        for conversion in conversions {
-            src.push_str(&format!("{}\n", conversion));
-        }
 
         // Call into the field
         let call = quote! {
@@ -169,43 +171,6 @@ fn generate_api(src: &mut String, item: &ItemStruct, defined_names: &HashSet<Str
     }
 
     src.push_str("\n\n");
-}
-
-fn generate_in_args<'a>(
-    fn_type: &'a TypeBareFn,
-) -> (Vec<TokenStream>, Vec<TokenStream>, Vec<TokenStream>) {
-    let mut in_args = Vec::new();
-    let mut conversions = Vec::new();
-    let mut out_args = Vec::new();
-
-    for input in &fn_type.inputs {
-        let name = &input.name.as_ref().unwrap().0;
-
-        let raw_ty = &input.ty;
-        let mut in_ty = quote! { #raw_ty };
-        let out_arg = quote! { #name };
-
-        // If this is a type we can convert, add a conversion
-        if let Type::Ptr(ptr) = &input.ty {
-            if let Type::Path(ty_path) = ptr.elem.as_ref() {
-                if ty_path.path.segments.last().unwrap().ident == "c_char"
-                    && ptr.mutability.is_none()
-                {
-                    let conversion = quote! {
-                        let #name = #name.as_ptr();
-                    };
-                    conversions.push(conversion);
-
-                    in_ty = quote! { &std::ffi::CStr };
-                }
-            }
-        }
-
-        in_args.push(quote! { #name: #in_ty });
-        out_args.push(out_arg);
-    }
-
-    (in_args, conversions, out_args)
 }
 
 fn generate_define_macros(target_headers: &[PathBuf], module: &mut String) {

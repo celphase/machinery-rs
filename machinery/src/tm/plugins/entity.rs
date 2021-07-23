@@ -1690,10 +1690,9 @@ impl EntityApi {
     pub unsafe fn create_child_allocator(
         &self,
         ctx: *mut EntityContextO,
-        name: &std::ffi::CStr,
+        name: *const ::std::os::raw::c_char,
         a: *mut AllocatorI,
     ) {
-        let name = name.as_ptr();
         self.create_child_allocator.unwrap()(ctx, name, a)
     }
 
@@ -1936,9 +1935,8 @@ impl EntityApi {
         &self,
         ctx: *mut EntityContextO,
         e: EntityT,
-        path: &std::ffi::CStr,
+        path: *const ::std::os::raw::c_char,
     ) -> EntityT {
-        let path = path.as_ptr();
         self.resolve_path.unwrap()(ctx, e, path)
     }
 
@@ -2214,9 +2212,8 @@ impl SceneTreeComponentApi {
         st: *mut SceneTreeComponentT,
         nodes: *const SceneTreeNodeT,
         num_nodes: u32,
-        debug_names: &std::ffi::CStr,
+        debug_names: *const ::std::os::raw::c_char,
     ) {
-        let debug_names = debug_names.as_ptr();
         self.setup_nodes.unwrap()(manager, st, nodes, num_nodes, debug_names)
     }
 
