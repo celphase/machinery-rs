@@ -8,8 +8,9 @@ use std::{
 use heck::{ShoutySnakeCase, SnakeCase};
 use nom::{
     bytes::complete::{tag, take_while1},
-    character::complete::{char, none_of, one_of, space0, space1},
+    character::complete::{char, none_of, satisfy, space0, space1},
     multi::fold_many1,
+    sequence::delimited,
     IResult,
 };
 use proc_macro2::{Span, TokenStream};
@@ -212,17 +213,14 @@ fn generate_define_macros(target_headers: &[PathBuf], module: &mut String) {
         let header = fs::read_to_string(header).unwrap();
 
         for line in header.lines() {
+            let line = line.trim_start();
+
             // We're only looking for defines with static hashes
-            if !line.contains("#define")
+            if !line.starts_with("#define")
                 || !line.contains("TM_STATIC_HASH")
                 // This is the line that defines the macro itself
                 || line.contains("TM_STRHASH")
             {
-                continue;
-            }
-
-            // Ignore commented out lines
-            if line.trim_start().starts_with("//") {
                 continue;
             }
 
@@ -250,32 +248,16 @@ fn static_hash_define(input: &str) -> IResult<&str, StaticHashDefine> {
     let (input, _) = tag("#define")(input)?;
     let (input, _) = space1(input)?;
 
-    let (input, name) = fold_many1(is_alphabetic_or_underscore, String::new(), |mut acc, c| {
-        acc.push(c);
-        acc
-    })(input)?;
+    let (input, name) = identifier(input)?;
     let (input, _) = space1(input)?;
 
     let (input, _) = tag("TM_STATIC_HASH")(input)?;
 
-    let (input, _) = space0(input)?;
-    let (input, _) = char('(')(input)?;
-    let (input, _) = space0(input)?;
-
+    let (input, _) = delimited(space0, char('('), space0)(input)?;
     let (input, value) = string_literal(input)?;
-
-    let (input, _) = space0(input)?;
-    let (input, _) = char(',')(input)?;
-    let (input, _) = space0(input)?;
-
-    // TODO: hash parse here
-    let (input, _) = tag("0x")(input)?;
-    let (input, hex) = take_while1(is_hex_digit)(input)?;
-    let (input, _) = tag("ULL")(input)?;
-
-    let (input, _) = space0(input)?;
-    let (input, _) = char(')')(input)?;
-    let (input, _) = space0(input)?;
+    let (input, _) = delimited(space0, char(','), space0)(input)?;
+    let (input, hex) = delimited(tag("0x"), take_while1(is_hex_digit), tag("ULL"))(input)?;
+    let (input, _) = delimited(space0, char(')'), space0)(input)?;
 
     Ok((
         input,
@@ -287,8 +269,15 @@ fn static_hash_define(input: &str) -> IResult<&str, StaticHashDefine> {
     ))
 }
 
-fn is_alphabetic_or_underscore(input: &str) -> IResult<&str, char> {
-    one_of("abcdefghijklmnopqrtuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_")(input)
+fn identifier(input: &str) -> IResult<&str, String> {
+    fold_many1(alphanumeric_or_underscore, String::new(), |mut acc, c| {
+        acc.push(c);
+        acc
+    })(input)
+}
+
+fn alphanumeric_or_underscore(input: &str) -> IResult<&str, char> {
+    satisfy(|c| c.is_ascii_alphanumeric() || c == '_')(input)
 }
 
 fn string_literal(input: &str) -> IResult<&str, String> {
