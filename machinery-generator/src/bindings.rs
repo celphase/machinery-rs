@@ -1,16 +1,20 @@
 use std::{
-    ffi::OsStr,
     fmt::Write,
     path::{Path, PathBuf},
 };
 
 use bindgen::callbacks::ParseCallbacks;
 use heck::{CamelCase, SnakeCase};
-use walkdir::WalkDir;
 
 use crate::config::Project;
 
-pub fn generate(tm_sdk: &str, project: &Project, blocklist: &[String]) {
+pub fn generate(
+    tm_sdk: &str,
+    project: &Project,
+    headers_dir: &Path,
+    target_headers: &[PathBuf],
+    blocklist: &[String],
+) {
     let mut wrapper = String::new();
 
     // Anonymous structs aren't correctly picked up by clang, so always fallback to explicit super
@@ -22,16 +26,9 @@ pub fn generate(tm_sdk: &str, project: &Project, blocklist: &[String]) {
         }
     }
 
-    // Go over all headers in the target headers directory to generate the wrapper
-    let headers_dir = parse_path(tm_sdk, &project.headers);
-    for entry in WalkDir::new(&headers_dir) {
-        let entry = entry.unwrap();
-        if entry.file_type().is_dir() || entry.path().extension() != Some(OsStr::new("h")) {
-            continue;
-        }
-
+    for header in target_headers {
         // Create the header string relative to the directory plus the prefix
-        let stripped = entry.path().strip_prefix(&headers_dir).unwrap();
+        let stripped = header.strip_prefix(&headers_dir).unwrap();
         let header_path = Path::new(&project.headers_prefix).join(stripped);
         let header_path = header_path.to_str().unwrap().replace('\\', "/");
 
@@ -57,10 +54,6 @@ pub fn generate(tm_sdk: &str, project: &Project, blocklist: &[String]) {
     bindings
         .write_to_file(&project.target)
         .expect("Couldn't write bindings");
-}
-
-fn parse_path(tm_sdk: &str, input: &str) -> PathBuf {
-    PathBuf::from(input.replace("$TM_SDK_DIR", tm_sdk))
 }
 
 #[derive(Debug)]

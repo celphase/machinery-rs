@@ -7,7 +7,7 @@ use std::{
 };
 
 use const_cstr::ConstCStr;
-use tm::foundation::{ApiRegistryApi, StrhashT};
+use tm::foundation::ApiRegistryApi;
 
 #[macro_export]
 macro_rules! plugin {
@@ -64,24 +64,6 @@ pub trait Plugin: Sized + Send + Sync {
 pub trait Api {
     const NAME: ConstCStr;
 }
-
-// TODO: Auto-generate these from headers
-
-pub const TT_TYPE_HASH__POSITION: StrhashT = StrhashT {
-    u64_: 0x7a29b8f6b1ca42ec,
-};
-
-pub const TM_CI_EDITOR_UI: StrhashT = StrhashT {
-    u64_: 0xdd963167d23fc53a,
-};
-
-pub const TM_ENGINE__SCENE_TREE: StrhashT = StrhashT {
-    u64_: 0x767a56f56628ec44,
-};
-
-pub const TM_ENTITY_BB__DELTA_TIME: StrhashT = StrhashT {
-    u64_: 0x5e57dbf636f8eacb,
-};
 
 // TODO: Safer registry wrapper with utilities
 

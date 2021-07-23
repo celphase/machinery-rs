@@ -12,21 +12,21 @@ use machinery::{
         foundation::{
             ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
             TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME,
-            TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
+            TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT, TM_TT_TYPE_HASH__POSITION,
         },
         plugins::{
             entity::{
                 ComponentI, ComponentManagerO, ComponentTypeT, EngineI, EngineO,
                 EngineSystemCommonI, EngineUpdateSetT, EntityApi, EntityContextO, EntityT,
-                TransformComponentT, TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME,
+                TransformComponentT, TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
+                TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME,
                 TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME,
                 TM_TT_TYPE__TRANSFORM_COMPONENT,
             },
-            the_machinery_shared::CiEditorUiI,
+            the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
         },
     },
-    Plugin, TM_CI_EDITOR_UI, TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
-    TT_TYPE_HASH__POSITION,
+    Plugin,
 };
 use machinery_macro::export_plugin_fn;
 use tracing::{event, Level};
@@ -133,7 +133,7 @@ impl ExamplePlugin {
             let properties = TheTruthPropertyDefinitionT {
                 name: const_cstr!("angular_velocity").as_ptr(),
                 type_: TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT as u32,
-                type_hash: TT_TYPE_HASH__POSITION,
+                type_hash: TM_TT_TYPE_HASH__POSITION,
                 ..Default::default()
             };
 
