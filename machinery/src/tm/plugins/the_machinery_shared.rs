@@ -277,6 +277,7 @@ impl Default for TtPropValueTBindgenTy1 {
         }
     }
 }
+pub const TM_THE_TRUTH_MAX_PROPERTIES: ::std::os::raw::c_int = 64;
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct AssetPreviewApiUiArgsT {

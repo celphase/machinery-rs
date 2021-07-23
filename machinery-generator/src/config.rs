@@ -13,4 +13,5 @@ pub struct Project {
     pub target: String,
     pub prefix_headers: Option<Vec<String>>,
     pub uses: Option<Vec<String>>,
+    pub blocklist: Option<Vec<String>>,
 }

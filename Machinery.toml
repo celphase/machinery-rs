@@ -16,6 +16,11 @@ target = "./machinery/src/tm/plugins/ui.rs"
 uses = [
     "crate::tm::foundation::*",
     "crate::tm::plugins::entity::*",
+    "crate::tm::the_machinery::TabCreateContextT",
+]
+blocklist = [
+    # Will be defined later in the_machinery
+    "tm_tab_create_context_t"
 ]
 
 [projects.plugins-editor_views]
@@ -27,7 +32,7 @@ uses = [
     "crate::tm::plugins::ui::*",
 ]
 
-[projects.plugins-the-machinery-shared]
+[projects.plugins-the_machinery_shared]
 headers = "$TM_SDK_DIR/headers/plugins/the_machinery_shared"
 headers_prefix = "plugins/the_machinery_shared"
 target = "./machinery/src/tm/plugins/the_machinery_shared.rs"
@@ -39,7 +44,7 @@ uses = [
     "crate::tm::plugins::editor_views::*",
 ]
 
-[projects.the-machinery]
+[projects.the_machinery]
 headers = "$TM_SDK_DIR/headers/the_machinery"
 headers_prefix = "the_machinery"
 target = "./machinery/src/tm/the_machinery.rs"

@@ -624,10 +624,21 @@ impl Default for TtPropValueTBindgenTy1 {
         }
     }
 }
+pub const TM_THE_TRUTH_MAX_PROPERTIES: ::std::os::raw::c_int = 64;
 pub type _bindgen_ty_2 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__ASSET_ROOT__ASSETS: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__ASSET_ROOT__DIRECTORIES: ::std::os::raw::c_int = 1;
 pub type _bindgen_ty_3 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__ASSET__NAME: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__ASSET__DIRECTORY: ::std::os::raw::c_int = 1;
+pub const TM_TT_PROP__ASSET__UUID_LABELS: ::std::os::raw::c_int = 2;
+pub const TM_TT_PROP__ASSET__OBJECT: ::std::os::raw::c_int = 3;
+pub const TM_TT_PROP__ASSET__THUMBNAIL: ::std::os::raw::c_int = 4;
 pub type _bindgen_ty_4 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__ASSET_DIRECTORY__NAME: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__ASSET_DIRECTORY__PARENT: ::std::os::raw::c_int = 1;
 pub type _bindgen_ty_5 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__ASSET_LABEL__UUID: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_6 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct AssetLabelsT {

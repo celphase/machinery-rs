@@ -223,7 +223,9 @@ impl Default for TtIdTBindgenTy1 {
         }
     }
 }
+pub const TM_TT_PROP__DOCKING_SETTINGS__TOOLBARS_SETTINGS: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
+pub const TM_DOCKING_MAX_TABS_IN_TABWELL: ::std::os::raw::c_int = 32;
 pub type _bindgen_ty_2 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -260,8 +262,7 @@ pub const TM_TT_PROP__APPLICAITON_SETTINGS__DOWNLOAD__FILE: ::std::os::raw::c_in
 pub const TM_TT_PROP__APPLICAITON_SETTINGS__DOWNLOAD__UNZIP_DIRECTORY: ::std::os::raw::c_int = 2;
 pub type _bindgen_ty_4 = ::std::os::raw::c_int;
 extern "C" {
-    #[link_name = "\u{1}tm_update_tracker_api"]
-    pub static mut UpdateTrackerApi: *mut UpdateTrackerApi;
+    pub static mut tm_update_tracker_api: *mut UpdateTrackerApi;
 }
 extern "C" {
     pub fn import_gltf_asset(
@@ -300,8 +301,7 @@ pub struct IntegrationTestRunnerApi {
     pub destroy: ::std::option::Option<unsafe extern "C" fn(runner: *mut IntegrationTestRunnerO)>,
 }
 extern "C" {
-    #[link_name = "\u{1}tm_integration_test_runner_api"]
-    pub static mut IntegrationTestRunnerApi: *mut IntegrationTestRunnerApi;
+    pub static mut tm_integration_test_runner_api: *mut IntegrationTestRunnerApi;
 }
 pub const TM_LOGIN__TAB_ACTION__NONE: LoginTabAction = 0;
 pub const TM_LOGIN__TAB_ACTION__SHOW: LoginTabAction = 1;
@@ -323,8 +323,7 @@ pub struct LoginApi {
     pub shutdown: ::std::option::Option<unsafe extern "C" fn()>,
 }
 extern "C" {
-    #[link_name = "\u{1}tm_login_api"]
-    pub static mut LoginApi: *mut LoginApi;
+    pub static mut tm_login_api: *mut LoginApi;
 }
 extern "C" {
     pub fn menu__new_plugin__editor_tab();
@@ -611,8 +610,7 @@ impl Default for TheMachineryApi {
     }
 }
 extern "C" {
-    #[link_name = "\u{1}tm_global_api_registry"]
-    pub static mut GlobalApiRegistry: *mut ApiRegistryApi;
+    pub static mut tm_global_api_registry: *mut ApiRegistryApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -620,8 +618,7 @@ pub struct DccAssetApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_dcc_asset_api"]
-    pub static mut DccAssetApi: *mut DccAssetApi;
+    pub static mut tm_dcc_asset_api: *mut DccAssetApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -629,8 +626,7 @@ pub struct DefaultRenderPipeApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_default_render_pipe_api"]
-    pub static mut DefaultRenderPipeApi: *mut DefaultRenderPipeApi;
+    pub static mut tm_default_render_pipe_api: *mut DefaultRenderPipeApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -638,8 +634,7 @@ pub struct GridRendererApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_grid_renderer_api"]
-    pub static mut GridRendererApi: *mut GridRendererApi;
+    pub static mut tm_grid_renderer_api: *mut GridRendererApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -647,8 +642,7 @@ pub struct OsDisplayApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_os_display_api"]
-    pub static mut OsDisplayApi: *mut OsDisplayApi;
+    pub static mut tm_os_display_api: *mut OsDisplayApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -656,8 +650,7 @@ pub struct OsWindowApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_os_window_api"]
-    pub static mut OsWindowApi: *mut OsWindowApi;
+    pub static mut tm_os_window_api: *mut OsWindowApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -665,8 +658,7 @@ pub struct PrimitiveDrawerApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_primitive_drawer_api"]
-    pub static mut PrimitiveDrawerApi: *mut PrimitiveDrawerApi;
+    pub static mut tm_primitive_drawer_api: *mut PrimitiveDrawerApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -674,8 +666,7 @@ pub struct RenderGraphApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_render_graph_api"]
-    pub static mut RenderGraphApi: *mut RenderGraphApi;
+    pub static mut tm_render_graph_api: *mut RenderGraphApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -683,8 +674,7 @@ pub struct RenderGraphModuleApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_render_graph_module_api"]
-    pub static mut RenderGraphModuleApi: *mut RenderGraphModuleApi;
+    pub static mut tm_render_graph_module_api: *mut RenderGraphModuleApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -692,8 +682,7 @@ pub struct RendererInitApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_renderer_init_api"]
-    pub static mut RendererInitApi: *mut RendererInitApi;
+    pub static mut tm_renderer_init_api: *mut RendererInitApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -701,8 +690,7 @@ pub struct ShaderApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_shader_api"]
-    pub static mut ShaderApi: *mut ShaderApi;
+    pub static mut tm_shader_api: *mut ShaderApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -710,8 +698,7 @@ pub struct ShaderDeclarationApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_shader_declaration_api"]
-    pub static mut ShaderDeclarationApi: *mut ShaderDeclarationApi;
+    pub static mut tm_shader_declaration_api: *mut ShaderDeclarationApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -719,8 +706,7 @@ pub struct ShaderRepositoryApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_shader_repository_api"]
-    pub static mut ShaderRepositoryApi: *mut ShaderRepositoryApi;
+    pub static mut tm_shader_repository_api: *mut ShaderRepositoryApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -728,8 +714,7 @@ pub struct ShaderSystemApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_shader_system_api"]
-    pub static mut ShaderSystemApi: *mut ShaderSystemApi;
+    pub static mut tm_shader_system_api: *mut ShaderSystemApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -737,8 +722,7 @@ pub struct VulkanApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_vulkan_api"]
-    pub static mut VulkanApi: *mut VulkanApi;
+    pub static mut tm_vulkan_api: *mut VulkanApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -746,12 +730,10 @@ pub struct GpuPickingApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_gpu_picking_api"]
-    pub static mut GpuPickingApi: *mut GpuPickingApi;
+    pub static mut tm_gpu_picking_api: *mut GpuPickingApi;
 }
 extern "C" {
-    #[link_name = "\u{1}tm_task_manager_api"]
-    pub static mut TaskManagerApi: *mut TaskManagerApi;
+    pub static mut tm_task_manager_api: *mut TaskManagerApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -759,8 +741,7 @@ pub struct GltfApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_gltf_api_opt"]
-    pub static mut GltfApiOpt: *mut GltfApi;
+    pub static mut tm_gltf_api_opt: *mut GltfApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -768,8 +749,7 @@ pub struct OpenvrApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_openvr_api_opt"]
-    pub static mut OpenvrApiOpt: *mut OpenvrApi;
+    pub static mut tm_openvr_api_opt: *mut OpenvrApi;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -777,16 +757,13 @@ pub struct RendererCommandBufferApi {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}tm_cmd_buf_api"]
-    pub static mut CmdBufApi: *mut RendererCommandBufferApi;
+    pub static mut tm_cmd_buf_api: *mut RendererCommandBufferApi;
 }
 extern "C" {
-    #[link_name = "\u{1}tm_res_buf_api"]
-    pub static mut ResBufApi: *mut RendererResourceCommandBufferApi;
+    pub static mut tm_res_buf_api: *mut RendererResourceCommandBufferApi;
 }
 extern "C" {
-    #[link_name = "\u{1}tm_the_machinery_api"]
-    pub static mut TheMachineryApi: *mut TheMachineryApi;
+    pub static mut tm_the_machinery_api: *mut TheMachineryApi;
 }
 extern "C" {
     pub fn create_localizer(a: *mut AllocatorI) -> *mut LocalizerO;
@@ -802,6 +779,26 @@ extern "C" {
 }
 extern "C" {
     pub fn localizer_interface(loc: *mut LocalizerO) -> *mut LocalizerI;
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct TabCreateContextT {
+    pub allocator: *mut AllocatorI,
+    pub id: *mut u64,
+    pub application: *mut ApplicationO,
+    pub tt: *mut TheTruthO,
+    pub undo_stack: *mut UndoStackI,
+    pub save_interface: *mut AssetSaveI,
+    pub ui_renderer: *mut UiRendererO,
+}
+impl Default for TabCreateContextT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 pub struct TheMachineryTabVt {

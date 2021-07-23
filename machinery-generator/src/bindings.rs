@@ -4,9 +4,6 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use bindgen::callbacks::ParseCallbacks;
-use heck::{CamelCase, SnakeCase};
-
 use crate::config::Project;
 
 pub fn generate(
@@ -40,14 +37,18 @@ pub fn generate(
         .header_contents("wrapper.h", &wrapper)
         // Tell clang where to find the includes for machinery
         .clang_arg(format!("-I{}/headers", tm_sdk))
-        .parse_callbacks(Box::new(TmCallbacks))
         .prepend_enum_name(false)
         .derive_debug(false)
         .derive_default(true)
         .layout_tests(false);
 
     for item in blocklist {
-        builder = builder.blocklist_item(format!("tm_{}", item.to_snake_case()));
+        builder = builder.blocklist_item(item);
+    }
+    if let Some(project_blocklist) = &project.blocklist {
+        for item in project_blocklist {
+            builder = builder.blocklist_item(item.clone());
+        }
     }
 
     let bindings = builder.generate().expect("Unable to generate bindings");
@@ -59,13 +60,3 @@ pub fn generate(
 
 #[derive(Debug)]
 struct TmCallbacks;
-
-impl ParseCallbacks for TmCallbacks {
-    fn item_name(&self, original_item_name: &str) -> Option<String> {
-        if original_item_name.starts_with("tm_") {
-            Some(original_item_name[3..].to_camel_case())
-        } else {
-            None
-        }
-    }
-}

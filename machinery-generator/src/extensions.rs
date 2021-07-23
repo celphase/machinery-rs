@@ -5,7 +5,7 @@ use std::{
     process::Command,
 };
 
-use heck::{ShoutySnakeCase, SnakeCase};
+use heck::{CamelCase, ShoutySnakeCase, SnakeCase};
 use nom::{
     bytes::complete::{tag, take_while1},
     character::complete::{char, none_of, satisfy, space0, space1},
@@ -15,19 +15,39 @@ use nom::{
 };
 use proc_macro2::Span;
 use quote::quote;
-use syn::{File, GenericArgument, Ident, Item, ItemStruct, PathArguments, Type};
+use syn::{
+    File, FnArg, ForeignItem, GenericArgument, Ident, Item, ItemStruct, PathArguments, ReturnType,
+    Type,
+};
 
 use crate::config::Project;
 
-pub fn generate(project: &Project, target_headers: &[PathBuf], type_list: &mut HashSet<String>) {
+pub fn generate(project: &Project, target_headers: &[PathBuf], blocklist: &mut HashSet<String>) {
     // Load the input file
     let target_path = Path::new(&project.target);
     let mut module = fs::read_to_string(target_path).unwrap();
     let mut file = syn::parse_file(&module).unwrap();
 
-    // Trim the module of blocked types, because rust-bindgen doesn't handle defines well
-    file.items
-        .retain(|item| !type_list.contains(&get_ident(item).unwrap_or(String::new())));
+    // Store all identifiers that aren't internal so that we can avoid duplicates
+    for item in &file.items {
+        let ident = if let Some(ident) = get_raw_ident(item) {
+            ident
+        } else {
+            continue;
+        };
+
+        // Store the type if it's not an internal utility
+        if !ident.starts_with("__") && !ident.to_lowercase().contains("bindgen") {
+            blocklist.insert(ident);
+        }
+    }
+
+    // Rename items where relevant
+    for item in &mut file.items {
+        rename_item(item);
+    }
+
+    // Re-write the file so far
     module.clear();
     module.push_str(&quote! { #file }.to_string());
 
@@ -44,20 +64,6 @@ pub fn generate(project: &Project, target_headers: &[PathBuf], type_list: &mut H
     }
     module.push_str("\n");
 
-    // Store all identifiers that aren't internal so that we can avoid duplicates
-    for item in &file.items {
-        let ident = if let Some(ident) = get_ident(item) {
-            ident
-        } else {
-            continue;
-        };
-
-        // Store the type if it's not an internal utility
-        if !ident.starts_with("__") && !ident.to_lowercase().contains("bindgen") {
-            type_list.insert(ident);
-        }
-    }
-
     // Individual generation steps
     generate_apis(&file, &mut module);
     generate_define_macros(target_headers, &mut module);
@@ -72,13 +78,99 @@ pub fn generate(project: &Project, target_headers: &[PathBuf], type_list: &mut H
         .expect("Failed to run rustfmt");
 }
 
-fn get_ident(name: &Item) -> Option<String> {
-    Some(match name {
+fn get_raw_ident(item: &Item) -> Option<String> {
+    Some(match item {
         Item::Const(item) => item.ident.to_string(),
         Item::Struct(item) => item.ident.to_string(),
         Item::Type(item) => item.ident.to_string(),
         _ => return None,
     })
+}
+
+fn rename_item(item: &mut Item) {
+    match item {
+        Item::Const(item) => rename_ty(&mut item.ty),
+        Item::ForeignMod(item) => {
+            for item in &mut item.items {
+                match item {
+                    ForeignItem::Fn(item) => {
+                        for input in &mut item.sig.inputs {
+                            if let FnArg::Typed(ty) = input {
+                                rename_ty(&mut ty.ty);
+                            }
+                        }
+                        if let ReturnType::Type(_, ty) = &mut item.sig.output {
+                            rename_ty(ty);
+                        }
+                    }
+                    ForeignItem::Static(item) => {
+                        rename_ty(&mut item.ty);
+                    }
+                    _ => {}
+                }
+            }
+        }
+        Item::Impl(item) => {
+            rename_ty(&mut item.self_ty);
+        }
+        Item::Struct(item) => {
+            for field in &mut item.fields {
+                rename_ty(&mut field.ty);
+            }
+            rename_ident(&mut item.ident);
+        }
+        Item::Type(item) => {
+            rename_ident(&mut item.ident);
+            rename_ty(&mut item.ty);
+        }
+        Item::Union(item) => {
+            rename_ident(&mut item.ident);
+            for field in &mut item.fields.named {
+                rename_ty(&mut field.ty);
+            }
+        }
+        _ => {}
+    }
+}
+
+fn rename_ty(ty: &mut Type) {
+    match ty {
+        Type::Array(ty) => {
+            rename_ty(&mut ty.elem);
+        }
+        Type::BareFn(ty) => {
+            for input in &mut ty.inputs {
+                rename_ty(&mut input.ty);
+            }
+            if let ReturnType::Type(_, ty) = &mut ty.output {
+                rename_ty(ty);
+            }
+        }
+        Type::Ptr(ty) => {
+            rename_ty(&mut ty.elem);
+        }
+        Type::Path(ty) => {
+            for segment in &mut ty.path.segments {
+                rename_ident(&mut segment.ident);
+                if let PathArguments::AngleBracketed(args) = &mut segment.arguments {
+                    for arg in &mut args.args {
+                        if let GenericArgument::Type(ty) = arg {
+                            rename_ty(ty);
+                        }
+                    }
+                }
+            }
+        }
+        _ => {}
+    }
+}
+
+fn rename_ident(ident: &mut Ident) {
+    let value = ident.to_string();
+    if value.starts_with("tm_") {
+        let new_name = value[3..].to_camel_case();
+        *ident = Ident::new(&new_name, Span::call_site());
+    }
 }
 
 fn generate_apis(file: &File, module: &mut String) {

@@ -260,11 +260,6 @@ pub struct ViewerRenderArgsT {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct TabCreateContextT {
-    _unused: [u8; 0],
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
 pub struct TabO {
     _unused: [u8; 0],
 }
@@ -4715,6 +4710,7 @@ use const_cstr::{const_cstr, ConstCStr};
 
 use crate::tm::foundation::*;
 use crate::tm::plugins::entity::*;
+use crate::tm::the_machinery::TabCreateContextT;
 
 impl UiClipboardApi {
     pub unsafe fn cut(
