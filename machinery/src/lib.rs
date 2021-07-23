@@ -9,6 +9,9 @@ use std::{
 use const_cstr::ConstCStr;
 use tm::foundation::{ApiRegistryApi, StrhashT};
 
+// Re-export macros for convenience
+pub use machinery_macros::*;
+
 #[macro_export]
 macro_rules! plugin {
     ($ty:ident) => {

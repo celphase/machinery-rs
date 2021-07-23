@@ -21,9 +21,8 @@ use machinery::{
             the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
         },
     },
-    Identifier, Plugin,
+    tm_export_plugin_fns, tm_ident, Identifier, Plugin,
 };
-use machinery_macros::{tm_export_plugin_fns, tm_ident};
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
 
