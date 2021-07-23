@@ -4,7 +4,6 @@ version = "0.1.0"
 license = "MIT OR Apache-2.0"
 description = "Rust bindings for The Machinery game engine"
 repository = "https://gitlab.com/celphase/machinery-rs"
-readme = "../readme.md"
 edition = "2018"
 
 [dependencies]
