@@ -7,7 +7,7 @@ use std::{
 };
 
 use const_cstr::ConstCStr;
-use tm::foundation::ApiRegistryApi;
+use tm::foundation::{ApiRegistryApi, StrhashT};
 
 #[macro_export]
 macro_rules! plugin {
@@ -65,21 +65,26 @@ pub trait Api {
     const NAME: ConstCStr;
 }
 
-// TODO: Safer registry wrapper with utilities
+/// Unique identifier, made up of a name and a hash generated from that name.
+pub struct Identifier {
+    pub name: ConstCStr,
+    pub hash: StrhashT,
+}
 
-impl ApiRegistryApi {
-    pub fn ext_get<T: Api>(&self) -> *const T {
-        unsafe { self.get(T::NAME.as_cstr()) as *const T }
-    }
+/// Convenience utility for getting an API type-safe from the registry.
+pub fn get_api<T: Api>(registry: &ApiRegistryApi) -> *const T {
+    unsafe { registry.get(T::NAME.as_cstr()) as *const T }
+}
 
-    pub fn ext_get_optional<T: Api>(&self) -> Option<*const T> {
-        unsafe {
-            let raw = self.get_optional(T::NAME.as_cstr());
-            if raw.is_null() {
-                None
-            } else {
-                Some(raw as *const T)
-            }
+/// Convenience utility for getting an API type-safe from the registry, or returning None if it does
+/// not exist.
+pub fn get_api_optional<T: Api>(registry: &ApiRegistryApi) -> Option<*const T> {
+    unsafe {
+        let raw = registry.get_optional(T::NAME.as_cstr());
+        if raw.is_null() {
+            None
+        } else {
+            Some(raw as *const T)
         }
     }
 }

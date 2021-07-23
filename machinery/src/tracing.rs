@@ -5,8 +5,11 @@ use tracing::{
     span, Id, Level, Subscriber,
 };
 
-use crate::tm::foundation::{
-    ApiRegistryApi, LoggerApi, TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO,
+use crate::{
+    get_api,
+    tm::foundation::{
+        ApiRegistryApi, LoggerApi, TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO,
+    },
 };
 
 /// Initialize a global default subscriber for tracing that prints to The Machinery logging API.
@@ -25,7 +28,7 @@ unsafe impl Sync for TmSubscriber {}
 impl TmSubscriber {
     pub fn new(registry: &ApiRegistryApi) -> Self {
         Self {
-            logger: registry.ext_get(),
+            logger: get_api(registry),
         }
     }
 }

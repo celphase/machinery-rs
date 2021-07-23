@@ -1,6 +1,6 @@
 [package]
 name = "machinery-macros"
-version = "0.1.0"
+version = "0.2.0"
 license = "MIT OR Apache-2.0"
 description = "Macro utilities for the machinery crate"
 repository = "https://gitlab.com/celphase/machinery-rs"
@@ -10,6 +10,7 @@ edition = "2018"
 proc-macro = true
 
 [dependencies]
-quote = "1.0.9"
+murmurhash64 = "0.3.1"
 proc-macro2 = "1.0.27"
+quote = "1.0.9"
 syn = { version = "1.0.73", features = ["full"] }

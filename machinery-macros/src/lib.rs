@@ -1,28 +1,29 @@
-use proc_macro2::Span;
+use proc_macro2::{Literal, Span};
 use quote::quote;
 use syn::{
     parse::{Parse, ParseStream},
     parse_macro_input, FnArg, Ident, ImplItem, ItemImpl, Result, Type,
 };
 
-struct ExportPluginFnInput {
+struct TmExportPluginFnsInput {
     item: ItemImpl,
 }
 
-impl Parse for ExportPluginFnInput {
+impl Parse for TmExportPluginFnsInput {
     fn parse(input: ParseStream) -> Result<Self> {
-        Ok(ExportPluginFnInput {
+        Ok(Self {
             item: input.parse()?,
         })
     }
 }
 
+/// Generates `extern "C"` wrappers for plugin member functions.
 #[proc_macro_attribute]
-pub fn export_plugin_fn(
+pub fn tm_export_plugin_fns(
     _attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    let mut input = parse_macro_input!(item as ExportPluginFnInput);
+    let mut input = parse_macro_input!(item as TmExportPluginFnsInput);
 
     let ty_name = if let Type::Path(ref path) = &*input.item.self_ty {
         path.path.segments.last().unwrap().ident.clone()
@@ -79,4 +80,43 @@ pub fn export_plugin_fn(
     };
 
     return output.into();
+}
+
+struct TmIdentInput {
+    item: Literal,
+}
+
+impl Parse for TmIdentInput {
+    fn parse(input: ParseStream) -> Result<Self> {
+        Ok(Self {
+            item: input.parse()?,
+        })
+    }
+}
+
+
+/// Generates constants for a The Machinery identifier.
+#[proc_macro]
+pub fn tm_ident(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let input = parse_macro_input!(item as TmIdentInput);
+    let literal = input.item;
+
+    // Extract the inner string value
+    let literal_str = literal.to_string();
+    if !(literal_str.starts_with('"') && literal_str.ends_with('"')) {
+        panic!("tm_ident requires a string literal")
+    }
+    let value = &literal_str[1..literal_str.len()-1];
+
+    // Hash the value using the hash function used by the machinery
+    let hash = murmurhash64::murmur_hash64a(value.as_bytes(), 0);
+
+    let wrapper = quote! {
+        machinery::Identifier {
+            name: const_cstr::const_cstr!(#literal),
+            hash: machinery::tm::foundation::StrhashT { u64_: #hash },
+        }
+    };
+
+    wrapper.into()
 }

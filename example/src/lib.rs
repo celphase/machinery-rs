@@ -5,9 +5,9 @@ use std::{
     sync::Mutex,
 };
 
-use const_cstr::{const_cstr, ConstCStr};
+use const_cstr::const_cstr;
 use machinery::{
-    plugin,
+    get_api, plugin,
     tm::{
         foundation::{
             ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
@@ -21,14 +21,14 @@ use machinery::{
                 TransformComponentT, TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
                 TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME,
                 TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME,
-                TM_TT_TYPE__TRANSFORM_COMPONENT,
+                TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
             },
             the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
         },
     },
-    Plugin,
+    Identifier, Plugin,
 };
-use machinery_macros::export_plugin_fn;
+use machinery_macros::{tm_export_plugin_fns, tm_ident};
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
 
@@ -58,9 +58,9 @@ impl Plugin for ExamplePlugin {
 
             let plugin = ExamplePlugin {
                 registry,
-                tt_api: (*registry).ext_get(),
-                tt_common_types: (*registry).ext_get(),
-                entity_api: (*registry).ext_get(),
+                tt_api: get_api(&*registry),
+                tt_common_types: get_api(&*registry),
+                entity_api: get_api(&*registry),
 
                 editor_aspects: Mutex::new(Vec::new()),
                 components: Mutex::new(Vec::new()),
@@ -118,7 +118,7 @@ impl Drop for ExamplePlugin {
     }
 }
 
-#[export_plugin_fn]
+#[tm_export_plugin_fns]
 impl ExamplePlugin {
     fn truth_create_types(&self, tt: *mut TheTruthO) {
         // The Machinery stores component data in "entity assets", which are then constructed into
@@ -139,7 +139,7 @@ impl ExamplePlugin {
 
             let spin_type = (*self.tt_api).create_object_type(
                 tt,
-                EXAMPLE_COMPONENT_NAME.as_cstr(),
+                RUST_EXAMPLE_COMPONENT.name.as_cstr(),
                 &properties,
                 1,
             );
@@ -166,7 +166,7 @@ impl ExamplePlugin {
         unsafe {
             // Register the component for entities
             let component = Box::new(ComponentI {
-                name: EXAMPLE_COMPONENT_NAME.as_ptr(),
+                name: RUST_EXAMPLE_COMPONENT.name.as_ptr(),
                 bytes: size_of::<Vec3>() as u32,
                 load_asset: Some(Self::component_load_asset),
                 ..Default::default()
@@ -201,14 +201,11 @@ impl ExamplePlugin {
         event!(Level::INFO, "Registering engines");
 
         unsafe {
-            let example_hash = strhash(EXAMPLE_COMPONENT_NAME.as_cstr());
-            let transform_hash = strhash(&CStr::from_ptr(
-                TM_TT_TYPE__TRANSFORM_COMPONENT.as_ptr() as *const i8
-            ));
-
             // Lookup the component types we want to use in this system
-            let example_component = (*self.entity_api).lookup_component_type(ctx, example_hash);
-            let transform_component = (*self.entity_api).lookup_component_type(ctx, transform_hash);
+            let example_component =
+                (*self.entity_api).lookup_component_type(ctx, RUST_EXAMPLE_COMPONENT.hash);
+            let transform_component =
+                (*self.entity_api).lookup_component_type(ctx, TM_TT_TYPE_HASH__TRANSFORM_COMPONENT);
 
             // Register the spin engine
             let mut components = [ComponentTypeT::default(); 16];
@@ -224,7 +221,7 @@ impl ExamplePlugin {
             let spin_engine = Box::new(EngineI {
                 super_: EngineSystemCommonI {
                     ui_name: const_cstr!("Rust Spin").as_ptr(),
-                    hash: strhash(const_cstr!("TM_ENGINE__RUST_SPIN").as_cstr()),
+                    hash: RUST_EXAMPLE_ENGINE.hash,
                     num_components: 2,
                     components,
                     writes,
@@ -304,7 +301,8 @@ extern "C" fn component_category() -> *const c_char {
     return const_cstr!("Samples").as_ptr();
 }
 
-const EXAMPLE_COMPONENT_NAME: ConstCStr = const_cstr!("tm_rust_example_component");
+const RUST_EXAMPLE_ENGINE: Identifier = tm_ident!("tm_rust_example_engine");
+const RUST_EXAMPLE_COMPONENT: Identifier = tm_ident!("tm_rust_example_component");
 
 fn rotor(input: Vec4T) -> Rotor3 {
     Rotor3::from_quaternion_array([input.x, input.y, input.z, input.w])
@@ -318,10 +316,4 @@ fn quaternion(input: Rotor3) -> Vec4T {
         z: array[2],
         w: array[3],
     }
-}
-
-// TODO: Compile-time hashes
-fn strhash(input: &CStr) -> StrhashT {
-    let hash = murmurhash64::murmur_hash64a(input.to_bytes(), 0);
-    StrhashT { u64_: hash }
 }
