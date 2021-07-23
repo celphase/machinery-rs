@@ -2,7 +2,7 @@ use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
 use machinery::{
-    get_api, plugin,
+    export_plugin_fns, get_api, identifier, plugin,
     tm::{
         foundation::{
             ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
@@ -21,7 +21,7 @@ use machinery::{
             the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
         },
     },
-    tm_export_plugin_fns, tm_ident, Identifier, Plugin,
+    Identifier, Plugin,
 };
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
@@ -108,7 +108,7 @@ impl Drop for ExamplePlugin {
     }
 }
 
-#[tm_export_plugin_fns]
+#[export_plugin_fns]
 impl ExamplePlugin {
     fn truth_create_types(&self, tt: *mut TheTruthO) {
         // The Machinery stores component data in "entity assets", which are then constructed into
@@ -291,8 +291,8 @@ extern "C" fn component_category() -> *const c_char {
     return const_cstr!("Samples").as_ptr();
 }
 
-const RUST_EXAMPLE_ENGINE: Identifier = tm_ident!("tm_rust_example_engine");
-const RUST_EXAMPLE_COMPONENT: Identifier = tm_ident!("tm_rust_example_component");
+const RUST_EXAMPLE_ENGINE: Identifier = identifier!("tm_rust_example_engine");
+const RUST_EXAMPLE_COMPONENT: Identifier = identifier!("tm_rust_example_component");
 
 fn rotor(input: Vec4T) -> Rotor3 {
     Rotor3::from_quaternion_array([input.x, input.y, input.z, input.w])

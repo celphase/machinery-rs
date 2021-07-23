@@ -19,7 +19,7 @@ impl Parse for TmExportPluginFnsInput {
 
 /// Generates `extern "C"` wrappers for plugin member functions.
 #[proc_macro_attribute]
-pub fn tm_export_plugin_fns(
+pub fn export_plugin_fns(
     _attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
@@ -97,7 +97,7 @@ impl Parse for TmIdentInput {
 
 /// Generates constants for a The Machinery identifier.
 #[proc_macro]
-pub fn tm_ident(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = parse_macro_input!(item as TmIdentInput);
     let literal = input.item;
 
