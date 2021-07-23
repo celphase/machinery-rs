@@ -1,4 +1,5 @@
 use std::{
+    collections::HashSet,
     fmt::Write,
     path::{Path, PathBuf},
 };
@@ -13,7 +14,7 @@ pub fn generate(
     project: &Project,
     headers_dir: &Path,
     target_headers: &[PathBuf],
-    blocklist: &[String],
+    blocklist: &HashSet<String>,
 ) {
     let mut wrapper = String::new();
 

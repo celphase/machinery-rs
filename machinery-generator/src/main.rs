@@ -2,7 +2,7 @@ mod bindings;
 mod config;
 mod extensions;
 
-use std::{env, ffi::OsStr, fs, path::PathBuf};
+use std::{collections::HashSet, env, ffi::OsStr, fs, path::PathBuf};
 
 use walkdir::WalkDir;
 
@@ -15,7 +15,27 @@ fn main() {
 
     let config: Config = toml::from_str(&config_toml).unwrap();
 
-    let mut blocklist = Vec::new();
+    let mut blocklist = HashSet::new();
+
+    // Built-ins we don't need
+    blocklist.extend(
+        [
+            "_HAS_EXCEPTIONS",
+            "_STL_LANG",
+            "_HAS_CXX17",
+            "_HAS_CXX20",
+            "false_",
+            "true_",
+            "WCHAR_MIN",
+            "WCHAR_MAX",
+            "WINT_MIN",
+            "WINT_MAX",
+            "size_t",
+            "wchar_t",
+        ]
+        .iter()
+        .map(ToString::to_string),
+    );
 
     for (name, project) in config.projects {
         println!("Generating \"{}\"", name);
