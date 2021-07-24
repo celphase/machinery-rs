@@ -178,7 +178,7 @@ impl ExamplePlugin {
         let component = data as *mut Vec3;
 
         unsafe {
-            let object = (*self.tt_api).read(tt as *mut TheTruthO, std::mem::transmute(asset));
+            let object = (*self.tt_api).read(tt as *mut TheTruthO, asset);
             let data = (*self.tt_common_types).get_position(tt as *mut TheTruthO, object, 0);
 
             *component = Vec3::new(data.x, data.y, data.z);

@@ -2,6 +2,8 @@
 headers = "$TM_SDK_DIR/headers/foundation"
 headers_prefix = "foundation"
 target = "./machinery/src/tm/foundation.rs"
+uses = ["crate::tm::plugins::ui::Draw2dFontT"]
+blocklist = ["tm_draw2d_font_t"]
 
 [projects.plugins-entity]
 headers = "$TM_SDK_DIR/headers/plugins/entity"
@@ -18,10 +20,7 @@ uses = [
     "crate::tm::plugins::entity::*",
     "crate::tm::the_machinery::TabCreateContextT",
 ]
-blocklist = [
-    # Will be defined later in the_machinery
-    "tm_tab_create_context_t"
-]
+blocklist = ["tm_tab_create_context_t"]
 
 [projects.plugins-editor_views]
 headers = "$TM_SDK_DIR/headers/plugins/editor_views"

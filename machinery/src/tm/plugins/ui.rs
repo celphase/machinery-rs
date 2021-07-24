@@ -696,6 +696,22 @@ impl Default for FontT {
         }
     }
 }
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct Draw2dFontT {
+    pub vbuffer_offset: u32,
+    pub _padding_142: [::std::os::raw::c_char; 4usize],
+    pub info: *const FontT,
+}
+impl Default for Draw2dFontT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 pub const TM_DRAW2D__FEATHER__DEFAULT: ::std::os::raw::c_int = 0;
 pub const TM_DRAW2D__FEATHER__NONE: ::std::os::raw::c_int = 1;
 pub type _bindgen_ty_5 = ::std::os::raw::c_int;
