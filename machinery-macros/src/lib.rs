@@ -79,7 +79,7 @@ pub fn export_plugin_fns(
         }
     };
 
-    return output.into();
+    output.into()
 }
 
 struct TmIdentInput {

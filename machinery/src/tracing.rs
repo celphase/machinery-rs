@@ -67,7 +67,7 @@ impl Subscriber for TmSubscriber {
                 visitor.message.push_str(file);
 
                 if let Some(file) = event.metadata().line() {
-                    visitor.message.push_str(":");
+                    visitor.message.push(':');
                     visitor.message.push_str(&file.to_string());
                 }
             }

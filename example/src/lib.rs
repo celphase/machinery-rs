@@ -28,6 +28,7 @@ use ultraviolet::{Rotor3, Vec3};
 
 plugin!(ExamplePlugin);
 
+#[allow(clippy::vec_box)]
 struct ExamplePlugin {
     registry: *const ApiRegistryApi,
     tt_api: *const TheTruthApi,
@@ -288,7 +289,7 @@ impl ExamplePlugin {
 }
 
 extern "C" fn component_category() -> *const c_char {
-    return const_cstr!("Samples").as_ptr();
+    const_cstr!("Samples").as_ptr()
 }
 
 const RUST_EXAMPLE_ENGINE: Identifier = identifier!("tm_rust_example_engine");

@@ -62,7 +62,7 @@ pub fn generate(project: &Project, target_headers: &[PathBuf], blocklist: &mut H
             module.push_str(";\n");
         }
     }
-    module.push_str("\n");
+    module.push('\n');
 
     // Individual generation steps
     generate_apis(&file, &mut module);
@@ -167,8 +167,8 @@ fn rename_ty(ty: &mut Type) {
 
 fn rename_ident(ident: &mut Ident) {
     let value = ident.to_string();
-    if value.starts_with("tm_") {
-        let new_name = value[3..].to_camel_case();
+    if let Some(value) = value.strip_prefix("tm_") {
+        let new_name = value.to_camel_case();
         *ident = Ident::new(&new_name, Span::call_site());
     }
 }
