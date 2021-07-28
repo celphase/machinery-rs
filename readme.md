@@ -4,9 +4,10 @@ Rust bindings for [The Machinery](https://ourmachinery.com/) game engine.
 
 The repository hosts the following parts:
 
-- [![Crates.io](https://img.shields.io/crates/v/machinery.svg?label=machinery)](https://crates.io/crates/machinery) [![docs.rs](https://docs.rs/machinery/badge.svg)](https://docs.rs/machinery/) - Generated bindings and additional utilities for creating plugins.
-- [![Crates.io](https://img.shields.io/crates/v/machinery-macros.svg?label=machinery-macros)](https://crates.io/crates/machinery-macros) [![docs.rs](https://docs.rs/machinery-macros/badge.svg)](https://docs.rs/machinery-macros/) - Procedural macro utilities for creating plugins.
-- `machinery-generator` - Generator for generating Rust bindings from headers.
+- [![Crates.io](https://img.shields.io/crates/v/machinery.svg?label=machinery)](https://crates.io/crates/machinery) [![docs.rs](https://docs.rs/machinery/badge.svg)](https://docs.rs/machinery/) - Utilities and safe wrappers for working with The Machinery game engine.
+- [![Crates.io](https://img.shields.io/crates/v/machinery-api.svg?label=machinery-api)](https://crates.io/crates/machinery) [![docs.rs](https://docs.rs/machinery-api/badge.svg)](https://docs.rs/machinery/) - Generated API types for The Machinery game engine.
+- [![Crates.io](https://img.shields.io/crates/v/machinery-macros.svg?label=machinery-macros)](https://crates.io/crates/machinery-macros) [![docs.rs](https://docs.rs/machinery-macros/badge.svg)](https://docs.rs/machinery-macros/) - Macro utilities for the `machinery` and `machinery-api` crates.
+- `machinery-generator` - Bindings generator for The Machinery headers.
 - `example` - Short example plugin showcasing the bindings.
 
 ## Building Example

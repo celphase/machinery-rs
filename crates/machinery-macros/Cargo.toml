@@ -2,7 +2,7 @@
 name = "machinery-macros"
 version = "0.5.0"
 license = "MIT OR Apache-2.0"
-description = "Macro utilities for the machinery crate"
+description = "Macro utilities for the `machinery` and `machinery-api` crates"
 repository = "https://gitlab.com/celphase/machinery-rs"
 edition = "2018"
 
