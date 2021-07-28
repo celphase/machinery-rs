@@ -1,16 +1,14 @@
 use std::{ffi::CString, fmt::Write};
 
+use machinery_api::foundation::{
+    ApiRegistryApi, LoggerApi, TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO,
+};
 use tracing::{
     field::{Field, Visit},
     span, Id, Level, Subscriber,
 };
 
-use crate::{
-    get_api,
-    tm::foundation::{
-        ApiRegistryApi, LoggerApi, TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO,
-    },
-};
+use crate::get_api;
 
 /// Initialize a global default subscriber for tracing that prints to The Machinery logging API.
 pub fn initialize(registry: &ApiRegistryApi) {

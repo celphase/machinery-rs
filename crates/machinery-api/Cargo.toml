@@ -1,0 +1,10 @@
+[package]
+name = "machinery-api"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+description = "Raw generated API types for The Machinery game engine"
+repository = "https://gitlab.com/celphase/machinery-rs"
+edition = "2018"
+
+[dependencies]
+const-cstr = "0.3.0"

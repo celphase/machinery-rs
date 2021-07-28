@@ -1584,7 +1584,7 @@ pub struct TransformComponentApi {
 
 use const_cstr::{const_cstr, ConstCStr};
 
-use crate::tm::foundation::*;
+use crate::foundation::*;
 
 impl EntityApi {
     pub unsafe fn create_truth_types(&self, tt: *mut TheTruthO) {

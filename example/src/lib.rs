@@ -1,27 +1,24 @@
 use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
-use machinery::{
-    export_plugin_fns, get_api, identifier, plugin,
-    tm::{
-        foundation::{
-            ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
-            TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME,
-            TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT, TM_TT_TYPE_HASH__POSITION,
-        },
-        plugins::{
-            entity::{
-                ComponentI, ComponentManagerO, ComponentTypeT, EngineI, EngineO,
-                EngineSystemCommonI, EngineUpdateSetT, EntityApi, EntityContextO, EntityT,
-                TransformComponentT, TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
-                TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME,
-                TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME,
-                TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
-            },
-            the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
-        },
+use machinery::{export_plugin_fns, get_api, identifier, plugin, Identifier, Plugin};
+use machinery_api::{
+    foundation::{
+        ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
+        TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME,
+        TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT, TM_TT_TYPE_HASH__POSITION,
     },
-    Identifier, Plugin,
+    plugins::{
+        entity::{
+            ComponentI, ComponentManagerO, ComponentTypeT, EngineI, EngineO, EngineSystemCommonI,
+            EngineUpdateSetT, EntityApi, EntityContextO, EntityT, TransformComponentT,
+            TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
+            TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME,
+            TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME,
+            TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
+        },
+        the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
+    },
 };
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};

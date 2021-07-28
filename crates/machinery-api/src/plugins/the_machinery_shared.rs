@@ -1570,10 +1570,10 @@ pub struct ShaderO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
-use crate::tm::foundation::*;
-use crate::tm::plugins::editor_views::*;
-use crate::tm::plugins::entity::*;
-use crate::tm::plugins::ui::*;
+use crate::foundation::*;
+use crate::plugins::editor_views::*;
+use crate::plugins::entity::*;
+use crate::plugins::ui::*;
 
 impl AssetPreviewApi {
     pub unsafe fn create(&self, allocator: *mut AllocatorI) -> *mut AssetPreviewO {

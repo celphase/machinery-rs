@@ -4724,9 +4724,9 @@ pub struct GpuPickingO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
-use crate::tm::foundation::*;
-use crate::tm::plugins::entity::*;
-use crate::tm::the_machinery::TabCreateContextT;
+use crate::foundation::*;
+use crate::plugins::entity::*;
+use crate::the_machinery::TabCreateContextT;
 
 impl UiClipboardApi {
     pub unsafe fn cut(

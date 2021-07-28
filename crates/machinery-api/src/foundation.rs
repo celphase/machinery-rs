@@ -6423,7 +6423,7 @@ pub struct Hash32T {
 
 use const_cstr::{const_cstr, ConstCStr};
 
-use crate::tm::plugins::ui::Draw2dFontT;
+use crate::plugins::ui::Draw2dFontT;
 
 impl AllocatorApi {
     pub unsafe fn create_child(

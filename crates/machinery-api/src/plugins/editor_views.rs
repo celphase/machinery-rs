@@ -2556,8 +2556,8 @@ pub struct GraphO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
-use crate::tm::foundation::*;
-use crate::tm::plugins::ui::*;
+use crate::foundation::*;
+use crate::plugins::ui::*;
 
 impl AssetBrowserOpenAssetApi {
     pub unsafe fn open(

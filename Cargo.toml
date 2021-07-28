@@ -1,8 +1,9 @@
 [workspace]
 members = [
     "example",
-    "machinery",
-    "machinery-generator",
-    "machinery-macros",
+    "crates/machinery",
+    "crates/machinery-api",
+    "crates/machinery-generator",
+    "crates/machinery-macros",
 ]
 resolver = "2"

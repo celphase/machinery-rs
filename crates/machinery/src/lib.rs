@@ -1,5 +1,7 @@
-pub mod tm;
+mod registry_storage;
 pub mod tracing;
+
+pub use self::registry_storage::RegistryStorage;
 
 use std::{
     ptr::null_mut,
@@ -7,7 +9,10 @@ use std::{
 };
 
 use const_cstr::ConstCStr;
-use tm::foundation::{ApiRegistryApi, StrhashT};
+use machinery_api::{
+    foundation::{ApiRegistryApi, StrhashT},
+    Api,
+};
 
 // Re-export macros for convenience
 pub use machinery_macros::*;
@@ -20,7 +25,7 @@ macro_rules! plugin {
 
         #[no_mangle]
         pub unsafe extern "C" fn tm_load_plugin(
-            registry: *const machinery::tm::foundation::ApiRegistryApi,
+            registry: *const machinery_api::foundation::ApiRegistryApi,
             load: bool,
         ) {
             machinery::load_plugin::<$ty>(&INSTANCE, registry, load);
@@ -62,10 +67,6 @@ pub fn load_plugin<P: Plugin>(
 
 pub trait Plugin: Sized + Send + Sync {
     fn load(registry: *const ApiRegistryApi) -> Self;
-}
-
-pub trait Api {
-    const NAME: ConstCStr;
 }
 
 /// Unique identifier, made up of a string name and a hash generated from that name.

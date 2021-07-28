@@ -866,11 +866,11 @@ pub struct CollaborationDiscordO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
-use crate::tm::foundation::*;
-use crate::tm::plugins::editor_views::*;
-use crate::tm::plugins::entity::*;
-use crate::tm::plugins::the_machinery_shared::*;
-use crate::tm::plugins::ui::*;
+use crate::foundation::*;
+use crate::plugins::editor_views::*;
+use crate::plugins::entity::*;
+use crate::plugins::the_machinery_shared::*;
+use crate::plugins::ui::*;
 
 impl AssetBrowserTabApi {
     pub unsafe fn find_asset_browser(&self, ui: *mut UiO) -> TtIdT {

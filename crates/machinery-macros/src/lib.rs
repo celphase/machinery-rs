@@ -114,7 +114,7 @@ pub fn identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let wrapper = quote! {
         machinery::Identifier {
             name: const_cstr::const_cstr!(#literal),
-            hash: machinery::tm::foundation::StrhashT { u64_: #hash },
+            hash: machinery_api::foundation::StrhashT { u64_: #hash },
         }
     };
 
