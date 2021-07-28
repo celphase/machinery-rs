@@ -6,7 +6,7 @@ pub use self::{registry_storage::RegistryStorage, singleton::Singleton};
 
 use const_cstr::ConstCStr;
 use machinery_api::{
-    foundation::{ApiRegistryApi, StrhashT},
+    foundation::{ApiRegistryApi, StrhashT, TtIdT},
     Api,
 };
 
@@ -70,4 +70,9 @@ pub fn get_api_optional<T: Api>(registry: &ApiRegistryApi) -> Option<*const T> {
             Some(raw as *const T)
         }
     }
+}
+
+/// Compares two IDs for equality.
+pub fn tt_id_eq(left: TtIdT, right: TtIdT) -> bool {
+    unsafe { left.__bindgen_anon_1.u64_ == right.__bindgen_anon_1.u64_ }
 }
