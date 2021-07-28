@@ -17,9 +17,9 @@ impl Parse for TmExportPluginFnsInput {
     }
 }
 
-/// Generates `extern "C"` wrappers for plugin member functions.
+/// Generates `extern "C"` wrappers for singleton member functions.
 #[proc_macro_attribute]
-pub fn export_plugin_fns(
+pub fn export_singleton_fns(
     _attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
@@ -61,8 +61,8 @@ pub fn export_plugin_fns(
             let ret_val = &fun_item.sig.output;
             let wrapper = quote! {
                 unsafe extern "C" fn #original_name(#(#args_with_types),*) #ret_val {
-                    (*#ty_name::as_ptr())
-                        .#internal_ident(#(#args_without_types),*)
+                    use machinery::Singleton;
+                    (*#ty_name::ptr()).#internal_ident(#(#args_without_types),*)
                 }
             };
             wrappers.push(wrapper);
@@ -94,7 +94,6 @@ impl Parse for TmIdentInput {
     }
 }
 
-
 /// Generates constants for a The Machinery identifier.
 #[proc_macro]
 pub fn identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
@@ -106,7 +105,7 @@ pub fn identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
     if !(literal_str.starts_with('"') && literal_str.ends_with('"')) {
         panic!("tm_ident requires a string literal")
     }
-    let value = &literal_str[1..literal_str.len()-1];
+    let value = &literal_str[1..literal_str.len() - 1];
 
     // Hash the value using the hash function used by the machinery
     let hash = murmurhash64::murmur_hash64a(value.as_bytes(), 0);

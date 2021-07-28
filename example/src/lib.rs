@@ -1,7 +1,7 @@
 use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
-use machinery::{export_plugin_fns, get_api, identifier, plugin, Identifier, Plugin};
+use machinery::{export_singleton_fns, get_api, identifier, plugin, singleton, Identifier, Plugin};
 use machinery_api::{
     foundation::{
         ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
@@ -23,6 +23,7 @@ use machinery_api::{
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
 
+singleton!(ExamplePlugin);
 plugin!(ExamplePlugin);
 
 #[allow(clippy::vec_box)]
@@ -106,7 +107,7 @@ impl Drop for ExamplePlugin {
     }
 }
 
-#[export_plugin_fns]
+#[export_singleton_fns]
 impl ExamplePlugin {
     fn truth_create_types(&self, tt: *mut TheTruthO) {
         // The Machinery stores component data in "entity assets", which are then constructed into

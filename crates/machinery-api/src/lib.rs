@@ -10,6 +10,7 @@ pub mod the_machinery;
 
 use const_cstr::ConstCStr;
 
+/// Utility marker interface for API types to get static information about an API.
 pub trait Api {
     const NAME: ConstCStr;
 }

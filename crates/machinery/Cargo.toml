@@ -10,4 +10,4 @@ edition = "2018"
 const-cstr = "0.3.0"
 tracing = "0.1.26"
 machinery-api = { version = "0.1.0", path = "../machinery-api" }
-machinery-macros = { version = "0.4.0", path = "../machinery-macros" }
+machinery-macros = { version = "0.5.0", path = "../machinery-macros" }

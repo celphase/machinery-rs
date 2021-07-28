@@ -1,12 +1,8 @@
 mod registry_storage;
+pub mod singleton;
 pub mod tracing;
 
-pub use self::registry_storage::RegistryStorage;
-
-use std::{
-    ptr::null_mut,
-    sync::atomic::{AtomicPtr, Ordering},
-};
+pub use self::{registry_storage::RegistryStorage, singleton::Singleton};
 
 use const_cstr::ConstCStr;
 use machinery_api::{
@@ -20,52 +16,30 @@ pub use machinery_macros::*;
 #[macro_export]
 macro_rules! plugin {
     ($ty:ident) => {
-        static INSTANCE: std::sync::atomic::AtomicPtr<$ty> =
-            std::sync::atomic::AtomicPtr::new(std::ptr::null_mut());
-
         #[no_mangle]
         pub unsafe extern "C" fn tm_load_plugin(
             registry: *const machinery_api::foundation::ApiRegistryApi,
             load: bool,
         ) {
-            machinery::load_plugin::<$ty>(&INSTANCE, registry, load);
-        }
-
-        impl $ty {
-            /// # Safety
-            ///
-            /// The data behind this pointer will only be valid for as long as the singleton is
-            /// initialized.
-            unsafe fn as_ptr() -> *const $ty {
-                INSTANCE.load(std::sync::atomic::Ordering::SeqCst)
-            }
+            machinery::load_plugin::<$ty>(registry, load);
         }
     };
 }
 
-pub fn load_plugin<P: Plugin>(
-    instance: &AtomicPtr<P>,
-    registry: *const ApiRegistryApi,
-    load: bool,
-) {
+/// # Safety
+/// This should only be called once for load and once for unload.
+pub unsafe fn load_plugin<P: Plugin>(registry: *const ApiRegistryApi, load: bool) {
     if load {
         // Load the plugin
-        let plugin = Box::new(P::load(registry));
-        let result = instance.swap(Box::into_raw(plugin), Ordering::SeqCst);
-
-        if !result.is_null() {
-            panic!("Plugin was already loaded!");
-        }
+        let plugin = P::load(registry);
+        P::create(plugin);
     } else {
-        // Unload the plugin by dropping it
-        let plugin = instance.swap(null_mut(), Ordering::SeqCst);
-        unsafe {
-            let _ = Box::from_raw(plugin);
-        }
+        // Unload the plugin
+        P::destroy();
     }
 }
 
-pub trait Plugin: Sized + Send + Sync {
+pub trait Plugin: Singleton {
     fn load(registry: *const ApiRegistryApi) -> Self;
 }
 
