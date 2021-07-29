@@ -6,7 +6,7 @@ pub use self::{registry_storage::RegistryStorage, singleton::Singleton};
 
 use const_cstr::ConstCStr;
 use machinery_api::{
-    foundation::{ApiRegistryApi, StrhashT, TtIdT, TtTypeT},
+    foundation::{ApiRegistryApi, StrhashT, TtIdT, TtTypeT, TtUndoScopeT},
     Api,
 };
 
@@ -85,3 +85,6 @@ pub fn tt_id_type(id: TtIdT) -> TtTypeT {
         }
     }
 }
+
+/// Used as `undo_scope` for operations that shouldn't be undoable.
+pub const TM_TT_NO_UNDO_SCOPE: TtUndoScopeT = TtUndoScopeT { u64_: 0 };
