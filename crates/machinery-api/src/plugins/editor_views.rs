@@ -518,8 +518,9 @@ pub struct AssetBrowserConfigT {
             asset: TtIdT,
         ),
     >,
+    pub disable_thumbnail_generation: bool,
+    pub _padding_281: [::std::os::raw::c_char; 3usize],
     pub num_custom_menu_items: u32,
-    pub _padding_281: [::std::os::raw::c_char; 4usize],
     pub custom_menu_items: *const AssetBrowserCustomMenuItemI,
     pub save_interface: *mut AssetSaveI,
     pub ui_renderer: *mut UiRendererO,
@@ -880,7 +881,7 @@ pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__DISABLED: ::std::os::raw::c_int
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__GRAPH_UUID_A: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__GRAPH_UUID_B: ::std::os::raw::c_int = 8;
 pub type _bindgen_ty_18 = ::std::os::raw::c_int;
-pub const TM_GRAPH_MAX_CONNECTORS: ::std::os::raw::c_int = 16;
+pub const TM_GRAPH_MAX_CONNECTORS: ::std::os::raw::c_int = 24;
 pub type _bindgen_ty_19 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -944,8 +945,8 @@ impl Default for GraphConnectorT {
 }
 #[repr(C)]
 pub struct GraphNodeConnectorsT {
-    pub in_: [GraphConnectorT; 16usize],
-    pub out: [GraphConnectorT; 16usize],
+    pub in_: [GraphConnectorT; 24usize],
+    pub out: [GraphConnectorT; 24usize],
     pub num_in: u32,
     pub num_out: u32,
 }
@@ -962,9 +963,9 @@ impl Default for GraphNodeConnectorsT {
 #[derive(Default, Copy, Clone)]
 pub struct GraphDrawConnectorsResultT {
     pub y: f32,
-    pub in_connector_positions: [f32; 16usize],
-    pub in_connector_disabled: [bool; 16usize],
-    pub out_connector_positions: [f32; 16usize],
+    pub in_connector_positions: [f32; 24usize],
+    pub in_connector_disabled: [bool; 24usize],
+    pub out_connector_positions: [f32; 24usize],
 }
 #[repr(C)]
 pub struct GraphDrawConnectorsArgsT {
@@ -1271,7 +1272,9 @@ pub const TM_PROPERTIES_METRIC_COLOR_PICKER_INPUT_SIZE: PropertiesMetric = 11;
 pub const TM_PROPERTIES_METRIC_COLOR_PICKER_HSV_LABEL_SIZE: PropertiesMetric = 12;
 pub const TM_PROPERTIES_METRIC_COLOR_PICKER_SLIDER_MARGIN: PropertiesMetric = 13;
 pub const TM_PROPERTIES_METRIC_COLOR_PICKER_SLIDER_KNOB_SIZE: PropertiesMetric = 14;
-pub const TM_PROPERTIES_METRIC_NUM: PropertiesMetric = 15;
+pub const TM_PROPERTIES_METRIC_COLOR_WHEEL_SIZE: PropertiesMetric = 15;
+pub const TM_PROPERTIES_METRIC_COLOR_WHEEL_RING_FRACTION: PropertiesMetric = 16;
+pub const TM_PROPERTIES_METRIC_NUM: PropertiesMetric = 17;
 pub type PropertiesMetric = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct PropertiesUiArgsT {
@@ -1462,7 +1465,7 @@ pub struct PropertiesFloatSliderT {
     pub max: f32,
     pub step: f32,
     pub show_edit_box: bool,
-    pub _padding_378: [::std::os::raw::c_char; 3usize],
+    pub _padding_393: [::std::os::raw::c_char; 3usize],
     pub edit_min: f32,
     pub edit_max: f32,
     pub converter: *mut PropertiesFloatDisplayConverterI,
@@ -1973,6 +1976,37 @@ pub struct PropertiesViewApi {
             item_rect: RectT,
             name: *const ::std::os::raw::c_char,
             tooltip: *const ::std::os::raw::c_char,
+            color: TtIdT,
+        ) -> f32,
+    >,
+    pub update_truth_color: ::std::option::Option<
+        unsafe extern "C" fn(
+            args: *mut PropertiesUiArgsT,
+            res: u32,
+            new_color: Vec3T,
+            initial_color: Vec3T,
+            color: TtIdT,
+        ),
+    >,
+    pub ui_color_wheel_raw: ::std::option::Option<
+        unsafe extern "C" fn(
+            args: *mut PropertiesUiArgsT,
+            item_rect: RectT,
+            name: *const ::std::os::raw::c_char,
+            tooltip: *const ::std::os::raw::c_char,
+            default_value: Vec3T,
+            color: *mut Vec3T,
+            initial: *mut Vec3T,
+            res: *mut u32,
+        ) -> f32,
+    >,
+    pub ui_color_wheel: ::std::option::Option<
+        unsafe extern "C" fn(
+            args: *mut PropertiesUiArgsT,
+            item_rect: RectT,
+            name: *const ::std::os::raw::c_char,
+            tooltip: *const ::std::os::raw::c_char,
+            default_value: Vec3T,
             color: TtIdT,
         ) -> f32,
     >,
@@ -3780,6 +3814,52 @@ impl PropertiesViewApi {
         self.ui_color_picker.unwrap()(args, item_rect, name, tooltip, color)
     }
 
+    pub unsafe fn update_truth_color(
+        &self,
+        args: *mut PropertiesUiArgsT,
+        res: u32,
+        new_color: Vec3T,
+        initial_color: Vec3T,
+        color: TtIdT,
+    ) {
+        self.update_truth_color.unwrap()(args, res, new_color, initial_color, color)
+    }
+
+    pub unsafe fn ui_color_wheel_raw(
+        &self,
+        args: *mut PropertiesUiArgsT,
+        item_rect: RectT,
+        name: *const ::std::os::raw::c_char,
+        tooltip: *const ::std::os::raw::c_char,
+        default_value: Vec3T,
+        color: *mut Vec3T,
+        initial: *mut Vec3T,
+        res: *mut u32,
+    ) -> f32 {
+        self.ui_color_wheel_raw.unwrap()(
+            args,
+            item_rect,
+            name,
+            tooltip,
+            default_value,
+            color,
+            initial,
+            res,
+        )
+    }
+
+    pub unsafe fn ui_color_wheel(
+        &self,
+        args: *mut PropertiesUiArgsT,
+        item_rect: RectT,
+        name: *const ::std::os::raw::c_char,
+        tooltip: *const ::std::os::raw::c_char,
+        default_value: Vec3T,
+        color: TtIdT,
+    ) -> f32 {
+        self.ui_color_wheel.unwrap()(args, item_rect, name, tooltip, default_value, color)
+    }
+
     pub unsafe fn ui_color_temperature(
         &self,
         args: *mut PropertiesUiArgsT,
@@ -4234,6 +4314,9 @@ pub const TM_TT_PROP_ASPECT__PROPERTIES__CUSTOM_UI: StrhashT = StrhashT {
 };
 pub const TM_TT_PROP_ASPECT__PROPERTIES__REPROTOTYPE_CALLBACK: StrhashT = StrhashT {
     u64_: 14075951065603772573u64,
+};
+pub const TM_TT_PROP_ASPECT__PROPERTIES__DISABLE_TRANSIENT_CHANGE_PREVIEW: StrhashT = StrhashT {
+    u64_: 3325534131899003796u64,
 };
 pub const TM_PROPERTY_ASPECT__PROPERTIES__FLOAT_DISPLAY_CONVERTER: StrhashT = StrhashT {
     u64_: 10064183571310805966u64,

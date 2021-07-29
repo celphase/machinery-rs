@@ -170,10 +170,6 @@ pub const TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME: &'static [u8; 29
     b"tm_entity_register_engines_i\0";
 pub const TM_ENTITY_EDITOR_REGISTER_ENGINES_INTERFACE_NAME: &'static [u8; 38usize] =
     b"tm_entity_register_engines_i (editor)\0";
-pub const TM_ENTITY_HOT_RELOAD_COMPONENT_INTERFACE_NAME: &'static [u8; 33usize] =
-    b"tm_entity_hot_reload_component_i\0";
-pub const TM_ENTITY_HOT_RELOAD_SYSTEM_INTERFACE_NAME: &'static [u8; 30usize] =
-    b"tm_entity_hot_reload_system_i\0";
 pub const TM_ENTITY_API_NAME: &'static [u8; 14usize] = b"tm_entity_api\0";
 pub const TM_TT_TYPE__OWNER_COMPONENT: &'static [u8; 19usize] = b"tm_owner_component\0";
 pub const TM_OWNER_COMPONENT_API_NAME: &'static [u8; 23usize] = b"tm_owner_component_api\0";
@@ -530,15 +526,15 @@ pub struct ComponentMaskT {
 #[derive(Copy, Clone)]
 pub struct ComponentPersistenceI {
     pub custom_persistent_state: bool,
-    pub _padding_131: [::std::os::raw::c_char; 3usize],
+    pub _padding_132: [::std::os::raw::c_char; 3usize],
     pub size: u32,
     pub num_members: u32,
-    pub _padding_146: [::std::os::raw::c_char; 4usize],
+    pub _padding_147: [::std::os::raw::c_char; 4usize],
     pub members: *mut GamestateMemberT,
     pub manual_tracking: bool,
     pub notify_reload_before_deserialization: bool,
     pub compute_initial_hash_immediately: bool,
-    pub _padding_184: [::std::os::raw::c_char; 1usize],
+    pub _padding_185: [::std::os::raw::c_char; 1usize],
     pub restore_sort_order: f32,
     pub user_data: *mut ::std::os::raw::c_void,
     pub serialize: ::std::option::Option<
@@ -595,7 +591,7 @@ pub struct ComponentManagerO {
 pub struct ComponentI {
     pub name: *const ::std::os::raw::c_char,
     pub bytes: u32,
-    pub _padding_251: [::std::os::raw::c_char; 4usize],
+    pub _padding_252: [::std::os::raw::c_char; 4usize],
     pub default_data: *const ::std::os::raw::c_void,
     pub manager: *mut ComponentManagerO,
     pub components_created:
@@ -673,7 +669,7 @@ pub struct EngineUpdateArrayT {
     pub components: [*mut ::std::os::raw::c_void; 16usize],
     pub component_bytes: [u32; 16usize],
     pub n: u32,
-    pub _padding_336: [::std::os::raw::c_char; 4usize],
+    pub _padding_337: [::std::os::raw::c_char; 4usize],
 }
 impl Default for EngineUpdateArrayT {
     fn default() -> Self {
@@ -717,11 +713,11 @@ impl Default for EntityBlackboardValueT {
 pub struct EngineUpdateSetT {
     pub engine: *const EngineI,
     pub total_entities: u32,
-    pub _padding_359: [::std::os::raw::c_char; 4usize],
+    pub _padding_360: [::std::os::raw::c_char; 4usize],
     pub blackboard_start: *const EntityBlackboardValueT,
     pub blackboard_end: *const EntityBlackboardValueT,
     pub num_arrays: u32,
-    pub _padding_363: [::std::os::raw::c_char; 4usize],
+    pub _padding_365: [::std::os::raw::c_char; 4usize],
     pub arrays: __IncompleteArrayField<EngineUpdateArrayT>,
 }
 impl Default for EngineUpdateSetT {
@@ -746,7 +742,7 @@ pub struct EngineSystemCommonI {
     pub hash: StrhashT,
     pub disabled: bool,
     pub exclusive: bool,
-    pub _padding_410: [::std::os::raw::c_char; 2usize],
+    pub _padding_412: [::std::os::raw::c_char; 2usize],
     pub num_components: u32,
     pub components: [ComponentTypeT; 16usize],
     pub writes: [bool; 16usize],
@@ -772,7 +768,7 @@ pub struct EngineI {
     >,
     pub num_excluded: u32,
     pub excluded: [ComponentTypeT; 16usize],
-    pub _padding_469: [::std::os::raw::c_char; 4usize],
+    pub _padding_471: [::std::os::raw::c_char; 4usize],
     pub filter: ::std::option::Option<
         unsafe extern "C" fn(
             inst: *mut EngineO,
@@ -815,38 +811,6 @@ impl Default for EntitySystemI {
 }
 pub type EntityRegisterEnginesI =
     ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>;
-#[repr(C)]
-pub struct EntityHotReloadComponentI {
-    pub hash: StrhashT,
-    pub reload: ::std::option::Option<
-        unsafe extern "C" fn(ctx: *mut EntityContextO, component: *mut ComponentI),
-    >,
-}
-impl Default for EntityHotReloadComponentI {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-pub struct EntityHotReloadSystemI {
-    pub hash: StrhashT,
-    pub reload: ::std::option::Option<
-        unsafe extern "C" fn(ctx: *mut EntityContextO, system: *mut EntitySystemI),
-    >,
-}
-impl Default for EntityHotReloadSystemI {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 pub const TM_ENTITY_CREATE_COMPONENTS_NONE: EntityCreateComponents = 0;
 pub const TM_ENTITY_CREATE_COMPONENTS_ALL: EntityCreateComponents = 1;
 pub const TM_ENTITY_CREATE_COMPONENTS_EDITOR: EntityCreateComponents = 2;
@@ -857,7 +821,7 @@ pub struct EntityListenerI {
     pub man: *mut ComponentManagerO,
     pub notify_e: EntityT,
     pub notify_c: ComponentTypeT,
-    pub _padding_635: [::std::os::raw::c_char; 4usize],
+    pub _padding_608: [::std::os::raw::c_char; 4usize],
     pub notify: ::std::option::Option<
         unsafe extern "C" fn(
             ctx: *mut EntityContextO,
@@ -909,7 +873,7 @@ impl Default for EntityEventListenerI {
 pub struct EntityArrayT {
     pub entities: *mut EntityT,
     pub n: u32,
-    pub _padding_663: [::std::os::raw::c_char; 4usize],
+    pub _padding_636: [::std::os::raw::c_char; 4usize],
 }
 impl Default for EntityArrayT {
     fn default() -> Self {
@@ -1199,6 +1163,14 @@ pub struct EntityApi {
             component_type: ComponentTypeT,
             tag: StrhashT,
             debug_draw: bool,
+        ),
+    >,
+    pub get_all_debug_draws: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            component_types: *mut *mut ComponentTypeT,
+            tags: *mut *mut StrhashT,
+            ta: *mut TempAllocatorI,
         ),
     >,
     pub has_debug_draw: ::std::option::Option<
@@ -2034,6 +2006,16 @@ impl EntityApi {
         debug_draw: bool,
     ) {
         self.set_debug_draw.unwrap()(ctx, component_type, tag, debug_draw)
+    }
+
+    pub unsafe fn get_all_debug_draws(
+        &self,
+        ctx: *mut EntityContextO,
+        component_types: *mut *mut ComponentTypeT,
+        tags: *mut *mut StrhashT,
+        ta: *mut TempAllocatorI,
+    ) {
+        self.get_all_debug_draws.unwrap()(ctx, component_types, tags, ta)
     }
 
     pub unsafe fn has_debug_draw(

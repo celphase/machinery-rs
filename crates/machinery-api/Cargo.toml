@@ -1,6 +1,6 @@
 [package]
 name = "machinery-api"
-version = "0.1.0"
+version = "0.2.0"
 license = "MIT OR Apache-2.0"
 description = "Generated API types for The Machinery game engine"
 repository = "https://gitlab.com/celphase/machinery-rs"

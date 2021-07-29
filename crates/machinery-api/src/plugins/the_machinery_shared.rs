@@ -1058,11 +1058,12 @@ pub struct RenderContextApi {
 #[repr(C)]
 pub struct RenderArgsT {
     pub camera_tm: TransformT,
+    pub camera: *const CameraT,
     pub context: *mut RenderContextO,
     pub render_backend: *mut RendererBackendI,
     pub shader_repository: *mut ShaderRepositoryO,
     pub device_affinity_mask: u32,
-    pub _padding_77: [::std::os::raw::c_char; 4usize],
+    pub _padding_81: [::std::os::raw::c_char; 4usize],
     pub default_resource_buffer: *mut RendererResourceCommandBufferO,
     pub default_command_buffer: *mut RendererCommandBufferO,
     pub render_graph: *mut RenderGraphO,

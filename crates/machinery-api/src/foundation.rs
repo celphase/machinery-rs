@@ -108,6 +108,7 @@ pub const TM_CRASH_RECOVERY_API_NAME: &'static [u8; 22usize] = b"tm_crash_recove
 pub const TM_ERROR_API_NAME: &'static [u8; 13usize] = b"tm_error_api\0";
 pub const TM_FEATURE_FLAGS_API_NAME: &'static [u8; 17usize] = b"tm_feature_flags\0";
 pub const TM_GIT_IGNORE_API_NAME: &'static [u8; 18usize] = b"tm_git_ignore_api\0";
+pub const TM_IMAGE_LOADER_INTERFACE_NAME: &'static [u8; 18usize] = b"tm_image_loader_i\0";
 pub const TM_IMAGE_LOADER_API_NAME: &'static [u8; 20usize] = b"tm_image_loader_api\0";
 pub const TM_INPUT_API_NAME: &'static [u8; 13usize] = b"tm_input_api\0";
 pub const TM_INTEGRATION_TEST_INTERFACE_NAME: &'static [u8; 22usize] = b"tm_integration_test_i\0";
@@ -2451,6 +2452,22 @@ pub struct InputApi {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
+pub struct IntegrationTestConfigT {
+    pub config: *mut ConfigI,
+    pub object: ConfigItemT,
+    pub _padding_33: [::std::os::raw::c_char; 4usize],
+}
+impl Default for IntegrationTestConfigT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
 pub struct IntegrationTestRunnerO {
     _unused: [u8; 0],
 }
@@ -2459,10 +2476,30 @@ pub struct IntegrationTestRunnerO {
 pub struct IntegrationTestRunnerI {
     pub inst: *mut IntegrationTestRunnerO,
     pub context: StrhashT,
+    pub config: IntegrationTestConfigT,
     pub app: *mut ApplicationO,
     pub wait: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut IntegrationTestRunnerO, sec: f32, id: u64) -> bool,
     >,
+    pub record: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut IntegrationTestRunnerO,
+            pass: bool,
+            test_str: *const ::std::os::raw::c_char,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+        ) -> bool,
+    >,
+    pub expect_error: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut IntegrationTestRunnerO,
+            err: *const ::std::os::raw::c_char,
+            file: *const ::std::os::raw::c_char,
+            line: u32,
+        ),
+    >,
+    pub has_errors: ::std::option::Option<unsafe extern "C" fn() -> bool>,
+    pub num_errors: ::std::option::Option<unsafe extern "C" fn() -> u32>,
 }
 impl Default for IntegrationTestRunnerI {
     fn default() -> Self {
@@ -2477,6 +2514,8 @@ impl Default for IntegrationTestRunnerI {
 #[derive(Copy, Clone)]
 pub struct IntegrationTestI {
     pub name: *const ::std::os::raw::c_char,
+    pub path_config_json_file: *const ::std::os::raw::c_char,
+    pub config_key: StrhashT,
     pub context: StrhashT,
     pub tick: ::std::option::Option<unsafe extern "C" fn(arg1: *mut IntegrationTestRunnerI)>,
 }
@@ -11045,6 +11084,9 @@ pub const TM_FEATURE_FLAG__ASSET_THUMBNAILS: StrhashT = StrhashT {
 };
 pub const TM_FEATURE_FLAG__GLOBAL_ILLUMINATION: StrhashT = StrhashT {
     u64_: 14054475124752319158u64,
+};
+pub const TM_FEATURE_FLAG__NETWORKING: StrhashT = StrhashT {
+    u64_: 14342885002789868064u64,
 };
 pub const TM_INTEGRATION_TEST_CONTEXT__THE_MACHINERY_EDITOR: StrhashT = StrhashT {
     u64_: 6564203205322320365u64,

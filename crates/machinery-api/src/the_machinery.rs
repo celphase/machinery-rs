@@ -103,6 +103,7 @@ pub const TM_INPUT_LOG_TAB_VT_NAME: &'static [u8; 17usize] = b"tm_input_log_tab\
 pub const TM_JSON_TAB_VT_NAME: &'static [u8; 12usize] = b"tm_json_tab\0";
 pub const TM_LOGIN_TAB_VT_NAME: &'static [u8; 13usize] = b"tm_login_tab\0";
 pub const TM_MODIFIED_ASSETS_TAB_VT_NAME: &'static [u8; 23usize] = b"tm_modified_assets_tab\0";
+pub const TM_NETWORK_TAB_VT_NAME: &'static [u8; 15usize] = b"tm_network_tab\0";
 pub const TM_PREVIEW_TAB_VT_NAME: &'static [u8; 15usize] = b"tm_preview_tab\0";
 pub const TM_PROFILER_TAB_VT_NAME: &'static [u8; 16usize] = b"tm_profiler_tab\0";
 pub const TM_PROPERTIES_TAB_VT_NAME: &'static [u8; 18usize] = b"tm_properties_tab\0";
@@ -115,7 +116,7 @@ pub const TM_STATE_GRAPH_TAB_VT_NAME: &'static [u8; 19usize] = b"tm_state_graph_
 pub const TM_STATISTICS_TAB_VT_NAME: &'static [u8; 18usize] = b"tm_statistics_tab\0";
 pub const TM_TASK_MANAGER_API_NAME: &'static [u8; 20usize] = b"tm_task_manager_api\0";
 pub const TM_TASK_MANAGER_TAB_VT_NAME: &'static [u8; 20usize] = b"tm_task_manager_tab\0";
-pub const THE_MACHINERY_VERSION: &'static [u8; 9usize] = b"2021.6.b\0";
+pub const THE_MACHINERY_VERSION: &'static [u8; 7usize] = b"2021.7\0";
 pub const TM_TT_TYPE__APPLICATION_SETTINGS: &'static [u8; 24usize] = b"tm_application_settings\0";
 pub const TM_TT_TYPE__PROJECT_MANAGEMENT_SETTINGS: &'static [u8; 31usize] =
     b"tm_project_management_settings\0";
@@ -782,6 +783,11 @@ extern "C" {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
+pub struct NetworkO {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
 pub struct TabCreateContextT {
     pub allocator: *mut AllocatorI,
     pub id: *mut u64,
@@ -790,6 +796,7 @@ pub struct TabCreateContextT {
     pub undo_stack: *mut UndoStackI,
     pub save_interface: *mut AssetSaveI,
     pub ui_renderer: *mut UiRendererO,
+    pub network: *mut NetworkO,
 }
 impl Default for TabCreateContextT {
     fn default() -> Self {
@@ -1257,6 +1264,9 @@ pub const TM_LOGIN_TAB_VT_NAME_HASH: StrhashT = StrhashT {
 };
 pub const TM_MODIFIED_ASSETS_TAB_VT_NAME_HASH: StrhashT = StrhashT {
     u64_: 10659480203678754394u64,
+};
+pub const TM_NETWORK_TAB_VT_NAME_HASH: StrhashT = StrhashT {
+    u64_: 8766316902787013043u64,
 };
 pub const TM_PREVIEW_TAB_VT_NAME_HASH: StrhashT = StrhashT {
     u64_: 3090695599756087083u64,
