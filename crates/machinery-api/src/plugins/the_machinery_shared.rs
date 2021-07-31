@@ -1091,11 +1091,6 @@ pub struct RenderPipelineI {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub struct SimulateEntryI {
-    _unused: [u8; 0],
-}
-#[repr(C)]
 pub struct LightingEnvironmentSettingsT {
     pub enabled: bool,
     pub _padding_31: [::std::os::raw::c_char; 7usize],
@@ -1522,6 +1517,7 @@ use crate::plugins::entity::*;
 use crate::plugins::render_graph::*;
 use crate::plugins::renderer::*;
 use crate::plugins::shader_system::*;
+use crate::plugins::simulate::*;
 use crate::plugins::ui::*;
 
 impl AssetPreviewApi {
