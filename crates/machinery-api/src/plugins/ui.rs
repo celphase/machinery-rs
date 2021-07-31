@@ -1152,79 +1152,6 @@ pub struct Draw2dGlyphVertexT {
     pub glyph: u32,
 }
 #[repr(C)]
-#[derive(Default, Copy, Clone)]
-pub struct RendererHandleT {
-    pub resource: u32,
-    pub bindless_srv: u32,
-    pub bindless_uav: u32,
-}
-pub const TM_RENDERER_SHADER_STAGE_VERTEX: RendererShaderStage = 0;
-pub const TM_RENDERER_SHADER_STAGE_HULL: RendererShaderStage = 1;
-pub const TM_RENDERER_SHADER_STAGE_DOMAIN: RendererShaderStage = 2;
-pub const TM_RENDERER_SHADER_STAGE_GEOMETRY: RendererShaderStage = 3;
-pub const TM_RENDERER_SHADER_STAGE_PIXEL: RendererShaderStage = 4;
-pub const TM_RENDERER_SHADER_STAGE_COMPUTE: RendererShaderStage = 5;
-pub const TM_RENDERER_SHADER_STAGE_RAYGEN: RendererShaderStage = 6;
-pub const TM_RENDERER_SHADER_STAGE_ANY_HIT: RendererShaderStage = 7;
-pub const TM_RENDERER_SHADER_STAGE_CLOSEST_HIT: RendererShaderStage = 8;
-pub const TM_RENDERER_SHADER_STAGE_MISS: RendererShaderStage = 9;
-pub const TM_RENDERER_SHADER_STAGE_INTERSECTION: RendererShaderStage = 10;
-pub const TM_RENDERER_SHADER_STAGE_MAX: RendererShaderStage = 11;
-pub type RendererShaderStage = ::std::os::raw::c_int;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_TESSELLATION: RendererStateBlockType = 0;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_RASTER: RendererStateBlockType = 1;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_DEPTH_STENCIL: RendererStateBlockType = 2;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_TEXTURE_SAMPLER: RendererStateBlockType = 3;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_RENDER_TARGET_BLEND: RendererStateBlockType = 4;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_BLEND: RendererStateBlockType = 5;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_MULTI_SAMPLE: RendererStateBlockType = 6;
-pub const TM_RENDERER_STATE_BLOCK_TYPE_MAX_STATE_BLOCK_TYPES: RendererStateBlockType = 7;
-pub type RendererStateBlockType = ::std::os::raw::c_int;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BOOL: RendererStateValueType = 0;
-pub const TM_RENDERER_STATE_VALUE_TYPE_UINT32: RendererStateValueType = 1;
-pub const TM_RENDERER_STATE_VALUE_TYPE_FLOAT32: RendererStateValueType = 2;
-pub const TM_RENDERER_STATE_VALUE_TYPE_COMPARE_OP: RendererStateValueType = 3;
-pub const TM_RENDERER_STATE_VALUE_TYPE_CULL: RendererStateValueType = 4;
-pub const TM_RENDERER_STATE_VALUE_TYPE_FRONT_FACE: RendererStateValueType = 5;
-pub const TM_RENDERER_STATE_VALUE_TYPE_POLYGON_MODE: RendererStateValueType = 6;
-pub const TM_RENDERER_STATE_VALUE_TYPE_STENCIL_OP: RendererStateValueType = 7;
-pub const TM_RENDERER_STATE_VALUE_TYPE_FILTER: RendererStateValueType = 8;
-pub const TM_RENDERER_STATE_VALUE_TYPE_MIP_MODE: RendererStateValueType = 9;
-pub const TM_RENDERER_STATE_VALUE_TYPE_ADDRESS_MODE: RendererStateValueType = 10;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BORDER_COLOR: RendererStateValueType = 11;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BLEND_FACTOR: RendererStateValueType = 12;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BLEND_OPERATION: RendererStateValueType = 13;
-pub const TM_RENDERER_STATE_VALUE_TYPE_BLEND_WRITE_MASK: RendererStateValueType = 14;
-pub const TM_RENDERER_STATE_VALUE_TYPE_LOGICAL_OPERATION: RendererStateValueType = 15;
-pub const TM_RENDERER_STATE_VALUE_TYPE_STATE_BLOCK: RendererStateValueType = -16777216;
-pub const TM_RENDERER_STATE_VALUE_TYPE_MAX_VALUE_TYPES: RendererStateValueType = -16777215;
-pub type RendererStateValueType = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct RendererShaderBlobT {
-    pub size: u64,
-    pub data: *mut u8,
-}
-impl Default for RendererShaderBlobT {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct RendererResourceCommandBufferApi {
-    _unused: [u8; 0],
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct RendererResourceCommandBufferO {
-    _unused: [u8; 0],
-}
-#[repr(C)]
 #[derive(Copy, Clone)]
 pub struct FontLibraryT {
     _unused: [u8; 0],
@@ -4241,16 +4168,6 @@ pub struct UiIconApi {
     >,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub struct RendererCommandBufferO {
-    _unused: [u8; 0],
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ShaderRepositoryO {
-    _unused: [u8; 0],
-}
-#[repr(C)]
 pub struct FontProviderT {
     pub font_id: StrhashT,
     pub font_size: u32,
@@ -4817,6 +4734,8 @@ use const_cstr::{const_cstr, ConstCStr};
 
 use crate::foundation::*;
 use crate::plugins::entity::*;
+use crate::plugins::renderer::*;
+use crate::plugins::shader_system::*;
 use crate::the_machinery::TabCreateContextT;
 
 impl UiClipboardApi {
@@ -5517,8 +5436,6 @@ impl FontApi {
 impl crate::Api for FontApi {
     const NAME: ConstCStr = const_cstr!("tm_font_api");
 }
-
-impl RendererResourceCommandBufferApi {}
 
 impl FontLibraryApi {
     pub unsafe fn create(&self, allocator: *mut AllocatorI) -> *mut FontLibraryT {

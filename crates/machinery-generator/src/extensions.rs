@@ -15,10 +15,7 @@ use nom::{
 };
 use proc_macro2::Span;
 use quote::quote;
-use syn::{
-    File, FnArg, ForeignItem, GenericArgument, Ident, Item, ItemStruct, PathArguments, ReturnType,
-    Type,
-};
+use syn::{File, FnArg, ForeignItem, GenericArgument, Ident, ImplItem, Item, ItemStruct, PathArguments, ReturnType, Type};
 
 use crate::config::Project;
 
@@ -112,6 +109,18 @@ fn rename_item(item: &mut Item) {
         }
         Item::Impl(item) => {
             rename_ty(&mut item.self_ty);
+            for item in &mut item.items {
+                if let ImplItem::Method(item) = item {
+                    for input in &mut item.sig.inputs {
+                        if let FnArg::Typed(ty) = input {
+                            rename_ty(&mut ty.ty);
+                        }
+                    }
+                    if let ReturnType::Type(_, ty) = &mut item.sig.output {
+                        rename_ty(ty);
+                    }
+                }
+            }
         }
         Item::Struct(item) => {
             for field in &mut item.fields {

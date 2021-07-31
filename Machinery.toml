@@ -11,6 +11,40 @@ headers_prefix = "plugins/entity"
 target = "./crates/machinery-api/src/plugins/entity.rs"
 uses = ["crate::foundation::*"]
 
+[projects.plugins-renderer]
+headers = "$TM_SDK_DIR/headers/plugins/renderer"
+headers_prefix = "plugins/renderer"
+target = "./crates/machinery-api/src/plugins/renderer.rs"
+uses = [
+    "crate::foundation::*",
+    "crate::plugins::ui::UiStyleT",
+]
+blocklist = ["tm_ui_style_t"]
+
+[projects.plugins-shader_system]
+headers = "$TM_SDK_DIR/headers/plugins/shader_system"
+headers_prefix = "plugins/shader_system"
+target = "./crates/machinery-api/src/plugins/shader_system.rs"
+uses = [
+    "crate::foundation::*",
+    "crate::plugins::entity::*",
+    "crate::plugins::renderer::*",
+    "crate::plugins::render_graph::RenderGraphO",
+]
+blocklist = ["tm_render_graph_o"]
+
+[projects.plugins-render_graph]
+headers = "$TM_SDK_DIR/headers/plugins/render_graph"
+headers_prefix = "plugins/render_graph"
+target = "./crates/machinery-api/src/plugins/render_graph.rs"
+uses = [
+    "crate::foundation::*",
+    "crate::plugins::renderer::*",
+    "crate::plugins::shader_system::*",
+    "crate::plugins::ui::{UiStyleT, ToolbarI}",
+]
+blocklist = ["tm_ui_style_t", "tm_toolbar_i"]
+
 [projects.plugins-ui]
 headers = "$TM_SDK_DIR/headers/plugins/ui"
 headers_prefix = "plugins/ui"
@@ -18,9 +52,19 @@ target = "./crates/machinery-api/src/plugins/ui.rs"
 uses = [
     "crate::foundation::*",
     "crate::plugins::entity::*",
+    "crate::plugins::renderer::*",
+    "crate::plugins::shader_system::*",
     "crate::the_machinery::TabCreateContextT",
 ]
 blocklist = ["tm_tab_create_context_t"]
+
+[projects.plugins-graph_common]
+headers = "$TM_SDK_DIR/headers/plugins/graph_common"
+headers_prefix = "plugins/graph_common"
+target = "./crates/machinery-api/src/plugins/graph_common.rs"
+uses = [
+    "crate::foundation::*",
+]
 
 [projects.plugins-editor_views]
 headers = "$TM_SDK_DIR/headers/plugins/editor_views"
@@ -29,6 +73,17 @@ target = "./crates/machinery-api/src/plugins/editor_views.rs"
 uses = [
     "crate::foundation::*",
     "crate::plugins::ui::*",
+]
+
+[projects.plugins-graph_interpreter]
+headers = "$TM_SDK_DIR/headers/plugins/graph_interpreter"
+headers_prefix = "plugins/graph_interpreter"
+target = "./crates/machinery-api/src/plugins/graph_interpreter.rs"
+prefix_headers = ["plugins/editor_views/graph.h"]
+uses = [
+    "crate::foundation::*",
+    "crate::plugins::entity::*",
+    "crate::plugins::editor_views::*",
 ]
 
 [projects.plugins-the_machinery_shared]
@@ -41,6 +96,24 @@ uses = [
     "crate::plugins::entity::*",
     "crate::plugins::ui::*",
     "crate::plugins::editor_views::*",
+    "crate::plugins::renderer::*",
+    "crate::plugins::shader_system::*",
+    "crate::plugins::render_graph::*",
+]
+
+[projects.plugins-creation_graph]
+headers = "$TM_SDK_DIR/headers/plugins/creation_graph"
+headers_prefix = "plugins/creation_graph"
+target = "./crates/machinery-api/src/plugins/creation_graph.rs"
+uses = [
+    "crate::foundation::*",
+    "crate::plugins::entity::*",
+    "crate::plugins::renderer::*",
+    "crate::plugins::shader_system::*",
+    "crate::plugins::render_graph::*",
+    "crate::plugins::ui::*",
+    "crate::plugins::editor_views::*",
+    "crate::plugins::the_machinery_shared::*"
 ]
 
 [projects.the_machinery]
@@ -54,4 +127,5 @@ uses = [
     "crate::plugins::ui::*",
     "crate::plugins::editor_views::*",
     "crate::plugins::the_machinery_shared::*",
+    "crate::plugins::renderer::*",
 ]

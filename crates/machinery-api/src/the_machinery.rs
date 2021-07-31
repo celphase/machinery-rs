@@ -663,62 +663,6 @@ extern "C" {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct RenderGraphApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_render_graph_api: *mut RenderGraphApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct RenderGraphModuleApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_render_graph_module_api: *mut RenderGraphModuleApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct RendererInitApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_renderer_init_api: *mut RendererInitApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ShaderApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_shader_api: *mut ShaderApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ShaderDeclarationApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_shader_declaration_api: *mut ShaderDeclarationApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ShaderRepositoryApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_shader_repository_api: *mut ShaderRepositoryApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ShaderSystemApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_shader_system_api: *mut ShaderSystemApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
 pub struct VulkanApi {
     _unused: [u8; 0],
 }
@@ -751,11 +695,6 @@ pub struct OpenvrApi {
 }
 extern "C" {
     pub static mut tm_openvr_api_opt: *mut OpenvrApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct RendererCommandBufferApi {
-    _unused: [u8; 0],
 }
 extern "C" {
     pub static mut tm_cmd_buf_api: *mut RendererCommandBufferApi;
@@ -876,6 +815,7 @@ use const_cstr::{const_cstr, ConstCStr};
 use crate::foundation::*;
 use crate::plugins::editor_views::*;
 use crate::plugins::entity::*;
+use crate::plugins::renderer::*;
 use crate::plugins::the_machinery_shared::*;
 use crate::plugins::ui::*;
 
@@ -1124,20 +1064,6 @@ impl OsWindowApi {}
 
 impl PrimitiveDrawerApi {}
 
-impl RenderGraphApi {}
-
-impl RenderGraphModuleApi {}
-
-impl RendererInitApi {}
-
-impl ShaderApi {}
-
-impl ShaderDeclarationApi {}
-
-impl ShaderRepositoryApi {}
-
-impl ShaderSystemApi {}
-
 impl VulkanApi {}
 
 impl GpuPickingApi {}
@@ -1145,8 +1071,6 @@ impl GpuPickingApi {}
 impl GltfApi {}
 
 impl OpenvrApi {}
-
-impl RendererCommandBufferApi {}
 
 pub const TM_ASSET_BROWSER_TAB_VT_NAME_HASH: StrhashT = StrhashT {
     u64_: 13036556916491485142u64,
