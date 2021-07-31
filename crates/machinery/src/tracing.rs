@@ -50,23 +50,22 @@ impl Subscriber for TmSubscriber {
                 message: String::new(),
             };
 
-            // Prefix with the module
-            if let Some(path) = event.metadata().module_path() {
-                visitor.message.push_str(path);
-                visitor.message.push_str(": ");
-            }
-
             // Add the message data
             event.record(&mut visitor);
 
-            // Add file metadata to the message
+            // Add module and file information to the message
+            if let Some(path) = event.metadata().module_path() {
+                visitor.message.push_str("\n    ");
+                visitor.message.push_str(path);
+            }
+
+            visitor.message.push_str(" at ");
             if let Some(file) = event.metadata().file() {
-                visitor.message.push_str("\n    at ");
                 visitor.message.push_str(file);
 
-                if let Some(file) = event.metadata().line() {
+                if let Some(line) = event.metadata().line() {
                     visitor.message.push(':');
-                    visitor.message.push_str(&file.to_string());
+                    visitor.message.push_str(&line.to_string());
                 }
             }
 
