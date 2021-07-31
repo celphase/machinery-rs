@@ -5,11 +5,11 @@ use syn::{
     parse_macro_input, FnArg, Ident, ImplItem, ItemImpl, Result, Type,
 };
 
-struct ExportSingletonFnsInput {
+struct ExportInstanceFnsInput {
     item: ItemImpl,
 }
 
-impl Parse for ExportSingletonFnsInput {
+impl Parse for ExportInstanceFnsInput {
     fn parse(input: ParseStream) -> Result<Self> {
         Ok(Self {
             item: input.parse()?,
@@ -17,13 +17,24 @@ impl Parse for ExportSingletonFnsInput {
     }
 }
 
-pub fn export_singleton_fns(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let mut input = parse_macro_input!(item as ExportSingletonFnsInput);
+pub fn export_instance_fns(
+    attr: proc_macro::TokenStream,
+    item: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
+    let target = attr.to_string();
+    let mut input = parse_macro_input!(item as ExportInstanceFnsInput);
 
     let ty_name = if let Type::Path(ref path) = &*input.item.self_ty {
         path.path.segments.last().unwrap().ident.clone()
     } else {
-        panic!("Invalid target for export_singleton_fns")
+        panic!("Invalid target for export_instance_fns")
+    };
+
+    // Get the target out of the attribute
+    let target_ident = if target.is_empty() {
+        ty_name.clone()
+    } else {
+        Ident::new(&target, Span::call_site())
     };
 
     // Go over all functions in the input
@@ -54,9 +65,11 @@ pub fn export_singleton_fns(item: proc_macro::TokenStream) -> proc_macro::TokenS
             // Generate an external C wrapper
             let ret_val = &fun_item.sig.output;
             let wrapper = quote! {
-                unsafe extern "C" fn #original_name(#(#args_with_types),*) #ret_val {
-                    use machinery::Singleton;
-                    (*#ty_name::ptr()).#internal_ident(#(#args_without_types),*)
+                unsafe extern "C" fn #original_name(
+                    inst: *mut #target_ident,
+                    #(#args_with_types),*
+                ) #ret_val {
+                    (*(inst as *mut #ty_name)).#internal_ident(#(#args_without_types),*)
                 }
             };
             wrappers.push(wrapper);

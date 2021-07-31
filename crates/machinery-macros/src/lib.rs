@@ -1,6 +1,7 @@
 mod identifier;
-mod singleton_export;
 mod singleton_derive;
+mod singleton_export;
+mod instance_export;
 
 #[proc_macro_derive(Singleton)]
 pub fn derive_singleton(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
@@ -14,6 +15,15 @@ pub fn export_singleton_fns(
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     singleton_export::export_singleton_fns(item)
+}
+
+/// Generates `extern "C"` wrappers for instance member functions.
+#[proc_macro_attribute]
+pub fn export_instance_fns(
+    attr: proc_macro::TokenStream,
+    item: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
+    instance_export::export_instance_fns(attr, item)
 }
 
 /// Generates constants for a The Machinery identifier.
