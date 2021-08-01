@@ -92,6 +92,6 @@ pub const TM_TT_NO_UNDO_SCOPE: TtUndoScopeT = TtUndoScopeT { u64_: 0 };
 /// Couldn't be generated as carray.inl includes a standard library header.
 #[repr(C)]
 pub struct CArrayHeaderT {
-    capacity: u64,
-    size: u64,
+    pub capacity: u64,
+    pub size: u64,
 }
