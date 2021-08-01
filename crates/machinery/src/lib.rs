@@ -88,3 +88,10 @@ pub fn tt_id_type(id: TtIdT) -> TtTypeT {
 
 /// Used as `undo_scope` for operations that shouldn't be undoable.
 pub const TM_TT_NO_UNDO_SCOPE: TtUndoScopeT = TtUndoScopeT { u64_: 0 };
+
+/// Couldn't be generated as carray.inl includes a standard library header.
+#[repr(C)]
+pub struct CArrayHeaderT {
+    capacity: u64,
+    size: u64,
+}
