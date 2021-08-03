@@ -54,12 +54,12 @@ impl Subscriber for TmSubscriber {
             event.record(&mut visitor);
 
             // Add module and file information to the message
+            visitor.message.push_str("\n    at ");
             if let Some(path) = event.metadata().module_path() {
-                visitor.message.push_str("\n    ");
                 visitor.message.push_str(path);
             }
 
-            visitor.message.push_str(" at ");
+            visitor.message.push_str(" (");
             if let Some(file) = event.metadata().file() {
                 visitor.message.push_str(file);
 
@@ -68,6 +68,7 @@ impl Subscriber for TmSubscriber {
                     visitor.message.push_str(&line.to_string());
                 }
             }
+            visitor.message.push(')');
 
             // Convert from tracing level to machinery log type
             let level = match *event.metadata().level() {
