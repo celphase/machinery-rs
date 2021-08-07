@@ -32,8 +32,10 @@ impl TmSubscriber {
 }
 
 impl Subscriber for TmSubscriber {
-    fn enabled(&self, _metadata: &tracing::Metadata<'_>) -> bool {
-        true
+    fn enabled(&self, metadata: &tracing::Metadata<'_>) -> bool {
+        // Assume anything DEBUG level or lower does not need to be logged
+        let level = *metadata.level();
+        !(level == Level::DEBUG || level == Level::TRACE)
     }
 
     fn new_span(&self, _span: &span::Attributes<'_>) -> Id {
