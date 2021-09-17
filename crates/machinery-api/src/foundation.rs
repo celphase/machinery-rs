@@ -131,6 +131,7 @@ pub const TM_PLUGIN_ASSETS_API_NAME: &'static [u8; 21usize] = b"tm_plugin_assets
 pub const TM_PLUGIN_INIT_INTERFACE_NAME: &'static [u8; 17usize] = b"tm_plugin_init_i\0";
 pub const TM_PLUGIN_SHUTDOWN_INTERFACE_NAME: &'static [u8; 21usize] = b"tm_plugin_shutdown_i\0";
 pub const TM_PLUGIN_TICK_INTERFACE_NAME: &'static [u8; 17usize] = b"tm_plugin_tick_i\0";
+pub const TM_PLUGIN_RELOAD_INTERFACE_NAME: &'static [u8; 19usize] = b"tm_plugin_reload_i\0";
 pub const TM_PLUGIN_SET_THE_TRUTH_INTERFACE_NAME: &'static [u8; 26usize] =
     b"tm_plugin_set_the_truth_i\0";
 pub const TM_PROFILER_API_NAME: &'static [u8; 16usize] = b"tm_profiler_api\0";
@@ -156,6 +157,7 @@ pub const TM_TT_TYPE__ASSET: &'static [u8; 9usize] = b"tm_asset\0";
 pub const TM_TT_TYPE__ASSET_DIRECTORY: &'static [u8; 19usize] = b"tm_asset_directory\0";
 pub const TM_TT_TYPE__ASSET_LABEL: &'static [u8; 15usize] = b"tm_asset_label\0";
 pub const TM_ASSET_LABEL_INTERFACE_NAME: &'static [u8; 25usize] = b"tm_asset_label_interface\0";
+pub const TM_TT_TYPE__ASSET_THUMBNAIL: &'static [u8; 19usize] = b"tm_asset_thumbnail\0";
 pub const TM_THE_TRUTH_ASSETS_API_NAME: &'static [u8; 24usize] = b"tm_the_truth_assets_api\0";
 pub const TM_THE_TRUTH_MIGRATION_INTERFACE_NAME: &'static [u8; 25usize] =
     b"tm_the_truth_migration_i\0";
@@ -551,8 +553,15 @@ pub struct ApiRegistryApi {
     pub implementations: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
-            count: *mut u32,
         ) -> *mut *mut ::std::os::raw::c_void,
+    >,
+    pub num_implementations:
+        ::std::option::Option<unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> u32>,
+    pub first_implementation: ::std::option::Option<
+        unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
+    >,
+    pub single_implementation: ::std::option::Option<
+        unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
     >,
     pub add_listener:
         ::std::option::Option<unsafe extern "C" fn(listener: *const ApiRegistryListenerI)>,
@@ -625,7 +634,9 @@ pub struct ApplicationApi {
     pub default_render_pipeline_api: ::std::option::Option<
         unsafe extern "C" fn(app: *mut ApplicationO) -> *mut RenderPipelineApi,
     >,
-    pub ui_scale_factor:
+    pub custom_ui_scale_factor:
+        ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO) -> f32>,
+    pub display_scale_factor:
         ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO, ui: *mut UiO) -> f32>,
     pub data_dir: ::std::option::Option<
         unsafe extern "C" fn(app: *mut ApplicationO) -> *const ::std::os::raw::c_char,
@@ -637,6 +648,8 @@ pub struct ApplicationApi {
             format: *mut u32,
         ),
     >,
+    pub network:
+        ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO) -> *mut NetworkO>,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -1085,17 +1098,45 @@ pub const TM_CAMERA_FRUSTUM_PLANE_MAX_PLANES: CameraFrustumPlanes = 6;
 pub type CameraFrustumPlanes = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct CameraT {
-    pub projection: [Mat44T; 3usize],
-    pub view: [Mat44T; 3usize],
+pub struct CameraSettingsT {
     pub mode: CameraMode,
     pub near_plane: f32,
     pub far_plane: f32,
-    pub vertical_fov: f32,
-    pub box_height: f32,
+    pub __bindgen_anon_1: CameraSettingsTBindgenTy1,
     pub shutter_speed: f32,
     pub aperture: f32,
     pub iso: f32,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union CameraSettingsTBindgenTy1 {
+    pub vertical_fov: f32,
+    pub box_height: f32,
+}
+impl Default for CameraSettingsTBindgenTy1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for CameraSettingsT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct CameraT {
+    pub projection: [Mat44T; 3usize],
+    pub view: [Mat44T; 3usize],
+    pub settings: CameraSettingsT,
 }
 impl Default for CameraT {
     fn default() -> Self {
@@ -1112,6 +1153,14 @@ pub struct CameraApi {
     pub view_from_transform: ::std::option::Option<
         unsafe extern "C" fn(view: *mut Mat44T, tm: *const TransformT) -> *mut Mat44T,
     >,
+    pub view_from_lookin: ::std::option::Option<
+        unsafe extern "C" fn(
+            view: *mut Mat44T,
+            position: Vec3T,
+            forward: Vec3T,
+            up: Vec3T,
+        ) -> *mut Mat44T,
+    >,
     pub transform_from_view: ::std::option::Option<
         unsafe extern "C" fn(tm: *mut TransformT, view: *const Mat44T) -> *mut TransformT,
     >,
@@ -1125,6 +1174,22 @@ pub struct CameraApi {
             near: f32,
             far: f32,
         ) -> *mut Mat44T,
+    >,
+    pub matrices_from_eyes: ::std::option::Option<
+        unsafe extern "C" fn(
+            camera: *mut CameraT,
+            head_tm: *const Mat44T,
+            head_to_left_eye: *const Mat44T,
+            head_to_right_eye: *const Mat44T,
+            left_eye_left: f32,
+            left_eye_right: f32,
+            left_eye_top: f32,
+            left_eye_bottom: f32,
+            right_eye_left: f32,
+            right_eye_right: f32,
+            right_eye_top: f32,
+            right_eye_bottom: f32,
+        ),
     >,
     pub projection_from_fov: ::std::option::Option<
         unsafe extern "C" fn(
@@ -1193,7 +1258,8 @@ pub struct CameraApi {
     pub meters_per_pixel: ::std::option::Option<
         unsafe extern "C" fn(distance: f32, vertical_fov: f32, viewport_height: f32) -> f32,
     >,
-    pub default_camera: ::std::option::Option<unsafe extern "C" fn() -> *const CameraT>,
+    pub default_camera_settings:
+        ::std::option::Option<unsafe extern "C" fn() -> *const CameraSettingsT>,
     pub frustum_planes_from_view_projection: ::std::option::Option<
         unsafe extern "C" fn(
             view: *const Mat44T,
@@ -2068,7 +2134,6 @@ pub const TM_INPUT_KEYBOARD_ITEM_KANA: InputKeyboardItem = 21;
 pub const TM_INPUT_KEYBOARD_ITEM_JUNJA: InputKeyboardItem = 23;
 pub const TM_INPUT_KEYBOARD_ITEM_FINAL: InputKeyboardItem = 24;
 pub const TM_INPUT_KEYBOARD_ITEM_HANJA: InputKeyboardItem = 25;
-pub const TM_INPUT_KEYBOARD_ITEM_KANJI: InputKeyboardItem = 25;
 pub const TM_INPUT_KEYBOARD_ITEM_ESCAPE: InputKeyboardItem = 27;
 pub const TM_INPUT_KEYBOARD_ITEM_CONVERT: InputKeyboardItem = 28;
 pub const TM_INPUT_KEYBOARD_ITEM_NONCONVERT: InputKeyboardItem = 29;
@@ -2181,7 +2246,6 @@ pub const TM_INPUT_KEYBOARD_ITEM_NAVIGATION_CANCEL: InputKeyboardItem = 143;
 pub const TM_INPUT_KEYBOARD_ITEM_NUMLOCK: InputKeyboardItem = 144;
 pub const TM_INPUT_KEYBOARD_ITEM_SCROLLLOCK: InputKeyboardItem = 145;
 pub const TM_INPUT_KEYBOARD_ITEM_NUMPADEQUAL: InputKeyboardItem = 146;
-pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_JISHO: InputKeyboardItem = 146;
 pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_MASSHOU: InputKeyboardItem = 147;
 pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_TOUROKU: InputKeyboardItem = 148;
 pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_LOYA: InputKeyboardItem = 149;
@@ -2275,6 +2339,8 @@ pub const TM_INPUT_KEYBOARD_ITEM_ZOOM: InputKeyboardItem = 251;
 pub const TM_INPUT_KEYBOARD_ITEM_NONAME: InputKeyboardItem = 252;
 pub const TM_INPUT_KEYBOARD_ITEM_PA1: InputKeyboardItem = 253;
 pub const TM_INPUT_KEYBOARD_ITEM_OEM_CLEAR: InputKeyboardItem = 254;
+pub const TM_INPUT_KEYBOARD_ITEM_KANJI: InputKeyboardItem = 25;
+pub const TM_INPUT_KEYBOARD_ITEM_OEM_FJ_JISHO: InputKeyboardItem = 146;
 pub const TM_INPUT_KEYBOARD_ITEM_HASHTILDE: InputKeyboardItem = 255;
 pub const TM_INPUT_KEYBOARD_ITEM_102ND: InputKeyboardItem = 256;
 pub const TM_INPUT_KEYBOARD_ITEM_COMPOSE: InputKeyboardItem = 257;
@@ -2354,7 +2420,7 @@ pub struct InputItemT {
     pub id: u64,
     pub name: *const ::std::os::raw::c_char,
     pub components: u32,
-    pub _padding_413: [::std::os::raw::c_char; 4usize],
+    pub _padding_421: [::std::os::raw::c_char; 4usize],
 }
 impl Default for InputItemT {
     fn default() -> Self {
@@ -2419,7 +2485,7 @@ impl Default for InputEventT {
 pub struct InputSourceI {
     pub controller_name: *const ::std::os::raw::c_char,
     pub controller_type: u32,
-    pub _padding_471: [::std::os::raw::c_char; 4usize],
+    pub _padding_479: [::std::os::raw::c_char; 4usize],
     pub controllers: ::std::option::Option<unsafe extern "C" fn(ids: *mut *mut u64) -> u32>,
     pub items: ::std::option::Option<unsafe extern "C" fn(items: *mut *mut InputItemT) -> u32>,
     pub events: ::std::option::Option<
@@ -3379,6 +3445,7 @@ pub struct OsInfoApi {
 pub struct OsDebuggerApi {
     pub is_debugger_present: ::std::option::Option<unsafe extern "C" fn() -> bool>,
     pub debug_break: ::std::option::Option<unsafe extern "C" fn()>,
+    pub print_stack_trace: ::std::option::Option<unsafe extern "C" fn()>,
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -3548,6 +3615,21 @@ pub struct PluginTickI {
     pub tick: ::std::option::Option<unsafe extern "C" fn(inst: *mut PluginO, dt: f32)>,
 }
 impl Default for PluginTickI {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct PluginReloadI {
+    pub inst: *mut PluginO,
+    pub reload: ::std::option::Option<unsafe extern "C" fn(inst: *mut PluginO)>,
+}
+impl Default for PluginReloadI {
     fn default() -> Self {
         let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -3928,6 +4010,9 @@ pub struct StringRepositoryI {
             s: *const ::std::os::raw::c_char,
         ) -> StrhashT,
     >,
+    pub add_str: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut StringRepositoryO, s: StrT) -> StrhashT,
+    >,
     pub retain:
         ::std::option::Option<unsafe extern "C" fn(inst: *mut StringRepositoryO, hash: StrhashT)>,
     pub remove:
@@ -3944,6 +4029,8 @@ pub struct StringRepositoryI {
             s: *const ::std::os::raw::c_char,
         ) -> *const ::std::os::raw::c_char,
     >,
+    pub intern_str:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut StringRepositoryO, s: StrT) -> StrT>,
 }
 impl Default for StringRepositoryI {
     fn default() -> Self {
@@ -4003,10 +4090,7 @@ impl Default for TempAllocatorI {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct TempAllocator1024O {
-    pub ta: TempAllocatorI,
     pub buffer: [::std::os::raw::c_char; 1024usize],
-    pub backing: *mut AllocatorI,
-    pub first_block: *mut ::std::os::raw::c_void,
 }
 impl Default for TempAllocator1024O {
     fn default() -> Self {
@@ -4028,12 +4112,15 @@ pub struct TempAllocatorStatisticsT {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct TempAllocatorApi {
-    pub init_1024: ::std::option::Option<
-        unsafe extern "C" fn(ta: *mut TempAllocator1024O, backing: *mut AllocatorI),
-    >,
-    pub shutdown_1024: ::std::option::Option<unsafe extern "C" fn(ta: *mut TempAllocator1024O)>,
     pub create: ::std::option::Option<
         unsafe extern "C" fn(backing: *mut AllocatorI) -> *mut TempAllocatorI,
+    >,
+    pub create_in_buffer: ::std::option::Option<
+        unsafe extern "C" fn(
+            buffer: *mut ::std::os::raw::c_char,
+            size: u64,
+            backing: *mut AllocatorI,
+        ) -> *mut TempAllocatorI,
     >,
     pub destroy: ::std::option::Option<unsafe extern "C" fn(ta: *mut TempAllocatorI)>,
     pub allocator:
@@ -4164,7 +4251,7 @@ pub struct TheTruthObjectO {
 #[derive(Copy, Clone)]
 pub struct TheTruthPropertyDefinitionT {
     pub name: *const ::std::os::raw::c_char,
-    pub type_: u32,
+    pub type_: TheTruthPropertyType,
     pub editor: u32,
     pub __bindgen_anon_1: TheTruthPropertyDefinitionTBindgenTy1,
     pub type_hash: StrhashT,
@@ -4573,7 +4660,7 @@ pub struct TheTruthApi {
             tt: *const TheTruthO,
             object_type: TtTypeT,
             name_hash: StrhashT,
-            type_: u32,
+            type_: TheTruthPropertyType,
             res: *mut u32,
         ) -> bool,
     >,
@@ -4812,6 +4899,13 @@ pub struct TheTruthApi {
             property: u32,
         ) -> TtBufferT,
     >,
+    pub get_buffer_id: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const TheTruthO,
+            obj: *const TheTruthObjectO,
+            property: u32,
+        ) -> u32,
+    >,
     pub get_reference: ::std::option::Option<
         unsafe extern "C" fn(
             tt: *const TheTruthO,
@@ -4865,6 +4959,13 @@ pub struct TheTruthApi {
             obj: *const TheTruthObjectO,
             property: u32,
         ) -> u64,
+    >,
+    pub get_subobject_set_type: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const TheTruthO,
+            obj: *const TheTruthObjectO,
+            property: u32,
+        ) -> TtTypeT,
     >,
     pub get_subobject_set_locally_removed: ::std::option::Option<
         unsafe extern "C" fn(
@@ -5134,6 +5235,16 @@ pub struct TheTruthApi {
             property: u32,
             items: *mut *mut TheTruthObjectO,
             count: u32,
+        ),
+    >,
+    pub add_to_subobject_set_id: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut TheTruthO,
+            obj: *mut TheTruthObjectO,
+            property: u32,
+            items: *const TtIdT,
+            count: u32,
+            undo_scope: TtUndoScopeT,
         ),
     >,
     pub remove_from_subobject_set: ::std::option::Option<
@@ -5442,11 +5553,14 @@ impl Default for AssetLabelT {
     }
 }
 pub type TtAssetsFileExtensionAspectI = ::std::os::raw::c_char;
+pub const TM_TT_PROP__ASSET_THUMBNAIL__THUMBNAIL: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__ASSET_THUMBNAIL__VALIDITY_HASH: ::std::os::raw::c_int = 1;
+pub type _bindgen_ty_6 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct TtAssetsBufferWriteT {
     pub id: u32,
-    pub _padding_118: [::std::os::raw::c_char; 4usize],
+    pub _padding_126: [::std::os::raw::c_char; 4usize],
     pub hash: u64,
     pub ext: *const ::std::os::raw::c_char,
 }
@@ -5464,7 +5578,7 @@ impl Default for TtAssetsBufferWriteT {
 pub struct TtAssetsBufferT {
     pub object_id: TtIdT,
     pub property_index: u32,
-    pub _padding_135: [::std::os::raw::c_char; 4usize],
+    pub _padding_143: [::std::os::raw::c_char; 4usize],
     pub hash: u64,
 }
 impl Default for TtAssetsBufferT {
@@ -5696,43 +5810,43 @@ pub struct TheTruthMigrationApi {
 }
 pub const TM_TT_PROP__VEC2__X: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__VEC2__Y: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_6 = ::std::os::raw::c_int;
+pub type _bindgen_ty_7 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__VEC3__X: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__VEC3__Y: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__VEC3__Z: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+pub type _bindgen_ty_8 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__VEC4__X: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__VEC4__Y: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__VEC4__Z: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__VEC4__W: ::std::os::raw::c_int = 3;
-pub type _bindgen_ty_8 = ::std::os::raw::c_int;
+pub type _bindgen_ty_9 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__POSITION__X: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__POSITION__Y: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__POSITION__Z: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_9 = ::std::os::raw::c_int;
+pub type _bindgen_ty_10 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__ROTATION__X: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__ROTATION__Y: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__ROTATION__Z: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__ROTATION__W: ::std::os::raw::c_int = 3;
-pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub type _bindgen_ty_11 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__SCALE__X: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__SCALE__Y: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__SCALE__Z: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_11 = ::std::os::raw::c_int;
+pub type _bindgen_ty_12 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__COLOR_RGB__R: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__COLOR_RGB__G: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__COLOR_RGB__B: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_12 = ::std::os::raw::c_int;
+pub type _bindgen_ty_13 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__COLOR_RGBA__R: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__COLOR_RGBA__G: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__COLOR_RGBA__B: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__COLOR_RGBA__A: ::std::os::raw::c_int = 3;
-pub type _bindgen_ty_13 = ::std::os::raw::c_int;
+pub type _bindgen_ty_14 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__RECT__X: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__RECT__Y: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__RECT__W: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__RECT__H: ::std::os::raw::c_int = 3;
-pub type _bindgen_ty_14 = ::std::os::raw::c_int;
+pub type _bindgen_ty_15 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct TheTruthCommonTypesApi {
@@ -6046,7 +6160,7 @@ pub const TM_UNICODE__ARROW_DOWNWARDS: ::std::os::raw::c_int = 8595;
 pub const TM_UNICODE__COPYRIGHT: ::std::os::raw::c_int = 169;
 pub const TM_UNICODE__CROSS_MARK: ::std::os::raw::c_int = 10060;
 pub const TM_UNICODE__DOUBLE_PRIME: ::std::os::raw::c_int = 8243;
-pub type _bindgen_ty_15 = ::std::os::raw::c_int;
+pub type _bindgen_ty_16 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct UnitTestRunnerO {
@@ -6182,7 +6296,7 @@ pub struct VisibilityFlagsApi {
     >,
 }
 pub const TM_TT_PROP__VISIBILITY_FLAG__UUID: ::std::os::raw::c_int = 0;
-pub type _bindgen_ty_16 = ::std::os::raw::c_int;
+pub type _bindgen_ty_17 = ::std::os::raw::c_int;
 pub const TM_WEB_SOCKET_OPCODE_CONTINUATION: WebSocketOpcode = 0;
 pub const TM_WEB_SOCKET_OPCODE_TEXT: WebSocketOpcode = 1;
 pub const TM_WEB_SOCKET_OPCODE_BINARY: WebSocketOpcode = 2;
@@ -6434,6 +6548,11 @@ pub struct RenderPipelineApi {
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
+pub struct NetworkO {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
 pub struct AssetIoO {
     pub _address: u8,
 }
@@ -6546,9 +6665,26 @@ impl ApiRegistryApi {
     pub unsafe fn implementations(
         &self,
         name: *const ::std::os::raw::c_char,
-        count: *mut u32,
     ) -> *mut *mut ::std::os::raw::c_void {
-        self.implementations.unwrap()(name, count)
+        self.implementations.unwrap()(name)
+    }
+
+    pub unsafe fn num_implementations(&self, name: *const ::std::os::raw::c_char) -> u32 {
+        self.num_implementations.unwrap()(name)
+    }
+
+    pub unsafe fn first_implementation(
+        &self,
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_void {
+        self.first_implementation.unwrap()(name)
+    }
+
+    pub unsafe fn single_implementation(
+        &self,
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_void {
+        self.single_implementation.unwrap()(name)
     }
 
     pub unsafe fn add_listener(&self, listener: *const ApiRegistryListenerI) {
@@ -6639,8 +6775,12 @@ impl ApplicationApi {
         self.default_render_pipeline_api.unwrap()(app)
     }
 
-    pub unsafe fn ui_scale_factor(&self, app: *mut ApplicationO, ui: *mut UiO) -> f32 {
-        self.ui_scale_factor.unwrap()(app, ui)
+    pub unsafe fn custom_ui_scale_factor(&self, app: *mut ApplicationO) -> f32 {
+        self.custom_ui_scale_factor.unwrap()(app)
+    }
+
+    pub unsafe fn display_scale_factor(&self, app: *mut ApplicationO, ui: *mut UiO) -> f32 {
+        self.display_scale_factor.unwrap()(app, ui)
     }
 
     pub unsafe fn data_dir(&self, app: *mut ApplicationO) -> *const ::std::os::raw::c_char {
@@ -6654,6 +6794,10 @@ impl ApplicationApi {
         format: *mut u32,
     ) {
         self.color_space.unwrap()(app, color_space, format)
+    }
+
+    pub unsafe fn network(&self, app: *mut ApplicationO) -> *mut NetworkO {
+        self.network.unwrap()(app)
     }
 }
 
@@ -6965,6 +7109,16 @@ impl CameraApi {
         self.view_from_transform.unwrap()(view, tm)
     }
 
+    pub unsafe fn view_from_lookin(
+        &self,
+        view: *mut Mat44T,
+        position: Vec3T,
+        forward: Vec3T,
+        up: Vec3T,
+    ) -> *mut Mat44T {
+        self.view_from_lookin.unwrap()(view, position, forward, up)
+    }
+
     pub unsafe fn transform_from_view(
         &self,
         tm: *mut TransformT,
@@ -6984,6 +7138,37 @@ impl CameraApi {
         far: f32,
     ) -> *mut Mat44T {
         self.projection_from_frustum.unwrap()(proj, left, right, bottom, top, near, far)
+    }
+
+    pub unsafe fn matrices_from_eyes(
+        &self,
+        camera: *mut CameraT,
+        head_tm: *const Mat44T,
+        head_to_left_eye: *const Mat44T,
+        head_to_right_eye: *const Mat44T,
+        left_eye_left: f32,
+        left_eye_right: f32,
+        left_eye_top: f32,
+        left_eye_bottom: f32,
+        right_eye_left: f32,
+        right_eye_right: f32,
+        right_eye_top: f32,
+        right_eye_bottom: f32,
+    ) {
+        self.matrices_from_eyes.unwrap()(
+            camera,
+            head_tm,
+            head_to_left_eye,
+            head_to_right_eye,
+            left_eye_left,
+            left_eye_right,
+            left_eye_top,
+            left_eye_bottom,
+            right_eye_left,
+            right_eye_right,
+            right_eye_top,
+            right_eye_bottom,
+        )
     }
 
     pub unsafe fn projection_from_fov(
@@ -7081,8 +7266,8 @@ impl CameraApi {
         self.meters_per_pixel.unwrap()(distance, vertical_fov, viewport_height)
     }
 
-    pub unsafe fn default_camera(&self) -> *const CameraT {
-        self.default_camera.unwrap()()
+    pub unsafe fn default_camera_settings(&self) -> *const CameraSettingsT {
+        self.default_camera_settings.unwrap()()
     }
 
     pub unsafe fn frustum_planes_from_view_projection(
@@ -8204,6 +8389,10 @@ impl OsDebuggerApi {
     pub unsafe fn debug_break(&self) {
         self.debug_break.unwrap()()
     }
+
+    pub unsafe fn print_stack_trace(&self) {
+        self.print_stack_trace.unwrap()()
+    }
 }
 
 impl OsSystemApi {
@@ -8673,16 +8862,17 @@ impl crate::Api for TaskSystemApi {
 }
 
 impl TempAllocatorApi {
-    pub unsafe fn init_1024(&self, ta: *mut TempAllocator1024O, backing: *mut AllocatorI) {
-        self.init_1024.unwrap()(ta, backing)
-    }
-
-    pub unsafe fn shutdown_1024(&self, ta: *mut TempAllocator1024O) {
-        self.shutdown_1024.unwrap()(ta)
-    }
-
     pub unsafe fn create(&self, backing: *mut AllocatorI) -> *mut TempAllocatorI {
         self.create.unwrap()(backing)
+    }
+
+    pub unsafe fn create_in_buffer(
+        &self,
+        buffer: *mut ::std::os::raw::c_char,
+        size: u64,
+        backing: *mut AllocatorI,
+    ) -> *mut TempAllocatorI {
+        self.create_in_buffer.unwrap()(buffer, size, backing)
     }
 
     pub unsafe fn destroy(&self, ta: *mut TempAllocatorI) {
@@ -8878,7 +9068,7 @@ impl TheTruthApi {
         tt: *const TheTruthO,
         object_type: TtTypeT,
         name_hash: StrhashT,
-        type_: u32,
+        type_: TheTruthPropertyType,
         res: *mut u32,
     ) -> bool {
         self.find_property.unwrap()(tt, object_type, name_hash, type_, res)
@@ -9231,6 +9421,15 @@ impl TheTruthApi {
         self.get_buffer.unwrap()(tt, obj, property)
     }
 
+    pub unsafe fn get_buffer_id(
+        &self,
+        tt: *const TheTruthO,
+        obj: *const TheTruthObjectO,
+        property: u32,
+    ) -> u32 {
+        self.get_buffer_id.unwrap()(tt, obj, property)
+    }
+
     pub unsafe fn get_reference(
         &self,
         tt: *const TheTruthO,
@@ -9299,6 +9498,15 @@ impl TheTruthApi {
         property: u32,
     ) -> u64 {
         self.get_subobject_set_size.unwrap()(tt, obj, property)
+    }
+
+    pub unsafe fn get_subobject_set_type(
+        &self,
+        tt: *const TheTruthO,
+        obj: *const TheTruthObjectO,
+        property: u32,
+    ) -> TtTypeT {
+        self.get_subobject_set_type.unwrap()(tt, obj, property)
     }
 
     pub unsafe fn get_subobject_set_locally_removed(
@@ -9657,6 +9865,18 @@ impl TheTruthApi {
         count: u32,
     ) {
         self.add_to_subobject_set.unwrap()(tt, obj, property, items, count)
+    }
+
+    pub unsafe fn add_to_subobject_set_id(
+        &self,
+        tt: *mut TheTruthO,
+        obj: *mut TheTruthObjectO,
+        property: u32,
+        items: *const TtIdT,
+        count: u32,
+        undo_scope: TtUndoScopeT,
+    ) {
+        self.add_to_subobject_set_id.unwrap()(tt, obj, property, items, count, undo_scope)
     }
 
     pub unsafe fn remove_from_subobject_set(
@@ -11058,9 +11278,6 @@ pub const TM_FEATURE_FLAG__INTERNAL_DEVELOPER_TOOLS: StrhashT = StrhashT {
 pub const TM_FEATURE_FLAG__UI_USES_VECTOR_FONT: StrhashT = StrhashT {
     u64_: 7354548536171183257u64,
 };
-pub const TM_FEATURE_FLAG__CACHE_UI_BUFFERS: StrhashT = StrhashT {
-    u64_: 17686331143003380461u64,
-};
 pub const TM_FEATURE_FLAG__SCENE_COMMANDS: StrhashT = StrhashT {
     u64_: 4872997832008015268u64,
 };
@@ -11073,14 +11290,8 @@ pub const TM_FEATURE_FLAG__WATCH_WIRES: StrhashT = StrhashT {
 pub const TM_FEATURE_FLAG__BREAKPOINTS: StrhashT = StrhashT {
     u64_: 12171838945250017565u64,
 };
-pub const TM_FEATURE_FLAG__ENTITY_SPAWNER: StrhashT = StrhashT {
-    u64_: 17970423829372205002u64,
-};
 pub const TM_FEATURE_FLAG__UI_COMPONENTS: StrhashT = StrhashT {
     u64_: 9246472235101389460u64,
-};
-pub const TM_FEATURE_FLAG__ASSET_THUMBNAILS: StrhashT = StrhashT {
-    u64_: 9070497200265879660u64,
 };
 pub const TM_FEATURE_FLAG__GLOBAL_ILLUMINATION: StrhashT = StrhashT {
     u64_: 14054475124752319158u64,
@@ -11123,6 +11334,9 @@ pub const TM_TT_TYPE_HASH__ASSET_LABEL: StrhashT = StrhashT {
 };
 pub const TM_TT_ASPECT__FILE_EXTENSION: StrhashT = StrhashT {
     u64_: 9567164115475830323u64,
+};
+pub const TM_TT_TYPE_HASH__ASSET_THUMBNAIL: StrhashT = StrhashT {
+    u64_: 2983294151888264002u64,
 };
 pub const TM_TT_TYPE_HASH__BOOL: StrhashT = StrhashT {
     u64_: 12597635396010430865u64,

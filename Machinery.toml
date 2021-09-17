@@ -65,6 +65,8 @@ target = "./crates/machinery-api/src/plugins/simulate_common.rs"
 uses = [
     "crate::foundation::*",
     "crate::plugins::entity::*",
+    "crate::plugins::renderer::*",
+    "crate::plugins::ui::*",
 ]
 
 [projects.plugins-simulate]
@@ -74,7 +76,6 @@ target = "./crates/machinery-api/src/plugins/simulate.rs"
 uses = [
     "crate::foundation::*",
     "crate::plugins::entity::*",
-    "crate::plugins::renderer::*",
     "crate::plugins::ui::*",
     "crate::plugins::simulate_common::*",
 ]
@@ -120,6 +121,7 @@ uses = [
     "crate::plugins::renderer::*",
     "crate::plugins::shader_system::*",
     "crate::plugins::render_graph::*",
+    "crate::plugins::simulate_common::*",
     "crate::plugins::simulate::*",
 ]
 

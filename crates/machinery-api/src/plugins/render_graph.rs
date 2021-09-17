@@ -515,6 +515,13 @@ pub struct RenderGraphModuleApi {
             extension: *mut RenderGraphModuleO,
         ) -> bool,
     >,
+    pub extensions: ::std::option::Option<
+        unsafe extern "C" fn(
+            render_module: *const RenderGraphModuleO,
+            extension_point_name: StrhashT,
+            num_modules: *mut u32,
+        ) -> *const *const RenderGraphModuleO,
+    >,
     pub add_sub_module: ::std::option::Option<
         unsafe extern "C" fn(
             render_module: *mut RenderGraphModuleO,
@@ -1027,6 +1034,15 @@ impl RenderGraphModuleApi {
         extension: *mut RenderGraphModuleO,
     ) -> bool {
         self.remove_extension.unwrap()(render_module, res_buf, extension_point_name, extension)
+    }
+
+    pub unsafe fn extensions(
+        &self,
+        render_module: *const RenderGraphModuleO,
+        extension_point_name: StrhashT,
+        num_modules: *mut u32,
+    ) -> *const *const RenderGraphModuleO {
+        self.extensions.unwrap()(render_module, extension_point_name, num_modules)
     }
 
     pub unsafe fn add_sub_module(

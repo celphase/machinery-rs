@@ -188,14 +188,29 @@ pub struct SimulateFrameArgsT {
     pub dt_unscaled: f32,
     pub time: f64,
     pub time_unscaled: f64,
-    pub ui: *mut UiO,
-    pub uistyle: *mut UiStyleT,
     pub rect: RectT,
     pub physx_scene: *mut PhysxSceneO,
     pub running_in_editor: bool,
-    pub _padding_51: [::std::os::raw::c_char; 7usize],
+    pub _padding_46: [::std::os::raw::c_char; 7usize],
 }
 impl Default for SimulateFrameArgsT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+pub struct SimulateUiArgsT {
+    pub ui: *mut UiO,
+    pub uistyle: *mut UiStyleT,
+    pub rect: RectT,
+    pub running_in_editor: bool,
+    pub _padding_62: [::std::os::raw::c_char; 7usize],
+}
+impl Default for SimulateUiArgsT {
     fn default() -> Self {
         let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -209,10 +224,8 @@ pub struct SimulateStartArgsT {
     pub allocator: *mut AllocatorI,
     pub tt: *mut TheTruthO,
     pub entity_ctx: *mut EntityContextO,
-    pub simulate_ctx: *mut SimulateContextO,
+    pub simulate_ctx: *mut SimulationO,
     pub asset_root: TtIdT,
-    pub render_backend: *mut RendererBackendI,
-    pub ui_renderer: *mut UiRendererO,
 }
 impl Default for SimulateStartArgsT {
     fn default() -> Self {
@@ -239,6 +252,9 @@ pub struct SimulateEntryI {
     pub tick: ::std::option::Option<
         unsafe extern "C" fn(state: *mut SimulateStateO, args: *mut SimulateFrameArgsT),
     >,
+    pub ui: ::std::option::Option<
+        unsafe extern "C" fn(state: *mut SimulateStateO, args: *mut SimulateUiArgsT),
+    >,
     pub hot_reload: ::std::option::Option<unsafe extern "C" fn(state: *mut SimulateStateO)>,
 }
 impl Default for SimulateEntryI {
@@ -257,7 +273,6 @@ pub type _bindgen_ty_1 = ::std::os::raw::c_int;
 
 use crate::foundation::*;
 use crate::plugins::entity::*;
-use crate::plugins::renderer::*;
 use crate::plugins::simulate_common::*;
 use crate::plugins::ui::*;
 

@@ -204,6 +204,46 @@ impl Default for TtIdTBindgenTy1 {
     }
 }
 #[repr(C)]
+#[derive(Copy, Clone)]
+pub union EntityT {
+    pub __bindgen_anon_1: EntityTBindgenTy1,
+    pub u64_: u64,
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct EntityTBindgenTy1 {
+    pub index: u32,
+    pub generation: u32,
+}
+impl Default for EntityT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const TM_CREATION_GRAPH_THUMBNAIL_REFRESH_TYPE_NONE: CreationGraphThumbnailRefreshType = 0;
+pub const TM_CREATION_GRAPH_THUMBNAIL_REFRESH_TYPE_IMMEDIATE: CreationGraphThumbnailRefreshType = 1;
+pub const TM_CREATION_GRAPH_THUMBNAIL_REFRESH_TYPE_ENTITY: CreationGraphThumbnailRefreshType = 2;
+pub type CreationGraphThumbnailRefreshType = ::std::os::raw::c_int;
+#[repr(C)]
+pub struct CreationGraphThumbnailRefreshT {
+    pub type_: CreationGraphThumbnailRefreshType,
+    pub immediate_handle: RendererHandleT,
+    pub entity: EntityT,
+}
+impl Default for CreationGraphThumbnailRefreshT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
 pub struct CreationGraphOutputNodeTypeT {
     pub node_name_hash: StrhashT,
     pub display_name: *const ::std::os::raw::c_char,
@@ -216,15 +256,18 @@ pub struct CreationGraphOutputNodeTypeT {
             data: *const ::std::os::raw::c_void,
         ),
     >,
-    pub create_thumbnail: ::std::option::Option<
+    pub thumbnail_validity_hash:
+        ::std::option::Option<unsafe extern "C" fn(data: *const ::std::os::raw::c_void) -> u64>,
+    pub refresh_thumbnail: ::std::option::Option<
         unsafe extern "C" fn(
             data: *const ::std::os::raw::c_void,
+            asset: TtIdT,
             thumbnail_desc: *const RendererImageDescT,
-            rb: *mut RendererBackendI,
+            entity_ctx: *mut EntityContextO,
+            render_backend: *mut RendererBackendI,
             res_buf: *mut RendererResourceCommandBufferO,
             cmd_buf: *mut RendererCommandBufferO,
-            res: *mut RendererHandleT,
-        ),
+        ) -> CreationGraphThumbnailRefreshT,
     >,
 }
 impl Default for CreationGraphOutputNodeTypeT {
@@ -242,7 +285,7 @@ pub struct CreationGraphOutputWireT {
     pub name: StrhashT,
     pub type_hash: StrhashT,
     pub wire: u32,
-    pub _padding_79: [::std::os::raw::c_char; 4usize],
+    pub _padding_101: [::std::os::raw::c_char; 4usize],
 }
 impl Default for CreationGraphOutputWireT {
     fn default() -> Self {
@@ -281,30 +324,9 @@ pub struct CreationGraphIoDataT {
     pub consumers: *mut CreationGraphInstanceT,
     pub inputs: *mut CreationGraphInputT,
     pub dirty: bool,
-    pub _padding_113: [::std::os::raw::c_char; 7usize],
+    pub _padding_135: [::std::os::raw::c_char; 7usize],
 }
 impl Default for CreationGraphIoDataT {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union EntityT {
-    pub __bindgen_anon_1: EntityTBindgenTy1,
-    pub u64_: u64,
-}
-#[repr(C)]
-#[derive(Default, Copy, Clone)]
-pub struct EntityTBindgenTy1 {
-    pub index: u32,
-    pub generation: u32,
-}
-impl Default for EntityT {
     fn default() -> Self {
         let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
         unsafe {
@@ -364,7 +386,7 @@ pub struct CreationGraphDestroyInstanceContextT {
 #[derive(Copy, Clone)]
 pub struct CreationGraphTickContextT {
     pub dt: f32,
-    pub _padding_119: [::std::os::raw::c_char; 4usize],
+    pub _padding_120: [::std::os::raw::c_char; 4usize],
     pub shader_context: *mut ShaderSystemContextO,
 }
 impl Default for CreationGraphTickContextT {
@@ -401,7 +423,7 @@ pub type _bindgen_ty_3 = ::std::os::raw::c_int;
 pub struct CreationGraphAllOutputsT {
     pub version: u64,
     pub num_output_node_types: u32,
-    pub _padding_191: [::std::os::raw::c_char; 4usize],
+    pub _padding_192: [::std::os::raw::c_char; 4usize],
     pub output_node_type_hashes: [StrhashT; 32usize],
     pub output_node_type_display_names: [*const ::std::os::raw::c_char; 32usize],
 }
@@ -418,7 +440,7 @@ impl Default for CreationGraphAllOutputsT {
 pub struct CreationGraphNamedOutputT {
     pub data: *mut ::std::os::raw::c_void,
     pub size: u32,
-    pub _padding_205: [::std::os::raw::c_char; 4usize],
+    pub _padding_206: [::std::os::raw::c_char; 4usize],
     pub type_: StrhashT,
 }
 impl Default for CreationGraphNamedOutputT {
@@ -465,7 +487,7 @@ pub struct CreationGraphContextT {
     pub rb: *mut RendererBackendI,
     pub device_affinity_mask: u32,
     pub default_instance: bool,
-    pub _padding_258: [::std::os::raw::c_char; 3usize],
+    pub _padding_259: [::std::os::raw::c_char; 3usize],
     pub ta: *mut TempAllocatorI,
     pub requested_tasks: *mut *mut CreationGraphTaskT,
     pub res_buf: [*mut RendererResourceCommandBufferO; 2usize],
@@ -556,11 +578,6 @@ impl Default for CreationGraphPreviewI {
             s.assume_init()
         }
     }
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct CreationGraphO {
-    _unused: [u8; 0],
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -703,6 +720,15 @@ pub struct CreationGraphApi {
             name: StrhashT,
             data: *mut ::std::os::raw::c_void,
             data_size: u32,
+        ),
+    >,
+    pub get_buffer_async: ::std::option::Option<
+        unsafe extern "C" fn(
+            instance: *mut CreationGraphInstanceT,
+            context: *mut CreationGraphContextT,
+            object: TtIdT,
+            property: u32,
+            buffer: *mut TtBufferT,
         ),
     >,
 }
@@ -1064,6 +1090,9 @@ pub struct CreationGraphShaderInstanceT {
     pub shader: *mut ShaderO,
     pub cbuf: u32,
     pub rbinder: u32,
+    pub validity_hash: u64,
+    pub has_invalid_resources: bool,
+    pub _padding_47: [::std::os::raw::c_char; 7usize],
 }
 impl Default for CreationGraphShaderInstanceT {
     fn default() -> Self {
@@ -1096,6 +1125,7 @@ pub struct GpuSimulationChannelBufferDataT {
     pub buffer_header_size: u32,
     pub buffer_header_count_offset: u32,
     pub buffer_header_stride_offset: u32,
+    pub buffer_total_size: u64,
 }
 impl Default for GpuSimulationChannelBufferDataT {
     fn default() -> Self {
@@ -1114,6 +1144,11 @@ pub struct CreationGraphInstanceDataO {
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct CreationGraphManagerO {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct CreationGraphO {
     pub _address: u8,
 }
 
@@ -1320,6 +1355,17 @@ impl CreationGraphApi {
         data_size: u32,
     ) {
         self.set_input_value.unwrap()(instance, context, name, data, data_size)
+    }
+
+    pub unsafe fn get_buffer_async(
+        &self,
+        instance: *mut CreationGraphInstanceT,
+        context: *mut CreationGraphContextT,
+        object: TtIdT,
+        property: u32,
+        buffer: *mut TtBufferT,
+    ) {
+        self.get_buffer_async.unwrap()(instance, context, object, property, buffer)
     }
 }
 

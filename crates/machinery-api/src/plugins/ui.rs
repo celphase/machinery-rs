@@ -93,6 +93,11 @@ pub const TM_GIZMO_API_NAME: &'static [u8; 13usize] = b"tm_gizmo_api\0";
 pub const TM_MODAL_PROGRESS_DONE: u32 = 4294967295;
 pub const TM_UI_MODAL_API_NAME: &'static [u8; 16usize] = b"tm_ui_modal_api\0";
 pub const TM_SHAPE3D_API_NAME: &'static [u8; 15usize] = b"tm_shape3d_api\0";
+pub const TM_SHORTCUTS_MANAGER_CREATE_SHORTCUT_INTERFACE_NAME: &'static [u8; 39usize] =
+    b"tm_shortcuts_manager_create_shortcut_i\0";
+pub const TM_SHORTCUTS_MANAGER_API_NAME: &'static [u8; 24usize] = b"tm_shortcut_manager_api\0";
+pub const TM_TT_TYPE__SHORTCUTS_ENTRY: &'static [u8; 19usize] = b"tm_shortcuts_entry\0";
+pub const TM_TT_TYPE__SHORTCUTS_INDEX: &'static [u8; 19usize] = b"tm_shortcuts_index\0";
 pub const TM_TT_TYPE__TOOLBAR_SETTINGS: &'static [u8; 20usize] = b"tm_toolbar_settings\0";
 pub const TM_TOOLBAR_API_NAME: &'static [u8; 15usize] = b"tm_toolbar_api\0";
 pub const TM_TTF_BAKER_API_NAME: &'static [u8; 17usize] = b"tm_ttf_baker_api\0";
@@ -384,8 +389,7 @@ pub struct TabVt {
     pub cant_be_pinned: bool,
     pub run_as_job: bool,
     pub dont_restore_at_startup: bool,
-    pub dont_restore_root_asset_at_startup: bool,
-    pub _padding_274: [::std::os::raw::c_char; 4usize],
+    pub _padding_270: [::std::os::raw::c_char; 5usize],
 }
 impl Default for TabVt {
     fn default() -> Self {
@@ -423,10 +427,10 @@ pub struct DockingTabInfoT {
     pub tab: *mut TabI,
     pub ui: *mut UiO,
     pub visible: bool,
-    pub _padding_312: [::std::os::raw::c_char; 7usize],
+    pub _padding_308: [::std::os::raw::c_char; 7usize],
     pub last_focused: ClockO,
     pub pin_type: u32,
-    pub _padding_319: [::std::os::raw::c_char; 4usize],
+    pub _padding_315: [::std::os::raw::c_char; 4usize],
 }
 impl Default for DockingTabInfoT {
     fn default() -> Self {
@@ -437,8 +441,6 @@ impl Default for DockingTabInfoT {
         }
     }
 }
-pub const TM_DOCKING_MAX_TABS_IN_TABWELL: ::std::os::raw::c_int = 32;
-pub type _bindgen_ty_3 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct DockingTabwellInfoT {
     pub left: *mut DockingTabwellO,
@@ -446,8 +448,8 @@ pub struct DockingTabwellInfoT {
     pub top: *mut DockingTabwellO,
     pub bottom: *mut DockingTabwellO,
     pub bias: f32,
-    pub num_tabs: u32,
-    pub tabs: [*mut TabI; 32usize],
+    pub _padding_327: [::std::os::raw::c_char; 4usize],
+    pub tabs: *mut *mut TabI,
     pub last_rect: RectT,
 }
 impl Default for DockingTabwellInfoT {
@@ -482,7 +484,7 @@ pub struct DockingFindTabOptT {
     pub find_asset_tt: *mut TheTruthO,
     pub find_asset: TtIdT,
     pub exclude_pinned: bool,
-    pub _padding_371: [::std::os::raw::c_char; 7usize],
+    pub _padding_365: [::std::os::raw::c_char; 7usize],
 }
 impl Default for DockingFindTabOptT {
     fn default() -> Self {
@@ -499,6 +501,23 @@ pub struct DockingApi {
     pub create_truth_types: ::std::option::Option<unsafe extern "C" fn(tt: *mut TheTruthO)>,
     pub add_ui: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, r: RectT)>,
     pub remove_ui: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO)>,
+    pub add_workspace: ::std::option::Option<
+        unsafe extern "C" fn(ui: *mut UiO, name: *const ::std::os::raw::c_char),
+    >,
+    pub close_focused_workspace: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> bool>,
+    pub num_workspaces: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> u32>,
+    pub current_workspace: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> u32>,
+    pub workspace_name: ::std::option::Option<
+        unsafe extern "C" fn(ui: *mut UiO, idx: u32) -> *const ::std::os::raw::c_char,
+    >,
+    pub set_workspace_name: ::std::option::Option<
+        unsafe extern "C" fn(ui: *mut UiO, idx: u32, name: *const ::std::os::raw::c_char),
+    >,
+    pub workspace_icon: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, idx: u32) -> u32>,
+    pub set_workspace_icon:
+        ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, idx: u32, icon: u32)>,
+    pub workspace_root:
+        ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, idx: u32) -> *mut DockingTabwellO>,
     pub hot_reload: ::std::option::Option<unsafe extern "C" fn()>,
     pub root: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> *mut DockingTabwellO>,
     pub split_tabwell: ::std::option::Option<
@@ -548,7 +567,10 @@ pub struct DockingApi {
     pub focused_tab: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> *mut TabI>,
     pub tab_has_focus: ::std::option::Option<unsafe extern "C" fn(tab: *mut TabI) -> bool>,
     pub tabwell_info: ::std::option::Option<
-        unsafe extern "C" fn(tw: *mut DockingTabwellO) -> DockingTabwellInfoT,
+        unsafe extern "C" fn(
+            tw: *mut DockingTabwellO,
+            ta: *mut TempAllocatorI,
+        ) -> DockingTabwellInfoT,
     >,
     pub tab_info: ::std::option::Option<
         unsafe extern "C" fn(
@@ -566,7 +588,8 @@ pub struct DockingApi {
     pub can_remove_ui: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> bool>,
     pub set_focus_tab: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, tab: *mut TabI)>,
     pub close_focused_tab: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> bool>,
-    pub close_all_tabs: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO)>,
+    pub close_all_tabs_and_workspaces: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO)>,
+    pub close_all_tabs_in_workspace: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO)>,
     pub send_focus_event: ::std::option::Option<
         unsafe extern "C" fn(
             from: *mut TabI,
@@ -669,7 +692,7 @@ pub struct FontRangeT {
     pub n: u32,
 }
 pub const TM_FONT_MAX_BAKED_SCALES: ::std::os::raw::c_int = 8;
-pub type _bindgen_ty_4 = ::std::os::raw::c_int;
+pub type _bindgen_ty_3 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct FontT {
@@ -718,7 +741,7 @@ impl Default for Draw2dFontT {
 }
 pub const TM_DRAW2D__FEATHER__DEFAULT: ::std::os::raw::c_int = 0;
 pub const TM_DRAW2D__FEATHER__NONE: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_5 = ::std::os::raw::c_int;
+pub type _bindgen_ty_4 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct Draw2dStyleT {
     pub color: ColorSrgbT,
@@ -774,7 +797,7 @@ impl Default for Draw2dIbufferT {
     }
 }
 pub const TM_DRAW2D_AUX_DATA_TYPE_GRID: ::std::os::raw::c_int = 3;
-pub type _bindgen_ty_6 = ::std::os::raw::c_int;
+pub type _bindgen_ty_5 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct Draw2dAuxDataGridT {
     pub offset: Vec2T,
@@ -1242,11 +1265,14 @@ pub struct GizmoRotateSettingsT {
 pub struct GizmoScaleSettingsT {
     pub absolute_handle: bool,
     pub disable_selection: bool,
+    pub snap: bool,
+    pub _padding_74: [::std::os::raw::c_char; 1usize],
+    pub snap_increment: f32,
 }
 #[repr(C)]
 pub struct GizmoGridSettingsT {
     pub visibile: bool,
-    pub _padding_78: [::std::os::raw::c_char; 3usize],
+    pub _padding_85: [::std::os::raw::c_char; 3usize],
     pub transform: TransformT,
 }
 impl Default for GizmoGridSettingsT {
@@ -2529,7 +2555,7 @@ pub const IONICON__WINE_SHARP: ::std::os::raw::c_int = 62919;
 pub const IONICON__WOMAN: ::std::os::raw::c_int = 62920;
 pub const IONICON__WOMAN_OUTLINE: ::std::os::raw::c_int = 62921;
 pub const IONICON__WOMAN_SHARP: ::std::os::raw::c_int = 62922;
-pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+pub type _bindgen_ty_6 = ::std::os::raw::c_int;
 pub const IONICON_ADD_ON__MOUSE: ::std::os::raw::c_int = 57344;
 pub const IONICON_ADD_ON__MOUSE_LEFT: ::std::os::raw::c_int = 57345;
 pub const IONICON_ADD_ON__MOUSE_RIGHT: ::std::os::raw::c_int = 57346;
@@ -2552,7 +2578,7 @@ pub const IONICON_ADD_ON__TETRAHEDRON: ::std::os::raw::c_int = 57382;
 pub const IONICON_ADD_ON__PHYSICS_SHAPE: ::std::os::raw::c_int = 57383;
 pub const IONICON_ADD_ON__PHYSICS_BODY: ::std::os::raw::c_int = 57384;
 pub const IONICON_ADD_ON__PHYSICS_JOINT: ::std::os::raw::c_int = 57385;
-pub type _bindgen_ty_8 = ::std::os::raw::c_int;
+pub type _bindgen_ty_7 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct UiModalApi {
@@ -2642,6 +2668,54 @@ impl Default for Shape3dApi {
         }
     }
 }
+pub const TM_SHORTCUT_TYPE_PRESSED: ShortcutType = 0;
+pub const TM_SHORTCUT_TYPE_DOWN: ShortcutType = 1;
+pub type ShortcutType = ::std::os::raw::c_int;
+#[repr(C)]
+pub struct ShortcutI {
+    pub name: *const ::std::os::raw::c_char,
+    pub default_binding: *const ::std::os::raw::c_char,
+    pub default_secondary_binding: *const ::std::os::raw::c_char,
+    pub tooltip: *const ::std::os::raw::c_char,
+    pub type_: ShortcutType,
+    pub ignore_modifiers: bool,
+    pub ignore_key: bool,
+    pub _padding_98: [::std::os::raw::c_char; 2usize],
+    pub name_hash: StrhashT,
+}
+impl Default for ShortcutI {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct ShortcutManagerApi {
+    pub load_settings:
+        ::std::option::Option<unsafe extern "C" fn(tt: *mut TheTruthO, index: TtIdT)>,
+    pub accelerator_text: ::std::option::Option<
+        unsafe extern "C" fn(shortcut: *const ShortcutI) -> *const ::std::os::raw::c_char,
+    >,
+    pub is_shortcut_triggered: ::std::option::Option<
+        unsafe extern "C" fn(ui: *mut UiO, shortcut: *const ShortcutI) -> bool,
+    >,
+    pub is_shortcut_triggered_in_input: ::std::option::Option<
+        unsafe extern "C" fn(input_state: *const UiInputStateT, shortcut: *const ShortcutI) -> bool,
+    >,
+    pub disable_shortcut_processing: ::std::option::Option<unsafe extern "C" fn()>,
+}
+pub const TM_TT_PROP__SHORTCUTS_ENTRY__NAME: TM_TT_PROP__SHORTCUTS_ENTRY = 0;
+pub const TM_TT_PROP__SHORTCUTS_ENTRY__PRIMARY_KEY: TM_TT_PROP__SHORTCUTS_ENTRY = 1;
+pub const TM_TT_PROP__SHORTCUTS_ENTRY__PRIMARY_MODIFIERS: TM_TT_PROP__SHORTCUTS_ENTRY = 2;
+pub const TM_TT_PROP__SHORTCUTS_ENTRY__SECONDARY_KEY: TM_TT_PROP__SHORTCUTS_ENTRY = 3;
+pub const TM_TT_PROP__SHORTCUTS_ENTRY__SECONDARY_MODIFIERS: TM_TT_PROP__SHORTCUTS_ENTRY = 4;
+pub type TM_TT_PROP__SHORTCUTS_ENTRY = ::std::os::raw::c_int;
+pub const TM_TT_PROP__SHORTCUTS_INDEX__ENTRIES: TM_TT_PROP__SHORTCUTS_INDEX = 0;
+pub type TM_TT_PROP__SHORTCUTS_INDEX = ::std::os::raw::c_int;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__ID: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__CONTAINER: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__ANCHOR: ::std::os::raw::c_int = 2;
@@ -2651,7 +2725,7 @@ pub const TM_TT_PROP__TOOLBAR_SETTINGS__POSITION_Y: ::std::os::raw::c_int = 5;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__WIDTH: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__HEIGHT: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__DRAW_MODE: ::std::os::raw::c_int = 8;
-pub type _bindgen_ty_9 = ::std::os::raw::c_int;
+pub type _bindgen_ty_8 = ::std::os::raw::c_int;
 pub const TM_TOOLBAR_CONTAINER_TOP: ToolbarContainer = 0;
 pub const TM_TOOLBAR_CONTAINER_BOTTOM: ToolbarContainer = 1;
 pub const TM_TOOLBAR_CONTAINER_LEFT: ToolbarContainer = 2;
@@ -2795,40 +2869,48 @@ pub const TM_UI_COLOR_ICON_MATERIAL: UiColor = 30;
 pub const TM_UI_COLOR_BUTTON_BACKGROUND: UiColor = 31;
 pub const TM_UI_COLOR_BUTTON_BACKGROUND_HOVER: UiColor = 32;
 pub const TM_UI_COLOR_BUTTON_BACKGROUND_ACTIVE: UiColor = 33;
-pub const TM_UI_COLOR_CONTROL_BACKGROUND: UiColor = 34;
-pub const TM_UI_COLOR_CONTROL_BACKGROUND_HOVER: UiColor = 35;
-pub const TM_UI_COLOR_CONTROL_BACKGROUND_ACTIVE: UiColor = 36;
-pub const TM_UI_COLOR_MENU_BACKGROUND: UiColor = 37;
-pub const TM_UI_COLOR_MENU_SELECTED: UiColor = 38;
-pub const TM_UI_COLOR_MENU_MENUBAR_HOVER: UiColor = 39;
-pub const TM_UI_COLOR_TOOLTIP_BACKGROUND: UiColor = 40;
-pub const TM_UI_COLOR_TOOLTIP_BORDER: UiColor = 41;
-pub const TM_UI_COLOR_TOOLTIP_TEXT: UiColor = 42;
-pub const TM_UI_COLOR_VIEWPORT_BACKGROUND: UiColor = 43;
-pub const TM_UI_COLOR_VIEWPORT_SELECTION: UiColor = 44;
-pub const TM_UI_COLOR_LINK: UiColor = 45;
-pub const TM_UI_COLOR_LINK_HOVER: UiColor = 46;
-pub const TM_UI_COLOR_NODE_BACKGROUND: UiColor = 47;
-pub const TM_UI_COLOR_NODE_GPU_BACKGROUND: UiColor = 48;
-pub const TM_UI_COLOR_NODE_GPU_BACKGROUND_WATERMARK_TEXT: UiColor = 49;
-pub const TM_UI_COLOR_NODE_EXECUTION_COLOR: UiColor = 50;
-pub const TM_UI_COLOR_GRAPH_GRID_THIN_LINES: UiColor = 51;
-pub const TM_UI_COLOR_GRAPH_GRID_THICK_LINES: UiColor = 52;
-pub const TM_UI_COLOR_SCROLLBAR_BACKGROUND: UiColor = 53;
-pub const TM_UI_COLOR_SCROLLBAR: UiColor = 54;
-pub const TM_UI_COLOR_SCROLLBAR_HOVER: UiColor = 55;
-pub const TM_UI_COLOR_SCROLLBAR_ACTIVE: UiColor = 56;
-pub const TM_UI_COLOR_TOOLBAR_DRAG_HANDLE: UiColor = 57;
-pub const TM_UI_COLOR_TOOLBAR_DROP_ZONE: UiColor = 58;
-pub const TM_UI_COLOR_TOOLBAR_THIN_LINES: UiColor = 59;
-pub const TM_UI_COLOR_TOOLBAR_THIN_LINES_HOVER: UiColor = 60;
-pub const TM_UI_COLOR_TOOLBAR_CONTROL_BACKGROUND: UiColor = 61;
-pub const TM_UI_COLOR_TOOLBAR_CONTROL_BACKGROUND_HOVER: UiColor = 62;
-pub const TM_UI_COLOR_TOOLBAR_CONTROL_BACKGROUND_ACTIVE: UiColor = 63;
-pub const TM_UI_COLOR_GIZMO_AXIS_X: UiColor = 64;
-pub const TM_UI_COLOR_GIZMO_AXIS_Y: UiColor = 65;
-pub const TM_UI_COLOR_GIZMO_AXIS_Z: UiColor = 66;
-pub const TM_UI_COLOR_COUNT: UiColor = 67;
+pub const TM_UI_COLOR_BUTTON_BORDER: UiColor = 34;
+pub const TM_UI_COLOR_BUTTON_BORDER_HOVER: UiColor = 35;
+pub const TM_UI_COLOR_BUTTON_BORDER_ACTIVE: UiColor = 36;
+pub const TM_UI_COLOR_CONTROL_BACKGROUND: UiColor = 37;
+pub const TM_UI_COLOR_CONTROL_BACKGROUND_HOVER: UiColor = 38;
+pub const TM_UI_COLOR_CONTROL_BACKGROUND_ACTIVE: UiColor = 39;
+pub const TM_UI_COLOR_CONTROL_BORDER: UiColor = 40;
+pub const TM_UI_COLOR_CONTROL_BORDER_HOVER: UiColor = 41;
+pub const TM_UI_COLOR_CONTROL_BORDER_ACTIVE: UiColor = 42;
+pub const TM_UI_COLOR_MENU_BACKGROUND: UiColor = 43;
+pub const TM_UI_COLOR_MENU_SELECTED: UiColor = 44;
+pub const TM_UI_COLOR_MENU_MENUBAR_HOVER: UiColor = 45;
+pub const TM_UI_COLOR_TOOLTIP_BACKGROUND: UiColor = 46;
+pub const TM_UI_COLOR_TOOLTIP_BORDER: UiColor = 47;
+pub const TM_UI_COLOR_TOOLTIP_TEXT: UiColor = 48;
+pub const TM_UI_COLOR_VIEWPORT_BACKGROUND: UiColor = 49;
+pub const TM_UI_COLOR_VIEWPORT_SELECTION: UiColor = 50;
+pub const TM_UI_COLOR_LINK: UiColor = 51;
+pub const TM_UI_COLOR_LINK_HOVER: UiColor = 52;
+pub const TM_UI_COLOR_NODE_BACKGROUND: UiColor = 53;
+pub const TM_UI_COLOR_NODE_GPU_BACKGROUND: UiColor = 54;
+pub const TM_UI_COLOR_NODE_GPU_BACKGROUND_WATERMARK_TEXT: UiColor = 55;
+pub const TM_UI_COLOR_NODE_EXECUTION_COLOR: UiColor = 56;
+pub const TM_UI_COLOR_GRAPH_GRID_THIN_LINES: UiColor = 57;
+pub const TM_UI_COLOR_GRAPH_GRID_THICK_LINES: UiColor = 58;
+pub const TM_UI_COLOR_SCROLLBAR_BACKGROUND: UiColor = 59;
+pub const TM_UI_COLOR_SCROLLBAR: UiColor = 60;
+pub const TM_UI_COLOR_SCROLLBAR_HOVER: UiColor = 61;
+pub const TM_UI_COLOR_SCROLLBAR_ACTIVE: UiColor = 62;
+pub const TM_UI_COLOR_TOOLBAR_BACKGROUND: UiColor = 63;
+pub const TM_UI_COLOR_TOOLBAR_DRAG_HANDLE: UiColor = 64;
+pub const TM_UI_COLOR_TOOLBAR_DROP_ZONE: UiColor = 65;
+pub const TM_UI_COLOR_TOOLBAR_THIN_LINES: UiColor = 66;
+pub const TM_UI_COLOR_TOOLBAR_THIN_LINES_HOVER: UiColor = 67;
+pub const TM_UI_COLOR_TOOLBAR_CONTROL_BACKGROUND: UiColor = 68;
+pub const TM_UI_COLOR_TOOLBAR_CONTROL_BACKGROUND_HOVER: UiColor = 69;
+pub const TM_UI_COLOR_TOOLBAR_CONTROL_BACKGROUND_ACTIVE: UiColor = 70;
+pub const TM_UI_COLOR_GIZMO_AXIS_X: UiColor = 71;
+pub const TM_UI_COLOR_GIZMO_AXIS_Y: UiColor = 72;
+pub const TM_UI_COLOR_GIZMO_AXIS_Z: UiColor = 73;
+pub const TM_UI_COLOR_GIZMO_AXIS_SELECTED: UiColor = 74;
+pub const TM_UI_COLOR_COUNT: UiColor = 75;
 pub type UiColor = ::std::os::raw::c_int;
 pub const TM_UI_METRIC_LINE_WIDTH: UiMetric = 0;
 pub const TM_UI_METRIC_INPUT_CORNER_RADIUS: UiMetric = 1;
@@ -2854,17 +2936,19 @@ pub type UiMetric = ::std::os::raw::c_int;
 pub const TM_TT_PROP__UI_THEME__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__UI_THEME__BASED_ON: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__UI_THEME__COLORS: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub type _bindgen_ty_9 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__UI_THEME_COLOR__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__UI_THEME_COLOR__COLOR: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_11 = ::std::os::raw::c_int;
+pub type _bindgen_ty_10 = ::std::os::raw::c_int;
 pub const TM_UI__DEFAULT_THEME__DARK: UiDefaultTheme = 0;
 pub const TM_UI__DEFAULT_THEME__LIGHT: UiDefaultTheme = 1;
+pub const TM_UI__DEFAULT_THEME__DARK_HIGH_CONTRAST: UiDefaultTheme = 2;
+pub const TM_UI__DEFAULT_THEME__LIGHT_HIGH_CONTRAST: UiDefaultTheme = 3;
 pub type UiDefaultTheme = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiThemeT {
     pub based_on: UiDefaultTheme,
-    pub _padding_272: [::std::os::raw::c_char; 4usize],
+    pub _padding_283: [::std::os::raw::c_char; 4usize],
     pub tt: *mut TheTruthO,
     pub id: TtIdT,
 }
@@ -2884,12 +2968,12 @@ pub type UiBuffer = ::std::os::raw::c_int;
 #[derive(Copy, Clone)]
 pub struct UiStyleT {
     pub clip: u32,
-    pub _padding_292: [::std::os::raw::c_char; 4usize],
+    pub _padding_303: [::std::os::raw::c_char; 4usize],
     pub font: *const Draw2dFontT,
     pub font_scale: f32,
     pub buffer: UiBuffer,
     pub feather_width: f32,
-    pub _padding_305: [::std::os::raw::c_char; 4usize],
+    pub _padding_316: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiStyleT {
     fn default() -> Self {
@@ -2907,7 +2991,7 @@ pub struct UiScrollbarT {
     pub min: f32,
     pub max: f32,
     pub size: f32,
-    pub _padding_318: [::std::os::raw::c_char; 4usize],
+    pub _padding_329: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiScrollbarT {
     fn default() -> Self {
@@ -2944,7 +3028,7 @@ pub struct UiLabelT {
     pub id: u64,
     pub rect: RectT,
     pub icon: u32,
-    pub _padding_355: [::std::os::raw::c_char; 4usize],
+    pub _padding_366: [::std::os::raw::c_char; 4usize],
     pub text: *const ::std::os::raw::c_char,
     pub tooltip: *const ::std::os::raw::c_char,
 }
@@ -2969,7 +3053,7 @@ pub struct UiTextT {
     pub tooltip: *const ::std::os::raw::c_char,
     pub color: *const ColorSrgbT,
     pub align: UiAlign,
-    pub _padding_379: [::std::os::raw::c_char; 4usize],
+    pub _padding_390: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiTextT {
     fn default() -> Self {
@@ -2988,7 +3072,7 @@ pub struct UiLinkT {
     pub tooltip: *const ::std::os::raw::c_char,
     pub color: *const ColorSrgbT,
     pub align: UiAlign,
-    pub _padding_395: [::std::os::raw::c_char; 4usize],
+    pub _padding_406: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiLinkT {
     fn default() -> Self {
@@ -3005,7 +3089,7 @@ pub struct UiButtonT {
     pub rect: RectT,
     pub visible_rect: RectT,
     pub icon: u32,
-    pub _padding_407: [::std::os::raw::c_char; 4usize],
+    pub _padding_418: [::std::os::raw::c_char; 4usize],
     pub text: *const ::std::os::raw::c_char,
     pub text_color: *const ColorSrgbT,
     pub tooltip: *const ::std::os::raw::c_char,
@@ -3013,7 +3097,7 @@ pub struct UiButtonT {
     pub is_disabled: bool,
     pub hide_background: bool,
     pub hide_margins: bool,
-    pub _padding_417: [::std::os::raw::c_char; 1usize],
+    pub _padding_428: [::std::os::raw::c_char; 1usize],
 }
 impl Default for UiButtonT {
     fn default() -> Self {
@@ -3029,7 +3113,7 @@ pub struct UiCheckboxT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_426: [::std::os::raw::c_char; 7usize],
+    pub _padding_437: [::std::os::raw::c_char; 7usize],
     pub text: *const ::std::os::raw::c_char,
     pub tooltip: *const ::std::os::raw::c_char,
 }
@@ -3047,7 +3131,7 @@ pub struct UiRadioT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_438: [::std::os::raw::c_char; 7usize],
+    pub _padding_449: [::std::os::raw::c_char; 7usize],
     pub text: *const ::std::os::raw::c_char,
     pub tooltip: *const ::std::os::raw::c_char,
 }
@@ -3080,7 +3164,7 @@ pub struct UiSliderT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_459: [::std::os::raw::c_char; 3usize],
+    pub _padding_470: [::std::os::raw::c_char; 3usize],
     pub min: f32,
     pub max: f32,
     pub step: f32,
@@ -3100,7 +3184,7 @@ pub struct Ui2dSliderT {
     pub rect: RectT,
     pub is_disabled: bool,
     pub is_circular: bool,
-    pub _padding_478: [::std::os::raw::c_char; 2usize],
+    pub _padding_489: [::std::os::raw::c_char; 2usize],
     pub min: Vec2T,
     pub max: Vec2T,
     pub step: f32,
@@ -3121,18 +3205,18 @@ pub const TM_UI_SPINNER__DECIMALS__2: ::std::os::raw::c_int = 3;
 pub const TM_UI_SPINNER__DECIMALS__3: ::std::os::raw::c_int = 4;
 pub const TM_UI_SPINNER__DECIMALS__4: ::std::os::raw::c_int = 5;
 pub const TM_UI_SPINNER__DECIMALS__5: ::std::os::raw::c_int = 6;
-pub type _bindgen_ty_12 = ::std::os::raw::c_int;
+pub type _bindgen_ty_11 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiSpinnerT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_510: [::std::os::raw::c_char; 7usize],
+    pub _padding_521: [::std::os::raw::c_char; 7usize],
     pub min: f64,
     pub max: f64,
     pub value_per_pixel: f64,
     pub decimals: u32,
-    pub _padding_520: [::std::os::raw::c_char; 4usize],
+    pub _padding_531: [::std::os::raw::c_char; 4usize],
     pub tooltip: *const ::std::os::raw::c_char,
 }
 impl Default for UiSpinnerT {
@@ -3149,11 +3233,11 @@ pub struct UiDropdownT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_530: [::std::os::raw::c_char; 7usize],
+    pub _padding_541: [::std::os::raw::c_char; 7usize],
     pub items: *mut *const ::std::os::raw::c_char,
     pub tooltips: *mut *const ::std::os::raw::c_char,
     pub num_items: u32,
-    pub _padding_538: [::std::os::raw::c_char; 4usize],
+    pub _padding_549: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiDropdownT {
     fn default() -> Self {
@@ -3170,12 +3254,12 @@ pub struct UiTexteditT {
     pub rect: RectT,
     pub is_disabled: bool,
     pub is_password: bool,
-    pub _padding_548: [::std::os::raw::c_char; 6usize],
+    pub _padding_559: [::std::os::raw::c_char; 6usize],
     pub default_text: *const ::std::os::raw::c_char,
     pub select_all_on_mouse_activate: bool,
     pub scroll_to_end: bool,
     pub select_all_on_startup: bool,
-    pub _padding_565: [::std::os::raw::c_char; 1usize],
+    pub _padding_576: [::std::os::raw::c_char; 1usize],
     pub select: UiTexteditTBindgenTy1,
 }
 #[repr(C)]
@@ -3183,7 +3267,7 @@ pub struct UiTexteditT {
 pub struct UiTexteditTBindgenTy1 {
     pub all: bool,
     pub range: bool,
-    pub _padding_575: [::std::os::raw::c_char; 2usize],
+    pub _padding_586: [::std::os::raw::c_char; 2usize],
     pub start: u32,
     pub end: u32,
 }
@@ -3197,11 +3281,12 @@ impl Default for UiTexteditT {
     }
 }
 pub const TM_UI_MENU_DEFAULT_ID_BASE: ::std::os::raw::c_int = -268435456;
-pub type _bindgen_ty_13 = ::std::os::raw::c_int;
+pub type _bindgen_ty_12 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct UiMenuItemT {
     pub text: *const ::std::os::raw::c_char,
+    pub shortcut: *mut ShortcutI,
     pub accelerator: *const ::std::os::raw::c_char,
     pub tooltip: *const ::std::os::raw::c_char,
     pub item_id: u64,
@@ -3229,7 +3314,7 @@ pub struct UiMenubarT {
     pub padding_left_right: f32,
     pub items: *const UiMenuItemT,
     pub num_items: u32,
-    pub _padding_646: [::std::os::raw::c_char; 4usize],
+    pub _padding_667: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiMenubarT {
     fn default() -> Self {
@@ -3245,7 +3330,7 @@ pub struct UiMenuT {
     pub pos: Vec2T,
     pub items: *const UiMenuItemT,
     pub num_items: u32,
-    pub _padding_660: [::std::os::raw::c_char; 4usize],
+    pub _padding_681: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiMenuT {
     fn default() -> Self {
@@ -3298,11 +3383,17 @@ pub struct UiTabbarItemT {
     pub id: u64,
     pub has_close_box: bool,
     pub has_pin: bool,
-    pub _padding_717: [::std::os::raw::c_char; 2usize],
+    pub _padding_738: [::std::os::raw::c_char; 2usize],
     pub pin_type: UiTabPinType,
     pub has_border_color: bool,
-    pub _padding_721: [::std::os::raw::c_char; 3usize],
+    pub _padding_743: [::std::os::raw::c_char; 3usize],
     pub border_color: ColorSrgbT,
+    pub disable_drag: bool,
+    pub _padding_748: [::std::os::raw::c_char; 3usize],
+    pub out_text_rect: RectT,
+    pub _padding_752: [::std::os::raw::c_char; 4usize],
+    pub icon: u32,
+    pub _padding_756: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiTabbarItemT {
     fn default() -> Self {
@@ -3322,8 +3413,10 @@ pub struct UiTabbarT {
     pub can_drag: bool,
     pub can_drag_off: bool,
     pub is_dragging_external_tab: bool,
-    pub _padding_747: [::std::os::raw::c_char; 1usize],
+    pub _padding_781: [::std::os::raw::c_char; 1usize],
     pub dragged_external_item: *mut *const ::std::os::raw::c_char,
+    pub vertical: bool,
+    pub _padding_790: [::std::os::raw::c_char; 7usize],
 }
 impl Default for UiTabbarT {
     fn default() -> Self {
@@ -3351,7 +3444,7 @@ pub struct UiTabbarResultT {
     pub drag_offset: Vec2T,
     pub hovered_item: u32,
     pub hover: bool,
-    pub _padding_798: [::std::os::raw::c_char; 3usize],
+    pub _padding_836: [::std::os::raw::c_char; 3usize],
 }
 impl Default for UiTabbarResultT {
     fn default() -> Self {
@@ -3369,7 +3462,7 @@ pub struct UiDraggedtabT {
     pub text: *const ::std::os::raw::c_char,
     pub has_close_box: bool,
     pub has_pin: bool,
-    pub _padding_813: [::std::os::raw::c_char; 2usize],
+    pub _padding_851: [::std::os::raw::c_char; 2usize],
     pub pin_type: UiTabPinType,
 }
 impl Default for UiDraggedtabT {
@@ -3386,7 +3479,7 @@ pub struct UiSplitterT {
     pub id: u64,
     pub rect: RectT,
     pub min_size: f32,
-    pub _padding_824: [::std::os::raw::c_char; 4usize],
+    pub _padding_862: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiSplitterT {
     fn default() -> Self {
@@ -3403,14 +3496,14 @@ pub struct UiTitlebarT {
     pub rect: RectT,
     pub has_focus: bool,
     pub is_maximized: bool,
-    pub _padding_840: [::std::os::raw::c_char; 6usize],
+    pub _padding_878: [::std::os::raw::c_char; 6usize],
     pub caption: *const ::std::os::raw::c_char,
     pub border_width: f32,
     pub caption_height: f32,
     pub caption_padding: f32,
-    pub _padding_848: [::std::os::raw::c_char; 4usize],
+    pub _padding_886: [::std::os::raw::c_char; 4usize],
     pub icon_texture: u32,
-    pub _padding_852: [::std::os::raw::c_char; 4usize],
+    pub _padding_890: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiTitlebarT {
     fn default() -> Self {
@@ -3499,7 +3592,7 @@ impl Default for UiMouseHelpTextsT {
 pub struct UiFontT {
     pub id: StrhashT,
     pub size: u32,
-    pub _padding_983: [::std::os::raw::c_char; 4usize],
+    pub _padding_1021: [::std::os::raw::c_char; 4usize],
     pub font: *mut Draw2dFontT,
 }
 impl Default for UiFontT {
@@ -3511,6 +3604,34 @@ impl Default for UiFontT {
         }
     }
 }
+pub const TM_UI_SHORTCUT_UNDO: UiShortcut = 0;
+pub const TM_UI_SHORTCUT_REDO: UiShortcut = 1;
+pub const TM_UI_SHORTCUT_CUT: UiShortcut = 2;
+pub const TM_UI_SHORTCUT_COPY: UiShortcut = 3;
+pub const TM_UI_SHORTCUT_PASTE: UiShortcut = 4;
+pub const TM_UI_SHORTCUT_DUPLICATE: UiShortcut = 5;
+pub const TM_UI_SHORTCUT_DELETE: UiShortcut = 6;
+pub const TM_UI_SHORTCUT_SELECT_ALL: UiShortcut = 7;
+pub const TM_UI_SHORTCUT_COUNT: UiShortcut = 8;
+pub type UiShortcut = ::std::os::raw::c_int;
+#[repr(C)]
+pub struct UiAutomationControlT {
+    pub role: StrhashT,
+    pub title_hash: StrhashT,
+    pub title: [::std::os::raw::c_char; 128usize],
+    pub rect: RectT,
+}
+impl Default for UiAutomationControlT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+pub const TM_UI_VISUALIZE_FLAG__AUTOMATION_CONTROLS: UiVisualizeFlag = 1;
+pub type UiVisualizeFlag = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct UiApi {
@@ -3683,6 +3804,16 @@ pub struct UiApi {
             buffer_bytes: u32,
         ) -> bool,
     >,
+    pub multiline_textedit: ::std::option::Option<
+        unsafe extern "C" fn(
+            ui: *mut UiO,
+            style: *const UiStyleT,
+            c: *const UiTexteditT,
+            buffer: *mut *mut ::std::os::raw::c_char,
+            a: *mut AllocatorI,
+            caret_rect: *mut RectT,
+        ) -> bool,
+    >,
     pub menubar: ::std::option::Option<
         unsafe extern "C" fn(
             ui: *mut UiO,
@@ -3754,6 +3885,7 @@ pub struct UiApi {
         ) -> UiTitlebarResultT,
     >,
     pub buffers: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> UiBuffersT>,
+    pub shortcuts: ::std::option::Option<unsafe extern "C" fn() -> *mut *mut ShortcutI>,
     pub reserve_draw_memory: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO)>,
     pub reserve_draw_memory_detailed: ::std::option::Option<
         unsafe extern "C" fn(
@@ -3815,6 +3947,12 @@ pub struct UiApi {
         ) -> *mut ::std::os::raw::c_void,
     >,
     pub clear_lost_active: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO)>,
+    pub save_active_state: ::std::option::Option<
+        unsafe extern "C" fn(ui: *mut UiO, ta: *mut TempAllocatorI) -> *mut ::std::os::raw::c_void,
+    >,
+    pub restore_active_state: ::std::option::Option<
+        unsafe extern "C" fn(ui: *mut UiO, state: *const ::std::os::raw::c_void),
+    >,
     pub to_draw_style: ::std::option::Option<
         unsafe extern "C" fn(
             ui: *mut UiO,
@@ -3858,7 +3996,16 @@ pub struct UiApi {
     pub get_mouse_help_texts:
         ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> UiMouseHelpTextsT>,
     pub theme: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO) -> UiThemeT>,
+    pub get_theme_colors: ::std::option::Option<
+        unsafe extern "C" fn(
+            theme: UiThemeT,
+            theme_colors: *mut *mut ColorSrgbT,
+            a: *mut AllocatorI,
+        ),
+    >,
     pub set_theme: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, theme: UiThemeT)>,
+    pub set_theme_colors:
+        ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, colors: *const ColorSrgbT)>,
     pub create_custom_theme:
         ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, tt: *mut TheTruthO) -> UiThemeT>,
     pub set_parent_ui:
@@ -3881,6 +4028,24 @@ pub struct UiApi {
     >,
     pub default_style: ::std::option::Option<unsafe extern "C" fn(ui: *const UiO) -> UiStyleT>,
     pub create_truth_types: ::std::option::Option<unsafe extern "C" fn(tt: *mut TheTruthO)>,
+    pub register_control: ::std::option::Option<
+        unsafe extern "C" fn(
+            ui: *mut UiO,
+            role: StrhashT,
+            title: *const ::std::os::raw::c_char,
+            rect: RectT,
+        ),
+    >,
+    pub find_control: ::std::option::Option<
+        unsafe extern "C" fn(
+            ui: *mut UiO,
+            role: StrhashT,
+            title: *const ::std::os::raw::c_char,
+        ) -> RectT,
+    >,
+    pub automation_controls: ::std::option::Option<
+        unsafe extern "C" fn(ui: *mut UiO, ta: *mut TempAllocatorI) -> *mut UiAutomationControlT,
+    >,
     pub mouse_move: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, pos: Vec2T)>,
     pub mouse_button_state:
         ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, mouse_item: u32, down: bool)>,
@@ -3889,12 +4054,11 @@ pub struct UiApi {
     pub text_input: ::std::option::Option<
         unsafe extern "C" fn(ui: *mut UiO, text: *const ::std::os::raw::c_char),
     >,
-    pub register_text: ::std::option::Option<
-        unsafe extern "C" fn(ui: *mut UiO, text: *const ::std::os::raw::c_char, rect: RectT),
-    >,
-    pub find_text: ::std::option::Option<
-        unsafe extern "C" fn(ui: *mut UiO, text: *const ::std::os::raw::c_char) -> RectT,
-    >,
+    pub visualize_flag:
+        ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, flag: UiVisualizeFlag) -> bool>,
+    pub set_visualize_flag:
+        ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, flag: UiVisualizeFlag, on: bool)>,
+    pub visualize: ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO)>,
 }
 #[repr(C)]
 pub struct UiActivationT {
@@ -3952,7 +4116,7 @@ pub const TM_UI_EDIT_KEY_REDO: UiEditKey = 18;
 pub const TM_UI_EDIT_KEY_COUNT: UiEditKey = 19;
 pub type UiEditKey = ::std::os::raw::c_int;
 pub const TM_UI_MAX_TEXT_INPUT: ::std::os::raw::c_int = 256;
-pub type _bindgen_ty_14 = ::std::os::raw::c_int;
+pub type _bindgen_ty_13 = ::std::os::raw::c_int;
 pub const TM_UI_MODIFIERS_NONE: ::std::os::raw::c_int = 0;
 pub const TM_UI_MODIFIERS_SHIFT: ::std::os::raw::c_int = 1;
 pub const TM_UI_MODIFIERS_ALT: ::std::os::raw::c_int = 2;
@@ -3961,7 +4125,7 @@ pub const TM_UI_MODIFIERS_CTRL: ::std::os::raw::c_int = 4;
 pub const TM_UI_MODIFIERS_SHIFT_CTRL: ::std::os::raw::c_int = 5;
 pub const TM_UI_MODIFIERS_ALT_CTRL: ::std::os::raw::c_int = 6;
 pub const TM_UI_MODIFIERS_SHIFT_ALT_CTRL: ::std::os::raw::c_int = 7;
-pub type _bindgen_ty_15 = ::std::os::raw::c_int;
+pub type _bindgen_ty_14 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiInputStateT {
     pub time: f64,
@@ -4020,7 +4184,7 @@ impl Default for UiInputStateT {
     }
 }
 pub const TM_UI_ACTIVE_DATA_BYTES: ::std::os::raw::c_int = 16384;
-pub type _bindgen_ty_16 = ::std::os::raw::c_int;
+pub type _bindgen_ty_15 = ::std::os::raw::c_int;
 pub const TM_UI_ICON__NONE: UiIcon = 0;
 pub const TM_UI_ICON__PLAY: UiIcon = 1;
 pub const TM_UI_ICON__PAUSE: UiIcon = 2;
@@ -4089,29 +4253,30 @@ pub const TM_UI_ICON__LOGIN: UiIcon = 64;
 pub const TM_UI_ICON__LOGOUT: UiIcon = 65;
 pub const TM_UI_ICON__FOLDER: UiIcon = 66;
 pub const TM_UI_ICON__FOLDER_OPEN: UiIcon = 67;
-pub const TM_UI_ICON__CHILDREN_TREE: UiIcon = 68;
-pub const TM_UI_ICON__CREATION_GRAPH: UiIcon = 69;
-pub const TM_UI_ICON__INHERIT_FROM_PARENT: UiIcon = 70;
-pub const TM_UI_ICON__PROPAGATE_TO_PARENT: UiIcon = 71;
-pub const TM_UI_ICON__ATTACH_TO_PROCESS: UiIcon = 72;
-pub const TM_UI_ICON__CAPTURE_RENDERDOC: UiIcon = 73;
-pub const TM_UI_ICON__TRANSFORM: UiIcon = 74;
-pub const TM_UI_ICON__ENTITY: UiIcon = 75;
-pub const TM_UI_ICON__ENTITY_OUTLINE: UiIcon = 76;
-pub const TM_UI_ICON__ENTITY_DASHED: UiIcon = 77;
-pub const TM_UI_ICON__COMPONENT: UiIcon = 78;
-pub const TM_UI_ICON__COMPONENT_OUTLINE: UiIcon = 79;
-pub const TM_UI_ICON__RENDER_COMPONENT: UiIcon = 80;
-pub const TM_UI_ICON__PHYSICS_SHAPE: UiIcon = 81;
-pub const TM_UI_ICON__PHYSICS_BODY: UiIcon = 82;
-pub const TM_UI_ICON__PHYSICS_JOINT: UiIcon = 83;
+pub const TM_UI_ICON__COMPASS: UiIcon = 68;
+pub const TM_UI_ICON__CHILDREN_TREE: UiIcon = 69;
+pub const TM_UI_ICON__CREATION_GRAPH: UiIcon = 70;
+pub const TM_UI_ICON__INHERIT_FROM_PARENT: UiIcon = 71;
+pub const TM_UI_ICON__PROPAGATE_TO_PARENT: UiIcon = 72;
+pub const TM_UI_ICON__ATTACH_TO_PROCESS: UiIcon = 73;
+pub const TM_UI_ICON__CAPTURE_RENDERDOC: UiIcon = 74;
+pub const TM_UI_ICON__TRANSFORM: UiIcon = 75;
+pub const TM_UI_ICON__ENTITY: UiIcon = 76;
+pub const TM_UI_ICON__ENTITY_OUTLINE: UiIcon = 77;
+pub const TM_UI_ICON__ENTITY_DASHED: UiIcon = 78;
+pub const TM_UI_ICON__COMPONENT: UiIcon = 79;
+pub const TM_UI_ICON__COMPONENT_OUTLINE: UiIcon = 80;
+pub const TM_UI_ICON__RENDER_COMPONENT: UiIcon = 81;
+pub const TM_UI_ICON__PHYSICS_SHAPE: UiIcon = 82;
+pub const TM_UI_ICON__PHYSICS_BODY: UiIcon = 83;
+pub const TM_UI_ICON__PHYSICS_JOINT: UiIcon = 84;
 pub type UiIcon = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiIconLabelT {
     pub id: u64,
     pub rect: RectT,
     pub icon: UiIcon,
-    pub _padding_111: [::std::os::raw::c_char; 4usize],
+    pub _padding_112: [::std::os::raw::c_char; 4usize],
     pub tooltip: *const ::std::os::raw::c_char,
 }
 impl Default for UiIconLabelT {
@@ -4128,11 +4293,11 @@ pub struct UiIconTextT {
     pub id: u64,
     pub rect: RectT,
     pub icon: UiIcon,
-    pub _padding_121: [::std::os::raw::c_char; 4usize],
+    pub _padding_122: [::std::os::raw::c_char; 4usize],
     pub tooltip: *const ::std::os::raw::c_char,
     pub color: *const ColorSrgbT,
     pub align: u32,
-    pub _padding_125: [::std::os::raw::c_char; 4usize],
+    pub _padding_126: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiIconTextT {
     fn default() -> Self {
@@ -4166,6 +4331,8 @@ pub struct UiIconApi {
             icon: UiIcon,
         ) -> f32,
     >,
+    pub title:
+        ::std::option::Option<unsafe extern "C" fn(icon: UiIcon) -> *const ::std::os::raw::c_char>,
 }
 #[repr(C)]
 pub struct FontProviderT {
@@ -4801,6 +4968,47 @@ impl DockingApi {
         self.remove_ui.unwrap()(ui)
     }
 
+    pub unsafe fn add_workspace(&self, ui: *mut UiO, name: *const ::std::os::raw::c_char) {
+        self.add_workspace.unwrap()(ui, name)
+    }
+
+    pub unsafe fn close_focused_workspace(&self, ui: *mut UiO) -> bool {
+        self.close_focused_workspace.unwrap()(ui)
+    }
+
+    pub unsafe fn num_workspaces(&self, ui: *mut UiO) -> u32 {
+        self.num_workspaces.unwrap()(ui)
+    }
+
+    pub unsafe fn current_workspace(&self, ui: *mut UiO) -> u32 {
+        self.current_workspace.unwrap()(ui)
+    }
+
+    pub unsafe fn workspace_name(&self, ui: *mut UiO, idx: u32) -> *const ::std::os::raw::c_char {
+        self.workspace_name.unwrap()(ui, idx)
+    }
+
+    pub unsafe fn set_workspace_name(
+        &self,
+        ui: *mut UiO,
+        idx: u32,
+        name: *const ::std::os::raw::c_char,
+    ) {
+        self.set_workspace_name.unwrap()(ui, idx, name)
+    }
+
+    pub unsafe fn workspace_icon(&self, ui: *mut UiO, idx: u32) -> u32 {
+        self.workspace_icon.unwrap()(ui, idx)
+    }
+
+    pub unsafe fn set_workspace_icon(&self, ui: *mut UiO, idx: u32, icon: u32) {
+        self.set_workspace_icon.unwrap()(ui, idx, icon)
+    }
+
+    pub unsafe fn workspace_root(&self, ui: *mut UiO, idx: u32) -> *mut DockingTabwellO {
+        self.workspace_root.unwrap()(ui, idx)
+    }
+
     pub unsafe fn hot_reload(&self) {
         self.hot_reload.unwrap()()
     }
@@ -4897,8 +5105,12 @@ impl DockingApi {
         self.tab_has_focus.unwrap()(tab)
     }
 
-    pub unsafe fn tabwell_info(&self, tw: *mut DockingTabwellO) -> DockingTabwellInfoT {
-        self.tabwell_info.unwrap()(tw)
+    pub unsafe fn tabwell_info(
+        &self,
+        tw: *mut DockingTabwellO,
+        ta: *mut TempAllocatorI,
+    ) -> DockingTabwellInfoT {
+        self.tabwell_info.unwrap()(tw, ta)
     }
 
     pub unsafe fn tab_info(
@@ -4935,8 +5147,12 @@ impl DockingApi {
         self.close_focused_tab.unwrap()(ui)
     }
 
-    pub unsafe fn close_all_tabs(&self, ui: *mut UiO) {
-        self.close_all_tabs.unwrap()(ui)
+    pub unsafe fn close_all_tabs_and_workspaces(&self, ui: *mut UiO) {
+        self.close_all_tabs_and_workspaces.unwrap()(ui)
+    }
+
+    pub unsafe fn close_all_tabs_in_workspace(&self, ui: *mut UiO) {
+        self.close_all_tabs_in_workspace.unwrap()(ui)
     }
 
     pub unsafe fn send_focus_event(
@@ -5675,6 +5891,35 @@ impl crate::Api for Shape3dApi {
     const NAME: ConstCStr = const_cstr!("tm_shape3d_api");
 }
 
+impl ShortcutManagerApi {
+    pub unsafe fn load_settings(&self, tt: *mut TheTruthO, index: TtIdT) {
+        self.load_settings.unwrap()(tt, index)
+    }
+
+    pub unsafe fn accelerator_text(
+        &self,
+        shortcut: *const ShortcutI,
+    ) -> *const ::std::os::raw::c_char {
+        self.accelerator_text.unwrap()(shortcut)
+    }
+
+    pub unsafe fn is_shortcut_triggered(&self, ui: *mut UiO, shortcut: *const ShortcutI) -> bool {
+        self.is_shortcut_triggered.unwrap()(ui, shortcut)
+    }
+
+    pub unsafe fn is_shortcut_triggered_in_input(
+        &self,
+        input_state: *const UiInputStateT,
+        shortcut: *const ShortcutI,
+    ) -> bool {
+        self.is_shortcut_triggered_in_input.unwrap()(input_state, shortcut)
+    }
+
+    pub unsafe fn disable_shortcut_processing(&self) {
+        self.disable_shortcut_processing.unwrap()()
+    }
+}
+
 impl ToolbarApi {
     pub unsafe fn create_state(&self, allocator: *mut AllocatorI) -> *mut ToolbarsStateO {
         self.create_state.unwrap()(allocator)
@@ -6028,6 +6273,18 @@ impl UiApi {
         self.textedit.unwrap()(ui, style, c, buffer, buffer_bytes)
     }
 
+    pub unsafe fn multiline_textedit(
+        &self,
+        ui: *mut UiO,
+        style: *const UiStyleT,
+        c: *const UiTexteditT,
+        buffer: *mut *mut ::std::os::raw::c_char,
+        a: *mut AllocatorI,
+        caret_rect: *mut RectT,
+    ) -> bool {
+        self.multiline_textedit.unwrap()(ui, style, c, buffer, a, caret_rect)
+    }
+
     pub unsafe fn menubar(
         &self,
         ui: *mut UiO,
@@ -6119,6 +6376,10 @@ impl UiApi {
 
     pub unsafe fn buffers(&self, ui: *mut UiO) -> UiBuffersT {
         self.buffers.unwrap()(ui)
+    }
+
+    pub unsafe fn shortcuts(&self) -> *mut *mut ShortcutI {
+        self.shortcuts.unwrap()()
     }
 
     pub unsafe fn reserve_draw_memory(&self, ui: *mut UiO) {
@@ -6259,6 +6520,18 @@ impl UiApi {
         self.clear_lost_active.unwrap()(ui)
     }
 
+    pub unsafe fn save_active_state(
+        &self,
+        ui: *mut UiO,
+        ta: *mut TempAllocatorI,
+    ) -> *mut ::std::os::raw::c_void {
+        self.save_active_state.unwrap()(ui, ta)
+    }
+
+    pub unsafe fn restore_active_state(&self, ui: *mut UiO, state: *const ::std::os::raw::c_void) {
+        self.restore_active_state.unwrap()(ui, state)
+    }
+
     pub unsafe fn to_draw_style(
         &self,
         ui: *mut UiO,
@@ -6357,8 +6630,21 @@ impl UiApi {
         self.theme.unwrap()(ui)
     }
 
+    pub unsafe fn get_theme_colors(
+        &self,
+        theme: UiThemeT,
+        theme_colors: *mut *mut ColorSrgbT,
+        a: *mut AllocatorI,
+    ) {
+        self.get_theme_colors.unwrap()(theme, theme_colors, a)
+    }
+
     pub unsafe fn set_theme(&self, ui: *mut UiO, theme: UiThemeT) {
         self.set_theme.unwrap()(ui, theme)
+    }
+
+    pub unsafe fn set_theme_colors(&self, ui: *mut UiO, colors: *const ColorSrgbT) {
+        self.set_theme_colors.unwrap()(ui, colors)
     }
 
     pub unsafe fn create_custom_theme(&self, ui: *mut UiO, tt: *mut TheTruthO) -> UiThemeT {
@@ -6407,6 +6693,33 @@ impl UiApi {
         self.create_truth_types.unwrap()(tt)
     }
 
+    pub unsafe fn register_control(
+        &self,
+        ui: *mut UiO,
+        role: StrhashT,
+        title: *const ::std::os::raw::c_char,
+        rect: RectT,
+    ) {
+        self.register_control.unwrap()(ui, role, title, rect)
+    }
+
+    pub unsafe fn find_control(
+        &self,
+        ui: *mut UiO,
+        role: StrhashT,
+        title: *const ::std::os::raw::c_char,
+    ) -> RectT {
+        self.find_control.unwrap()(ui, role, title)
+    }
+
+    pub unsafe fn automation_controls(
+        &self,
+        ui: *mut UiO,
+        ta: *mut TempAllocatorI,
+    ) -> *mut UiAutomationControlT {
+        self.automation_controls.unwrap()(ui, ta)
+    }
+
     pub unsafe fn mouse_move(&self, ui: *mut UiO, pos: Vec2T) {
         self.mouse_move.unwrap()(ui, pos)
     }
@@ -6423,17 +6736,16 @@ impl UiApi {
         self.text_input.unwrap()(ui, text)
     }
 
-    pub unsafe fn register_text(
-        &self,
-        ui: *mut UiO,
-        text: *const ::std::os::raw::c_char,
-        rect: RectT,
-    ) {
-        self.register_text.unwrap()(ui, text, rect)
+    pub unsafe fn visualize_flag(&self, ui: *mut UiO, flag: UiVisualizeFlag) -> bool {
+        self.visualize_flag.unwrap()(ui, flag)
     }
 
-    pub unsafe fn find_text(&self, ui: *mut UiO, text: *const ::std::os::raw::c_char) -> RectT {
-        self.find_text.unwrap()(ui, text)
+    pub unsafe fn set_visualize_flag(&self, ui: *mut UiO, flag: UiVisualizeFlag, on: bool) {
+        self.set_visualize_flag.unwrap()(ui, flag, on)
+    }
+
+    pub unsafe fn visualize(&self, ui: *mut UiO) {
+        self.visualize.unwrap()(ui)
     }
 }
 
@@ -6481,6 +6793,10 @@ impl UiIconApi {
         icon: UiIcon,
     ) -> f32 {
         self.draw.unwrap()(ui, style, color, pos, icon)
+    }
+
+    pub unsafe fn title(&self, icon: UiIcon) -> *const ::std::os::raw::c_char {
+        self.title.unwrap()(icon)
     }
 }
 
@@ -6661,6 +6977,12 @@ pub const TM_TT_TYPE_HASH__CLIPBOARD: StrhashT = StrhashT {
 pub const TM_TT_TYPE_HASH__DOCKING_SETTINGS: StrhashT = StrhashT {
     u64_: 13677458105631742768u64,
 };
+pub const TM_TT_TYPE_HASH__SHORTCUTS_ENTRY: StrhashT = StrhashT {
+    u64_: 14951423256457982727u64,
+};
+pub const TM_TT_TYPE_HASH__SHORTCUTS_INDEX: StrhashT = StrhashT {
+    u64_: 9028192998949932424u64,
+};
 pub const TM_TT_TYPE_HASH__TOOLBAR_SETTINGS: StrhashT = StrhashT {
     u64_: 16466166788834301889u64,
 };
@@ -6673,8 +6995,56 @@ pub const TM_TT_TYPE_HASH__UI_THEME_COLOR: StrhashT = StrhashT {
 pub const TM_UI_ACTIVE_DATA__TEXTEDIT: StrhashT = StrhashT {
     u64_: 5258182182097423975u64,
 };
+pub const TM_UI_ACTIVE_DATA__MULTILINE_TEXTEDIT: StrhashT = StrhashT {
+    u64_: 17663214918397563568u64,
+};
 pub const TM_UI_ACTIVE_DATA__MENU: StrhashT = StrhashT {
     u64_: 5520113369133148529u64,
+};
+pub const TM_UI_ROLE__NONE: StrhashT = StrhashT {
+    u64_: 8991135776538268156u64,
+};
+pub const TM_UI_ROLE__ANY: StrhashT = StrhashT {
+    u64_: 17914253431124380503u64,
+};
+pub const TM_UI_ROLE__BUTTON: StrhashT = StrhashT {
+    u64_: 2171618341661158550u64,
+};
+pub const TM_UI_ROLE__CHECKBOX: StrhashT = StrhashT {
+    u64_: 9741561056555145438u64,
+};
+pub const TM_UI_ROLE__CUSTOM: StrhashT = StrhashT {
+    u64_: 1210229691100134843u64,
+};
+pub const TM_UI_ROLE__DROPDOWN: StrhashT = StrhashT {
+    u64_: 1646078252726028985u64,
+};
+pub const TM_UI_ROLE__DROPDOWN_ITEM: StrhashT = StrhashT {
+    u64_: 12593592446744835453u64,
+};
+pub const TM_UI_ROLE__LINK: StrhashT = StrhashT {
+    u64_: 2506692502147259529u64,
+};
+pub const TM_UI_ROLE__MENU_ITEM: StrhashT = StrhashT {
+    u64_: 17943940539299394538u64,
+};
+pub const TM_UI_ROLE__MENUBAR_ITEM: StrhashT = StrhashT {
+    u64_: 1888976680707396860u64,
+};
+pub const TM_UI_ROLE__PROGRESS_BAR: StrhashT = StrhashT {
+    u64_: 16229023752359338034u64,
+};
+pub const TM_UI_ROLE__PUSHBUTTON: StrhashT = StrhashT {
+    u64_: 3933447742410737640u64,
+};
+pub const TM_UI_ROLE__RADIO: StrhashT = StrhashT {
+    u64_: 17747375840734793216u64,
+};
+pub const TM_UI_ROLE__STATIC_TEXT: StrhashT = StrhashT {
+    u64_: 4018892029096512244u64,
+};
+pub const TM_UI_ROLE__TEXTEDIT: StrhashT = StrhashT {
+    u64_: 12047848852090713774u64,
 };
 pub const TM_FONT__IONICONS: StrhashT = StrhashT {
     u64_: 11300213934132052854u64,

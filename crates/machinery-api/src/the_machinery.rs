@@ -116,19 +116,27 @@ pub const TM_STATE_GRAPH_TAB_VT_NAME: &'static [u8; 19usize] = b"tm_state_graph_
 pub const TM_STATISTICS_TAB_VT_NAME: &'static [u8; 18usize] = b"tm_statistics_tab\0";
 pub const TM_TASK_MANAGER_API_NAME: &'static [u8; 20usize] = b"tm_task_manager_api\0";
 pub const TM_TASK_MANAGER_TAB_VT_NAME: &'static [u8; 20usize] = b"tm_task_manager_tab\0";
-pub const THE_MACHINERY_VERSION: &'static [u8; 7usize] = b"2021.7\0";
+pub const THE_MACHINERY_VERSION: &'static [u8; 9usize] = b"2021.8.a\0";
 pub const TM_TT_TYPE__APPLICATION_SETTINGS: &'static [u8; 24usize] = b"tm_application_settings\0";
 pub const TM_TT_TYPE__PROJECT_MANAGEMENT_SETTINGS: &'static [u8; 31usize] =
     b"tm_project_management_settings\0";
 pub const TM_TT_TYPE__INTERFACE_SETTINGS: &'static [u8; 22usize] = b"tm_interface_settings\0";
 pub const TM_TT_TYPE__WINDOW_LAYOUTS: &'static [u8; 18usize] = b"tm_window_layouts\0";
 pub const TM_TT_TYPE__WINDOW_LAYOUT: &'static [u8; 17usize] = b"tm_window_layout\0";
-pub const TM_TT_TYPE__RECENT_FILE: &'static [u8; 15usize] = b"tm_recent_file\0";
+pub const TM_TT_TYPE__WORKSPACE: &'static [u8; 13usize] = b"tm_workspace\0";
 pub const TM_TT_TYPE__TABWELL: &'static [u8; 11usize] = b"tm_tabwell\0";
 pub const TM_TT_TYPE__TAB_VIEW: &'static [u8; 12usize] = b"tm_tab_view\0";
+pub const TM_TT_TYPE__RECENT_FILE: &'static [u8; 15usize] = b"tm_recent_file\0";
 pub const TM_TT_TYPE__PUBLISH_SETTINGS: &'static [u8; 20usize] = b"tm_publish_settings\0";
 pub const TM_TT_TYPE__APPLICATION_SECURITY: &'static [u8; 24usize] = b"tm_application_security\0";
 pub const TM_TT_TYPE__PROJECT_SETTINGS: &'static [u8; 20usize] = b"tm_project_settings\0";
+pub const TM_TT_TYPE__NETWORK_SETTINGS: &'static [u8; 20usize] = b"tm_network_settings\0";
+pub const TM_THE_MACHINERY_PROJECT_LOADED_INTERFACE_NAME: &'static [u8; 34usize] =
+    b"tm_the_machinery_project_loaded_i\0";
+pub const TM_THE_MACHINERY_PROJECT_UNLOADED_INTERFACE_NAME: &'static [u8; 36usize] =
+    b"tm_the_machinery_project_unloaded_i\0";
+pub const TM_THE_MACHINERY_PROJECT_SAVED_INTERFACE_NAME: &'static [u8; 33usize] =
+    b"tm_the_machinery_project_saved_i\0";
 pub const TM_THE_MACHINERY_API_NAME: &'static [u8; 21usize] = b"tm_the_machinery_api\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
@@ -226,8 +234,6 @@ impl Default for TtIdTBindgenTy1 {
 }
 pub const TM_TT_PROP__DOCKING_SETTINGS__TOOLBARS_SETTINGS: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
-pub const TM_DOCKING_MAX_TABS_IN_TABWELL: ::std::os::raw::c_int = 32;
-pub type _bindgen_ty_2 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct AssetBrowserTabApi {
@@ -257,11 +263,11 @@ pub struct UpdateTrackerApi {
 }
 pub const TM_TT_PROP__APPLICATION_SETTINGS__UPDATES__LATEST_VERSION: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__APPLICATION_SETTINGS__UPDATES__SKIP_THIS_VERSION: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_3 = ::std::os::raw::c_int;
+pub type _bindgen_ty_2 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__APPLICATION_SETTINGS__DOWNLOAD__URL: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__APPLICAITON_SETTINGS__DOWNLOAD__FILE: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__APPLICAITON_SETTINGS__DOWNLOAD__UNZIP_DIRECTORY: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_4 = ::std::os::raw::c_int;
+pub type _bindgen_ty_3 = ::std::os::raw::c_int;
 extern "C" {
     pub static mut tm_update_tracker_api: *mut UpdateTrackerApi;
 }
@@ -296,7 +302,7 @@ pub struct IntegrationTestRunnerApi {
         unsafe extern "C" fn(
             runner: *mut IntegrationTestRunnerO,
             name: *const ::std::os::raw::c_char,
-        ),
+        ) -> bool,
     >,
     pub tick: ::std::option::Option<unsafe extern "C" fn(runner: *mut IntegrationTestRunnerO)>,
     pub destroy: ::std::option::Option<unsafe extern "C" fn(runner: *mut IntegrationTestRunnerO)>,
@@ -383,7 +389,7 @@ pub const TM_TT_PROP__SCENE_TAB__HIDDEN: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__SCENE_TAB__TO_SHOW: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__SCENE_TAB__LOCKED: ::std::os::raw::c_int = 8;
 pub const TM_TT_PROP__SCENE_TAB__UNLOCKED: ::std::os::raw::c_int = 9;
-pub type _bindgen_ty_5 = ::std::os::raw::c_int;
+pub type _bindgen_ty_4 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__SCENE_SETTINGS__ASSET_UUID_A: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__SCENE_SETTINGS__USE_WORLD_AXES: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__SCENE_SETTINGS__MULTI_SELECT_PIVOT: ::std::os::raw::c_int = 2;
@@ -392,7 +398,9 @@ pub const TM_TT_PROP__SCENE_SETTINGS__MOVE_SNAP_SIZE: ::std::os::raw::c_int = 4;
 pub const TM_TT_PROP__SCENE_SETTINGS__ROT_SNAP: ::std::os::raw::c_int = 5;
 pub const TM_TT_PROP__SCENE_SETTINGS__ROT_SNAP_ANGLE: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__SCENE_SETTINGS__SCALE_ABSOLUTE_HANDLE: ::std::os::raw::c_int = 7;
-pub type _bindgen_ty_6 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__SCENE_SETTINGS__SCALE_SNAP: ::std::os::raw::c_int = 8;
+pub const TM_TT_PROP__SCENE_SETTINGS__SCALE_SNAP_INCREMENT: ::std::os::raw::c_int = 9;
+pub type _bindgen_ty_5 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct scene_tab_entity_data_t {
     pub entity_ctx: *mut EntityContextO,
@@ -458,48 +466,52 @@ pub struct WindowO {
 pub const TM_TT_PROP__APPLICATION_SETTINGS__ANALYTICS_CLIENT_ID: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__APPLICATION_SETTINGS__ANALYTICS_OPT_OUT: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__APPLICATION_SETTINGS__CAMERA_SETTINGS: ::std::os::raw::c_int = 2;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__GRID_SETTINGS: ::std::os::raw::c_int = 3;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__WINDOW_LAYOUTS: ::std::os::raw::c_int = 4;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__RECENT_FILES: ::std::os::raw::c_int = 5;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__INTERFACE_SETTINGS: ::std::os::raw::c_int = 6;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEMES: ::std::os::raw::c_int = 7;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEME: ::std::os::raw::c_int = 8;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__BUILTIN_UI_THEME: ::std::os::raw::c_int = 9;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECTS_SETTINGS: ::std::os::raw::c_int = 10;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__UPDATES: ::std::os::raw::c_int = 11;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__DOWNLOADS: ::std::os::raw::c_int = 12;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__LAST_OPENED_PROJECT: ::std::os::raw::c_int = 13;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__DOCKING_SETTINGS: ::std::os::raw::c_int = 14;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECT_MANAGEMENT: ::std::os::raw::c_int = 15;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__SECURITY: ::std::os::raw::c_int = 16;
-pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__NETWORK_SETTINGS: ::std::os::raw::c_int = 3;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__GRID_SETTINGS: ::std::os::raw::c_int = 4;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__WINDOW_LAYOUTS: ::std::os::raw::c_int = 5;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__RECENT_FILES: ::std::os::raw::c_int = 6;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__INTERFACE_SETTINGS: ::std::os::raw::c_int = 7;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__KEYBOARD_SHORTCUTS: ::std::os::raw::c_int = 8;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEMES: ::std::os::raw::c_int = 9;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEME: ::std::os::raw::c_int = 10;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__BUILTIN_UI_THEME: ::std::os::raw::c_int = 11;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECTS_SETTINGS: ::std::os::raw::c_int = 12;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__UPDATES: ::std::os::raw::c_int = 13;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__DOWNLOADS: ::std::os::raw::c_int = 14;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__LAST_OPENED_PROJECT: ::std::os::raw::c_int = 15;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__DOCKING_SETTINGS: ::std::os::raw::c_int = 16;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECT_MANAGEMENT: ::std::os::raw::c_int = 17;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__SECURITY: ::std::os::raw::c_int = 18;
+pub type _bindgen_ty_6 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__PROJECT_MANAGEMENT_SETTINGS__OPEN_EMPTY_PROJECT_ON_STARTUP:
     ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__PROJECT_MANAGEMENT_SETTINGS__ALWAYS_OPEN_DEFAULT_PROJECT_WINDOW:
     ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_8 = ::std::os::raw::c_int;
+pub type _bindgen_ty_7 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__INTERFACE_SETTINGS__RESOLUTION_SCALE: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__INTERFACE_SETTINGS__WHEEL_SCROLL_LINES: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_9 = ::std::os::raw::c_int;
+pub type _bindgen_ty_8 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__WINDOW_LAYOUTS__LAYOUTS: ::std::os::raw::c_int = 0;
-pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub type _bindgen_ty_9 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__WINDOW_LAYOUT__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_X: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_Y: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_WIDTH: ::std::os::raw::c_int = 3;
 pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_HEIGHT: ::std::os::raw::c_int = 4;
 pub const TM_TT_PROP__WINDOW_LAYOUT__TABWELL: ::std::os::raw::c_int = 5;
+pub const TM_TT_PROP__WINDOW_LAYOUT__WORKSPACES: ::std::os::raw::c_int = 6;
+pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__WORKSPACE__NAME: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__WORKSPACE__ICON: ::std::os::raw::c_int = 1;
+pub const TM_TT_PROP__WORKSPACE__TABWELL: ::std::os::raw::c_int = 2;
 pub type _bindgen_ty_11 = ::std::os::raw::c_int;
-pub const TM_TT_PROP__RECENT_FILE__PATH: ::std::os::raw::c_int = 0;
-pub const TM_TT_PROP__RECENT_FILE__TIME_STAMP: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_12 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__TABWELL__LEFT: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__TABWELL__RIGHT: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__TABWELL__TOP: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__TABWELL__BOTTOM: ::std::os::raw::c_int = 3;
 pub const TM_TT_PROP__TABWELL__BIAS: ::std::os::raw::c_int = 4;
 pub const TM_TT_PROP__TABWELL__VIEWS: ::std::os::raw::c_int = 5;
-pub type _bindgen_ty_13 = ::std::os::raw::c_int;
+pub type _bindgen_ty_12 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__TAB_VIEW__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__TAB_VIEW__ROOT_UUID_A: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__TAB_VIEW__ROOT_UUID_B: ::std::os::raw::c_int = 2;
@@ -508,6 +520,9 @@ pub const TM_TT_PROP__TAB_VIEW__SORT_INDEX: ::std::os::raw::c_int = 4;
 pub const TM_TT_PROP__TAB_VIEW__SETTINGS_VIEW: ::std::os::raw::c_int = 5;
 pub const TM_TT_PROP__TAB_VIEW__PINNED: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__TAB_VIEW__SETTINGS_STATE: ::std::os::raw::c_int = 7;
+pub type _bindgen_ty_13 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__RECENT_FILE__PATH: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__RECENT_FILE__TIME_STAMP: ::std::os::raw::c_int = 1;
 pub type _bindgen_ty_14 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__PUBLISH_SETTINGS__DIRECTORY_PROJECT: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__PUBLISH_SETTINGS__EXECUTABLE_NAME: ::std::os::raw::c_int = 1;
@@ -529,6 +544,11 @@ pub const TM_TT_PROP__PROJECT_SETTINGS__WINDOW_LAYOUT: ::std::os::raw::c_int = 4
 pub const TM_TT_PROP__PROJECT_SETTINGS__GRAPH_DEBUGGER_PERSISTENT_SETTINGS: ::std::os::raw::c_int =
     5;
 pub type _bindgen_ty_17 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__NETWORK_SETTINGS__NODE_INSTANCES: ::std::os::raw::c_int = 0;
+pub type _bindgen_ty_18 = ::std::os::raw::c_int;
+pub type TheMachineryProjectCallbackI = ::std::option::Option<
+    unsafe extern "C" fn(app: *mut ApplicationO, truth: *mut TheTruthO, asset_root: TtIdT),
+>;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct TheMachineryApi {
@@ -718,12 +738,16 @@ extern "C" {
     pub fn localizer_set_language(loc: *mut LocalizerO, lang: StrhashT);
 }
 extern "C" {
+    pub fn localizer_test_language(loc: *mut LocalizerO) -> StrhashT;
+}
+extern "C" {
+    pub fn localizer_toggle_test_language(loc: *mut LocalizerO, lang: StrhashT);
+}
+extern "C" {
     pub fn localizer_interface(loc: *mut LocalizerO) -> *mut LocalizerI;
 }
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct NetworkO {
-    _unused: [u8; 0],
+extern "C" {
+    pub fn localizer_set_reveal_english(loc: *mut LocalizerO, reveal: bool);
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -871,7 +895,7 @@ impl IntegrationTestRunnerApi {
         &self,
         runner: *mut IntegrationTestRunnerO,
         name: *const ::std::os::raw::c_char,
-    ) {
+    ) -> bool {
         self.add_test.unwrap()(runner, name)
     }
 
@@ -1240,14 +1264,17 @@ pub const TM_TT_TYPE_HASH__WINDOW_LAYOUTS: StrhashT = StrhashT {
 pub const TM_TT_TYPE_HASH__WINDOW_LAYOUT: StrhashT = StrhashT {
     u64_: 2242415212777679619u64,
 };
-pub const TM_TT_TYPE_HASH__RECENT_FILE: StrhashT = StrhashT {
-    u64_: 13424770189634016662u64,
+pub const TM_TT_TYPE_HASH__WORKSPACE: StrhashT = StrhashT {
+    u64_: 14829736330726518513u64,
 };
 pub const TM_TT_TYPE_HASH__TABWELL: StrhashT = StrhashT {
     u64_: 11643281543487517665u64,
 };
 pub const TM_TT_TYPE_HASH__TAB_VIEW: StrhashT = StrhashT {
     u64_: 7890642175358502121u64,
+};
+pub const TM_TT_TYPE_HASH__RECENT_FILE: StrhashT = StrhashT {
+    u64_: 13424770189634016662u64,
 };
 pub const TM_TT_TYPE_HASH__PUBLISH_SETTINGS: StrhashT = StrhashT {
     u64_: 10298575024838714316u64,
@@ -1257,4 +1284,7 @@ pub const TM_TT_TYPE_HASH__APPLICATION_SECURITY: StrhashT = StrhashT {
 };
 pub const TM_TT_TYPE_HASH__PROJECT_SETTINGS: StrhashT = StrhashT {
     u64_: 16275721671749807405u64,
+};
+pub const TM_TT_TYPE_HASH__NETWORK_SETTINGS: StrhashT = StrhashT {
+    u64_: 4133456848111380615u64,
 };

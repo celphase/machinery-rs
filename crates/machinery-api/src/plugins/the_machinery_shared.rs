@@ -123,6 +123,7 @@ impl<T> ::std::cmp::PartialEq for __BindgenUnionField<T> {
 impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
+pub const TM_BAKER_CONTEXT_API_NAME: &'static [u8; 20usize] = b"tm_bake_context_api\0";
 pub const TYPE__CAMERA_CONTROLLER_COMPONENT: &'static [u8; 31usize] =
     b"tm_camera_controller_component\0";
 pub const TM_CAMERA_CONTROLLER_COMPONENT_API_NAME: &'static [u8; 35usize] =
@@ -369,8 +370,16 @@ pub struct AssetPreviewApi {
             args: *const AssetPreviewApiUiArgsT,
         ) -> *mut ToolbarI,
     >,
+    pub update_camera: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut AssetPreviewO,
+            tt: *mut TheTruthO,
+            cam_tm: *mut TransformT,
+            cam_settings: *mut *const CameraSettingsT,
+        ),
+    >,
     pub show_grid: bool,
-    pub _padding_96: [::std::os::raw::c_char; 7usize],
+    pub _padding_100: [::std::os::raw::c_char; 7usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -436,6 +445,7 @@ impl Default for AssetSceneI {
 pub const TM_ASSET_OPEN_MODE_REUSE_OR_CREATE_TAB: AssetOpenMode = 0;
 pub const TM_ASSET_OPEN_MODE_CREATE_TAB: AssetOpenMode = 1;
 pub const TM_ASSET_OPEN_MODE_CREATE_TAB_AND_PIN: AssetOpenMode = 2;
+pub const TM_ASSET_OPEN_MODE_CREATE_WORKSPACE: AssetOpenMode = 3;
 pub type AssetOpenMode = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -451,20 +461,77 @@ pub struct AssetOpenAspectI {
         ),
     >,
 }
-pub const MODE_NONE: camera_controller_mode = 0;
-pub const MODE_FREE_FLIGHT: camera_controller_mode = 1;
-pub const MODE_MAYA_SPIN: camera_controller_mode = 2;
-pub const MODE_MAYA_ZOOM: camera_controller_mode = 3;
-pub const MODE_MAYA_PAN: camera_controller_mode = 4;
-pub type camera_controller_mode = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union EntityT {
+    pub __bindgen_anon_1: EntityTBindgenTy1,
+    pub u64_: u64,
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct EntityTBindgenTy1 {
+    pub index: u32,
+    pub generation: u32,
+}
+impl Default for EntityT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct BakerContextO {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct BakerContextApi {
+    pub create_context: ::std::option::Option<
+        unsafe extern "C" fn(
+            a: *mut AllocatorI,
+            tt: *mut TheTruthO,
+            asset_root: TtIdT,
+            render_pipe: *mut RenderPipelineApi,
+        ) -> *mut BakerContextO,
+    >,
+    pub destroy_context: ::std::option::Option<unsafe extern "C" fn(context: *mut BakerContextO)>,
+    pub entity_context: ::std::option::Option<
+        unsafe extern "C" fn(context: *mut BakerContextO) -> *mut EntityContextO,
+    >,
+    pub set_entity:
+        ::std::option::Option<unsafe extern "C" fn(context: *mut BakerContextO, e: EntityT)>,
+    pub render_args: ::std::option::Option<
+        unsafe extern "C" fn(context: *mut BakerContextO, args: *mut ViewerRenderArgsT),
+    >,
+    pub set_camera: ::std::option::Option<
+        unsafe extern "C" fn(
+            context: *mut BakerContextO,
+            camera_tm: *const TransformT,
+            camera_settings: *const CameraSettingsT,
+        ),
+    >,
+}
+pub const TM_CAMERA_CONTROLLER_MODE__NONE: CameraControllerMode = 0;
+pub const TM_CAMERA_CONTROLLER_MODE__FOLLOW: CameraControllerMode = 1;
+pub const TM_CAMERA_CONTROLLER_MODE__FREE_FLIGHT: CameraControllerMode = 2;
+pub const TM_CAMERA_CONTROLLER_MODE__MAYA_SPIN: CameraControllerMode = 3;
+pub const TM_CAMERA_CONTROLLER_MODE__MAYA_ZOOM: CameraControllerMode = 4;
+pub const TM_CAMERA_CONTROLLER_MODE__MAYA_PAN: CameraControllerMode = 5;
+pub type CameraControllerMode = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct CameraControllerComponentT {
     pub disable_input: bool,
-    pub _padding_24: [::std::os::raw::c_char; 3usize],
-    pub mode: camera_controller_mode,
+    pub _padding_33: [::std::os::raw::c_char; 3usize],
+    pub mode: CameraControllerMode,
     pub translation_speed: f32,
     pub rotation_speed: f32,
     pub translation_damping: f32,
+    pub target_orientation: Vec2T,
+    pub follow_speed: f32,
     pub translation: Vec3T,
     pub damped_translation: Vec3T,
     pub rotation: Vec2T,
@@ -488,6 +555,24 @@ pub struct CameraControllerComponentManagerO {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct UiOrientationIndicatorT {
+    pub controller: *mut CameraControllerComponentT,
+    pub camera: *const CameraT,
+    pub viewport: RectT,
+    pub rect: RectT,
+    pub allow_snapping: bool,
+    pub _padding_82: [::std::os::raw::c_char; 7usize],
+}
+impl Default for UiOrientationIndicatorT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct CameraControllerComponentApi {
     pub create: ::std::option::Option<
@@ -502,6 +587,14 @@ pub struct CameraControllerComponentApi {
     >,
     pub register_engines: ::std::option::Option<
         unsafe extern "C" fn(manager: *mut CameraControllerComponentManagerO),
+    >,
+    pub orientation_indicator: ::std::option::Option<
+        unsafe extern "C" fn(
+            manager: *mut CameraControllerComponentManagerO,
+            ui: *mut UiO,
+            uistyle: *const UiStyleT,
+            c: *const UiOrientationIndicatorT,
+        ),
     >,
 }
 pub type CiEditorPropertiesUiF = ::std::option::Option<
@@ -583,7 +676,7 @@ pub struct CiEditorUiI {
     pub category: ::std::option::Option<unsafe extern "C" fn() -> *const ::std::os::raw::c_char>,
     pub icon_interface: ::std::option::Option<unsafe extern "C" fn() -> *mut CiEditorUiIconI>,
     pub gizmo_priority: f32,
-    pub _padding_93: [::std::os::raw::c_char; 4usize],
+    pub _padding_95: [::std::os::raw::c_char; 4usize],
     pub gizmo_get_transform: ::std::option::Option<
         unsafe extern "C" fn(
             tt: *const TheTruthO,
@@ -621,6 +714,14 @@ pub struct CiEditorUiI {
     >,
     pub viewport_interact: ::std::option::Option<
         unsafe extern "C" fn(vi: *const CiViewportInteract) -> CiViewportInteractResult,
+    >,
+    pub editor_ui: ::std::option::Option<
+        unsafe extern "C" fn(
+            ui: *mut UiO,
+            uistyle: *const UiStyleT,
+            viewport: RectT,
+            manager: *mut ComponentManagerO,
+        ),
     >,
     pub create: ::std::option::Option<
         unsafe extern "C" fn(tt: *mut TheTruthO, type_: TtTypeT, undo_scope: TtUndoScopeT) -> TtIdT,
@@ -1066,27 +1167,6 @@ impl Default for RenderArgsT {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub union EntityT {
-    pub __bindgen_anon_1: EntityTBindgenTy1,
-    pub u64_: u64,
-}
-#[repr(C)]
-#[derive(Default, Copy, Clone)]
-pub struct EntityTBindgenTy1 {
-    pub index: u32,
-    pub generation: u32,
-}
-impl Default for EntityT {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
 pub struct RenderPipelineI {
     _unused: [u8; 0],
 }
@@ -1353,14 +1433,7 @@ pub type ViewerGatherRenderCallbackF = ::std::option::Option<
 #[repr(C)]
 pub struct ViewerCameraT {
     pub tm: TransformT,
-    pub mode: u32,
-    pub near_plane: f32,
-    pub far_plane: f32,
-    pub vertical_fov: f32,
-    pub box_height: f32,
-    pub shutter_speed: f32,
-    pub aperture: f32,
-    pub iso: f32,
+    pub camera: *const CameraSettingsT,
 }
 impl Default for ViewerCameraT {
     fn default() -> Self {
@@ -1381,7 +1454,7 @@ pub type ViewerCameraSettings = ::std::os::raw::c_int;
 pub struct ViewerRenderArgsTBindgenTy1 {
     pub __bindgen_anon_1: __BindgenUnionField<ViewerRenderArgsTBindgenTy1BindgenTy1>,
     pub camera: __BindgenUnionField<ViewerCameraT>,
-    pub bindgen_union_field: [u64; 9usize],
+    pub bindgen_union_field: [u64; 6usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -1406,30 +1479,6 @@ impl Default for ViewerRenderArgsTBindgenTy1 {
             s.assume_init()
         }
     }
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ViewerRenderInfoT {
-    pub target_width: u32,
-    pub target_height: u32,
-    pub dpi_scale_factor: f32,
-    pub vr_context: u32,
-    pub camera: *const CameraT,
-    pub render_pipeline: *mut RenderPipelineI,
-}
-impl Default for ViewerRenderInfoT {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct ViewerO {
-    _unused: [u8; 0],
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -1518,6 +1567,7 @@ use crate::plugins::render_graph::*;
 use crate::plugins::renderer::*;
 use crate::plugins::shader_system::*;
 use crate::plugins::simulate::*;
+use crate::plugins::simulate_common::*;
 use crate::plugins::ui::*;
 
 impl AssetPreviewApi {
@@ -1599,6 +1649,16 @@ impl AssetPreviewApi {
     ) -> *mut ToolbarI {
         self.toolbars.unwrap()(inst, ta, args)
     }
+
+    pub unsafe fn update_camera(
+        &self,
+        inst: *mut AssetPreviewO,
+        tt: *mut TheTruthO,
+        cam_tm: *mut TransformT,
+        cam_settings: *mut *const CameraSettingsT,
+    ) {
+        self.update_camera.unwrap()(inst, tt, cam_tm, cam_settings)
+    }
 }
 
 impl AssetSceneApi {
@@ -1651,6 +1711,47 @@ impl AssetSceneApi {
     }
 }
 
+impl BakerContextApi {
+    pub unsafe fn create_context(
+        &self,
+        a: *mut AllocatorI,
+        tt: *mut TheTruthO,
+        asset_root: TtIdT,
+        render_pipe: *mut RenderPipelineApi,
+    ) -> *mut BakerContextO {
+        self.create_context.unwrap()(a, tt, asset_root, render_pipe)
+    }
+
+    pub unsafe fn destroy_context(&self, context: *mut BakerContextO) {
+        self.destroy_context.unwrap()(context)
+    }
+
+    pub unsafe fn entity_context(&self, context: *mut BakerContextO) -> *mut EntityContextO {
+        self.entity_context.unwrap()(context)
+    }
+
+    pub unsafe fn set_entity(&self, context: *mut BakerContextO, e: EntityT) {
+        self.set_entity.unwrap()(context, e)
+    }
+
+    pub unsafe fn render_args(&self, context: *mut BakerContextO, args: *mut ViewerRenderArgsT) {
+        self.render_args.unwrap()(context, args)
+    }
+
+    pub unsafe fn set_camera(
+        &self,
+        context: *mut BakerContextO,
+        camera_tm: *const TransformT,
+        camera_settings: *const CameraSettingsT,
+    ) {
+        self.set_camera.unwrap()(context, camera_tm, camera_settings)
+    }
+}
+
+impl crate::Api for BakerContextApi {
+    const NAME: ConstCStr = const_cstr!("tm_baker_context_api");
+}
+
 impl CameraControllerComponentApi {
     pub unsafe fn create(
         &self,
@@ -1670,6 +1771,16 @@ impl CameraControllerComponentApi {
 
     pub unsafe fn register_engines(&self, manager: *mut CameraControllerComponentManagerO) {
         self.register_engines.unwrap()(manager)
+    }
+
+    pub unsafe fn orientation_indicator(
+        &self,
+        manager: *mut CameraControllerComponentManagerO,
+        ui: *mut UiO,
+        uistyle: *const UiStyleT,
+        c: *const UiOrientationIndicatorT,
+    ) {
+        self.orientation_indicator.unwrap()(manager, ui, uistyle, c)
     }
 }
 
@@ -2241,6 +2352,9 @@ pub const TM_EDITOR_TOOL_ID__ROTATE: StrhashT = StrhashT {
 };
 pub const TM_EDITOR_TOOL_ID__SCALE: StrhashT = StrhashT {
     u64_: 10577229183153927243u64,
+};
+pub const TM_EDITOR_TOOL_ID__ORIENTATION: StrhashT = StrhashT {
+    u64_: 6220572659606744657u64,
 };
 pub const TM_CI_RENDER: StrhashT = StrhashT {
     u64_: 6430888070237176841u64,

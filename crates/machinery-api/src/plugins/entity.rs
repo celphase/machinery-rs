@@ -278,36 +278,12 @@ impl Default for TtIdTBindgenTy1 {
 pub const TM_TT_PROP__CAMERA_COMPONENT__PROJECTION_MODE: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__CAMERA_COMPONENT__NEAR_PLANE: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__CAMERA_COMPONENT__FAR_PLANE: ::std::os::raw::c_int = 2;
-pub const TM_TT_PROP__CAMERA_COMPONENT__VERTICAL_FOV: ::std::os::raw::c_int = 3;
-pub const TM_TT_PROP__CAMERA_COMPONENT__BOX_HEIGHT: ::std::os::raw::c_int = 4;
-pub const TM_TT_PROP__CAMERA_COMPONENT__SHUTTER_SPEED: ::std::os::raw::c_int = 5;
-pub const TM_TT_PROP__CAMERA_COMPONENT__APERTURE: ::std::os::raw::c_int = 6;
-pub const TM_TT_PROP__CAMERA_COMPONENT__ISO: ::std::os::raw::c_int = 7;
+pub const TM_TT_PROP__CAMERA_COMPONENT__VERTICAL_FOV_OR_BOX_HEIGHT: ::std::os::raw::c_int = 3;
+pub const TM_TT_PROP__CAMERA_COMPONENT__SHUTTER_SPEED: ::std::os::raw::c_int = 4;
+pub const TM_TT_PROP__CAMERA_COMPONENT__APERTURE: ::std::os::raw::c_int = 5;
+pub const TM_TT_PROP__CAMERA_COMPONENT__ISO: ::std::os::raw::c_int = 6;
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
-pub const TM_CAMERA_PROJECTION_MODE__PERSPECTIVE: CameraProjectionMode = 0;
-pub const TM_CAMERA_PROJECTION_MODE__ORTHOGRAPHIC: CameraProjectionMode = 1;
-pub type CameraProjectionMode = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct CameraComponentT {
-    pub projection_mode: CameraProjectionMode,
-    pub near_plane: f32,
-    pub far_plane: f32,
-    pub vertical_fov: f32,
-    pub box_height: f32,
-    pub shutter_speed: f32,
-    pub aperture: f32,
-    pub iso: f32,
-}
-impl Default for CameraComponentT {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
+pub type CameraComponentT = CameraSettingsT;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union EntityT {
@@ -907,12 +883,19 @@ pub struct EntityApi {
         unsafe extern "C" fn(
             a: *mut AllocatorI,
             tt: *mut TheTruthO,
+            gamestate: *mut GamestateO,
             create_components: EntityCreateComponents,
         ) -> *mut EntityContextO,
+    >,
+    pub create_components: ::std::option::Option<
+        unsafe extern "C" fn(ctx: *mut EntityContextO, create_components: EntityCreateComponents),
     >,
     pub destroy_context: ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>,
     pub register_component: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, com: *const ComponentI) -> ComponentTypeT,
+    >,
+    pub disable_component: ::std::option::Option<
+        unsafe extern "C" fn(ctx: *mut EntityContextO, component_hash: StrhashT),
     >,
     pub num_components:
         ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO) -> u32>,
@@ -925,11 +908,17 @@ pub struct EntityApi {
     pub register_engine: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, engine: *const EngineI),
     >,
+    pub remove_engine: ::std::option::Option<
+        unsafe extern "C" fn(ctx: *mut EntityContextO, engine_hash: StrhashT),
+    >,
     pub registered_engines: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, count: *mut u32) -> *mut EngineI,
     >,
     pub register_system: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, system: *const EntitySystemI),
+    >,
+    pub remove_system: ::std::option::Option<
+        unsafe extern "C" fn(ctx: *mut EntityContextO, system_hash: StrhashT),
     >,
     pub registered_systems: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, count: *mut u32) -> *mut EntitySystemI,
@@ -1567,9 +1556,18 @@ impl EntityApi {
         &self,
         a: *mut AllocatorI,
         tt: *mut TheTruthO,
+        gamestate: *mut GamestateO,
         create_components: EntityCreateComponents,
     ) -> *mut EntityContextO {
-        self.create_context.unwrap()(a, tt, create_components)
+        self.create_context.unwrap()(a, tt, gamestate, create_components)
+    }
+
+    pub unsafe fn create_components(
+        &self,
+        ctx: *mut EntityContextO,
+        create_components: EntityCreateComponents,
+    ) {
+        self.create_components.unwrap()(ctx, create_components)
     }
 
     pub unsafe fn destroy_context(&self, ctx: *mut EntityContextO) {
@@ -1582,6 +1580,10 @@ impl EntityApi {
         com: *const ComponentI,
     ) -> ComponentTypeT {
         self.register_component.unwrap()(ctx, com)
+    }
+
+    pub unsafe fn disable_component(&self, ctx: *mut EntityContextO, component_hash: StrhashT) {
+        self.disable_component.unwrap()(ctx, component_hash)
     }
 
     pub unsafe fn num_components(&self, ctx: *mut EntityContextO) -> u32 {
@@ -1600,6 +1602,10 @@ impl EntityApi {
         self.register_engine.unwrap()(ctx, engine)
     }
 
+    pub unsafe fn remove_engine(&self, ctx: *mut EntityContextO, engine_hash: StrhashT) {
+        self.remove_engine.unwrap()(ctx, engine_hash)
+    }
+
     pub unsafe fn registered_engines(
         &self,
         ctx: *mut EntityContextO,
@@ -1610,6 +1616,10 @@ impl EntityApi {
 
     pub unsafe fn register_system(&self, ctx: *mut EntityContextO, system: *const EntitySystemI) {
         self.register_system.unwrap()(ctx, system)
+    }
+
+    pub unsafe fn remove_system(&self, ctx: *mut EntityContextO, system_hash: StrhashT) {
+        self.remove_system.unwrap()(ctx, system_hash)
     }
 
     pub unsafe fn registered_systems(

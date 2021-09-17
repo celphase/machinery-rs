@@ -121,7 +121,7 @@ impl ExamplePlugin {
             // Create a the example component truth data
             let properties = TheTruthPropertyDefinitionT {
                 name: const_cstr!("angular_velocity").as_ptr(),
-                type_: TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT as u32,
+                type_: TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
                 type_hash: TM_TT_TYPE_HASH__POSITION,
                 ..Default::default()
             };

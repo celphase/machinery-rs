@@ -264,13 +264,14 @@ pub const TM_TT_PROP__ASSET_BROWSER__FOCUS: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__ASSET_BROWSER__SORT_ASCENDING: ::std::os::raw::c_int = 3;
 pub const TM_TT_PROP__ASSET_BROWSER__SORT_BY: ::std::os::raw::c_int = 4;
 pub const TM_TT_PROP__ASSET_BROWSER__VIEW_MODE: ::std::os::raw::c_int = 5;
-pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_FILE_EXT: ::std::os::raw::c_int = 6;
-pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_1: ::std::os::raw::c_int = 7;
-pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_2: ::std::os::raw::c_int = 8;
-pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_3: ::std::os::raw::c_int = 9;
-pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_4: ::std::os::raw::c_int = 10;
-pub const TM_TT_PROP__ASSET_BROWSER__CURRENT_DIRECTORY_UUID_A: ::std::os::raw::c_int = 11;
-pub const TM_TT_PROP__ASSET_BROWSER__CURRENT_DIRECTORY_UUID_B: ::std::os::raw::c_int = 12;
+pub const TM_TT_PROP__ASSET_BROWSER__ITEM_SIZE: ::std::os::raw::c_int = 6;
+pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_FILE_EXT: ::std::os::raw::c_int = 7;
+pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_1: ::std::os::raw::c_int = 8;
+pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_2: ::std::os::raw::c_int = 9;
+pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_3: ::std::os::raw::c_int = 10;
+pub const TM_TT_PROP__ASSET_BROWSER__FILTER_BY_LABEL_BITFLAG_4: ::std::os::raw::c_int = 11;
+pub const TM_TT_PROP__ASSET_BROWSER__CURRENT_DIRECTORY_UUID_A: ::std::os::raw::c_int = 12;
+pub const TM_TT_PROP__ASSET_BROWSER__CURRENT_DIRECTORY_UUID_B: ::std::os::raw::c_int = 13;
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
 pub const TM_ASSET_SAVE_STATUS__SAVED: AssetSaveStatus = 0;
 pub const TM_ASSET_SAVE_STATUS__MODIFIED: AssetSaveStatus = 1;
@@ -285,7 +286,7 @@ pub type AssetSaveFileTreeModificationType = ::std::os::raw::c_int;
 pub struct AssetSaveFileTreeModificationT {
     pub item: TtIdT,
     pub type_: AssetSaveFileTreeModificationType,
-    pub _padding_85: [::std::os::raw::c_char; 4usize],
+    pub _padding_88: [::std::os::raw::c_char; 4usize],
     pub original_name: *const ::std::os::raw::c_char,
     pub original_directory: TtIdT,
 }
@@ -519,7 +520,7 @@ pub struct AssetBrowserConfigT {
         ),
     >,
     pub disable_thumbnail_generation: bool,
-    pub _padding_281: [::std::os::raw::c_char; 3usize],
+    pub _padding_284: [::std::os::raw::c_char; 3usize],
     pub num_custom_menu_items: u32,
     pub custom_menu_items: *const AssetBrowserCustomMenuItemI,
     pub save_interface: *mut AssetSaveI,
@@ -539,6 +540,10 @@ impl Default for AssetBrowserConfigT {
 pub struct AssetBrowserUiResT {
     pub focus_changed: bool,
 }
+pub const TM_ASSET_BROWSER_SHORTCUT__OPEN_ASSET_IN_NEW_WORKSPACE: AssetBrowserShortcut = 0;
+pub const TM_ASSET_BROWSER_SHORTCUT__OPEN_ASSET_IN_NEW_TAB: AssetBrowserShortcut = 1;
+pub const TM_ASSET_BROWSER_SHORTCUT__OPEN_ASSET_IN_NEW_TAB_AND_PIN: AssetBrowserShortcut = 2;
+pub type AssetBrowserShortcut = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct AssetBrowserApi {
@@ -586,6 +591,7 @@ pub struct AssetBrowserApi {
     pub selected_objects: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut AssetBrowserO, ta: *mut TempAllocatorI) -> *const TtIdT,
     >,
+    pub shortcuts: ::std::option::Option<unsafe extern "C" fn() -> *mut *mut ShortcutI>,
 }
 #[repr(C)]
 pub struct TheTruthPropertyDefinitionTBindgenTy1 {
@@ -641,6 +647,9 @@ pub const TM_TT_PROP__ASSET_DIRECTORY__PARENT: ::std::os::raw::c_int = 1;
 pub type _bindgen_ty_5 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__ASSET_LABEL__UUID: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_6 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__ASSET_THUMBNAIL__THUMBNAIL: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__ASSET_THUMBNAIL__VALIDITY_HASH: ::std::os::raw::c_int = 1;
+pub type _bindgen_ty_7 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct AssetLabelsT {
     pub uuids: [AssetLabelUuidT; 256usize],
@@ -803,34 +812,34 @@ pub const TM_TT_PROP__GRAPH__CONNECTIONS: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH__DATA: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__GRAPH__COMMENTS: ::std::os::raw::c_int = 3;
 pub const TM_TT_PROP__GRAPH__INTERFACE: ::std::os::raw::c_int = 4;
-pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+pub type _bindgen_ty_8 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_NODE__TYPE: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_NODE__LABEL: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_NODE__POSITION_X: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__GRAPH_NODE__POSITION_Y: ::std::os::raw::c_int = 3;
 pub const TM_TT_PROP__GRAPH_NODE__WIDTH: ::std::os::raw::c_int = 4;
 pub const TM_TT_PROP__GRAPH_NODE__SETTINGS: ::std::os::raw::c_int = 5;
-pub type _bindgen_ty_8 = ::std::os::raw::c_int;
+pub type _bindgen_ty_9 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_CONNECTION__FROM_NODE: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_CONNECTION__TO_NODE: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_CONNECTION__FROM_CONNECTOR_HASH: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__GRAPH_CONNECTION__TO_CONNECTOR_HASH: ::std::os::raw::c_int = 3;
-pub type _bindgen_ty_9 = ::std::os::raw::c_int;
+pub type _bindgen_ty_10 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_DATA__TO_NODE: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_DATA__TO_CONNECTOR_HASH: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_DATA__DATA: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub type _bindgen_ty_11 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_COMMENT__TEXT: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_COMMENT__POSITION_X: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_COMMENT__POSITION_Y: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__GRAPH_COMMENT__FONT_SCALE: ::std::os::raw::c_int = 3;
 pub const TM_TT_PROP__GRAPH_COMMENT__COLOR: ::std::os::raw::c_int = 4;
-pub type _bindgen_ty_11 = ::std::os::raw::c_int;
+pub type _bindgen_ty_12 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_INTERFACE__INPUTS: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_INTERFACE__OUTPUTS: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_INTERFACE__LAST_ID: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__GRAPH_INTERFACE__CACHED_NODE_RESULT: ::std::os::raw::c_int = 3;
-pub type _bindgen_ty_12 = ::std::os::raw::c_int;
+pub type _bindgen_ty_13 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_INPUT__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_INPUT__DISPLAY_NAME: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_INPUT__ID: ::std::os::raw::c_int = 2;
@@ -840,7 +849,7 @@ pub const TM_TT_PROP__GRAPH_INPUT__VALUE: ::std::os::raw::c_int = 5;
 pub const TM_TT_PROP__GRAPH_INPUT__TOOLTIP: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__GRAPH_INPUT__PUBLIC: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__GRAPH_INPUT__ORDER: ::std::os::raw::c_int = 8;
-pub type _bindgen_ty_13 = ::std::os::raw::c_int;
+pub type _bindgen_ty_14 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_INPUT_REFERENCE__NAME: TtPropGraphInputReference = 0;
 pub const TM_TT_PROP__GRAPH_INPUT_REFERENCE__TYPE_HASH: TtPropGraphInputReference = 1;
 pub type TtPropGraphInputReference = ::std::os::raw::c_int;
@@ -849,14 +858,14 @@ pub const TM_TT_PROP__GRAPH_OUTPUT__DISPLAY_NAME: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_OUTPUT__ID: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__GRAPH_OUTPUT__TYPE_HASH: ::std::os::raw::c_int = 3;
 pub const TM_TT_PROP__GRAPH_OUTPUT__ORDER: ::std::os::raw::c_int = 4;
-pub type _bindgen_ty_14 = ::std::os::raw::c_int;
+pub type _bindgen_ty_15 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_OUTPUT_REFERENCE__NAME: TtPropGraphOutputReference = 0;
 pub const TM_TT_PROP__GRAPH_OUTPUT_REFERENCE__TYPE_HASH: TtPropGraphOutputReference = 1;
 pub type TtPropGraphOutputReference = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_CACHED_NODE_RESULT__NODE: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_CACHED_NODE_RESULT__VALIDITY_HASH: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_CACHED_NODE_RESULT__OBJECT: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_15 = ::std::os::raw::c_int;
+pub type _bindgen_ty_16 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_SETTINGS__GRAPH_UUID_A: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_SETTINGS__VIEW_POSITION: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_SETTINGS__VIEW_SCALE: ::std::os::raw::c_int = 2;
@@ -867,10 +876,10 @@ pub const TM_TT_PROP__GRAPH_SETTINGS__DEBUG_WATCH_WIRE_OVERLAY_TABLE_MODE: ::std
 pub const TM_TT_PROP__GRAPH_SETTINGS__SHOW_REMOVED_INHERITED: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__GRAPH_SETTINGS__DEBUG_WATCHED_WIRES: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__GRAPH_SETTINGS__DEBUG_PERSISTENT_SETTINGS: ::std::os::raw::c_int = 8;
-pub type _bindgen_ty_16 = ::std::os::raw::c_int;
+pub type _bindgen_ty_17 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_SETTINGS__BREAKPOINTS: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_SETTINGS__OVERLAY_OPENED: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_17 = ::std::os::raw::c_int;
+pub type _bindgen_ty_18 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__NODE_UNIQUE_ID: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__NODE_UUID_A: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__NODE_UUID_B: ::std::os::raw::c_int = 2;
@@ -880,9 +889,9 @@ pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__SUBGRAPH_NODE_UUID_B: ::std::os
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__DISABLED: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__GRAPH_UUID_A: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__GRAPH_SETTINGS_BREAKPOINT__GRAPH_UUID_B: ::std::os::raw::c_int = 8;
-pub type _bindgen_ty_18 = ::std::os::raw::c_int;
-pub const TM_GRAPH_MAX_CONNECTORS: ::std::os::raw::c_int = 24;
 pub type _bindgen_ty_19 = ::std::os::raw::c_int;
+pub const TM_GRAPH_MAX_CONNECTORS: ::std::os::raw::c_int = 24;
+pub type _bindgen_ty_20 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct GraphGenericValueT {
@@ -1287,6 +1296,7 @@ pub struct PropertiesUiArgsT {
     pub undo_stack: *mut UndoStackI,
     pub metrics: *mut f32,
     pub last_undo_scope: TtUndoScopeT,
+    pub last_hovered_context_menu_rect: RectT,
     pub context: TtIdT,
 }
 impl Default for PropertiesUiArgsT {
@@ -1393,20 +1403,6 @@ pub type ValidateAspectI = ::std::option::Option<
     ) -> bool,
 >;
 #[repr(C)]
-pub struct PropertiesUiInfoT {
-    pub last_hovered_focusable_control: u64,
-    pub last_hovered_context_menu_rect: RectT,
-}
-impl Default for PropertiesUiInfoT {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
 #[derive(Copy, Clone)]
 pub struct PropertiesUint32DisplayConverterI {
     pub inst: *mut ::std::os::raw::c_void,
@@ -1465,7 +1461,7 @@ pub struct PropertiesFloatSliderT {
     pub max: f32,
     pub step: f32,
     pub show_edit_box: bool,
-    pub _padding_393: [::std::os::raw::c_char; 3usize],
+    pub _padding_389: [::std::os::raw::c_char; 3usize],
     pub edit_min: f32,
     pub edit_max: f32,
     pub converter: *mut PropertiesFloatDisplayConverterI,
@@ -1516,9 +1512,6 @@ pub struct PropertiesViewApi {
     >,
     pub update:
         ::std::option::Option<unsafe extern "C" fn(inst: *mut PropertiesViewO, ui: *mut UiO)>,
-    pub ui_info: ::std::option::Option<
-        unsafe extern "C" fn(inst: *mut PropertiesViewO) -> *mut PropertiesUiInfoT,
-    >,
     pub metrics:
         ::std::option::Option<unsafe extern "C" fn(inst: *mut PropertiesViewO) -> *mut f32>,
     pub get_display_name: ::std::option::Option<
@@ -2444,10 +2437,10 @@ pub struct UiPopupItemPickerT {
     pub pos: Vec2T,
     pub search_text: *mut ::std::os::raw::c_char,
     pub search_text_bytes: u32,
-    pub _padding_23: [::std::os::raw::c_char; 4usize],
+    pub _padding_30: [::std::os::raw::c_char; 4usize],
     pub strings: *const *const ::std::os::raw::c_char,
     pub num_strings: u32,
-    pub _padding_28: [::std::os::raw::c_char; 4usize],
+    pub _padding_37: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiPopupItemPickerT {
     fn default() -> Self {
@@ -2464,11 +2457,11 @@ pub struct UiCategoryPopupItemPickerT {
     pub pos: Vec2T,
     pub search_text: *mut ::std::os::raw::c_char,
     pub search_text_bytes: u32,
-    pub _padding_38: [::std::os::raw::c_char; 4usize],
+    pub _padding_48: [::std::os::raw::c_char; 4usize],
     pub strings: *const *const ::std::os::raw::c_char,
     pub categories: *const *const ::std::os::raw::c_char,
     pub num_strings: u32,
-    pub _padding_44: [::std::os::raw::c_char; 4usize],
+    pub _padding_62: [::std::os::raw::c_char; 4usize],
     pub expanded: *mut SetT,
 }
 impl Default for UiCategoryPopupItemPickerT {
@@ -2486,7 +2479,7 @@ pub struct UiPopupAssetPickerT {
     pub pos: Vec2T,
     pub search_text: *mut ::std::os::raw::c_char,
     pub search_text_bytes: u32,
-    pub _padding_56: [::std::os::raw::c_char; 4usize],
+    pub _padding_75: [::std::os::raw::c_char; 4usize],
     pub tt: *mut TheTruthO,
     pub asset_root: TtIdT,
     pub type_hash: StrhashT,
@@ -2506,13 +2499,14 @@ pub struct UiTexteditPickerT {
     pub id: u64,
     pub rect: RectT,
     pub search_text: *mut ::std::os::raw::c_char,
+    pub search_text_bytes: u32,
+    pub _padding_106: [::std::os::raw::c_char; 4usize],
     pub not_found_text: *const ::std::os::raw::c_char,
     pub default_text: *const ::std::os::raw::c_char,
     pub strings: *const *const ::std::os::raw::c_char,
     pub num_of_strings: u32,
-    pub search_text_bytes: u32,
-    pub no_suggestions: bool,
-    pub _padding_86: [::std::os::raw::c_char; 7usize],
+    pub no_suggestions_when_empty: bool,
+    pub _padding_123: [::std::os::raw::c_char; 3usize],
 }
 impl Default for UiTexteditPickerT {
     fn default() -> Self {
@@ -2769,6 +2763,10 @@ impl AssetBrowserApi {
         ta: *mut TempAllocatorI,
     ) -> *const TtIdT {
         self.selected_objects.unwrap()(inst, ta)
+    }
+
+    pub unsafe fn shortcuts(&self) -> *mut *mut ShortcutI {
+        self.shortcuts.unwrap()()
     }
 }
 
@@ -3121,10 +3119,6 @@ impl PropertiesViewApi {
 
     pub unsafe fn update(&self, inst: *mut PropertiesViewO, ui: *mut UiO) {
         self.update.unwrap()(inst, ui)
-    }
-
-    pub unsafe fn ui_info(&self, inst: *mut PropertiesViewO) -> *mut PropertiesUiInfoT {
-        self.ui_info.unwrap()(inst)
     }
 
     pub unsafe fn metrics(&self, inst: *mut PropertiesViewO) -> *mut f32 {
@@ -4311,6 +4305,9 @@ pub const TM_TT_PROP_ASPECT__PROPERTIES__USE_LOCAL_ENTITY_PICKER: StrhashT = Str
 };
 pub const TM_TT_PROP_ASPECT__PROPERTIES__CUSTOM_UI: StrhashT = StrhashT {
     u64_: 12485648413046928702u64,
+};
+pub const TM_TT_PROP_ASPECT__ADD_REMOVE_SUBOBJECTS_BY_DEFAULT: StrhashT = StrhashT {
+    u64_: 10502886727220155721u64,
 };
 pub const TM_TT_PROP_ASPECT__PROPERTIES__REPROTOTYPE_CALLBACK: StrhashT = StrhashT {
     u64_: 14075951065603772573u64,
