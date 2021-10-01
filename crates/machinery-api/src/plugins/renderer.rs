@@ -80,13 +80,8 @@ where
 }
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
-pub const TM_DEVICE_MEMORY_VIEW_API_NAME: &'static [u8; 22usize] = b"tm_device_memory_view\0";
-pub const TM_NIL_RENDER_BACKEND_API_NAME: &'static [u8; 26usize] = b"tm_nil_render_backend_api\0";
-pub const TM_RENDERER_API_NAME: &'static [u8; 16usize] = b"tm_renderer_api\0";
-pub const TM_RENDERER_INIT_API_NAME: &'static [u8; 21usize] = b"tm_renderer_init_api\0";
 pub const TM_RENDERER_MEMORY_STATISTICS_MAX_ALLOCATOR_BLOCKS: u32 = 256;
 pub const TM_RENDERER_DEVICE_AFFINITY_MASK_ALL: u32 = 255;
-pub const TM_RENDER_BACKEND_INTERFACE_NAME: &'static [u8; 20usize] = b"tm_render_backend_i\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -1796,6 +1791,16 @@ pub const TM_RENDERER_IMAGE_TYPE_3D: RendererImageType = 2;
 pub const TM_RENDERER_IMAGE_TYPE_CUBE: RendererImageType = 3;
 pub const TM_RENDERER_IMAGE_TYPE_MAX_VIEWS: RendererImageType = 4;
 pub type RendererImageType = ::std::os::raw::c_int;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_DEFAULT: RendererImageViewType = 0;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_1D: RendererImageViewType = 1;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_2D: RendererImageViewType = 2;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_3D: RendererImageViewType = 3;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_CUBE: RendererImageViewType = 4;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_1D_ARRAY: RendererImageViewType = 5;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_2D_ARRAY: RendererImageViewType = 6;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_CUBE_ARRAY: RendererImageViewType = 7;
+pub const TM_RENDERER_IMAGE_VIEW_TYPE_MAX_VIEWS: RendererImageViewType = 8;
+pub type RendererImageViewType = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union RendererClearValueT {
@@ -1860,7 +1865,7 @@ pub struct RendererImageDescT {
     pub layer_count: u32,
     pub sample_count: u32,
     pub clear_value: RendererClearValueT,
-    pub _padding_132: [::std::os::raw::c_char; 4usize],
+    pub _padding_153: [::std::os::raw::c_char; 4usize],
     pub debug_tag: *const ::std::os::raw::c_char,
 }
 impl Default for RendererImageDescT {
@@ -1881,7 +1886,7 @@ pub struct RendererImageViewT {
     pub mip_count: u8,
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
-    pub _padding_168: [::std::os::raw::c_char; 1usize],
+    pub _padding_190: [::std::os::raw::c_char; 1usize],
 }
 impl RendererImageViewT {
     #[inline]
@@ -1896,26 +1901,26 @@ impl RendererImageViewT {
         }
     }
     #[inline]
-    pub fn padding(&self) -> u8 {
+    pub fn image_view_type(&self) -> u8 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 4u8) as u8) }
     }
     #[inline]
-    pub fn set_padding(&mut self, val: u8) {
+    pub fn set_image_view_type(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::std::mem::transmute(val);
             self._bitfield_1.set(4usize, 4u8, val as u64)
         }
     }
     #[inline]
-    pub fn new_bitfield_1(aspect: u8, padding: u8) -> __BindgenBitfieldUnit<[u8; 1usize]> {
+    pub fn new_bitfield_1(aspect: u8, image_view_type: u8) -> __BindgenBitfieldUnit<[u8; 1usize]> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize]> = Default::default();
         __bindgen_bitfield_unit.set(0usize, 4u8, {
             let aspect: u8 = unsafe { ::std::mem::transmute(aspect) };
             aspect as u64
         });
         __bindgen_bitfield_unit.set(4usize, 4u8, {
-            let padding: u8 = unsafe { ::std::mem::transmute(padding) };
-            padding as u64
+            let image_view_type: u8 = unsafe { ::std::mem::transmute(image_view_type) };
+            image_view_type as u64
         });
         __bindgen_bitfield_unit
     }
@@ -2070,7 +2075,7 @@ pub struct RendererTopLevelAccelerationStructureInstanceT {
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize]>,
     pub __bindgen_padding_0: u8,
     pub mask: u8,
-    pub _padding_333: [::std::os::raw::c_char; 3usize],
+    pub _padding_355: [::std::os::raw::c_char; 3usize],
     pub _bitfield_align_2: [u8; 0],
     pub _bitfield_2: __BindgenBitfieldUnit<[u8; 1usize]>,
     pub blas_handle: RendererHandleT,
@@ -2134,7 +2139,7 @@ pub struct RendererTopLevelAccelerationStructureDescT {
     pub build_flags: RendererAccelerationStructureBuildFlags,
     pub geometry_flags: RendererGeometryFlags,
     pub num_instances: u32,
-    pub _padding_348: [::std::os::raw::c_char; 4usize],
+    pub _padding_370: [::std::os::raw::c_char; 4usize],
     pub instaces: *const RendererTopLevelAccelerationStructureInstanceT,
     pub debug_tag: *const ::std::os::raw::c_char,
 }
@@ -2684,6 +2689,8 @@ extern "C" {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::ui::UiStyleT;
 
@@ -2710,6 +2717,11 @@ impl DeviceMemoryViewApi {
 
 impl crate::Api for DeviceMemoryViewApi {
     const NAME: ConstCStr = const_cstr!("tm_device_memory_view_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl NilRendererBackendApi {
@@ -2722,10 +2734,24 @@ impl NilRendererBackendApi {
     }
 }
 
+impl crate::Api for NilRendererBackendApi {
+    const NAME: ConstCStr = const_cstr!("tm_nil_renderer_backend_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
 impl RendererApi {}
 
 impl crate::Api for RendererApi {
     const NAME: ConstCStr = const_cstr!("tm_renderer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RendererInitApi {
@@ -2740,6 +2766,11 @@ impl RendererInitApi {
 
 impl crate::Api for RendererInitApi {
     const NAME: ConstCStr = const_cstr!("tm_renderer_init_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RendererCommandBufferApi {
@@ -2916,6 +2947,15 @@ impl RendererCommandBufferApi {
     }
 }
 
+impl crate::Api for RendererCommandBufferApi {
+    const NAME: ConstCStr = const_cstr!("tm_renderer_command_buffer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
 impl RendererCommandBufferPoolApi {
     pub unsafe fn create(
         &self,
@@ -2935,6 +2975,15 @@ impl RendererCommandBufferPoolApi {
     pub unsafe fn user_data_size(&self, inst: *mut RendererCommandBufferPoolO) -> u64 {
         self.user_data_size.unwrap()(inst)
     }
+}
+
+impl crate::Api for RendererCommandBufferPoolApi {
+    const NAME: ConstCStr = const_cstr!("tm_renderer_command_buffer_pool_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RendererCommandBufferSortApi {
@@ -2962,6 +3011,15 @@ impl RendererCommandBufferSortApi {
             num_commands,
         )
     }
+}
+
+impl crate::Api for RendererCommandBufferSortApi {
+    const NAME: ConstCStr = const_cstr!("tm_renderer_command_buffer_sort_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RendererResourceCommandBufferApi {
@@ -3267,6 +3325,15 @@ impl RendererResourceCommandBufferApi {
     }
 }
 
+impl crate::Api for RendererResourceCommandBufferApi {
+    const NAME: ConstCStr = const_cstr!("tm_renderer_resource_command_buffer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
 impl RendererResourceCommandBufferPoolApi {
     pub unsafe fn create(
         &self,
@@ -3286,6 +3353,15 @@ impl RendererResourceCommandBufferPoolApi {
     pub unsafe fn user_data_size(&self, inst: *mut RendererResourceCommandBufferPoolO) -> u64 {
         self.user_data_size.unwrap()(inst)
     }
+}
+
+impl crate::Api for RendererResourceCommandBufferPoolApi {
+    const NAME: ConstCStr = const_cstr!("tm_renderer_resource_command_buffer_pool_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RendererShaderCompilerApi {
@@ -3445,4 +3521,54 @@ pub const TM_TYPE_HASH__RENDERER_BUFFER_DESC: StrhashT = StrhashT {
 };
 pub const TM_TYPE_HASH__RENDERER_IMAGE_DESC: StrhashT = StrhashT {
     u64_: 11834704360853175208u64,
+};
+pub const TM_RENDERER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDERER_BACKEND_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_DEVICE_MEMORY_VIEW_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDERER_RESOURCE_COMMAND_BUFFER_POOL_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDERER_COMMAND_BUFFER_SORT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDERER_RESOURCE_COMMAND_BUFFER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_NIL_RENDERER_BACKEND_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDERER_COMMAND_BUFFER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDERER_COMMAND_BUFFER_POOL_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDERER_INIT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

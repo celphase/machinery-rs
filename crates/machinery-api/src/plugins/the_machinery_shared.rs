@@ -123,29 +123,14 @@ impl<T> ::std::cmp::PartialEq for __BindgenUnionField<T> {
 impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
-pub const TM_BAKER_CONTEXT_API_NAME: &'static [u8; 20usize] = b"tm_bake_context_api\0";
 pub const TYPE__CAMERA_CONTROLLER_COMPONENT: &'static [u8; 31usize] =
     b"tm_camera_controller_component\0";
-pub const TM_CAMERA_CONTROLLER_COMPONENT_API_NAME: &'static [u8; 35usize] =
-    b"tm_camera_controller_component_api\0";
 pub const TM_MAX_RENDER_COMPONENTS: u32 = 64;
 pub const TM_MAX_SHADER_DATA_COMPONENTS: u32 = 15;
-pub const TM_FRUSTUM_CULLING_API_NAME: &'static [u8; 23usize] = b"tm_frustum_culling_api\0";
-pub const TM_GPU_SCENE_SUBMISSION_API_NAME: &'static [u8; 28usize] =
-    b"tm_gpu_scene_submission_api\0";
-pub const TM_RENDER_CONTEXT_API_NAME: &'static [u8; 22usize] = b"tm_render_context_api\0";
 pub const TM_VIEWPORT_HUD_HEIGHT: f64 = 25.0;
 pub const TM_VIEWPORT_HUD_OUTER_MARGIN_X: f64 = 5.0;
 pub const TM_VIEWPORT_HUD_OUTER_MARGIN_Y: f64 = 5.0;
 pub const TM_VIEWPORT_HUD_INNER_MARGIN: f64 = 5.0;
-pub const TM_SCENE_COMMON_API_NAME: &'static [u8; 20usize] = b"tm_scene_common_api\0";
-pub const TM_SCENE_TAB_COMMAND_INTERFACE_NAME: &'static [u8; 31usize] =
-    b"tm_scene_tab_command_interface\0";
-pub const TM_THE_TRUTH_REPLACER_API_NAME: &'static [u8; 26usize] = b"tm_the_truth_replacer_api\0";
-pub const TM_THE_TRUTH_STRIPPER_INTERFACE_NAME: &'static [u8; 32usize] =
-    b"tm_the_truth_stripper_interface\0";
-pub const TM_VIEWER_API_NAME: &'static [u8; 14usize] = b"tm_viewer_api\0";
-pub const TM_VIEWER_MANAGER_API_NAME: &'static [u8; 22usize] = b"tm_viewer_manager_api\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -415,6 +400,7 @@ pub struct AssetSceneApi {
             name: *const ::std::os::raw::c_char,
             local_transform: *const TransformT,
             parent_entity: TtIdT,
+            asset_root: TtIdT,
             undo_stack: *mut UndoStackI,
         ) -> TtIdT,
     >,
@@ -495,7 +481,7 @@ pub struct BakerContextApi {
             a: *mut AllocatorI,
             tt: *mut TheTruthO,
             asset_root: TtIdT,
-            render_pipe: *mut RenderPipelineApi,
+            render_pipe: *mut RenderPipelineVt,
         ) -> *mut BakerContextO,
     >,
     pub destroy_context: ::std::option::Option<unsafe extern "C" fn(context: *mut BakerContextO)>,
@@ -561,7 +547,7 @@ pub struct UiOrientationIndicatorT {
     pub viewport: RectT,
     pub rect: RectT,
     pub allow_snapping: bool,
-    pub _padding_82: [::std::os::raw::c_char; 7usize],
+    pub _padding_80: [::std::os::raw::c_char; 7usize],
 }
 impl Default for UiOrientationIndicatorT {
     fn default() -> Self {
@@ -1173,7 +1159,7 @@ pub struct RenderPipelineI {
 #[repr(C)]
 pub struct LightingEnvironmentSettingsT {
     pub enabled: bool,
-    pub _padding_31: [::std::os::raw::c_char; 7usize],
+    pub _padding_32: [::std::os::raw::c_char; 7usize],
     pub asset: TtIdT,
     pub spawned_entity: EntityT,
     pub search_buf: [::std::os::raw::c_char; 1024usize],
@@ -1259,7 +1245,11 @@ pub struct SceneCommonApi {
         unsafe extern "C" fn(tt: *const TheTruthO, entity: TtIdT, bounds: *mut Vec3T),
     >,
     pub find_shader_data_engine_update: ::std::option::Option<
-        unsafe extern "C" fn(inst: *mut EngineO, data: *mut EngineUpdateSetT),
+        unsafe extern "C" fn(
+            inst: *mut EngineO,
+            data: *mut EngineUpdateSetT,
+            commands: *mut EntityCommandsO,
+        ),
     >,
     pub gather_shader_data_filter: ::std::option::Option<
         unsafe extern "C" fn(
@@ -1270,7 +1260,11 @@ pub struct SceneCommonApi {
         ) -> bool,
     >,
     pub find_renderables_engine_update: ::std::option::Option<
-        unsafe extern "C" fn(inst: *mut EngineO, data: *mut EngineUpdateSetT),
+        unsafe extern "C" fn(
+            inst: *mut EngineO,
+            data: *mut EngineUpdateSetT,
+            commands: *mut EntityCommandsO,
+        ),
     >,
     pub gather_renderables_filter: ::std::option::Option<
         unsafe extern "C" fn(
@@ -1347,11 +1341,6 @@ pub struct SceneCommonApi {
             undo_scope: TtUndoScopeT,
         ),
     >,
-    pub find_simulation_entry_for_entity: ::std::option::Option<
-        unsafe extern "C" fn(tt: *mut TheTruthO, entity: TtIdT) -> *mut SimulateEntryI,
-    >,
-    pub find_physics_scene_settings_for_entity:
-        ::std::option::Option<unsafe extern "C" fn(tt: *mut TheTruthO, entity: TtIdT) -> TtIdT>,
 }
 #[repr(C)]
 pub struct SceneCommandDataT {
@@ -1481,6 +1470,30 @@ impl Default for ViewerRenderArgsTBindgenTy1 {
     }
 }
 #[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ViewerRenderInfoT {
+    pub target_width: u32,
+    pub target_height: u32,
+    pub vr_context: u32,
+    pub _padding_139: [::std::os::raw::c_char; 4usize],
+    pub camera: *const CameraT,
+    pub render_pipeline: *mut RenderPipelineI,
+}
+impl Default for ViewerRenderInfoT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ViewerO {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct ViewerApi {
     pub request_render: ::std::option::Option<
@@ -1492,11 +1505,14 @@ pub struct ViewerApi {
             cmd_buf: *mut RendererCommandBufferO,
         ) -> RendererHandleT,
     >,
+    pub get_color_space: ::std::option::Option<
+        unsafe extern "C" fn(viewer: *const ViewerO) -> *const ColorSpaceDescT,
+    >,
     pub pipeline:
         ::std::option::Option<unsafe extern "C" fn(viewer: *mut ViewerO) -> *mut RenderPipelineI>,
     pub reset_render_pipeline: ::std::option::Option<unsafe extern "C" fn(viewer: *mut ViewerO)>,
     pub set_render_pipeline_api: ::std::option::Option<
-        unsafe extern "C" fn(viewer: *mut ViewerO, pipeline_api: *mut RenderPipelineApi),
+        unsafe extern "C" fn(viewer: *mut ViewerO, pipeline_api: *mut RenderPipelineVt),
     >,
     pub screenshot: ::std::option::Option<unsafe extern "C" fn(viewer: *mut ViewerO)>,
     pub init_vr: ::std::option::Option<unsafe extern "C" fn(viewer: *mut ViewerO, activate: bool)>,
@@ -1534,7 +1550,10 @@ pub struct ViewerManagerApi {
         ),
     >,
     pub viewers: ::std::option::Option<
-        unsafe extern "C" fn(manager: *mut ViewerManagerO) -> *mut *mut ViewerO,
+        unsafe extern "C" fn(
+            manager: *mut ViewerManagerO,
+            active: *mut *mut bool,
+        ) -> *mut *mut ViewerO,
     >,
     pub render: ::std::option::Option<
         unsafe extern "C" fn(
@@ -1560,14 +1579,14 @@ pub struct AssetSceneO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::editor_views::*;
 use crate::plugins::entity::*;
 use crate::plugins::render_graph::*;
 use crate::plugins::renderer::*;
 use crate::plugins::shader_system::*;
-use crate::plugins::simulate::*;
-use crate::plugins::simulate_common::*;
 use crate::plugins::ui::*;
 
 impl AssetPreviewApi {
@@ -1661,6 +1680,15 @@ impl AssetPreviewApi {
     }
 }
 
+impl crate::Api for AssetPreviewApi {
+    const NAME: ConstCStr = const_cstr!("tm_asset_preview_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
 impl AssetSceneApi {
     pub unsafe fn create(&self, allocator: *mut AllocatorI) -> *mut AssetSceneO {
         self.create.unwrap()(allocator)
@@ -1687,6 +1715,7 @@ impl AssetSceneApi {
         name: *const ::std::os::raw::c_char,
         local_transform: *const TransformT,
         parent_entity: TtIdT,
+        asset_root: TtIdT,
         undo_stack: *mut UndoStackI,
     ) -> TtIdT {
         self.create_entity.unwrap()(
@@ -1696,6 +1725,7 @@ impl AssetSceneApi {
             name,
             local_transform,
             parent_entity,
+            asset_root,
             undo_stack,
         )
     }
@@ -1717,7 +1747,7 @@ impl BakerContextApi {
         a: *mut AllocatorI,
         tt: *mut TheTruthO,
         asset_root: TtIdT,
-        render_pipe: *mut RenderPipelineApi,
+        render_pipe: *mut RenderPipelineVt,
     ) -> *mut BakerContextO {
         self.create_context.unwrap()(a, tt, asset_root, render_pipe)
     }
@@ -1750,6 +1780,11 @@ impl BakerContextApi {
 
 impl crate::Api for BakerContextApi {
     const NAME: ConstCStr = const_cstr!("tm_baker_context_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CameraControllerComponentApi {
@@ -1786,6 +1821,11 @@ impl CameraControllerComponentApi {
 
 impl crate::Api for CameraControllerComponentApi {
     const NAME: ConstCStr = const_cstr!("tm_camera_controller_component_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl FrustumCullingApi {
@@ -1860,6 +1900,11 @@ impl FrustumCullingApi {
 
 impl crate::Api for FrustumCullingApi {
     const NAME: ConstCStr = const_cstr!("tm_frustum_culling_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl GpuSceneSubmissionApi {
@@ -1888,6 +1933,11 @@ impl GpuSceneSubmissionApi {
 
 impl crate::Api for GpuSceneSubmissionApi {
     const NAME: ConstCStr = const_cstr!("tm_gpu_scene_submission_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RenderContextApi {
@@ -1940,6 +1990,11 @@ impl RenderContextApi {
 
 impl crate::Api for RenderContextApi {
     const NAME: ConstCStr = const_cstr!("tm_render_context_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl SceneCommonApi {
@@ -2050,8 +2105,9 @@ impl SceneCommonApi {
         &self,
         inst: *mut EngineO,
         data: *mut EngineUpdateSetT,
+        commands: *mut EntityCommandsO,
     ) {
-        self.find_shader_data_engine_update.unwrap()(inst, data)
+        self.find_shader_data_engine_update.unwrap()(inst, data, commands)
     }
 
     pub unsafe fn gather_shader_data_filter(
@@ -2068,8 +2124,9 @@ impl SceneCommonApi {
         &self,
         inst: *mut EngineO,
         data: *mut EngineUpdateSetT,
+        commands: *mut EntityCommandsO,
     ) {
-        self.find_renderables_engine_update.unwrap()(inst, data)
+        self.find_renderables_engine_update.unwrap()(inst, data, commands)
     }
 
     pub unsafe fn gather_renderables_filter(
@@ -2177,26 +2234,15 @@ impl SceneCommonApi {
     ) {
         self.select_component.unwrap()(tt, tab, component, undo_scope)
     }
-
-    pub unsafe fn find_simulation_entry_for_entity(
-        &self,
-        tt: *mut TheTruthO,
-        entity: TtIdT,
-    ) -> *mut SimulateEntryI {
-        self.find_simulation_entry_for_entity.unwrap()(tt, entity)
-    }
-
-    pub unsafe fn find_physics_scene_settings_for_entity(
-        &self,
-        tt: *mut TheTruthO,
-        entity: TtIdT,
-    ) -> TtIdT {
-        self.find_physics_scene_settings_for_entity.unwrap()(tt, entity)
-    }
 }
 
 impl crate::Api for SceneCommonApi {
     const NAME: ConstCStr = const_cstr!("tm_scene_common_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TheTruthReplacerApi {
@@ -2213,6 +2259,11 @@ impl TheTruthReplacerApi {
 
 impl crate::Api for TheTruthReplacerApi {
     const NAME: ConstCStr = const_cstr!("tm_the_truth_replacer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ViewerApi {
@@ -2227,6 +2278,10 @@ impl ViewerApi {
         self.request_render.unwrap()(viewer, args, info, res_buf, cmd_buf)
     }
 
+    pub unsafe fn get_color_space(&self, viewer: *const ViewerO) -> *const ColorSpaceDescT {
+        self.get_color_space.unwrap()(viewer)
+    }
+
     pub unsafe fn pipeline(&self, viewer: *mut ViewerO) -> *mut RenderPipelineI {
         self.pipeline.unwrap()(viewer)
     }
@@ -2238,7 +2293,7 @@ impl ViewerApi {
     pub unsafe fn set_render_pipeline_api(
         &self,
         viewer: *mut ViewerO,
-        pipeline_api: *mut RenderPipelineApi,
+        pipeline_api: *mut RenderPipelineVt,
     ) {
         self.set_render_pipeline_api.unwrap()(viewer, pipeline_api)
     }
@@ -2254,6 +2309,11 @@ impl ViewerApi {
 
 impl crate::Api for ViewerApi {
     const NAME: ConstCStr = const_cstr!("tm_viewer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ViewerManagerApi {
@@ -2301,8 +2361,12 @@ impl ViewerManagerApi {
         self.destroy.unwrap()(manager, viewer, res_buf)
     }
 
-    pub unsafe fn viewers(&self, manager: *mut ViewerManagerO) -> *mut *mut ViewerO {
-        self.viewers.unwrap()(manager)
+    pub unsafe fn viewers(
+        &self,
+        manager: *mut ViewerManagerO,
+        active: *mut *mut bool,
+    ) -> *mut *mut ViewerO {
+        self.viewers.unwrap()(manager, active)
     }
 
     pub unsafe fn render(
@@ -2318,6 +2382,11 @@ impl ViewerManagerApi {
 
 impl crate::Api for ViewerManagerApi {
     const NAME: ConstCStr = const_cstr!("tm_viewer_manager_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 pub const TM_TT_ASPECT__ASSET_PREVIEW: StrhashT = StrhashT {
@@ -2442,4 +2511,64 @@ pub const TM_GPU_SCENE_SUBMISSION__INSTANCE_INDIRECTION_START: StrhashT = Strhas
 };
 pub const TM_TT_ASPECT__NAME_PROPERTY: StrhashT = StrhashT {
     u64_: 16328471694850579054u64,
+};
+pub const TM_CAMERA_CONTROLLER_COMPONENT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_VIEWER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_BAKER_CONTEXT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SCENE_COMMON_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_VIEWER_MANAGER_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SCENE_TAB_COMMAND_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDER_CONTEXT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_REPLACER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_PREVIEW_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_STRIPPER_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_FRUSTUM_CULLING_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GPU_SCENE_SUBMISSION_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

@@ -82,22 +82,9 @@ pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const TM_TYPE__CREATION_GRAPH__INSTANCE: &'static [u8; 27usize] =
     b"tm_creation_graph_instance\0";
-pub const TM_CREATION_GRAPH_NODE_INTERFACE_NAME: &'static [u8; 33usize] =
-    b"tm_creation_graph_node_interface\0";
-pub const TM_CREATION_GRAPH_IO_TYPE_INTERFACE_NAME: &'static [u8; 36usize] =
-    b"tm_creation_graph_io_type_interface\0";
-pub const TM_CREATION_GRAPH_OUTPUT_NODE_TYPE_INTERFACE_NAME: &'static [u8; 45usize] =
-    b"tm_creation_graph_output_node_type_interface\0";
-pub const TM_CREATION_GRAPH_COMPILE_DATA_TO_WIRE_INTERFACE_NAME: &'static [u8; 49usize] =
-    b"tm_creation_graph_compile_data_to_wire_interface\0";
 pub const TM_TT_TYPE__CREATION_GRAPH: &'static [u8; 18usize] = b"tm_creation_graph\0";
 pub const TM_TT_TYPE__CREATION_GRAPH__RESOURCE_REFERENCE: &'static [u8; 37usize] =
     b"tm_creation_graph_resource_reference\0";
-pub const TM_CREATION_GRAPH_PREVIEW_INTERFACE_NAME: &'static [u8; 28usize] =
-    b"tm_creation_graph_preview_i\0";
-pub const TM_CREATION_GRAPH_API_NAME: &'static [u8; 22usize] = b"tm_creation_graph_api\0";
-pub const TM_CREATION_GRAPH_INTERPRETER_API_NAME: &'static [u8; 34usize] =
-    b"tm_creation_graph_interpreter_api\0";
 pub const TM_TT_TYPE__IMAGE_MIPMAP_SETTINGS: &'static [u8; 19usize] = b"tm_mipmap_settings\0";
 pub const TM_TT_TYPE__IMAGE_DESCRIPTION: &'static [u8; 21usize] = b"tm_image_description\0";
 pub const TM_TT_TYPE__IMAGE_ARCHIVE: &'static [u8; 17usize] = b"tm_image_archive\0";
@@ -285,7 +272,7 @@ pub struct CreationGraphOutputWireT {
     pub name: StrhashT,
     pub type_hash: StrhashT,
     pub wire: u32,
-    pub _padding_101: [::std::os::raw::c_char; 4usize],
+    pub _padding_105: [::std::os::raw::c_char; 4usize],
 }
 impl Default for CreationGraphOutputWireT {
     fn default() -> Self {
@@ -324,7 +311,7 @@ pub struct CreationGraphIoDataT {
     pub consumers: *mut CreationGraphInstanceT,
     pub inputs: *mut CreationGraphInputT,
     pub dirty: bool,
-    pub _padding_135: [::std::os::raw::c_char; 7usize],
+    pub _padding_139: [::std::os::raw::c_char; 7usize],
 }
 impl Default for CreationGraphIoDataT {
     fn default() -> Self {
@@ -386,7 +373,7 @@ pub struct CreationGraphDestroyInstanceContextT {
 #[derive(Copy, Clone)]
 pub struct CreationGraphTickContextT {
     pub dt: f32,
-    pub _padding_120: [::std::os::raw::c_char; 4usize],
+    pub _padding_108: [::std::os::raw::c_char; 4usize],
     pub shader_context: *mut ShaderSystemContextO,
 }
 impl Default for CreationGraphTickContextT {
@@ -423,7 +410,7 @@ pub type _bindgen_ty_3 = ::std::os::raw::c_int;
 pub struct CreationGraphAllOutputsT {
     pub version: u64,
     pub num_output_node_types: u32,
-    pub _padding_192: [::std::os::raw::c_char; 4usize],
+    pub _padding_180: [::std::os::raw::c_char; 4usize],
     pub output_node_type_hashes: [StrhashT; 32usize],
     pub output_node_type_display_names: [*const ::std::os::raw::c_char; 32usize],
 }
@@ -440,7 +427,7 @@ impl Default for CreationGraphAllOutputsT {
 pub struct CreationGraphNamedOutputT {
     pub data: *mut ::std::os::raw::c_void,
     pub size: u32,
-    pub _padding_206: [::std::os::raw::c_char; 4usize],
+    pub _padding_194: [::std::os::raw::c_char; 4usize],
     pub type_: StrhashT,
 }
 impl Default for CreationGraphNamedOutputT {
@@ -487,7 +474,7 @@ pub struct CreationGraphContextT {
     pub rb: *mut RendererBackendI,
     pub device_affinity_mask: u32,
     pub default_instance: bool,
-    pub _padding_259: [::std::os::raw::c_char; 3usize],
+    pub _padding_247: [::std::os::raw::c_char; 3usize],
     pub ta: *mut TempAllocatorI,
     pub requested_tasks: *mut *mut CreationGraphTaskT,
     pub res_buf: [*mut RendererResourceCommandBufferO; 2usize],
@@ -722,6 +709,9 @@ pub struct CreationGraphApi {
             data_size: u32,
         ),
     >,
+    pub queue_instances_for_dirty_marking: ::std::option::Option<
+        unsafe extern "C" fn(instances: *mut CreationGraphInstanceT, num_instances: u32),
+    >,
     pub get_buffer_async: ::std::option::Option<
         unsafe extern "C" fn(
             instance: *mut CreationGraphInstanceT,
@@ -823,7 +813,7 @@ pub struct CreationGraphInterpreterApi {
     pub trigger_wire:
         ::std::option::Option<unsafe extern "C" fn(rc: *mut CreationGraphInstanceT, wire: u32)>,
     pub gather_stripped_graph: ::std::option::Option<
-        unsafe extern "C" fn(rc: *mut CreationGraphInstanceT, e: StrhashT, nodes: *mut SetIdT),
+        unsafe extern "C" fn(rc: *mut CreationGraphInstanceT, nodes: *mut SetIdT),
     >,
     pub queue_wire: ::std::option::Option<
         unsafe extern "C" fn(rc: *mut CreationGraphInstanceT, wire: u32, delay: f32),
@@ -1156,6 +1146,8 @@ pub struct CreationGraphO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::editor_views::*;
 use crate::plugins::entity::*;
@@ -1357,6 +1349,14 @@ impl CreationGraphApi {
         self.set_input_value.unwrap()(instance, context, name, data, data_size)
     }
 
+    pub unsafe fn queue_instances_for_dirty_marking(
+        &self,
+        instances: *mut CreationGraphInstanceT,
+        num_instances: u32,
+    ) {
+        self.queue_instances_for_dirty_marking.unwrap()(instances, num_instances)
+    }
+
     pub unsafe fn get_buffer_async(
         &self,
         instance: *mut CreationGraphInstanceT,
@@ -1371,6 +1371,11 @@ impl CreationGraphApi {
 
 impl crate::Api for CreationGraphApi {
     const NAME: ConstCStr = const_cstr!("tm_creation_graph_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CreationGraphInterpreterApi {
@@ -1462,10 +1467,9 @@ impl CreationGraphInterpreterApi {
     pub unsafe fn gather_stripped_graph(
         &self,
         rc: *mut CreationGraphInstanceT,
-        e: StrhashT,
         nodes: *mut SetIdT,
     ) {
-        self.gather_stripped_graph.unwrap()(rc, e, nodes)
+        self.gather_stripped_graph.unwrap()(rc, nodes)
     }
 
     pub unsafe fn queue_wire(&self, rc: *mut CreationGraphInstanceT, wire: u32, delay: f32) {
@@ -1548,6 +1552,11 @@ impl CreationGraphInterpreterApi {
 
 impl crate::Api for CreationGraphInterpreterApi {
     const NAME: ConstCStr = const_cstr!("tm_creation_graph_interpreter_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 pub const TM_TT_TYPE_HASH__CREATION_GRAPH: StrhashT = StrhashT {
@@ -1615,4 +1624,34 @@ pub const TM_CREATION_GRAPH__RAY_TRACE_INSTANCE_HASH: StrhashT = StrhashT {
 };
 pub const TM_TYPE_HASH__GPU_SIMULATION__CHANNEL_BUFFER_DATA: StrhashT = StrhashT {
     u64_: 17496717424579581404u64,
+};
+pub const TM_COMPILE_DATA_TO_WIRE_F_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CREATION_GRAPH_PREVIEW_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CREATION_GRAPH_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CREATION_GRAPH_OUTPUT_NODE_TYPE_T_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CREATION_GRAPH_INTERPRETER_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CREATION_GRAPH_NODE_TYPE_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

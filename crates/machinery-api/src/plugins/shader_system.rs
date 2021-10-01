@@ -123,13 +123,6 @@ impl<T> ::std::cmp::PartialEq for __BindgenUnionField<T> {
 impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
-pub const TM_SHADER_DECLARATION_API_NAME: &'static [u8; 26usize] = b"tm_shader_declaration_api\0";
-pub const TM_SHADER_SYSTEM_API_NAME: &'static [u8; 21usize] = b"tm_shader_system_api\0";
-pub const TM_SHADER_API_NAME: &'static [u8; 14usize] = b"tm_shader_api\0";
-pub const TM_SHADER_REPOSITORY_INSTANCE_NAME: &'static [u8; 23usize] = b"tm_shader_repository_o\0";
-pub const TM_SHADER_REPOSITORY_API_NAME: &'static [u8; 25usize] = b"tm_shader_repository_api\0";
-pub const TM_SHADER_CREATION_GRAPH_API_NAME: &'static [u8; 29usize] =
-    b"tm_shader_creation_graph_api\0";
 pub const TM_TT_TYPE__SHADER_SYSTEM_REPOSITORY: &'static [u8; 28usize] =
     b"tm_shader_system_repository\0";
 pub const TM_TT_TYPE__SHADER_SYSTEM_STAGE_DECLARATION: &'static [u8; 35usize] =
@@ -1422,6 +1415,8 @@ pub struct CreationGraphOutputT {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::entity::*;
 use crate::plugins::render_graph::RenderGraphO;
@@ -1561,6 +1556,11 @@ impl ShaderDeclarationApi {
 
 impl crate::Api for ShaderDeclarationApi {
     const NAME: ConstCStr = const_cstr!("tm_shader_declaration_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ShaderSystemApi {
@@ -1622,6 +1622,11 @@ impl ShaderSystemApi {
 
 impl crate::Api for ShaderSystemApi {
     const NAME: ConstCStr = const_cstr!("tm_shader_system_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ShaderApi {
@@ -1848,6 +1853,11 @@ impl ShaderApi {
 
 impl crate::Api for ShaderApi {
     const NAME: ConstCStr = const_cstr!("tm_shader_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ShaderRepositoryApi {
@@ -2138,6 +2148,11 @@ impl ShaderRepositoryApi {
 
 impl crate::Api for ShaderRepositoryApi {
     const NAME: ConstCStr = const_cstr!("tm_shader_repository_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ShaderCreationGraphApi {
@@ -2183,6 +2198,11 @@ impl ShaderCreationGraphApi {
 
 impl crate::Api for ShaderCreationGraphApi {
     const NAME: ConstCStr = const_cstr!("tm_shader_creation_graph_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 pub const TM_CREATION_GRAPH_UPDATE_SHADER_CONSTANT_AND_RESOURCES: StrhashT = StrhashT {
@@ -2289,3 +2309,33 @@ pub const TM_TT_TYPE_HASH__SHADER_SYSTEM_CREATION_GRAPH_NODE_EVALUATION_CONTEXT_
     StrhashT {
         u64_: 1601229260840685503u64,
     };
+pub const TM_SHADER_SYSTEM_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHADER_DECLARATION_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHADER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHADER_CREATION_GRAPH_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHADER_REPOSITORY_O_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHADER_REPOSITORY_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};

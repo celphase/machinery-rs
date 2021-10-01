@@ -1,11 +1,11 @@
 use std::{any::Any, ffi::c_void};
 
-use machinery_api::foundation::ApiRegistryApi;
+use machinery_api::foundation::{ApiRegistryApi, VersionT};
 
 /// Utility type for storing APIs and implementations registered with the API registry.
 #[derive(Default)]
 pub struct RegistryStorage {
-    implementations: Vec<(*const i8, *const c_void)>,
+    implementations: Vec<(*const i8, VersionT, *const c_void)>,
     boxes: Vec<Box<dyn Any>>,
 }
 
@@ -27,10 +27,11 @@ impl RegistryStorage {
         &mut self,
         registry: &ApiRegistryApi,
         name: *const i8,
+        version: VersionT,
         implementation: T,
     ) -> *const T {
         let ptr = self.add(implementation);
-        self.add_raw_implementation(registry, name, ptr as *const _ as *const c_void);
+        self.add_raw_implementation(registry, name, version, ptr as *const _ as *const c_void);
         ptr
     }
 
@@ -45,10 +46,11 @@ impl RegistryStorage {
         &mut self,
         registry: &ApiRegistryApi,
         name: *const i8,
+        version: VersionT,
         implementation: *const c_void,
     ) {
-        registry.add_implementation(name, implementation);
-        self.implementations.push((name, implementation));
+        registry.add_implementation(name, version, implementation);
+        self.implementations.push((name, version, implementation));
     }
 
     /// Adds a value to the internal storage and returns a pointer.
@@ -65,9 +67,9 @@ impl RegistryStorage {
 
     /// Clean up all stored registered types.
     pub fn clear(&mut self, registry: &ApiRegistryApi) {
-        for (name, implementation) in self.implementations.drain(..) {
+        for (name, version, implementation) in self.implementations.drain(..) {
             unsafe {
-                registry.remove_implementation(name, implementation);
+                registry.remove_implementation(name, version, implementation);
             }
         }
 

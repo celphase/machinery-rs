@@ -5,16 +5,15 @@ use machinery::{export_singleton_fns, get_api, identifier, plugin, Identifier, P
 use machinery_api::{
     foundation::{
         ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
-        TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME,
+        TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
         TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT, TM_TT_TYPE_HASH__POSITION,
     },
     plugins::{
         entity::{
             ComponentI, ComponentManagerO, ComponentTypeT, EngineI, EngineO, EngineSystemCommonI,
-            EngineUpdateSetT, EntityApi, EntityContextO, EntityT, TransformComponentT,
-            TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
-            TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME,
-            TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME,
+            EngineUpdateSetT, EntityApi, EntityCommandsO, EntityContextO, EntityT,
+            TransformComponentT, TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
+            TM_ENTITY_CREATE_COMPONENT_I_VERSION, TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
             TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
         },
         the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
@@ -63,17 +62,20 @@ impl Plugin for ExamplePlugin {
             // TODO: Wrappers for add_implementation that take a type-safe inteface as parameter
 
             (*plugin.registry).add_implementation(
-                TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME.as_ptr() as *const i8,
+                const_cstr!("tm_the_truth_create_types_i").as_ptr(),
+                TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
                 Self::truth_create_types as *const c_void,
             );
 
             (*plugin.registry).add_implementation(
-                TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME.as_ptr() as *const i8,
+                const_cstr!("tm_entity_create_component_i").as_ptr(),
+                TM_ENTITY_CREATE_COMPONENT_I_VERSION,
                 Self::component_create as *const c_void,
             );
 
             (*plugin.registry).add_implementation(
-                TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME.as_ptr() as *const i8,
+                const_cstr!("tm_entity_register_engines_simulation_i").as_ptr(),
+                TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
                 Self::register_engines as *const c_void,
             );
 
@@ -88,17 +90,20 @@ impl Drop for ExamplePlugin {
     fn drop(&mut self) {
         unsafe {
             (*self.registry).remove_implementation(
-                TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME.as_ptr() as *const i8,
+                const_cstr!("tm_the_truth_create_types_i").as_ptr(),
+                TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
                 Self::truth_create_types as *const c_void,
             );
 
             (*self.registry).remove_implementation(
-                TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME.as_ptr() as *const i8,
+                const_cstr!("tm_entity_create_component_i").as_ptr(),
+                TM_ENTITY_CREATE_COMPONENT_I_VERSION,
                 Self::component_create as *const c_void,
             );
 
             (*self.registry).remove_implementation(
-                TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME.as_ptr() as *const i8,
+                const_cstr!("tm_entity_register_engines_simulation_i").as_ptr(),
+                TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
                 Self::register_engines as *const c_void,
             );
         }
@@ -168,9 +173,10 @@ impl ExamplePlugin {
 
     fn component_load_asset(
         &self,
-        _man: *mut ComponentManagerO,
+        _manager: *mut ComponentManagerO,
+        _commands: *mut EntityCommandsO,
         _e: EntityT,
-        data: *mut c_void,
+        data: *mut ::std::os::raw::c_void,
         tt: *const TheTruthO,
         asset: TtIdT,
     ) -> bool {
@@ -226,7 +232,12 @@ impl ExamplePlugin {
         }
     }
 
-    fn engine_spin_update(&self, inst: *mut EngineO, data: *mut EngineUpdateSetT) {
+    fn engine_spin_update(
+        &self,
+        inst: *mut EngineO,
+        data: *mut EngineUpdateSetT,
+        _commands: *mut EntityCommandsO,
+    ) {
         unsafe {
             let ctx = inst as *mut EntityContextO;
 

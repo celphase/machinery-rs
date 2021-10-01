@@ -81,9 +81,6 @@ where
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const TM_ASSET_BROWSER_TAB_VT_NAME: &'static [u8; 21usize] = b"tm_asset_browser_tab\0";
-pub const TM_ASSET_BROWSER_TAB_CUSTOM_MENU_ITEMS_INTERFACE_NAME: &'static [u8; 41usize] =
-    b"tm_asset_browser_tab_custom_menu_items_i\0";
-pub const TM_ASSET_BROWSER_TAB_API_NAME: &'static [u8; 25usize] = b"tm_asset_browser_tab_api\0";
 pub const TM_CACHE_MANAGER_TAB_VT_NAME: &'static [u8; 21usize] = b"tm_cache_manager_tab\0";
 pub const TM_CANVAS_TAB_VT_NAME: &'static [u8; 14usize] = b"tm_canvas_tab\0";
 pub const TM_COLLABORATION_TAB_VT_NAME: &'static [u8; 21usize] = b"tm_collaboration_tab\0";
@@ -112,11 +109,11 @@ pub const TM_TT_TYPE__SCENE_TAB: &'static [u8; 13usize] = b"tm_scene_tab\0";
 pub const TM_TT_TYPE__SCENE_TAB_SETTINGS: &'static [u8; 22usize] = b"tm_scene_tab_settings\0";
 pub const TM_TT_TYPE__SCENE_SETTINGS: &'static [u8; 18usize] = b"tm_scene_settings\0";
 pub const TM_SIMULATE_TAB_VT_NAME: &'static [u8; 16usize] = b"tm_simulate_tab\0";
+pub const TM_TT_TYPE__SIMULATE_TAB_SETTINGS: &'static [u8; 25usize] = b"tm_simulate_tab_settings\0";
 pub const TM_STATE_GRAPH_TAB_VT_NAME: &'static [u8; 19usize] = b"tm_state_graph_tab\0";
 pub const TM_STATISTICS_TAB_VT_NAME: &'static [u8; 18usize] = b"tm_statistics_tab\0";
-pub const TM_TASK_MANAGER_API_NAME: &'static [u8; 20usize] = b"tm_task_manager_api\0";
 pub const TM_TASK_MANAGER_TAB_VT_NAME: &'static [u8; 20usize] = b"tm_task_manager_tab\0";
-pub const THE_MACHINERY_VERSION: &'static [u8; 9usize] = b"2021.8.a\0";
+pub const THE_MACHINERY_VERSION: &'static [u8; 7usize] = b"2021.9\0";
 pub const TM_TT_TYPE__APPLICATION_SETTINGS: &'static [u8; 24usize] = b"tm_application_settings\0";
 pub const TM_TT_TYPE__PROJECT_MANAGEMENT_SETTINGS: &'static [u8; 31usize] =
     b"tm_project_management_settings\0";
@@ -124,20 +121,14 @@ pub const TM_TT_TYPE__INTERFACE_SETTINGS: &'static [u8; 22usize] = b"tm_interfac
 pub const TM_TT_TYPE__WINDOW_LAYOUTS: &'static [u8; 18usize] = b"tm_window_layouts\0";
 pub const TM_TT_TYPE__WINDOW_LAYOUT: &'static [u8; 17usize] = b"tm_window_layout\0";
 pub const TM_TT_TYPE__WORKSPACE: &'static [u8; 13usize] = b"tm_workspace\0";
-pub const TM_TT_TYPE__TABWELL: &'static [u8; 11usize] = b"tm_tabwell\0";
-pub const TM_TT_TYPE__TAB_VIEW: &'static [u8; 12usize] = b"tm_tab_view\0";
 pub const TM_TT_TYPE__RECENT_FILE: &'static [u8; 15usize] = b"tm_recent_file\0";
 pub const TM_TT_TYPE__PUBLISH_SETTINGS: &'static [u8; 20usize] = b"tm_publish_settings\0";
 pub const TM_TT_TYPE__APPLICATION_SECURITY: &'static [u8; 24usize] = b"tm_application_security\0";
 pub const TM_TT_TYPE__PROJECT_SETTINGS: &'static [u8; 20usize] = b"tm_project_settings\0";
 pub const TM_TT_TYPE__NETWORK_SETTINGS: &'static [u8; 20usize] = b"tm_network_settings\0";
-pub const TM_THE_MACHINERY_PROJECT_LOADED_INTERFACE_NAME: &'static [u8; 34usize] =
-    b"tm_the_machinery_project_loaded_i\0";
-pub const TM_THE_MACHINERY_PROJECT_UNLOADED_INTERFACE_NAME: &'static [u8; 36usize] =
-    b"tm_the_machinery_project_unloaded_i\0";
-pub const TM_THE_MACHINERY_PROJECT_SAVED_INTERFACE_NAME: &'static [u8; 33usize] =
-    b"tm_the_machinery_project_saved_i\0";
-pub const TM_THE_MACHINERY_API_NAME: &'static [u8; 21usize] = b"tm_the_machinery_api\0";
+pub const TM_TT_TYPE__LOCALIZATION_SETTINGS: &'static [u8; 25usize] = b"tm_localization_settings\0";
+pub const TM_TT_TYPE__TRANSLATION: &'static [u8; 15usize] = b"tm_translation\0";
+pub const TM_TT_TYPE__TRANSLATION_CACHE: &'static [u8; 21usize] = b"tm_translation_cache\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -339,7 +330,7 @@ extern "C" {
     pub fn menu__new_plugin__entity_component();
 }
 extern "C" {
-    pub fn menu__new_plugin__simulate_entry();
+    pub fn menu__new_plugin__simulation_entry();
 }
 extern "C" {
     pub fn menu__new_plugin__minimal();
@@ -390,6 +381,8 @@ pub const TM_TT_PROP__SCENE_TAB__TO_SHOW: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__SCENE_TAB__LOCKED: ::std::os::raw::c_int = 8;
 pub const TM_TT_PROP__SCENE_TAB__UNLOCKED: ::std::os::raw::c_int = 9;
 pub type _bindgen_ty_4 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__SCENE_TAB_SETTINGS__NATIVE_RESOLUTION: ::std::os::raw::c_int = 0;
+pub type _bindgen_ty_5 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__SCENE_SETTINGS__ASSET_UUID_A: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__SCENE_SETTINGS__USE_WORLD_AXES: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__SCENE_SETTINGS__MULTI_SELECT_PIVOT: ::std::os::raw::c_int = 2;
@@ -400,7 +393,7 @@ pub const TM_TT_PROP__SCENE_SETTINGS__ROT_SNAP_ANGLE: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__SCENE_SETTINGS__SCALE_ABSOLUTE_HANDLE: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__SCENE_SETTINGS__SCALE_SNAP: ::std::os::raw::c_int = 8;
 pub const TM_TT_PROP__SCENE_SETTINGS__SCALE_SNAP_INCREMENT: ::std::os::raw::c_int = 9;
-pub type _bindgen_ty_5 = ::std::os::raw::c_int;
+pub type _bindgen_ty_6 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct scene_tab_entity_data_t {
     pub entity_ctx: *mut EntityContextO,
@@ -424,6 +417,20 @@ extern "C" {
 }
 extern "C" {
     pub fn scene_tab_truth_object(tab: *mut TabO) -> TtIdT;
+}
+pub const TM_TT_PROP__SIMULATE_TAB_SETTINGS__NATIVE_RESOLUTION: ::std::os::raw::c_int = 0;
+pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct SimulateTabSettingsT {
+    pub native_resolution: bool,
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct SimulateTabApi {
+    pub update_settings: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut TabO, settings: *const SimulateTabSettingsT),
+    >,
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -471,55 +478,41 @@ pub const TM_TT_PROP__APPLICATION_SETTINGS__GRID_SETTINGS: ::std::os::raw::c_int
 pub const TM_TT_PROP__APPLICATION_SETTINGS__WINDOW_LAYOUTS: ::std::os::raw::c_int = 5;
 pub const TM_TT_PROP__APPLICATION_SETTINGS__RECENT_FILES: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__APPLICATION_SETTINGS__INTERFACE_SETTINGS: ::std::os::raw::c_int = 7;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__KEYBOARD_SHORTCUTS: ::std::os::raw::c_int = 8;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEMES: ::std::os::raw::c_int = 9;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEME: ::std::os::raw::c_int = 10;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__BUILTIN_UI_THEME: ::std::os::raw::c_int = 11;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECTS_SETTINGS: ::std::os::raw::c_int = 12;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__UPDATES: ::std::os::raw::c_int = 13;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__DOWNLOADS: ::std::os::raw::c_int = 14;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__LAST_OPENED_PROJECT: ::std::os::raw::c_int = 15;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__DOCKING_SETTINGS: ::std::os::raw::c_int = 16;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECT_MANAGEMENT: ::std::os::raw::c_int = 17;
-pub const TM_TT_PROP__APPLICATION_SETTINGS__SECURITY: ::std::os::raw::c_int = 18;
-pub type _bindgen_ty_6 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__LOCALIZATION_SETTINGS: ::std::os::raw::c_int = 8;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__KEYBOARD_SHORTCUTS: ::std::os::raw::c_int = 9;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEMES: ::std::os::raw::c_int = 10;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__UI_THEME: ::std::os::raw::c_int = 11;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__BUILTIN_UI_THEME: ::std::os::raw::c_int = 12;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECTS_SETTINGS: ::std::os::raw::c_int = 13;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__UPDATES: ::std::os::raw::c_int = 14;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__DOWNLOADS: ::std::os::raw::c_int = 15;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__LAST_OPENED_PROJECT: ::std::os::raw::c_int = 16;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__DOCKING_SETTINGS: ::std::os::raw::c_int = 17;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__PROJECT_MANAGEMENT: ::std::os::raw::c_int = 18;
+pub const TM_TT_PROP__APPLICATION_SETTINGS__SECURITY: ::std::os::raw::c_int = 19;
+pub type _bindgen_ty_8 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__PROJECT_MANAGEMENT_SETTINGS__OPEN_EMPTY_PROJECT_ON_STARTUP:
     ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__PROJECT_MANAGEMENT_SETTINGS__ALWAYS_OPEN_DEFAULT_PROJECT_WINDOW:
     ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+pub type _bindgen_ty_9 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__INTERFACE_SETTINGS__RESOLUTION_SCALE: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__INTERFACE_SETTINGS__WHEEL_SCROLL_LINES: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_8 = ::std::os::raw::c_int;
-pub const TM_TT_PROP__WINDOW_LAYOUTS__LAYOUTS: ::std::os::raw::c_int = 0;
-pub type _bindgen_ty_9 = ::std::os::raw::c_int;
-pub const TM_TT_PROP__WINDOW_LAYOUT__NAME: ::std::os::raw::c_int = 0;
-pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_X: ::std::os::raw::c_int = 1;
-pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_Y: ::std::os::raw::c_int = 2;
-pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_WIDTH: ::std::os::raw::c_int = 3;
-pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_HEIGHT: ::std::os::raw::c_int = 4;
-pub const TM_TT_PROP__WINDOW_LAYOUT__TABWELL: ::std::os::raw::c_int = 5;
-pub const TM_TT_PROP__WINDOW_LAYOUT__WORKSPACES: ::std::os::raw::c_int = 6;
 pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__WINDOW_LAYOUTS__LAYOUTS: ::std::os::raw::c_int = 0;
+pub type _bindgen_ty_11 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__WINDOW_LAYOUT__NAME: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__WINDOW_LAYOUT__ICON: ::std::os::raw::c_int = 1;
+pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_X: ::std::os::raw::c_int = 2;
+pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_Y: ::std::os::raw::c_int = 3;
+pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_WIDTH: ::std::os::raw::c_int = 4;
+pub const TM_TT_PROP__WINDOW_LAYOUT__WINDOW_HEIGHT: ::std::os::raw::c_int = 5;
+pub const TM_TT_PROP__WINDOW_LAYOUT__TABWELL: ::std::os::raw::c_int = 6;
+pub const TM_TT_PROP__WINDOW_LAYOUT__WORKSPACES: ::std::os::raw::c_int = 7;
+pub type _bindgen_ty_12 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__WORKSPACE__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__WORKSPACE__ICON: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__WORKSPACE__TABWELL: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_11 = ::std::os::raw::c_int;
-pub const TM_TT_PROP__TABWELL__LEFT: ::std::os::raw::c_int = 0;
-pub const TM_TT_PROP__TABWELL__RIGHT: ::std::os::raw::c_int = 1;
-pub const TM_TT_PROP__TABWELL__TOP: ::std::os::raw::c_int = 2;
-pub const TM_TT_PROP__TABWELL__BOTTOM: ::std::os::raw::c_int = 3;
-pub const TM_TT_PROP__TABWELL__BIAS: ::std::os::raw::c_int = 4;
-pub const TM_TT_PROP__TABWELL__VIEWS: ::std::os::raw::c_int = 5;
-pub type _bindgen_ty_12 = ::std::os::raw::c_int;
-pub const TM_TT_PROP__TAB_VIEW__NAME: ::std::os::raw::c_int = 0;
-pub const TM_TT_PROP__TAB_VIEW__ROOT_UUID_A: ::std::os::raw::c_int = 1;
-pub const TM_TT_PROP__TAB_VIEW__ROOT_UUID_B: ::std::os::raw::c_int = 2;
-pub const TM_TT_PROP__TAB_VIEW__ROOT_TYPE: ::std::os::raw::c_int = 3;
-pub const TM_TT_PROP__TAB_VIEW__SORT_INDEX: ::std::os::raw::c_int = 4;
-pub const TM_TT_PROP__TAB_VIEW__SETTINGS_VIEW: ::std::os::raw::c_int = 5;
-pub const TM_TT_PROP__TAB_VIEW__PINNED: ::std::os::raw::c_int = 6;
-pub const TM_TT_PROP__TAB_VIEW__SETTINGS_STATE: ::std::os::raw::c_int = 7;
 pub type _bindgen_ty_13 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__RECENT_FILE__PATH: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__RECENT_FILE__TIME_STAMP: ::std::os::raw::c_int = 1;
@@ -546,9 +539,18 @@ pub const TM_TT_PROP__PROJECT_SETTINGS__GRAPH_DEBUGGER_PERSISTENT_SETTINGS: ::st
 pub type _bindgen_ty_17 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__NETWORK_SETTINGS__NODE_INSTANCES: ::std::os::raw::c_int = 0;
 pub type _bindgen_ty_18 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__LOCALIZATION_SETTINGS__MICROSOFT_CACHE: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__LOCALIZATION_SETTINGS__GOOGLE_CACHE: ::std::os::raw::c_int = 1;
+pub const TM_TT_PROP__LOCALIZATION_SETTINGS__LANGUAGE: ::std::os::raw::c_int = 2;
+pub const TM_TT_PROP__LOCALIZATION_SETTINGS__USE_GOOGLE: ::std::os::raw::c_int = 3;
+pub const TM_TT_PROP__LOCALIZATION_SETTINGS__USE_MICROSOFT: ::std::os::raw::c_int = 4;
+pub type _bindgen_ty_19 = ::std::os::raw::c_int;
 pub type TheMachineryProjectCallbackI = ::std::option::Option<
     unsafe extern "C" fn(app: *mut ApplicationO, truth: *mut TheTruthO, asset_root: TtIdT),
 >;
+pub type TheMachineryProjectLoadedI = TheMachineryProjectCallbackI;
+pub type TheMachineryProjectUnloadedI = TheMachineryProjectCallbackI;
+pub type TheMachineryProjectSavedI = TheMachineryProjectCallbackI;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct TheMachineryApi {
@@ -630,6 +632,8 @@ impl Default for TheMachineryApi {
         }
     }
 }
+pub type TheMachineryCreateLayoutI =
+    ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO)>;
 extern "C" {
     pub static mut tm_global_api_registry: *mut ApiRegistryApi;
 }
@@ -683,14 +687,6 @@ extern "C" {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct VulkanApi {
-    _unused: [u8; 0],
-}
-extern "C" {
-    pub static mut tm_vulkan_api: *mut VulkanApi;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
 pub struct GpuPickingApi {
     _unused: [u8; 0],
 }
@@ -716,6 +712,14 @@ pub struct OpenvrApi {
 extern "C" {
     pub static mut tm_openvr_api_opt: *mut OpenvrApi;
 }
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct VulkanApi {
+    _unused: [u8; 0],
+}
+extern "C" {
+    pub static mut tm_vulkan_api_opt: *mut VulkanApi;
+}
 extern "C" {
     pub static mut tm_cmd_buf_api: *mut RendererCommandBufferApi;
 }
@@ -725,6 +729,30 @@ extern "C" {
 extern "C" {
     pub static mut tm_the_machinery_api: *mut TheMachineryApi;
 }
+pub const TM_TT_PROP__TRANSLATION__ENGLISH: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__TRANSLATION__LANGUAGE: ::std::os::raw::c_int = 1;
+pub const TM_TT_PROP__TRANSLATION__TRANSLATION: ::std::os::raw::c_int = 2;
+pub type _bindgen_ty_20 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__TRANSLATION_CACHE__TRANSLATIONS: ::std::os::raw::c_int = 0;
+pub type _bindgen_ty_21 = ::std::os::raw::c_int;
+#[repr(C)]
+pub struct LocalizerStateT {
+    pub language: StrhashT,
+    pub test_mode: bool,
+    pub reveal_source_text: bool,
+    pub microsoft: bool,
+    pub google: bool,
+    pub _padding_55: [::std::os::raw::c_char; 4usize],
+}
+impl Default for LocalizerStateT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn create_localizer(a: *mut AllocatorI) -> *mut LocalizerO;
 }
@@ -732,22 +760,40 @@ extern "C" {
     pub fn destroy_localizer(loc: *mut LocalizerO);
 }
 extern "C" {
-    pub fn localizer_language(loc: *mut LocalizerO) -> StrhashT;
+    pub fn localizer_set_language(loc: *mut LocalizerO, language: StrhashT);
 }
 extern "C" {
-    pub fn localizer_set_language(loc: *mut LocalizerO, lang: StrhashT);
+    pub fn localizer_set_test_mode(loc: *mut LocalizerO, test_mode: bool);
 }
 extern "C" {
-    pub fn localizer_test_language(loc: *mut LocalizerO) -> StrhashT;
+    pub fn localizer_set_reveal_source_text(loc: *mut LocalizerO, reveal: bool);
 }
 extern "C" {
-    pub fn localizer_toggle_test_language(loc: *mut LocalizerO, lang: StrhashT);
+    pub fn localizer_set_microsoft_translate(
+        loc: *mut LocalizerO,
+        language: StrhashT,
+        api_key: *const ::std::os::raw::c_char,
+        tt: *mut TheTruthO,
+        translation_cache_id: TtIdT,
+    );
+}
+extern "C" {
+    pub fn localizer_set_google_translate(
+        loc: *mut LocalizerO,
+        language: StrhashT,
+        api_key: *const ::std::os::raw::c_char,
+        tt: *mut TheTruthO,
+        translation_cache_id: TtIdT,
+    );
+}
+extern "C" {
+    pub fn localizer_state(loc: *mut LocalizerO) -> LocalizerStateT;
 }
 extern "C" {
     pub fn localizer_interface(loc: *mut LocalizerO) -> *mut LocalizerI;
 }
 extern "C" {
-    pub fn localizer_set_reveal_english(loc: *mut LocalizerO, reveal: bool);
+    pub fn load_localizer(reg: *mut ApiRegistryApi, load: bool);
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -771,32 +817,8 @@ impl Default for TabCreateContextT {
     }
 }
 #[repr(C)]
-pub struct TheMachineryTabVt {
-    pub super_: TabVt,
-    pub menu_title: ::std::option::Option<
-        unsafe extern "C" fn(inst: *mut TabO, ui: *mut UiO) -> *const ::std::os::raw::c_char,
-    >,
-    pub menu: ::std::option::Option<
-        unsafe extern "C" fn(
-            inst: *mut TabO,
-            ui: *mut UiO,
-            uistyle: *const UiStyleT,
-            submenu_pos: Vec2T,
-        ),
-    >,
-}
-impl Default for TheMachineryTabVt {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
 pub struct PreviewTabVt {
-    pub super_: TheMachineryTabVt,
+    pub super_: TabVt,
     pub preview_entity: ::std::option::Option<
         unsafe extern "C" fn(tab: *mut TabO, e: *mut EntityT) -> *mut EntityContextO,
     >,
@@ -812,9 +834,13 @@ impl Default for PreviewTabVt {
 }
 #[repr(C)]
 pub struct GraphTabVt {
-    pub super_: TheMachineryTabVt,
+    pub super_: TabVt,
     pub refresh_node_types: ::std::option::Option<
-        unsafe extern "C" fn(tab: *mut TabO, node_interface_name: *const ::std::os::raw::c_char),
+        unsafe extern "C" fn(
+            tab: *mut TabO,
+            node_interface_name: *const ::std::os::raw::c_char,
+            node_interface_version: VersionT,
+        ),
     >,
 }
 impl Default for GraphTabVt {
@@ -835,6 +861,8 @@ pub struct CollaborationDiscordO {
 // Extensions generated by machinery-generator
 
 use const_cstr::{const_cstr, ConstCStr};
+
+use crate::foundation::VersionT;
 
 use crate::foundation::*;
 use crate::plugins::editor_views::*;
@@ -865,6 +893,11 @@ impl AssetBrowserTabApi {
 
 impl crate::Api for AssetBrowserTabApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_browser_tab_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UpdateTrackerApi {
@@ -879,6 +912,15 @@ impl UpdateTrackerApi {
     pub unsafe fn shutdown(&self) {
         self.shutdown.unwrap()()
     }
+}
+
+impl crate::Api for UpdateTrackerApi {
+    const NAME: ConstCStr = const_cstr!("tm_update_tracker_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl IntegrationTestRunnerApi {
@@ -908,6 +950,15 @@ impl IntegrationTestRunnerApi {
     }
 }
 
+impl crate::Api for IntegrationTestRunnerApi {
+    const NAME: ConstCStr = const_cstr!("tm_integration_test_runner_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
 impl LoginApi {
     pub unsafe fn init(&self, allocator: *mut AllocatorI) {
         self.init.unwrap()(allocator)
@@ -922,6 +973,30 @@ impl LoginApi {
     }
 }
 
+impl crate::Api for LoginApi {
+    const NAME: ConstCStr = const_cstr!("tm_login_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
+impl SimulateTabApi {
+    pub unsafe fn update_settings(&self, inst: *mut TabO, settings: *const SimulateTabSettingsT) {
+        self.update_settings.unwrap()(inst, settings)
+    }
+}
+
+impl crate::Api for SimulateTabApi {
+    const NAME: ConstCStr = const_cstr!("tm_simulate_tab_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
 impl StatisticsTabApi {
     pub unsafe fn add_source(
         &self,
@@ -932,6 +1007,15 @@ impl StatisticsTabApi {
     ) {
         self.add_source.unwrap()(tab, name, source, color)
     }
+}
+
+impl crate::Api for StatisticsTabApi {
+    const NAME: ConstCStr = const_cstr!("tm_statistics_tab_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TaskManagerApi {
@@ -957,6 +1041,11 @@ impl TaskManagerApi {
 
 impl crate::Api for TaskManagerApi {
     const NAME: ConstCStr = const_cstr!("tm_task_manager_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TheMachineryApi {
@@ -1074,6 +1163,11 @@ impl TheMachineryApi {
 
 impl crate::Api for TheMachineryApi {
     const NAME: ConstCStr = const_cstr!("tm_the_machinery_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl DccAssetApi {}
@@ -1088,13 +1182,13 @@ impl OsWindowApi {}
 
 impl PrimitiveDrawerApi {}
 
-impl VulkanApi {}
-
 impl GpuPickingApi {}
 
 impl GltfApi {}
 
 impl OpenvrApi {}
+
+impl VulkanApi {}
 
 pub const TM_ASSET_BROWSER_TAB_VT_NAME_HASH: StrhashT = StrhashT {
     u64_: 13036556916491485142u64,
@@ -1161,6 +1255,9 @@ pub const TM_CORE_ID_POST_PROCESSING_STACK: StrhashT = StrhashT {
 };
 pub const TM_CORE_ID_POST_PROCESSING_VOLUME: StrhashT = StrhashT {
     u64_: 6525241469376208722u64,
+};
+pub const TM_CORE_ID_REFLECTION_PROBE_ENTITY: StrhashT = StrhashT {
+    u64_: 4249566392992356494u64,
 };
 pub const TM_CORE_ID_DEFAULT_WORLD: StrhashT = StrhashT {
     u64_: 9823233946160333378u64,
@@ -1240,6 +1337,9 @@ pub const TM_TT_TYPE_HASH__SCENE_SETTINGS: StrhashT = StrhashT {
 pub const TM_SIMULATE_TAB_VT_NAME_HASH: StrhashT = StrhashT {
     u64_: 15540707913236182876u64,
 };
+pub const TM_TT_TYPE_HASH__SIMULATE_TAB_SETTINGS: StrhashT = StrhashT {
+    u64_: 9183098095369085156u64,
+};
 pub const TM_STATE_GRAPH_TAB_VT_NAME_HASH: StrhashT = StrhashT {
     u64_: 14410119148743899870u64,
 };
@@ -1267,12 +1367,6 @@ pub const TM_TT_TYPE_HASH__WINDOW_LAYOUT: StrhashT = StrhashT {
 pub const TM_TT_TYPE_HASH__WORKSPACE: StrhashT = StrhashT {
     u64_: 14829736330726518513u64,
 };
-pub const TM_TT_TYPE_HASH__TABWELL: StrhashT = StrhashT {
-    u64_: 11643281543487517665u64,
-};
-pub const TM_TT_TYPE_HASH__TAB_VIEW: StrhashT = StrhashT {
-    u64_: 7890642175358502121u64,
-};
 pub const TM_TT_TYPE_HASH__RECENT_FILE: StrhashT = StrhashT {
     u64_: 13424770189634016662u64,
 };
@@ -1287,4 +1381,68 @@ pub const TM_TT_TYPE_HASH__PROJECT_SETTINGS: StrhashT = StrhashT {
 };
 pub const TM_TT_TYPE_HASH__NETWORK_SETTINGS: StrhashT = StrhashT {
     u64_: 4133456848111380615u64,
+};
+pub const TM_TT_TYPE_HASH__LOCALIZATION_SETTINGS: StrhashT = StrhashT {
+    u64_: 12227184065019180970u64,
+};
+pub const TM_TT_TYPE_HASH__TRANSLATION: StrhashT = StrhashT {
+    u64_: 1601245301749355993u64,
+};
+pub const TM_TT_TYPE_HASH__TRANSLATION_CACHE: StrhashT = StrhashT {
+    u64_: 15932710862828710769u64,
+};
+pub const TM_THE_MACHINERY_PROJECT_CALLBACK_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_MACHINERY_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_MACHINERY_CREATE_LAYOUT_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SIMULATE_TAB_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_STATISTICS_TAB_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_BROWSER_TAB_CUSTOM_MENU_ITEMS_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UPDATE_TRACKER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TASK_MANAGER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_INTEGRATION_TEST_RUNNER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_LOGIN_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_BROWSER_TAB_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

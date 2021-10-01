@@ -82,13 +82,6 @@ pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const TM_TT_TYPE__GRAPH_COMPONENT: &'static [u8; 19usize] = b"tm_graph_component\0";
 pub const TM_TT_TYPE__ENTITY_GRAPH: &'static [u8; 16usize] = b"tm_entity_graph\0";
-pub const TM_GRAPH_COMPONENT_COMPILE_DATA_INTERFACE_NAME: &'static [u8; 32usize] =
-    b"tm_graph_component_compile_data\0";
-pub const TM_GRAPH_COMPONENT_API_NAME: &'static [u8; 23usize] = b"tm_graph_component_api\0";
-pub const TM_GRAPH_COMPONENT_NODE_INTERFACE_NAME: &'static [u8; 34usize] =
-    b"tm_graph_component_node_interface\0";
-pub const TM_GRAPH_COMPONENT_IO_TYPE_INTERFACE_NAME: &'static [u8; 37usize] =
-    b"tm_graph_component_io_type_interface\0";
 pub const TM_TT_TYPE__KEYBOARD_ITEM: &'static [u8; 17usize] = b"tm_keyboard_item\0";
 pub const TM_TT_TYPE__MOUSE_BUTTON: &'static [u8; 16usize] = b"tm_mouse_button\0";
 pub const TM_TT_TYPE__ENTITY_ASSET_REFERENCE: &'static [u8; 26usize] =
@@ -98,9 +91,6 @@ pub const TM_TT_TYPE__LOCAL_ENTITY_ASSET_REFERENCE: &'static [u8; 32usize] =
 pub const TM_TT_TYPE__TAG_REFERENCE: &'static [u8; 17usize] = b"tm_tag_reference\0";
 pub const TM_TT_TYPE__CREATION_GRAPH_ASSET_REFERENCE: &'static [u8; 34usize] =
     b"tm_creation_graph_asset_reference\0";
-pub const TM_GRAPH_INTERPRETER_API_NAME: &'static [u8; 25usize] = b"tm_graph_interpreter_api\0";
-pub const TM_GRAPH_INTERPRETER_DEBUGGER_API_NAME: &'static [u8; 34usize] =
-    b"tm_graph_interpreter_debugger_api\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -384,7 +374,8 @@ pub const TM_GRAPH_COMPONENT__STATIC_WIRE__ENTITY_CONTEXT: ::std::os::raw::c_int
 pub const TM_GRAPH_COMPONENT__STATIC_WIRE__ENTITY: ::std::os::raw::c_int = 2;
 pub const TM_GRAPH_COMPONENT__STATIC_WIRE__EVENT_DATA: ::std::os::raw::c_int = 3;
 pub const TM_GRAPH_COMPONENT__STATIC_WIRE__USER_DATA: ::std::os::raw::c_int = 4;
-pub const TM_GRAPH_COMPONENT__STATIC_WIRE__COUNT: ::std::os::raw::c_int = 5;
+pub const TM_GRAPH_COMPONENT__STATIC_WIRE__ENTITY_COMMANDS: ::std::os::raw::c_int = 5;
+pub const TM_GRAPH_COMPONENT__STATIC_WIRE__COUNT: ::std::os::raw::c_int = 6;
 pub type _bindgen_ty_16 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -744,6 +735,8 @@ pub struct GraphInterpreterDebuggerApi {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::editor_views::*;
 use crate::plugins::entity::*;
@@ -772,6 +765,11 @@ impl GraphComponentApi {
 
 impl crate::Api for GraphComponentApi {
     const NAME: ConstCStr = const_cstr!("tm_graph_component_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl GraphInterpreterApi {
@@ -924,6 +922,11 @@ impl GraphInterpreterApi {
 
 impl crate::Api for GraphInterpreterApi {
     const NAME: ConstCStr = const_cstr!("tm_graph_interpreter_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl GraphInterpreterDebuggerApi {
@@ -1112,6 +1115,11 @@ impl GraphInterpreterDebuggerApi {
 
 impl crate::Api for GraphInterpreterDebuggerApi {
     const NAME: ConstCStr = const_cstr!("tm_graph_interpreter_debugger_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 pub const TM_TT_TYPE_HASH__GRAPH_COMPONENT: StrhashT = StrhashT {
@@ -1158,4 +1166,29 @@ pub const TM_TT_TYPE_HASH__TAG_REFERENCE: StrhashT = StrhashT {
 };
 pub const TM_TT_TYPE_HASH__CREATION_GRAPH_ASSET_REFERENCE: StrhashT = StrhashT {
     u64_: 16770856107365122312u64,
+};
+pub const TM_GRAPH_COMPONENT_COMPILE_DATA_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GRAPH_COMPONENT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GRAPH_INTERPRETER_DEBUGGER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GRAPH_INTERPRETER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GRAPH_COMPONENT_NODE_TYPE_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

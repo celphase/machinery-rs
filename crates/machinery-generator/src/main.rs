@@ -52,8 +52,9 @@ fn main() {
             target_headers.push(entry.into_path());
         }
 
-        bindings::generate(&tm_sdk, &project, &headers_dir, &target_headers, &blocklist);
-        extensions::generate(&project, &target_headers, &mut blocklist);
+        let versions =
+            bindings::generate(&tm_sdk, &project, &headers_dir, &target_headers, &blocklist);
+        extensions::generate(&project, &target_headers, &mut blocklist, &versions);
     }
 }
 

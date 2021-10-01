@@ -6,7 +6,6 @@ pub mod graph_interpreter;
 pub mod render_graph;
 pub mod renderer;
 pub mod shader_system;
-pub mod simulate;
-pub mod simulate_common;
+pub mod simulation;
 pub mod the_machinery_shared;
 pub mod ui;

@@ -58,26 +58,14 @@ uses = [
 ]
 blocklist = ["tm_tab_create_context_t"]
 
-[projects.plugins-simulate_common]
-headers = "$TM_SDK_DIR/headers/plugins/simulate_common"
-headers_prefix = "plugins/simulate_common"
-target = "./crates/machinery-api/src/plugins/simulate_common.rs"
+[projects.plugins-simulation]
+headers = "$TM_SDK_DIR/headers/plugins/simulation"
+headers_prefix = "plugins/simulation"
+target = "./crates/machinery-api/src/plugins/simulation.rs"
 uses = [
     "crate::foundation::*",
     "crate::plugins::entity::*",
-    "crate::plugins::renderer::*",
-    "crate::plugins::ui::*",
-]
-
-[projects.plugins-simulate]
-headers = "$TM_SDK_DIR/headers/plugins/simulate"
-headers_prefix = "plugins/simulate"
-target = "./crates/machinery-api/src/plugins/simulate.rs"
-uses = [
-    "crate::foundation::*",
-    "crate::plugins::entity::*",
-    "crate::plugins::ui::*",
-    "crate::plugins::simulate_common::*",
+    "crate::plugins::ui::*"
 ]
 
 [projects.plugins-graph_common]
@@ -121,8 +109,6 @@ uses = [
     "crate::plugins::renderer::*",
     "crate::plugins::shader_system::*",
     "crate::plugins::render_graph::*",
-    "crate::plugins::simulate_common::*",
-    "crate::plugins::simulate::*",
 ]
 
 [projects.plugins-creation_graph]

@@ -123,11 +123,6 @@ impl<T> ::std::cmp::PartialEq for __BindgenUnionField<T> {
 impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
-pub const TM_RENDER_GRAPH_API_NAME: &'static [u8; 20usize] = b"tm_render_graph_api\0";
-pub const TM_RENDER_GRAPH_MODULE_API_NAME: &'static [u8; 27usize] = b"tm_render_graph_module_api\0";
-pub const TM_RENDER_GRAPH_SETUP_API_NAME: &'static [u8; 26usize] = b"tm_render_graph_setup_api\0";
-pub const TM_RENDER_GRAPH_EXECUTE_API_NAME: &'static [u8; 28usize] =
-    b"tm_render_graph_execute_api\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -280,7 +275,7 @@ pub struct RenderGraphBlackboardValue {
 #[repr(C)]
 pub struct RenderGraphBlackboardValueBindgenTy1 {
     pub handle: RendererHandleT,
-    pub _padding_91: [::std::os::raw::c_char; 4usize],
+    pub _padding_89: [::std::os::raw::c_char; 4usize],
 }
 impl Default for RenderGraphBlackboardValueBindgenTy1 {
     fn default() -> Self {
@@ -792,6 +787,8 @@ impl Default for RenderGraphPassI {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::renderer::*;
 use crate::plugins::shader_system::*;
@@ -965,6 +962,11 @@ impl RenderGraphApi {
 
 impl crate::Api for RenderGraphApi {
     const NAME: ConstCStr = const_cstr!("tm_render_graph_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RenderGraphModuleApi {
@@ -1120,6 +1122,11 @@ impl RenderGraphModuleApi {
 
 impl crate::Api for RenderGraphModuleApi {
     const NAME: ConstCStr = const_cstr!("tm_render_graph_module_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RenderGraphSetupApi {
@@ -1273,6 +1280,11 @@ impl RenderGraphSetupApi {
 
 impl crate::Api for RenderGraphSetupApi {
     const NAME: ConstCStr = const_cstr!("tm_render_graph_setup_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RenderGraphExecuteApi {
@@ -1341,6 +1353,11 @@ impl RenderGraphExecuteApi {
 
 impl crate::Api for RenderGraphExecuteApi {
     const NAME: ConstCStr = const_cstr!("tm_render_graph_execute_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RenderGraphPassApi {
@@ -1381,3 +1398,38 @@ impl RenderGraphPassApi {
         self.execute_pass.unwrap()(const_data, runtime_data, sort_key, graph_execute)
     }
 }
+
+impl crate::Api for RenderGraphPassApi {
+    const NAME: ConstCStr = const_cstr!("tm_render_graph_pass_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
+pub const TM_RENDER_GRAPH_SETUP_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDER_GRAPH_PASS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDER_GRAPH_MODULE_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDER_GRAPH_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RENDER_GRAPH_EXECUTE_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};

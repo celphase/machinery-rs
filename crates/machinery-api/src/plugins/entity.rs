@@ -163,24 +163,12 @@ pub const TM_TT_TYPE__VERLET_CONSTRAINT: &'static [u8; 21usize] = b"tm_verlet_co
 pub const TM_TT_TYPE__ENTITY_SORT_VALUE: &'static [u8; 21usize] = b"tm_entity_sort_value\0";
 pub const TM_TT_TYPE__ENTITY: &'static [u8; 10usize] = b"tm_entity\0";
 pub const TM_MAX_COMPONENTS_IN_CONTEXT: u32 = 1024;
-pub const TM_ENTITY_CREATE_COMPONENT_INTERFACE_NAME: &'static [u8; 29usize] =
-    b"tm_entity_create_component_i\0";
 pub const TM_MAX_COMPONENTS_FOR_ENGINE: u32 = 16;
-pub const TM_ENTITY_SIMULATION_REGISTER_ENGINES_INTERFACE_NAME: &'static [u8; 29usize] =
-    b"tm_entity_register_engines_i\0";
-pub const TM_ENTITY_EDITOR_REGISTER_ENGINES_INTERFACE_NAME: &'static [u8; 38usize] =
-    b"tm_entity_register_engines_i (editor)\0";
-pub const TM_ENTITY_API_NAME: &'static [u8; 14usize] = b"tm_entity_api\0";
 pub const TM_TT_TYPE__OWNER_COMPONENT: &'static [u8; 19usize] = b"tm_owner_component\0";
-pub const TM_OWNER_COMPONENT_API_NAME: &'static [u8; 23usize] = b"tm_owner_component_api\0";
 pub const TM_TT_TYPE__SCENE_TREE_COMPONENT: &'static [u8; 24usize] = b"tm_scene_tree_component\0";
-pub const TM_SCENE_TREE_COMPONENT_API_NAME: &'static [u8; 28usize] =
-    b"tm_scene_tree_component_api\0";
 pub const TM_TT_TYPE__TAG_COMPONENT: &'static [u8; 17usize] = b"tm_tag_component\0";
 pub const TM_TT_TYPE__TAG: &'static [u8; 7usize] = b"tm_tag\0";
-pub const TM_TAG_COMPONENT_API_NAME: &'static [u8; 21usize] = b"tm_tag_component_api\0";
 pub const TM_TT_TYPE__TRANSFORM_COMPONENT: &'static [u8; 23usize] = b"tm_transform_component\0";
-pub const TM_TRANSFORM_COMPONENT_API_NAME: &'static [u8; 27usize] = b"tm_transform_component_api\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -491,8 +479,14 @@ pub const TM_TT_PROP__ENTITY__PERSISTENCE: TM_TT_PROP__ENTITY = 4;
 pub type TM_TT_PROP__ENTITY = ::std::os::raw::c_int;
 pub const TM_ENTITY_PERSISTENCE__INHERIT: EntityPersistence = 0;
 pub const TM_ENTITY_PERSISTENCE__PERSISTENT: EntityPersistence = 1;
-pub const TM_ENTITY_PERSISTENCE__NON_PERSISTENT: EntityPersistence = 2;
+pub const TM_ENTITY_PERSISTENCE__PERSISTENT_REPLICATED: EntityPersistence = 2;
+pub const TM_ENTITY_PERSISTENCE__NON_PERSISTENT: EntityPersistence = 3;
 pub type EntityPersistence = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct EntityCommandsO {
+    _unused: [u8; 0],
+}
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct ComponentMaskT {
@@ -500,18 +494,18 @@ pub struct ComponentMaskT {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct ComponentPersistenceI {
-    pub custom_persistent_state: bool,
-    pub _padding_132: [::std::os::raw::c_char; 3usize],
+pub struct ComponentManagerO {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ComponentGamestateRepresentationI {
     pub size: u32,
-    pub num_members: u32,
-    pub _padding_147: [::std::os::raw::c_char; 4usize],
-    pub members: *mut GamestateMemberT,
-    pub manual_tracking: bool,
-    pub notify_reload_before_deserialization: bool,
     pub compute_initial_hash_immediately: bool,
-    pub _padding_185: [::std::os::raw::c_char; 1usize],
+    pub lazy_component_serialization: bool,
+    pub _padding_158: [::std::os::raw::c_char; 2usize],
     pub restore_sort_order: f32,
+    pub _padding_169: [::std::os::raw::c_char; 4usize],
     pub user_data: *mut ::std::os::raw::c_void,
     pub serialize: ::std::option::Option<
         unsafe extern "C" fn(
@@ -548,6 +542,33 @@ pub struct ComponentPersistenceI {
             asset: TtIdT,
         ) -> u64,
     >,
+    pub loaded: ::std::option::Option<
+        unsafe extern "C" fn(
+            manager: *mut ComponentManagerO,
+            e: EntityT,
+            data: *mut ::std::os::raw::c_void,
+        ),
+    >,
+    pub num_shared_members: u32,
+    pub _padding_217: [::std::os::raw::c_char; 4usize],
+    pub shared_members: *mut GamestateMemberT,
+}
+impl Default for ComponentGamestateRepresentationI {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ComponentPersistenceI {
+    pub manual_tracking: bool,
+    pub _padding_235: [::std::os::raw::c_char; 3usize],
+    pub num_members: u32,
+    pub members: *mut GamestateMemberT,
 }
 impl Default for ComponentPersistenceI {
     fn default() -> Self {
@@ -559,15 +580,35 @@ impl Default for ComponentPersistenceI {
     }
 }
 #[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct MemberNetworkReplicationT {
+    pub watch_timer: f64,
+    pub raw_component_offset: u32,
+    pub _padding_259: [::std::os::raw::c_char; 4usize],
+}
+#[repr(C)]
 #[derive(Copy, Clone)]
-pub struct ComponentManagerO {
-    _unused: [u8; 0],
+pub struct ComponentNetworkReplicationI {
+    pub watch_timer: f64,
+    pub num_members: u32,
+    pub _padding_271: [::std::os::raw::c_char; 4usize],
+    pub members: *mut GamestateMemberT,
+    pub member_replication: *mut MemberNetworkReplicationT,
+}
+impl Default for ComponentNetworkReplicationI {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 pub struct ComponentI {
     pub name: *const ::std::os::raw::c_char,
     pub bytes: u32,
-    pub _padding_252: [::std::os::raw::c_char; 4usize],
+    pub _padding_285: [::std::os::raw::c_char; 4usize],
     pub default_data: *const ::std::os::raw::c_void,
     pub manager: *mut ComponentManagerO,
     pub components_created:
@@ -575,6 +616,7 @@ pub struct ComponentI {
     pub load_asset: ::std::option::Option<
         unsafe extern "C" fn(
             manager: *mut ComponentManagerO,
+            commands: *mut EntityCommandsO,
             e: EntityT,
             data: *mut ::std::os::raw::c_void,
             tt: *const TheTruthO,
@@ -584,6 +626,7 @@ pub struct ComponentI {
     pub asset_loaded: ::std::option::Option<
         unsafe extern "C" fn(
             manager: *mut ComponentManagerO,
+            commands: *mut EntityCommandsO,
             e: EntityT,
             data: *mut ::std::os::raw::c_void,
         ),
@@ -592,6 +635,7 @@ pub struct ComponentI {
     pub asset_reloaded: ::std::option::Option<
         unsafe extern "C" fn(
             manager: *mut ComponentManagerO,
+            commands: *mut EntityCommandsO,
             e: EntityT,
             data: *mut ::std::os::raw::c_void,
         ),
@@ -599,6 +643,7 @@ pub struct ComponentI {
     pub add: ::std::option::Option<
         unsafe extern "C" fn(
             manager: *mut ComponentManagerO,
+            commands: *mut EntityCommandsO,
             e: EntityT,
             data: *mut ::std::os::raw::c_void,
         ),
@@ -606,6 +651,7 @@ pub struct ComponentI {
     pub remove: ::std::option::Option<
         unsafe extern "C" fn(
             manager: *mut ComponentManagerO,
+            commands: *mut EntityCommandsO,
             e: EntityT,
             data: *mut ::std::os::raw::c_void,
         ),
@@ -625,7 +671,9 @@ pub struct ComponentI {
         ),
     >,
     pub debug_draw_settings: TtIdT,
+    pub gamestate_representation: *mut ComponentGamestateRepresentationI,
     pub persistence: *mut ComponentPersistenceI,
+    pub network_replication: *mut ComponentNetworkReplicationI,
 }
 impl Default for ComponentI {
     fn default() -> Self {
@@ -645,7 +693,7 @@ pub struct EngineUpdateArrayT {
     pub components: [*mut ::std::os::raw::c_void; 16usize],
     pub component_bytes: [u32; 16usize],
     pub n: u32,
-    pub _padding_337: [::std::os::raw::c_char; 4usize],
+    pub _padding_373: [::std::os::raw::c_char; 4usize],
 }
 impl Default for EngineUpdateArrayT {
     fn default() -> Self {
@@ -689,11 +737,11 @@ impl Default for EntityBlackboardValueT {
 pub struct EngineUpdateSetT {
     pub engine: *const EngineI,
     pub total_entities: u32,
-    pub _padding_360: [::std::os::raw::c_char; 4usize],
+    pub _padding_396: [::std::os::raw::c_char; 4usize],
     pub blackboard_start: *const EntityBlackboardValueT,
     pub blackboard_end: *const EntityBlackboardValueT,
     pub num_arrays: u32,
-    pub _padding_365: [::std::os::raw::c_char; 4usize],
+    pub _padding_401: [::std::os::raw::c_char; 4usize],
     pub arrays: __IncompleteArrayField<EngineUpdateArrayT>,
 }
 impl Default for EngineUpdateSetT {
@@ -718,7 +766,7 @@ pub struct EngineSystemCommonI {
     pub hash: StrhashT,
     pub disabled: bool,
     pub exclusive: bool,
-    pub _padding_412: [::std::os::raw::c_char; 2usize],
+    pub _padding_448: [::std::os::raw::c_char; 2usize],
     pub num_components: u32,
     pub components: [ComponentTypeT; 16usize],
     pub writes: [bool; 16usize],
@@ -740,11 +788,15 @@ pub struct EngineI {
     pub super_: EngineSystemCommonI,
     pub inst: *mut EngineO,
     pub update: ::std::option::Option<
-        unsafe extern "C" fn(inst: *mut EngineO, data: *mut EngineUpdateSetT),
+        unsafe extern "C" fn(
+            inst: *mut EngineO,
+            data: *mut EngineUpdateSetT,
+            commands: *mut EntityCommandsO,
+        ),
     >,
     pub num_excluded: u32,
+    pub _padding_504: [::std::os::raw::c_char; 4usize],
     pub excluded: [ComponentTypeT; 16usize],
-    pub _padding_471: [::std::os::raw::c_char; 4usize],
     pub filter: ::std::option::Option<
         unsafe extern "C" fn(
             inst: *mut EngineO,
@@ -772,8 +824,35 @@ pub struct EntitySystemO {
 pub struct EntitySystemI {
     pub super_: EngineSystemCommonI,
     pub inst: *mut EntitySystemO,
+    pub inited: bool,
+    pub _padding_553: [::std::os::raw::c_char; 7usize],
+    pub init: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            inst: *mut EntitySystemO,
+            commands: *mut EntityCommandsO,
+        ),
+    >,
     pub update: ::std::option::Option<
-        unsafe extern "C" fn(ctx: *mut EntityContextO, inst: *mut EntitySystemO),
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            inst: *mut EntitySystemO,
+            commands: *mut EntityCommandsO,
+        ),
+    >,
+    pub shutdown: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            inst: *mut EntitySystemO,
+            commands: *mut EntityCommandsO,
+        ),
+    >,
+    pub hot_reload: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            inst: *mut EntitySystemO,
+            commands: *mut EntityCommandsO,
+        ),
     >,
 }
 impl Default for EntitySystemI {
@@ -787,6 +866,8 @@ impl Default for EntitySystemI {
 }
 pub type EntityRegisterEnginesI =
     ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>;
+pub type EntityRegisterEnginesSimulationI = EntityRegisterEnginesI;
+pub type EntityRegisterEnginesEditorI = EntityRegisterEnginesI;
 pub const TM_ENTITY_CREATE_COMPONENTS_NONE: EntityCreateComponents = 0;
 pub const TM_ENTITY_CREATE_COMPONENTS_ALL: EntityCreateComponents = 1;
 pub const TM_ENTITY_CREATE_COMPONENTS_EDITOR: EntityCreateComponents = 2;
@@ -797,7 +878,7 @@ pub struct EntityListenerI {
     pub man: *mut ComponentManagerO,
     pub notify_e: EntityT,
     pub notify_c: ComponentTypeT,
-    pub _padding_608: [::std::os::raw::c_char; 4usize],
+    pub _padding_666: [::std::os::raw::c_char; 4usize],
     pub notify: ::std::option::Option<
         unsafe extern "C" fn(
             ctx: *mut EntityContextO,
@@ -849,7 +930,7 @@ impl Default for EntityEventListenerI {
 pub struct EntityArrayT {
     pub entities: *mut EntityT,
     pub n: u32,
-    pub _padding_636: [::std::os::raw::c_char; 4usize],
+    pub _padding_694: [::std::os::raw::c_char; 4usize],
 }
 impl Default for EntityArrayT {
     fn default() -> Self {
@@ -883,7 +964,6 @@ pub struct EntityApi {
         unsafe extern "C" fn(
             a: *mut AllocatorI,
             tt: *mut TheTruthO,
-            gamestate: *mut GamestateO,
             create_components: EntityCreateComponents,
         ) -> *mut EntityContextO,
     >,
@@ -961,7 +1041,7 @@ pub struct EntityApi {
     pub batch_destroy_entity: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, es: *const EntityT, n: u32),
     >,
-    pub destroy_all_entities: ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>,
+    pub clear_world: ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>,
     pub queue_destroy_entities: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, es: *const EntityT, n: u32),
     >,
@@ -1033,13 +1113,7 @@ pub struct EntityApi {
     pub call_remove_on_all_entities: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, component: ComponentTypeT),
     >,
-    pub get_engine: ::std::option::Option<
-        unsafe extern "C" fn(ctx: *mut EntityContextO, hash: StrhashT) -> *mut EngineI,
-    >,
-    pub get_system: ::std::option::Option<
-        unsafe extern "C" fn(ctx: *mut EntityContextO, hash: StrhashT) -> *mut EntitySystemI,
-    >,
-    pub parent: ::std::option::Option<
+    pub asset_parent: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, e: EntityT) -> EntityT,
     >,
     pub children: ::std::option::Option<
@@ -1089,6 +1163,13 @@ pub struct EntityApi {
     >,
     pub run_engine: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, engine: *const EngineI),
+    >,
+    pub run_engine_with_commands: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            engine: *const EngineI,
+            commands: *mut EntityCommandsO,
+        ),
     >,
     pub update: ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>,
     pub listen: ::std::option::Option<
@@ -1189,18 +1270,44 @@ pub struct EntityApi {
             persistence: *mut ComponentPersistenceI,
         ),
     >,
-    pub propagate_changes_to_gamestate:
+    pub override_component_network_replication: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            c: ComponentTypeT,
+            replication: *mut ComponentNetworkReplicationI,
+        ),
+    >,
+    pub propagate_persistence_changes_to_gamestate:
         ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>,
-    pub make_entity_persistent:
+    pub propagate_network_replication_changes_to_gamestate:
+        ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO)>,
+    pub ensure_entity_is_persistent:
         ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO, e: EntityT)>,
-    pub get_entity_gamestate_id: ::std::option::Option<
+    pub ensure_entity_is_replicated:
+        ::std::option::Option<unsafe extern "C" fn(ctx: *mut EntityContextO, e: EntityT)>,
+    pub get_entity_persistent_id: ::std::option::Option<
         unsafe extern "C" fn(
             ctx: *mut EntityContextO,
             e: EntityT,
             output: *mut GamestateObjectIdT,
         ) -> bool,
     >,
-    pub get_component_gamestate_id: ::std::option::Option<
+    pub get_entity_network_id: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            e: EntityT,
+            output: *mut GamestateObjectIdT,
+        ) -> bool,
+    >,
+    pub get_component_persistent_id: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut EntityContextO,
+            e: EntityT,
+            c: ComponentTypeT,
+            output: *mut GamestateStructIdT,
+        ) -> bool,
+    >,
+    pub get_component_network_id: ::std::option::Option<
         unsafe extern "C" fn(
             ctx: *mut EntityContextO,
             e: EntityT,
@@ -1210,6 +1317,82 @@ pub struct EntityApi {
     >,
     pub lookup_entity_from_gamestate_id: ::std::option::Option<
         unsafe extern "C" fn(ctx: *mut EntityContextO, id: *const GamestateObjectIdT) -> EntityT,
+    >,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union EntityCommandEntityHandleT {
+    pub __bindgen_anon_1: EntityCommandEntityHandleTBindgenTy1,
+    pub u64_: u64,
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct EntityCommandEntityHandleTBindgenTy1 {
+    pub entity_index: u32,
+    pub asset_index: u32,
+}
+impl Default for EntityCommandEntityHandleT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct EntityCommandsApi {
+    pub create_entity_from_mask: ::std::option::Option<
+        unsafe extern "C" fn(
+            commands: *mut EntityCommandsO,
+            mask: *const ComponentMaskT,
+        ) -> EntityCommandEntityHandleT,
+    >,
+    pub batch_create_entity_from_mask: ::std::option::Option<
+        unsafe extern "C" fn(
+            commands: *mut EntityCommandsO,
+            mask: *const ComponentMaskT,
+            n: u32,
+            ta: *mut TempAllocatorI,
+        ) -> *mut EntityCommandEntityHandleT,
+    >,
+    pub create_entity_from_asset: ::std::option::Option<
+        unsafe extern "C" fn(
+            commands: *mut EntityCommandsO,
+            asset: TtIdT,
+        ) -> EntityCommandEntityHandleT,
+    >,
+    pub batch_create_entity_from_asset: ::std::option::Option<
+        unsafe extern "C" fn(
+            commands: *mut EntityCommandsO,
+            asset: *mut TtIdT,
+            n: u32,
+            ta: *mut TempAllocatorI,
+        ) -> *mut EntityCommandEntityHandleT,
+    >,
+    pub destroy_entity:
+        ::std::option::Option<unsafe extern "C" fn(commands: *mut EntityCommandsO, e: EntityT)>,
+    pub batch_destroy_entity: ::std::option::Option<
+        unsafe extern "C" fn(commands: *mut EntityCommandsO, es: *const EntityT, n: u32),
+    >,
+    pub clear_world: ::std::option::Option<unsafe extern "C" fn(commands: *mut EntityCommandsO)>,
+    pub add_component: ::std::option::Option<
+        unsafe extern "C" fn(
+            commands: *mut EntityCommandsO,
+            e: EntityT,
+            component: ComponentTypeT,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    pub remove_component: ::std::option::Option<
+        unsafe extern "C" fn(commands: *mut EntityCommandsO, e: EntityT, component: ComponentTypeT),
+    >,
+    pub add_component_by_handle: ::std::option::Option<
+        unsafe extern "C" fn(
+            commands: *mut EntityCommandsO,
+            e: EntityCommandEntityHandleT,
+            component: ComponentTypeT,
+        ) -> *mut ::std::os::raw::c_void,
     >,
 }
 #[repr(C)]
@@ -1545,6 +1728,8 @@ pub struct TransformComponentApi {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 
 impl EntityApi {
@@ -1556,10 +1741,9 @@ impl EntityApi {
         &self,
         a: *mut AllocatorI,
         tt: *mut TheTruthO,
-        gamestate: *mut GamestateO,
         create_components: EntityCreateComponents,
     ) -> *mut EntityContextO {
-        self.create_context.unwrap()(a, tt, gamestate, create_components)
+        self.create_context.unwrap()(a, tt, create_components)
     }
 
     pub unsafe fn create_components(
@@ -1704,8 +1888,8 @@ impl EntityApi {
         self.batch_destroy_entity.unwrap()(ctx, es, n)
     }
 
-    pub unsafe fn destroy_all_entities(&self, ctx: *mut EntityContextO) {
-        self.destroy_all_entities.unwrap()(ctx)
+    pub unsafe fn clear_world(&self, ctx: *mut EntityContextO) {
+        self.clear_world.unwrap()(ctx)
     }
 
     pub unsafe fn queue_destroy_entities(
@@ -1832,20 +2016,8 @@ impl EntityApi {
         self.call_remove_on_all_entities.unwrap()(ctx, component)
     }
 
-    pub unsafe fn get_engine(&self, ctx: *mut EntityContextO, hash: StrhashT) -> *mut EngineI {
-        self.get_engine.unwrap()(ctx, hash)
-    }
-
-    pub unsafe fn get_system(
-        &self,
-        ctx: *mut EntityContextO,
-        hash: StrhashT,
-    ) -> *mut EntitySystemI {
-        self.get_system.unwrap()(ctx, hash)
-    }
-
-    pub unsafe fn parent(&self, ctx: *mut EntityContextO, e: EntityT) -> EntityT {
-        self.parent.unwrap()(ctx, e)
+    pub unsafe fn asset_parent(&self, ctx: *mut EntityContextO, e: EntityT) -> EntityT {
+        self.asset_parent.unwrap()(ctx, e)
     }
 
     pub unsafe fn children(
@@ -1927,6 +2099,15 @@ impl EntityApi {
 
     pub unsafe fn run_engine(&self, ctx: *mut EntityContextO, engine: *const EngineI) {
         self.run_engine.unwrap()(ctx, engine)
+    }
+
+    pub unsafe fn run_engine_with_commands(
+        &self,
+        ctx: *mut EntityContextO,
+        engine: *const EngineI,
+        commands: *mut EntityCommandsO,
+    ) {
+        self.run_engine_with_commands.unwrap()(ctx, engine, commands)
     }
 
     pub unsafe fn update(&self, ctx: *mut EntityContextO) {
@@ -2066,31 +2247,71 @@ impl EntityApi {
         self.override_component_persistence.unwrap()(ctx, c, persistence)
     }
 
-    pub unsafe fn propagate_changes_to_gamestate(&self, ctx: *mut EntityContextO) {
-        self.propagate_changes_to_gamestate.unwrap()(ctx)
+    pub unsafe fn override_component_network_replication(
+        &self,
+        ctx: *mut EntityContextO,
+        c: ComponentTypeT,
+        replication: *mut ComponentNetworkReplicationI,
+    ) {
+        self.override_component_network_replication.unwrap()(ctx, c, replication)
     }
 
-    pub unsafe fn make_entity_persistent(&self, ctx: *mut EntityContextO, e: EntityT) {
-        self.make_entity_persistent.unwrap()(ctx, e)
+    pub unsafe fn propagate_persistence_changes_to_gamestate(&self, ctx: *mut EntityContextO) {
+        self.propagate_persistence_changes_to_gamestate.unwrap()(ctx)
     }
 
-    pub unsafe fn get_entity_gamestate_id(
+    pub unsafe fn propagate_network_replication_changes_to_gamestate(
+        &self,
+        ctx: *mut EntityContextO,
+    ) {
+        self.propagate_network_replication_changes_to_gamestate
+            .unwrap()(ctx)
+    }
+
+    pub unsafe fn ensure_entity_is_persistent(&self, ctx: *mut EntityContextO, e: EntityT) {
+        self.ensure_entity_is_persistent.unwrap()(ctx, e)
+    }
+
+    pub unsafe fn ensure_entity_is_replicated(&self, ctx: *mut EntityContextO, e: EntityT) {
+        self.ensure_entity_is_replicated.unwrap()(ctx, e)
+    }
+
+    pub unsafe fn get_entity_persistent_id(
         &self,
         ctx: *mut EntityContextO,
         e: EntityT,
         output: *mut GamestateObjectIdT,
     ) -> bool {
-        self.get_entity_gamestate_id.unwrap()(ctx, e, output)
+        self.get_entity_persistent_id.unwrap()(ctx, e, output)
     }
 
-    pub unsafe fn get_component_gamestate_id(
+    pub unsafe fn get_entity_network_id(
+        &self,
+        ctx: *mut EntityContextO,
+        e: EntityT,
+        output: *mut GamestateObjectIdT,
+    ) -> bool {
+        self.get_entity_network_id.unwrap()(ctx, e, output)
+    }
+
+    pub unsafe fn get_component_persistent_id(
         &self,
         ctx: *mut EntityContextO,
         e: EntityT,
         c: ComponentTypeT,
         output: *mut GamestateStructIdT,
     ) -> bool {
-        self.get_component_gamestate_id.unwrap()(ctx, e, c, output)
+        self.get_component_persistent_id.unwrap()(ctx, e, c, output)
+    }
+
+    pub unsafe fn get_component_network_id(
+        &self,
+        ctx: *mut EntityContextO,
+        e: EntityT,
+        c: ComponentTypeT,
+        output: *mut GamestateStructIdT,
+    ) -> bool {
+        self.get_component_network_id.unwrap()(ctx, e, c, output)
     }
 
     pub unsafe fn lookup_entity_from_gamestate_id(
@@ -2104,6 +2325,102 @@ impl EntityApi {
 
 impl crate::Api for EntityApi {
     const NAME: ConstCStr = const_cstr!("tm_entity_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
+impl EntityCommandsApi {
+    pub unsafe fn create_entity_from_mask(
+        &self,
+        commands: *mut EntityCommandsO,
+        mask: *const ComponentMaskT,
+    ) -> EntityCommandEntityHandleT {
+        self.create_entity_from_mask.unwrap()(commands, mask)
+    }
+
+    pub unsafe fn batch_create_entity_from_mask(
+        &self,
+        commands: *mut EntityCommandsO,
+        mask: *const ComponentMaskT,
+        n: u32,
+        ta: *mut TempAllocatorI,
+    ) -> *mut EntityCommandEntityHandleT {
+        self.batch_create_entity_from_mask.unwrap()(commands, mask, n, ta)
+    }
+
+    pub unsafe fn create_entity_from_asset(
+        &self,
+        commands: *mut EntityCommandsO,
+        asset: TtIdT,
+    ) -> EntityCommandEntityHandleT {
+        self.create_entity_from_asset.unwrap()(commands, asset)
+    }
+
+    pub unsafe fn batch_create_entity_from_asset(
+        &self,
+        commands: *mut EntityCommandsO,
+        asset: *mut TtIdT,
+        n: u32,
+        ta: *mut TempAllocatorI,
+    ) -> *mut EntityCommandEntityHandleT {
+        self.batch_create_entity_from_asset.unwrap()(commands, asset, n, ta)
+    }
+
+    pub unsafe fn destroy_entity(&self, commands: *mut EntityCommandsO, e: EntityT) {
+        self.destroy_entity.unwrap()(commands, e)
+    }
+
+    pub unsafe fn batch_destroy_entity(
+        &self,
+        commands: *mut EntityCommandsO,
+        es: *const EntityT,
+        n: u32,
+    ) {
+        self.batch_destroy_entity.unwrap()(commands, es, n)
+    }
+
+    pub unsafe fn clear_world(&self, commands: *mut EntityCommandsO) {
+        self.clear_world.unwrap()(commands)
+    }
+
+    pub unsafe fn add_component(
+        &self,
+        commands: *mut EntityCommandsO,
+        e: EntityT,
+        component: ComponentTypeT,
+    ) -> *mut ::std::os::raw::c_void {
+        self.add_component.unwrap()(commands, e, component)
+    }
+
+    pub unsafe fn remove_component(
+        &self,
+        commands: *mut EntityCommandsO,
+        e: EntityT,
+        component: ComponentTypeT,
+    ) {
+        self.remove_component.unwrap()(commands, e, component)
+    }
+
+    pub unsafe fn add_component_by_handle(
+        &self,
+        commands: *mut EntityCommandsO,
+        e: EntityCommandEntityHandleT,
+        component: ComponentTypeT,
+    ) -> *mut ::std::os::raw::c_void {
+        self.add_component_by_handle.unwrap()(commands, e, component)
+    }
+}
+
+impl crate::Api for EntityCommandsApi {
+    const NAME: ConstCStr = const_cstr!("tm_entity_commands_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl OwnerComponentApi {
@@ -2156,6 +2473,11 @@ impl OwnerComponentApi {
 
 impl crate::Api for OwnerComponentApi {
     const NAME: ConstCStr = const_cstr!("tm_owner_component_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl SceneTreeComponentApi {
@@ -2267,6 +2589,11 @@ impl SceneTreeComponentApi {
 
 impl crate::Api for SceneTreeComponentApi {
     const NAME: ConstCStr = const_cstr!("tm_scene_tree_component_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TagComponentApi {
@@ -2316,6 +2643,11 @@ impl TagComponentApi {
 
 impl crate::Api for TagComponentApi {
     const NAME: ConstCStr = const_cstr!("tm_tag_component_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TransformComponentApi {
@@ -2485,6 +2817,11 @@ impl TransformComponentApi {
 
 impl crate::Api for TransformComponentApi {
     const NAME: ConstCStr = const_cstr!("tm_transform_component_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 pub const TM_TT_TYPE_HASH__CAMERA_COMPONENT: StrhashT = StrhashT {
@@ -2565,11 +2902,20 @@ pub const TM_ENTITY_BB__CAMERA: StrhashT = StrhashT {
 pub const TM_ENTITY_BB__CAMERA_TRANSFORM: StrhashT = StrhashT {
     u64_: 12188817770794419482u64,
 };
+pub const TM_ENTITY_BB__DISABLED_INPUT: StrhashT = StrhashT {
+    u64_: 17722481245418423046u64,
+};
 pub const TM_ENTITY_BB__EDITOR: StrhashT = StrhashT {
     u64_: 8066620458189861297u64,
 };
-pub const TM_ENTITY_BB__SIMULATING_IN_EDITOR: StrhashT = StrhashT {
-    u64_: 3554302270950162909u64,
+pub const TM_ENTITY_BB__ASSET_ROOT: StrhashT = StrhashT {
+    u64_: 12427581353952698963u64,
+};
+pub const ENTITY_GAMESTATE_NETWORK_REPLICATION_CONFIG: StrhashT = StrhashT {
+    u64_: 14073158813658986614u64,
+};
+pub const ENTITY_GAMESTATE_PERSISTENCE_CONFIG: StrhashT = StrhashT {
+    u64_: 436401338584922652u64,
 };
 pub const TM_TT_TYPE_HASH__OWNER_COMPONENT: StrhashT = StrhashT {
     u64_: 13997781925460329975u64,
@@ -2588,4 +2934,49 @@ pub const TM_TT_TYPE_HASH__TAG: StrhashT = StrhashT {
 };
 pub const TM_TT_TYPE_HASH__TRANSFORM_COMPONENT: StrhashT = StrhashT {
     u64_: 10126216049058934656u64,
+};
+pub const TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TAG_COMPONENT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TRANSFORM_COMPONENT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ENTITY_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SCENE_TREE_COMPONENT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ENTITY_CREATE_COMPONENT_I_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ENTITY_REGISTER_ENGINES_EDITOR_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_OWNER_COMPONENT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ENTITY_COMMANDS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

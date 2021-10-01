@@ -87,81 +87,20 @@ pub const _CRT_PACKING: u32 = 8;
 pub const _HAS_NODISCARD: u32 = 0;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const TM_USE_STRHASH_TYPE: u32 = 1;
-pub const TM_ALLOCATOR_API_NAME: &'static [u8; 17usize] = b"tm_allocator_api\0";
-pub const TM_API_REGISTRY_API_NAME: &'static [u8; 20usize] = b"tm_api_registry_api\0";
-pub const TM_APPLICATION_API_NAME: &'static [u8; 19usize] = b"tm_application_api\0";
-pub const TM_ASSET_DATABASE_API_NAME: &'static [u8; 22usize] = b"tm_asset_database_api\0";
-pub const TM_ASSET_IO_API_NAME: &'static [u8; 16usize] = b"tm_asset_io_api\0";
-pub const TM_BASE_64_API_NAME: &'static [u8; 15usize] = b"tm_base_64_api\0";
-pub const TM_BUDDY_ALLOCATOR_RAW_API_NAME: &'static [u8; 27usize] = b"tm_buddy_allocator_raw_api\0";
-pub const TM_BUDDY_ALLOCATOR_API_NAME: &'static [u8; 23usize] = b"tm_buddy_allocator_api\0";
-pub const TM_BUFFERS_API_NAME: &'static [u8; 15usize] = b"tm_buffers_api\0";
-pub const TM_BUFFER_FORMAT_API_NAME: &'static [u8; 21usize] = b"tm_buffer_format_api\0";
-pub const TM_CAMERA_API_NAME: &'static [u8; 14usize] = b"tm_camera_api\0";
-pub const TM_COLLABORATION_API_NAME: &'static [u8; 21usize] = b"tm_collaboration_api\0";
-pub const TM_COLLABORATION_P2P_API_NAME: &'static [u8; 25usize] = b"tm_collaboration_p2p_api\0";
-pub const TM_CONFIG_API_NAME: &'static [u8; 14usize] = b"tm_config_api\0";
-pub const TM_CORE_ASSET_INTERFACE_NAME: &'static [u8; 16usize] = b"tm_core_asset_i\0";
-pub const TM_CORE_API_NAME: &'static [u8; 12usize] = b"tm_core_api\0";
-pub const TM_CORE_IMPORTER_API_NAME: &'static [u8; 21usize] = b"tm_core_importer_api\0";
-pub const TM_CRASH_RECOVERY_API_NAME: &'static [u8; 22usize] = b"tm_crash_recovery_api\0";
-pub const TM_ERROR_API_NAME: &'static [u8; 13usize] = b"tm_error_api\0";
-pub const TM_FEATURE_FLAGS_API_NAME: &'static [u8; 17usize] = b"tm_feature_flags\0";
-pub const TM_GIT_IGNORE_API_NAME: &'static [u8; 18usize] = b"tm_git_ignore_api\0";
-pub const TM_IMAGE_LOADER_INTERFACE_NAME: &'static [u8; 18usize] = b"tm_image_loader_i\0";
-pub const TM_IMAGE_LOADER_API_NAME: &'static [u8; 20usize] = b"tm_image_loader_api\0";
-pub const TM_INPUT_API_NAME: &'static [u8; 13usize] = b"tm_input_api\0";
-pub const TM_INTEGRATION_TEST_INTERFACE_NAME: &'static [u8; 22usize] = b"tm_integration_test_i\0";
-pub const TM_JOB_SYSTEM_API_NAME: &'static [u8; 18usize] = b"tm_job_system_api\0";
+pub const TM_PAGE_SIZE: u32 = 4096;
 pub const TM_JSON_ERROR_STRING_LENGTH: u32 = 79;
-pub const TM_JSON_API_NAME: &'static [u8; 12usize] = b"tm_json_api\0";
-pub const TM_LOCALIZER_STRINGS_INTERFACE_NAME: &'static [u8; 23usize] = b"tm_localizer_strings_i\0";
-pub const TM_LOCALIZER_API_NAME: &'static [u8; 17usize] = b"tm_localizer_api\0";
-pub const TM_LOGGER_API_NAME: &'static [u8; 14usize] = b"tm_logger_api\0";
-pub const TM_LZ4_API_NAME: &'static [u8; 11usize] = b"tm_lz4_api\0";
-pub const TM_MATH_API_NAME: &'static [u8; 12usize] = b"tm_math_api\0";
+pub const TM_DIRSEP: &'static [u8; 2usize] = b"/\0";
 pub const TM_MEMORY_TRACKER_SCOPE__NONE: u32 = 4294967295;
-pub const TM_MEMORY_TRACKER_API_NAME: &'static [u8; 22usize] = b"tm_memory_tracker_api\0";
-pub const TM_OS_API_NAME: &'static [u8; 10usize] = b"tm_os_api\0";
 pub const TM_DIRECTORY_SEPARATOR: u8 = 47u8;
-pub const TM_PATH_API_NAME: &'static [u8; 12usize] = b"tm_path_api\0";
-pub const TM_PLUGINS_API_NAME: &'static [u8; 15usize] = b"tm_plugins_api\0";
 pub const TM_TT_TYPE__PLUGIN: &'static [u8; 10usize] = b"tm_plugin\0";
-pub const TM_PLUGIN_ASSETS_API_NAME: &'static [u8; 21usize] = b"tm_plugin_assets_api\0";
-pub const TM_PLUGIN_INIT_INTERFACE_NAME: &'static [u8; 17usize] = b"tm_plugin_init_i\0";
-pub const TM_PLUGIN_SHUTDOWN_INTERFACE_NAME: &'static [u8; 21usize] = b"tm_plugin_shutdown_i\0";
-pub const TM_PLUGIN_TICK_INTERFACE_NAME: &'static [u8; 17usize] = b"tm_plugin_tick_i\0";
-pub const TM_PLUGIN_RELOAD_INTERFACE_NAME: &'static [u8; 19usize] = b"tm_plugin_reload_i\0";
-pub const TM_PLUGIN_SET_THE_TRUTH_INTERFACE_NAME: &'static [u8; 26usize] =
-    b"tm_plugin_set_the_truth_i\0";
-pub const TM_PROFILER_API_NAME: &'static [u8; 16usize] = b"tm_profiler_api\0";
-pub const TM_PROGRESS_REPORT_API_NAME: &'static [u8; 23usize] = b"tm_progress_report_api\0";
-pub const TM_RANDOM_API_NAME: &'static [u8; 14usize] = b"tm_random_api\0";
-pub const TM_RUNTIME_DATA_REPOSITORY_API_NAME: &'static [u8; 31usize] =
-    b"tm_runtime_data_repository_api\0";
 pub const SHA1_DIGEST_SIZE: u32 = 20;
-pub const TM_SPRINTF_API_NAME: &'static [u8; 15usize] = b"tm_sprintf_api\0";
-pub const TM_STRING_API_NAME: &'static [u8; 14usize] = b"tm_string_api\0";
-pub const TM_STRING_REPOSITORY_API_NAME: &'static [u8; 25usize] = b"tm_string_repository_api\0";
-pub const TM_TASK_SYSTEM_API_NAME: &'static [u8; 19usize] = b"tm_task_system_api\0";
-pub const TM_TEMP_ALLOCATOR_API_NAME: &'static [u8; 22usize] = b"tm_temp_allocator_api\0";
 pub const TM_TT_TYPE__ANYTHING: &'static [u8; 12usize] = b"tm_anything\0";
 pub const TM_THE_TRUTH_PROPERTY_NAME_LENGTH: u32 = 63;
-pub const TM_THE_TRUTH_CREATE_TYPES_INTERFACE_NAME: &'static [u8; 28usize] =
-    b"tm_the_truth_create_types_i\0";
-pub const TM_THE_TRUTH_DESTROYED_INTERFACE_NAME: &'static [u8; 25usize] =
-    b"tm_the_truth_destroyed_i\0";
-pub const TM_THE_TRUTH_API_NAME: &'static [u8; 17usize] = b"tm_the_truth_api\0";
 pub const TM_TT_TYPE__ASSET_ROOT: &'static [u8; 14usize] = b"tm_asset_root\0";
 pub const TM_TT_TYPE__ASSET: &'static [u8; 9usize] = b"tm_asset\0";
 pub const TM_TT_TYPE__ASSET_DIRECTORY: &'static [u8; 19usize] = b"tm_asset_directory\0";
 pub const TM_TT_TYPE__ASSET_LABEL: &'static [u8; 15usize] = b"tm_asset_label\0";
-pub const TM_ASSET_LABEL_INTERFACE_NAME: &'static [u8; 25usize] = b"tm_asset_label_interface\0";
 pub const TM_TT_TYPE__ASSET_THUMBNAIL: &'static [u8; 19usize] = b"tm_asset_thumbnail\0";
-pub const TM_THE_TRUTH_ASSETS_API_NAME: &'static [u8; 24usize] = b"tm_the_truth_assets_api\0";
-pub const TM_THE_TRUTH_MIGRATION_INTERFACE_NAME: &'static [u8; 25usize] =
-    b"tm_the_truth_migration_i\0";
-pub const TM_THE_TRUTH_MIGRATION_API_NAME: &'static [u8; 27usize] = b"tm_the_truth_migration_api\0";
 pub const TM_TT_TYPE__BOOL: &'static [u8; 8usize] = b"tm_bool\0";
 pub const TM_TT_TYPE__UINT32_T: &'static [u8; 12usize] = b"tm_uint32_t\0";
 pub const TM_TT_TYPE__UINT64_T: &'static [u8; 12usize] = b"tm_uint64_t\0";
@@ -177,18 +116,8 @@ pub const TM_TT_TYPE__SCALE: &'static [u8; 9usize] = b"tm_scale\0";
 pub const TM_TT_TYPE__COLOR_RGB: &'static [u8; 13usize] = b"tm_color_rgb\0";
 pub const TM_TT_TYPE__COLOR_RGBA: &'static [u8; 14usize] = b"tm_color_rgba\0";
 pub const TM_TT_TYPE__RECT: &'static [u8; 10usize] = b"tm_rect_t\0";
-pub const TM_THE_TRUTH_COMMON_TYPES_API_NAME: &'static [u8; 30usize] =
-    b"tm_the_truth_common_types_api\0";
-pub const TM_UNICODE_API_NAME: &'static [u8; 15usize] = b"tm_unicode_api\0";
-pub const TM_UNIT_TEST_INTERFACE_NAME: &'static [u8; 15usize] = b"tm_unit_test_i\0";
-pub const TM_VISIBILITY_FLAGS_EDITOR_INTERFACE_NAME: &'static [u8; 28usize] =
-    b"tm_visibility_editor_name_i\0";
-pub const TM_VISIBILITY_FLAGS_CONTEXT_INTERFACE_NAME: &'static [u8; 24usize] =
-    b"tm_visibility_context_o\0";
-pub const TM_VISIBILITY_FLAGS_API_NAME: &'static [u8; 24usize] = b"tm_visibility_flags_api\0";
+pub const TM_TT_TYPE__UUID: &'static [u8; 10usize] = b"tm_uuid_t\0";
 pub const TM_TT_TYPE__VISIBILITY_FLAG: &'static [u8; 19usize] = b"tm_visibility_flag\0";
-pub const TM_WEB_SOCKET_PROTOCOL_API_NAME: &'static [u8; 27usize] = b"tm_web_socket_protocol_api\0";
-pub const TM_WEB_TALKER_API_NAME: &'static [u8; 18usize] = b"tm_web_talker_api\0";
 pub type va_list = *mut ::std::os::raw::c_char;
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
@@ -419,6 +348,13 @@ pub struct TtUndoScopeT {
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
+pub struct VersionT {
+    pub major: u32,
+    pub minor: u32,
+    pub patch: u32,
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
 pub struct StrhashT {
     pub u64_: u64,
 }
@@ -508,6 +444,7 @@ pub struct ApiRegistryListenerI {
         unsafe extern "C" fn(
             ud: *mut ::std::os::raw::c_void,
             name: *const ::std::os::raw::c_char,
+            version: VersionT,
             implementation: *const ::std::os::raw::c_void,
         ),
     >,
@@ -524,44 +461,65 @@ impl Default for ApiRegistryListenerI {
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct ApiRegistryApi {
+    pub api_registry_version: ::std::option::Option<unsafe extern "C" fn() -> VersionT>,
     pub set: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
+            version: VersionT,
             api: *const ::std::os::raw::c_void,
             bytes: u32,
         ),
     >,
     pub remove: ::std::option::Option<unsafe extern "C" fn(api: *const ::std::os::raw::c_void)>,
     pub get: ::std::option::Option<
-        unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            version: VersionT,
+        ) -> *mut ::std::os::raw::c_void,
     >,
     pub get_optional: ::std::option::Option<
-        unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
+        unsafe extern "C" fn(
+            api: *mut *mut ::std::os::raw::c_void,
+            name: *const ::std::os::raw::c_char,
+            version: VersionT,
+        ),
     >,
+    pub version:
+        ::std::option::Option<unsafe extern "C" fn(api: *mut ::std::os::raw::c_void) -> VersionT>,
     pub add_implementation: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
+            version: VersionT,
             implementation: *const ::std::os::raw::c_void,
         ),
     >,
     pub remove_implementation: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
+            version: VersionT,
             implementation: *const ::std::os::raw::c_void,
         ),
     >,
     pub implementations: ::std::option::Option<
         unsafe extern "C" fn(
             name: *const ::std::os::raw::c_char,
+            version: VersionT,
         ) -> *mut *mut ::std::os::raw::c_void,
     >,
-    pub num_implementations:
-        ::std::option::Option<unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> u32>,
+    pub num_implementations: ::std::option::Option<
+        unsafe extern "C" fn(name: *const ::std::os::raw::c_char, version: VersionT) -> u32,
+    >,
     pub first_implementation: ::std::option::Option<
-        unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            version: VersionT,
+        ) -> *mut ::std::os::raw::c_void,
     >,
     pub single_implementation: ::std::option::Option<
-        unsafe extern "C" fn(name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void,
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            version: VersionT,
+        ) -> *mut ::std::os::raw::c_void,
     >,
     pub add_listener:
         ::std::option::Option<unsafe extern "C" fn(listener: *const ApiRegistryListenerI)>,
@@ -573,10 +531,18 @@ pub struct ApiRegistryApi {
             line: u32,
         ) -> *mut ::std::os::raw::c_void,
     >,
-    pub log_missing_apis: ::std::option::Option<unsafe extern "C" fn()>,
+    pub begin_context:
+        ::std::option::Option<unsafe extern "C" fn(name: *const ::std::os::raw::c_char)>,
+    pub end_context:
+        ::std::option::Option<unsafe extern "C" fn(name: *const ::std::os::raw::c_char)>,
+    pub disable_apis_missing_dependencies: ::std::option::Option<unsafe extern "C" fn()>,
+    pub available_versions: ::std::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            ta: *mut TempAllocatorI,
+        ) -> *mut VersionT,
+    >,
 }
-pub type LoadFunction =
-    ::std::option::Option<unsafe extern "C" fn(reg: *mut ApiRegistryApi, load: bool)>;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct UiO {
@@ -599,7 +565,6 @@ pub type ApplicationModalF = ::std::option::Option<
         rect: RectT,
         font: *const Draw2dFontT,
         font_scale: f32,
-        ui_has_focus: bool,
         delta_time: f32,
     ) -> bool,
 >;
@@ -625,14 +590,16 @@ pub struct ApplicationApi {
     pub is_modal: ::std::option::Option<unsafe extern "C" fn(app: *const ApplicationO) -> bool>,
     pub asset_root: ::std::option::Option<unsafe extern "C" fn(app: *const ApplicationO) -> TtIdT>,
     pub load_core: ::std::option::Option<unsafe extern "C" fn(app: *const ApplicationO) -> bool>,
-    pub update_core: ::std::option::Option<unsafe extern "C" fn(app: *const ApplicationO) -> bool>,
+    pub update_core: ::std::option::Option<
+        unsafe extern "C" fn(app: *const ApplicationO, include_skipped: bool) -> bool,
+    >,
     pub exit: ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO)>,
     pub set_cursor_hidden:
         ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO, hidden: bool)>,
     pub viewer_manager:
         ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO) -> *mut ViewerManagerO>,
     pub default_render_pipeline_api: ::std::option::Option<
-        unsafe extern "C" fn(app: *mut ApplicationO) -> *mut RenderPipelineApi,
+        unsafe extern "C" fn(app: *mut ApplicationO) -> *mut RenderPipelineVt,
     >,
     pub custom_ui_scale_factor:
         ::std::option::Option<unsafe extern "C" fn(app: *mut ApplicationO) -> f32>,
@@ -1608,6 +1575,18 @@ pub struct ConfigI {
             values: *mut *mut ConfigItemT,
         ) -> u32,
     >,
+    pub array_count:
+        ::std::option::Option<unsafe extern "C" fn(inst: *mut ConfigO, array: ConfigItemT) -> u32>,
+    pub array_get: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut ConfigO, array: ConfigItemT, index: u32) -> ConfigItemT,
+    >,
+    pub object_get: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut ConfigO,
+            object: ConfigItemT,
+            key_hash: StrhashT,
+        ) -> ConfigItemT,
+    >,
     pub add_number:
         ::std::option::Option<unsafe extern "C" fn(inst: *mut ConfigO, n: f64) -> ConfigItemT>,
     pub add_string: ::std::option::Option<
@@ -1641,13 +1620,6 @@ pub struct ConfigI {
     >,
     pub array_push: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut ConfigO, array: ConfigItemT, item: ConfigItemT),
-    >,
-    pub object_get: ::std::option::Option<
-        unsafe extern "C" fn(
-            inst: *mut ConfigO,
-            object: ConfigItemT,
-            key_hash: StrhashT,
-        ) -> ConfigItemT,
     >,
     pub object_update: ::std::option::Option<
         unsafe extern "C" fn(
@@ -1697,7 +1669,7 @@ pub struct ConfigApi {
     pub c_null: ConfigItemT,
     pub c_false: ConfigItemT,
     pub c_true: ConfigItemT,
-    pub _padding_182: [::std::os::raw::c_char; 4usize],
+    pub _padding_189: [::std::os::raw::c_char; 4usize],
 }
 pub const TM_CORE_CREATE_POLICY__CREATE: CoreCreatePolicy = 0;
 pub const TM_CORE_CREATE_POLICY__REMOVE: CoreCreatePolicy = 1;
@@ -1709,7 +1681,7 @@ pub struct CoreAssetI {
     pub core_id: StrhashT,
     pub path: *const ::std::os::raw::c_char,
     pub create_policy: CoreCreatePolicy,
-    pub _padding_61: [::std::os::raw::c_char; 4usize],
+    pub _padding_59: [::std::os::raw::c_char; 4usize],
     pub version: u64,
     pub user_data: *const ::std::os::raw::c_void,
     pub create: ::std::option::Option<
@@ -1757,14 +1729,41 @@ impl Default for CoreUpdateResultT {
     }
 }
 #[repr(C)]
+#[derive(Copy, Clone)]
+pub struct CoreUpdatableAssetsT {
+    pub to_create: *mut *mut CoreAssetI,
+    pub to_remove: *mut *mut CoreAssetI,
+    pub to_update: *mut *mut CoreAssetI,
+}
+impl Default for CoreUpdatableAssetsT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct CoreApi {
     pub create:
         ::std::option::Option<unsafe extern "C" fn(tt: *mut TheTruthO, asset_root_id: TtIdT)>,
+    pub query_updatable: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut TheTruthO,
+            asset_root_id: TtIdT,
+            include_skipped: bool,
+            ta: *mut TempAllocatorI,
+        ) -> CoreUpdatableAssetsT,
+    >,
     pub update: ::std::option::Option<
         unsafe extern "C" fn(
             tt: *mut TheTruthO,
             asset_root_id: TtIdT,
+            to_skip: *mut *mut CoreAssetI,
+            num_to_skip: u32,
+            include_skipped: bool,
             ta: *mut TempAllocatorI,
         ) -> CoreUpdateResultT,
     >,
@@ -1820,8 +1819,7 @@ pub struct CoreImporterApi {
 #[derive(Copy, Clone)]
 pub struct CrashRecoveryCanRecoverResultT {
     pub data: *const ::std::os::raw::c_char,
-    pub data_bytes: u32,
-    pub _padding_24: [::std::os::raw::c_char; 4usize],
+    pub data_bytes: u64,
     pub project: *const ::std::os::raw::c_char,
     pub root: *const UuidT,
 }
@@ -2958,7 +2956,7 @@ pub struct OsVirtualMemoryApi {
 pub struct FileO {
     pub handle: u64,
     pub valid: bool,
-    pub _padding_51: [::std::os::raw::c_char; 7usize],
+    pub _padding_53: [::std::os::raw::c_char; 7usize],
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -3007,7 +3005,7 @@ pub struct OsFileIoApi {
 pub struct FileStatT {
     pub exists: bool,
     pub is_directory: bool,
-    pub _padding_123: [::std::os::raw::c_char; 6usize],
+    pub _padding_125: [::std::os::raw::c_char; 6usize],
     pub last_modified_time: FileTimeO,
     pub size: u64,
 }
@@ -3036,7 +3034,7 @@ pub type FileSystemChangeAction = ::std::os::raw::c_int;
 pub struct FileSystemChangeT {
     pub relative_path: *const ::std::os::raw::c_char,
     pub action: FileSystemChangeAction,
-    pub _padding_182: [::std::os::raw::c_char; 4usize],
+    pub _padding_186: [::std::os::raw::c_char; 4usize],
 }
 impl Default for FileSystemChangeT {
     fn default() -> Self {
@@ -3121,7 +3119,7 @@ pub struct OsFileSystemApi {
 pub struct DllO {
     pub handle: u64,
     pub valid: bool,
-    pub _padding_278: [::std::os::raw::c_char; 7usize],
+    pub _padding_282: [::std::os::raw::c_char; 7usize],
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -3143,7 +3141,7 @@ pub struct OsDllApi {
 pub struct SocketO {
     pub handle: u64,
     pub valid: bool,
-    pub _padding_309: [::std::os::raw::c_char; 7usize],
+    pub _padding_313: [::std::os::raw::c_char; 7usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -3367,7 +3365,7 @@ pub struct OsDialogsOpenT {
     pub extensions: *const ::std::os::raw::c_char,
     pub description: *const ::std::os::raw::c_char,
     pub allow_multi_select: bool,
-    pub _padding_699: [::std::os::raw::c_char; 7usize],
+    pub _padding_710: [::std::os::raw::c_char; 7usize],
 }
 impl Default for OsDialogsOpenT {
     fn default() -> Self {
@@ -3382,7 +3380,7 @@ impl Default for OsDialogsOpenT {
 #[derive(Copy, Clone)]
 pub struct OsDialogsOpenResT {
     pub num_files: u32,
-    pub _padding_707: [::std::os::raw::c_char; 4usize],
+    pub _padding_718: [::std::os::raw::c_char; 4usize],
     pub files: *mut *mut ::std::os::raw::c_char,
 }
 impl Default for OsDialogsOpenResT {
@@ -3540,8 +3538,6 @@ pub struct PluginsApi {
             ta: *mut TempAllocatorI,
         ) -> *mut *const ::std::os::raw::c_char,
     >,
-    pub load_plugin_context:
-        ::std::option::Option<unsafe extern "C" fn() -> *const ::std::os::raw::c_char>,
     pub plugin_dllpath: ::std::option::Option<
         unsafe extern "C" fn(
             ta: *mut TempAllocatorI,
@@ -5691,6 +5687,7 @@ pub struct TheTruthAssetsApi {
             tt: *mut TheTruthO,
             relative_to: TtIdT,
             target_type_hash: StrhashT,
+            asset_root: TtIdT,
         ) -> TtIdT,
     >,
     pub object_to_config: ::std::option::Option<
@@ -5847,6 +5844,9 @@ pub const TM_TT_PROP__RECT__Y: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__RECT__W: ::std::os::raw::c_int = 2;
 pub const TM_TT_PROP__RECT__H: ::std::os::raw::c_int = 3;
 pub type _bindgen_ty_15 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__UUID_A: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__UUID_B: ::std::os::raw::c_int = 1;
+pub type _bindgen_ty_16 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct TheTruthCommonTypesApi {
@@ -5927,6 +5927,13 @@ pub struct TheTruthCommonTypesApi {
             object: *const TheTruthObjectO,
             property: u32,
         ) -> ColorSrgbT,
+    >,
+    pub get_uuid: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *const TheTruthO,
+            object: *const TheTruthObjectO,
+            property: u32,
+        ) -> UuidT,
     >,
     pub set_vec2: ::std::option::Option<
         unsafe extern "C" fn(
@@ -6024,6 +6031,15 @@ pub struct TheTruthCommonTypesApi {
             object: *mut TheTruthObjectO,
             property: u32,
             col: ColorSrgbT,
+            undo_scope: TtUndoScopeT,
+        ),
+    >,
+    pub set_uuid: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut TheTruthO,
+            object: *mut TheTruthObjectO,
+            property: u32,
+            uuid: UuidT,
             undo_scope: TtUndoScopeT,
         ),
     >,
@@ -6160,7 +6176,7 @@ pub const TM_UNICODE__ARROW_DOWNWARDS: ::std::os::raw::c_int = 8595;
 pub const TM_UNICODE__COPYRIGHT: ::std::os::raw::c_int = 169;
 pub const TM_UNICODE__CROSS_MARK: ::std::os::raw::c_int = 10060;
 pub const TM_UNICODE__DOUBLE_PRIME: ::std::os::raw::c_int = 8243;
-pub type _bindgen_ty_16 = ::std::os::raw::c_int;
+pub type _bindgen_ty_17 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct UnitTestRunnerO {
@@ -6252,6 +6268,11 @@ impl Default for VisibilityFlagDescI {
     }
 }
 #[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct VisibilityFlagEditorI {
+    pub flag: u64,
+}
+#[repr(C)]
 #[derive(Copy, Clone)]
 pub struct VisibilityContextO {
     _unused: [u8; 0],
@@ -6296,7 +6317,7 @@ pub struct VisibilityFlagsApi {
     >,
 }
 pub const TM_TT_PROP__VISIBILITY_FLAG__UUID: ::std::os::raw::c_int = 0;
-pub type _bindgen_ty_17 = ::std::os::raw::c_int;
+pub type _bindgen_ty_18 = ::std::os::raw::c_int;
 pub const TM_WEB_SOCKET_OPCODE_CONTINUATION: WebSocketOpcode = 0;
 pub const TM_WEB_SOCKET_OPCODE_TEXT: WebSocketOpcode = 1;
 pub const TM_WEB_SOCKET_OPCODE_BINARY: WebSocketOpcode = 2;
@@ -6543,7 +6564,7 @@ pub struct ViewerManagerO {
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
-pub struct RenderPipelineApi {
+pub struct RenderPipelineVt {
     pub _address: u8,
 }
 #[repr(C)]
@@ -6619,72 +6640,101 @@ impl AllocatorApi {
 
 impl crate::Api for AllocatorApi {
     const NAME: ConstCStr = const_cstr!("tm_allocator_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ApiRegistryApi {
+    pub unsafe fn api_registry_version(&self) -> VersionT {
+        self.api_registry_version.unwrap()()
+    }
+
     pub unsafe fn set(
         &self,
         name: *const ::std::os::raw::c_char,
+        version: VersionT,
         api: *const ::std::os::raw::c_void,
         bytes: u32,
     ) {
-        self.set.unwrap()(name, api, bytes)
+        self.set.unwrap()(name, version, api, bytes)
     }
 
     pub unsafe fn remove(&self, api: *const ::std::os::raw::c_void) {
         self.remove.unwrap()(api)
     }
 
-    pub unsafe fn get(&self, name: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_void {
-        self.get.unwrap()(name)
+    pub unsafe fn get(
+        &self,
+        name: *const ::std::os::raw::c_char,
+        version: VersionT,
+    ) -> *mut ::std::os::raw::c_void {
+        self.get.unwrap()(name, version)
     }
 
     pub unsafe fn get_optional(
         &self,
+        api: *mut *mut ::std::os::raw::c_void,
         name: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_void {
-        self.get_optional.unwrap()(name)
+        version: VersionT,
+    ) {
+        self.get_optional.unwrap()(api, name, version)
+    }
+
+    pub unsafe fn version(&self, api: *mut ::std::os::raw::c_void) -> VersionT {
+        self.version.unwrap()(api)
     }
 
     pub unsafe fn add_implementation(
         &self,
         name: *const ::std::os::raw::c_char,
+        version: VersionT,
         implementation: *const ::std::os::raw::c_void,
     ) {
-        self.add_implementation.unwrap()(name, implementation)
+        self.add_implementation.unwrap()(name, version, implementation)
     }
 
     pub unsafe fn remove_implementation(
         &self,
         name: *const ::std::os::raw::c_char,
+        version: VersionT,
         implementation: *const ::std::os::raw::c_void,
     ) {
-        self.remove_implementation.unwrap()(name, implementation)
+        self.remove_implementation.unwrap()(name, version, implementation)
     }
 
     pub unsafe fn implementations(
         &self,
         name: *const ::std::os::raw::c_char,
+        version: VersionT,
     ) -> *mut *mut ::std::os::raw::c_void {
-        self.implementations.unwrap()(name)
+        self.implementations.unwrap()(name, version)
     }
 
-    pub unsafe fn num_implementations(&self, name: *const ::std::os::raw::c_char) -> u32 {
-        self.num_implementations.unwrap()(name)
+    pub unsafe fn num_implementations(
+        &self,
+        name: *const ::std::os::raw::c_char,
+        version: VersionT,
+    ) -> u32 {
+        self.num_implementations.unwrap()(name, version)
     }
 
     pub unsafe fn first_implementation(
         &self,
         name: *const ::std::os::raw::c_char,
+        version: VersionT,
     ) -> *mut ::std::os::raw::c_void {
-        self.first_implementation.unwrap()(name)
+        self.first_implementation.unwrap()(name, version)
     }
 
     pub unsafe fn single_implementation(
         &self,
         name: *const ::std::os::raw::c_char,
+        version: VersionT,
     ) -> *mut ::std::os::raw::c_void {
-        self.single_implementation.unwrap()(name)
+        self.single_implementation.unwrap()(name, version)
     }
 
     pub unsafe fn add_listener(&self, listener: *const ApiRegistryListenerI) {
@@ -6701,13 +6751,34 @@ impl ApiRegistryApi {
         self.static_variable.unwrap()(id, size, file, line)
     }
 
-    pub unsafe fn log_missing_apis(&self) {
-        self.log_missing_apis.unwrap()()
+    pub unsafe fn begin_context(&self, name: *const ::std::os::raw::c_char) {
+        self.begin_context.unwrap()(name)
+    }
+
+    pub unsafe fn end_context(&self, name: *const ::std::os::raw::c_char) {
+        self.end_context.unwrap()(name)
+    }
+
+    pub unsafe fn disable_apis_missing_dependencies(&self) {
+        self.disable_apis_missing_dependencies.unwrap()()
+    }
+
+    pub unsafe fn available_versions(
+        &self,
+        name: *const ::std::os::raw::c_char,
+        ta: *mut TempAllocatorI,
+    ) -> *mut VersionT {
+        self.available_versions.unwrap()(name, ta)
     }
 }
 
 impl crate::Api for ApiRegistryApi {
     const NAME: ConstCStr = const_cstr!("tm_api_registry_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ApplicationApi {
@@ -6752,8 +6823,8 @@ impl ApplicationApi {
         self.load_core.unwrap()(app)
     }
 
-    pub unsafe fn update_core(&self, app: *const ApplicationO) -> bool {
-        self.update_core.unwrap()(app)
+    pub unsafe fn update_core(&self, app: *const ApplicationO, include_skipped: bool) -> bool {
+        self.update_core.unwrap()(app, include_skipped)
     }
 
     pub unsafe fn exit(&self, app: *mut ApplicationO) {
@@ -6771,7 +6842,7 @@ impl ApplicationApi {
     pub unsafe fn default_render_pipeline_api(
         &self,
         app: *mut ApplicationO,
-    ) -> *mut RenderPipelineApi {
+    ) -> *mut RenderPipelineVt {
         self.default_render_pipeline_api.unwrap()(app)
     }
 
@@ -6803,6 +6874,11 @@ impl ApplicationApi {
 
 impl crate::Api for ApplicationApi {
     const NAME: ConstCStr = const_cstr!("tm_application_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 1u32,
+        patch: 0u32,
+    };
 }
 
 impl AssetDatabaseApi {
@@ -6890,6 +6966,11 @@ impl AssetDatabaseApi {
 
 impl crate::Api for AssetDatabaseApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_database_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl AssetIoApi {
@@ -6920,6 +7001,11 @@ impl AssetIoApi {
 
 impl crate::Api for AssetIoApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_io_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl Base64Api {
@@ -6972,6 +7058,11 @@ impl BuddyAllocatorRawApi {
 
 impl crate::Api for BuddyAllocatorRawApi {
     const NAME: ConstCStr = const_cstr!("tm_buddy_allocator_raw_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl BuddyAllocatorApi {
@@ -6991,6 +7082,11 @@ impl BuddyAllocatorApi {
 
 impl crate::Api for BuddyAllocatorApi {
     const NAME: ConstCStr = const_cstr!("tm_buddy_allocator_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl BuffersApi {
@@ -7017,6 +7113,11 @@ impl BuffersApi {
 
 impl crate::Api for BuffersApi {
     const NAME: ConstCStr = const_cstr!("tm_buffers_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl BufferFormatApi {
@@ -7098,6 +7199,11 @@ impl BufferFormatApi {
 
 impl crate::Api for BufferFormatApi {
     const NAME: ConstCStr = const_cstr!("tm_buffer_format_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CameraApi {
@@ -7282,6 +7388,11 @@ impl CameraApi {
 
 impl crate::Api for CameraApi {
     const NAME: ConstCStr = const_cstr!("tm_camera_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CollaborationApi {
@@ -7390,6 +7501,11 @@ impl CollaborationApi {
 
 impl crate::Api for CollaborationApi {
     const NAME: ConstCStr = const_cstr!("tm_collaboration_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CollaborationP2pApi {
@@ -7429,6 +7545,11 @@ impl CollaborationP2pApi {
 
 impl crate::Api for CollaborationP2pApi {
     const NAME: ConstCStr = const_cstr!("tm_collaboration_p2p_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ConfigApi {
@@ -7443,6 +7564,11 @@ impl ConfigApi {
 
 impl crate::Api for ConfigApi {
     const NAME: ConstCStr = const_cstr!("tm_config_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CoreApi {
@@ -7450,13 +7576,26 @@ impl CoreApi {
         self.create.unwrap()(tt, asset_root_id)
     }
 
+    pub unsafe fn query_updatable(
+        &self,
+        tt: *mut TheTruthO,
+        asset_root_id: TtIdT,
+        include_skipped: bool,
+        ta: *mut TempAllocatorI,
+    ) -> CoreUpdatableAssetsT {
+        self.query_updatable.unwrap()(tt, asset_root_id, include_skipped, ta)
+    }
+
     pub unsafe fn update(
         &self,
         tt: *mut TheTruthO,
         asset_root_id: TtIdT,
+        to_skip: *mut *mut CoreAssetI,
+        num_to_skip: u32,
+        include_skipped: bool,
         ta: *mut TempAllocatorI,
     ) -> CoreUpdateResultT {
-        self.update.unwrap()(tt, asset_root_id, ta)
+        self.update.unwrap()(tt, asset_root_id, to_skip, num_to_skip, include_skipped, ta)
     }
 
     pub unsafe fn locate_asset(
@@ -7471,6 +7610,11 @@ impl CoreApi {
 
 impl crate::Api for CoreApi {
     const NAME: ConstCStr = const_cstr!("tm_core_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CoreImporterApi {
@@ -7501,6 +7645,11 @@ impl CoreImporterApi {
 
 impl crate::Api for CoreImporterApi {
     const NAME: ConstCStr = const_cstr!("tm_core_importer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl CrashRecoveryApi {
@@ -7558,6 +7707,11 @@ impl CrashRecoveryApi {
 
 impl crate::Api for CrashRecoveryApi {
     const NAME: ConstCStr = const_cstr!("tm_crash_recovery_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ErrorApi {
@@ -7568,6 +7722,11 @@ impl ErrorApi {
 
 impl crate::Api for ErrorApi {
     const NAME: ConstCStr = const_cstr!("tm_error_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl FeatureFlagsApi {
@@ -7586,6 +7745,11 @@ impl FeatureFlagsApi {
 
 impl crate::Api for FeatureFlagsApi {
     const NAME: ConstCStr = const_cstr!("tm_feature_flags_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl GitIgnoreApi {
@@ -7600,6 +7764,11 @@ impl GitIgnoreApi {
 
 impl crate::Api for GitIgnoreApi {
     const NAME: ConstCStr = const_cstr!("tm_git_ignore_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ImageLoaderApi {
@@ -7632,6 +7801,11 @@ impl ImageLoaderApi {
 
 impl crate::Api for ImageLoaderApi {
     const NAME: ConstCStr = const_cstr!("tm_image_loader_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl InputApi {
@@ -7658,6 +7832,11 @@ impl InputApi {
 
 impl crate::Api for InputApi {
     const NAME: ConstCStr = const_cstr!("tm_input_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl JobSystemApi {
@@ -7692,6 +7871,11 @@ impl JobSystemApi {
 
 impl crate::Api for JobSystemApi {
     const NAME: ConstCStr = const_cstr!("tm_job_system_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl JsonApi {
@@ -7731,12 +7915,22 @@ impl JsonApi {
 
 impl crate::Api for JsonApi {
     const NAME: ConstCStr = const_cstr!("tm_json_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl LocalizerApi {}
 
 impl crate::Api for LocalizerApi {
     const NAME: ConstCStr = const_cstr!("tm_localizer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl LoggerApi {
@@ -7763,6 +7957,11 @@ impl LoggerApi {
 
 impl crate::Api for LoggerApi {
     const NAME: ConstCStr = const_cstr!("tm_logger_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl Lz4Api {
@@ -7793,6 +7992,11 @@ impl Lz4Api {
 
 impl crate::Api for Lz4Api {
     const NAME: ConstCStr = const_cstr!("tm_lz4_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl MathApi {
@@ -7829,6 +8033,11 @@ impl MathApi {
 
 impl crate::Api for MathApi {
     const NAME: ConstCStr = const_cstr!("tm_math_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl MemoryTrackerApi {
@@ -7894,6 +8103,11 @@ impl MemoryTrackerApi {
 
 impl crate::Api for MemoryTrackerApi {
     const NAME: ConstCStr = const_cstr!("tm_memory_tracker_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl OsVirtualMemoryApi {
@@ -7912,6 +8126,15 @@ impl OsVirtualMemoryApi {
     pub unsafe fn commit(&self, p: *mut ::std::os::raw::c_void, size: u64) {
         self.commit.unwrap()(p, size)
     }
+}
+
+impl crate::Api for OsVirtualMemoryApi {
+    const NAME: ConstCStr = const_cstr!("tm_os_virtual_memory_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl OsFileIoApi {
@@ -7975,6 +8198,15 @@ impl OsFileIoApi {
     pub unsafe fn close(&self, file: FileO) {
         self.close.unwrap()(file)
     }
+}
+
+impl crate::Api for OsFileIoApi {
+    const NAME: ConstCStr = const_cstr!("tm_os_file_io_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl OsFileSystemApi {
@@ -8079,6 +8311,15 @@ impl OsFileSystemApi {
     pub unsafe fn app_folder(&self, ta: *mut TempAllocatorI) -> *const ::std::os::raw::c_char {
         self.app_folder.unwrap()(ta)
     }
+}
+
+impl crate::Api for OsFileSystemApi {
+    const NAME: ConstCStr = const_cstr!("tm_os_file_system_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl OsDllApi {
@@ -8208,6 +8449,15 @@ impl OsSocketApi {
     ) -> OsSocketGetaddrinfo {
         self.getaddrinfo_result.unwrap()(query, addresses, count)
     }
+}
+
+impl crate::Api for OsSocketApi {
+    const NAME: ConstCStr = const_cstr!("tm_os_socket_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl OsThreadApi {
@@ -8437,6 +8687,11 @@ impl OsApi {}
 
 impl crate::Api for OsApi {
     const NAME: ConstCStr = const_cstr!("tm_os_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl PathApi {
@@ -8489,6 +8744,11 @@ impl PathApi {
 
 impl crate::Api for PathApi {
     const NAME: ConstCStr = const_cstr!("tm_path_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl PluginsApi {
@@ -8524,10 +8784,6 @@ impl PluginsApi {
         self.enumerate.unwrap()(directory, ta)
     }
 
-    pub unsafe fn load_plugin_context(&self) -> *const ::std::os::raw::c_char {
-        self.load_plugin_context.unwrap()()
-    }
-
     pub unsafe fn plugin_dllpath(
         &self,
         ta: *mut TempAllocatorI,
@@ -8549,6 +8805,11 @@ impl PluginsApi {
 
 impl crate::Api for PluginsApi {
     const NAME: ConstCStr = const_cstr!("tm_plugins_api");
+    const VERSION: VersionT = VersionT {
+        major: 3u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl PluginAssetsApi {
@@ -8579,6 +8840,11 @@ impl PluginAssetsApi {
 
 impl crate::Api for PluginAssetsApi {
     const NAME: ConstCStr = const_cstr!("tm_plugin_assets_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ProfilerApi {
@@ -8655,6 +8921,11 @@ impl ProfilerApi {
 
 impl crate::Api for ProfilerApi {
     const NAME: ConstCStr = const_cstr!("tm_profiler_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ProgressReportApi {
@@ -8690,6 +8961,11 @@ impl ProgressReportApi {
 
 impl crate::Api for ProgressReportApi {
     const NAME: ConstCStr = const_cstr!("tm_progress_report_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RandomApi {
@@ -8708,6 +8984,11 @@ impl RandomApi {
 
 impl crate::Api for RandomApi {
     const NAME: ConstCStr = const_cstr!("tm_random_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl RuntimeDataRepositoryApi {
@@ -8751,6 +9032,11 @@ impl RuntimeDataRepositoryApi {
 
 impl crate::Api for RuntimeDataRepositoryApi {
     const NAME: ConstCStr = const_cstr!("tm_runtime_data_repository_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl SprintfApi {
@@ -8797,6 +9083,11 @@ impl SprintfApi {
 
 impl crate::Api for SprintfApi {
     const NAME: ConstCStr = const_cstr!("tm_sprintf_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl StringApi {
@@ -8814,6 +9105,11 @@ impl StringApi {
 
 impl crate::Api for StringApi {
     const NAME: ConstCStr = const_cstr!("tm_string_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl StringRepositoryApi {
@@ -8828,6 +9124,11 @@ impl StringRepositoryApi {
 
 impl crate::Api for StringRepositoryApi {
     const NAME: ConstCStr = const_cstr!("tm_string_repository_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TaskSystemApi {
@@ -8859,6 +9160,11 @@ impl TaskSystemApi {
 
 impl crate::Api for TaskSystemApi {
     const NAME: ConstCStr = const_cstr!("tm_task_system_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TempAllocatorApi {
@@ -8930,6 +9236,11 @@ impl TempAllocatorApi {
 
 impl crate::Api for TempAllocatorApi {
     const NAME: ConstCStr = const_cstr!("tm_temp_allocator_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TheTruthApi {
@@ -10296,6 +10607,11 @@ impl TheTruthApi {
 
 impl crate::Api for TheTruthApi {
     const NAME: ConstCStr = const_cstr!("tm_the_truth_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TheTruthAssetsApi {
@@ -10419,8 +10735,9 @@ impl TheTruthAssetsApi {
         tt: *mut TheTruthO,
         relative_to: TtIdT,
         target_type_hash: StrhashT,
+        asset_root: TtIdT,
     ) -> TtIdT {
-        self.find_directory_settings.unwrap()(tt, relative_to, target_type_hash)
+        self.find_directory_settings.unwrap()(tt, relative_to, target_type_hash, asset_root)
     }
 
     pub unsafe fn object_to_config(
@@ -10545,6 +10862,11 @@ impl TheTruthAssetsApi {
 
 impl crate::Api for TheTruthAssetsApi {
     const NAME: ConstCStr = const_cstr!("tm_the_truth_assets_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TheTruthMigrationApi {
@@ -10555,6 +10877,11 @@ impl TheTruthMigrationApi {
 
 impl crate::Api for TheTruthMigrationApi {
     const NAME: ConstCStr = const_cstr!("tm_the_truth_migration_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TheTruthCommonTypesApi {
@@ -10659,6 +10986,15 @@ impl TheTruthCommonTypesApi {
         property: u32,
     ) -> ColorSrgbT {
         self.get_color_srgba.unwrap()(tt, object, property)
+    }
+
+    pub unsafe fn get_uuid(
+        &self,
+        tt: *const TheTruthO,
+        object: *const TheTruthObjectO,
+        property: u32,
+    ) -> UuidT {
+        self.get_uuid.unwrap()(tt, object, property)
     }
 
     pub unsafe fn set_vec2(
@@ -10782,6 +11118,17 @@ impl TheTruthCommonTypesApi {
         self.set_color_srgba.unwrap()(tt, object, property, col, undo_scope)
     }
 
+    pub unsafe fn set_uuid(
+        &self,
+        tt: *mut TheTruthO,
+        object: *mut TheTruthObjectO,
+        property: u32,
+        uuid: UuidT,
+        undo_scope: TtUndoScopeT,
+    ) {
+        self.set_uuid.unwrap()(tt, object, property, uuid, undo_scope)
+    }
+
     pub unsafe fn read_floats(
         &self,
         tt: *const TheTruthO,
@@ -10805,6 +11152,11 @@ impl TheTruthCommonTypesApi {
 
 impl crate::Api for TheTruthCommonTypesApi {
     const NAME: ConstCStr = const_cstr!("tm_the_truth_common_types_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UnicodeApi {
@@ -10920,6 +11272,11 @@ impl UnicodeApi {
 
 impl crate::Api for UnicodeApi {
     const NAME: ConstCStr = const_cstr!("tm_unicode_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl VisibilityFlagsApi {
@@ -10988,6 +11345,11 @@ impl VisibilityFlagsApi {
 
 impl crate::Api for VisibilityFlagsApi {
     const NAME: ConstCStr = const_cstr!("tm_visibility_flags_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl WebSocketProtocolApi {
@@ -11047,6 +11409,11 @@ impl WebSocketProtocolApi {
 
 impl crate::Api for WebSocketProtocolApi {
     const NAME: ConstCStr = const_cstr!("tm_web_socket_protocol_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl WebTalkerApi {
@@ -11232,9 +11599,12 @@ impl WebTalkerApi {
 
 impl crate::Api for WebTalkerApi {
     const NAME: ConstCStr = const_cstr!("tm_web_talker_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
-
-impl RenderPipelineApi {}
 
 pub const TM_TYPE_HASH__BOOL: StrhashT = StrhashT {
     u64_: 16540862642162215401u64,
@@ -11290,9 +11660,6 @@ pub const TM_FEATURE_FLAG__WATCH_WIRES: StrhashT = StrhashT {
 pub const TM_FEATURE_FLAG__BREAKPOINTS: StrhashT = StrhashT {
     u64_: 12171838945250017565u64,
 };
-pub const TM_FEATURE_FLAG__UI_COMPONENTS: StrhashT = StrhashT {
-    u64_: 9246472235101389460u64,
-};
 pub const TM_FEATURE_FLAG__GLOBAL_ILLUMINATION: StrhashT = StrhashT {
     u64_: 14054475124752319158u64,
 };
@@ -11303,10 +11670,31 @@ pub const TM_INTEGRATION_TEST_CONTEXT__THE_MACHINERY_EDITOR: StrhashT = StrhashT
     u64_: 6564203205322320365u64,
 };
 pub const TM_LANGUAGE_ENGLISH: StrhashT = StrhashT {
-    u64_: 15533030604643641736u64,
+    u64_: 7710216835639188562u64,
+};
+pub const TM_LANGUAGE_DUTCH: StrhashT = StrhashT {
+    u64_: 1250082070672125555u64,
+};
+pub const TM_LANGUAGE_FRENCH: StrhashT = StrhashT {
+    u64_: 18347935498605111012u64,
+};
+pub const TM_LANGUAGE_GERMAN: StrhashT = StrhashT {
+    u64_: 13418971983228644420u64,
+};
+pub const TM_LANGUAGE_ITALIAN: StrhashT = StrhashT {
+    u64_: 16355695940806680529u64,
+};
+pub const TM_LANGUAGE_PORTUGUESE: StrhashT = StrhashT {
+    u64_: 5344833540692673681u64,
+};
+pub const TM_LANGUAGE_SPANISH: StrhashT = StrhashT {
+    u64_: 3566965541708517290u64,
 };
 pub const TM_LANGUAGE_SWEDISH: StrhashT = StrhashT {
-    u64_: 10829632074567348113u64,
+    u64_: 17821763756083510268u64,
+};
+pub const TM_LANGUAGE_TAGALOG: StrhashT = StrhashT {
+    u64_: 15699795126974246192u64,
 };
 pub const TM_PSEUDO_LANGUAGE_GIBBERISH: StrhashT = StrhashT {
     u64_: 8182454343404938431u64,
@@ -11383,6 +11771,359 @@ pub const TM_TT_TYPE_HASH__COLOR_RGBA: StrhashT = StrhashT {
 pub const TM_TT_TYPE_HASH__RECT: StrhashT = StrhashT {
     u64_: 12027361935592340977u64,
 };
+pub const TM_TT_TYPE_HASH__UUID: StrhashT = StrhashT {
+    u64_: 7193459200112519797u64,
+};
 pub const TM_TT_TYPE_HASH__VISIBILITY_FLAG: StrhashT = StrhashT {
     u64_: 5713385340038884041u64,
+};
+pub const TM_WEB_SOCKET_PROTOCOL_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_JOB_SYSTEM_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CORE_IMPORTER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_BUDDY_ALLOCATOR_RAW_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TEMP_ALLOCATOR_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CONFIG_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_CREATE_TYPES_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ERROR_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_APPLICATION_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 1u32,
+    patch: 0u32,
+};
+pub const TM_MATH_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PLUGIN_TICK_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_BUDDY_ALLOCATOR_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_VISIBILITY_FLAG_EDITOR_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GIT_IGNORE_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_LOCALIZER_STRINGS_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_LOGGER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PATH_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_OS_VIRTUAL_MEMORY_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CAMERA_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SPRINTF_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_VISIBILITY_CONTEXT_O_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CORE_ASSET_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_DATABASE_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TASK_SYSTEM_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_MEMORY_TRACKER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_DESTROYED_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_INTEGRATION_TEST_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_COMMON_TYPES_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_STRING_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_JSON_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CRASH_RECOVERY_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_LZ4_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_BASE_64_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_IMAGE_LOADER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_OS_SOCKET_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_STRING_REPOSITORY_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PLUGIN_SHUTDOWN_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_ASSETS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RANDOM_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_MIGRATION_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UNIT_TEST_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_LABEL_T_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PROFILER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_LOCALIZER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_VISIBILITY_FLAGS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PLUGIN_RELOAD_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_BUFFER_FORMAT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ALLOCATOR_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_IO_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PROGRESS_REPORT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_FEATURE_FLAGS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_BUFFERS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_OS_FILE_IO_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UNICODE_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PLUGIN_SET_THE_TRUTH_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_API_REGISTRY_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PLUGINS_API_VERSION: VersionT = VersionT {
+    major: 3u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_COLLABORATION_P2P_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_INPUT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_IMAGE_LOADER_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_RUNTIME_DATA_REPOSITORY_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_WEB_TALKER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PLUGIN_ASSETS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_CORE_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_OS_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PLUGIN_INIT_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_THE_TRUTH_MIGRATION_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_OS_FILE_SYSTEM_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_COLLABORATION_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

@@ -78,40 +78,61 @@ where
         }
     }
 }
+#[repr(C)]
+pub struct __BindgenUnionField<T>(::std::marker::PhantomData<T>);
+impl<T> __BindgenUnionField<T> {
+    #[inline]
+    pub const fn new() -> Self {
+        __BindgenUnionField(::std::marker::PhantomData)
+    }
+    #[inline]
+    pub unsafe fn as_ref(&self) -> &T {
+        ::std::mem::transmute(self)
+    }
+    #[inline]
+    pub unsafe fn as_mut(&mut self) -> &mut T {
+        ::std::mem::transmute(self)
+    }
+}
+impl<T> ::std::default::Default for __BindgenUnionField<T> {
+    #[inline]
+    fn default() -> Self {
+        Self::new()
+    }
+}
+impl<T> ::std::clone::Clone for __BindgenUnionField<T> {
+    #[inline]
+    fn clone(&self) -> Self {
+        Self::new()
+    }
+}
+impl<T> ::std::marker::Copy for __BindgenUnionField<T> {}
+impl<T> ::std::fmt::Debug for __BindgenUnionField<T> {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.write_str("__BindgenUnionField")
+    }
+}
+impl<T> ::std::hash::Hash for __BindgenUnionField<T> {
+    fn hash<H: ::std::hash::Hasher>(&self, _state: &mut H) {}
+}
+impl<T> ::std::cmp::PartialEq for __BindgenUnionField<T> {
+    fn eq(&self, _other: &__BindgenUnionField<T>) -> bool {
+        true
+    }
+}
+impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const TM_TT_TYPE__CLIPBOARD: &'static [u8; 13usize] = b"tm_clipboard\0";
-pub const TM_UI_CLIPBOARD_API_NAME: &'static [u8; 20usize] = b"tm_ui_clipboard_api\0";
-pub const TM_TAB_VT_INTERFACE_NAME: &'static [u8; 10usize] = b"tm_tab_vt\0";
 pub const TM_TT_TYPE__DOCKING_SETTINGS: &'static [u8; 20usize] = b"tm_docking_settings\0";
-pub const TM_DOCKING_API_NAME: &'static [u8; 15usize] = b"tm_docking_api\0";
-pub const TM_UI_DRAG_API_NAME: &'static [u8; 15usize] = b"tm_ui_drag_api\0";
-pub const TM_DRAW2D_API_NAME: &'static [u8; 14usize] = b"tm_draw2d_api\0";
-pub const TM_FONT_API_NAME: &'static [u8; 12usize] = b"tm_font_api\0";
-pub const TM_FONT_LIBRARY_API_NAME: &'static [u8; 20usize] = b"tm_font_library_api\0";
-pub const TM_GIZMO_API_NAME: &'static [u8; 13usize] = b"tm_gizmo_api\0";
+pub const TM_TT_TYPE__TABWELL: &'static [u8; 11usize] = b"tm_tabwell\0";
+pub const TM_TT_TYPE__TAB_VIEW: &'static [u8; 12usize] = b"tm_tab_view\0";
 pub const TM_MODAL_PROGRESS_DONE: u32 = 4294967295;
-pub const TM_UI_MODAL_API_NAME: &'static [u8; 16usize] = b"tm_ui_modal_api\0";
-pub const TM_SHAPE3D_API_NAME: &'static [u8; 15usize] = b"tm_shape3d_api\0";
-pub const TM_SHORTCUTS_MANAGER_CREATE_SHORTCUT_INTERFACE_NAME: &'static [u8; 39usize] =
-    b"tm_shortcuts_manager_create_shortcut_i\0";
-pub const TM_SHORTCUTS_MANAGER_API_NAME: &'static [u8; 24usize] = b"tm_shortcut_manager_api\0";
 pub const TM_TT_TYPE__SHORTCUTS_ENTRY: &'static [u8; 19usize] = b"tm_shortcuts_entry\0";
 pub const TM_TT_TYPE__SHORTCUTS_INDEX: &'static [u8; 19usize] = b"tm_shortcuts_index\0";
 pub const TM_TT_TYPE__TOOLBAR_SETTINGS: &'static [u8; 20usize] = b"tm_toolbar_settings\0";
-pub const TM_TOOLBAR_API_NAME: &'static [u8; 15usize] = b"tm_toolbar_api\0";
-pub const TM_TTF_BAKER_API_NAME: &'static [u8; 17usize] = b"tm_ttf_baker_api\0";
 pub const TM_TT_TYPE__UI_THEME: &'static [u8; 12usize] = b"tm_ui_theme\0";
 pub const TM_TT_TYPE__UI_THEME_COLOR: &'static [u8; 18usize] = b"tm_ui_theme_color\0";
-pub const TM_UI_API_NAME: &'static [u8; 10usize] = b"tm_ui_api\0";
-pub const TM_UI_ICON_API_NAME: &'static [u8; 15usize] = b"tm_ui_icon_api\0";
-pub const TM_FONT_PROVIDER_INTERFACE_NAME: &'static [u8; 19usize] = b"tm_font_provider_t\0";
-pub const TM_FONT_PROVIDER_FUNCTION_INTERFACE_NAME: &'static [u8; 19usize] =
-    b"tm_font_provider_f\0";
-pub const TM_FONT_REQUEST_GLYPH_INTERFACE_NAME: &'static [u8; 25usize] =
-    b"tm_font_request_glyphs_t\0";
-pub const TM_UI_RENDERER_API_NAME: &'static [u8; 15usize] = b"tm_ui_renderer\0";
-pub const TM_UI_TREE_API_NAME: &'static [u8; 15usize] = b"tm_ui_tree_api\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -294,7 +315,7 @@ pub struct DockingFeedEventsArgsT {
     pub window_dpi_scale_factor: f32,
     pub window_has_focus: bool,
     pub window_under_cursor: bool,
-    pub _padding_96: [::std::os::raw::c_char; 2usize],
+    pub _padding_94: [::std::os::raw::c_char; 2usize],
 }
 impl Default for DockingFeedEventsArgsT {
     fn default() -> Self {
@@ -341,6 +362,9 @@ pub struct TabVt {
     >,
     pub save_settings:
         ::std::option::Option<unsafe extern "C" fn(inst: *mut TabO, tt: *mut TheTruthO) -> TtIdT>,
+    pub save_settings_from_object: ::std::option::Option<
+        unsafe extern "C" fn(tt: *mut TheTruthO, settings: *const ::std::os::raw::c_void) -> TtIdT,
+    >,
     pub can_close: ::std::option::Option<unsafe extern "C" fn(inst: *mut TabO) -> bool>,
     pub focus_event: ::std::option::Option<
         unsafe extern "C" fn(
@@ -389,7 +413,19 @@ pub struct TabVt {
     pub cant_be_pinned: bool,
     pub run_as_job: bool,
     pub dont_restore_at_startup: bool,
-    pub _padding_270: [::std::os::raw::c_char; 5usize],
+    pub always_restore_settings: bool,
+    pub _padding_272: [::std::os::raw::c_char; 4usize],
+    pub menu_title: ::std::option::Option<
+        unsafe extern "C" fn(inst: *mut TabO, ui: *mut UiO) -> *const ::std::os::raw::c_char,
+    >,
+    pub menu: ::std::option::Option<
+        unsafe extern "C" fn(
+            inst: *mut TabO,
+            ui: *mut UiO,
+            uistyle: *const UiStyleT,
+            submenu_pos: Vec2T,
+        ),
+    >,
 }
 impl Default for TabVt {
     fn default() -> Self {
@@ -427,10 +463,10 @@ pub struct DockingTabInfoT {
     pub tab: *mut TabI,
     pub ui: *mut UiO,
     pub visible: bool,
-    pub _padding_308: [::std::os::raw::c_char; 7usize],
+    pub _padding_322: [::std::os::raw::c_char; 7usize],
     pub last_focused: ClockO,
     pub pin_type: u32,
-    pub _padding_315: [::std::os::raw::c_char; 4usize],
+    pub _padding_329: [::std::os::raw::c_char; 4usize],
 }
 impl Default for DockingTabInfoT {
     fn default() -> Self {
@@ -448,7 +484,7 @@ pub struct DockingTabwellInfoT {
     pub top: *mut DockingTabwellO,
     pub bottom: *mut DockingTabwellO,
     pub bias: f32,
-    pub _padding_327: [::std::os::raw::c_char; 4usize],
+    pub _padding_341: [::std::os::raw::c_char; 4usize],
     pub tabs: *mut *mut TabI,
     pub last_rect: RectT,
 }
@@ -484,7 +520,7 @@ pub struct DockingFindTabOptT {
     pub find_asset_tt: *mut TheTruthO,
     pub find_asset: TtIdT,
     pub exclude_pinned: bool,
-    pub _padding_365: [::std::os::raw::c_char; 7usize],
+    pub _padding_379: [::std::os::raw::c_char; 7usize],
 }
 impl Default for DockingFindTabOptT {
     fn default() -> Self {
@@ -495,6 +531,19 @@ impl Default for DockingFindTabOptT {
         }
     }
 }
+pub const TM_DOCKING_WORKSPACES_BAR_MODE__FULL: DockingWorkspacesBarMode = 0;
+pub const TM_DOCKING_WORKSPACES_BAR_MODE__COMPACT: DockingWorkspacesBarMode = 1;
+pub const TM_DOCKING_WORKSPACES_BAR_MODE__HIDDEN: DockingWorkspacesBarMode = 2;
+pub type DockingWorkspacesBarMode = ::std::os::raw::c_int;
+pub type DockingWorkspaceContextMenuF = ::std::option::Option<
+    unsafe extern "C" fn(
+        ui: *mut UiO,
+        style: *const UiStyleT,
+        c: *const UiMenuT,
+        workspace_idx: u32,
+        result: *mut UiMenuResultT,
+    ),
+>;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct DockingApi {
@@ -556,6 +605,7 @@ pub struct DockingApi {
             settings_tt: *mut TheTruthO,
             settings_obj: TtIdT,
             default_padding: f32,
+            workspaces_mode: DockingWorkspacesBarMode,
         ),
     >,
     pub is_dragging_tab: ::std::option::Option<unsafe extern "C" fn(pos: *mut Vec2T) -> *mut TabI>,
@@ -620,6 +670,11 @@ pub struct DockingApi {
     pub toolbars_state:
         ::std::option::Option<unsafe extern "C" fn(tab: *mut TabI) -> *mut ToolbarsStateO>,
     pub clear_cached_ui: ::std::option::Option<unsafe extern "C" fn(tab: *mut TabI)>,
+    pub tab_vt: ::std::option::Option<unsafe extern "C" fn(name_hash: StrhashT) -> *mut TabVt>,
+    pub set_workspace_context_menu:
+        ::std::option::Option<unsafe extern "C" fn(menu: DockingWorkspaceContextMenuF)>,
+    pub set_current_workspace:
+        ::std::option::Option<unsafe extern "C" fn(ui: *mut UiO, workspace_idx: u32)>,
 }
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
@@ -862,6 +917,7 @@ pub struct Draw2dApi {
             r: RectT,
             texture: u32,
             uv: RectT,
+            native_color_space: bool,
         ),
     >,
     pub aux_rect: ::std::option::Option<
@@ -1191,7 +1247,7 @@ pub struct FontDescriptorT {
     pub ttf_data: *const ::std::os::raw::c_char,
     pub ttf_data_bytes: u64,
     pub num_ranges: u32,
-    pub _padding_35: [::std::os::raw::c_char; 4usize],
+    pub font_index: u32,
     pub ranges: *const TtfRangeT,
 }
 impl Default for FontDescriptorT {
@@ -1271,7 +1327,7 @@ pub struct GizmoScaleSettingsT {
 }
 #[repr(C)]
 pub struct GizmoGridSettingsT {
-    pub visibile: bool,
+    pub visible: bool,
     pub _padding_85: [::std::os::raw::c_char; 3usize],
     pub transform: TransformT,
 }
@@ -2579,6 +2635,153 @@ pub const IONICON_ADD_ON__PHYSICS_SHAPE: ::std::os::raw::c_int = 57383;
 pub const IONICON_ADD_ON__PHYSICS_BODY: ::std::os::raw::c_int = 57384;
 pub const IONICON_ADD_ON__PHYSICS_JOINT: ::std::os::raw::c_int = 57385;
 pub type _bindgen_ty_7 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__TABWELL__LEFT: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__TABWELL__RIGHT: ::std::os::raw::c_int = 1;
+pub const TM_TT_PROP__TABWELL__TOP: ::std::os::raw::c_int = 2;
+pub const TM_TT_PROP__TABWELL__BOTTOM: ::std::os::raw::c_int = 3;
+pub const TM_TT_PROP__TABWELL__BIAS: ::std::os::raw::c_int = 4;
+pub const TM_TT_PROP__TABWELL__VIEWS: ::std::os::raw::c_int = 5;
+pub type _bindgen_ty_8 = ::std::os::raw::c_int;
+pub const TM_TT_PROP__TAB_VIEW__NAME: ::std::os::raw::c_int = 0;
+pub const TM_TT_PROP__TAB_VIEW__ROOT_UUID: ::std::os::raw::c_int = 1;
+pub const TM_TT_PROP__TAB_VIEW__ROOT_TYPE: ::std::os::raw::c_int = 2;
+pub const TM_TT_PROP__TAB_VIEW__SORT_INDEX: ::std::os::raw::c_int = 3;
+pub const TM_TT_PROP__TAB_VIEW__SETTINGS_VIEW: ::std::os::raw::c_int = 4;
+pub const TM_TT_PROP__TAB_VIEW__PINNED: ::std::os::raw::c_int = 5;
+pub const TM_TT_PROP__TAB_VIEW__SETTINGS_STATE: ::std::os::raw::c_int = 6;
+pub type _bindgen_ty_9 = ::std::os::raw::c_int;
+pub const TM_TAB_LAYOUT_MAX_TABS_PER_TABWELL: ::std::os::raw::c_int = 3;
+pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub const TM_TAB_LAYOUT_SPLIT_TYPE__NONE: TabLayoutSplitType = 0;
+pub const TM_TAB_LAYOUT_SPLIT_TYPE__VERTICAL: TabLayoutSplitType = 1;
+pub const TM_TAB_LAYOUT_SPLIT_TYPE__HORIZONTAL: TabLayoutSplitType = 2;
+pub type TabLayoutSplitType = ::std::os::raw::c_int;
+#[repr(C)]
+pub struct TabLayoutT {
+    pub split: TabLayoutSplitType,
+    pub bias: f32,
+    pub __bindgen_anon_1: TabLayoutTBindgenTy1,
+}
+#[repr(C)]
+pub struct TabLayoutTBindgenTy1 {
+    pub __bindgen_anon_1: __BindgenUnionField<TabLayoutTBindgenTy1BindgenTy1>,
+    pub __bindgen_anon_2: __BindgenUnionField<TabLayoutTBindgenTy1BindgenTy2>,
+    pub __bindgen_anon_3: __BindgenUnionField<TabLayoutTBindgenTy1BindgenTy3>,
+    pub bindgen_union_field: [u64; 9usize],
+}
+#[repr(C)]
+pub struct TabLayoutTBindgenTy1BindgenTy1 {
+    pub tab: [StrhashT; 3usize],
+    pub out_tab: [*mut TabI; 3usize],
+    pub settings: [*const ::std::os::raw::c_void; 3usize],
+}
+impl Default for TabLayoutTBindgenTy1BindgenTy1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct TabLayoutTBindgenTy1BindgenTy2 {
+    pub left: *mut TabLayoutT,
+    pub right: *mut TabLayoutT,
+}
+impl Default for TabLayoutTBindgenTy1BindgenTy2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct TabLayoutTBindgenTy1BindgenTy3 {
+    pub top: *mut TabLayoutT,
+    pub bottom: *mut TabLayoutT,
+}
+impl Default for TabLayoutTBindgenTy1BindgenTy3 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for TabLayoutTBindgenTy1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+impl Default for TabLayoutT {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
+#[repr(C)]
+#[derive(Default, Copy, Clone)]
+pub struct TabLayoutApi {
+    pub instantiate_layout: ::std::option::Option<
+        unsafe extern "C" fn(
+            ui: *mut UiO,
+            tabwell: *mut DockingTabwellO,
+            layout: *mut TabLayoutT,
+            context: *mut TabCreateContextT,
+            reuse_old_tabs: bool,
+        ),
+    >,
+    pub load_and_instantiate_layout: ::std::option::Option<
+        unsafe extern "C" fn(
+            settings_tt: *mut TheTruthO,
+            app_tt: *mut TheTruthO,
+            tabwell_id: TtIdT,
+            ui: *mut UiO,
+            tabwell: *mut DockingTabwellO,
+            context: *mut TabCreateContextT,
+            restore_roots: bool,
+            reuse_old_tabs: bool,
+        ),
+    >,
+    pub save_instantiated_layout: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut TheTruthO,
+            root_tabwell: *mut DockingTabwellO,
+            only_save_restorable_tabs: bool,
+            undo_scope: TtUndoScopeT,
+        ) -> TtIdT,
+    >,
+    pub save_layout: ::std::option::Option<
+        unsafe extern "C" fn(
+            tt: *mut TheTruthO,
+            layout: *const TabLayoutT,
+            only_save_restorable_tabs: bool,
+            undo_scope: TtUndoScopeT,
+        ) -> TtIdT,
+    >,
+}
+pub type UiModalCustomCallback = ::std::option::Option<
+    unsafe extern "C" fn(
+        data: *mut ::std::os::raw::c_void,
+        ui: *mut UiO,
+        uistyle: *mut UiStyleT,
+        rect: RectT,
+        delta_time: f32,
+    ),
+>;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct UiModalApi {
@@ -2633,6 +2836,17 @@ pub struct UiModalApi {
             output_text_bytes: u32,
         ) -> u32,
     >,
+    pub message_box_with_custom_ui_callback: ::std::option::Option<
+        unsafe extern "C" fn(
+            title: *const ::std::os::raw::c_char,
+            text: *const ::std::os::raw::c_char,
+            callback: UiModalCustomCallback,
+            callback_data: *mut ::std::os::raw::c_void,
+            custom_ui_height: f32,
+            buttons: *mut *const ::std::os::raw::c_char,
+            num_buttons: u32,
+        ) -> u32,
+    >,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -2656,7 +2870,7 @@ pub struct Shape3dApi {
         unsafe extern "C" fn(w: *mut Vec3T, c: Vec3T, x: Vec3T, y: Vec3T, z: Vec3T),
     >,
     pub box_ib_n: u32,
-    pub _padding_27: [::std::os::raw::c_char; 4usize],
+    pub _padding_25: [::std::os::raw::c_char; 4usize],
     pub box_ib: *mut u32,
 }
 impl Default for Shape3dApi {
@@ -2725,7 +2939,7 @@ pub const TM_TT_PROP__TOOLBAR_SETTINGS__POSITION_Y: ::std::os::raw::c_int = 5;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__WIDTH: ::std::os::raw::c_int = 6;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__HEIGHT: ::std::os::raw::c_int = 7;
 pub const TM_TT_PROP__TOOLBAR_SETTINGS__DRAW_MODE: ::std::os::raw::c_int = 8;
-pub type _bindgen_ty_8 = ::std::os::raw::c_int;
+pub type _bindgen_ty_11 = ::std::os::raw::c_int;
 pub const TM_TOOLBAR_CONTAINER_TOP: ToolbarContainer = 0;
 pub const TM_TOOLBAR_CONTAINER_BOTTOM: ToolbarContainer = 1;
 pub const TM_TOOLBAR_CONTAINER_LEFT: ToolbarContainer = 2;
@@ -2819,6 +3033,7 @@ pub struct TtfBakerApi {
     pub bake: ::std::option::Option<
         unsafe extern "C" fn(
             ttf: *const u8,
+            font_index: u32,
             font_size: f32,
             font_scales: *const f32,
             num_scales: u32,
@@ -2836,39 +3051,39 @@ pub struct TtfBakerApi {
 }
 pub const TM_UI_COLOR_CHROME_BACKGROUND: UiColor = 0;
 pub const TM_UI_COLOR_WINDOW_BACKGROUND: UiColor = 1;
-pub const TM_UI_COLOR_WINDOW_TITLE: UiColor = 2;
-pub const TM_UI_COLOR_WINDOW_SELECTION: UiColor = 3;
-pub const TM_UI_COLOR_WINDOW_STATUS_BAR: UiColor = 4;
-pub const TM_UI_COLOR_WINDOW_STATUS_BAR_TEXT: UiColor = 5;
-pub const TM_UI_COLOR_SELECTION: UiColor = 6;
-pub const TM_UI_COLOR_SELECTION_NO_FOCUS: UiColor = 7;
-pub const TM_UI_COLOR_SELECTION_HOVER: UiColor = 8;
-pub const TM_UI_COLOR_TEXT: UiColor = 9;
-pub const TM_UI_COLOR_DISABLED_TEXT: UiColor = 10;
-pub const TM_UI_COLOR_SELECTED_TEXT_NO_FOCUS: UiColor = 11;
-pub const TM_UI_COLOR_SELECTED_TEXT: UiColor = 12;
-pub const TM_UI_COLOR_ERROR_TEXT: UiColor = 13;
-pub const TM_UI_COLOR_FILTERED_TEXT: UiColor = 14;
-pub const TM_UI_COLOR_PROTOTYPE_RELATION_BASE: UiColor = 15;
-pub const TM_UI_COLOR_PROTOTYPE_RELATION_ADDED: UiColor = 15;
-pub const TM_UI_COLOR_PROTOTYPE_RELATION_ASSET: UiColor = 16;
-pub const TM_UI_COLOR_PROTOTYPE_RELATION_INHERITED: UiColor = 17;
-pub const TM_UI_COLOR_PROTOTYPE_RELATION_INSTANTIATED: UiColor = 18;
-pub const TM_UI_COLOR_PROTOTYPE_RELATION_REMOVED: UiColor = 19;
-pub const TM_UI_COLOR_THIN_LINES: UiColor = 20;
-pub const TM_UI_COLOR_THIN_LINES_HOVER: UiColor = 21;
-pub const TM_UI_COLOR_ICONS: UiColor = 22;
-pub const TM_UI_COLOR_ICONS_HOVER: UiColor = 23;
-pub const TM_UI_COLOR_ICONS_ACTIVE: UiColor = 24;
-pub const TM_UI_COLOR_ICON_DIRECTORY: UiColor = 25;
-pub const TM_UI_COLOR_ICON_ASSET: UiColor = 26;
-pub const TM_UI_COLOR_ICON_ENTITY: UiColor = 27;
-pub const TM_UI_COLOR_ICON_COMPONENT: UiColor = 28;
-pub const TM_UI_COLOR_ICON_IMAGE: UiColor = 29;
-pub const TM_UI_COLOR_ICON_MATERIAL: UiColor = 30;
-pub const TM_UI_COLOR_BUTTON_BACKGROUND: UiColor = 31;
-pub const TM_UI_COLOR_BUTTON_BACKGROUND_HOVER: UiColor = 32;
-pub const TM_UI_COLOR_BUTTON_BACKGROUND_ACTIVE: UiColor = 33;
+pub const TM_UI_COLOR_WINDOW_SELECTION: UiColor = 2;
+pub const TM_UI_COLOR_WINDOW_STATUS_BAR: UiColor = 3;
+pub const TM_UI_COLOR_WINDOW_STATUS_BAR_TEXT: UiColor = 4;
+pub const TM_UI_COLOR_SELECTION: UiColor = 5;
+pub const TM_UI_COLOR_SELECTION_NO_FOCUS: UiColor = 6;
+pub const TM_UI_COLOR_SELECTION_HOVER: UiColor = 7;
+pub const TM_UI_COLOR_TEXT: UiColor = 8;
+pub const TM_UI_COLOR_DISABLED_TEXT: UiColor = 9;
+pub const TM_UI_COLOR_SELECTED_TEXT_NO_FOCUS: UiColor = 10;
+pub const TM_UI_COLOR_SELECTED_TEXT: UiColor = 11;
+pub const TM_UI_COLOR_ERROR_TEXT: UiColor = 12;
+pub const TM_UI_COLOR_FILTERED_TEXT: UiColor = 13;
+pub const TM_UI_COLOR_PROTOTYPE_RELATION_BASE: UiColor = 14;
+pub const TM_UI_COLOR_PROTOTYPE_RELATION_ADDED: UiColor = 14;
+pub const TM_UI_COLOR_PROTOTYPE_RELATION_ASSET: UiColor = 15;
+pub const TM_UI_COLOR_PROTOTYPE_RELATION_INHERITED: UiColor = 16;
+pub const TM_UI_COLOR_PROTOTYPE_RELATION_INSTANTIATED: UiColor = 17;
+pub const TM_UI_COLOR_PROTOTYPE_RELATION_REMOVED: UiColor = 18;
+pub const TM_UI_COLOR_THIN_LINES: UiColor = 19;
+pub const TM_UI_COLOR_THIN_LINES_HOVER: UiColor = 20;
+pub const TM_UI_COLOR_ICONS: UiColor = 21;
+pub const TM_UI_COLOR_ICONS_HOVER: UiColor = 22;
+pub const TM_UI_COLOR_ICONS_ACTIVE: UiColor = 23;
+pub const TM_UI_COLOR_ICON_DIRECTORY: UiColor = 24;
+pub const TM_UI_COLOR_ICON_ASSET: UiColor = 25;
+pub const TM_UI_COLOR_ICON_ENTITY: UiColor = 26;
+pub const TM_UI_COLOR_ICON_COMPONENT: UiColor = 27;
+pub const TM_UI_COLOR_ICON_IMAGE: UiColor = 28;
+pub const TM_UI_COLOR_ICON_MATERIAL: UiColor = 29;
+pub const TM_UI_COLOR_BUTTON_BACKGROUND: UiColor = 30;
+pub const TM_UI_COLOR_BUTTON_BACKGROUND_HOVER: UiColor = 31;
+pub const TM_UI_COLOR_BUTTON_BACKGROUND_ACTIVE: UiColor = 32;
+pub const TM_UI_COLOR_BUTTON_FOREGROUND_ACTIVE: UiColor = 33;
 pub const TM_UI_COLOR_BUTTON_BORDER: UiColor = 34;
 pub const TM_UI_COLOR_BUTTON_BORDER_HOVER: UiColor = 35;
 pub const TM_UI_COLOR_BUTTON_BORDER_ACTIVE: UiColor = 36;
@@ -2880,20 +3095,20 @@ pub const TM_UI_COLOR_CONTROL_BORDER_HOVER: UiColor = 41;
 pub const TM_UI_COLOR_CONTROL_BORDER_ACTIVE: UiColor = 42;
 pub const TM_UI_COLOR_MENU_BACKGROUND: UiColor = 43;
 pub const TM_UI_COLOR_MENU_SELECTED: UiColor = 44;
-pub const TM_UI_COLOR_MENU_MENUBAR_HOVER: UiColor = 45;
+pub const TM_UI_COLOR_MENUBAR_HOVER: UiColor = 45;
 pub const TM_UI_COLOR_TOOLTIP_BACKGROUND: UiColor = 46;
 pub const TM_UI_COLOR_TOOLTIP_BORDER: UiColor = 47;
 pub const TM_UI_COLOR_TOOLTIP_TEXT: UiColor = 48;
 pub const TM_UI_COLOR_VIEWPORT_BACKGROUND: UiColor = 49;
 pub const TM_UI_COLOR_VIEWPORT_SELECTION: UiColor = 50;
-pub const TM_UI_COLOR_LINK: UiColor = 51;
-pub const TM_UI_COLOR_LINK_HOVER: UiColor = 52;
+pub const TM_UI_COLOR_LINK_COLOR: UiColor = 51;
+pub const TM_UI_COLOR_LINK_COLOR_HOVER: UiColor = 52;
 pub const TM_UI_COLOR_NODE_BACKGROUND: UiColor = 53;
 pub const TM_UI_COLOR_NODE_GPU_BACKGROUND: UiColor = 54;
 pub const TM_UI_COLOR_NODE_GPU_BACKGROUND_WATERMARK_TEXT: UiColor = 55;
 pub const TM_UI_COLOR_NODE_EXECUTION_COLOR: UiColor = 56;
-pub const TM_UI_COLOR_GRAPH_GRID_THIN_LINES: UiColor = 57;
-pub const TM_UI_COLOR_GRAPH_GRID_THICK_LINES: UiColor = 58;
+pub const TM_UI_COLOR_GRAPH_GRID_THIN_LINE: UiColor = 57;
+pub const TM_UI_COLOR_GRAPH_GRID_THICK_LINE: UiColor = 58;
 pub const TM_UI_COLOR_SCROLLBAR_BACKGROUND: UiColor = 59;
 pub const TM_UI_COLOR_SCROLLBAR: UiColor = 60;
 pub const TM_UI_COLOR_SCROLLBAR_HOVER: UiColor = 61;
@@ -2936,10 +3151,10 @@ pub type UiMetric = ::std::os::raw::c_int;
 pub const TM_TT_PROP__UI_THEME__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__UI_THEME__BASED_ON: ::std::os::raw::c_int = 1;
 pub const TM_TT_PROP__UI_THEME__COLORS: ::std::os::raw::c_int = 2;
-pub type _bindgen_ty_9 = ::std::os::raw::c_int;
+pub type _bindgen_ty_12 = ::std::os::raw::c_int;
 pub const TM_TT_PROP__UI_THEME_COLOR__NAME: ::std::os::raw::c_int = 0;
 pub const TM_TT_PROP__UI_THEME_COLOR__COLOR: ::std::os::raw::c_int = 1;
-pub type _bindgen_ty_10 = ::std::os::raw::c_int;
+pub type _bindgen_ty_13 = ::std::os::raw::c_int;
 pub const TM_UI__DEFAULT_THEME__DARK: UiDefaultTheme = 0;
 pub const TM_UI__DEFAULT_THEME__LIGHT: UiDefaultTheme = 1;
 pub const TM_UI__DEFAULT_THEME__DARK_HIGH_CONTRAST: UiDefaultTheme = 2;
@@ -2948,7 +3163,7 @@ pub type UiDefaultTheme = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiThemeT {
     pub based_on: UiDefaultTheme,
-    pub _padding_283: [::std::os::raw::c_char; 4usize],
+    pub _padding_281: [::std::os::raw::c_char; 4usize],
     pub tt: *mut TheTruthO,
     pub id: TtIdT,
 }
@@ -2968,12 +3183,12 @@ pub type UiBuffer = ::std::os::raw::c_int;
 #[derive(Copy, Clone)]
 pub struct UiStyleT {
     pub clip: u32,
-    pub _padding_303: [::std::os::raw::c_char; 4usize],
+    pub _padding_301: [::std::os::raw::c_char; 4usize],
     pub font: *const Draw2dFontT,
     pub font_scale: f32,
     pub buffer: UiBuffer,
     pub feather_width: f32,
-    pub _padding_316: [::std::os::raw::c_char; 4usize],
+    pub _padding_314: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiStyleT {
     fn default() -> Self {
@@ -2991,7 +3206,7 @@ pub struct UiScrollbarT {
     pub min: f32,
     pub max: f32,
     pub size: f32,
-    pub _padding_329: [::std::os::raw::c_char; 4usize],
+    pub _padding_327: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiScrollbarT {
     fn default() -> Self {
@@ -3028,7 +3243,7 @@ pub struct UiLabelT {
     pub id: u64,
     pub rect: RectT,
     pub icon: u32,
-    pub _padding_366: [::std::os::raw::c_char; 4usize],
+    pub _padding_364: [::std::os::raw::c_char; 4usize],
     pub text: *const ::std::os::raw::c_char,
     pub tooltip: *const ::std::os::raw::c_char,
 }
@@ -3053,7 +3268,7 @@ pub struct UiTextT {
     pub tooltip: *const ::std::os::raw::c_char,
     pub color: *const ColorSrgbT,
     pub align: UiAlign,
-    pub _padding_390: [::std::os::raw::c_char; 4usize],
+    pub _padding_388: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiTextT {
     fn default() -> Self {
@@ -3072,7 +3287,7 @@ pub struct UiLinkT {
     pub tooltip: *const ::std::os::raw::c_char,
     pub color: *const ColorSrgbT,
     pub align: UiAlign,
-    pub _padding_406: [::std::os::raw::c_char; 4usize],
+    pub _padding_404: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiLinkT {
     fn default() -> Self {
@@ -3089,7 +3304,7 @@ pub struct UiButtonT {
     pub rect: RectT,
     pub visible_rect: RectT,
     pub icon: u32,
-    pub _padding_418: [::std::os::raw::c_char; 4usize],
+    pub _padding_416: [::std::os::raw::c_char; 4usize],
     pub text: *const ::std::os::raw::c_char,
     pub text_color: *const ColorSrgbT,
     pub tooltip: *const ::std::os::raw::c_char,
@@ -3097,7 +3312,7 @@ pub struct UiButtonT {
     pub is_disabled: bool,
     pub hide_background: bool,
     pub hide_margins: bool,
-    pub _padding_428: [::std::os::raw::c_char; 1usize],
+    pub _padding_426: [::std::os::raw::c_char; 1usize],
 }
 impl Default for UiButtonT {
     fn default() -> Self {
@@ -3113,7 +3328,7 @@ pub struct UiCheckboxT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_437: [::std::os::raw::c_char; 7usize],
+    pub _padding_435: [::std::os::raw::c_char; 7usize],
     pub text: *const ::std::os::raw::c_char,
     pub tooltip: *const ::std::os::raw::c_char,
 }
@@ -3131,7 +3346,7 @@ pub struct UiRadioT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_449: [::std::os::raw::c_char; 7usize],
+    pub _padding_447: [::std::os::raw::c_char; 7usize],
     pub text: *const ::std::os::raw::c_char,
     pub tooltip: *const ::std::os::raw::c_char,
 }
@@ -3164,7 +3379,7 @@ pub struct UiSliderT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_470: [::std::os::raw::c_char; 3usize],
+    pub _padding_468: [::std::os::raw::c_char; 3usize],
     pub min: f32,
     pub max: f32,
     pub step: f32,
@@ -3184,7 +3399,7 @@ pub struct Ui2dSliderT {
     pub rect: RectT,
     pub is_disabled: bool,
     pub is_circular: bool,
-    pub _padding_489: [::std::os::raw::c_char; 2usize],
+    pub _padding_487: [::std::os::raw::c_char; 2usize],
     pub min: Vec2T,
     pub max: Vec2T,
     pub step: f32,
@@ -3205,18 +3420,18 @@ pub const TM_UI_SPINNER__DECIMALS__2: ::std::os::raw::c_int = 3;
 pub const TM_UI_SPINNER__DECIMALS__3: ::std::os::raw::c_int = 4;
 pub const TM_UI_SPINNER__DECIMALS__4: ::std::os::raw::c_int = 5;
 pub const TM_UI_SPINNER__DECIMALS__5: ::std::os::raw::c_int = 6;
-pub type _bindgen_ty_11 = ::std::os::raw::c_int;
+pub type _bindgen_ty_14 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiSpinnerT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_521: [::std::os::raw::c_char; 7usize],
+    pub _padding_519: [::std::os::raw::c_char; 7usize],
     pub min: f64,
     pub max: f64,
     pub value_per_pixel: f64,
     pub decimals: u32,
-    pub _padding_531: [::std::os::raw::c_char; 4usize],
+    pub _padding_529: [::std::os::raw::c_char; 4usize],
     pub tooltip: *const ::std::os::raw::c_char,
 }
 impl Default for UiSpinnerT {
@@ -3233,11 +3448,11 @@ pub struct UiDropdownT {
     pub id: u64,
     pub rect: RectT,
     pub is_disabled: bool,
-    pub _padding_541: [::std::os::raw::c_char; 7usize],
+    pub _padding_539: [::std::os::raw::c_char; 7usize],
     pub items: *mut *const ::std::os::raw::c_char,
     pub tooltips: *mut *const ::std::os::raw::c_char,
     pub num_items: u32,
-    pub _padding_549: [::std::os::raw::c_char; 4usize],
+    pub _padding_547: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiDropdownT {
     fn default() -> Self {
@@ -3254,12 +3469,12 @@ pub struct UiTexteditT {
     pub rect: RectT,
     pub is_disabled: bool,
     pub is_password: bool,
-    pub _padding_559: [::std::os::raw::c_char; 6usize],
+    pub _padding_557: [::std::os::raw::c_char; 6usize],
     pub default_text: *const ::std::os::raw::c_char,
     pub select_all_on_mouse_activate: bool,
     pub scroll_to_end: bool,
     pub select_all_on_startup: bool,
-    pub _padding_576: [::std::os::raw::c_char; 1usize],
+    pub _padding_574: [::std::os::raw::c_char; 1usize],
     pub select: UiTexteditTBindgenTy1,
 }
 #[repr(C)]
@@ -3267,7 +3482,7 @@ pub struct UiTexteditT {
 pub struct UiTexteditTBindgenTy1 {
     pub all: bool,
     pub range: bool,
-    pub _padding_586: [::std::os::raw::c_char; 2usize],
+    pub _padding_584: [::std::os::raw::c_char; 2usize],
     pub start: u32,
     pub end: u32,
 }
@@ -3281,7 +3496,7 @@ impl Default for UiTexteditT {
     }
 }
 pub const TM_UI_MENU_DEFAULT_ID_BASE: ::std::os::raw::c_int = -268435456;
-pub type _bindgen_ty_12 = ::std::os::raw::c_int;
+pub type _bindgen_ty_15 = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct UiMenuItemT {
@@ -3314,7 +3529,7 @@ pub struct UiMenubarT {
     pub padding_left_right: f32,
     pub items: *const UiMenuItemT,
     pub num_items: u32,
-    pub _padding_667: [::std::os::raw::c_char; 4usize],
+    pub _padding_665: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiMenubarT {
     fn default() -> Self {
@@ -3330,7 +3545,7 @@ pub struct UiMenuT {
     pub pos: Vec2T,
     pub items: *const UiMenuItemT,
     pub num_items: u32,
-    pub _padding_681: [::std::os::raw::c_char; 4usize],
+    pub _padding_679: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiMenuT {
     fn default() -> Self {
@@ -3383,17 +3598,17 @@ pub struct UiTabbarItemT {
     pub id: u64,
     pub has_close_box: bool,
     pub has_pin: bool,
-    pub _padding_738: [::std::os::raw::c_char; 2usize],
+    pub _padding_736: [::std::os::raw::c_char; 2usize],
     pub pin_type: UiTabPinType,
     pub has_border_color: bool,
-    pub _padding_743: [::std::os::raw::c_char; 3usize],
+    pub _padding_741: [::std::os::raw::c_char; 3usize],
     pub border_color: ColorSrgbT,
     pub disable_drag: bool,
-    pub _padding_748: [::std::os::raw::c_char; 3usize],
+    pub _padding_746: [::std::os::raw::c_char; 3usize],
     pub out_text_rect: RectT,
-    pub _padding_752: [::std::os::raw::c_char; 4usize],
+    pub _padding_750: [::std::os::raw::c_char; 4usize],
     pub icon: u32,
-    pub _padding_756: [::std::os::raw::c_char; 4usize],
+    pub _padding_754: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiTabbarItemT {
     fn default() -> Self {
@@ -3410,13 +3625,15 @@ pub struct UiTabbarT {
     pub rect: RectT,
     pub items: *mut UiTabbarItemT,
     pub num_items: u32,
+    pub num_pseudo_items: u32,
+    pub _padding_770: [::std::os::raw::c_char; 4usize],
     pub can_drag: bool,
     pub can_drag_off: bool,
     pub is_dragging_external_tab: bool,
-    pub _padding_781: [::std::os::raw::c_char; 1usize],
+    pub _padding_784: [::std::os::raw::c_char; 1usize],
     pub dragged_external_item: *mut *const ::std::os::raw::c_char,
     pub vertical: bool,
-    pub _padding_790: [::std::os::raw::c_char; 7usize],
+    pub _padding_793: [::std::os::raw::c_char; 7usize],
 }
 impl Default for UiTabbarT {
     fn default() -> Self {
@@ -3444,7 +3661,7 @@ pub struct UiTabbarResultT {
     pub drag_offset: Vec2T,
     pub hovered_item: u32,
     pub hover: bool,
-    pub _padding_836: [::std::os::raw::c_char; 3usize],
+    pub _padding_839: [::std::os::raw::c_char; 3usize],
 }
 impl Default for UiTabbarResultT {
     fn default() -> Self {
@@ -3462,7 +3679,7 @@ pub struct UiDraggedtabT {
     pub text: *const ::std::os::raw::c_char,
     pub has_close_box: bool,
     pub has_pin: bool,
-    pub _padding_851: [::std::os::raw::c_char; 2usize],
+    pub _padding_854: [::std::os::raw::c_char; 2usize],
     pub pin_type: UiTabPinType,
 }
 impl Default for UiDraggedtabT {
@@ -3479,7 +3696,7 @@ pub struct UiSplitterT {
     pub id: u64,
     pub rect: RectT,
     pub min_size: f32,
-    pub _padding_862: [::std::os::raw::c_char; 4usize],
+    pub _padding_865: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiSplitterT {
     fn default() -> Self {
@@ -3496,14 +3713,14 @@ pub struct UiTitlebarT {
     pub rect: RectT,
     pub has_focus: bool,
     pub is_maximized: bool,
-    pub _padding_878: [::std::os::raw::c_char; 6usize],
+    pub _padding_881: [::std::os::raw::c_char; 6usize],
     pub caption: *const ::std::os::raw::c_char,
     pub border_width: f32,
     pub caption_height: f32,
     pub caption_padding: f32,
-    pub _padding_886: [::std::os::raw::c_char; 4usize],
+    pub _padding_889: [::std::os::raw::c_char; 4usize],
     pub icon_texture: u32,
-    pub _padding_890: [::std::os::raw::c_char; 4usize],
+    pub _padding_893: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiTitlebarT {
     fn default() -> Self {
@@ -3592,7 +3809,7 @@ impl Default for UiMouseHelpTextsT {
 pub struct UiFontT {
     pub id: StrhashT,
     pub size: u32,
-    pub _padding_1021: [::std::os::raw::c_char; 4usize],
+    pub _padding_1024: [::std::os::raw::c_char; 4usize],
     pub font: *mut Draw2dFontT,
 }
 impl Default for UiFontT {
@@ -4116,7 +4333,7 @@ pub const TM_UI_EDIT_KEY_REDO: UiEditKey = 18;
 pub const TM_UI_EDIT_KEY_COUNT: UiEditKey = 19;
 pub type UiEditKey = ::std::os::raw::c_int;
 pub const TM_UI_MAX_TEXT_INPUT: ::std::os::raw::c_int = 256;
-pub type _bindgen_ty_13 = ::std::os::raw::c_int;
+pub type _bindgen_ty_16 = ::std::os::raw::c_int;
 pub const TM_UI_MODIFIERS_NONE: ::std::os::raw::c_int = 0;
 pub const TM_UI_MODIFIERS_SHIFT: ::std::os::raw::c_int = 1;
 pub const TM_UI_MODIFIERS_ALT: ::std::os::raw::c_int = 2;
@@ -4125,7 +4342,7 @@ pub const TM_UI_MODIFIERS_CTRL: ::std::os::raw::c_int = 4;
 pub const TM_UI_MODIFIERS_SHIFT_CTRL: ::std::os::raw::c_int = 5;
 pub const TM_UI_MODIFIERS_ALT_CTRL: ::std::os::raw::c_int = 6;
 pub const TM_UI_MODIFIERS_SHIFT_ALT_CTRL: ::std::os::raw::c_int = 7;
-pub type _bindgen_ty_14 = ::std::os::raw::c_int;
+pub type _bindgen_ty_17 = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiInputStateT {
     pub time: f64,
@@ -4184,7 +4401,7 @@ impl Default for UiInputStateT {
     }
 }
 pub const TM_UI_ACTIVE_DATA_BYTES: ::std::os::raw::c_int = 16384;
-pub type _bindgen_ty_15 = ::std::os::raw::c_int;
+pub type _bindgen_ty_18 = ::std::os::raw::c_int;
 pub const TM_UI_ICON__NONE: UiIcon = 0;
 pub const TM_UI_ICON__PLAY: UiIcon = 1;
 pub const TM_UI_ICON__PAUSE: UiIcon = 2;
@@ -4254,29 +4471,32 @@ pub const TM_UI_ICON__LOGOUT: UiIcon = 65;
 pub const TM_UI_ICON__FOLDER: UiIcon = 66;
 pub const TM_UI_ICON__FOLDER_OPEN: UiIcon = 67;
 pub const TM_UI_ICON__COMPASS: UiIcon = 68;
-pub const TM_UI_ICON__CHILDREN_TREE: UiIcon = 69;
-pub const TM_UI_ICON__CREATION_GRAPH: UiIcon = 70;
-pub const TM_UI_ICON__INHERIT_FROM_PARENT: UiIcon = 71;
-pub const TM_UI_ICON__PROPAGATE_TO_PARENT: UiIcon = 72;
-pub const TM_UI_ICON__ATTACH_TO_PROCESS: UiIcon = 73;
-pub const TM_UI_ICON__CAPTURE_RENDERDOC: UiIcon = 74;
-pub const TM_UI_ICON__TRANSFORM: UiIcon = 75;
-pub const TM_UI_ICON__ENTITY: UiIcon = 76;
-pub const TM_UI_ICON__ENTITY_OUTLINE: UiIcon = 77;
-pub const TM_UI_ICON__ENTITY_DASHED: UiIcon = 78;
-pub const TM_UI_ICON__COMPONENT: UiIcon = 79;
-pub const TM_UI_ICON__COMPONENT_OUTLINE: UiIcon = 80;
-pub const TM_UI_ICON__RENDER_COMPONENT: UiIcon = 81;
-pub const TM_UI_ICON__PHYSICS_SHAPE: UiIcon = 82;
-pub const TM_UI_ICON__PHYSICS_BODY: UiIcon = 83;
-pub const TM_UI_ICON__PHYSICS_JOINT: UiIcon = 84;
+pub const TM_UI_ICON__COLOR_WAND: UiIcon = 69;
+pub const TM_UI_ICON__CHILDREN_TREE: UiIcon = 70;
+pub const TM_UI_ICON__CREATION_GRAPH: UiIcon = 71;
+pub const TM_UI_ICON__INHERIT_FROM_PARENT: UiIcon = 72;
+pub const TM_UI_ICON__PROPAGATE_TO_PARENT: UiIcon = 73;
+pub const TM_UI_ICON__ATTACH_TO_PROCESS: UiIcon = 74;
+pub const TM_UI_ICON__CAPTURE_RENDERDOC: UiIcon = 75;
+pub const TM_UI_ICON__TRANSFORM: UiIcon = 76;
+pub const TM_UI_ICON__ENTITY: UiIcon = 77;
+pub const TM_UI_ICON__ENTITY_OUTLINE: UiIcon = 78;
+pub const TM_UI_ICON__ENTITY_DASHED: UiIcon = 79;
+pub const TM_UI_ICON__COMPONENT: UiIcon = 80;
+pub const TM_UI_ICON__COMPONENT_OUTLINE: UiIcon = 81;
+pub const TM_UI_ICON__RENDER_COMPONENT: UiIcon = 82;
+pub const TM_UI_ICON__PHYSICS_SHAPE: UiIcon = 83;
+pub const TM_UI_ICON__PHYSICS_BODY: UiIcon = 84;
+pub const TM_UI_ICON__PHYSICS_JOINT: UiIcon = 85;
+pub const TM_UI_ICON__SEARCH: UiIcon = 86;
+pub const TM_UI_ICON__OPEN: UiIcon = 87;
 pub type UiIcon = ::std::os::raw::c_int;
 #[repr(C)]
 pub struct UiIconLabelT {
     pub id: u64,
     pub rect: RectT,
     pub icon: UiIcon,
-    pub _padding_112: [::std::os::raw::c_char; 4usize],
+    pub _padding_115: [::std::os::raw::c_char; 4usize],
     pub tooltip: *const ::std::os::raw::c_char,
 }
 impl Default for UiIconLabelT {
@@ -4293,11 +4513,11 @@ pub struct UiIconTextT {
     pub id: u64,
     pub rect: RectT,
     pub icon: UiIcon,
-    pub _padding_122: [::std::os::raw::c_char; 4usize],
+    pub _padding_125: [::std::os::raw::c_char; 4usize],
     pub tooltip: *const ::std::os::raw::c_char,
     pub color: *const ColorSrgbT,
     pub align: u32,
-    pub _padding_126: [::std::os::raw::c_char; 4usize],
+    pub _padding_129: [::std::os::raw::c_char; 4usize],
 }
 impl Default for UiIconTextT {
     fn default() -> Self {
@@ -4899,6 +5119,8 @@ pub struct GpuPickingO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::entity::*;
 use crate::plugins::renderer::*;
@@ -4953,6 +5175,11 @@ impl UiClipboardApi {
 
 impl crate::Api for UiClipboardApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_clipboard_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl DockingApi {
@@ -5065,6 +5292,7 @@ impl DockingApi {
         settings_tt: *mut TheTruthO,
         settings_obj: TtIdT,
         default_padding: f32,
+        workspaces_mode: DockingWorkspacesBarMode,
     ) {
         self.ui.unwrap()(
             ui,
@@ -5078,6 +5306,7 @@ impl DockingApi {
             settings_tt,
             settings_obj,
             default_padding,
+            workspaces_mode,
         )
     }
 
@@ -5202,10 +5431,27 @@ impl DockingApi {
     pub unsafe fn clear_cached_ui(&self, tab: *mut TabI) {
         self.clear_cached_ui.unwrap()(tab)
     }
+
+    pub unsafe fn tab_vt(&self, name_hash: StrhashT) -> *mut TabVt {
+        self.tab_vt.unwrap()(name_hash)
+    }
+
+    pub unsafe fn set_workspace_context_menu(&self, menu: DockingWorkspaceContextMenuF) {
+        self.set_workspace_context_menu.unwrap()(menu)
+    }
+
+    pub unsafe fn set_current_workspace(&self, ui: *mut UiO, workspace_idx: u32) {
+        self.set_current_workspace.unwrap()(ui, workspace_idx)
+    }
 }
 
 impl crate::Api for DockingApi {
     const NAME: ConstCStr = const_cstr!("tm_docking_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UiDragApi {
@@ -5249,6 +5495,11 @@ impl UiDragApi {
 
 impl crate::Api for UiDragApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_drag_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl Draw2dApi {
@@ -5315,8 +5566,9 @@ impl Draw2dApi {
         r: RectT,
         texture: u32,
         uv: RectT,
+        native_color_space: bool,
     ) {
-        self.textured_rect.unwrap()(vbuffer, ibuffer, style, r, texture, uv)
+        self.textured_rect.unwrap()(vbuffer, ibuffer, style, r, texture, uv, native_color_space)
     }
 
     pub unsafe fn aux_rect(
@@ -5585,6 +5837,11 @@ impl Draw2dApi {
 
 impl crate::Api for Draw2dApi {
     const NAME: ConstCStr = const_cstr!("tm_draw2d_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl FontApi {
@@ -5651,6 +5908,11 @@ impl FontApi {
 
 impl crate::Api for FontApi {
     const NAME: ConstCStr = const_cstr!("tm_font_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl FontLibraryApi {
@@ -5712,6 +5974,11 @@ impl FontLibraryApi {
 
 impl crate::Api for FontLibraryApi {
     const NAME: ConstCStr = const_cstr!("tm_font_library_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 1u32,
+        patch: 0u32,
+    };
 }
 
 impl GizmoApi {
@@ -5779,6 +6046,81 @@ impl GizmoApi {
 
 impl crate::Api for GizmoApi {
     const NAME: ConstCStr = const_cstr!("tm_gizmo_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
+}
+
+impl TabLayoutApi {
+    pub unsafe fn instantiate_layout(
+        &self,
+        ui: *mut UiO,
+        tabwell: *mut DockingTabwellO,
+        layout: *mut TabLayoutT,
+        context: *mut TabCreateContextT,
+        reuse_old_tabs: bool,
+    ) {
+        self.instantiate_layout.unwrap()(ui, tabwell, layout, context, reuse_old_tabs)
+    }
+
+    pub unsafe fn load_and_instantiate_layout(
+        &self,
+        settings_tt: *mut TheTruthO,
+        app_tt: *mut TheTruthO,
+        tabwell_id: TtIdT,
+        ui: *mut UiO,
+        tabwell: *mut DockingTabwellO,
+        context: *mut TabCreateContextT,
+        restore_roots: bool,
+        reuse_old_tabs: bool,
+    ) {
+        self.load_and_instantiate_layout.unwrap()(
+            settings_tt,
+            app_tt,
+            tabwell_id,
+            ui,
+            tabwell,
+            context,
+            restore_roots,
+            reuse_old_tabs,
+        )
+    }
+
+    pub unsafe fn save_instantiated_layout(
+        &self,
+        tt: *mut TheTruthO,
+        root_tabwell: *mut DockingTabwellO,
+        only_save_restorable_tabs: bool,
+        undo_scope: TtUndoScopeT,
+    ) -> TtIdT {
+        self.save_instantiated_layout.unwrap()(
+            tt,
+            root_tabwell,
+            only_save_restorable_tabs,
+            undo_scope,
+        )
+    }
+
+    pub unsafe fn save_layout(
+        &self,
+        tt: *mut TheTruthO,
+        layout: *const TabLayoutT,
+        only_save_restorable_tabs: bool,
+        undo_scope: TtUndoScopeT,
+    ) -> TtIdT {
+        self.save_layout.unwrap()(tt, layout, only_save_restorable_tabs, undo_scope)
+    }
+}
+
+impl crate::Api for TabLayoutApi {
+    const NAME: ConstCStr = const_cstr!("tm_tab_layout_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UiModalApi {
@@ -5857,10 +6199,36 @@ impl UiModalApi {
             output_text_bytes,
         )
     }
+
+    pub unsafe fn message_box_with_custom_ui_callback(
+        &self,
+        title: *const ::std::os::raw::c_char,
+        text: *const ::std::os::raw::c_char,
+        callback: UiModalCustomCallback,
+        callback_data: *mut ::std::os::raw::c_void,
+        custom_ui_height: f32,
+        buttons: *mut *const ::std::os::raw::c_char,
+        num_buttons: u32,
+    ) -> u32 {
+        self.message_box_with_custom_ui_callback.unwrap()(
+            title,
+            text,
+            callback,
+            callback_data,
+            custom_ui_height,
+            buttons,
+            num_buttons,
+        )
+    }
 }
 
 impl crate::Api for UiModalApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_modal_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 1u32,
+        patch: 0u32,
+    };
 }
 
 impl Shape3dApi {
@@ -5889,6 +6257,11 @@ impl Shape3dApi {
 
 impl crate::Api for Shape3dApi {
     const NAME: ConstCStr = const_cstr!("tm_shape3d_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ShortcutManagerApi {
@@ -5918,6 +6291,15 @@ impl ShortcutManagerApi {
     pub unsafe fn disable_shortcut_processing(&self) {
         self.disable_shortcut_processing.unwrap()()
     }
+}
+
+impl crate::Api for ShortcutManagerApi {
+    const NAME: ConstCStr = const_cstr!("tm_shortcut_manager_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ToolbarApi {
@@ -5964,12 +6346,18 @@ impl ToolbarApi {
 
 impl crate::Api for ToolbarApi {
     const NAME: ConstCStr = const_cstr!("tm_toolbar_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TtfBakerApi {
     pub unsafe fn bake(
         &self,
         ttf: *const u8,
+        font_index: u32,
         font_size: f32,
         font_scales: *const f32,
         num_scales: u32,
@@ -5985,6 +6373,7 @@ impl TtfBakerApi {
     ) -> *mut FontT {
         self.bake.unwrap()(
             ttf,
+            font_index,
             font_size,
             font_scales,
             num_scales,
@@ -6003,6 +6392,11 @@ impl TtfBakerApi {
 
 impl crate::Api for TtfBakerApi {
     const NAME: ConstCStr = const_cstr!("tm_ttf_baker_api");
+    const VERSION: VersionT = VersionT {
+        major: 2u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UiApi {
@@ -6751,6 +7145,11 @@ impl UiApi {
 
 impl crate::Api for UiApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UiIconApi {
@@ -6802,6 +7201,11 @@ impl UiIconApi {
 
 impl crate::Api for UiIconApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_icon_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UiRendererApi {
@@ -6892,6 +7296,11 @@ impl UiRendererApi {
 
 impl crate::Api for UiRendererApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_renderer_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UiTreeApi {
@@ -6969,6 +7378,11 @@ impl UiTreeApi {
 
 impl crate::Api for UiTreeApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_tree_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 pub const TM_TT_TYPE_HASH__CLIPBOARD: StrhashT = StrhashT {
@@ -6976,6 +7390,12 @@ pub const TM_TT_TYPE_HASH__CLIPBOARD: StrhashT = StrhashT {
 };
 pub const TM_TT_TYPE_HASH__DOCKING_SETTINGS: StrhashT = StrhashT {
     u64_: 13677458105631742768u64,
+};
+pub const TM_TT_TYPE_HASH__TABWELL: StrhashT = StrhashT {
+    u64_: 11643281543487517665u64,
+};
+pub const TM_TT_TYPE_HASH__TAB_VIEW: StrhashT = StrhashT {
+    u64_: 7890642175358502121u64,
 };
 pub const TM_TT_TYPE_HASH__SHORTCUTS_ENTRY: StrhashT = StrhashT {
     u64_: 14951423256457982727u64,
@@ -7048,4 +7468,114 @@ pub const TM_UI_ROLE__TEXTEDIT: StrhashT = StrhashT {
 };
 pub const TM_FONT__IONICONS: StrhashT = StrhashT {
     u64_: 11300213934132052854u64,
+};
+pub const TM_FONT_PROVIDER_T_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_FONT_LIBRARY_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 1u32,
+    patch: 0u32,
+};
+pub const TM_DOCKING_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_CLIPBOARD_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TAB_LAYOUT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TAB_VT_VERSION: VersionT = VersionT {
+    major: 3u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_MODAL_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 1u32,
+    patch: 0u32,
+};
+pub const TM_FONT_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_DRAG_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHAPE3D_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHORTCUT_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TOOLBAR_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_FONT_PROVIDER_F_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_DRAW2D_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_FONT_REQUEST_GLYPHS_T_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_RENDERER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_TREE_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_SHORTCUT_MANAGER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TTF_BAKER_API_VERSION: VersionT = VersionT {
+    major: 2u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_ICON_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GIZMO_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };

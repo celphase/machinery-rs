@@ -124,18 +124,8 @@ impl<T> ::std::cmp::Eq for __BindgenUnionField<T> {}
 pub const __SAL_H_VERSION: u32 = 180000000;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const TM_TT_TYPE__ASSET_BROWSER: &'static [u8; 17usize] = b"tm_asset_browser\0";
-pub const TM_ASSET_BROWSER_CREATE_ASSET_INTERFACE_NAME: &'static [u8; 32usize] =
-    b"tm_asset_browser_create_asset_i\0";
-pub const TM_ASSET_BROWSER_OPEN_ASSET_API_NAME: &'static [u8; 32usize] =
-    b"tm_asset_browser_open_asset_api\0";
-pub const TM_ASSET_BROWSER_ADD_ASSET_API_NAME: &'static [u8; 31usize] =
-    b"tm_asset_browser_add_asset_api\0";
-pub const TM_ASSET_BROWSER_SELECT_ASSET_API_NAME: &'static [u8; 34usize] =
-    b"tm_asset_browser_select_asset_api\0";
-pub const TM_ASSET_BROWSER_API_NAME: &'static [u8; 21usize] = b"tm_asset_browser_api\0";
 pub const TM_ASSET_LABEL_MAX: u32 = 256;
 pub const TM_ASSET_LABEL_BITFLAG_UINT64_COUNT: u32 = 4;
-pub const TM_ASSET_LABEL_API_NAME: &'static [u8; 19usize] = b"tm_asset_label_api\0";
 pub const TM_TT_TYPE__GRAPH: &'static [u8; 9usize] = b"tm_graph\0";
 pub const TM_TT_TYPE__GRAPH_NODE: &'static [u8; 14usize] = b"tm_graph_node\0";
 pub const TM_TT_TYPE__GRAPH_CONNECTION: &'static [u8; 20usize] = b"tm_graph_connection\0";
@@ -155,15 +145,7 @@ pub const TM_TT_TYPE__GRAPH_DEBUGGER_PERSISTENT_SETTINGS: &'static [u8; 38usize]
     b"tm_graph_debugger_persistent_settings\0";
 pub const TM_TT_TYPE__GRAPH_SETTINGS_BREAKPOINT: &'static [u8; 29usize] =
     b"tm_graph_settings_breakpoint\0";
-pub const TM_GRAPH_DRAG_AND_DROP_INTERFACE_NAME: &'static [u8; 25usize] =
-    b"tm_graph_drag_and_drop_i\0";
-pub const TM_GRAPH_API_NAME: &'static [u8; 13usize] = b"tm_graph_api\0";
-pub const TM_PROFILER_VIEW_API_NAME: &'static [u8; 21usize] = b"tm_profiler_view_api\0";
 pub const TM_TT_TYPE__PROPERTIES_SETTINGS: &'static [u8; 23usize] = b"tm_properties_settings\0";
-pub const TM_PROPERTIES_VIEW_API_NAME: &'static [u8; 23usize] = b"tm_properties_view_api\0";
-pub const TM_TREE_VIEW_API_NAME: &'static [u8; 17usize] = b"tm_tree_view_api\0";
-pub const TM_UI_POPUP_ITEM_PICKER_API_NAME: &'static [u8; 28usize] =
-    b"tm_ui_popup_item_picker_api\0";
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
@@ -520,7 +502,7 @@ pub struct AssetBrowserConfigT {
         ),
     >,
     pub disable_thumbnail_generation: bool,
-    pub _padding_284: [::std::os::raw::c_char; 3usize],
+    pub _padding_286: [::std::os::raw::c_char; 3usize],
     pub num_custom_menu_items: u32,
     pub custom_menu_items: *const AssetBrowserCustomMenuItemI,
     pub save_interface: *mut AssetSaveI,
@@ -776,7 +758,11 @@ pub struct AssetLabelApi {
 #[repr(C)]
 pub struct GraphAspectI {
     pub node_interface_name: *const ::std::os::raw::c_char,
+    pub node_interface_version: VersionT,
+    pub _padding_57: [::std::os::raw::c_char; 4usize],
     pub io_type_interface_name: *const ::std::os::raw::c_char,
+    pub io_type_interface_version: VersionT,
+    pub _padding_66: [::std::os::raw::c_char; 4usize],
     pub graph_object: ::std::option::Option<
         unsafe extern "C" fn(tt: *const TheTruthO, root_object: TtIdT) -> TtIdT,
     >,
@@ -796,7 +782,7 @@ pub struct GraphIoTypeT {
     pub type_hash: StrhashT,
     pub display_name: *const ::std::os::raw::c_char,
     pub size: u32,
-    pub _padding_84: [::std::os::raw::c_char; 4usize],
+    pub _padding_93: [::std::os::raw::c_char; 4usize],
 }
 impl Default for GraphIoTypeT {
     fn default() -> Self {
@@ -937,10 +923,10 @@ pub struct GraphConnectorT {
     pub edit_type_hash: StrhashT,
     pub display_name: *const ::std::os::raw::c_char,
     pub optional: bool,
-    pub _padding_336: [::std::os::raw::c_char; 7usize],
+    pub _padding_349: [::std::os::raw::c_char; 7usize],
     pub tooltip: *mut ::std::os::raw::c_char,
     pub hidden: bool,
-    pub _padding_345: [::std::os::raw::c_char; 7usize],
+    pub _padding_358: [::std::os::raw::c_char; 7usize],
     pub default_value: *const GraphGenericValueT,
 }
 impl Default for GraphConnectorT {
@@ -987,7 +973,7 @@ pub struct GraphDrawConnectorsArgsT {
     pub graph_scale: f32,
     pub property_panel_mode: bool,
     pub show_removed_inherited: bool,
-    pub _padding_439: [::std::os::raw::c_char; 2usize],
+    pub _padding_452: [::std::os::raw::c_char; 2usize],
     pub expanded: *mut SetT,
     pub graph: *mut GraphO,
     pub node_id: TtIdT,
@@ -1032,6 +1018,8 @@ pub struct GraphNodeTypeI {
     pub static_connectors: GraphNodeConnectorsT,
     pub settings_type_hash: StrhashT,
     pub cache_tag: StrhashT,
+    pub experimental: bool,
+    pub _padding_534: [::std::os::raw::c_char; 7usize],
     pub dynamic_connectors: ::std::option::Option<
         unsafe extern "C" fn(
             tt: *const TheTruthO,
@@ -1120,8 +1108,9 @@ impl Default for GraphDragAndDropI {
 pub struct GraphUiResT {
     pub focus_changed: bool,
     pub selection_changed: bool,
-    pub _padding_589: [::std::os::raw::c_char; 6usize],
+    pub _padding_607: [::std::os::raw::c_char; 6usize],
     pub focus: TtIdT,
+    pub next_root: TtIdT,
 }
 impl Default for GraphUiResT {
     fn default() -> Self {
@@ -1132,6 +1121,7 @@ impl Default for GraphUiResT {
         }
     }
 }
+pub type GraphExecutionPathT = bool;
 #[repr(C)]
 #[derive(Default, Copy, Clone)]
 pub struct GraphApi {
@@ -1142,6 +1132,7 @@ pub struct GraphApi {
             tt: *mut TheTruthO,
             graph_id: TtIdT,
             node_interface_name: *const ::std::os::raw::c_char,
+            node_interface_version: VersionT,
             undo_stack: *mut UndoStackI,
             asset_root: TtIdT,
             settings_tt: *mut TheTruthO,
@@ -1165,7 +1156,7 @@ pub struct GraphApi {
             ui: *mut UiO,
             style: *const UiStyleT,
             rect: RectT,
-            tab: *mut TabI,
+            ui_root_id: u64,
         ) -> GraphUiResT,
     >,
     pub menu: ::std::option::Option<
@@ -1175,7 +1166,11 @@ pub struct GraphApi {
         unsafe extern "C" fn(inst: *mut GraphO, ta: *mut TempAllocatorI) -> *const TtIdT,
     >,
     pub refresh_node_types: ::std::option::Option<
-        unsafe extern "C" fn(inst: *mut GraphO, node_interface_name: *const ::std::os::raw::c_char),
+        unsafe extern "C" fn(
+            inst: *mut GraphO,
+            node_interface_name: *const ::std::os::raw::c_char,
+            node_interface_version: VersionT,
+        ),
     >,
     pub toolbars: ::std::option::Option<
         unsafe extern "C" fn(inst: *mut GraphO, ta: *mut TempAllocatorI) -> *mut ToolbarI,
@@ -2584,6 +2579,8 @@ pub struct GraphO {
 
 use const_cstr::{const_cstr, ConstCStr};
 
+use crate::foundation::VersionT;
+
 use crate::foundation::*;
 use crate::plugins::ui::*;
 
@@ -2610,6 +2607,11 @@ impl AssetBrowserOpenAssetApi {
 
 impl crate::Api for AssetBrowserOpenAssetApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_browser_open_asset_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl AssetBrowserAddAssetApi {
@@ -2670,6 +2672,11 @@ impl AssetBrowserAddAssetApi {
 
 impl crate::Api for AssetBrowserAddAssetApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_browser_add_asset_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl AssetBrowserSelectAssetApi {
@@ -2695,6 +2702,11 @@ impl AssetBrowserSelectAssetApi {
 
 impl crate::Api for AssetBrowserSelectAssetApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_browser_select_asset_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl AssetBrowserApi {
@@ -2772,6 +2784,11 @@ impl AssetBrowserApi {
 
 impl crate::Api for AssetBrowserApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_browser_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl AssetLabelApi {
@@ -2904,6 +2921,11 @@ impl AssetLabelApi {
 
 impl crate::Api for AssetLabelApi {
     const NAME: ConstCStr = const_cstr!("tm_asset_label_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl GraphApi {
@@ -2917,6 +2939,7 @@ impl GraphApi {
         tt: *mut TheTruthO,
         graph_id: TtIdT,
         node_interface_name: *const ::std::os::raw::c_char,
+        node_interface_version: VersionT,
         undo_stack: *mut UndoStackI,
         asset_root: TtIdT,
         settings_tt: *mut TheTruthO,
@@ -2927,6 +2950,7 @@ impl GraphApi {
             tt,
             graph_id,
             node_interface_name,
+            node_interface_version,
             undo_stack,
             asset_root,
             settings_tt,
@@ -2957,9 +2981,9 @@ impl GraphApi {
         ui: *mut UiO,
         style: *const UiStyleT,
         rect: RectT,
-        tab: *mut TabI,
+        ui_root_id: u64,
     ) -> GraphUiResT {
-        self.ui.unwrap()(inst, ui, style, rect, tab)
+        self.ui.unwrap()(inst, ui, style, rect, ui_root_id)
     }
 
     pub unsafe fn menu(&self, inst: *mut GraphO, ui: *mut UiO, style: *const UiStyleT, pos: Vec2T) {
@@ -2978,8 +3002,9 @@ impl GraphApi {
         &self,
         inst: *mut GraphO,
         node_interface_name: *const ::std::os::raw::c_char,
+        node_interface_version: VersionT,
     ) {
-        self.refresh_node_types.unwrap()(inst, node_interface_name)
+        self.refresh_node_types.unwrap()(inst, node_interface_name, node_interface_version)
     }
 
     pub unsafe fn toolbars(&self, inst: *mut GraphO, ta: *mut TempAllocatorI) -> *mut ToolbarI {
@@ -3013,6 +3038,11 @@ impl GraphApi {
 
 impl crate::Api for GraphApi {
     const NAME: ConstCStr = const_cstr!("tm_graph_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl ProfilerViewApi {
@@ -3060,6 +3090,11 @@ impl ProfilerViewApi {
 
 impl crate::Api for ProfilerViewApi {
     const NAME: ConstCStr = const_cstr!("tm_profiler_view_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl PropertiesViewApi {
@@ -4054,6 +4089,11 @@ impl PropertiesViewApi {
 
 impl crate::Api for PropertiesViewApi {
     const NAME: ConstCStr = const_cstr!("tm_properties_view_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl TreeViewApi {
@@ -4191,6 +4231,11 @@ impl TreeViewApi {
 
 impl crate::Api for TreeViewApi {
     const NAME: ConstCStr = const_cstr!("tm_tree_view_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 impl UiPopupItemPickerApi {
@@ -4238,6 +4283,11 @@ impl UiPopupItemPickerApi {
 
 impl crate::Api for UiPopupItemPickerApi {
     const NAME: ConstCStr = const_cstr!("tm_ui_popup_item_picker_api");
+    const VERSION: VersionT = VersionT {
+        major: 1u32,
+        minor: 0u32,
+        patch: 0u32,
+    };
 }
 
 pub const TM_TT_TYPE_HASH__ASSET_BROWSER: StrhashT = StrhashT {
@@ -4326,4 +4376,74 @@ pub const TM_TT_ASPECT__TREE_VIEW: StrhashT = StrhashT {
 };
 pub const TM_UI_ACTIVE_DATA__PICKER: StrhashT = StrhashT {
     u64_: 5258182182097423975u64,
+};
+pub const TM_ASSET_BROWSER_ADD_ASSET_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GRAPH_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_UI_POPUP_ITEM_PICKER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GRAPH_DRAG_AND_DROP_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_BROWSER_CREATE_ASSET_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PROPERTIES_VIEW_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_BROWSER_CUSTOM_MENU_ITEM_I_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_BROWSER_SELECT_ASSET_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_TREE_VIEW_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_BROWSER_OPEN_ASSET_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_BROWSER_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_PROFILER_VIEW_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_ASSET_LABEL_API_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
+};
+pub const TM_GRAPH_IO_TYPE_T_VERSION: VersionT = VersionT {
+    major: 1u32,
+    minor: 0u32,
+    patch: 0u32,
 };
