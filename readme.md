@@ -22,6 +22,8 @@ cargo make machinery
 
 ## Generator
 
+***This generator will soon be re-written when the official API header parser becomes available.***
+
 This project includes a generator to generate bindings and utilities from The Machinery and plugins'
 headers as long as they conform to The Machinery header guidelines.
 You can also use this generator for your own third party projects.
