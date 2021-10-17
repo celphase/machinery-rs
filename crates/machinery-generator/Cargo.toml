@@ -16,4 +16,4 @@ serde = { version = "1.0.126", features = ["derive"] }
 syn = { version = "1.0.73", features = ["full"] }
 toml = "0.5.8"
 walkdir = "2.3.2"
-nom = "7.0.0-alpha1"
+nom = "7.0.0"
