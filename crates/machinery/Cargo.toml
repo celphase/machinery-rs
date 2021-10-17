@@ -3,7 +3,7 @@ name = "machinery"
 version = "0.12.0"
 license = "MIT OR Apache-2.0"
 description = "Utilities and safe wrappers for working with The Machinery game engine"
-repository = "https://gitlab.com/celphase/machinery-rs"
+repository = "https://github.com/celphase/machinery-rs"
 edition = "2018"
 
 [dependencies]
