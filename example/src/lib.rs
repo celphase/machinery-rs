@@ -31,7 +31,7 @@ fn load(plugin: &mut Plugin, registry: *const ApiRegistryApi) {
     // Integration with the tracing crate
     machinery::tracing::initialize(registry_ref);
 
-    // Register the default service
+    // Register the example service
     plugin.service(ExampleService::new(registry));
 }
 
@@ -113,8 +113,6 @@ impl Drop for ExampleService {
                 Self::register_engines as *const c_void,
             );
         }
-
-        event!(Level::INFO, "Example rust plugin unloaded.");
     }
 }
 

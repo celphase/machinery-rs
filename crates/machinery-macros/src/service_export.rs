@@ -5,11 +5,11 @@ use syn::{
     parse_macro_input, FnArg, Ident, ImplItem, ItemImpl, Result, Type,
 };
 
-struct ExportSingletonFnsInput {
+struct ServiceExportInput {
     item: ItemImpl,
 }
 
-impl Parse for ExportSingletonFnsInput {
+impl Parse for ServiceExportInput {
     fn parse(input: ParseStream) -> Result<Self> {
         Ok(Self {
             item: input.parse()?,
@@ -18,7 +18,7 @@ impl Parse for ExportSingletonFnsInput {
 }
 
 pub fn tm_service_export(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let mut input = parse_macro_input!(item as ExportSingletonFnsInput);
+    let mut input = parse_macro_input!(item as ServiceExportInput);
 
     let ty_name = if let Type::Path(ref path) = &*input.item.self_ty {
         path.path.segments.last().unwrap().ident.clone()

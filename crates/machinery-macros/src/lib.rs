@@ -13,8 +13,8 @@ pub fn tm_plugin(
 }
 
 #[proc_macro_derive(Service)]
-pub fn tm_derive_service(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    service_derive::tm_derive_service(item)
+pub fn tm_service_derive(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    service_derive::tm_service_derive(item)
 }
 
 #[proc_macro_attribute]
@@ -30,7 +30,7 @@ pub fn tm_instance_export(
     attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    instance_export::export_instance_fns(attr, item)
+    instance_export::tm_instance_export(attr, item)
 }
 
 /// Generates constants for a The Machinery identifier.

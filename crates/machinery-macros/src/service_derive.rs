@@ -4,11 +4,11 @@ use syn::{
     parse_macro_input, ItemStruct, Result,
 };
 
-struct DeriveServiceInput {
+struct ServiceDeriveInput {
     item: ItemStruct,
 }
 
-impl Parse for DeriveServiceInput {
+impl Parse for ServiceDeriveInput {
     fn parse(input: ParseStream) -> Result<Self> {
         Ok(Self {
             item: input.parse()?,
@@ -16,8 +16,8 @@ impl Parse for DeriveServiceInput {
     }
 }
 
-pub fn tm_derive_service(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let input = parse_macro_input!(item as DeriveServiceInput);
+pub fn tm_service_derive(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let input = parse_macro_input!(item as ServiceDeriveInput);
     let ident = input.item.ident;
 
     // Generate the implementation

@@ -5,11 +5,11 @@ use syn::{
     parse_macro_input, FnArg, Ident, ImplItem, ItemImpl, Result, Type,
 };
 
-struct ExportInstanceFnsInput {
+struct InstanceExportInput {
     item: ItemImpl,
 }
 
-impl Parse for ExportInstanceFnsInput {
+impl Parse for InstanceExportInput {
     fn parse(input: ParseStream) -> Result<Self> {
         Ok(Self {
             item: input.parse()?,
@@ -17,12 +17,12 @@ impl Parse for ExportInstanceFnsInput {
     }
 }
 
-pub fn export_instance_fns(
+pub fn tm_instance_export(
     attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let target = attr.to_string();
-    let mut input = parse_macro_input!(item as ExportInstanceFnsInput);
+    let mut input = parse_macro_input!(item as InstanceExportInput);
 
     let ty_name = if let Type::Path(ref path) = &*input.item.self_ty {
         path.path.segments.last().unwrap().ident.clone()
