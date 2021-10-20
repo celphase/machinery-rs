@@ -373,14 +373,10 @@ fn static_hash_define(input: &str) -> IResult<&str, StaticHashDefine> {
 }
 
 fn identifier(input: &str) -> IResult<&str, String> {
-    fold_many1(
-        alphanumeric_or_underscore,
-        || String::new(),
-        |mut acc, c| {
-            acc.push(c);
-            acc
-        },
-    )(input)
+    fold_many1(alphanumeric_or_underscore, String::new, |mut acc, c| {
+        acc.push(c);
+        acc
+    })(input)
 }
 
 fn alphanumeric_or_underscore(input: &str) -> IResult<&str, char> {
@@ -389,14 +385,10 @@ fn alphanumeric_or_underscore(input: &str) -> IResult<&str, char> {
 
 fn string_literal(input: &str) -> IResult<&str, String> {
     let (input, _) = char('"')(input)?;
-    let (input, value) = fold_many1(
-        none_of("\""),
-        || String::new(),
-        |mut acc, c| {
-            acc.push(c);
-            acc
-        },
-    )(input)?;
+    let (input, value) = fold_many1(none_of("\""), String::new, |mut acc, c| {
+        acc.push(c);
+        acc
+    })(input)?;
     let (input, _) = char('"')(input)?;
 
     Ok((input, value))

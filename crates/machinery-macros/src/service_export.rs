@@ -17,13 +17,13 @@ impl Parse for ExportSingletonFnsInput {
     }
 }
 
-pub fn export_singleton_fns(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn tm_service_export(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let mut input = parse_macro_input!(item as ExportSingletonFnsInput);
 
     let ty_name = if let Type::Path(ref path) = &*input.item.self_ty {
         path.path.segments.last().unwrap().ident.clone()
     } else {
-        panic!("Invalid target for export_singleton_fns")
+        panic!("Invalid target for tm_service_export")
     };
 
     // Go over all functions in the input
@@ -55,7 +55,7 @@ pub fn export_singleton_fns(item: proc_macro::TokenStream) -> proc_macro::TokenS
             let ret_val = &fun_item.sig.output;
             let wrapper = quote! {
                 unsafe extern "C" fn #original_name(#(#args_with_types),*) #ret_val {
-                    use machinery::Singleton;
+                    use machinery::Service;
                     (*#ty_name::ptr()).#internal_ident(#(#args_without_types),*)
                 }
             };

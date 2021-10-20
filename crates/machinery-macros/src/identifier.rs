@@ -5,11 +5,11 @@ use syn::{
     parse_macro_input, Result,
 };
 
-struct TmIdentInput {
+struct IdentifierInput {
     item: Literal,
 }
 
-impl Parse for TmIdentInput {
+impl Parse for IdentifierInput {
     fn parse(input: ParseStream) -> Result<Self> {
         Ok(Self {
             item: input.parse()?,
@@ -17,8 +17,8 @@ impl Parse for TmIdentInput {
     }
 }
 
-pub fn identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let input = parse_macro_input!(item as TmIdentInput);
+pub fn tm_identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let input = parse_macro_input!(item as IdentifierInput);
     let literal = input.item;
 
     // Extract the inner string value

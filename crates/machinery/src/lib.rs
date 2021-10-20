@@ -1,8 +1,11 @@
+mod plugin;
 mod registry_storage;
-pub mod singleton;
+mod service;
 pub mod tracing;
 
-pub use self::{registry_storage::RegistryStorage, singleton::Singleton};
+use std::sync::atomic::{AtomicPtr, Ordering};
+
+pub use self::{registry_storage::RegistryStorage, service::Service, plugin::Plugin};
 
 use const_cstr::ConstCStr;
 use machinery_api::{
@@ -13,35 +16,39 @@ use machinery_api::{
 // Re-export macros for convenience
 pub use machinery_macros::*;
 
-#[macro_export]
-macro_rules! plugin {
-    ($ty:ident) => {
-        #[no_mangle]
-        pub unsafe extern "C" fn tm_load_plugin(
-            registry: *const machinery_api::foundation::ApiRegistryApi,
-            load: bool,
-        ) {
-            machinery::load_plugin::<$ty>(registry, load);
-        }
-    };
-}
-
-/// # Safety
-/// This should only be called once for load and once for unload.
-pub unsafe fn load_plugin<P: Plugin>(registry: *const ApiRegistryApi, load: bool) {
+#[doc(hidden)]
+pub unsafe fn load_plugin<F: Fn(&mut Plugin, *const ApiRegistryApi)>(
+    loader: F,
+    registry: *const ApiRegistryApi,
+    load: bool,
+) {
     if load {
-        // Load the plugin
-        let plugin = P::load(registry);
-        P::create(plugin);
+        let mut plugin = Plugin::new();
+        loader(&mut plugin, registry);
+
+        // Store the plugin instance
+        let boxed = Box::new(plugin);
+        let result = INSTANCE.swap(Box::into_raw(boxed), Ordering::SeqCst);
+
+        // If the plugin was already loaded, the engine did something very wrong, or the function
+        // was incorrectly called by the user
+        if !result.is_null() {
+            panic!("Plugin was already loaded on load!");
+        }
     } else {
-        // Unload the plugin
-        P::destroy();
+        // Take out the plugin instance
+        let plugin = INSTANCE.swap(std::ptr::null_mut(), Ordering::SeqCst);
+
+        // Sanity doublecheck
+        if plugin.is_null() {
+            panic!("Plugin wasn't loaded on unload!");
+        }
+
+        let _ = Box::from_raw(plugin);
     }
 }
 
-pub trait Plugin: Singleton {
-    fn load(registry: *const ApiRegistryApi) -> Self;
-}
+static INSTANCE: AtomicPtr<Plugin> = AtomicPtr::new(std::ptr::null_mut());
 
 /// Unique identifier, made up of a string name and a hash generated from that name.
 ///

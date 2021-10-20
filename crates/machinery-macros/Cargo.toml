@@ -1,6 +1,6 @@
 [package]
 name = "machinery-macros"
-version = "0.5.1"
+version = "0.6.0"
 license = "MIT OR Apache-2.0"
 description = "Macro utilities for the `machinery` and `machinery-api` crates"
 repository = "https://github.com/celphase/machinery-rs"

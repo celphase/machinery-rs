@@ -1,7 +1,9 @@
 use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
-use machinery::{export_singleton_fns, get_api, identifier, plugin, Identifier, Plugin, Singleton};
+use machinery::{
+    get_api, tm_identifier, tm_plugin, tm_service_export, Identifier, Plugin, Service,
+};
 use machinery_api::{
     foundation::{
         ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
@@ -22,33 +24,61 @@ use machinery_api::{
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
 
-plugin!(ExamplePlugin);
+#[tm_plugin]
+fn load(plugin: &mut Plugin, registry: *const ApiRegistryApi) {
+    let registry_ref = unsafe { &*registry };
+
+    // Integration with the tracing crate
+    machinery::tracing::initialize(registry_ref);
+
+    // Register the default service
+    plugin.service(ExampleService::new(registry));
+}
 
 #[allow(clippy::vec_box)]
-#[derive(Singleton)]
-struct ExamplePlugin {
+#[derive(Service)]
+struct ExampleService {
+    // Stored APIs
     registry: *const ApiRegistryApi,
     tt_api: *const TheTruthApi,
     tt_common_types: *const TheTruthCommonTypesApi,
     entity_api: *const EntityApi,
 
-    // Stored memory for the lifetime of the plugin
+    // Stored memory for the lifetime of the service
     editor_aspects: Mutex<Vec<Box<CiEditorUiI>>>,
     components: Mutex<Vec<Box<ComponentI>>>,
     engines: Mutex<Vec<Box<EngineI>>>,
 }
 
-unsafe impl Send for ExamplePlugin {}
-unsafe impl Sync for ExamplePlugin {}
+unsafe impl Send for ExampleService {}
+unsafe impl Sync for ExampleService {}
 
-impl Plugin for ExamplePlugin {
-    fn load(registry: *const ApiRegistryApi) -> Self {
+impl ExampleService {
+    fn new(registry: *const ApiRegistryApi) -> Self {
         unsafe {
-            // Integration with the tracing crate
-            machinery::tracing::initialize(&*registry);
             event!(Level::INFO, foo = 42, "Example logging with data.");
 
-            let plugin = ExamplePlugin {
+            // TODO: Wrappers for add_implementation that take a type-safe inteface as parameter
+
+            (*registry).add_implementation(
+                const_cstr!("tm_the_truth_create_types_i").as_ptr(),
+                TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
+                Self::truth_create_types as *const c_void,
+            );
+
+            (*registry).add_implementation(
+                const_cstr!("tm_entity_create_component_i").as_ptr(),
+                TM_ENTITY_CREATE_COMPONENT_I_VERSION,
+                Self::component_create as *const c_void,
+            );
+
+            (*registry).add_implementation(
+                const_cstr!("tm_entity_register_engines_simulation_i").as_ptr(),
+                TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
+                Self::register_engines as *const c_void,
+            );
+
+            ExampleService {
                 registry,
                 tt_api: get_api(&*registry),
                 tt_common_types: get_api(&*registry),
@@ -57,36 +87,12 @@ impl Plugin for ExamplePlugin {
                 editor_aspects: Mutex::new(Vec::new()),
                 components: Mutex::new(Vec::new()),
                 engines: Mutex::new(Vec::new()),
-            };
-
-            // TODO: Wrappers for add_implementation that take a type-safe inteface as parameter
-
-            (*plugin.registry).add_implementation(
-                const_cstr!("tm_the_truth_create_types_i").as_ptr(),
-                TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
-                Self::truth_create_types as *const c_void,
-            );
-
-            (*plugin.registry).add_implementation(
-                const_cstr!("tm_entity_create_component_i").as_ptr(),
-                TM_ENTITY_CREATE_COMPONENT_I_VERSION,
-                Self::component_create as *const c_void,
-            );
-
-            (*plugin.registry).add_implementation(
-                const_cstr!("tm_entity_register_engines_simulation_i").as_ptr(),
-                TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
-                Self::register_engines as *const c_void,
-            );
-
-            event!(Level::INFO, "Example rust plugin loaded.");
-
-            plugin
+            }
         }
     }
 }
 
-impl Drop for ExamplePlugin {
+impl Drop for ExampleService {
     fn drop(&mut self) {
         unsafe {
             (*self.registry).remove_implementation(
@@ -112,8 +118,8 @@ impl Drop for ExamplePlugin {
     }
 }
 
-#[export_singleton_fns]
-impl ExamplePlugin {
+#[tm_service_export]
+impl ExampleService {
     fn truth_create_types(&self, tt: *mut TheTruthO) {
         // The Machinery stores component data in "entity assets", which are then constructed into
         // real components at runtime.
@@ -301,8 +307,8 @@ extern "C" fn component_category() -> *const c_char {
     const_cstr!("Samples").as_ptr()
 }
 
-const RUST_EXAMPLE_ENGINE: Identifier = identifier!("tm_rust_example_engine");
-const RUST_EXAMPLE_COMPONENT: Identifier = identifier!("tm_rust_example_component");
+const RUST_EXAMPLE_ENGINE: Identifier = tm_identifier!("tm_rust_example_engine");
+const RUST_EXAMPLE_COMPONENT: Identifier = tm_identifier!("tm_rust_example_component");
 
 fn rotor(input: Vec4T) -> Rotor3 {
     Rotor3::from_quaternion_array([input.x, input.y, input.z, input.w])

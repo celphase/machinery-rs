@@ -1,25 +1,32 @@
 mod identifier;
-mod singleton_derive;
-mod singleton_export;
 mod instance_export;
+mod plugin;
+mod service_derive;
+mod service_export;
 
-#[proc_macro_derive(Singleton)]
-pub fn derive_singleton(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    singleton_derive::derive_singleton(item)
-}
-
-/// Generates `extern "C"` wrappers for singleton member functions.
 #[proc_macro_attribute]
-pub fn export_singleton_fns(
+pub fn tm_plugin(
     _attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    singleton_export::export_singleton_fns(item)
+    plugin::tm_plugin(item)
 }
 
-/// Generates `extern "C"` wrappers for instance member functions.
+#[proc_macro_derive(Service)]
+pub fn tm_derive_service(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    service_derive::tm_derive_service(item)
+}
+
 #[proc_macro_attribute]
-pub fn export_instance_fns(
+pub fn tm_service_export(
+    _attr: proc_macro::TokenStream,
+    item: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
+    service_export::tm_service_export(item)
+}
+
+#[proc_macro_attribute]
+pub fn tm_instance_export(
     attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
@@ -28,6 +35,6 @@ pub fn export_instance_fns(
 
 /// Generates constants for a The Machinery identifier.
 #[proc_macro]
-pub fn identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    identifier::identifier(item)
+pub fn tm_identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    identifier::tm_identifier(item)
 }
