@@ -3,6 +3,7 @@ use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 use const_cstr::const_cstr;
 use machinery::{
     tm_identifier, tm_plugin, tm_service_export, tm_service_impl, Identifier, Plugin, Service,
+    ServiceInit, ServiceRegistry,
 };
 use machinery_api::{
     foundation::{
@@ -56,8 +57,6 @@ impl ExampleService {
     fn new(plugin: &mut Plugin) -> Self {
         event!(Level::INFO, foo = 42, "Example logging with data.");
 
-        plugin.add_implementation(&Self::THE_TRUTH_CREATE_TYPES_I);
-
         unsafe {
             // TODO: Convert these
             let registry = plugin.api_registry();
@@ -103,6 +102,12 @@ impl Drop for ExampleService {
                 Self::register_engines as *const c_void,
             );
         }
+    }
+}
+
+impl ServiceInit for ExampleService {
+    fn register(&self, registry: ServiceRegistry<Self>) {
+        registry.add_implementation(&Self::THE_TRUTH_CREATE_TYPES_I);
     }
 }
 

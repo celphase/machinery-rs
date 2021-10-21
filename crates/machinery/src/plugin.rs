@@ -1,8 +1,8 @@
 use std::any::Any;
 
-use machinery_api::{foundation::ApiRegistryApi, Api, Interface};
+use machinery_api::{foundation::ApiRegistryApi, Api};
 
-use crate::{Service, ServiceAssociated};
+use crate::{service::ServiceInit, Service, ServiceRegistry};
 
 /// Plugin management helper.
 ///
@@ -29,31 +29,23 @@ impl Plugin {
     }
 
     /// Register a service to be kept alive for the duration of the plugin's lifetime.
-    pub fn service<F: FnOnce(&mut Plugin) -> S, S: Service>(&mut self, service_factory: F) {
+    pub fn service<F: FnOnce(&mut Plugin) -> S, S: Service + ServiceInit>(
+        &mut self,
+        service_factory: F,
+    ) {
         let service = Box::new(service_factory(self));
         S::set_ptr(&*service);
+
+        // Allow the service to register its APIs and Interfaces
+        let registry = unsafe { ServiceRegistry::new(self.api_registry) };
+        service.register(registry);
+
         self.services.push((service, S::unset_ptr));
     }
 
     /// Gets an API from the API registry.
     pub fn get_api<T: Api>(&self) -> *const T {
         unsafe { (*self.api_registry).get(T::NAME.as_ptr(), T::VERSION) as *const T }
-    }
-
-    pub fn add_implementation<S, I: Interface>(
-        &self,
-        implementation: &'static ServiceAssociated<S, I>,
-    ) {
-        unsafe {
-            // TODO: This isn't checked that the inner ptr is valid, implementations should only
-            // be registered after validity is ensured.
-
-            (*self.api_registry).add_implementation(
-                I::NAME.as_ptr(),
-                I::VERSION,
-                implementation.value.to_registry_ptr(),
-            );
-        }
     }
 }
 
