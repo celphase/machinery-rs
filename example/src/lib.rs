@@ -29,7 +29,7 @@ use ultraviolet::{Rotor3, Vec3};
 #[tm_plugin]
 fn load(plugin: &mut Plugin) {
     // Integration with the tracing crate
-    machinery::tracing::initialize(plugin);
+    machinery::integrations::tracing::initialize(plugin);
 
     // Register the example service
     plugin.service(|p| ExampleService::new(p));

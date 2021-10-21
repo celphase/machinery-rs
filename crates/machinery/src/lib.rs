@@ -1,12 +1,12 @@
+pub mod integrations;
 mod plugin;
 mod service;
-pub mod tracing;
 
 use std::sync::atomic::{AtomicPtr, Ordering};
 
 pub use self::{
     plugin::Plugin,
-    service::{Service, ServiceAssociated, ServiceRegistry, ServiceInit},
+    service::{Service, ServiceAssociated, ServiceInit, ServiceRegistry},
 };
 
 use const_cstr::ConstCStr;
