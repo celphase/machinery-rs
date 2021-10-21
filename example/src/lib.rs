@@ -109,8 +109,6 @@ impl Drop for ExampleService {
 #[tm_service_impl]
 impl TheTruthCreateTypesI for ExampleService {
     unsafe fn the_truth_create_types(&self, tt: *mut TheTruthO) {
-        event!(Level::INFO, "START");
-
         // The Machinery stores component data in "entity assets", which are then constructed into
         // real components at runtime.
 
@@ -146,8 +144,6 @@ impl TheTruthCreateTypesI for ExampleService {
             &*editor_aspect as *const _ as *const _,
         );
         self.editor_aspects.lock().unwrap().push(editor_aspect);
-
-        event!(Level::INFO, "END");
     }
 }
 
@@ -155,7 +151,6 @@ impl ExampleService {
     const THE_TRUTH_CREATE_TYPES_I: TheTruthCreateTypesI = Self::the_truth_create_types_wrapper;
 
     unsafe extern "C" fn the_truth_create_types_wrapper(tt: *mut TheTruthO) {
-        event!(Level::INFO, "CALLBACK");
         ExampleService::the_truth_create_types(&*ExampleService::ptr(), tt);
     }
 }
