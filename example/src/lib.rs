@@ -147,15 +147,6 @@ impl ExampleService {
     }
 }
 
-// TODO: Generate this
-impl ExampleService {
-    const THE_TRUTH_CREATE_TYPES_I: TheTruthCreateTypesI = Self::the_truth_create_types_wrapper;
-
-    unsafe extern "C" fn the_truth_create_types_wrapper(tt: *mut TheTruthO) {
-        ExampleService::the_truth_create_types(&*ExampleService::ptr(), tt);
-    }
-}
-
 #[tm_service_export]
 impl ExampleService {
     fn component_create(&self, ctx: *mut EntityContextO) {

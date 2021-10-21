@@ -1,11 +1,10 @@
 mod plugin;
-mod registry_storage;
 mod service;
 pub mod tracing;
 
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-pub use self::{plugin::Plugin, registry_storage::RegistryStorage, service::Service};
+pub use self::{plugin::Plugin, service::Service};
 
 use const_cstr::ConstCStr;
 use machinery_api::foundation::{ApiRegistryApi, StrhashT, TtIdT, TtTypeT, TtUndoScopeT};
