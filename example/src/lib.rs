@@ -106,8 +106,8 @@ impl Drop for ExampleService {
     }
 }
 
-#[tm_service_impl]
-impl TheTruthCreateTypesI for ExampleService {
+#[tm_service_impl(TheTruthCreateTypesI, functional)]
+impl ExampleService {
     unsafe fn the_truth_create_types(&self, tt: *mut TheTruthO) {
         // The Machinery stores component data in "entity assets", which are then constructed into
         // real components at runtime.
@@ -147,6 +147,7 @@ impl TheTruthCreateTypesI for ExampleService {
     }
 }
 
+// TODO: Generate this
 impl ExampleService {
     const THE_TRUTH_CREATE_TYPES_I: TheTruthCreateTypesI = Self::the_truth_create_types_wrapper;
 

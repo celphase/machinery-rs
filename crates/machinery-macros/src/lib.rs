@@ -42,8 +42,8 @@ pub fn tm_service_export(
 
 #[proc_macro_attribute]
 pub fn tm_service_impl(
-    _attr: proc_macro::TokenStream,
+    attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    service_impl::tm_service_impl(item)
+    service_impl::tm_service_impl(attr, item)
 }
