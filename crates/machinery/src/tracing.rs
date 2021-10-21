@@ -1,18 +1,18 @@
 use std::{ffi::CString, fmt::Write};
 
 use machinery_api::foundation::{
-    ApiRegistryApi, LoggerApi, TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO,
+    LoggerApi, TM_LOG_TYPE_DEBUG, TM_LOG_TYPE_ERROR, TM_LOG_TYPE_INFO,
 };
 use tracing::{
     field::{Field, Visit},
     span, Id, Level, Subscriber,
 };
 
-use crate::get_api;
+use crate::Plugin;
 
 /// Initialize a global default subscriber for tracing that prints to The Machinery logging API.
-pub fn initialize(registry: &ApiRegistryApi) {
-    let subscriber = TmSubscriber::new(registry);
+pub fn initialize(plugin: &Plugin) {
+    let subscriber = TmSubscriber::new(plugin);
     tracing::subscriber::set_global_default(subscriber).unwrap();
 }
 
@@ -24,9 +24,9 @@ unsafe impl Send for TmSubscriber {}
 unsafe impl Sync for TmSubscriber {}
 
 impl TmSubscriber {
-    pub fn new(registry: &ApiRegistryApi) -> Self {
+    pub fn new(plugin: &Plugin) -> Self {
         Self {
-            logger: get_api(registry),
+            logger: plugin.get_api(),
         }
     }
 }

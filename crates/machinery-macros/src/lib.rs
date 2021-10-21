@@ -3,6 +3,21 @@ mod instance_export;
 mod plugin;
 mod service_derive;
 mod service_export;
+mod service_impl;
+
+/// Generates constants for a The Machinery identifier.
+#[proc_macro]
+pub fn tm_identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    identifier::tm_identifier(item)
+}
+
+#[proc_macro_attribute]
+pub fn tm_instance_export(
+    attr: proc_macro::TokenStream,
+    item: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
+    instance_export::tm_instance_export(attr, item)
+}
 
 #[proc_macro_attribute]
 pub fn tm_plugin(
@@ -26,15 +41,9 @@ pub fn tm_service_export(
 }
 
 #[proc_macro_attribute]
-pub fn tm_instance_export(
-    attr: proc_macro::TokenStream,
+pub fn tm_service_impl(
+    _attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
-    instance_export::tm_instance_export(attr, item)
-}
-
-/// Generates constants for a The Machinery identifier.
-#[proc_macro]
-pub fn tm_identifier(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    identifier::tm_identifier(item)
+    service_impl::tm_service_impl(item)
 }

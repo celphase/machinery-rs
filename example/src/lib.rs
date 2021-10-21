@@ -2,13 +2,13 @@ use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
 use machinery::{
-    get_api, tm_identifier, tm_plugin, tm_service_export, Identifier, Plugin, Service,
+    tm_identifier, tm_plugin, tm_service_export, tm_service_impl, Identifier, Plugin, Service,
 };
 use machinery_api::{
     foundation::{
         ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
-        TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
-        TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT, TM_TT_TYPE_HASH__POSITION,
+        TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
+        TM_TT_TYPE_HASH__POSITION,
     },
     plugins::{
         entity::{
@@ -20,26 +20,25 @@ use machinery_api::{
         },
         the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
     },
+    TheTruthCreateTypesI,
 };
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
 
 #[tm_plugin]
-fn load(plugin: &mut Plugin, registry: *const ApiRegistryApi) {
-    let registry_ref = unsafe { &*registry };
-
+fn load(plugin: &mut Plugin) {
     // Integration with the tracing crate
-    machinery::tracing::initialize(registry_ref);
+    machinery::tracing::initialize(plugin);
 
     // Register the example service
-    plugin.service(ExampleService::new(registry));
+    plugin.service(|p| ExampleService::new(p));
 }
 
 #[allow(clippy::vec_box)]
 #[derive(Service)]
 struct ExampleService {
     // Stored APIs
-    registry: *const ApiRegistryApi,
+    api_registry: *const ApiRegistryApi,
     tt_api: *const TheTruthApi,
     tt_common_types: *const TheTruthCommonTypesApi,
     entity_api: *const EntityApi,
@@ -54,17 +53,14 @@ unsafe impl Send for ExampleService {}
 unsafe impl Sync for ExampleService {}
 
 impl ExampleService {
-    fn new(registry: *const ApiRegistryApi) -> Self {
+    fn new(plugin: &mut Plugin) -> Self {
+        event!(Level::INFO, foo = 42, "Example logging with data.");
+
+        plugin.add_implementation(&Self::THE_TRUTH_CREATE_TYPES_I);
+
         unsafe {
-            event!(Level::INFO, foo = 42, "Example logging with data.");
-
-            // TODO: Wrappers for add_implementation that take a type-safe inteface as parameter
-
-            (*registry).add_implementation(
-                const_cstr!("tm_the_truth_create_types_i").as_ptr(),
-                TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
-                Self::truth_create_types as *const c_void,
-            );
+            // TODO: Convert these
+            let registry = plugin.api_registry();
 
             (*registry).add_implementation(
                 const_cstr!("tm_entity_create_component_i").as_ptr(),
@@ -77,17 +73,17 @@ impl ExampleService {
                 TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
                 Self::register_engines as *const c_void,
             );
+        }
 
-            ExampleService {
-                registry,
-                tt_api: get_api(&*registry),
-                tt_common_types: get_api(&*registry),
-                entity_api: get_api(&*registry),
+        ExampleService {
+            api_registry: plugin.api_registry(),
+            tt_api: plugin.get_api(),
+            tt_common_types: plugin.get_api(),
+            entity_api: plugin.get_api(),
 
-                editor_aspects: Mutex::new(Vec::new()),
-                components: Mutex::new(Vec::new()),
-                engines: Mutex::new(Vec::new()),
-            }
+            editor_aspects: Mutex::new(Vec::new()),
+            components: Mutex::new(Vec::new()),
+            engines: Mutex::new(Vec::new()),
         }
     }
 }
@@ -95,19 +91,13 @@ impl ExampleService {
 impl Drop for ExampleService {
     fn drop(&mut self) {
         unsafe {
-            (*self.registry).remove_implementation(
-                const_cstr!("tm_the_truth_create_types_i").as_ptr(),
-                TM_THE_TRUTH_CREATE_TYPES_I_VERSION,
-                Self::truth_create_types as *const c_void,
-            );
-
-            (*self.registry).remove_implementation(
+            (*self.api_registry).remove_implementation(
                 const_cstr!("tm_entity_create_component_i").as_ptr(),
                 TM_ENTITY_CREATE_COMPONENT_I_VERSION,
                 Self::component_create as *const c_void,
             );
 
-            (*self.registry).remove_implementation(
+            (*self.api_registry).remove_implementation(
                 const_cstr!("tm_entity_register_engines_simulation_i").as_ptr(),
                 TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
                 Self::register_engines as *const c_void,
@@ -116,50 +106,64 @@ impl Drop for ExampleService {
     }
 }
 
-#[tm_service_export]
-impl ExampleService {
-    fn truth_create_types(&self, tt: *mut TheTruthO) {
+#[tm_service_impl]
+impl TheTruthCreateTypesI for ExampleService {
+    unsafe fn the_truth_create_types(&self, tt: *mut TheTruthO) {
+        event!(Level::INFO, "START");
+
         // The Machinery stores component data in "entity assets", which are then constructed into
         // real components at runtime.
 
-        event!(Level::INFO, "Registering truth types");
+        event!(Level::INFO, "Registering example truth types");
 
-        unsafe {
-            (*self.tt_common_types).create_common_types(tt);
+        (*self.tt_common_types).create_common_types(tt);
 
-            // Create a the example component truth data
-            let properties = TheTruthPropertyDefinitionT {
-                name: const_cstr!("angular_velocity").as_ptr(),
-                type_: TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
-                type_hash: TM_TT_TYPE_HASH__POSITION,
-                ..Default::default()
-            };
+        // Create a the example component truth data
+        let properties = TheTruthPropertyDefinitionT {
+            name: const_cstr!("angular_velocity").as_ptr(),
+            type_: TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
+            type_hash: TM_TT_TYPE_HASH__POSITION,
+            ..Default::default()
+        };
 
-            let spin_type = (*self.tt_api).create_object_type(
-                tt,
-                RUST_EXAMPLE_COMPONENT.name.as_ptr(),
-                &properties,
-                1,
-            );
-            (*self.tt_api).set_default_object_to_create_subobjects(tt, spin_type);
+        let spin_type = (*self.tt_api).create_object_type(
+            tt,
+            RUST_EXAMPLE_COMPONENT.name.as_ptr(),
+            &properties,
+            1,
+        );
+        (*self.tt_api).set_default_object_to_create_subobjects(tt, spin_type);
 
-            // Register the component with the editor
-            let editor_aspect = Box::new(CiEditorUiI {
-                category: Some(component_category),
-                ..Default::default()
-            });
-            (*self.tt_api).set_aspect(
-                tt,
-                spin_type,
-                TM_CI_EDITOR_UI,
-                &*editor_aspect as *const _ as *const _,
-            );
-            self.editor_aspects.lock().unwrap().push(editor_aspect);
-        }
+        // Register the component with the editor
+        let editor_aspect = Box::new(CiEditorUiI {
+            category: Some(component_category),
+            ..Default::default()
+        });
+        (*self.tt_api).set_aspect(
+            tt,
+            spin_type,
+            TM_CI_EDITOR_UI,
+            &*editor_aspect as *const _ as *const _,
+        );
+        self.editor_aspects.lock().unwrap().push(editor_aspect);
+
+        event!(Level::INFO, "END");
     }
+}
 
+impl ExampleService {
+    const THE_TRUTH_CREATE_TYPES_I: TheTruthCreateTypesI = Self::the_truth_create_types_wrapper;
+
+    unsafe extern "C" fn the_truth_create_types_wrapper(tt: *mut TheTruthO) {
+        event!(Level::INFO, "CALLBACK");
+        ExampleService::the_truth_create_types(&*ExampleService::ptr(), tt);
+    }
+}
+
+#[tm_service_export]
+impl ExampleService {
     fn component_create(&self, ctx: *mut EntityContextO) {
-        event!(Level::INFO, "Registering components");
+        event!(Level::INFO, "Registering example components");
 
         unsafe {
             // Register the component for entities
@@ -197,7 +201,7 @@ impl ExampleService {
     }
 
     fn register_engines(&self, ctx: *mut EntityContextO) {
-        event!(Level::INFO, "Registering engines");
+        event!(Level::INFO, "Registering example engines");
 
         unsafe {
             // Lookup the component types we want to use in this system

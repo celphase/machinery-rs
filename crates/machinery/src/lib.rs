@@ -5,26 +5,23 @@ pub mod tracing;
 
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-pub use self::{registry_storage::RegistryStorage, service::Service, plugin::Plugin};
+pub use self::{plugin::Plugin, registry_storage::RegistryStorage, service::Service};
 
 use const_cstr::ConstCStr;
-use machinery_api::{
-    foundation::{ApiRegistryApi, StrhashT, TtIdT, TtTypeT, TtUndoScopeT},
-    Api,
-};
+use machinery_api::foundation::{ApiRegistryApi, StrhashT, TtIdT, TtTypeT, TtUndoScopeT};
 
 // Re-export macros for convenience
 pub use machinery_macros::*;
 
 #[doc(hidden)]
-pub unsafe fn load_plugin<F: Fn(&mut Plugin, *const ApiRegistryApi)>(
+pub unsafe fn load_plugin<F: Fn(&mut Plugin)>(
     loader: F,
-    registry: *const ApiRegistryApi,
+    api_registry: *const ApiRegistryApi,
     load: bool,
 ) {
     if load {
-        let mut plugin = Plugin::new();
-        loader(&mut plugin, registry);
+        let mut plugin = Plugin::new(api_registry);
+        loader(&mut plugin);
 
         // Store the plugin instance
         let boxed = Box::new(plugin);
@@ -59,11 +56,6 @@ static INSTANCE: AtomicPtr<Plugin> = AtomicPtr::new(std::ptr::null_mut());
 pub struct Identifier {
     pub name: ConstCStr,
     pub hash: StrhashT,
-}
-
-/// Convenience utility for getting an API type-safe from the registry.
-pub fn get_api<T: Api>(registry: &ApiRegistryApi) -> *const T {
-    unsafe { registry.get(T::NAME.as_ptr(), T::VERSION) as *const T }
 }
 
 /// Compares two Truth IDs for equality.
