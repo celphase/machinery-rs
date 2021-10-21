@@ -1,4 +1,4 @@
-use std::any::Any;
+use std::{any::Any, marker::PhantomData};
 
 /// Utility for exporting callbacks for The Machinery registry.
 ///
@@ -14,4 +14,22 @@ pub trait Service: Any + Send + Sync + 'static {
     /// # Safety
     /// The data behind the pointer is not checked automatically.
     unsafe fn ptr() -> *const Self;
+}
+
+/// Guard type for creating constants associated with a service, used for verifying C exported
+/// functions are for the expected service.
+pub struct ServiceAssociated<S, T> {
+    pub value: T,
+    _s: PhantomData<S>,
+}
+
+impl<S, T> ServiceAssociated<S, T> {
+    /// # Safety
+    /// Safe API and implementation registration relies on the associaton to be correct.
+    pub const unsafe fn new(value: T) -> Self {
+        Self {
+            value,
+            _s: PhantomData,
+        }
+    }
 }

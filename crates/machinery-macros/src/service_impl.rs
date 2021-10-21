@@ -56,7 +56,8 @@ pub fn tm_service_impl(
     let target_ident = Ident::new(target_name, Span::call_site());
     let constant_ident = Ident::new(&target_name.to_shouty_snake_case(), Span::call_site());
     let constant = quote! {
-        const #constant_ident: #target_ident = Self::the_truth_create_types_wrapper;
+        const #constant_ident: machinery::ServiceAssociated<#ty_name, #target_ident> =
+            unsafe { machinery::ServiceAssociated::new(Self::the_truth_create_types_wrapper) };
     };
 
     // Generate the new code

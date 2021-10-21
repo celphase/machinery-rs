@@ -2,7 +2,7 @@ use std::any::Any;
 
 use machinery_api::{foundation::ApiRegistryApi, Api, Interface};
 
-use crate::Service;
+use crate::{Service, ServiceAssociated};
 
 /// Plugin management helper.
 ///
@@ -40,12 +40,18 @@ impl Plugin {
         unsafe { (*self.api_registry).get(T::NAME.as_ptr(), T::VERSION) as *const T }
     }
 
-    pub fn add_implementation<I: Interface>(&self, implementation: &'static I) {
+    pub fn add_implementation<S, I: Interface>(
+        &self,
+        implementation: &'static ServiceAssociated<S, I>,
+    ) {
         unsafe {
+            // TODO: This isn't checked that the inner ptr is valid, implementations should only
+            // be registered after validity is ensured.
+
             (*self.api_registry).add_implementation(
                 I::NAME.as_ptr(),
                 I::VERSION,
-                implementation.to_registry_ptr(),
+                implementation.value.to_registry_ptr(),
             );
         }
     }

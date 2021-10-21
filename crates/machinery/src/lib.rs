@@ -4,7 +4,10 @@ pub mod tracing;
 
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-pub use self::{plugin::Plugin, service::Service};
+pub use self::{
+    plugin::Plugin,
+    service::{Service, ServiceAssociated},
+};
 
 use const_cstr::ConstCStr;
 use machinery_api::foundation::{ApiRegistryApi, StrhashT, TtIdT, TtTypeT, TtUndoScopeT};
