@@ -7,17 +7,16 @@ use machinery::{
 };
 use machinery_api::{
     foundation::{
-        ApiRegistryApi, StrhashT, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
+        ApiRegistryApi, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
         TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
         TM_TT_TYPE_HASH__POSITION,
     },
     plugins::{
         entity::{
-            ComponentI, ComponentManagerO, ComponentTypeT, EngineI, EngineO, EngineSystemCommonI,
-            EngineUpdateSetT, EntityApi, EntityCommandsO, EntityContextO, EntityT,
-            TransformComponentT, TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME,
-            TM_ENTITY_CREATE_COMPONENT_I_VERSION, TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
-            TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
+            ComponentI, ComponentManagerO, EngineI, EngineO, EngineSystemCommonI, EngineUpdateSetT,
+            EntityApi, EntityCommandsO, EntityContextO, EntityT, TransformComponentT,
+            TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME, TM_ENTITY_CREATE_COMPONENT_I_VERSION,
+            TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION, TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
         },
         the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
     },
@@ -45,9 +44,9 @@ struct ExampleService {
     entity_api: *const EntityApi,
 
     // Stored memory for the lifetime of the service
-    editor_aspects: Mutex<Vec<Box<CiEditorUiI>>>,
-    components: Mutex<Vec<Box<ComponentI>>>,
-    engines: Mutex<Vec<Box<EngineI>>>,
+    component_editor_aspect: CiEditorUiI,
+    component: ComponentI,
+    engine: Mutex<EngineI>,
 }
 
 unsafe impl Send for ExampleService {}
@@ -74,15 +73,38 @@ impl ExampleService {
             );
         }
 
+        let component_editor_aspect = CiEditorUiI {
+            category: Some(component_category),
+            ..Default::default()
+        };
+
+        let component = ComponentI {
+            name: RUST_EXAMPLE_COMPONENT.name.as_ptr(),
+            bytes: size_of::<Vec3>() as u32,
+            load_asset: Some(Self::component_load_asset),
+            ..Default::default()
+        };
+
+        let engine = EngineI {
+            super_: EngineSystemCommonI {
+                ui_name: const_cstr!("Rust Spin").as_ptr(),
+                hash: RUST_EXAMPLE_ENGINE.hash,
+                num_components: 2,
+                ..Default::default()
+            },
+            update: Some(Self::engine_spin_update),
+            ..Default::default()
+        };
+
         ExampleService {
             api_registry: plugin.api_registry(),
             tt_api: plugin.get_api(),
             tt_common_types: plugin.get_api(),
             entity_api: plugin.get_api(),
 
-            editor_aspects: Mutex::new(Vec::new()),
-            components: Mutex::new(Vec::new()),
-            engines: Mutex::new(Vec::new()),
+            component_editor_aspect,
+            component,
+            engine: Mutex::new(engine),
         }
     }
 }
@@ -138,17 +160,12 @@ impl ExampleService {
         (*self.tt_api).set_default_object_to_create_subobjects(tt, spin_type);
 
         // Register the component with the editor
-        let editor_aspect = Box::new(CiEditorUiI {
-            category: Some(component_category),
-            ..Default::default()
-        });
         (*self.tt_api).set_aspect(
             tt,
             spin_type,
             TM_CI_EDITOR_UI,
-            &*editor_aspect as *const _ as *const _,
+            &self.component_editor_aspect as *const _ as *const _,
         );
-        self.editor_aspects.lock().unwrap().push(editor_aspect);
     }
 }
 
@@ -159,15 +176,7 @@ impl ExampleService {
 
         unsafe {
             // Register the component for entities
-            let component = Box::new(ComponentI {
-                name: RUST_EXAMPLE_COMPONENT.name.as_ptr(),
-                bytes: size_of::<Vec3>() as u32,
-                load_asset: Some(Self::component_load_asset),
-                ..Default::default()
-            });
-
-            (*self.entity_api).register_component(ctx, &*component);
-            self.components.lock().unwrap().push(component);
+            (*self.entity_api).register_component(ctx, &self.component);
         }
     }
 
@@ -203,32 +212,15 @@ impl ExampleService {
                 (*self.entity_api).lookup_component_type(ctx, TM_TT_TYPE_HASH__TRANSFORM_COMPONENT);
 
             // Register the spin engine
-            let mut components = [ComponentTypeT::default(); 16];
-            components[0] = example_component;
-            components[1] = transform_component;
+            let mut engine = self.engine.lock().unwrap();
 
-            let mut writes = [false; 16];
-            writes[1] = true;
+            engine.super_.components[0] = example_component;
+            engine.super_.components[1] = transform_component;
+            engine.super_.writes[1] = true;
+            engine.super_.after_me[0] = TM_ENGINE__SCENE_TREE;
+            engine.inst = ctx as *mut EngineO;
 
-            let mut after_me = [StrhashT::default(); 16];
-            after_me[0] = TM_ENGINE__SCENE_TREE;
-
-            let spin_engine = Box::new(EngineI {
-                super_: EngineSystemCommonI {
-                    ui_name: const_cstr!("Rust Spin").as_ptr(),
-                    hash: RUST_EXAMPLE_ENGINE.hash,
-                    num_components: 2,
-                    components,
-                    writes,
-                    after_me,
-                    ..Default::default()
-                },
-                update: Some(Self::engine_spin_update),
-                inst: ctx as *mut EngineO,
-                ..Default::default()
-            });
-            (*self.entity_api).register_engine(ctx, spin_engine.as_ref());
-            self.engines.lock().unwrap().push(spin_engine);
+            (*self.entity_api).register_engine(ctx, &*engine);
         }
     }
 
