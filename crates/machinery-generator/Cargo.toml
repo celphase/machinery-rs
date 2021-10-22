@@ -4,7 +4,7 @@ version = "0.1.0"
 license = "MIT OR Apache-2.0"
 description = "Bindings generator for The Machinery headers"
 repository = "https://github.com/celphase/machinery-rs"
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 bindgen = "0.59.0"

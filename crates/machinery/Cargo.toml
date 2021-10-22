@@ -4,7 +4,7 @@ version = "0.13.0"
 license = "MIT OR Apache-2.0"
 description = "Utilities and safe wrappers for working with The Machinery game engine"
 repository = "https://github.com/celphase/machinery-rs"
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 const-cstr = "0.3.0"

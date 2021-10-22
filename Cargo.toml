@@ -6,4 +6,3 @@ members = [
     "crates/machinery-generator",
     "crates/machinery-macros",
 ]
-resolver = "2"
