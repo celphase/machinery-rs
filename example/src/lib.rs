@@ -1,4 +1,4 @@
-use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
+use std::{mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
 use machinery::{
@@ -8,20 +8,18 @@ use machinery::{
 };
 use machinery_api::{
     foundation::{
-        ApiRegistryApi, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
-        TheTruthPropertyDefinitionT, TtIdT, TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
-        TM_TT_TYPE_HASH__POSITION,
+        TheTruthApi, TheTruthCommonTypesApi, TheTruthO, TheTruthPropertyDefinitionT, TtIdT,
+        TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT, TM_TT_TYPE_HASH__POSITION,
     },
     plugins::{
         entity::{
             ComponentI, ComponentManagerO, EngineI, EngineO, EngineSystemCommonI, EngineUpdateSetT,
             EntityApi, EntityCommandsO, EntityContextO, EntityT, TransformComponentT,
-            TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME, TM_ENTITY_CREATE_COMPONENT_I_VERSION,
-            TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION, TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
+            TM_ENGINE__SCENE_TREE, TM_ENTITY_BB__DELTA_TIME, TM_TT_TYPE_HASH__TRANSFORM_COMPONENT,
         },
         the_machinery_shared::{CiEditorUiI, TM_CI_EDITOR_UI},
     },
-    TheTruthCreateTypesI,
+    EntityCreateComponentI, EntityRegisterEnginesSimulationI, TheTruthCreateTypesI,
 };
 use tracing::{event, Level};
 use ultraviolet::{Rotor3, Vec3};
@@ -39,7 +37,6 @@ fn load(plugin: &mut Plugin) {
 #[derive(Service)]
 struct ExampleService {
     // Stored APIs
-    api_registry: *const ApiRegistryApi,
     tt_api: *const TheTruthApi,
     tt_common_types: *const TheTruthCommonTypesApi,
     entity_api: *const EntityApi,
@@ -56,23 +53,6 @@ unsafe impl Sync for ExampleService {}
 impl ExampleService {
     fn new(plugin: &mut Plugin, registry: ServiceRegistry<Self>) -> Self {
         event!(Level::INFO, foo = 42, "Example logging with data.");
-
-        unsafe {
-            // TODO: Convert these
-            let registry = plugin.api_registry();
-
-            (*registry).add_implementation(
-                const_cstr!("tm_entity_create_component_i").as_ptr(),
-                TM_ENTITY_CREATE_COMPONENT_I_VERSION,
-                Self::component_create as *const c_void,
-            );
-
-            (*registry).add_implementation(
-                const_cstr!("tm_entity_register_engines_simulation_i").as_ptr(),
-                TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
-                Self::register_engines as *const c_void,
-            );
-        }
 
         let component_editor_aspect = CiEditorUiI {
             category: Some(component_category),
@@ -99,9 +79,10 @@ impl ExampleService {
 
         // Register API implementations
         registry.add_implementation(&Self::THE_TRUTH_CREATE_TYPES_I);
+        registry.add_implementation(&Self::ENTITY_CREATE_COMPONENT_I);
+        registry.add_implementation(&Self::ENTITY_REGISTER_ENGINES_SIMULATION_I);
 
         ExampleService {
-            api_registry: plugin.api_registry(),
             tt_api: plugin.get_api(),
             tt_common_types: plugin.get_api(),
             entity_api: plugin.get_api(),
@@ -109,24 +90,6 @@ impl ExampleService {
             component_editor_aspect,
             component,
             engine: Mutex::new(engine),
-        }
-    }
-}
-
-impl Drop for ExampleService {
-    fn drop(&mut self) {
-        unsafe {
-            (*self.api_registry).remove_implementation(
-                const_cstr!("tm_entity_create_component_i").as_ptr(),
-                TM_ENTITY_CREATE_COMPONENT_I_VERSION,
-                Self::component_create as *const c_void,
-            );
-
-            (*self.api_registry).remove_implementation(
-                const_cstr!("tm_entity_register_engines_simulation_i").as_ptr(),
-                TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION,
-                Self::register_engines as *const c_void,
-            );
         }
     }
 }
@@ -167,7 +130,7 @@ impl ExampleService {
     }
 }
 
-#[tm_service_export]
+#[tm_service_impl(EntityCreateComponentI, functional)]
 impl ExampleService {
     fn component_create(&self, ctx: *mut EntityContextO) {
         event!(Level::INFO, "Registering example components");
@@ -177,28 +140,10 @@ impl ExampleService {
             (*self.entity_api).register_component(ctx, &self.component);
         }
     }
+}
 
-    fn component_load_asset(
-        &self,
-        _manager: *mut ComponentManagerO,
-        _commands: *mut EntityCommandsO,
-        _e: EntityT,
-        data: *mut ::std::os::raw::c_void,
-        tt: *const TheTruthO,
-        asset: TtIdT,
-    ) -> bool {
-        let component = data as *mut Vec3;
-
-        unsafe {
-            let object = (*self.tt_api).read(tt as *mut TheTruthO, asset);
-            let data = (*self.tt_common_types).get_position(tt as *mut TheTruthO, object, 0);
-
-            *component = Vec3::new(data.x, data.y, data.z);
-        }
-
-        true
-    }
-
+#[tm_service_impl(EntityRegisterEnginesSimulationI, functional)]
+impl ExampleService {
     fn register_engines(&self, ctx: *mut EntityContextO) {
         event!(Level::INFO, "Registering example engines");
 
@@ -220,6 +165,30 @@ impl ExampleService {
 
             (*self.entity_api).register_engine(ctx, &*engine);
         }
+    }
+}
+
+#[tm_service_export]
+impl ExampleService {
+    fn component_load_asset(
+        &self,
+        _manager: *mut ComponentManagerO,
+        _commands: *mut EntityCommandsO,
+        _e: EntityT,
+        data: *mut ::std::os::raw::c_void,
+        tt: *const TheTruthO,
+        asset: TtIdT,
+    ) -> bool {
+        let component = data as *mut Vec3;
+
+        unsafe {
+            let object = (*self.tt_api).read(tt as *mut TheTruthO, asset);
+            let data = (*self.tt_common_types).get_position(tt as *mut TheTruthO, object, 0);
+
+            *component = Vec3::new(data.x, data.y, data.z);
+        }
+
+        true
     }
 
     fn engine_spin_update(

@@ -31,7 +31,8 @@ pub fn tm_service_export(item: proc_macro::TokenStream) -> proc_macro::TokenStre
     let wrappers = generate_wrappers(&ty_name, &input.item);
 
     // Generate the new code
-    let original = input.item;
+    let original = &input.item;
+    let wrappers = wrappers.iter().map(|(_, wrapper)| wrapper);
     let output = quote! {
         #original
 

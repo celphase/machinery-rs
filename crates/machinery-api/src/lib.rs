@@ -29,13 +29,42 @@ pub trait Interface {
 
 // Manually added types, to be generated later
 
-pub type TheTruthCreateTypesI = unsafe extern "C" fn(tt: *mut foundation::TheTruthO);
+#[repr(transparent)]
+pub struct TheTruthCreateTypesI(pub unsafe extern "C" fn(tt: *mut foundation::TheTruthO));
 
 impl Interface for TheTruthCreateTypesI {
     const NAME: ConstCStr = const_cstr!("tm_the_truth_create_types_i");
     const VERSION: VersionT = foundation::TM_THE_TRUTH_CREATE_TYPES_I_VERSION;
 
     fn to_registry_ptr(&self) -> *const c_void {
-        *self as *const c_void
+        self.0 as *const c_void
+    }
+}
+
+#[repr(transparent)]
+pub struct EntityCreateComponentI(
+    pub unsafe extern "C" fn(ctx: *mut plugins::entity::EntityContextO),
+);
+
+impl Interface for EntityCreateComponentI {
+    const NAME: ConstCStr = const_cstr!("tm_entity_create_component_i");
+    const VERSION: VersionT = plugins::entity::TM_ENTITY_CREATE_COMPONENT_I_VERSION;
+
+    fn to_registry_ptr(&self) -> *const c_void {
+        self.0 as *const c_void
+    }
+}
+
+#[repr(transparent)]
+pub struct EntityRegisterEnginesSimulationI(
+    pub unsafe extern "C" fn(ctx: *mut plugins::entity::EntityContextO),
+);
+
+impl Interface for EntityRegisterEnginesSimulationI {
+    const NAME: ConstCStr = const_cstr!("tm_entity_register_engines_simulation_i");
+    const VERSION: VersionT = plugins::entity::TM_ENTITY_REGISTER_ENGINES_SIMULATION_I_VERSION;
+
+    fn to_registry_ptr(&self) -> *const c_void {
+        self.0 as *const c_void
     }
 }

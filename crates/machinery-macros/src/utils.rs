@@ -2,7 +2,7 @@ use proc_macro2::{Ident, TokenStream};
 use quote::quote;
 use syn::{FnArg, ImplItem, ItemImpl};
 
-pub fn generate_wrappers(ty_name: &Ident, item: &ItemImpl) -> Vec<TokenStream> {
+pub fn generate_wrappers(ty_name: &Ident, item: &ItemImpl) -> Vec<(Ident, TokenStream)> {
     let mut wrappers = Vec::new();
 
     for item in &item.items {
@@ -37,7 +37,7 @@ pub fn generate_wrappers(ty_name: &Ident, item: &ItemImpl) -> Vec<TokenStream> {
                 (*#ty_name::ptr()).#ident(#(#args_without_types),*)
             }
         };
-        wrappers.push(wrapper);
+        wrappers.push((wrapper_ident, wrapper));
     }
 
     wrappers

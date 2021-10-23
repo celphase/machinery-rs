@@ -50,16 +50,22 @@ pub fn tm_service_impl(
     // Generate wrappers
     let wrappers = generate_wrappers(&ty_name, &input.item);
 
+    if wrappers.len() != 1 {
+        panic!("More or less than 1 function not yet supported");
+    }
+
     // Create a constant function table
     let target_ident = Ident::new(target_name, Span::call_site());
     let constant_ident = Ident::new(&target_name.to_shouty_snake_case(), Span::call_site());
+    let wrapper_ident = &wrappers[0].0;
     let constant = quote! {
         const #constant_ident: machinery::ServiceAssociated<#ty_name, #target_ident> =
-            unsafe { machinery::ServiceAssociated::new(Self::the_truth_create_types_export) };
+            unsafe { machinery::ServiceAssociated::new(#target_ident(Self::#wrapper_ident)) };
     };
 
     // Generate the new code
-    let original = input.item;
+    let original = &input.item;
+    let wrappers = wrappers.iter().map(|(_, wrapper)| wrapper);
     let output = quote! {
         #original
 
