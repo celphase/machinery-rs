@@ -33,6 +33,10 @@ pub fn tm_service_derive(item: proc_macro::TokenStream) -> proc_macro::TokenStre
     service_derive::tm_service_derive(item)
 }
 
+/// Generates C exported wrapper functions for service methods.
+///
+/// All methods in the annotated block will receive a generated wrapper, named `[origin]_export`.
+/// The wrapper uses the service singleton pointer to call into the method.
 #[proc_macro_attribute]
 pub fn tm_service_export(
     _attr: proc_macro::TokenStream,
@@ -41,6 +45,8 @@ pub fn tm_service_export(
     service_export::tm_service_export(item)
 }
 
+/// Generates C exported wrapper functions for service methods, and creates a constant function
+/// table for a given interface using those function wrappers.
 #[proc_macro_attribute]
 pub fn tm_service_impl(
     attr: proc_macro::TokenStream,
