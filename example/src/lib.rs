@@ -2,13 +2,14 @@ use std::{ffi::c_void, mem::size_of, os::raw::c_char, sync::Mutex};
 
 use const_cstr::const_cstr;
 use machinery::{
+    integrations::ultraviolet::{quaternion_to_rotor, rotor_to_quaternion},
     tm_identifier, tm_plugin, tm_service_export, tm_service_impl, Identifier, Plugin, Service,
-    ServiceInit, ServiceRegistry,
+    ServiceRegistry,
 };
 use machinery_api::{
     foundation::{
         ApiRegistryApi, TheTruthApi, TheTruthCommonTypesApi, TheTruthO,
-        TheTruthPropertyDefinitionT, TtIdT, Vec4T, TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
+        TheTruthPropertyDefinitionT, TtIdT, TM_THE_TRUTH_PROPERTY_TYPE_SUBOBJECT,
         TM_TT_TYPE_HASH__POSITION,
     },
     plugins::{
@@ -31,7 +32,7 @@ fn load(plugin: &mut Plugin) {
     machinery::integrations::tracing::initialize(plugin);
 
     // Register the example service
-    plugin.service(|p| ExampleService::new(p));
+    plugin.service(|p, s| ExampleService::new(p, s));
 }
 
 #[allow(clippy::vec_box)]
@@ -53,7 +54,7 @@ unsafe impl Send for ExampleService {}
 unsafe impl Sync for ExampleService {}
 
 impl ExampleService {
-    fn new(plugin: &mut Plugin) -> Self {
+    fn new(plugin: &mut Plugin, registry: ServiceRegistry<Self>) -> Self {
         event!(Level::INFO, foo = 42, "Example logging with data.");
 
         unsafe {
@@ -96,6 +97,9 @@ impl ExampleService {
             ..Default::default()
         };
 
+        // Register API implementations
+        registry.add_implementation(&Self::THE_TRUTH_CREATE_TYPES_I);
+
         ExampleService {
             api_registry: plugin.api_registry(),
             tt_api: plugin.get_api(),
@@ -124,12 +128,6 @@ impl Drop for ExampleService {
                 Self::register_engines as *const c_void,
             );
         }
-    }
-}
-
-impl ServiceInit for ExampleService {
-    fn register(&self, registry: ServiceRegistry<Self>) {
-        registry.add_implementation(&Self::THE_TRUTH_CREATE_TYPES_I);
     }
 }
 
@@ -257,8 +255,8 @@ impl ExampleService {
                     let example = *examples.offset(i);
                     let transform = transforms.offset(i);
 
-                    let mut local = rotor((*transform).local.rot);
-                    let mut world = rotor((*transform).world.rot);
+                    let mut local = quaternion_to_rotor((*transform).local.rot);
+                    let mut world = quaternion_to_rotor((*transform).world.rot);
 
                     // Apply the rotation
                     let rotation = Rotor3::from_euler_angles(
@@ -270,8 +268,8 @@ impl ExampleService {
                     world = world * rotation;
 
                     // Update the transform with the new values
-                    (*transform).local.rot = quaternion(local);
-                    (*transform).world.rot = quaternion(world);
+                    (*transform).local.rot = rotor_to_quaternion(local);
+                    (*transform).world.rot = rotor_to_quaternion(world);
                     (*transform).version += 1;
 
                     updated_entities.push(*(*current_array).entities.offset(i));
@@ -295,17 +293,3 @@ extern "C" fn component_category() -> *const c_char {
 
 const RUST_EXAMPLE_ENGINE: Identifier = tm_identifier!("tm_rust_example_engine");
 const RUST_EXAMPLE_COMPONENT: Identifier = tm_identifier!("tm_rust_example_component");
-
-fn rotor(input: Vec4T) -> Rotor3 {
-    Rotor3::from_quaternion_array([input.x, input.y, input.z, input.w])
-}
-
-fn quaternion(input: Rotor3) -> Vec4T {
-    let array = input.into_quaternion_array();
-    Vec4T {
-        x: array[0],
-        y: array[1],
-        z: array[2],
-        w: array[3],
-    }
-}

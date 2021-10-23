@@ -2,7 +2,7 @@ use std::any::Any;
 
 use machinery_api::{foundation::ApiRegistryApi, Api};
 
-use crate::{service::ServiceInit, Service, ServiceRegistry};
+use crate::{Service, ServiceRegistry};
 
 /// Plugin management helper.
 ///
@@ -29,16 +29,16 @@ impl Plugin {
     }
 
     /// Register a service to be kept alive for the duration of the plugin's lifetime.
-    pub fn service<F: FnOnce(&mut Plugin) -> S, S: Service + ServiceInit>(
+    pub fn service<F: FnOnce(&mut Plugin, ServiceRegistry<S>) -> S, S: Service>(
         &mut self,
         service_factory: F,
     ) {
-        let service = Box::new(service_factory(self));
-        S::set_ptr(&*service);
-
-        // Allow the service to register its APIs and Interfaces
         let registry = unsafe { ServiceRegistry::new(self.api_registry) };
-        service.register(registry);
+
+        let service = Box::new(service_factory(self, registry));
+
+        // ServiceRegistry safety relies on this being done right after.
+        S::set_ptr(&*service);
 
         self.services.push((service, S::unset_ptr));
     }

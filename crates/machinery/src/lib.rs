@@ -6,7 +6,7 @@ use std::sync::atomic::{AtomicPtr, Ordering};
 
 pub use self::{
     plugin::Plugin,
-    service::{Service, ServiceAssociated, ServiceInit, ServiceRegistry},
+    service::{Service, ServiceAssociated, ServiceRegistry},
 };
 
 use const_cstr::ConstCStr;

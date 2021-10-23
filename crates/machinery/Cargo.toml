@@ -8,6 +8,9 @@ edition = "2021"
 
 [dependencies]
 const-cstr = "0.3.0"
-tracing = "0.1.26"
 machinery-api = { version = "0.5.0", path = "../machinery-api" }
 machinery-macros = { version = "0.6.0", path = "../machinery-macros" }
+
+# TODO: Make these optional dependencies
+tracing = "0.1.26"
+ultraviolet = "0.8.1"

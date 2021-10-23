@@ -18,10 +18,6 @@ pub trait Service: Any + Sized + Send + Sync + 'static {
     unsafe fn ptr() -> *const Self;
 }
 
-pub trait ServiceInit: Service {
-    fn register(&self, registry: ServiceRegistry<Self>);
-}
-
 /// Guard type for creating constants associated with a service, used for verifying C exported
 /// functions are for the expected service.
 pub struct ServiceAssociated<S, T> {
@@ -48,8 +44,12 @@ pub struct ServiceRegistry<S> {
 
 impl<S> ServiceRegistry<S> {
     /// # Safety
-    /// A service registry may only exist after the service's singleton pointer has been
-    /// initialized.
+    /// A service registry provides safety by ensuring that once it exists, the interfaces being
+    /// registered with it *will* be valid. This means that the inner service pointers need to be
+    /// valid as soon as the interfaces are called into.
+    ///
+    /// In practical terms, make sure you register the Service pointer right after the service using
+    /// this is initialized.
     pub unsafe fn new(api_registry: *const ApiRegistryApi) -> Self {
         Self {
             api_registry,
