@@ -47,6 +47,9 @@ pub fn tm_service_export(
 
 /// Generates C exported wrapper functions for service methods, and creates a constant function
 /// table for a given interface using those function wrappers.
+///
+/// The interface implementation will be available as an associated constant with the name of the
+/// interface in CAPITAL_SNAKE_CASE.
 #[proc_macro_attribute]
 pub fn tm_service_impl(
     attr: proc_macro::TokenStream,
