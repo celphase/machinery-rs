@@ -4,6 +4,7 @@ mod plugin;
 mod service_derive;
 mod service_export;
 mod service_impl;
+mod utils;
 
 /// Generates constants for a The Machinery identifier.
 #[proc_macro]

@@ -6,6 +6,8 @@ use syn::{
     parse_macro_input, ItemImpl, Result, Type,
 };
 
+use crate::utils::generate_wrappers;
+
 struct ServiceImplInput {
     item: ItemImpl,
 }
@@ -45,19 +47,15 @@ pub fn tm_service_impl(
         panic!("Table target type not yet supported");
     }
 
-    // Create function wrappers
-    let wrappers = quote! {
-        unsafe extern "C" fn the_truth_create_types_wrapper(tt: *mut TheTruthO) {
-            #ty_name::the_truth_create_types(&*#ty_name::ptr(), tt);
-        }
-    };
+    // Generate wrappers
+    let wrappers = generate_wrappers(&ty_name, &input.item);
 
     // Create a constant function table
     let target_ident = Ident::new(target_name, Span::call_site());
     let constant_ident = Ident::new(&target_name.to_shouty_snake_case(), Span::call_site());
     let constant = quote! {
         const #constant_ident: machinery::ServiceAssociated<#ty_name, #target_ident> =
-            unsafe { machinery::ServiceAssociated::new(Self::the_truth_create_types_wrapper) };
+            unsafe { machinery::ServiceAssociated::new(Self::the_truth_create_types_export) };
     };
 
     // Generate the new code
@@ -66,7 +64,7 @@ pub fn tm_service_impl(
         #original
 
         impl #ty_name {
-            #wrappers
+            #(#wrappers)*
             #constant
         }
     };

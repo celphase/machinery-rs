@@ -82,7 +82,7 @@ impl ExampleService {
         let component = ComponentI {
             name: RUST_EXAMPLE_COMPONENT.name.as_ptr(),
             bytes: size_of::<Vec3>() as u32,
-            load_asset: Some(Self::component_load_asset),
+            load_asset: Some(Self::component_load_asset_export),
             ..Default::default()
         };
 
@@ -93,7 +93,7 @@ impl ExampleService {
                 num_components: 2,
                 ..Default::default()
             },
-            update: Some(Self::engine_spin_update),
+            update: Some(Self::engine_spin_update_export),
             ..Default::default()
         };
 
