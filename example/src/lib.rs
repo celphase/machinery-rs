@@ -132,45 +132,41 @@ impl ExampleService {
 
 #[tm_service_impl(EntityCreateComponentI, functional)]
 impl ExampleService {
-    fn component_create(&self, ctx: *mut EntityContextO) {
+    unsafe fn component_create(&self, ctx: *mut EntityContextO) {
         event!(Level::INFO, "Registering example components");
 
-        unsafe {
-            // Register the component for entities
-            (*self.entity_api).register_component(ctx, &self.component);
-        }
+        // Register the component for entities
+        (*self.entity_api).register_component(ctx, &self.component);
     }
 }
 
 #[tm_service_impl(EntityRegisterEnginesSimulationI, functional)]
 impl ExampleService {
-    fn register_engines(&self, ctx: *mut EntityContextO) {
+    unsafe fn register_engines(&self, ctx: *mut EntityContextO) {
         event!(Level::INFO, "Registering example engines");
 
-        unsafe {
-            // Lookup the component types we want to use in this system
-            let example_component =
-                (*self.entity_api).lookup_component_type(ctx, RUST_EXAMPLE_COMPONENT.hash);
-            let transform_component =
-                (*self.entity_api).lookup_component_type(ctx, TM_TT_TYPE_HASH__TRANSFORM_COMPONENT);
+        // Lookup the component types we want to use in this system
+        let example_component =
+            (*self.entity_api).lookup_component_type(ctx, RUST_EXAMPLE_COMPONENT.hash);
+        let transform_component =
+            (*self.entity_api).lookup_component_type(ctx, TM_TT_TYPE_HASH__TRANSFORM_COMPONENT);
 
-            // Register the spin engine
-            let mut engine = self.engine.lock().unwrap();
+        // Register the spin engine
+        let mut engine = self.engine.lock().unwrap();
 
-            engine.super_.components[0] = example_component;
-            engine.super_.components[1] = transform_component;
-            engine.super_.writes[1] = true;
-            engine.super_.after_me[0] = TM_ENGINE__SCENE_TREE;
-            engine.inst = ctx as *mut EngineO;
+        engine.super_.components[0] = example_component;
+        engine.super_.components[1] = transform_component;
+        engine.super_.writes[1] = true;
+        engine.super_.after_me[0] = TM_ENGINE__SCENE_TREE;
+        engine.inst = ctx as *mut EngineO;
 
-            (*self.entity_api).register_engine(ctx, &*engine);
-        }
+        (*self.entity_api).register_engine(ctx, &*engine);
     }
 }
 
 #[tm_service_export]
 impl ExampleService {
-    fn component_load_asset(
+    unsafe fn component_load_asset(
         &self,
         _manager: *mut ComponentManagerO,
         _commands: *mut EntityCommandsO,
@@ -181,78 +177,74 @@ impl ExampleService {
     ) -> bool {
         let component = data as *mut Vec3;
 
-        unsafe {
-            let object = (*self.tt_api).read(tt as *mut TheTruthO, asset);
-            let data = (*self.tt_common_types).get_position(tt as *mut TheTruthO, object, 0);
+        let object = (*self.tt_api).read(tt as *mut TheTruthO, asset);
+        let data = (*self.tt_common_types).get_position(tt as *mut TheTruthO, object, 0);
 
-            *component = Vec3::new(data.x, data.y, data.z);
-        }
+        *component = Vec3::new(data.x, data.y, data.z);
 
         true
     }
 
-    fn engine_spin_update(
+    unsafe fn engine_spin_update(
         &self,
         inst: *mut EngineO,
         data: *mut EngineUpdateSetT,
         _commands: *mut EntityCommandsO,
     ) {
-        unsafe {
-            let ctx = inst as *mut EntityContextO;
+        let ctx = inst as *mut EntityContextO;
 
-            let mut updated_entities = Vec::new();
+        let mut updated_entities = Vec::new();
 
-            // Fetch the scene delta-time from the blackboard
-            let mut delta = 1.0 / 60.0;
-            let mut current = (*data).blackboard_start;
-            while current != (*data).blackboard_end {
-                if (*current).id.u64_ == TM_ENTITY_BB__DELTA_TIME.u64_ {
-                    delta = (*current).__bindgen_anon_1.double_value as f32;
-                }
-
-                current = current.offset(1);
+        // Fetch the scene delta-time from the blackboard
+        let mut delta = 1.0 / 60.0;
+        let mut current = (*data).blackboard_start;
+        while current != (*data).blackboard_end {
+            if (*current).id.u64_ == TM_ENTITY_BB__DELTA_TIME.u64_ {
+                delta = (*current).__bindgen_anon_1.double_value as f32;
             }
 
-            // Go through the components to update
-            let start = (*data).arrays.as_ptr();
-            for array_i in 0..(*data).num_arrays {
-                let current_array = start.offset(array_i as isize);
-                let examples = (*current_array).components[0] as *const Vec3;
-                let transforms = (*current_array).components[1] as *mut TransformComponentT;
-
-                for i in 0..(*current_array).n as isize {
-                    let example = *examples.offset(i);
-                    let transform = transforms.offset(i);
-
-                    let mut local = quaternion_to_rotor((*transform).local.rot);
-                    let mut world = quaternion_to_rotor((*transform).world.rot);
-
-                    // Apply the rotation
-                    let rotation = Rotor3::from_euler_angles(
-                        example.z * delta,
-                        example.x * delta,
-                        example.y * delta,
-                    );
-                    local = local * rotation;
-                    world = world * rotation;
-
-                    // Update the transform with the new values
-                    (*transform).local.rot = rotor_to_quaternion(local);
-                    (*transform).world.rot = rotor_to_quaternion(world);
-                    (*transform).version += 1;
-
-                    updated_entities.push(*(*current_array).entities.offset(i));
-                }
-            }
-
-            // Notify that the transform components on the given entities have changed
-            (*self.entity_api).notify(
-                ctx,
-                (*(*data).engine).super_.components[1],
-                updated_entities.as_ptr(),
-                updated_entities.len() as u32,
-            );
+            current = current.offset(1);
         }
+
+        // Go through the components to update
+        let start = (*data).arrays.as_ptr();
+        for array_i in 0..(*data).num_arrays {
+            let current_array = start.offset(array_i as isize);
+            let examples = (*current_array).components[0] as *const Vec3;
+            let transforms = (*current_array).components[1] as *mut TransformComponentT;
+
+            for i in 0..(*current_array).n as isize {
+                let example = *examples.offset(i);
+                let transform = transforms.offset(i);
+
+                let mut local = quaternion_to_rotor((*transform).local.rot);
+                let mut world = quaternion_to_rotor((*transform).world.rot);
+
+                // Apply the rotation
+                let rotation = Rotor3::from_euler_angles(
+                    example.z * delta,
+                    example.x * delta,
+                    example.y * delta,
+                );
+                local = local * rotation;
+                world = world * rotation;
+
+                // Update the transform with the new values
+                (*transform).local.rot = rotor_to_quaternion(local);
+                (*transform).world.rot = rotor_to_quaternion(world);
+                (*transform).version += 1;
+
+                updated_entities.push(*(*current_array).entities.offset(i));
+            }
+        }
+
+        // Notify that the transform components on the given entities have changed
+        (*self.entity_api).notify(
+            ctx,
+            (*(*data).engine).super_.components[1],
+            updated_entities.as_ptr(),
+            updated_entities.len() as u32,
+        );
     }
 }
 
